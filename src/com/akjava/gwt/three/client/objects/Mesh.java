@@ -46,9 +46,7 @@ protected Mesh(){}
 
 
 
-public final native void add(Object3D mesh)/*-{	
-this.add(mesh);
-}-*/;
+
 
 public final native void setMaterials(Material material)/*-{	
 this.materials=[material];

@@ -40,6 +40,7 @@ package com.akjava.gwt.three.client;
 import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.core.Color;
 import com.akjava.gwt.three.client.core.Geometry;
+import com.akjava.gwt.three.client.core.Object3D;
 import com.akjava.gwt.three.client.core.Projector;
 import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.core.Vertex;
@@ -50,6 +51,7 @@ import com.akjava.gwt.three.client.materials.MeshBasicMaterialBuilder;
 import com.akjava.gwt.three.client.materials.MeshLambertMaterialBuilder;
 import com.akjava.gwt.three.client.materials.ParticleBasicMaterialBuilder;
 import com.akjava.gwt.three.client.objects.Mesh;
+import com.akjava.gwt.three.client.objects.Particle;
 import com.akjava.gwt.three.client.objects.ParticleSystem;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
@@ -111,6 +113,10 @@ public class THREE {
 	return new $wnd.THREE.Geometry();
 	}-*/;
 	
+	public static native final Object3D Object3D()/*-{
+	return new $wnd.THREE.Object3D();
+	}-*/;
+	
 	public static native final Geometry CubeGeometry(double x,double y,double z)/*-{
 	return new $wnd.THREE.CubeGeometry( x, y, z );
 	}-*/;
@@ -167,7 +173,9 @@ public class THREE {
 	
 	
 	
-	
+	public static native final Particle Particle(Material material )/*-{
+	return new $wnd.THREE.Particle(material );
+	}-*/;
 	public static native final ParticleSystem ParticleSystem(Geometry geometry,Material material )/*-{
 	return new $wnd.THREE.ParticleSystem( geometry, material );
 	}-*/;

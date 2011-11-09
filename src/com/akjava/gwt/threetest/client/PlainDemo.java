@@ -25,7 +25,7 @@ import com.akjava.gwt.three.client.scenes.Scene;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 
-public class PlainDemo implements Demo{
+public class PlainDemo extends AbstractDemo{
 private Timer timer;
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {

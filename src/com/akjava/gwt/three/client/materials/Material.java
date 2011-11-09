@@ -51,4 +51,12 @@ this.color=c;
 public final native Color getColor()/*-{
 return this.color;
 }-*/;
+
+public final native void setOpacity(double opacity)/*-{
+this.opacity=opacity;
+}-*/;
+
+public final native double getOpacity()/*-{
+return this.opacity;
+}-*/;
 }

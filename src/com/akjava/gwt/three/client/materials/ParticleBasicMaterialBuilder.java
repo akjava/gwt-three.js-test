@@ -47,6 +47,11 @@ public class ParticleBasicMaterialBuilder extends JavaScriptObject{
 	return this;
 	}-*/;
 	
+	public final native ParticleBasicMaterialBuilder opacity(double opacity)/*-{
+	this["opacity"]=opacity;
+	return this;
+	}-*/;
+	
 	public final native ParticleBasicMaterialBuilder size(double size)/*-{
 	this["size"]=size;
 	return this;

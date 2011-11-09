@@ -44,6 +44,7 @@ public class MainWidget extends Composite {
 	private Demo lastDemo;
 	public static Stats stats;
 	final Demo[] demos=new Demo[]{
+			new ParticleDemo2(),
 			new ExplotionDemo3(),new ExplotionDemo2(),new ParticleDemo(),
 			new ExplotionDemo(),new QuotaViewDemo(),new LoadObjDemo(),
 			new PickDemo(),new ShadowDemo(),new TextureDemo(),
@@ -57,6 +58,18 @@ public class MainWidget extends Composite {
 		renderer = THREE.WebGLRenderer();
 		renderer.setSize(width, height);
 		GWT.log("element:"+renderer.getDomElement());
+		
+		if(!GWT.isScript()){
+		Button bt=new Button("start");
+		bt.addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				lastDemo.startTimer();
+			}
+		});
+		controler.add(bt);
+		}
 		
 		CameraMoveWidget cameraMove=new CameraMoveWidget();
 		controler.add(cameraMove);

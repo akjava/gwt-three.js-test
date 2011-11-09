@@ -57,6 +57,7 @@ public native final void incrementZ(double z)/*-{
 this.z+=z;
 }-*/;
 
+
 public native final double getX()/*-{
 return this.x;
 }-*/;

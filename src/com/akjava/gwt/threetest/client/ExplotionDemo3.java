@@ -34,7 +34,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 
-public class ExplotionDemo3 implements Demo{
+public class ExplotionDemo3 extends AbstractDemo{
 private Timer timer;
 private Mesh mesh;
 

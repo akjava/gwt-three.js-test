@@ -28,7 +28,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 
-public class QuotaViewDemo implements Demo{
+public class QuotaViewDemo extends AbstractDemo{
 private Timer timer;
 private Mesh mesh;
 	@Override

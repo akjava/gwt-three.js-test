@@ -28,7 +28,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 
-public class LoadObjDemo implements Demo{
+public class LoadObjDemo extends AbstractDemo{
 private Timer timer;
 private Mesh mesh;
 	@Override

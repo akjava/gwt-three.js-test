@@ -55,6 +55,13 @@ public final void setRotation(double x,double y,double z){
 }
 
 
+public final native Vector3 getScale()/*-{
+return this.scale;
+}-*/;
+
+public final native void add(Object3D mesh)/*-{	
+this.add(mesh);
+}-*/;
 
 
 public final native String getName()/*-{

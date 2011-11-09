@@ -43,9 +43,7 @@ import com.google.gwt.core.client.JsArray;
 public class Scene extends Object3D{
 protected Scene(){}
 
-public final native void add(Object3D object)/*-{
-this.add(object);
-}-*/;
+
 
 public final native JsArray<Object3D> objects()/*-{
 return this.objects;

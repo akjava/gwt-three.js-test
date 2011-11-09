@@ -22,4 +22,5 @@ public interface Demo {
 	public void start(WebGLRenderer renderer,int width,int height,FocusPanel panel);
 	public void stop();
 	public String getName();
+	public void startTimer();
 }

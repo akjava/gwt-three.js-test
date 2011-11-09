@@ -24,7 +24,7 @@ import com.akjava.gwt.three.client.scenes.Scene;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 
-public class ShadowDemo implements Demo{
+public class ShadowDemo extends AbstractDemo{
 private Timer timer;
 private WebGLRenderer renderer;
 	@Override
