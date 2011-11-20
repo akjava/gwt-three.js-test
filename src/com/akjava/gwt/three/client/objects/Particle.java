@@ -35,49 +35,24 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
   
  */
-package com.akjava.gwt.three.client.core;
+package com.akjava.gwt.three.client.objects;
 
-import com.google.gwt.core.client.JavaScriptObject;
+import com.akjava.gwt.three.client.core.Object3D;
+import com.akjava.gwt.three.client.materials.Material;
+import com.google.gwt.core.client.JsArray;
 
-public class Object3D extends JavaScriptObject{
-protected Object3D(){}
-	public final native Vector3 getPosition()/*-{
-		return this.position;
-	}-*/;
-	public final void setPosition(double x,double y,double z){
-		getPosition().set(x,y,z);
-	}
-	public final native Vector3 getRotation()/*-{
-	return this.rotation;
+
+/**
+ * THREE.ParticleCanvasMaterial only?
+ * not tested yet
+ * @return
+ */
+public class Particle extends Object3D{
+protected Particle(){}
+
+
+public native final JsArray<Material> materials ()/*-{
+return this.materials;
 }-*/;
-public final void setRotation(double x,double y,double z){
-	getRotation().set(x,y,z);
-}
-public final void setScale(double x,double y,double z){
-	getScale().set(x,y,z);
-}
-
-public final native Vector3 getScale()/*-{
-return this.scale;
-}-*/;
-
-public final native void add(Object3D mesh)/*-{	
-this.add(mesh);
-}-*/;
-
-
-public final native String getName()/*-{
-return this.name;
-}-*/;
-
-public final native int getId()/*-{
-return this.id;
-}-*/;
-
-public final boolean equals(Object3D object){
-	return this.getId()==object.getId();
-}
-
-
 
 }
