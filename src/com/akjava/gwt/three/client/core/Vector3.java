@@ -82,5 +82,9 @@ this.z=z;
 public native final void addSelf(Vector3 vec3)/*-{
 this.addSelf(vec3);
 }-*/;
+
+public native final void normalize()/*-{
+this.normalize();
+}-*/;
 }
 
