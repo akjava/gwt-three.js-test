@@ -59,4 +59,8 @@ this.opacity=opacity;
 public final native double getOpacity()/*-{
 return this.opacity;
 }-*/;
+
+public final native void setMorphTargets(boolean morphTargets)/*-{
+this.morphTargets=morphTargets;
+}-*/;
 }

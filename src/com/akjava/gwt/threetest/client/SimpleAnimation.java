@@ -40,7 +40,7 @@ private long last;
 			timer.cancel();
 			timer=null;
 		}
-		//renderer.setClearColorHex(0x333333, 1);
+		renderer.setClearColorHex(0x333333, 1);
 		
 		final Scene scene=THREE.Scene();
 		
@@ -56,15 +56,20 @@ private long last;
 		JSONLoader loader=THREE.JSONLoader();
 		
 		
-		loader.load("models/animation.js", new LoadHandler() {
+		loader.load("models/men_boned.js", new LoadHandler() {
 			
 			
 
 			@Override
 			public void loaded(Geometry geometry) {
 				Material material=THREE.MeshLambertMaterial().color(0xffffff).morphTargets(true).build();
+				//material=THREE.MeshFaceMaterial();
+				//material.setMorphTargets(true);
 				animMesh = THREE.MorphAnimMesh(geometry, material);
-				animMesh.getScale().set( 1.5, 1.5, 1.5 );
+				animMesh.setDuration(1000*5);
+				animMesh.setMirrordLoop(true);
+				//animMesh.getScale().set( 1.5, 1.5, 1.5 );
+				animMesh.getScale().set( 5, 5, 5 );
 				scene.add(animMesh);
 				GWT.log("loaded:");
 			}
@@ -72,9 +77,8 @@ private long last;
 		
 		
 		
-		final Light light=THREE.PointLight(0xffffff);
-		light.setPosition(10, 0, 10);
-		
+		final Light light=THREE.DirectionalLight(0xeeeeee,2);
+		light.setPosition(1, 1, 1);
 		scene.add(light);
 		
 		scene.add(THREE.AmbientLight(0xcccccc));

@@ -200,6 +200,9 @@ public class THREE {
 	public static native final Light SpotLight(int color)/*-{
 	return new $wnd.THREE.SpotLight(color);
 	}-*/;
+	public static native final Light DirectionalLight(int color,int intensity)/*-{
+	return new $wnd.THREE.DirectionalLight(color,intensity);
+	}-*/;
 	public static native final Projector Projector()/*-{
 	return new $wnd.THREE.Projector();
 	}-*/;

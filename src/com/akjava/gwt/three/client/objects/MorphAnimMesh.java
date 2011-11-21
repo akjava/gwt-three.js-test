@@ -15,7 +15,7 @@ public class MorphAnimMesh extends Mesh{
 	public final native void setTime(int time)/*-{
 	this.time=time;
 	}-*/;
-	public final native void seMirrordLoop(boolean mirroredLoop)/*-{
+	public final native void setMirrordLoop(boolean mirroredLoop)/*-{
 	this.mirroredLoop=mirroredLoop;
 	}-*/;
 }
