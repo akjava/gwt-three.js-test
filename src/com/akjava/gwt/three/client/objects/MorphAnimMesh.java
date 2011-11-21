@@ -18,4 +18,10 @@ public class MorphAnimMesh extends Mesh{
 	public final native void setMirrordLoop(boolean mirroredLoop)/*-{
 	this.mirroredLoop=mirroredLoop;
 	}-*/;
+	
+	public final native void compute()/*-{
+	this.geometry.computeVertexNormals();
+	this.geometry.computeFaceNormals();
+	this.geometry.computeTangents();
+	}-*/;
 }

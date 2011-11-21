@@ -20,6 +20,10 @@ import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.core.Geometry;
 import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.extras.ImageUtils;
+import com.akjava.gwt.three.client.extras.ShaderUtils;
+import com.akjava.gwt.three.client.extras.ShaderUtils.Shader;
+import com.akjava.gwt.three.client.extras.ShaderUtils.Uniforms;
+import com.akjava.gwt.three.client.extras.UniformUtils;
 import com.akjava.gwt.three.client.extras.loaders.JSONLoader;
 import com.akjava.gwt.three.client.extras.loaders.JSONLoader.LoadHandler;
 import com.akjava.gwt.three.client.lights.Light;
@@ -31,7 +35,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 
-public class SimpleAnimation extends AbstractDemo{
+public class NormalmapDemo extends AbstractDemo{
 
 private MorphAnimMesh animMesh;
 private long last;
@@ -57,18 +61,35 @@ private long last;
 		JSONLoader loader=THREE.JSONLoader();
 		
 		
-		loader.load("models/animation.js", new LoadHandler() {
+		loader.load("models/men_boned.js", new LoadHandler() {
 			
 			
 
 			@Override
 			public void loaded(Geometry geometry) {
 				Material material=THREE.MeshLambertMaterial().color(0xffffff).morphTargets(true).map(ImageUtils.loadTexture("img/uv.png")).build();
-				animMesh = THREE.MorphAnimMesh(geometry, material);
+				//material=THREE.MeshFaceMaterial();
+				//material.setMorphTargets(true);
 				
+				Shader shader=ShaderUtils.lib("normal");
+				Uniforms uniforms=UniformUtils.clone(shader.uniforms());
+				uniforms.set("tNormal", ImageUtils.loadTexture("img/normalmap.png"));
+				
+				uniforms.set("enableDiffuse", true);
+				uniforms.setHex("uDiffuseColor", 0xff0000);
+				uniforms.set("tDiffuse", ImageUtils.loadTexture("img/uv.png"));
+				
+				//material=THREE.ShaderMaterial().fragmentShader(shader.fragmentShader()).vertexShader(shader.vertexShader()).uniforms(uniforms).lights(true).morphTargets(true).build();
+				
+				animMesh = THREE.MorphAnimMesh(geometry, material);
+				try{
+				animMesh.compute();//try
+				}catch(Exception e){
+					GWT.log(e.getMessage());
+				}
 				animMesh.setDuration(1000*5); //5sec
 				animMesh.setMirrordLoop(true);//animation move forward and back
-	
+				//animMesh.getScale().set( 1.5, 1.5, 1.5 );
 				animMesh.getScale().set( 5, 5, 5 );
 				scene.add(animMesh);
 				GWT.log("loaded:");
@@ -84,7 +105,9 @@ private long last;
 		scene.add(THREE.AmbientLight(0xcccccc));
 		
 		
-	
+	//	MainWidget.cameraMove.setZ(-20);
+		MainWidget.cameraMove.setZ(25);
+	//	MainWidget.cameraRotation.setX(-90);
 		final int radius = 600;
 		
 		last = System.currentTimeMillis();
@@ -103,7 +126,7 @@ private long last;
 						long tmp=System.currentTimeMillis();
 						long delta=tmp-last;
 						animMesh.updateAnimation(delta);
-						
+						//animMesh.compute();//try
 						last=tmp;
 					}
 				

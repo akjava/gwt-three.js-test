@@ -50,6 +50,7 @@ import com.akjava.gwt.three.client.materials.Material;
 import com.akjava.gwt.three.client.materials.MeshBasicMaterialBuilder;
 import com.akjava.gwt.three.client.materials.MeshLambertMaterialBuilder;
 import com.akjava.gwt.three.client.materials.ParticleBasicMaterialBuilder;
+import com.akjava.gwt.three.client.materials.ShaderMaterialBuilder;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.objects.MorphAnimMesh;
 import com.akjava.gwt.three.client.objects.Particle;
@@ -163,6 +164,14 @@ public class THREE {
 	public static native final Material MeshFaceMaterial()/*-{
 	return new $wnd.THREE.MeshFaceMaterial();
 	}-*/;
+	
+	public static  final ShaderMaterialBuilder ShaderMaterial(){
+		return ShaderMaterialBuilder.create();
+	}
+	
+	
+	
+	
 	
 	public static native final Vertex Vertex(Vector3 vector3f )/*-{
 	return new $wnd.THREE.Vertex( vector3f);
