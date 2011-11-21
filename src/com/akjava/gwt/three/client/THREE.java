@@ -51,6 +51,7 @@ import com.akjava.gwt.three.client.materials.MeshBasicMaterialBuilder;
 import com.akjava.gwt.three.client.materials.MeshLambertMaterialBuilder;
 import com.akjava.gwt.three.client.materials.ParticleBasicMaterialBuilder;
 import com.akjava.gwt.three.client.objects.Mesh;
+import com.akjava.gwt.three.client.objects.MorphAnimMesh;
 import com.akjava.gwt.three.client.objects.Particle;
 import com.akjava.gwt.three.client.objects.ParticleSystem;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
@@ -212,4 +213,9 @@ public class THREE {
 	public static final int SubtractiveBlending = 2;
 	public static final int MultiplyBlending = 3;
 	public static final int AdditiveAlphaBlending = 4;
+
+	public static native final MorphAnimMesh MorphAnimMesh(Geometry geometry,
+			Material material) /*-{
+	return new $wnd.THREE.MorphAnimMesh(geometry,material);
+	}-*/;
 }

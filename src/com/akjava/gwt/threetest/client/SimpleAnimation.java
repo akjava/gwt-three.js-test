@@ -18,19 +18,20 @@ package com.akjava.gwt.threetest.client;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.core.Geometry;
+import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.extras.loaders.JSONLoader;
 import com.akjava.gwt.three.client.extras.loaders.JSONLoader.LoadHandler;
 import com.akjava.gwt.three.client.lights.Light;
-import com.akjava.gwt.three.client.objects.Mesh;
+import com.akjava.gwt.three.client.objects.MorphAnimMesh;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 
-public class SimpleAnimation implements Demo{
-private Timer timer;
-private Mesh mesh;
+public class SimpleAnimation extends AbstractDemo{
+
+private MorphAnimMesh animMesh;
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		if(timer!=null){
@@ -41,31 +42,32 @@ private Mesh mesh;
 		
 		
 		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
-		camera.getPosition().set(0, 0, 20);
-		
+		camera.getPosition().set(0, 150, 0);
+		final Vector3 target=THREE.Vector3(0, 150, 0);
 		
 		
 		final Scene scene=THREE.Scene();
 		
 		
+		
 		JSONLoader loader=THREE.JSONLoader();
 		
-		loader.load("models/two5.js", new LoadHandler() {
+		/*
+		loader.load("models/animation.js", new LoadHandler() {
 			
 			
 
 			@Override
 			public void loaded(Geometry geometry) {
-				mesh = THREE.Mesh(geometry, THREE.MeshFaceMaterial());
-				mesh.setPosition(0, 0, 0);
-				mesh.setRotation(0, 0, 0);
-				
-				scene.add(mesh);
+				animMesh = THREE.MorphAnimMesh(geometry, THREE.MeshFaceMaterial());
+				animMesh.getScale().set( 1.5, 1.5, 1.5 );
+				scene.add(animMesh);
+				GWT.log("loaded:");
 			}
-		});
+		});*/
 		
 		
-		GWT.log("xx2");
+		
 		final Light light=THREE.PointLight(0xffffff);
 		light.setPosition(10, 0, 10);
 		
@@ -77,27 +79,32 @@ private Mesh mesh;
 	//	MainWidget.cameraMove.setZ(-20);
 		MainWidget.cameraMove.setZ(25);
 	//	MainWidget.cameraRotation.setX(-90);
+		final int radius = 600;
+		
+		
 		timer = new Timer(){
+			double theta;
 			public void run(){
 				try{
-					camera.setPosition(MainWidget.cameraMove.getX(), MainWidget.cameraMove.getY(),MainWidget.cameraMove.getZ());
+					theta += 0.2;
+
+					camera.getPosition().setX(radius * Math.sin( theta * Math.PI / 360 ));
+					camera.getPosition().setZ(radius * Math.cos( theta * Math.PI / 360 ));
+					camera.lookAt( target );
 					
-					
-					mesh.setRotation(Math.toRadians(MainWidget.cameraRotation.getX()), Math.toRadians(MainWidget.cameraRotation.getY()), Math.toRadians(MainWidget.cameraRotation.getZ()));
+					if(animMesh!=null){
+						//TODO clock
+						animMesh.updateAnimation(System.currentTimeMillis());
+					}
 				
-				//cancel();
-				if(mesh!=null){
-				//mesh.getRotation().incrementZ(0.02);
-				//mesh.getRotation().incrementZ(0.02);
-				}
 				renderer.render(scene, camera);
 				}catch(Exception e){
 					GWT.log(e.getMessage());
 				}
 			}
 		};
-		//timer.schedule(2000);
-		timer.scheduleRepeating(1000/60);
+		
+		startTimer();
 	}
 
 	@Override
@@ -107,7 +114,7 @@ private Mesh mesh;
 
 	@Override
 	public String getName() {
-		return "Load Obj";
+		return "Simple Animation";
 	}
 
 }

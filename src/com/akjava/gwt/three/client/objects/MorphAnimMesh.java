@@ -1,6 +1,5 @@
 package com.akjava.gwt.three.client.objects;
 
-import com.akjava.gwt.three.client.materials.Material;
 
 public class MorphAnimMesh extends Mesh{
 	protected MorphAnimMesh(){}
