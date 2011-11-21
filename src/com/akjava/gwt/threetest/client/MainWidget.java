@@ -44,7 +44,7 @@ public class MainWidget extends Composite {
 	private Demo lastDemo;
 	public static Stats stats;
 	final Demo[] demos=new Demo[]{
-			new SimpleAnimation(),new ParticleDemo2(),
+			new ParticleDemo2(),new SimpleAnimation(),
 			new ExplotionDemo3(),new ExplotionDemo2(),new ParticleDemo(),
 			new ExplotionDemo(),new QuotaViewDemo(),new LoadObjDemo(),
 			new PickDemo(),new ShadowDemo(),new TextureDemo(),

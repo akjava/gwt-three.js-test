@@ -4,7 +4,7 @@ package com.akjava.gwt.three.client.objects;
 public class MorphAnimMesh extends Mesh{
 	protected MorphAnimMesh(){}
 	
-	public final native void updateAnimation(long delta)/*-{	
+	public final native void updateAnimation(double delta)/*-{	
 	this.updateAnimation(delta);
 	}-*/;
 

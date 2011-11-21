@@ -22,6 +22,7 @@ import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.extras.loaders.JSONLoader;
 import com.akjava.gwt.three.client.extras.loaders.JSONLoader.LoadHandler;
 import com.akjava.gwt.three.client.lights.Light;
+import com.akjava.gwt.three.client.materials.Material;
 import com.akjava.gwt.three.client.objects.MorphAnimMesh;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
@@ -32,6 +33,7 @@ import com.google.gwt.user.client.ui.FocusPanel;
 public class SimpleAnimation extends AbstractDemo{
 
 private MorphAnimMesh animMesh;
+private long last;
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		if(timer!=null){
@@ -40,31 +42,33 @@ private MorphAnimMesh animMesh;
 		}
 		//renderer.setClearColorHex(0x333333, 1);
 		
+		final Scene scene=THREE.Scene();
 		
 		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
-		camera.getPosition().set(0, 150, 0);
+		camera.getPosition().set(0, 300, 0);
 		final Vector3 target=THREE.Vector3(0, 150, 0);
+		scene.add(camera);
 		
 		
-		final Scene scene=THREE.Scene();
 		
 		
 		
 		JSONLoader loader=THREE.JSONLoader();
 		
-		/*
+		
 		loader.load("models/animation.js", new LoadHandler() {
 			
 			
 
 			@Override
 			public void loaded(Geometry geometry) {
-				animMesh = THREE.MorphAnimMesh(geometry, THREE.MeshFaceMaterial());
+				Material material=THREE.MeshLambertMaterial().color(0xffffff).morphTargets(true).build();
+				animMesh = THREE.MorphAnimMesh(geometry, material);
 				animMesh.getScale().set( 1.5, 1.5, 1.5 );
 				scene.add(animMesh);
 				GWT.log("loaded:");
 			}
-		});*/
+		});
 		
 		
 		
@@ -81,7 +85,7 @@ private MorphAnimMesh animMesh;
 	//	MainWidget.cameraRotation.setX(-90);
 		final int radius = 600;
 		
-		
+		last = System.currentTimeMillis();
 		timer = new Timer(){
 			double theta;
 			public void run(){
@@ -94,7 +98,10 @@ private MorphAnimMesh animMesh;
 					
 					if(animMesh!=null){
 						//TODO clock
-						animMesh.updateAnimation(System.currentTimeMillis());
+						long tmp=System.currentTimeMillis();
+						long delta=tmp-last;
+						animMesh.updateAnimation(delta);
+						last=tmp;
 					}
 				
 				renderer.render(scene, camera);

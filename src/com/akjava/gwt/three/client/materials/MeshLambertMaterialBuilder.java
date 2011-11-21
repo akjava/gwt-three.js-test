@@ -85,6 +85,10 @@ public class MeshLambertMaterialBuilder extends JavaScriptObject{
 	this["wireframe"]=w;
 	return this;
 	}-*/;
+	public final native MeshLambertMaterialBuilder morphTargets(boolean w)/*-{
+	this["morphTargets"]=w;
+	return this;
+	}-*/;
 	public final Material build(){
 		return build(this);
 	}
