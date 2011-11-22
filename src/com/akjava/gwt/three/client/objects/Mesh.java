@@ -37,6 +37,7 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.objects;
 
+import com.akjava.gwt.three.client.core.Geometry;
 import com.akjava.gwt.three.client.core.Object3D;
 import com.akjava.gwt.three.client.materials.Material;
 import com.google.gwt.core.client.JsArray;
@@ -46,7 +47,14 @@ protected Mesh(){}
 
 
 
-
+public final native void testSwap(int index)/*-{
+this.geometry.vertices=this.geometry.morphTargets[index].vertices;
+//this.geometry.computeFaceNormals();
+//this.geometry.computeTangents();
+this.geometry.__dirtyVertices=true;
+this.geometry.computeTangents();
+this.geometry.computeFaceNormals();
+}-*/;
 
 public final native void setMaterials(Material material)/*-{	
 this.materials=[material];
@@ -62,5 +70,9 @@ this.castShadow=bool;
 
 public final native void setReceiveShadow(boolean bool)/*-{
 this.receiveShadow=bool;
+}-*/;
+
+public final native Geometry getGeometry()/*-{
+return this.geometry;
 }-*/;
 }

@@ -64,6 +64,9 @@ return this.scale;
 public final native void add(Object3D mesh)/*-{	
 this.add(mesh);
 }-*/;
+public final native void remove(Object3D mesh)/*-{	
+this.remove(mesh);
+}-*/;
 
 
 public final native String getName()/*-{

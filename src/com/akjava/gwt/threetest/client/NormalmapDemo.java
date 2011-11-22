@@ -15,10 +15,15 @@
  */
 package com.akjava.gwt.threetest.client;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.core.Geometry;
+import com.akjava.gwt.three.client.core.Object3D;
 import com.akjava.gwt.three.client.core.Vector3;
+import com.akjava.gwt.three.client.core.Vertex;
 import com.akjava.gwt.three.client.extras.ImageUtils;
 import com.akjava.gwt.three.client.extras.ShaderUtils;
 import com.akjava.gwt.three.client.extras.ShaderUtils.Shader;
@@ -28,17 +33,20 @@ import com.akjava.gwt.three.client.extras.loaders.JSONLoader;
 import com.akjava.gwt.three.client.extras.loaders.JSONLoader.LoadHandler;
 import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.materials.Material;
-import com.akjava.gwt.three.client.objects.MorphAnimMesh;
+import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.JsArray;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 
 public class NormalmapDemo extends AbstractDemo{
 
-private MorphAnimMesh animMesh;
+private Mesh animMesh;
+//private MorphAnimMesh animMesh;
 private long last;
+private AnimationModel model;
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		if(timer!=null){
@@ -61,37 +69,43 @@ private long last;
 		JSONLoader loader=THREE.JSONLoader();
 		
 		
-		loader.load("models/men_boned.js", new LoadHandler() {
+		loader.load("models/animation.js", new LoadHandler() {
+			
+			
 			
 			
 
 			@Override
 			public void loaded(Geometry geometry) {
+				log(geometry);
 				Material material=THREE.MeshLambertMaterial().color(0xffffff).morphTargets(true).map(ImageUtils.loadTexture("img/uv.png")).build();
 				//material=THREE.MeshFaceMaterial();
 				//material.setMorphTargets(true);
 				
 				Shader shader=ShaderUtils.lib("normal");
 				Uniforms uniforms=UniformUtils.clone(shader.uniforms());
-				uniforms.set("tNormal", ImageUtils.loadTexture("img/normalmap.png"));
+				uniforms.set("tNormal", ImageUtils.loadTexture("img/normalmap.png#2"));
 				
 				uniforms.set("enableDiffuse", true);
 				uniforms.setHex("uDiffuseColor", 0xff0000);
 				uniforms.set("tDiffuse", ImageUtils.loadTexture("img/uv.png"));
+				uniforms.set("uNormalScale",1);
 				
-				//material=THREE.ShaderMaterial().fragmentShader(shader.fragmentShader()).vertexShader(shader.vertexShader()).uniforms(uniforms).lights(true).morphTargets(true).build();
+				material=THREE.ShaderMaterial().fragmentShader(shader.fragmentShader()).vertexShader(shader.vertexShader()).uniforms(uniforms).lights(true)
+						.morphTargets(false).build();
 				
-				animMesh = THREE.MorphAnimMesh(geometry, material);
-				try{
-				animMesh.compute();//try
-				}catch(Exception e){
-					GWT.log(e.getMessage());
-				}
-				animMesh.setDuration(1000*5); //5sec
-				animMesh.setMirrordLoop(true);//animation move forward and back
+				geometry.computeTangents();
+				//animMesh = THREE.MorphAnimMesh(geometry, material);
+				animMesh = THREE.Mesh(geometry, material);
+			
+				log(geometry);
 				//animMesh.getScale().set( 1.5, 1.5, 1.5 );
-				animMesh.getScale().set( 5, 5, 5 );
-				scene.add(animMesh);
+				animMesh.getScale().set( 15, 15, 15 );
+				
+				model=new AnimationModel(geometry, material);
+				model.getContainer().getScale().set( 10, 10, 10);
+				scene.add(model.getContainer());
+				//scene.add(animMesh);
 				GWT.log("loaded:");
 			}
 		});
@@ -102,7 +116,11 @@ private long last;
 		light.setPosition(1, 1, 1);
 		scene.add(light);
 		
-		scene.add(THREE.AmbientLight(0xcccccc));
+		final Light light2=THREE.DirectionalLight(0xeeeeee,2);
+		light2.setPosition(-1, -1, -1);
+		//scene.add(light2);
+		
+		//scene.add(THREE.AmbientLight(0xcccccc));
 		
 		
 	//	MainWidget.cameraMove.setZ(-20);
@@ -125,8 +143,11 @@ private long last;
 						//TODO clock
 						long tmp=System.currentTimeMillis();
 						long delta=tmp-last;
-						animMesh.updateAnimation(delta);
-						//animMesh.compute();//try
+						//animMesh.updateAnimation(delta);
+						//animMesh.update((int) delta);
+						//tmpwork
+						int index=(int) (tmp/100%model.getFramelength());
+						model.select(index);
 						last=tmp;
 					}
 				
@@ -148,7 +169,96 @@ private long last;
 
 	@Override
 	public String getName() {
-		return "Simple Animation";
+		return "Normal Map";
+	}
+	
+	public static class AnimationModel{
+	protected AnimationModel(){
+		
+	}
+	public int getFramelength(){
+		return meshs.size();
+	}
+	List<Mesh> meshs=new ArrayList<Mesh>();
+	private Mesh current;
+	private Object3D container;
+	Geometry last;
+	public  AnimationModel(Geometry geometry,Material material){
+		container=THREE.Object3D();
+		int size=getMorphTargetsLength(geometry);
+		for(int i=0;i<size;i++){
+			Geometry geo=makeMorphTargetsGeometry(geometry,i);
+			geo.computeTangents();
+			
+			//make half
+			if(i!=0){
+				JsArray<Vertex> pre=last.vertices();
+				JsArray<Vertex> current=geo.vertices();
+				JsArray<Vertex> half=halfAndHalf(pre,current,0.5);
+				Geometry geo2=makeMorphTargetsGeometry(geometry,half);
+				geo2.computeTangents();
+				Mesh mesh=THREE.Mesh(geo2, material);
+				add(mesh);
+			}
+			last=geo;
+			
+			Mesh mesh=THREE.Mesh(geo, material);
+			add(mesh);
+		}
+		
+	}
+	public Object3D getContainer(){
+		return container;
+	}
+	private final void add(Mesh mesh){
+		meshs.add(mesh);
+	}
+	
+	public final void select(int index){
+		if(current!=null){
+			container.remove(current);
+		}
+		current=meshs.get(index);
+		container.add(current);
+	}
+	
+	public static final native int getMorphTargetsLength(Geometry geometry)/*-{
+	return geometry.morphTargets.length;
+	}-*/;
+	
+	public static final native Geometry makeMorphTargetsGeometry(Geometry base,int index)/*-{
+	var geometry=$wnd.THREE.GeometryUtils.clone(base);
+	geometry.vertices=base.morphTargets[index].vertices;
+	
+	return geometry;
+	}-*/;
+	
+	public static final native Geometry makeMorphTargetsGeometry(Geometry base,JsArray<Vertex> vertexs)/*-{
+	var geometry=$wnd.THREE.GeometryUtils.clone(base);
+	geometry.vertices=vertexs;
+	
+	return geometry;
+	}-*/;
+	
+	public static JsArray<Vertex> halfAndHalf(JsArray<Vertex> v1,JsArray<Vertex> v2,double level){
+		if(v1.length()!=v2.length()){
+			return null;
+		}
+		double v2level=1-level;
+		JsArray<Vertex> result=(JsArray<Vertex>) JsArray.createArray();
+		for(int i=0;i<v1.length();i++){
+			Vertex ve1=v1.get(i);
+			Vertex ve2=v2.get(i);
+			Vertex newV=THREE.Vertex(THREE.Vector3(
+					ve1.getPosition().getX()*level+ve2.getPosition().getX()*v2level,
+					ve1.getPosition().getY()*level+ve2.getPosition().getY()*v2level,
+					ve1.getPosition().getZ()*level+ve2.getPosition().getZ()*v2level
+					));
+			result.push(newV);
+		}
+		return result;
+	}
+	
 	}
 
 }
