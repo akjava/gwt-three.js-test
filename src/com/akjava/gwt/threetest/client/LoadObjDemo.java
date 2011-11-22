@@ -38,31 +38,30 @@ private Mesh mesh;
 			timer.cancel();
 			timer=null;
 		}
-		//renderer.setClearColorHex(0x333333, 1);
-		
-		
-		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
-		camera.getPosition().set(0, 0, 20);
-		
-		
+		renderer.setClearColorHex(0xcccccc, 1);
 		
 		final Scene scene=THREE.Scene();
 		
 		
+		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
+		scene.add(camera);
+		
+		
+		
+		
 		JSONLoader loader=THREE.JSONLoader();
 		
-		loader.load("models/3face.js", new LoadHandler() {
+		loader.load("models/animation.js", new LoadHandler() {
 			
 			
 
 			@Override
 			public void loaded(Geometry geometry) {
-				//Window.alert(""+geometry.faces().length());
-				//GWT.log(""+geometry.faces().length());
+
 				mesh = THREE.Mesh(geometry, THREE.MeshLambertMaterial().color(0xff0000).build());
 				mesh.setPosition(0, 0, 0);
 				mesh.setRotation(0, 0, 0);
-				mesh.setScale(10,10,10);
+				mesh.setScale(5,5,5);
 				scene.add(mesh);
 			}
 		});
@@ -77,29 +76,25 @@ private Mesh mesh;
 		scene.add(THREE.AmbientLight(0xcccccc));
 		
 		
-	//	MainWidget.cameraMove.setZ(-20);
-		MainWidget.cameraMove.setZ(100);
-	//	MainWidget.cameraRotation.setX(-90);
+		//default camera position
+		MainWidget.cameraMove.setX(30);
+		MainWidget.cameraMove.setY(70);
+		MainWidget.cameraMove.setZ(200);
+		
 		timer = new Timer(){
 			public void run(){
 				try{
 					camera.setPosition(MainWidget.cameraMove.getX(), MainWidget.cameraMove.getY(),MainWidget.cameraMove.getZ());
-					
-					
+					//TODO change ui
 					mesh.setRotation(Math.toRadians(MainWidget.cameraRotation.getX()), Math.toRadians(MainWidget.cameraRotation.getY()), Math.toRadians(MainWidget.cameraRotation.getZ()));
 				
-				//cancel();
-				if(mesh!=null){
-				//mesh.getRotation().incrementX(0.02);
-				//mesh.getRotation().incrementZ(0.02);
-				}
 				renderer.render(scene, camera);
 				}catch(Exception e){
 					GWT.log(e.getMessage());
 				}
 			}
 		};
-		//timer.schedule(2000);
+		
 		timer.scheduleRepeating(1000/60);
 	}
 

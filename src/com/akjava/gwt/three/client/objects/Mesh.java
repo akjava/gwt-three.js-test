@@ -60,8 +60,15 @@ public final native void setMaterials(Material material)/*-{
 this.materials=[material];
 }-*/;
 
+/**
+ * @deprecated
+ * @return
+ */
 public final native JsArray<Material> getMaterials()/*-{	
 return this.materials;
+}-*/;
+public final native Material getMaterial()/*-{	
+return this.material;
 }-*/;
 
 public final native void setCastShadow(boolean bool)/*-{

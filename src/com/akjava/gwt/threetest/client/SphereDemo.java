@@ -43,7 +43,7 @@ private Timer timer;
 		final Scene scene=THREE.Scene();
 		
 		final Mesh mesh=THREE.Mesh(THREE.SphereGeometry(5, 16, 16), 
-				THREE.MeshLambertMaterial(0xff0000, true));
+				THREE.MeshLambertMaterial().color(0xff0000).wireFrame(true).build());
 		scene.add(mesh);
 		
 		final Light light=THREE.PointLight(0xffffff);

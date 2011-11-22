@@ -43,10 +43,10 @@ import com.google.gwt.user.client.ui.FocusPanel;
 
 public class NormalmapDemo extends AbstractDemo{
 
-private Mesh animMesh;
-//private MorphAnimMesh animMesh;
+
 private long last;
 private AnimationModel model;
+
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		if(timer!=null){
@@ -78,34 +78,23 @@ private AnimationModel model;
 			@Override
 			public void loaded(Geometry geometry) {
 				log(geometry);
-				Material material=THREE.MeshLambertMaterial().color(0xffffff).morphTargets(true).map(ImageUtils.loadTexture("img/uv.png")).build();
-				//material=THREE.MeshFaceMaterial();
-				//material.setMorphTargets(true);
 				
 				Shader shader=ShaderUtils.lib("normal");
 				Uniforms uniforms=UniformUtils.clone(shader.uniforms());
-				uniforms.set("tNormal", ImageUtils.loadTexture("img/normalmap.png#2"));
+				uniforms.set("tNormal", ImageUtils.loadTexture("img/normalmap.png#3"));
 				
 				uniforms.set("enableDiffuse", true);
 				uniforms.setHex("uDiffuseColor", 0xff0000);
 				uniforms.set("tDiffuse", ImageUtils.loadTexture("img/uv.png"));
 				uniforms.set("uNormalScale",1);
 				
-				material=THREE.ShaderMaterial().fragmentShader(shader.fragmentShader()).vertexShader(shader.vertexShader()).uniforms(uniforms).lights(true)
+				Material material=THREE.ShaderMaterial().fragmentShader(shader.fragmentShader()).vertexShader(shader.vertexShader()).uniforms(uniforms).lights(true)
 						.morphTargets(false).build();
 				
-				geometry.computeTangents();
-				//animMesh = THREE.MorphAnimMesh(geometry, material);
-				animMesh = THREE.Mesh(geometry, material);
-			
-				log(geometry);
-				//animMesh.getScale().set( 1.5, 1.5, 1.5 );
-				animMesh.getScale().set( 15, 15, 15 );
-				
 				model=new AnimationModel(geometry, material);
-				model.getContainer().getScale().set( 10, 10, 10);
-				scene.add(model.getContainer());
-				//scene.add(animMesh);
+				model.getObject3D().getScale().set( 10, 10, 10);
+				scene.add(model.getObject3D());
+				
 				GWT.log("loaded:");
 			}
 		});
@@ -139,7 +128,7 @@ private AnimationModel model;
 					camera.getPosition().setZ(radius * Math.cos( theta * Math.PI / 360 ));
 					camera.lookAt( target );
 					
-					if(animMesh!=null){
+					if(model!=null){
 						//TODO clock
 						long tmp=System.currentTimeMillis();
 						long delta=tmp-last;
@@ -152,6 +141,7 @@ private AnimationModel model;
 					}
 				
 				renderer.render(scene, camera);
+				
 				MainWidget.stats.update();
 				}catch(Exception e){
 					GWT.log(e.getMessage());
@@ -169,7 +159,7 @@ private AnimationModel model;
 
 	@Override
 	public String getName() {
-		return "Normal Map";
+		return "NormalMap Animation";
 	}
 	
 	public static class AnimationModel{
@@ -183,6 +173,7 @@ private AnimationModel model;
 	private Mesh current;
 	private Object3D container;
 	Geometry last;
+	private boolean createBetweenFrame=true;
 	public  AnimationModel(Geometry geometry,Material material){
 		container=THREE.Object3D();
 		int size=getMorphTargetsLength(geometry);
@@ -190,6 +181,7 @@ private AnimationModel model;
 			Geometry geo=makeMorphTargetsGeometry(geometry,i);
 			geo.computeTangents();
 			
+			if(createBetweenFrame){
 			//make half
 			if(i!=0){
 				JsArray<Vertex> pre=last.vertices();
@@ -200,6 +192,8 @@ private AnimationModel model;
 				Mesh mesh=THREE.Mesh(geo2, material);
 				add(mesh);
 			}
+			}
+			
 			last=geo;
 			
 			Mesh mesh=THREE.Mesh(geo, material);
@@ -207,7 +201,7 @@ private AnimationModel model;
 		}
 		
 	}
-	public Object3D getContainer(){
+	public Object3D getObject3D(){
 		return container;
 	}
 	private final void add(Mesh mesh){
@@ -247,6 +241,7 @@ private AnimationModel model;
 		double v2level=1-level;
 		JsArray<Vertex> result=(JsArray<Vertex>) JsArray.createArray();
 		for(int i=0;i<v1.length();i++){
+			//TODO search better way
 			Vertex ve1=v1.get(i);
 			Vertex ve2=v2.get(i);
 			Vertex newV=THREE.Vertex(THREE.Vector3(
