@@ -70,7 +70,7 @@ private AnimationModel model;
 		
 		
 		loader.load("models/animation.js", new LoadHandler() {
-			
+		//loader.load("models/men2b_boned_gun.js", new LoadHandler() {
 			
 			
 			
@@ -81,18 +81,21 @@ private AnimationModel model;
 				
 				Shader shader=ShaderUtils.lib("normal");
 				Uniforms uniforms=UniformUtils.clone(shader.uniforms());
-				uniforms.set("tNormal", ImageUtils.loadTexture("img/normalmap.png#3"));
+				uniforms.set("tNormal", ImageUtils.loadTexture("img/normalmap.png"));
+				//uniforms.set("tNormal", ImageUtils.loadTexture("img/men2buv_n.png#10"));
 				
 				uniforms.set("enableDiffuse", true);
 				uniforms.setHex("uDiffuseColor", 0xff0000);
-				uniforms.set("tDiffuse", ImageUtils.loadTexture("img/uv.png"));
+				//uniforms.set("tDiffuse", ImageUtils.loadTexture("img/men2buv.png#1"));
+				uniforms.set("tDiffuse", ImageUtils.loadTexture("img/uv.png#2"));
 				uniforms.set("uNormalScale",1);
 				
 				Material material=THREE.ShaderMaterial().fragmentShader(shader.fragmentShader()).vertexShader(shader.vertexShader()).uniforms(uniforms).lights(true)
 						.morphTargets(false).build();
 				
 				model=new AnimationModel(geometry, material);
-				model.getObject3D().getScale().set( 10, 10, 10);
+				model.getObject3D().getScale().set( 15, 15, 15);
+				model.getObject3D().getPosition().set(0, -100, 0);
 				scene.add(model.getObject3D());
 				
 				GWT.log("loaded:");
@@ -103,13 +106,20 @@ private AnimationModel model;
 		
 		final Light light=THREE.DirectionalLight(0xeeeeee,2);
 		light.setPosition(1, 1, 1);
-		scene.add(light);
+		light.getPosition().normalize();
+		//scene.add(light);
 		
 		final Light light2=THREE.DirectionalLight(0xeeeeee,2);
 		light2.setPosition(-1, -1, -1);
+		light2.getPosition().normalize();
+		scene.add(light2);
+		
+		final Light light3=THREE.PointLight(0xffffff);
+		light3.setPosition(0, 0, 600);
+		scene.add(light3);
 		//scene.add(light2);
 		
-		//scene.add(THREE.AmbientLight(0xcccccc));
+		scene.add(THREE.AmbientLight(0xcccccc));
 		
 		
 	//	MainWidget.cameraMove.setZ(-20);
@@ -177,13 +187,13 @@ private AnimationModel model;
 	public  AnimationModel(Geometry geometry,Material material){
 		container=THREE.Object3D();
 		int size=getMorphTargetsLength(geometry);
-		for(int i=0;i<size;i++){
+		for(int i=1;i<size;i++){//0 is reset pose?
 			Geometry geo=makeMorphTargetsGeometry(geometry,i);
 			geo.computeTangents();
 			
 			if(createBetweenFrame){
 			//make half
-			if(i!=0){
+			if(i!=1){
 				JsArray<Vertex> pre=last.vertices();
 				JsArray<Vertex> current=geo.vertices();
 				JsArray<Vertex> half=halfAndHalf(pre,current,0.5);

@@ -62,6 +62,11 @@ public class MeshBasicMaterialBuilder extends JavaScriptObject{
 	return this;
 	}-*/;
 	
+	public final native MeshBasicMaterialBuilder morphTargets(boolean w)/*-{
+	this["morphTargets"]=w;
+	return this;
+	}-*/;
+	
 	public final native MeshBasicMaterialBuilder map(Texture texture)/*-{
 	this["map"]=texture;
 	return this;

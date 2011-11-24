@@ -69,7 +69,7 @@ private long last;
 				animMesh.setDuration(1000*5); //5sec
 				animMesh.setMirrordLoop(true);//animation move forward and back
 	
-				animMesh.getScale().set( 5, 5, 5 );
+				animMesh.getScale().set(10, 10, 10 );
 				scene.add(animMesh);
 				GWT.log("loaded:");
 			}

@@ -37,8 +37,15 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.textures;
 
+import com.akjava.gwt.three.client.core.Object3D;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArray;
 
 public class Texture extends JavaScriptObject{
 protected Texture(){}
+
+public final native int getImageWidth()/*-{
+return this.image.width;
+}-*/;
+
 }

@@ -18,5 +18,8 @@ public abstract class AbstractDemo implements Demo{
 	public final native void log(JavaScriptObject object)/*-{
 	console.log(object);
 	}-*/;
+	public final native void log(String object)/*-{
+	console.log(object);
+	}-*/;
 
 }
