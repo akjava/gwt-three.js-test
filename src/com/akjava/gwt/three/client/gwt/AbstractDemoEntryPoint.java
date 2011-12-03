@@ -58,6 +58,7 @@ public abstract class AbstractDemoEntryPoint implements EntryPoint {
 	public WebGLCanvas getCanvas() {
 		return canvas;
 	}
+	public abstract void onMouseClick(ClickEvent event);
 	public abstract void onMouseWheel(MouseWheelEvent event);
 	public abstract void onMouseMove(MouseMoveEvent event) ;
 	public abstract void update(WebGLRenderer renderer);
@@ -99,7 +100,7 @@ public abstract class AbstractDemoEntryPoint implements EntryPoint {
 			
 			@Override
 			public void onClick(ClickEvent event) {
-				//TODO
+				AbstractDemoEntryPoint.this.onMouseClick(event);
 			}
 		});
 		canvas.addMouseMoveHandler(new MouseMoveHandler(){
@@ -228,7 +229,7 @@ public abstract class AbstractDemoEntryPoint implements EntryPoint {
 	public final native void log(JavaScriptObject object)/*-{
 	console.log(object);
 	}-*/;
-	public final native void log(String object)/*-{
+	public static final native void log(String object)/*-{
 	console.log(object);
 	}-*/;
 }

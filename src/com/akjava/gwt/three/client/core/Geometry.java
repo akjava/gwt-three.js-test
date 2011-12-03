@@ -52,6 +52,12 @@ return this.vertices;
 }-*/;
 
 
+
+
+public final native void computeBoundingBox()/*-{
+return this.computeBoundingBox();
+}-*/;
+
 public final native boolean getDirtyVertices()/*-{
 return this.__dirtyVertices;
 }-*/;
@@ -64,5 +70,8 @@ public final native void computeTangents()/*-{
 this.computeTangents();
 }-*/;
 
+public final native JsArray<MorphTarget> getMorphTargets()/*-{
+return this.morphTargets;
+}-*/;
 
 }

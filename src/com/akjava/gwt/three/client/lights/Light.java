@@ -37,6 +37,7 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.lights;
 
+import com.akjava.gwt.three.client.core.Color;
 import com.akjava.gwt.three.client.core.Object3D;
 
 
@@ -48,5 +49,9 @@ protected Light(){}
  */
 public final native void setCastShadow(boolean bool)/*-{
 this.castShadow=bool;
+}-*/;
+
+public final native Color getColor()/*-{
+return this.color;
 }-*/;
 }

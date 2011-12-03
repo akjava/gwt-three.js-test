@@ -83,6 +83,18 @@ public native final void addSelf(Vector3 vec3)/*-{
 this.addSelf(vec3);
 }-*/;
 
+public native final void subSelf(Vector3 vec3)/*-{
+this.subSelf(vec3);
+}-*/;
+
+public native final void sub(Vector3 vec3,Vector3 vec3two)/*-{
+this.sub(vec3,vec3two);
+}-*/;
+
+public native final void add(Vector3 vec3,Vector3 vec3two)/*-{
+this.add(vec3,vec3two);
+}-*/;
+
 public native final void normalize()/*-{
 this.normalize();
 }-*/;

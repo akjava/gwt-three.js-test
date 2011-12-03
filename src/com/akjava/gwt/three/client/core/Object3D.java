@@ -44,6 +44,10 @@ protected Object3D(){}
 	public final native Vector3 getPosition()/*-{
 		return this.position;
 	}-*/;
+	
+	public final void setPosition(Vector3 vector){
+		getPosition().set(vector.getX(),vector.getY(),vector.getZ());
+	}
 	public final void setPosition(double x,double y,double z){
 		getPosition().set(x,y,z);
 	}
@@ -80,6 +84,10 @@ return this.id;
 public final boolean equals(Object3D object){
 	return this.getId()==object.getId();
 }
+
+public final native void setVisible(boolean bool)/*-{
+this.visible=bool;
+}-*/;
 
 
 

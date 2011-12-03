@@ -52,6 +52,11 @@ public class MeshLambertMaterialBuilder extends JavaScriptObject{
 		return builder.color(color);
 	}
 	
+	public final MeshLambertMaterialBuilder color(int r,int g,int b){
+		int c=(0xff & r)<<16| (0xff & g)<<8|(0xff & b);
+		return color(c);
+	}
+	
 	public final native MeshLambertMaterialBuilder color(int c)/*-{
 	this["color"]=c;
 	return this;
