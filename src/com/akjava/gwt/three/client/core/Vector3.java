@@ -98,5 +98,11 @@ this.add(vec3,vec3two);
 public native final void normalize()/*-{
 this.normalize();
 }-*/;
+
+public native final void setRotationFromMatrix(Matrix4 matrix)/*-{
+this.setRotationFromMatrix(matrix);
+}-*/;
+
+
 }
 

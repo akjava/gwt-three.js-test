@@ -65,6 +65,11 @@ public final native Vector3 getScale()/*-{
 return this.scale;
 }-*/;
 
+
+public final native void lookAt(Vector3 vec)/*-{	
+this.lookAt(vec);
+}-*/;
+
 public final native void add(Object3D mesh)/*-{	
 this.add(mesh);
 }-*/;
@@ -75,6 +80,10 @@ this.remove(mesh);
 
 public final native String getName()/*-{
 return this.name;
+}-*/;
+
+public final native void setName(String name)/*-{
+this.name=name;
 }-*/;
 
 public final native int getId()/*-{

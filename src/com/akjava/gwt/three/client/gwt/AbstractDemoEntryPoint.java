@@ -40,7 +40,7 @@ public abstract class AbstractDemoEntryPoint implements EntryPoint {
 
 
 
-	private WebGLCanvas canvas;
+	protected WebGLCanvas canvas;
 
 
 
@@ -205,6 +205,7 @@ public abstract class AbstractDemoEntryPoint implements EntryPoint {
 		dialog2.setWidth("100%");
 		dialog2.setStyleName("transparent");
 		dialog2.show();
+		
 	}
 	
 	protected void showControl(){
@@ -222,8 +223,17 @@ public abstract class AbstractDemoEntryPoint implements EntryPoint {
 		int w=Window.getClientWidth();
 		int h=Window.getScrollTop();
 		int dw=dialog.getOffsetWidth();
-		GWT.log(w+"x"+h+" offset="+dialog.getOffsetWidth());
+		//GWT.log(w+"x"+h+" offset="+dialog.getOffsetWidth());
 		dialog.setPopupPosition(w-dw-18, h);
+	}
+	
+	protected void leftBottom(PopupPanel dialog){
+		int w=Window.getClientWidth();
+		int h=Window.getClientHeight();
+		int dw=dialog.getOffsetWidth();
+		int dh=dialog.getOffsetHeight();
+		//GWT.log(w+"x"+h+" offset="+dialog.getOffsetWidth());
+		dialog.setPopupPosition(0, h-dh);
 	}
 	
 	public final native void log(JavaScriptObject object)/*-{

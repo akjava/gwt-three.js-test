@@ -40,12 +40,14 @@ package com.akjava.gwt.three.client;
 import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.core.Color;
 import com.akjava.gwt.three.client.core.Geometry;
+import com.akjava.gwt.three.client.core.Matrix4;
 import com.akjava.gwt.three.client.core.Object3D;
 import com.akjava.gwt.three.client.core.Projector;
 import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.core.Vertex;
 import com.akjava.gwt.three.client.extras.loaders.JSONLoader;
 import com.akjava.gwt.three.client.lights.Light;
+import com.akjava.gwt.three.client.materials.LineBasicMaterialBuilder;
 import com.akjava.gwt.three.client.materials.Material;
 import com.akjava.gwt.three.client.materials.MeshBasicMaterialBuilder;
 import com.akjava.gwt.three.client.materials.MeshLambertMaterialBuilder;
@@ -78,6 +80,9 @@ public class THREE {
 	}-*/;
 	
 	
+	public static native final Matrix4 Matrix4()/*-{
+	return new $wnd.THREE.Matrix4();
+	}-*/;
 	
 	public static native final Scene Scene()/*-{
 	return new $wnd.THREE.Scene();
@@ -165,6 +170,12 @@ public class THREE {
 	return new $wnd.THREE.MeshFaceMaterial();
 	}-*/;
 	
+	public static native final LineBasicMaterialBuilder LineBasicMaterial()/*-{
+	return new $wnd.THREE.LineBasicMaterial();
+	}-*/;
+	
+	
+	
 	public static  final ShaderMaterialBuilder ShaderMaterial(){
 		return ShaderMaterialBuilder.create();
 	}
@@ -193,7 +204,9 @@ public class THREE {
 	public static native final Mesh Mesh(Geometry geometry,Material material )/*-{
 	return new $wnd.THREE.Mesh( geometry, material );
 	}-*/;
-	
+	public static native final Mesh Line(Geometry geometry,Material material )/*-{
+	return new $wnd.THREE.Line( geometry, material );
+	}-*/;
 	
 	public static native final Color Color(int hex)/*-{
 	return new $wnd.THREE.Color(hex);

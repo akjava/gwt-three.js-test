@@ -21,6 +21,9 @@
   <source path='client'/>
   <source path='shared'/>
 
+
+<inherits name="com.akjava.gwt.lib.Commons"/>
+
  <set-property name="user.agent" value="safari"/>
 <!--  add-linker name="xs"/-->
 </module>

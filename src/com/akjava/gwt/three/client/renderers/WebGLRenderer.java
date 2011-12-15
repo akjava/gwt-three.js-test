@@ -55,6 +55,9 @@ public class WebGLRenderer extends JavaScriptObject{
 	return this.domElement;
 	}-*/;
 	
+	/*
+	 * if flick background use Canvas setClearColorHex()
+	 */
 	public  native final void render(Scene scene,Camera camera)/*-{
 	this.render(scene,camera);
 	}-*/;

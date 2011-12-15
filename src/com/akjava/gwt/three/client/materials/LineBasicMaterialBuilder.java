@@ -35,26 +35,78 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
   
  */
-package com.akjava.gwt.three.client.cameras;
+package com.akjava.gwt.three.client.materials;
 
-import com.akjava.gwt.three.client.core.Object3D;
-import com.akjava.gwt.three.client.core.Vector3;
-
-
-public class Camera extends Object3D{
-protected Camera(){}
-//TODO create PerspectiveCamera
-public final native void setRatio(double ratio)/*-{
-this.ratio=ratio;
-}-*/;
-
-/**
- * somehow dont work
- */
-public final native void updateProjectionMatrix()/*-{
-this.updateProjectionMatrix();
-}-*/;
+import com.akjava.gwt.three.client.textures.Texture;
+import com.google.gwt.core.client.JavaScriptObject;
 
 
-
+public class LineBasicMaterialBuilder extends JavaScriptObject{
+	protected LineBasicMaterialBuilder(){}
+	public final static LineBasicMaterialBuilder create(){
+		return (LineBasicMaterialBuilder) LineBasicMaterialBuilder.createObject();
+	}
+	
+	public final static LineBasicMaterialBuilder create(int color){
+		LineBasicMaterialBuilder builder= (LineBasicMaterialBuilder) LineBasicMaterialBuilder.createObject();
+		return builder.color(color);
+	}
+	
+	public final LineBasicMaterialBuilder color(int r,int g,int b){
+		int c=(0xff & r)<<16| (0xff & g)<<8|(0xff & b);
+		return color(c);
+	}
+	
+	public final native LineBasicMaterialBuilder color(int c)/*-{
+	this["color"]=c;
+	return this;
+	}-*/;
+	
+	public final native LineBasicMaterialBuilder morphTargets(boolean w)/*-{
+	this["morphTargets"]=w;
+	return this;
+	}-*/;
+	
+	public final native LineBasicMaterialBuilder map(Texture texture)/*-{
+	this["map"]=texture;
+	return this;
+	}-*/;
+	
+	public final native LineBasicMaterialBuilder opacity(double opacity)/*-{
+	this.opacity=opacity;
+	return this;
+	}-*/;
+	
+	public final native LineBasicMaterialBuilder reflectivity(boolean reflectivity)/*-{
+	this.reflectivity=reflectivity;
+	return this;
+	}-*/;
+	public final native LineBasicMaterialBuilder transparent(boolean transparent)/*-{
+	this.transparent=transparent;
+	return this;
+	}-*/;
+	
+	public final native LineBasicMaterialBuilder wireFrame(boolean w)/*-{
+	this["wireframe"]=w;
+	return this;
+	}-*/;
+	
+	public final native LineBasicMaterialBuilder blending(int type)/*-{
+	this["blending"]=type;
+	return this;
+	}-*/;
+	
+	public final native LineBasicMaterialBuilder wireFrame()/*-{
+	this["wireframe"]=true;
+	return this;
+	}-*/;
+	public final Material build(){
+		return build(this);
+	}
+	
+	private final native Material build(JavaScriptObject object)/*-{
+	return new $wnd.THREE.MeshBasicMaterial(object);
+	}-*/;
+	
+	
 }

@@ -1,14 +1,20 @@
 package com.akjava.gwt.three.client.gwt;
 
+import com.akjava.gwt.three.client.core.Geometry;
+import com.akjava.gwt.three.client.core.MorphTarget;
 import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.core.Vertex;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JsArray;
 
 public class GWTGeometryUtils {
 
 
+	
+	
+	
 	/**
-	 * @deprecated
+	 * Warning center way is different of GeometryUtils.center()
 	 * use center
 	 * @param vertices
 	 */
@@ -18,6 +24,17 @@ public class GWTGeometryUtils {
 			vertices.get(i).getPosition().subSelf(center);
 		}
 	}
+	
+	//set center for animation
+	public static final void centerOfMorphTargets(Geometry geometry){
+		JsArray<MorphTarget> mofs=geometry.getMorphTargets();
+		GWT.log("mofs:"+mofs.length());
+		for(int i=0;i<mofs.length();i++){
+			GWT.log("mofs:-docenter"+i);
+			centerOfVertices(mofs.get(i).getVertices());
+		}
+	}
+	
 	
 	public static final native Vector3 getCenter(JsArray<Vertex> vertices)/*-{
 	var center = new $wnd.THREE.Vector3();

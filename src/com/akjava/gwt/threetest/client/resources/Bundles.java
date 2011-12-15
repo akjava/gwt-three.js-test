@@ -18,9 +18,13 @@ package com.akjava.gwt.threetest.client.resources;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.resources.client.ClientBundle;
 import com.google.gwt.resources.client.ImageResource;
+import com.google.gwt.resources.client.TextResource;
 
 public interface Bundles extends ClientBundle {
 public Bundles INSTANCE=GWT.create(Bundles.class);
-	ImageResource rock_texture();
 
+	ImageResource rock_texture();
+	ImageResource face();
+	ImageResource r_eye();
+	TextResource montageItem();
 }
