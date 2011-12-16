@@ -3,7 +3,8 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/stats-gwt"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/GWTLib2011"/>
+	<classpathentry kind="lib" path="lib/akjavalibgwt_111216.jar"/>
+	<classpathentry kind="lib" path="lib/akjavastatgwt_111216.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

@@ -1,0 +1,8 @@
+Bug
+if method need  Array or Object parameters  ,and in inside it is using instanceof to parameter,it make a problem.
+i heard some frame problem is there.(maybe linker option fix this problem)
+for example in JSONLoader.js ,if url is object never called console.warn.
+>THREE.JSONLoader.prototype.load = function ( url, callback, texturePath ) {
+>var worker, scope = this;
+>if ( url instanceof Object ) {  
+>console.warn( 'DEPRECATED: JSONLoader( parameters ) is now JSONLoader( url, callback, texturePath ).' );
