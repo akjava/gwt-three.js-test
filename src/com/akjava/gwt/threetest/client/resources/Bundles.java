@@ -24,7 +24,5 @@ public interface Bundles extends ClientBundle {
 public Bundles INSTANCE=GWT.create(Bundles.class);
 
 	ImageResource rock_texture();
-	ImageResource face();
-	ImageResource r_eye();
-	TextResource montageItem();
+
 }

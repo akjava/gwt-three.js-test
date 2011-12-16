@@ -1,3 +1,6 @@
+My GWT wrapper for three.js r46
+still only wrapped what i needed.
+
 Bug
 if method need  Array or Object parameters  ,and in inside it is using instanceof to parameter,it make a problem.
 i heard some frame problem is there.(maybe linker option fix this problem)
