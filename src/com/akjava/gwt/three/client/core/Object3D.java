@@ -38,6 +38,7 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client.core;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArray;
 
 public class Object3D extends JavaScriptObject{
 protected Object3D(){}
@@ -63,6 +64,10 @@ public final void setScale(double x,double y,double z){
 
 public final native Vector3 getScale()/*-{
 return this.scale;
+}-*/;
+
+public final native JsArray<Object3D> getChildren()/*-{
+return this.children;
 }-*/;
 
 
