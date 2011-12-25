@@ -26,6 +26,7 @@ import com.google.gwt.user.client.ui.FocusPanel;
 
 public class CylinderDemo extends AbstractDemo{
 private Timer timer;
+	@SuppressWarnings("deprecation")
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		if(timer!=null){

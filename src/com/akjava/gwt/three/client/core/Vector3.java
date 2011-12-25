@@ -87,6 +87,10 @@ public native final void subSelf(Vector3 vec3)/*-{
 this.subSelf(vec3);
 }-*/;
 
+public native final Vector3 clone()/*-{
+return this.clone();
+}-*/;
+
 public native final void sub(Vector3 vec3,Vector3 vec3two)/*-{
 this.sub(vec3,vec3two);
 }-*/;
@@ -103,6 +107,13 @@ public native final void setRotationFromMatrix(Matrix4 matrix)/*-{
 this.setRotationFromMatrix(matrix);
 }-*/;
 
+public native final void divideSelf(Vector3 vec3)/*-{
+this.divideSelf(vec3);
+}-*/;
+
+public native final void divideScalar(double scalar)/*-{
+this.divideScalar(scalar);
+}-*/;
 
 }
 

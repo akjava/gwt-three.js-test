@@ -131,6 +131,10 @@ public class THREE {
 	public static native final Geometry PlaneGeometry(double x,double y)/*-{
 	return new $wnd.THREE.PlaneGeometry( x, y );
 	}-*/;
+	public static native final Geometry PlaneGeometry(double x,double y,int sx,int sy)/*-{
+	return new $wnd.THREE.PlaneGeometry( x, y ,sx,sy);
+	}-*/;
+	
 	public static native final Geometry SphereGeometry(double radius ,int segments,int rings)/*-{
 	return new $wnd.THREE.SphereGeometry( radius, segments, rings );
 	}-*/;
