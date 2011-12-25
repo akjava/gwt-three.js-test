@@ -4,6 +4,9 @@ import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
+import com.google.gwt.event.dom.client.MouseDownEvent;
+import com.google.gwt.event.dom.client.MouseOutEvent;
+import com.google.gwt.event.dom.client.MouseUpEvent;
 import com.google.gwt.event.dom.client.MouseWheelEvent;
 
 public abstract class SimpleDemoEntryPoint extends AbstractDemoEntryPoint{
@@ -72,5 +75,26 @@ public abstract class SimpleDemoEntryPoint extends AbstractDemoEntryPoint{
 		screenWidth=width;
 		screenHeight=height;
 		createCamera(scene,width,height);
+	}
+	
+	protected boolean mouseDown;
+	
+	protected int mouseDownX;
+	protected int mouseDownY;
+	@Override
+	public void onMouseDown(MouseDownEvent event) {
+		mouseDown=true;
+		mouseDownX=event.getX();
+		mouseDownY=event.getY();
+	}
+
+	@Override
+	public void onMouseUp(MouseUpEvent event) {
+		mouseDown=false;
+	}
+	
+	@Override
+	public void onMouseOut(MouseOutEvent event) {
+		mouseDown=false;
 	}
 }

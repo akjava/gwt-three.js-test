@@ -9,8 +9,14 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.MouseDownEvent;
+import com.google.gwt.event.dom.client.MouseDownHandler;
 import com.google.gwt.event.dom.client.MouseMoveEvent;
 import com.google.gwt.event.dom.client.MouseMoveHandler;
+import com.google.gwt.event.dom.client.MouseOutEvent;
+import com.google.gwt.event.dom.client.MouseOutHandler;
+import com.google.gwt.event.dom.client.MouseUpEvent;
+import com.google.gwt.event.dom.client.MouseUpHandler;
 import com.google.gwt.event.dom.client.MouseWheelEvent;
 import com.google.gwt.event.dom.client.MouseWheelHandler;
 import com.google.gwt.event.logical.shared.ResizeEvent;
@@ -61,6 +67,9 @@ public abstract class AbstractDemoEntryPoint implements EntryPoint {
 	public abstract void onMouseClick(ClickEvent event);
 	public abstract void onMouseWheel(MouseWheelEvent event);
 	public abstract void onMouseMove(MouseMoveEvent event) ;
+	public abstract void onMouseDown(MouseDownEvent event) ;
+	public abstract void onMouseUp(MouseUpEvent event) ;
+	public abstract void onMouseOut(MouseOutEvent event);
 	public abstract void update(WebGLRenderer renderer);
 	public abstract void initialize(WebGLRenderer renderer,int width,int height);
 	public abstract void resized(int width,int height);
@@ -88,6 +97,16 @@ public abstract class AbstractDemoEntryPoint implements EntryPoint {
 		canvas.setClearColorHex(0);
 		//final FocusPanel glCanvas=new FocusPanel(canvas);
 		
+		canvas.addMouseUpHandler(new MouseUpHandler() {
+			
+			@Override
+			public void onMouseUp(MouseUpEvent event) {
+			
+				AbstractDemoEntryPoint.this.onMouseUp(event);
+			}
+		});
+
+
 		canvas.addMouseWheelHandler(new MouseWheelHandler() {
 			@Override
 			public void onMouseWheel(MouseWheelEvent event) {
@@ -96,6 +115,7 @@ public abstract class AbstractDemoEntryPoint implements EntryPoint {
 		});
 		//hpanel.setFocus(true);
 		
+		
 		canvas.addClickHandler(new ClickHandler() {
 			
 			@Override
@@ -103,6 +123,24 @@ public abstract class AbstractDemoEntryPoint implements EntryPoint {
 				AbstractDemoEntryPoint.this.onMouseClick(event);
 			}
 		});
+		
+		canvas.addMouseDownHandler(new MouseDownHandler() {
+			
+			@Override
+			public void onMouseDown(MouseDownEvent event) {
+				AbstractDemoEntryPoint.this.onMouseDown(event);
+				
+			}
+		});
+		
+		canvas.addMouseOutHandler(new MouseOutHandler() {
+			
+			@Override
+			public void onMouseOut(MouseOutEvent event) {
+				AbstractDemoEntryPoint.this.onMouseOut(event);
+			}
+		});
+		
 		canvas.addMouseMoveHandler(new MouseMoveHandler(){
 
 			@Override
@@ -201,7 +239,7 @@ public abstract class AbstractDemoEntryPoint implements EntryPoint {
 		html.setStyleName("text");
 		final PopupPanel dialog2=new PopupPanel();
 		dialog2.add(html);
-		dialog2.setPopupPosition(200, 0);
+		dialog2.setPopupPosition(150, 0);
 		dialog2.setWidth("100%");
 		dialog2.setStyleName("transparent");
 		dialog2.show();
