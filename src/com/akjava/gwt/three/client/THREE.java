@@ -43,6 +43,7 @@ import com.akjava.gwt.three.client.core.Geometry;
 import com.akjava.gwt.three.client.core.Matrix4;
 import com.akjava.gwt.three.client.core.Object3D;
 import com.akjava.gwt.three.client.core.Projector;
+import com.akjava.gwt.three.client.core.Quaternion;
 import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.core.Vertex;
 import com.akjava.gwt.three.client.extras.loaders.JSONLoader;
@@ -82,6 +83,10 @@ public class THREE {
 	
 	public static native final Matrix4 Matrix4()/*-{
 	return new $wnd.THREE.Matrix4();
+	}-*/;
+	
+	public static native final Quaternion Quaternion()/*-{
+	return new $wnd.THREE.Quaternion();
 	}-*/;
 	
 	public static native final Scene Scene()/*-{
