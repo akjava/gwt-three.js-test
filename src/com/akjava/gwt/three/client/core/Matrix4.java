@@ -22,4 +22,9 @@ public native final Matrix4 multiplySelf(Matrix4 b)/*-{
 return this.multiply(this,b);
 }-*/;
 
+public native final Matrix4 setRotationFromQuaternion(Quaternion q)/*-{
+return this.setRotationFromQuaternion(q);
+}-*/;
+
+
 }

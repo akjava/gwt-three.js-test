@@ -37,6 +37,8 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.core;
 
+import com.akjava.gwt.three.client.gwt.animation.AnimationBone;
+import com.akjava.gwt.three.client.gwt.animation.AnimationData;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 
@@ -73,5 +75,14 @@ this.computeTangents();
 public final native JsArray<MorphTarget> getMorphTargets()/*-{
 return this.morphTargets;
 }-*/;
+
+
+public final native AnimationData getAnimation()/*-{
+return this.animation;
+}-*/;
+public final native JsArray<AnimationBone> getBones()/*-{
+return this.bones;
+}-*/;
+
 
 }

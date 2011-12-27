@@ -79,33 +79,37 @@ this.z=z;
 }-*/;
 
 
-public native final void addSelf(Vector3 vec3)/*-{
-this.addSelf(vec3);
+public native final Vector3 addSelf(Vector3 vec3)/*-{
+return this.addSelf(vec3);
 }-*/;
 
-public native final void subSelf(Vector3 vec3)/*-{
-this.subSelf(vec3);
+public native final Vector3 subSelf(Vector3 vec3)/*-{
+return this.subSelf(vec3);
 }-*/;
 
 public native final Vector3 clone()/*-{
 return this.clone();
 }-*/;
 
-public native final void sub(Vector3 vec3,Vector3 vec3two)/*-{
-this.sub(vec3,vec3two);
+public native final Vector3 sub(Vector3 vec3,Vector3 vec3two)/*-{
+return this.sub(vec3,vec3two);
 }-*/;
 
-public native final void add(Vector3 vec3,Vector3 vec3two)/*-{
-this.add(vec3,vec3two);
+public native final Vector3 add(Vector3 vec3,Vector3 vec3two)/*-{
+return this.add(vec3,vec3two);
 }-*/;
 
-public native final void normalize()/*-{
-this.normalize();
+public native final Vector3 normalize()/*-{
+return this.normalize();
 }-*/;
 
 public native final void setRotationFromMatrix(Matrix4 matrix)/*-{
 this.setRotationFromMatrix(matrix);
 }-*/;
+public native final void setPositionFromMatrix(Matrix4 matrix)/*-{
+this.setPositionFromMatrix(matrix);
+}-*/;
+
 
 public native final void divideSelf(Vector3 vec3)/*-{
 this.divideSelf(vec3);

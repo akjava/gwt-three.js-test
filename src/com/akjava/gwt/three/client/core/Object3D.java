@@ -55,6 +55,10 @@ protected Object3D(){}
 	public final native Vector3 getRotation()/*-{
 	return this.rotation;
 }-*/;
+	
+	public final void setRotation(Vector3 vector){
+		getRotation().set(vector.getX(),vector.getY(),vector.getZ());
+	}
 public final void setRotation(double x,double y,double z){
 	getRotation().set(x,y,z);
 }

@@ -200,6 +200,9 @@ public class THREE {
 	public static native final Vector3 Vector3(double x,double y,double z)/*-{
 	return new $wnd.THREE.Vector3( x,y,z);
 	}-*/;
+	public static native final Vector3 Vector3()/*-{
+	return new $wnd.THREE.Vector3(0,0,0);
+	}-*/;
 	
 	
 	
