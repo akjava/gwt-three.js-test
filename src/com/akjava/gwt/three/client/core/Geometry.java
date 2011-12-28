@@ -68,6 +68,12 @@ public final native void setDirtyVertices(boolean bool)/*-{
 this.__dirtyVertices=bool;
 }-*/;
 
+
+
+public final native void applyMatrix(Matrix4 matrix)/*-{
+this.applyMatrix(matrix);
+}-*/;
+
 public final native void computeTangents()/*-{
 this.computeTangents();
 }-*/;
