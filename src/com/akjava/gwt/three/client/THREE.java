@@ -46,6 +46,7 @@ import com.akjava.gwt.three.client.core.Projector;
 import com.akjava.gwt.three.client.core.Quaternion;
 import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.core.Vertex;
+import com.akjava.gwt.three.client.extras.animation.Animation;
 import com.akjava.gwt.three.client.extras.loaders.JSONLoader;
 import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.materials.LineBasicMaterialBuilder;
@@ -58,6 +59,7 @@ import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.objects.MorphAnimMesh;
 import com.akjava.gwt.three.client.objects.Particle;
 import com.akjava.gwt.three.client.objects.ParticleSystem;
+import com.akjava.gwt.three.client.objects.SkinnedMesh;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
 import com.google.gwt.core.client.JsArray;
@@ -76,10 +78,17 @@ public class THREE {
 
 	
 	
+	
 	public static native final Camera PerspectiveCamera(int fieldOfView,double ratio,double near,double far)/*-{
 	return new $wnd.THREE.PerspectiveCamera( fieldOfView, ratio, near, far ); 
 	}-*/;
 	
+	
+	
+	
+	public static native final Animation Animation(SkinnedMesh root,String name)/*-{
+	return new $wnd.THREE.Animation(root,name);
+	}-*/;
 	
 	public static native final Matrix4 Matrix4()/*-{
 	return new $wnd.THREE.Matrix4();
@@ -158,23 +167,9 @@ public class THREE {
 		return ParticleBasicMaterialBuilder.create();
 	}
 	
-	/**
-	 * @deprecated
-	 */
-	public static native final Material MeshLambertMaterial(int color,boolean wireFrame)/*-{
-	return new $wnd.THREE.MeshLambertMaterial( { color: color, wireframe: wireFrame } );
-	}-*/;
 	
-	/**
-	 * @deprecated
-	 * use builder
-	 * @param color
-	 * @param wireFrame
-	 * @return
-	 */
-	public static native final Material MeshBasicMaterial(int color,boolean wireFrame)/*-{
-	return new $wnd.THREE.MeshBasicMaterial( { color: color, wireframe: wireFrame } );
-	}-*/;
+	
+	
 	public static native final Material MeshFaceMaterial()/*-{
 	return new $wnd.THREE.MeshFaceMaterial();
 	}-*/;
@@ -215,6 +210,9 @@ public class THREE {
 	
 	public static native final Mesh Mesh(Geometry geometry,Material material )/*-{
 	return new $wnd.THREE.Mesh( geometry, material );
+	}-*/;
+	public static native final SkinnedMesh SkinnedMesh(Geometry geometry,Material material )/*-{
+	return new $wnd.THREE.SkinnedMesh( geometry, material );
 	}-*/;
 	public static native final Mesh Line(Geometry geometry,Material material )/*-{
 	return new $wnd.THREE.Line( geometry, material );

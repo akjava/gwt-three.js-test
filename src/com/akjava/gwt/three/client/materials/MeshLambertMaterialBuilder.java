@@ -76,6 +76,12 @@ public class MeshLambertMaterialBuilder extends JavaScriptObject{
 	this.reflectivity=reflectivity;
 	return this;
 	}-*/;
+	
+	public final native MeshLambertMaterialBuilder skinning(boolean skinning)/*-{
+	this.skinning=skinning;
+	return this;
+	}-*/;
+	
 	public final native MeshLambertMaterialBuilder transparent(boolean transparent)/*-{
 	this.transparent=transparent;
 	return this;

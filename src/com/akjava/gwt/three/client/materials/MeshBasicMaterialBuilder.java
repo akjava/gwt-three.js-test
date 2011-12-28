@@ -85,6 +85,10 @@ public class MeshBasicMaterialBuilder extends JavaScriptObject{
 	this.transparent=transparent;
 	return this;
 	}-*/;
+	public final native MeshBasicMaterialBuilder skinning(boolean skinning)/*-{
+	this.skinning=skinning;
+	return this;
+	}-*/;
 	
 	public final native MeshBasicMaterialBuilder wireFrame(boolean w)/*-{
 	this["wireframe"]=w;

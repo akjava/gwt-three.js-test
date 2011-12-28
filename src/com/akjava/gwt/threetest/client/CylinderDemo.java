@@ -45,21 +45,21 @@ private Timer timer;
 		final Scene scene=THREE.Scene();
 		
 		final Mesh mesh=THREE.Mesh(THREE.CylinderGeometry(5, 5, 5,6), 
-				THREE.MeshLambertMaterial(0xff0000, false));
+				THREE.MeshLambertMaterial().color(0xff0000).build());
 		scene.add(mesh);
 		
 		final Mesh mesh2=THREE.Mesh(THREE.CylinderGeometry(5, 5, 5,15), 
-				THREE.MeshLambertMaterial(0x00ff00, false));
+				THREE.MeshLambertMaterial().color(0x00ff00).build());
 		mesh2.setPosition(0, 10, 0);
 		scene.add(mesh2);
 		
 		final Mesh mesh3=THREE.Mesh(THREE.CylinderGeometry(5, 1, 5,15), 
-				THREE.MeshLambertMaterial(0x0000ff, false));
+				THREE.MeshLambertMaterial().color(0x0000ff).build());
 		mesh3.setPosition(0, -10, 0);
 		scene.add(mesh3);
 		
 		final Mesh mesh4=THREE.Mesh(THREE.CylinderGeometry(5, 4.5, 5,5), 
-				THREE.MeshLambertMaterial(0xffffff, false));
+				THREE.MeshLambertMaterial().color(0xffffff).build());
 		mesh4.setPosition(-10,0, 0);
 		scene.add(mesh4);
 		
