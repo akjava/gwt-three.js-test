@@ -45,6 +45,7 @@ import com.akjava.gwt.three.client.core.Object3D;
 import com.akjava.gwt.three.client.core.Projector;
 import com.akjava.gwt.three.client.core.Quaternion;
 import com.akjava.gwt.three.client.core.Vector3;
+import com.akjava.gwt.three.client.core.Vector4;
 import com.akjava.gwt.three.client.core.Vertex;
 import com.akjava.gwt.three.client.extras.animation.Animation;
 import com.akjava.gwt.three.client.extras.loaders.JSONLoader;
@@ -88,6 +89,10 @@ public class THREE {
 	
 	public static native final Animation Animation(SkinnedMesh root,String name)/*-{
 	return new $wnd.THREE.Animation(root,name);
+	}-*/;
+	
+	public static native final Vector4 Vector4()/*-{
+	return new $wnd.THREE.Vector4();
 	}-*/;
 	
 	public static native final Matrix4 Matrix4()/*-{

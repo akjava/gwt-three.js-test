@@ -37,77 +37,58 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.core;
 
-import com.akjava.gwt.three.client.gwt.animation.AnimationBone;
-import com.akjava.gwt.three.client.gwt.animation.AnimationData;
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.core.client.JsArray;
-import com.google.gwt.core.client.JsArrayNumber;
 
-public class Geometry extends JavaScriptObject{
-protected Geometry(){}
-
-public final native JsArray<Face> faces()/*-{
-return this.faces;
+public class Vector4 extends JavaScriptObject{
+	protected Vector4(){};
+public native final void set(double x,double y,double z,double w)/*-{
+this.set(x,y,z,w);
 }-*/;
 
-public final native JsArray<Vertex> vertices()/*-{
-return this.vertices;
+public native final void incrementX(double x)/*-{
+this.x+=x;
 }-*/;
 
-
-
-
-public final native void computeBoundingBox()/*-{
-return this.computeBoundingBox();
+public native final void incrementY(double y)/*-{
+this.y+=y;
 }-*/;
 
-public final native boolean getDirtyVertices()/*-{
-return this.__dirtyVertices;
+public native final void incrementZ(double z)/*-{
+this.z+=z;
 }-*/;
 
-public final native void setDirtyVertices(boolean bool)/*-{
-this.__dirtyVertices=bool;
+public native final void incrementW(double w)/*-{
+this.w+=w;
 }-*/;
 
 
-
-public final native void applyMatrix(Matrix4 matrix)/*-{
-this.applyMatrix(matrix);
+public native final double getX()/*-{
+return this.x;
+}-*/;
+public native final double getY()/*-{
+return this.y;
+}-*/;
+public native final double getZ()/*-{
+return this.z;
 }-*/;
 
-public final native void computeTangents()/*-{
-this.computeTangents();
+public native final double getW()/*-{
+return this.w;
 }-*/;
 
-public final native JsArray<MorphTarget> getMorphTargets()/*-{
-return this.morphTargets;
+public native final void setX(double x)/*-{
+this.x=x;
+}-*/;
+public native final void setY(double y)/*-{
+this.y=y;
+}-*/;
+public native final void setZ(double z)/*-{
+this.z=z;
 }-*/;
 
-
-public final native AnimationData getAnimation()/*-{
-return this.animation;
-}-*/;
-public final native JsArray<AnimationBone> getBones()/*-{
-return this.bones;
-}-*/;
-
-
-public final native void setBones(JsArray<AnimationBone> bones)/*-{
-this.bones=bones;
-}-*/;
-
-//dont't call after meshed geometry
-public final native JsArrayNumber getSkinIndicesAsRaw()/*-{
-return this.skinIndices;
-}-*/;
-
-//dont't call after meshed geometry
-public final native void setSkinIndices(JsArray<Vector4> skinIndices)/*-{
-this.skinIndices=skinIndices;
-}-*/;
-
-public final native void setSkinWeight(JsArray<Vector4> skinWeights)/*-{
-this.skinWeights=skinWeights;
+public native final void setW(double w)/*-{
+this.w=w;
 }-*/;
 
 }
+

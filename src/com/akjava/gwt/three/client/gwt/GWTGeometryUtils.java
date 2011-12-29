@@ -1,5 +1,6 @@
 package com.akjava.gwt.three.client.gwt;
 
+import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.core.Geometry;
 import com.akjava.gwt.three.client.core.MorphTarget;
 import com.akjava.gwt.three.client.core.Vector3;
@@ -9,9 +10,16 @@ import com.google.gwt.core.client.JsArray;
 
 public class GWTGeometryUtils {
 
-
+	private GWTGeometryUtils(){}
 	
 	
+	public final static  Geometry createLine(Vector3 from,Vector3 to){
+		Geometry lineG = THREE.Geometry();
+		lineG.vertices().push(THREE.Vertex(from));
+		lineG.vertices().push(THREE.Vertex(to));
+		
+		return lineG;
+	}
 	
 	/**
 	 * Warning center way is different of GeometryUtils.center()

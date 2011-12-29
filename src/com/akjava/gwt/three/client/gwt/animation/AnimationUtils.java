@@ -13,6 +13,7 @@ public static AnimationData createAnimationData(){
 	GWT.log("create:"+data);
 	JsArray<AnimationHierarchyItem> array=(JsArray<AnimationHierarchyItem>) JsArray.createArray();
 	data.setHierarchy(array);
+	data.setJIT(0);
 	return data;
 }
 
@@ -31,6 +32,7 @@ public static AnimationKey createAnimationKey(){
 public static AnimationBone createAnimationBone(){
 	AnimationBone data=(AnimationBone) AnimationBone.createObject();
 	data.setScl(1,1,1);
+	data.setRotq(0,0,0,1);
 	return data;
 }
 

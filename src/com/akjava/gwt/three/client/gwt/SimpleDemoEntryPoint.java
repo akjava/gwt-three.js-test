@@ -34,7 +34,7 @@ public abstract class SimpleDemoEntryPoint extends AbstractDemoEntryPoint{
 		tmp=Math.min(4000, tmp);
 		cameraZ=tmp;
 		mouseLast=t;
-		log(""+cameraZ);
+		//log(""+cameraZ);
 	}
 	
 	@Override

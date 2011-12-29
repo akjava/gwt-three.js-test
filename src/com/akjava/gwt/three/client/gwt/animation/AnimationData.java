@@ -22,6 +22,10 @@ public native final void setFps (double fps)/*-{
 this["fps"]=fps;
 }-*/;
 
+/**
+ * length is very important if length != last keys.time,app become a browser crasher.
+ * @return
+ */
 public native final double getLength ()/*-{
 return this["length"];
 }-*/;
