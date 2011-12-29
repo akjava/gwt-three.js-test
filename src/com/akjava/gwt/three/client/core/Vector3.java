@@ -110,6 +110,9 @@ public native final void setPositionFromMatrix(Matrix4 matrix)/*-{
 this.setPositionFromMatrix(matrix);
 }-*/;
 
+public native final double length()/*-{
+return this.length();
+}-*/;
 
 public native final void divideSelf(Vector3 vec3)/*-{
 this.divideSelf(vec3);

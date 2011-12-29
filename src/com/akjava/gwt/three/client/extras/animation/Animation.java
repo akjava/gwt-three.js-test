@@ -17,4 +17,9 @@ this.play(loop,startTime);
 public native final double getCurrentTime()/*-{
 return this.currentTime;
 }-*/;
+
+public native final void setCurrentTime(double currentTime)/*-{
+return this.currentTime=currentTime;
+}-*/;
+
 }

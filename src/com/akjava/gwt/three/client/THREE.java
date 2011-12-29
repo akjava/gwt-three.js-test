@@ -94,6 +94,10 @@ public class THREE {
 	public static native final Vector4 Vector4()/*-{
 	return new $wnd.THREE.Vector4();
 	}-*/;
+	public static native final Vector4 Vector4(double x,double y,double z,double w)/*-{
+	return new $wnd.THREE.Vector4(x,y,z,w);
+	}-*/;
+
 	
 	public static native final Matrix4 Matrix4()/*-{
 	return new $wnd.THREE.Matrix4();

@@ -110,4 +110,6 @@ public final native void setSkinWeight(JsArray<Vector4> skinWeights)/*-{
 this.skinWeights=skinWeights;
 }-*/;
 
+
+
 }

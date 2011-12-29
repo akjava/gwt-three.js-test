@@ -8,6 +8,10 @@ public class GeometryUtils {
 	public static native final void center(Geometry geo)/*-{
 	return $wnd.THREE.GeometryUtils.center(geo);
 	}-*/;
+	
+	public static native final Geometry clone(Geometry geo)/*-{
+	return $wnd.THREE.GeometryUtils.clone(geo);
+	}-*/;
 
 	public static native final void merge(Geometry geo,Geometry geo2)/*-{
 	return $wnd.THREE.GeometryUtils.merge(geo,geo2);
