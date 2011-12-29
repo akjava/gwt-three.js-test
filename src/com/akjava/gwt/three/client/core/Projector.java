@@ -45,7 +45,7 @@ import com.google.gwt.core.client.JsArray;
 public class Projector extends JavaScriptObject{
 protected Projector(){}
 
-public final native JsArray<Intersect> pickIntersects(int mx,int my,int sw,int sh,Camera camera,Scene scene)/*-{
+public final native JsArray<Intersect> gwtPickIntersects(int mx,int my,int sw,int sh,Camera camera,Scene scene)/*-{
 	
 	var vector = new $wnd.THREE.Vector3( ( mx / sw ) * 2 - 1, - ( my / sh ) * 2 + 1, 0.5 );
 				this.unprojectVector( vector, camera );

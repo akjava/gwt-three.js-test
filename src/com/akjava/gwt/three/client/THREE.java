@@ -49,6 +49,7 @@ import com.akjava.gwt.three.client.core.Vector4;
 import com.akjava.gwt.three.client.core.Vertex;
 import com.akjava.gwt.three.client.extras.animation.Animation;
 import com.akjava.gwt.three.client.extras.loaders.JSONLoader;
+import com.akjava.gwt.three.client.extras.modifiers.SubdivisionModifier;
 import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.materials.LineBasicMaterialBuilder;
 import com.akjava.gwt.three.client.materials.Material;
@@ -77,8 +78,13 @@ public class THREE {
 
 	
 
+	public static  native final SubdivisionModifier SubdivisionModifier(int subdiv)/*-{
+	return  new $wnd.THREE.SubdivisionModifier(subdiv);
+	}-*/;
 	
-	
+	public static  native final SubdivisionModifier SubdivisionModifier()/*-{
+	return  new $wnd.THREE.SubdivisionModifier();
+	}-*/;
 	
 	public static native final Camera PerspectiveCamera(int fieldOfView,double ratio,double near,double far)/*-{
 	return new $wnd.THREE.PerspectiveCamera( fieldOfView, ratio, near, far ); 

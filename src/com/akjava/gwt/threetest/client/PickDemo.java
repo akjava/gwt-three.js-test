@@ -108,7 +108,7 @@ private Timer timer;
 			
 			@Override
 			public void onClick(ClickEvent event) {
-				JsArray<Intersect> intersects=projector.pickIntersects(event.getX(), event.getY(), width, height, camera,scene);
+				JsArray<Intersect> intersects=projector.gwtPickIntersects(event.getX(), event.getY(), width, height, camera,scene);
 				if(intersects.length()>0){
 				
 				}
