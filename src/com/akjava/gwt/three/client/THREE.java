@@ -48,6 +48,7 @@ import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.core.Vector4;
 import com.akjava.gwt.three.client.core.Vertex;
 import com.akjava.gwt.three.client.extras.animation.Animation;
+import com.akjava.gwt.three.client.extras.loaders.ColladaLoader;
 import com.akjava.gwt.three.client.extras.loaders.JSONLoader;
 import com.akjava.gwt.three.client.extras.modifiers.SubdivisionModifier;
 import com.akjava.gwt.three.client.lights.Light;
@@ -75,7 +76,9 @@ public class THREE {
 	public static  native final JSONLoader JSONLoader()/*-{
 	return  new $wnd.THREE.JSONLoader();
 	}-*/;
-
+	public static  native final ColladaLoader ColladaLoader()/*-{
+	return  new $wnd.THREE.ColladaLoader();
+	}-*/;
 	
 
 	public static  native final SubdivisionModifier SubdivisionModifier(int subdiv)/*-{

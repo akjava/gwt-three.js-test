@@ -106,7 +106,9 @@ public final boolean equals(Object3D object){
 public final native void setVisible(boolean bool)/*-{
 this.visible=bool;
 }-*/;
-
+public final native boolean getVisible()/*-{
+return this.visible;
+}-*/;
 
 
 }
