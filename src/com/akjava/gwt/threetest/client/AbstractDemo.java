@@ -5,11 +5,16 @@ import com.google.gwt.user.client.Timer;
 
 public abstract class AbstractDemo implements Demo{
 	protected Timer timer;
+
 	
 	@Override
 	public void stop() {
+		if(timer!=null){
 		timer.cancel();
+		timer=null;
+		}
 	}
+	
 	@Override
 	public void startTimer(){
 		timer.scheduleRepeating(1000/60);

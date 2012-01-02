@@ -5,6 +5,7 @@ import com.akjava.gwt.three.client.core.Geometry;
 import com.akjava.gwt.three.client.core.MorphTarget;
 import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.core.Vertex;
+import com.akjava.gwt.three.client.objects.Mesh;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JsArray;
 
@@ -13,12 +14,19 @@ public class GWTGeometryUtils {
 	private GWTGeometryUtils(){}
 	
 	
-	public final static  Geometry createLine(Vector3 from,Vector3 to){
+	/*
+	 * from ,to used in vetex.clone by yourselef if it's necessaly
+	 */
+	public final static  Geometry createLineGeometry(Vector3 from,Vector3 to){
 		Geometry lineG = THREE.Geometry();
 		lineG.vertices().push(THREE.Vertex(from));
 		lineG.vertices().push(THREE.Vertex(to));
 		
 		return lineG;
+	}
+	public final static  Mesh createLineMesh(Vector3 from,Vector3 to,int color){
+		return THREE.Line(GWTGeometryUtils.createLineGeometry(from, to),
+				THREE.LineBasicMaterial().color(color).build());
 	}
 	
 	/**

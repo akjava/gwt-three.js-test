@@ -24,18 +24,11 @@ import com.akjava.gwt.three.client.scenes.Scene;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 
-public class SimpleDemo extends AbstractDemo{
-private Timer timer;
+public class BoxDemo extends AbstractDemo{
+
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
-		if(timer!=null){
-			timer.cancel();
-			timer=null;
-		}
-		//renderer.setClearColorHex(0xff0000, 0.5);
-		
-		
-		
+
 		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
 		camera.getPosition().set(0, 0, 20);
 		
@@ -52,23 +45,22 @@ private Timer timer;
 		scene.add(light);
 		
 		
-		
-		
 		timer = new Timer(){
 			public void run(){
+				MainWidget.stats.update();
+				//turn around;
 				mesh.getRotation().incrementX(0.02);
 				mesh.getRotation().incrementY(0.02);
+				
 				renderer.render(scene, camera);
-
 			}
 		};
-		timer.scheduleRepeating(1000/60);
+		
+		
+		startTimer();
 	}
 
-	@Override
-	public void stop() {
-		timer.cancel();
-	}
+
 
 	@Override
 	public String getName() {

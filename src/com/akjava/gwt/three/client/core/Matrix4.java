@@ -27,4 +27,28 @@ return this.setRotationFromQuaternion(q);
 }-*/;
 
 
+public native final Vector3 multiplyVector3(Vector3 vec)/*-{
+return this.multiplyVector3(vec);
+}-*/;
+
+
+public native final void setRotationX(double thera)/*-{
+this.setRotationX(thera);
+}-*/;
+public native final void setRotationY(double thera)/*-{
+this.setRotationY(thera);
+}-*/;
+public native final void setRotationZ(double thera)/*-{
+this.setRotationZ(thera);
+}-*/;
+public native final void setTranslation(double x,double y,double z)/*-{
+this.setTranslation(x,y,z);
+}-*/;
+
+public native final Matrix4 lookAt(Vector3 eye,Vector3 center,Vector3 up)/*-{
+return this.lookAt(eye,center,up);
+}-*/;
+
+
+
 }

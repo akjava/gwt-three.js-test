@@ -91,6 +91,16 @@ public native final Vector3 clone()/*-{
 return this.clone();
 }-*/;
 
+
+
+public native final Vector3 addScalar(double s)/*-{
+return this.addScalar(s);
+}-*/;
+public native final Vector3 multiplyScalar(double s)/*-{
+return this.multiplyScalar(s);
+}-*/;
+
+
 public native final Vector3 sub(Vector3 vec3,Vector3 vec3two)/*-{
 return this.sub(vec3,vec3two);
 }-*/;

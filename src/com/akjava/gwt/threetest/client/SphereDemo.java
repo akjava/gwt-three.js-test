@@ -28,11 +28,6 @@ public class SphereDemo extends AbstractDemo{
 private Timer timer;
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
-		if(timer!=null){
-			timer.cancel();
-			timer=null;
-		}
-		
 		
 		
 		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
@@ -43,7 +38,7 @@ private Timer timer;
 		final Scene scene=THREE.Scene();
 		
 		final Mesh mesh=THREE.Mesh(THREE.SphereGeometry(5, 16, 16), 
-				THREE.MeshLambertMaterial().color(0xff0000).wireFrame(true).build());
+				THREE.MeshBasicMaterial().color(0xff0000).wireFrame(true).build());
 		scene.add(mesh);
 		
 		final Light light=THREE.PointLight(0xffffff);
@@ -64,10 +59,6 @@ private Timer timer;
 		timer.scheduleRepeating(1000/60);
 	}
 
-	@Override
-	public void stop() {
-		timer.cancel();
-	}
 
 	@Override
 	public String getName() {
