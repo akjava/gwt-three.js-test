@@ -56,12 +56,29 @@ this.geometry.computeTangents();
 this.geometry.computeFaceNormals();
 }-*/;
 
+public final native void setMaterial(Material material)/*-{	
+this.material=material;
+}-*/;
+/**
+ * @deprecated no more array
+ * @return
+ */
 public final native void setMaterials(Material material)/*-{	
 this.materials=[material];
 }-*/;
 
+
 /**
- * @deprecated
+ * @deprecated dont work 
+ * @return
+ */
+public final native void gwtBoundingSphere()/*-{	
+this.boundRadius = geometry.boundingSphere.radius;
+}-*/;
+
+
+/**
+ * @deprecated no more array
  * @return
  */
 public final native JsArray<Material> getMaterials()/*-{	
@@ -81,5 +98,8 @@ this.receiveShadow=bool;
 
 public final native Geometry getGeometry()/*-{
 return this.geometry;
+}-*/;
+public final native void setGeometry(Geometry geo)/*-{
+return this.geometry=geo;
 }-*/;
 }

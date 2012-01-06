@@ -56,9 +56,19 @@ return this.vertices;
 
 
 
+public final native void computeBoundingSphere()/*-{
+this.computeBoundingSphere();
+}-*/;
+
+public final native void computeFaceNormals()/*-{
+ this.computeFaceNormals();
+}-*/;
+public final native void computeVertexNormals()/*-{
+ this.computeVertexNormals();
+}-*/;
 
 public final native void computeBoundingBox()/*-{
-return this.computeBoundingBox();
+ this.computeBoundingBox();
 }-*/;
 
 public final native boolean getDirtyVertices()/*-{
@@ -69,6 +79,13 @@ public final native void setDirtyVertices(boolean bool)/*-{
 this.__dirtyVertices=bool;
 }-*/;
 
+public final native boolean getDynamic()/*-{
+return this.dynamic;
+}-*/;
+
+public final native void setDynamic(boolean bool)/*-{
+this.dynamic=bool;
+}-*/;
 
 
 public final native void applyMatrix(Matrix4 matrix)/*-{
