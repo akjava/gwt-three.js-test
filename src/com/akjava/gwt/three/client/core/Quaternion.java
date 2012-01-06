@@ -9,6 +9,11 @@ public native final Quaternion setFromRotationMatrix(Matrix4 b)/*-{
 return this.setFromRotationMatrix(b);
 }-*/;
 
+public native final Quaternion setFromAxisAngle(Vector3 axis,double angle)/*-{
+return this.setFromAxisAngle(axis,angle);
+}-*/;
+
+
 
 public native final double getX()/*-{
 return this.x;

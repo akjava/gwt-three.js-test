@@ -13,6 +13,20 @@ public native final void setPosition(Vector3 vec)/*-{
 this.setPosition(vec);
 }-*/;
 
+//value is shared usually got a problem
+//return THREE.Matrix4.__v1.set( this.n14, this.n24, this.n34 );
+public native final Vector3 getPosition()/*-{
+return this.getPosition().clone();
+}-*/;
+public native final Vector3 getColumnX()/*-{
+return this.getColumnX().clone();
+}-*/;
+public native final Vector3 getColumnY()/*-{
+return this.getColumnY().clone();
+}-*/;
+public native final Vector3 getColumnZ()/*-{
+return this.getColumnZ().clone();
+}-*/;
 
 public native final Matrix4 multiply(Matrix4 a,Matrix4 b)/*-{
 return this.multiply(a,b);

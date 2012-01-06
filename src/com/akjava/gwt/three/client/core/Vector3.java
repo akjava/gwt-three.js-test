@@ -87,6 +87,10 @@ public native final Vector3 subSelf(Vector3 vec3)/*-{
 return this.subSelf(vec3);
 }-*/;
 
+public native final double dot(Vector3 vec3)/*-{
+return this.dot(vec3);
+}-*/;
+
 public native final Vector3 clone()/*-{
 return this.clone();
 }-*/;
@@ -103,6 +107,14 @@ return this.multiplyScalar(s);
 
 public native final Vector3 sub(Vector3 vec3,Vector3 vec3two)/*-{
 return this.sub(vec3,vec3two);
+}-*/;
+
+public native final Vector3 cross(Vector3 vec3,Vector3 vec3two)/*-{
+return this.cross(vec3,vec3two);
+}-*/;
+
+public native final Vector3 crossSelf(Vector3 vec3)/*-{
+return this.crossSelf(vec3);
 }-*/;
 
 public native final Vector3 add(Vector3 vec3,Vector3 vec3two)/*-{

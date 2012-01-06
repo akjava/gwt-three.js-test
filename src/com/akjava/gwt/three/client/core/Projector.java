@@ -55,4 +55,17 @@ public final native JsArray<Intersect> gwtPickIntersects(int mx,int my,int sw,in
 				return  ray.intersectScene( scene );
 
 }-*/;
+
+
+public final native Vector3 projectVector(Vector3 vector,Camera camera)/*-{
+
+return this.projectVector(vector,camera);
+
+}-*/;
+public final native Vector3 unprojectVector(Vector3 vector,Camera camera)/*-{
+
+return this.unprojectVector(vector,camera);
+
+}-*/;
+
 }

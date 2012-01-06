@@ -15,16 +15,24 @@
  */
 package com.akjava.gwt.threetest.client;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.core.Matrix4;
 import com.akjava.gwt.three.client.core.Object3D;
+import com.akjava.gwt.three.client.core.Projector;
+import com.akjava.gwt.three.client.core.Quaternion;
 import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.gwt.GWTGeometryUtils;
+import com.akjava.gwt.three.client.gwt.GWTUtils;
 import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 
@@ -36,106 +44,172 @@ private Timer timer;
 			timer.cancel();
 			timer=null;
 		}
-		
+		final Scene scene=THREE.Scene();
 	
 		
 		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
 		camera.getPosition().set(0, 0, 50);
 		
+		scene.add(camera);
 		
-		final Scene scene=THREE.Scene();
+		
 		Light pointLight = THREE.PointLight(0xffffff);
 		pointLight.setPosition(0, 10, 300);
 		scene.add(pointLight);
 		
+		
+		
+		
+		
+		
 		root=THREE.Object3D();
 		scene.add(root);
 		
-		
-		
-		final Mesh mesh=THREE.Mesh(THREE.CubeGeometry(1, 1, 1), 
-				THREE.MeshBasicMaterial().color(0xff0000).build());
-		root.add(mesh);
-		
-		
-		//00
-		
-		final Mesh mesh2=THREE.Mesh(THREE.CubeGeometry(1, 1, 1), 
-				THREE.MeshBasicMaterial().color(0x00ff00).build());
-		root.add(mesh2);
-		
-		Vector3 point1=THREE.Vector3(5, 10, 0);
-		root.add(GWTGeometryUtils.createLineMesh(THREE.Vector3(), point1.clone(),0));
-		mesh.lookAt(point1);
-		Matrix4 tmp=THREE.Matrix4();
-		tmp.setRotationFromEuler(mesh.getRotation(), "XYZ");
-		
-		log(point1);
-		mesh2.setPosition(point1);
-		
-		
-		final Mesh tmpMesh=THREE.Mesh(THREE.CubeGeometry(1, 1, 1), 
-				THREE.MeshBasicMaterial().color(0x000000).build());
-		root.add(tmpMesh);
-		point1.multiplyScalar(0.5);
-		tmpMesh.setPosition(point1);
-		log(point1);
-		
-		final Mesh tmp2Mesh=THREE.Mesh(THREE.CubeGeometry(1, 1, 1), 
-				THREE.MeshBasicMaterial().color(0x000000).build());
-		root.add(tmp2Mesh);
-		point1.multiplyScalar(0.5);
-		tmp2Mesh.setPosition(point1);
-		log(point1);
-		
-		double thera=Math.atan2(10, 5);//
-		double theraY=Math.atan2(-15, 10);//
-		double theraZ=Math.atan2(5, -15);//
-		
-		Matrix4 mx=THREE.Matrix4();
-		mx.setRotationZ(thera);
-		
-		Matrix4 m2=THREE.Matrix4();
-		m2.setRotationX(theraY);
-		mx.multiply(mx, m2);
-		
-		Matrix4 m3=THREE.Matrix4();
-		m3.setRotationY(theraZ);
-		mx.multiply(mx, m3);
-		
-		Matrix4 foward=THREE.Matrix4();
-		//foward.setTranslation(0, 0,10);
-		//mx.multiply(mx,foward);
-		
-		Vector3 newPos=THREE.Vector3();//Z is right
-		newPos.set(0,0,15);
-		//tmp.multiplyVector3(newPos);
-		
-		
-		
-		
-		final Mesh mesh3=THREE.Mesh(THREE.CubeGeometry(1, 1, 1), 
+		targetMesh = THREE.Mesh(THREE.CubeGeometry(.5, .5, .5), 
 				THREE.MeshBasicMaterial().color(0x0000ff).build());
-		root.add(mesh3);
-		mesh3.setPosition(newPos);
-		
-		
-		root.add(THREE.Line(GWTGeometryUtils.createLineGeometry(THREE.Vector3(), point1),THREE.LineBasicMaterial().color(0x888888).build()));
-		root.add(THREE.Line(GWTGeometryUtils.createLineGeometry(THREE.Vector3(), newPos),THREE.LineBasicMaterial().color(0x888888).build()));
+		root.add(targetMesh);
+		targetMesh.setPosition(targetPos);
 		
 		
 		
+		joints = new ArrayList<Object3D>();
+
+		Object3D parent=THREE.Object3D();
+		joints.add(parent);
+		
+		root.add(parent);
+		for(int i=0;i<4;i++){
+			int color=0xff0000;
+			if(i==3){
+				color=0x00ff00;
+			}
+			
+			
+			if(i==3){
+				hand=THREE.Mesh(THREE.CubeGeometry(.5, .5, .5), 
+						THREE.MeshBasicMaterial().color(color).build());
+				parent.add(hand);
+				Vector3 pos=THREE.Vector3(2, 0, 0);
+				hand.setPosition(pos);
+				parent.add(GWTGeometryUtils.createLineMesh(THREE.Vector3(), pos, 0x888888));
+			}else{
+				final Mesh mesh=THREE.Mesh(THREE.CubeGeometry(.5, .5, .5), 
+						THREE.MeshBasicMaterial().color(color).build());
+				parent.add(mesh);
+				Vector3 pos=THREE.Vector3(2, 0, 0);
+				mesh.setPosition(pos);
+				parent.add(GWTGeometryUtils.createLineMesh(THREE.Vector3(), pos, 0x888888));
+				Object3D joint=THREE.Object3D();
+				joint.setPosition(pos);
+				joints.add(joint);	
+			parent.add(joint);
+			parent=joint;
+			}
+		}
+		
+		
+		
+		
+		
+panel.addClickHandler(new ClickHandler() {
+			@Override
+			public void onClick(ClickEvent event) {
+				if(!steping){
+				Vector3 tpos=GWTUtils.toWebGLXY(event.getX(), event.getY(), camera, width, height);
+				tpos.setZ(0);
+				targetPos=tpos;
+				targetMesh.setPosition(targetPos);
+				
+				//log(ret);
+				
+				steped=0;
+				steping=true;
+				}
+			}
+});
+		
+		/*
+		
+		*/
+		last=System.currentTimeMillis();
 		timer = new Timer(){
 			public void run(){
 				root.setRotation(Math.toRadians(MainWidget.cameraRotation.getX()),Math.toRadians(MainWidget.cameraRotation.getY()),Math.toRadians(MainWidget.cameraRotation.getZ()));
 				renderer.render(scene, camera);
 
+				if(steping){
+					long c=System.currentTimeMillis();
+					if(last+100<c){
+						doStep();
+						steped++;
+						if(steped==20){
+							steping=false;
+						}
+						last=c;
+					}
+					
+				}
 			}
 		};
 		timer.scheduleRepeating(1000/60);
 	}
+	long last;
+	private boolean steping;
+	int steped;
 
 	private Object3D root;
+	
+	private int index=3;
+
+	private List<Object3D> joints;
+
+	Projector projector=THREE.Projector();
+	private  Mesh hand;
+	Vector3 targetPos=THREE.Vector3(10, -4, 0);
+
+	private Mesh targetMesh;
+	public  void doStep(){
+		Vector3 handPos=hand.getMatrixWorld().getPosition();
+		Object3D joint=joints.get(index);
+		
+		
+		
+		Vector3 jointPos=joint.getMatrixWorld().getPosition();
+		
+		Vector3 jointVector=handPos.clone().subSelf(jointPos).normalize();
+		
+		Vector3 targetVector=targetPos.clone().subSelf(jointPos).normalize();
+		
+		double acv=jointVector.dot(targetVector);
+		double angle=Math.acos(acv);
+		
+		Vector3 axis=THREE.Vector3().cross(jointVector,targetVector);
+		axis.normalize();
+		Quaternion q=THREE.Quaternion().setFromAxisAngle(axis,angle);
+		
+		
+		
+		
+		
+		
+		Matrix4 matrix=THREE.Matrix4().setRotationFromQuaternion(q);
+		
+		
+		
+		Matrix4 beforeRot=THREE.Matrix4();
+		beforeRot.setRotationFromEuler(joint.getRotation(), "XYZ");
+		matrix.multiply(beforeRot, matrix);
+		
+		
+		Vector3 vec=THREE.Vector3();
+		vec.setRotationFromMatrix(matrix);
+		joint.setRotation(vec);
+		joint.updateMatrixWorld(true);
+		index--;
+		if(index<0){
+			index=joints.size()-1;
+		}
+	}
 	
 	@Override
 	public void stop() {
@@ -144,7 +218,7 @@ private Timer timer;
 
 	@Override
 	public String getName() {
-		return "Bone";
+		return "IK Bone";
 	}
 
 }

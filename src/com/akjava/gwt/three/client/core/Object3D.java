@@ -70,6 +70,13 @@ public final native Vector3 getScale()/*-{
 return this.scale;
 }-*/;
 
+/*
+ * if you use,be care about Object3D.updateMatrixWorld(force)
+ */
+public final native Matrix4 getMatrixWorld()/*-{
+return this.matrixWorld;
+}-*/;
+
 public final native JsArray<Object3D> getChildren()/*-{
 return this.children;
 }-*/;
@@ -94,6 +101,16 @@ return this.name;
 public final native void setName(String name)/*-{
 this.name=name;
 }-*/;
+
+
+public final native void updateMatrix()/*-{
+this.updateMatrix();
+}-*/;
+
+public final native void updateMatrixWorld(boolean force)/*-{
+this.updateMatrixWorld(force);
+}-*/;
+
 
 public final native int getId()/*-{
 return this.id;
