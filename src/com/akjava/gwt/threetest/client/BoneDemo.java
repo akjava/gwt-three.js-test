@@ -223,7 +223,7 @@ panel.addClickHandler(new ClickHandler() {
 
 	@Override
 	public String getName() {
-		return "IK Bone";
+		return "CDD-IK Bone";
 	}
 
 }
