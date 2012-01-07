@@ -1,5 +1,10 @@
 /*
- * Copyright (C) 2011 aki@akjava.com
+ * 
+ * CCD-IK
+ * based on Inverse kinematics and geometric constraints for articulated figure manipulation
+ * http://summit.sfu.ca/item/5706
+ * 
+ * Copyright (C) 2011-2012 aki@akjava.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -165,7 +170,7 @@ panel.addClickHandler(new ClickHandler() {
 
 	Projector projector=THREE.Projector();
 	private  Mesh hand;
-	Vector3 targetPos=THREE.Vector3(10, -4, 0);
+	Vector3 targetPos=THREE.Vector3(0, 0, 0);
 
 	private Mesh targetMesh;
 	public  void doStep(){
