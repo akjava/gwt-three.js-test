@@ -45,10 +45,7 @@ public class BoneDemo extends AbstractDemo{
 private Timer timer;
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
-		if(timer!=null){
-			timer.cancel();
-			timer=null;
-		}
+		
 		final Scene scene=THREE.Scene();
 	
 		
@@ -216,10 +213,7 @@ panel.addClickHandler(new ClickHandler() {
 		}
 	}
 	
-	@Override
-	public void stop() {
-		timer.cancel();
-	}
+
 
 	@Override
 	public String getName() {
