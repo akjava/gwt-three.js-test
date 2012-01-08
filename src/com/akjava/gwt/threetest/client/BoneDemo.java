@@ -3,6 +3,8 @@
  * CCD-IK
  * based on Inverse kinematics and geometric constraints for articulated figure manipulation
  * http://summit.sfu.ca/item/5706
+ * and
+ * http://www.tmps.org/index.php?CCD-IK%20and%20Particle-IK
  * 
  * Copyright (C) 2011-2012 aki@akjava.com
  *
@@ -32,6 +34,7 @@ import com.akjava.gwt.three.client.core.Quaternion;
 import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.gwt.GWTGeometryUtils;
 import com.akjava.gwt.three.client.gwt.GWTUtils;
+import com.akjava.gwt.three.client.gwt.animation.ik.CDDIK;
 import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
@@ -170,41 +173,24 @@ panel.addClickHandler(new ClickHandler() {
 	Vector3 targetPos=THREE.Vector3(0, 0, 0);
 
 	private Mesh targetMesh;
+	private CDDIK cddik=new CDDIK();
 	public  void doStep(){
 		Vector3 handPos=hand.getMatrixWorld().getPosition();
 		Object3D joint=joints.get(index);
-		
-		
-		
 		Vector3 jointPos=joint.getMatrixWorld().getPosition();
-		
-		Vector3 jointVector=handPos.clone().subSelf(jointPos).normalize();
-		
-		Vector3 targetVector=targetPos.clone().subSelf(jointPos).normalize();
-		
-		double acv=jointVector.dot(targetVector);
-		double angle=Math.acos(acv);
-		
-		Vector3 axis=THREE.Vector3().cross(jointVector,targetVector);
-		axis.normalize();
-		Quaternion q=THREE.Quaternion().setFromAxisAngle(axis,angle);
-		
-		
-		
-		
-		
-		
-		Matrix4 matrix=THREE.Matrix4().setRotationFromQuaternion(q);
-		
-		
 		
 		Matrix4 beforeRot=THREE.Matrix4();
 		beforeRot.setRotationFromEuler(joint.getRotation(), "XYZ");
-		matrix.multiply(beforeRot, matrix);
+		Matrix4 rotated=cddik.doStep(handPos, jointPos, beforeRot, targetPos);
+		
+		
+		
+		
+		
 		
 		
 		Vector3 vec=THREE.Vector3();
-		vec.setRotationFromMatrix(matrix);
+		vec.setRotationFromMatrix(rotated);
 		joint.setRotation(vec);
 		joint.updateMatrixWorld(true);
 		index--;
