@@ -4,15 +4,17 @@ import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.core.Matrix4;
 import com.akjava.gwt.three.client.core.Projector;
+import com.akjava.gwt.three.client.core.Quaternion;
 import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.objects.Mesh;
+import com.google.gwt.core.client.JsArrayNumber;
 
 public class GWTThreeUtils {
 
 	/*
 	 * get angle from p1 to p2 ,use Z vector 
 	 */
-	public Vector3 getRotation(Vector3 p1,Vector3 p2){
+	public static Vector3 getRotation(Vector3 p1,Vector3 p2){
 	Vector3 up=THREE.Vector3(0, 1, 0);
 	Matrix4 mx=THREE.Matrix4();
 	mx.lookAt(p2,p1,up);
@@ -20,6 +22,14 @@ public class GWTThreeUtils {
 	Vector3 ret=THREE.Vector3();
 	ret.setRotationFromMatrix(mx);
 	return ret;
+	}
+	public static Quaternion rotationQuaternion(Vector3 vec){
+		return rotationQuaternion(rotationToMatrix4(vec));
+	}
+	public static Quaternion rotationQuaternion(Matrix4 mx){
+		Quaternion q=THREE.Quaternion();
+		q.setFromRotationMatrix(mx);
+		return q;
 	}
 	
 	//Object positon to Screen Position
@@ -67,6 +77,17 @@ public class GWTThreeUtils {
 		mx.setRotationFromEuler(vec, "XYZ");
 		return mx;
 	}
+	public static Vector3 rotationToVector3(Quaternion q){
+		Matrix4 mx=THREE.Matrix4();
+		mx.setRotationFromQuaternion(q);
+		return rotationToVector3(mx);
+	}
+	
+	public static Vector3 rotationToVector3(Matrix4 mx){
+		Vector3 vec=THREE.Vector3();
+		vec.setRotationFromMatrix(mx);
+		return vec;
+	}
 	public static Matrix4 positionToMatrix4(Vector3 vec){
 		Matrix4 mx=THREE.Matrix4();
 		mx.setTranslation(vec.getX(),vec.getY(),vec.getZ());
@@ -109,4 +130,11 @@ public class GWTThreeUtils {
 		return THREE.Vector3(x, y, z);
 	}
 	
+	public static final Vector3 jsArrayToVector3(JsArrayNumber array){
+		return THREE.Vector3(array.get(0),array.get(1), array.get(2));
+	}
+	
+	public static final Quaternion jsArrayToQuaternion(JsArrayNumber array){
+		return THREE.Quaternion(array.get(0),array.get(1), array.get(2),array.get(3));
+	}
 }

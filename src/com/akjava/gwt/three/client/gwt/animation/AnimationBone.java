@@ -3,7 +3,6 @@ package com.akjava.gwt.three.client.gwt.animation;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.core.Quaternion;
 import com.akjava.gwt.three.client.core.Vector3;
-import com.gargoylesoftware.htmlunit.ThreadedRefreshHandler;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayNumber;
 
@@ -64,6 +63,10 @@ public class AnimationBone extends JavaScriptObject{
 	
 	public static final Vector3 jsArrayToVector3(JsArrayNumber array){
 		return THREE.Vector3(array.get(0),array.get(1), array.get(2));
+	}
+	
+	public static final Quaternion jsArrayToQuaternion(JsArrayNumber array){
+		return THREE.Quaternion(array.get(0),array.get(1), array.get(2),array.get(3));
 	}
 	/*
 	 * sometime it's empty

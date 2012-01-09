@@ -115,6 +115,9 @@ public class THREE {
 	public static native final Quaternion Quaternion()/*-{
 	return new $wnd.THREE.Quaternion();
 	}-*/;
+	public static native final Quaternion Quaternion(double x,double y,double z,double w)/*-{
+	return new $wnd.THREE.Quaternion(x,y,z,w);
+	}-*/;
 	
 	public static native final Scene Scene()/*-{
 	return new $wnd.THREE.Scene();
