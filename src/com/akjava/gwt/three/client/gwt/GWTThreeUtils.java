@@ -1,0 +1,112 @@
+package com.akjava.gwt.three.client.gwt;
+
+import com.akjava.gwt.three.client.THREE;
+import com.akjava.gwt.three.client.cameras.Camera;
+import com.akjava.gwt.three.client.core.Matrix4;
+import com.akjava.gwt.three.client.core.Projector;
+import com.akjava.gwt.three.client.core.Vector3;
+import com.akjava.gwt.three.client.objects.Mesh;
+
+public class GWTThreeUtils {
+
+	/*
+	 * get angle from p1 to p2 ,use Z vector 
+	 */
+	public Vector3 getRotation(Vector3 p1,Vector3 p2){
+	Vector3 up=THREE.Vector3(0, 1, 0);
+	Matrix4 mx=THREE.Matrix4();
+	mx.lookAt(p2,p1,up);
+	
+	Vector3 ret=THREE.Vector3();
+	ret.setRotationFromMatrix(mx);
+	return ret;
+	}
+	
+	//Object positon to Screen Position
+	public static native final Vector3 toScreenXY(Vector3 canvasXY,Camera camera,int width,int height)/*-{
+	 var pos = canvasXY.clone();
+    projScreenMat = new $wnd.THREE.Matrix4();
+    projScreenMat.multiply( camera.projectionMatrix, camera.matrixWorldInverse );
+    projScreenMat.multiplyVector3( pos );
+
+    return new $wnd.THREE.Vector3( ( pos.x + 1 ) * width / 2,
+        ( - pos.y + 1) * height / 2 ,0);
+	}-*/;
+	
+	private static final Projector projector=THREE.Projector();
+	
+	//for camera position & rotation 0,0,0,
+	public static Vector3 toWebGLXY(int mouseX,int mouseY,Camera camera,int width,int height){
+		Vector3 mouseXY=THREE.Vector3(mouseX-width/2, -(mouseY-height/2), 0);
+		Vector3 pj=projector.projectVector(mouseXY, camera);
+		return pj;
+	}
+	
+	public static Mesh createSimpleBox(Vector3 position,double size,int color){
+		Mesh mesh=THREE.Mesh(THREE.CubeGeometry(size, size, size), THREE.MeshLambertMaterial().color(color).build());
+		mesh.setPosition(position);
+		return mesh;
+	}
+	public static Vector3 radiantToDegree(Vector3 vec){
+		Vector3 ret=THREE.Vector3();
+		ret.setX(Math.toDegrees(vec.getX()));
+		ret.setY(Math.toDegrees(vec.getY()));
+		ret.setZ(Math.toDegrees(vec.getZ()));
+		return ret;
+	}
+	public static Vector3 degreeToRagiant(Vector3 vec){
+		Vector3 ret=THREE.Vector3();
+		ret.setX(Math.toRadians(vec.getX()));
+		ret.setY(Math.toRadians(vec.getY()));
+		ret.setZ(Math.toRadians(vec.getZ()));
+		return ret;
+	}
+	
+	public static Matrix4 rotationToMatrix4(Vector3 vec){
+		Matrix4 mx=THREE.Matrix4();
+		mx.setRotationFromEuler(vec, "XYZ");
+		return mx;
+	}
+	public static Matrix4 positionToMatrix4(Vector3 vec){
+		Matrix4 mx=THREE.Matrix4();
+		mx.setTranslation(vec.getX(),vec.getY(),vec.getZ());
+		return mx;
+	}
+	public static Vector3 toPositionVec(Matrix4 mx){
+		Vector3 vec=THREE.Vector3();
+		vec.setPositionFromMatrix(mx);
+		return vec;
+	}
+	public static Vector3 toDegreeAngle(Matrix4 mx){
+		Vector3 vec=THREE.Vector3();
+		vec.setRotationFromMatrix(mx);
+		double x=Math.toDegrees(vec.getX());
+		x%=360;
+		if(x>180){
+			x=-(360-x);
+		}
+		
+		//vec.setX(x);
+		
+		double y=Math.toDegrees(vec.getY());
+		y%=360;
+		if(y>180){
+			y=-(360-y);
+		}
+		
+		//vec.setY(y);
+		
+		
+		double z=Math.toDegrees(vec.getZ());
+		z%=360;
+		if(z>180){
+			z=-(360-z);
+		}
+		
+		//vec.setY(z);
+		
+		//return vec; //i have no idea but sometime  return radiant value.
+		return THREE.Vector3(x, y, z);
+	}
+	
+}

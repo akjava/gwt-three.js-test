@@ -33,7 +33,7 @@ import com.akjava.gwt.three.client.core.Projector;
 import com.akjava.gwt.three.client.core.Quaternion;
 import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.gwt.GWTGeometryUtils;
-import com.akjava.gwt.three.client.gwt.GWTUtils;
+import com.akjava.gwt.three.client.gwt.GWTThreeUtils;
 import com.akjava.gwt.three.client.gwt.animation.ik.CDDIK;
 import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.objects.Mesh;
@@ -53,7 +53,7 @@ private Timer timer;
 	
 		
 		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
-		camera.getPosition().set(0, 0, 50);
+		camera.getPosition().set(0, 0, 100);
 		
 		scene.add(camera);
 		
@@ -120,7 +120,7 @@ panel.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
 				if(!steping){
-				Vector3 tpos=GWTUtils.toWebGLXY(event.getX(), event.getY(), camera, width, height);
+				Vector3 tpos=GWTThreeUtils.toWebGLXY(event.getX(), event.getY(), camera, width, height);
 				tpos.setZ(0);
 				targetPos=tpos;
 				targetMesh.setPosition(targetPos);

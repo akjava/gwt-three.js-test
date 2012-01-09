@@ -21,6 +21,9 @@ public abstract class SimpleDemoEntryPoint extends AbstractDemoEntryPoint{
 	protected int minCamera=5;
 	@Override
 	public void onMouseWheel(MouseWheelEvent event) {
+		if(event.isShiftKeyDown()){
+			onMouseWheelWithShiftKey(event.getDeltaY());
+		}else{
 		//TODO make class
 		long t=System.currentTimeMillis();
 		if(mouseLast+100>t){
@@ -34,7 +37,11 @@ public abstract class SimpleDemoEntryPoint extends AbstractDemoEntryPoint{
 		tmp=Math.min(4000, tmp);
 		cameraZ=tmp;
 		mouseLast=t;
+		}
 		//log(""+cameraZ);
+	}
+	public  void onMouseWheelWithShiftKey(int deltaY){
+		
 	}
 	
 	@Override
