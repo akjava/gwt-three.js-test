@@ -14,8 +14,8 @@ public abstract class SimpleDemoEntryPoint extends AbstractDemoEntryPoint{
 	protected Camera camera;
 	protected int cameraX,cameraY,cameraZ;
 	protected int screenWidth,screenHeight;
-	private long mouseLast;
-	private int tmpZoom;
+	protected long mouseLast;
+	protected int tmpZoom;
 	protected Scene scene;
 	protected int defaultZoom=10;
 	protected int minCamera=5;

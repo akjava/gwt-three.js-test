@@ -2,7 +2,7 @@ package com.akjava.gwt.three.client.gwt.animation;
 
 import com.akjava.gwt.three.client.core.Vector3;
 
-public class NameAndPosition {
+public class NameAndVector3 {
 private String name;
 private Vector3 position;
 private int index;
@@ -18,13 +18,13 @@ public String getName() {
 public void setName(String name) {
 	this.name = name;
 }
-public Vector3 getPosition() {
+public Vector3 getVector3() {
 	return position;
 }
-public void setPosition(Vector3 position) {
+public void setVector3(Vector3 position) {
 	this.position = position;
 }
-public NameAndPosition(String name,Vector3 position,int index){
+public NameAndVector3(String name,Vector3 position,int index){
 	this.name=name;
 	this.position=position;
 	this.index=index;

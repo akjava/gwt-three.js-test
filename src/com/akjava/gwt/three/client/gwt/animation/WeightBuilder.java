@@ -17,14 +17,14 @@ public static final int MODE_NearSingleBone=0;
 public static final int MODE_NearSpecial=1;
 public static final int MODE_NearAgressive=2;
 
-	public static Vector4 findNearSingleBone(List<NameAndPosition> nameAndPositions,Vector3 pos,JsArray<AnimationBone> bones){
-		Vector3 pt=nameAndPositions.get(0).getPosition().clone();
+	public static Vector4 findNearSingleBone(List<NameAndVector3> nameAndPositions,Vector3 pos,JsArray<AnimationBone> bones){
+		Vector3 pt=nameAndPositions.get(0).getVector3().clone();
 		Vector3 near=pt.subSelf(pos);
 		int index1=nameAndPositions.get(0).getIndex();
 		double near1=pt.length();
 
 		for(int i=1;i<nameAndPositions.size();i++){
-			Vector3 npt=nameAndPositions.get(i).getPosition().clone();
+			Vector3 npt=nameAndPositions.get(i).getVector3().clone();
 			near=npt.subSelf(pos);
 			double l=near.length();
 			if(l<near1){
@@ -36,8 +36,8 @@ public static final int MODE_NearAgressive=2;
 	}
 	
 	
-	public static Vector4 findNearBoneAggresive(List<NameAndPosition> nameAndPositions,Vector3 pos,JsArray<AnimationBone> bones){
-		Vector3 pt=nameAndPositions.get(0).getPosition().clone();
+	public static Vector4 findNearBoneAggresive(List<NameAndVector3> nameAndPositions,Vector3 pos,JsArray<AnimationBone> bones){
+		Vector3 pt=nameAndPositions.get(0).getVector3().clone();
 		Vector3 near=pt.subSelf(pos);
 		int index1=nameAndPositions.get(0).getIndex();
 		double near1=pt.length();
@@ -46,7 +46,7 @@ public static final int MODE_NearAgressive=2;
 		
 		
 		for(int i=1;i<nameAndPositions.size();i++){
-			Vector3 npt=nameAndPositions.get(i).getPosition().clone();
+			Vector3 npt=nameAndPositions.get(i).getVector3().clone();
 			near=npt.subSelf(pos);
 			double l=near.length();
 			if(l<near1){
@@ -75,9 +75,9 @@ public static final int MODE_NearAgressive=2;
 	}
 	
 
-public static Vector4 findNearSpecial(List<NameAndPosition> nameAndPositions,Vector3 pos,JsArray<AnimationBone> bones,int vindex){
+public static Vector4 findNearSpecial(List<NameAndVector3> nameAndPositions,Vector3 pos,JsArray<AnimationBone> bones,int vindex){
 	
-	Vector3 pt=nameAndPositions.get(0).getPosition().clone();
+	Vector3 pt=nameAndPositions.get(0).getVector3().clone();
 	Vector3 near=pt.subSelf(pos);
 	int index1=nameAndPositions.get(0).getIndex();
 	double near1=near.length();
@@ -88,7 +88,7 @@ public static Vector4 findNearSpecial(List<NameAndPosition> nameAndPositions,Vec
 	int nameIndex2=0;
 	
 	for(int i=1;i<nameAndPositions.size();i++){
-		Vector3 npt=nameAndPositions.get(i).getPosition().clone();
+		Vector3 npt=nameAndPositions.get(i).getVector3().clone();
 		Vector3 subPos=npt.subSelf(pos);
 		double l=subPos.length();
 		//if(vindex==250)log(nameAndPositions.get(i).getName()+","+l);
@@ -120,14 +120,14 @@ public static Vector4 findNearSpecial(List<NameAndPosition> nameAndPositions,Vec
 		Map<Integer,Integer> totalIndex=new HashMap<Integer,Integer>();
 		
 		//zero is largest
-		Vector3 rootNear=nameAndPositions.get(0).getPosition().clone();
+		Vector3 rootNear=nameAndPositions.get(0).getVector3().clone();
 		rootNear.subSelf(pos);
 		
 		
 		
 		for(int i=0;i<nameAndPositions.size();i++){
 			int index=nameAndPositions.get(i).getIndex();
-			Vector3 nearPos=nameAndPositions.get(i).getPosition().clone();
+			Vector3 nearPos=nameAndPositions.get(i).getVector3().clone();
 			nearPos.subSelf(pos);
 			double l=nearPos.length();
 			
@@ -173,7 +173,7 @@ public static Vector4 findNearSpecial(List<NameAndPosition> nameAndPositions,Vec
 	}
 	
 	public static void autoWeight(Geometry geometry,JsArray<AnimationBone> bones,int mode,JsArray<Vector4> bodyIndices,JsArray<Vector4> bodyWeight){
-	List<NameAndPosition> nameAndPositions=boneToNameAndPosition(bones);
+	List<NameAndVector3> nameAndPositions=boneToNameAndPosition(bones);
 	for(int i=0;i<geometry.vertices().length();i++){
 		Vector4 ret=null;
 		if(mode==MODE_NearSingleBone){
@@ -200,8 +200,8 @@ public static Vector4 findNearSpecial(List<NameAndPosition> nameAndPositions,Vec
 	
 	
 	//add all bones start,half end position
-	public static List<NameAndPosition> boneToNameAndPosition(JsArray<AnimationBone> bones){
-		List<NameAndPosition> lists=new ArrayList<NameAndPosition>();
+	public static List<NameAndVector3> boneToNameAndPosition(JsArray<AnimationBone> bones){
+		List<NameAndVector3> lists=new ArrayList<NameAndVector3>();
 		List<Vector3> absolutePos=new ArrayList<Vector3>();
 		for(int i=0;i<bones.length();i++){
 			AnimationBone bone=bones.get(i);
@@ -223,8 +223,8 @@ public static Vector4 findNearSpecial(List<NameAndPosition> nameAndPositions,Vec
 				endPos=pos.clone().multiplyScalar(.9).addSelf(parentPos);
 				Vector3 half=pos.clone().multiplyScalar(.5).addSelf(parentPos);
 				
-				lists.add(new NameAndPosition(parentName,endPos,parentIndex));//start pos
-				lists.add(new NameAndPosition(parentName,half,parentIndex));//half pos
+				lists.add(new NameAndVector3(parentName,endPos,parentIndex));//start pos
+				lists.add(new NameAndVector3(parentName,half,parentIndex));//half pos
 				}else{
 					
 				}
@@ -237,7 +237,7 @@ public static Vector4 findNearSpecial(List<NameAndPosition> nameAndPositions,Vec
 			absolutePos.add(pos);
 			
 			
-			lists.add(new NameAndPosition(bone.getName(),pos,i));//end pos
+			lists.add(new NameAndVector3(bone.getName(),pos,i));//end pos
 		}
 		return lists;
 	}

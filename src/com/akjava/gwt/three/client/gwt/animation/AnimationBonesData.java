@@ -117,6 +117,9 @@ public class AnimationBonesData {
 		}
 		return -1;
 	}
+	public String getBoneName(int index){
+		return bones.get(index).getName();
+	}
 	
 	public Matrix4 getBoneMatrix(String name){
 		return getBoneMatrix(getBoneIndex(name));

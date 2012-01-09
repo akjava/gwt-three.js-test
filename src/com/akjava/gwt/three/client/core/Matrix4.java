@@ -45,6 +45,10 @@ return this.setRotationFromQuaternion(q);
 }-*/;
 
 
+public native final Matrix4 getInverse(Matrix4 b)/*-{
+return this.getInverse(b);
+}-*/;
+
 public native final Vector3 multiplyVector3(Vector3 vec)/*-{
 return this.multiplyVector3(vec);
 }-*/;

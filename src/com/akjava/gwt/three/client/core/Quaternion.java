@@ -15,6 +15,15 @@ return this.setFromAxisAngle(axis,angle);
 
 
 
+public native final Quaternion multiplySelf(Quaternion q)/*-{
+return this.multiplySelf(q);
+}-*/;
+
+public native final Quaternion multiply(Quaternion q,Quaternion q2)/*-{
+return this.multiply(q,q2);
+}-*/;
+
+
 public native final double getX()/*-{
 return this.x;
 }-*/;
