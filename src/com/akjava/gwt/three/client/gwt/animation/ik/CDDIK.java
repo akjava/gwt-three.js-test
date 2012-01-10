@@ -1,5 +1,6 @@
 package com.akjava.gwt.three.client.gwt.animation.ik;
 
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.core.Matrix4;
 import com.akjava.gwt.three.client.core.Quaternion;
@@ -16,6 +17,10 @@ public class CDDIK {
 		double acv=jointVector.dot(targetVector);
 		double angle=Math.acos(acv);
 		
+		if(angle<= 1.0e-5f){
+			return null;
+		}
+		LogUtils.log("angle:"+angle+","+Math.toDegrees(angle));
 		Vector3 axis=THREE.Vector3().cross(jointVector,targetVector);
 		axis.normalize();
 		Quaternion q=THREE.Quaternion().setFromAxisAngle(axis,angle);

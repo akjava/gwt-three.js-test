@@ -70,6 +70,10 @@ public final native Vector3 getScale()/*-{
 return this.scale;
 }-*/;
 
+public final native Object3D getParent()/*-{
+return this.parent;
+}-*/;
+
 /*
  * if you use,be care about Object3D.updateMatrixWorld(force)
  */

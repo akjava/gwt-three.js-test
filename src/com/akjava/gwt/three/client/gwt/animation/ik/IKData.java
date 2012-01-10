@@ -3,6 +3,7 @@ package com.akjava.gwt.three.client.gwt.animation.ik;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.core.Vector3;
 
 public class IKData {
@@ -39,6 +40,6 @@ public class IKData {
 	}
 	private String lastBoneName;
 	private List<String> bones=new ArrayList<String>();;
-	private Vector3 targetPos;
-	private int iteration;
+	private Vector3 targetPos=THREE.Vector3();
+	private int iteration=11;
 }

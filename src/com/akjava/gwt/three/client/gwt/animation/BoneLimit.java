@@ -1,6 +1,11 @@
 package com.akjava.gwt.three.client.gwt.animation;
 
+import com.akjava.gwt.lib.client.LogUtils;
+import com.akjava.gwt.three.client.core.Vector3;
+
 public class BoneLimit {
+public final static double MAX=Math.toRadians(180);
+public final static double MIN=Math.toRadians(-180);
 public double getMinX() {
 		return minX;
 	}
@@ -49,15 +54,53 @@ public double getMinX() {
 		this.maxZ = maxZ;
 	}
 
-	public static BoneLimit createBoneLimit(double mx,double xx,double my,double xy,double mz,double xz){
+	public static BoneLimit createBoneLimit(double minx,double maxx,double miny,double maxy,double minz,double maxz){
 		BoneLimit limit=new BoneLimit();
-		limit.setMinX(mx);
-		limit.setMaxX(xx);
-		limit.setMinY(my);
-		limit.setMaxY(xy);
-		limit.setMinZ(mz);
-		limit.setMaxZ(xz);
+		
+		limit.setMinX(Math.toRadians(minx));
+		limit.setMaxX(Math.toRadians(maxx));
+		limit.setMinY(Math.toRadians(miny));
+		limit.setMaxY(Math.toRadians(maxy));
+		limit.setMinZ(Math.toRadians(minz));
+		limit.setMaxZ(Math.toRadians(maxz));
 		return limit;
 	}
 private double minX,minY,minZ,maxX,maxY,maxZ;
+public void apply(Vector3 angles) {
+	if(angles.getX()<minX){
+		angles.setX(minX);
+	}
+	else if(angles.getX()>maxX){
+		angles.setX(maxX);
+	}
+	
+	
+	
+	if(angles.getY()<minY){
+		angles.setY(minY);
+	}
+	else if(angles.getY()>maxY){
+		angles.setY(maxY);
+	}
+	
+	if(angles.getZ()<minZ){
+		angles.setZ(minZ);
+	}
+	else if(angles.getZ()>maxZ){
+		angles.setZ(maxZ);
+	}
+	
+	
+	if("NaN".equals(""+angles.getX())){
+		angles.setX(0);
+		LogUtils.log("Nan-x");
+	}
+	if("NaN".equals(""+angles.getY())){
+		angles.setY(0);
+	}
+	if("NaN".equals(""+angles.getZ())){
+		angles.setZ(0);
+	}
+	}
+
 }
