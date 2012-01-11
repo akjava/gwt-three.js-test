@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.core.Geometry;
 import com.akjava.gwt.three.client.core.Vector3;
@@ -16,7 +17,8 @@ public class WeightBuilder {
 public static final int MODE_NearSingleBone=0;
 public static final int MODE_NearSpecial=1;
 public static final int MODE_NearAgressive=2;
-
+public static final int MODE_NearParentAndChildren=3;
+public static final String KEY_HALF="_half_";
 	public static Vector4 findNearSingleBone(List<NameAndVector3> nameAndPositions,Vector3 pos,JsArray<AnimationBone> bones){
 		Vector3 pt=nameAndPositions.get(0).getVector3().clone();
 		Vector3 near=pt.subSelf(pos);
@@ -34,6 +36,84 @@ public static final int MODE_NearAgressive=2;
 		}
 		return THREE.Vector4(index1,index1,1,0);
 	}
+	
+	public static Vector4 findNearBoneParentAndChildren(List<NameAndVector3> nameAndPositions,Vector3 pos,JsArray<AnimationBone> bones){
+		Vector3 pt=nameAndPositions.get(0).getVector3().clone();
+		Vector3 near=pt.subSelf(pos);
+		int index1=nameAndPositions.get(0).getIndex();
+		double near1=pt.length();
+		int index2=nameAndPositions.get(0).getIndex();
+		double near2=pt.length();
+		
+		
+		for(int i=1;i<nameAndPositions.size();i++){
+			if(nameAndPositions.get(i).getName().startsWith(KEY_HALF)){
+				continue;
+			}
+			Vector3 npt=nameAndPositions.get(i).getVector3().clone();
+			near=npt.subSelf(pos);
+			double l=near.length();
+			if(l<near1){
+				int tmp=index1;
+				double tmpL=near1;
+				index1=nameAndPositions.get(i).getIndex();
+				near1=l;
+				if(tmpL<near2){
+					index2=tmp;
+					near2=tmpL;
+				}
+			}else if(l<near2){
+				index2=nameAndPositions.get(i).getIndex();
+				near2=l;
+			}
+		}
+		
+		int indexHalf=-1;
+		double nearHalf=0;
+		for(int i=1;i<nameAndPositions.size();i++){
+			if(!nameAndPositions.get(i).getName().startsWith(KEY_HALF)){
+				continue;
+			}
+			Vector3 npt=nameAndPositions.get(i).getVector3().clone();
+			near=npt.subSelf(pos);
+			double l=near.length();
+			if(l<near1){
+				indexHalf=nameAndPositions.get(i).getIndex();
+				nearHalf=l;
+			}else if(l<near2){
+				indexHalf=nameAndPositions.get(i).getIndex();
+				nearHalf=l;
+			}
+		}
+		
+		
+		
+		if(indexHalf!=-1){
+			if(bones.get(index1).getParent()==indexHalf || bones.get(indexHalf).getParent()==index1){
+				index2=indexHalf;
+				near2=nearHalf;
+			}
+		}
+		
+		//only child & parent
+		/*
+		 * TODO future support
+		 * 
+		
+		*/
+		
+		near1*=near1*near1*near1;
+		near2*=near2*near2*near2;
+		
+		if(index1==index2){
+			return THREE.Vector4(index1,index1,1,0);
+		}else{
+			
+			double total=near1+near2;
+			return THREE.Vector4(index1,index2,(total-near1)/total,(total-near2)/total);
+		}
+	}
+	
 	
 	
 	public static Vector4 findNearBoneAggresive(List<NameAndVector3> nameAndPositions,Vector3 pos,JsArray<AnimationBone> bones){
@@ -65,6 +145,17 @@ public static final int MODE_NearAgressive=2;
 		}
 		near1*=near1*near1*near1;
 		near2*=near2*near2*near2;
+		
+		//only child & parent
+		/*
+		 * TODO future support
+		 * 
+		if(bones.get(index1).getParent()!=index2 && bones.get(index2).getParent()!=index1){
+			index2=index1;
+		}
+		*/
+		
+		
 		if(index1==index2){
 			return THREE.Vector4(index1,index1,1,0);
 		}else{
@@ -182,6 +273,8 @@ public static Vector4 findNearSpecial(List<NameAndVector3> nameAndPositions,Vect
 			ret=findNearSpecial(nameAndPositions,geometry.vertices().get(i).getPosition(),bones,i);	
 		}else if(mode==MODE_NearAgressive){
 			ret=findNearBoneAggresive(nameAndPositions,geometry.vertices().get(i).getPosition(),bones);	
+		}else if(mode==MODE_NearParentAndChildren){
+			ret=findNearBoneParentAndChildren(nameAndPositions,geometry.vertices().get(i).getPosition(),bones);	
 		}else{
 			Window.alert("null mode");
 		}
@@ -224,7 +317,7 @@ public static Vector4 findNearSpecial(List<NameAndVector3> nameAndPositions,Vect
 				Vector3 half=pos.clone().multiplyScalar(.5).addSelf(parentPos);
 				
 				lists.add(new NameAndVector3(parentName,endPos,parentIndex));//start pos
-				lists.add(new NameAndVector3(parentName,half,parentIndex));//half pos
+				lists.add(new NameAndVector3(KEY_HALF+parentName,half,parentIndex));//half pos
 				}else{
 					
 				}

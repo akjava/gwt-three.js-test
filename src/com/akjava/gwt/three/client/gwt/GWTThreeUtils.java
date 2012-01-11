@@ -71,9 +71,11 @@ public class GWTThreeUtils {
 		ret.setZ(Math.toRadians(vec.getZ()));
 		return ret;
 	}
+	public static Matrix4 degitRotationToMatrix4(double x,double y,double z){
+		return GWTThreeUtils.rotationToMatrix4(GWTThreeUtils.degreeToRagiant(THREE.Vector3(x,y,z)));
+	}
 	
 	public static Matrix4 rotationToMatrix4(Vector3 vec){
-
 		return rotationToMatrix4(vec,"XYZ");
 	}
 	public static Matrix4 rotationToMatrix4(Vector3 vec,String order){

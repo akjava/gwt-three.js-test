@@ -57,6 +57,13 @@ public double getMinX() {
 	public static BoneLimit createBoneLimit(double minx,double maxx,double miny,double maxy,double minz,double maxz){
 		BoneLimit limit=new BoneLimit();
 		
+		limit.setMinXDegit(minx);
+		limit.setMaxXDegit(maxx);
+		limit.setMinYDegit(miny);
+		limit.setMaxYDegit(maxy);
+		limit.setMinZDegit(minz);
+		limit.setMaxZDegit(maxz);
+		
 		limit.setMinX(Math.toRadians(minx));
 		limit.setMaxX(Math.toRadians(maxx));
 		limit.setMinY(Math.toRadians(miny));
@@ -65,7 +72,55 @@ public double getMinX() {
 		limit.setMaxZ(Math.toRadians(maxz));
 		return limit;
 	}
-private double minX,minY,minZ,maxX,maxY,maxZ;
+	private double minXDegit,minYDegit,minZDegit,maxXDegit,maxYDegit,maxZDegit;
+	public double getMinXDegit() {
+		return minXDegit;
+	}
+
+	public void setMinXDegit(double minXDegit) {
+		this.minXDegit = minXDegit;
+	}
+
+	public double getMinYDegit() {
+		return minYDegit;
+	}
+
+	public void setMinYDegit(double minYDegit) {
+		this.minYDegit = minYDegit;
+	}
+
+	public double getMinZDegit() {
+		return minZDegit;
+	}
+
+	public void setMinZDegit(double minZDegit) {
+		this.minZDegit = minZDegit;
+	}
+
+	public double getMaxXDegit() {
+		return maxXDegit;
+	}
+
+	public void setMaxXDegit(double maxXDegit) {
+		this.maxXDegit = maxXDegit;
+	}
+
+	public double getMaxYDegit() {
+		return maxYDegit;
+	}
+
+	public void setMaxYDegit(double maxYDegit) {
+		this.maxYDegit = maxYDegit;
+	}
+
+	public double getMaxZDegit() {
+		return maxZDegit;
+	}
+
+	public void setMaxZDegit(double maxZDegit) {
+		this.maxZDegit = maxZDegit;
+	}
+	private double minX,minY,minZ,maxX,maxY,maxZ;
 public void apply(Vector3 angles) {
 	if(angles.getX()<minX){
 		angles.setX(minX);
@@ -91,16 +146,7 @@ public void apply(Vector3 angles) {
 	}
 	
 	
-	if("NaN".equals(""+angles.getX())){
-		angles.setX(0);
-		LogUtils.log("Nan-x");
-	}
-	if("NaN".equals(""+angles.getY())){
-		angles.setY(0);
-	}
-	if("NaN".equals(""+angles.getZ())){
-		angles.setZ(0);
-	}
+	
 	}
 
 }

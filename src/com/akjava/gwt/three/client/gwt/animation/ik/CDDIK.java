@@ -20,7 +20,7 @@ public class CDDIK {
 		if(angle<= 1.0e-5f){
 			return null;
 		}
-		LogUtils.log("angle:"+angle+","+Math.toDegrees(angle));
+		//LogUtils.log("angle:"+angle+","+Math.toDegrees(angle));
 		Vector3 axis=THREE.Vector3().cross(jointVector,targetVector);
 		axis.normalize();
 		Quaternion q=THREE.Quaternion().setFromAxisAngle(axis,angle);

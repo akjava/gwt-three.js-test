@@ -155,7 +155,7 @@ public static List<Matrix4> boneToMatrix(JsArray<AnimationBone> bones,AnimationD
 			mx.multiplySelf(mx2);
 			
 			Vector3 rot=GWTThreeUtils.toDegreeAngle(mx2);
-			LogUtils.log("before-angle:"+ThreeLog.get(rot));
+			//LogUtils.log("before-angle:"+ThreeLog.get(rot));
 			LogUtils.log(mx2);
 			LogUtils.log(rot);
 			Vector3 rotR=GWTThreeUtils.degreeToRagiant(rot);
@@ -165,11 +165,11 @@ public static List<Matrix4> boneToMatrix(JsArray<AnimationBone> bones,AnimationD
 			
 			Vector3 tmpVec=THREE.Vector3();
 			tmpVec.setRotationFromMatrix(changed);
-			LogUtils.log("mx:"+ThreeLog.get(tmpVec));
-			LogUtils.log("mx-r:"+ThreeLog.get(GWTThreeUtils.radiantToDegree(tmpVec)));
+			//LogUtils.log("mx:"+ThreeLog.get(tmpVec));
+			//LogUtils.log("mx-r:"+ThreeLog.get(GWTThreeUtils.radiantToDegree(tmpVec)));
 			
-			LogUtils.log("after-angle:"+ThreeLog.get(GWTThreeUtils.toDegreeAngle(changed)));
-			LogUtils.log(changed);
+			//LogUtils.log("after-angle:"+ThreeLog.get(GWTThreeUtils.toDegreeAngle(changed)));
+			//LogUtils.log(changed);
 		
 			
 			/*
