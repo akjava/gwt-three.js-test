@@ -38,8 +38,11 @@ public class AnimationBonesData {
 		bonePath=boneToPath(bones);
 		baseBonePositions=boneToPositions(bones);
 	}
-	public Vector3 getBasePosition(int index){
+	public Vector3 getBaseBonePosition(int index){
 		return baseBonePositions.get(index);
+	}
+	public Vector3 getBaseParentBonePosition(int index){
+		return baseBonePositions.get(bones.get(index).getParent());
 	}
 	
 	public static List<Vector3> boneToPositions(JsArray<AnimationBone> bones){
@@ -156,10 +159,10 @@ public static List<Matrix4> boneToMatrix(JsArray<AnimationBone> bones,AnimationD
 			
 			Vector3 rot=GWTThreeUtils.toDegreeAngle(mx2);
 			//LogUtils.log("before-angle:"+ThreeLog.get(rot));
-			LogUtils.log(mx2);
-			LogUtils.log(rot);
+			//LogUtils.log(mx2);
+			//LogUtils.log(rot);
 			Vector3 rotR=GWTThreeUtils.degreeToRagiant(rot);
-			LogUtils.log("rot:"+ThreeLog.get(rotR));
+			//LogUtils.log("rot:"+ThreeLog.get(rotR));
 			//LogUtils.log("rot-r:"+ThreeLog.get(GWTThreeUtils.radiantToDegree(rotR)));
 			Matrix4 changed=GWTThreeUtils.rotationToMatrix4(rotR);
 			
