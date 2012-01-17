@@ -57,6 +57,8 @@ public class LineBasicMaterialBuilder extends JavaScriptObject{
 		return color(c);
 	}
 	
+	
+	
 	public final native LineBasicMaterialBuilder color(int c)/*-{
 	this["color"]=c;
 	return this;
@@ -69,6 +71,13 @@ public class LineBasicMaterialBuilder extends JavaScriptObject{
 	
 	public final native LineBasicMaterialBuilder map(Texture texture)/*-{
 	this["map"]=texture;
+	return this;
+	}-*/;
+	
+	
+	
+	public final native LineBasicMaterialBuilder linewidth(double linewidth)/*-{
+	this.linewidth=linewidth;
 	return this;
 	}-*/;
 	

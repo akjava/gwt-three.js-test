@@ -29,6 +29,11 @@ public class GWTGeometryUtils {
 				THREE.LineBasicMaterial().color(color).build());
 	}
 	
+	public final static  Mesh createLineMesh(Vector3 from,Vector3 to,int color,double lineWidth){
+		return THREE.Line(GWTGeometryUtils.createLineGeometry(from, to),
+				THREE.LineBasicMaterial().color(color).linewidth(lineWidth).build());
+	}
+	
 	/**
 	 * Warning center way is different of GeometryUtils.center()
 	 * use center
