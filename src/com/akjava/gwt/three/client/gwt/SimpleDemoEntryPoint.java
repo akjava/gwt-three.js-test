@@ -17,7 +17,7 @@ public abstract class SimpleDemoEntryPoint extends AbstractDemoEntryPoint{
 	protected long mouseLast;
 	protected int tmpZoom;
 	protected Scene scene;
-	protected int defaultZoom=10;
+	protected int defaultZoom=2;
 	protected int minCamera=5;
 	@Override
 	public void onMouseWheel(MouseWheelEvent event) {

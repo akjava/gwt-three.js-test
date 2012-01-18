@@ -102,8 +102,11 @@ public static final String KEY_HALF="_half_";
 		
 		*/
 		
-		near1*=near1*near1*near1;
-		near2*=near2*near2*near2;
+		//near1*=near1*near1*near1;
+		//near2*=near2*near2*near2;
+		
+		near1*=near1*near1;
+		near2*=near2*near2;
 		
 		if(index1==index2){
 			return THREE.Vector4(index1,index1,1,0);
