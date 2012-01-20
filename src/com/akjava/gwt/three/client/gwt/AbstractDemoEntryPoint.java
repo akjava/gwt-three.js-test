@@ -233,12 +233,30 @@ public abstract class AbstractDemoEntryPoint implements EntryPoint {
 				rightTop(dialog);
 			}
 		});
-		HTMLPanel html=new HTMLPanel(getHtml());
+		HorizontalPanel vpanel=new HorizontalPanel();
+		final HTMLPanel html=new HTMLPanel(getHtml());
 		html.setWidth("100%");
-		html.setHeight("20px");
+		html.setHeight("100px");
 		html.setStyleName("text");
+		vpanel.add(html);
+		final Button bt=new Button("Hide");
+		
+		bt.addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				if(html.isVisible()){
+					html.setVisible(false);
+					bt.setText("Show");
+				}else{
+					html.setVisible(true);
+					bt.setText("Hide");
+				}
+			}
+		});
+		vpanel.add(bt);
 		final PopupPanel dialog2=new PopupPanel();
-		dialog2.add(html);
+		dialog2.add(vpanel);
 		dialog2.setPopupPosition(150, 0);
 		dialog2.setWidth("100%");
 		dialog2.setStyleName("transparent");
