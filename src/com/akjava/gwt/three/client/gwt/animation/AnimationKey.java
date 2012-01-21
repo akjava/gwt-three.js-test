@@ -49,4 +49,13 @@ public class AnimationKey extends JavaScriptObject {
 	public native final void setRot(Quaternion rot)/*-{
 	this['rot']=rot;
 	}-*/;
+	
+	//need angle for Animation Bone Data
+	public native final Vector3 getAngle()/*-{
+	return this['angle'];
+	}-*/;
+
+	public native final void setAngle(Vector3 rot)/*-{
+	this['angle']=rot;
+	}-*/;
 }
