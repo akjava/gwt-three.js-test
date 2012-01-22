@@ -106,6 +106,14 @@ public final native void setName(String name)/*-{
 this.name=name;
 }-*/;
 
+public final native String getEulerOrder()/*-{
+return this.eulerOrder;
+}-*/;
+
+public final native void setEulerOrder(String eulerOrder)/*-{
+this.eulerOrder=eulerOrder;
+}-*/;
+
 
 public final native void updateMatrix()/*-{
 this.updateMatrix();

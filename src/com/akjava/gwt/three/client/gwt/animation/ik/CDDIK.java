@@ -31,15 +31,38 @@ public class CDDIK {
 		
 		
 		Matrix4 matrix=THREE.Matrix4().setRotationFromQuaternion(q);
-		
-		
-		Vector3 vec=THREE.Vector3();
-		vec.setRotationFromMatrix(matrix);
-		//do limit rotation
-		
-		matrix.setRotationFromEuler(vec, "XYZ");
 		matrix.multiply(jointRot, matrix);
 		
 		return matrix;
 	}
+	
+public Matrix4  getStepAngleMatrix(Vector3 lastJointPos,Vector3 jointPos,Matrix4 jointRot,Vector3 targetPos){
+		
+		Vector3 jointVector=lastJointPos.clone().subSelf(jointPos).normalize();
+		
+		Vector3 targetVector=targetPos.clone().subSelf(jointPos).normalize();
+		
+		double acv=jointVector.dot(targetVector);
+		double angle=Math.acos(acv);
+		
+		if(angle<= 1.0e-5f){
+			return null;
+		}
+		//LogUtils.log("angle:"+angle+","+Math.toDegrees(angle));
+		Vector3 axis=THREE.Vector3().cross(jointVector,targetVector);
+		axis.normalize();
+		Quaternion q=THREE.Quaternion().setFromAxisAngle(axis,angle);
+		
+		
+		
+		
+		
+		
+		Matrix4 matrix=THREE.Matrix4().setRotationFromQuaternion(q);
+		
+		return matrix;
+	}
+	
+	
+	
 }
