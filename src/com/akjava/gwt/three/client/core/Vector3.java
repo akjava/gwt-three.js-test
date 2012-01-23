@@ -79,6 +79,12 @@ this.z=z;
 }-*/;
 
 
+
+
+public native final Vector3 negate()/*-{
+return this.negate();
+}-*/;
+
 public native final Vector3 addSelf(Vector3 vec3)/*-{
 return this.addSelf(vec3);
 }-*/;
