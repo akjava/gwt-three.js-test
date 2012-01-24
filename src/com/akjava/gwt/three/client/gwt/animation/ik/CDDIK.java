@@ -38,7 +38,7 @@ public class CDDIK {
 	}
 	
 	
-	
+	//support root rotation
 public Matrix4  getStepAngleMatrix(Vector3 parentAngle,Vector3 lastJointPos,Vector3 jointPos,Matrix4 jointRot,Vector3 targetPos){
 		Vector3 parentVec=parentAngle.clone().negate();
 		
