@@ -63,6 +63,7 @@ import com.akjava.gwt.three.client.objects.MorphAnimMesh;
 import com.akjava.gwt.three.client.objects.Particle;
 import com.akjava.gwt.three.client.objects.ParticleSystem;
 import com.akjava.gwt.three.client.objects.SkinnedMesh;
+import com.akjava.gwt.three.client.renderers.GWTRenderObject;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
 import com.google.gwt.core.client.JsArray;
@@ -245,6 +246,10 @@ public class THREE {
 	
 	public static native final WebGLRenderer WebGLRenderer()/*-{
 	return new $wnd.THREE.WebGLRenderer();
+	}-*/;
+	
+	public static native final WebGLRenderer WebGLRenderer(GWTRenderObject object)/*-{
+	return new $wnd.THREE.WebGLRenderer(object);
 	}-*/;
 	
 	public static native final Light PointLight(int color)/*-{

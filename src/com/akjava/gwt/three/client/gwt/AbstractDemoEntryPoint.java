@@ -2,6 +2,7 @@ package com.akjava.gwt.three.client.gwt;
 
 import com.akjava.gwt.stats.client.Stats;
 import com.akjava.gwt.three.client.THREE;
+import com.akjava.gwt.three.client.renderers.GWTRenderObject;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer.WebGLCanvas;
 import com.google.gwt.core.client.EntryPoint;
@@ -85,7 +86,7 @@ public abstract class AbstractDemoEntryPoint implements EntryPoint {
 			<script type="text/javascript" language="javascript" src="Three.js"></script>
     		<script type="text/javascript" language="javascript" src="stats.js"></script>     
 		 */
-		renderer = THREE.WebGLRenderer();
+		renderer = THREE.WebGLRenderer(GWTRenderObject.create().preserveDrawingBuffer());
 		renderer.setSize(width,height);
 		
 		

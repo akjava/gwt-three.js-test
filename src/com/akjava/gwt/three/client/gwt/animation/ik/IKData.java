@@ -7,7 +7,9 @@ import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.core.Vector3;
 
 public class IKData {
-	
+	public IKData(String name){
+		this.name=name;
+	}
 	public void setBones(String[] boneNames){
 		bones.clear();
 		for(int i=0;i<boneNames.length;i++){
@@ -37,6 +39,13 @@ public class IKData {
 	}
 	public void setIteration(int iteration) {
 		this.iteration = iteration;
+	}
+	private String name;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	private String lastBoneName;
 	private List<String> bones=new ArrayList<String>();;

@@ -37,4 +37,45 @@ public NameAndVector3(String name,Vector3 position,int index){
 	this.position=position;
 	this.index=index;
 }
+@Override
+public boolean equals(Object object){
+	NameAndVector3 target=null;
+	if(object instanceof NameAndVector3){
+		target=(NameAndVector3)object;
+	}else{
+		return false;
+	}
+	if(name==null){
+	if(target.getName()!=null){
+		return false;
+	}
+	}else{
+	if(!name.equals(target.getName())){
+		return false;
+	}
+	}
+	
+	if(index!=target.getIndex()){
+		return false;
+	}
+	if(index!=target.getIndex()){
+		return false;
+	}
+	if(position==null){
+		if(target.getVector3()!=null){
+			return false;
+		}
+	}else{
+		if(target.getVector3()==null){
+			return false;
+		}else{
+			if(position.getX()!=target.getVector3().getX() || position.getY()!=target.getVector3().getY() ||position.getZ()!=target.getVector3().getZ()){
+				return false;
+			}
+		}
+	}
+	
+	return true;
+}
+
 }

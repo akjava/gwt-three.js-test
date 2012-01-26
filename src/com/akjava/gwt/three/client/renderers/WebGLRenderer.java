@@ -40,6 +40,7 @@ package com.akjava.gwt.three.client.renderers;
 import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.scenes.Scene;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.dom.client.CanvasElement;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.FocusWidget;
 
@@ -72,6 +73,19 @@ public class WebGLRenderer extends JavaScriptObject{
 	
 	public final native void setShadowMapEnabled (boolean bool)/*-{
 	this.shadowMapEnabled =bool;
+	}-*/;
+	
+	
+	public final native String gwtPngDataUrl ()/*-{
+	return this.domElement.toDataURL("image/png");
+	}-*/;
+	
+	public final native String gwtJpeggDataUrl ()/*-{
+	return this.domElement.toDataURL("image/jpeg");
+	}-*/;
+	
+	public final native CanvasElement gwtCanvas ()/*-{
+	return this.domElement;
 	}-*/;
 	
 	public static final class WebGLCanvas extends FocusWidget{
