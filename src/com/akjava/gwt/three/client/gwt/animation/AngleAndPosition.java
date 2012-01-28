@@ -7,9 +7,15 @@ public class AngleAndPosition {
 public AngleAndPosition(Vector3 angle,Vector3 positions,Matrix4 matrix){
 	this.angle=angle;
 	this.matrix=matrix;
-	this.positions=positions;
+	this.position=positions;
 }
-private Vector3 positions;
+private Vector3 position;
+public Vector3 getPosition() {
+	return position;
+}
+public void setPosition(Vector3 positions) {
+	this.position = positions;
+}
 private Vector3 angle;
 private Matrix4 matrix;
 public Vector3 getAngle() {
@@ -31,12 +37,12 @@ public AngleAndPosition clone(){
 	if(angle!=null){
 		copyVector3=angle.clone();
 	}
-	if(positions!=null){
-		copyPos3=positions.clone();
+	if(position!=null){
+		copyPos3=position.clone();
 	}
 	if(matrix!=null){
 		copyMatrix4=matrix.clone();
 	}
-	return new AngleAndPosition(copyVector3,positions, copyMatrix4);
+	return new AngleAndPosition(copyVector3,copyPos3, copyMatrix4);
 }
 }

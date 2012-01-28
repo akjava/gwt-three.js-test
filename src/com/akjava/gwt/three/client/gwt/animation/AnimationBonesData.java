@@ -14,6 +14,7 @@ import com.google.gwt.core.client.JsArray;
 public class AnimationBonesData {
 	private List<AngleAndPosition> bonesMatrixs;
 	private List<Vector3> baseBonePositions;
+	private List<Vector3> baseBoneRelativePositions;
 	public List<AngleAndPosition> getBonesAngleAndMatrixs() {
 		return bonesMatrixs;
 	}
@@ -44,7 +45,19 @@ public class AnimationBonesData {
 		this.bones=bones;
 		bonePath=boneToPath(bones);
 		baseBonePositions=boneToPositions(bones);
+		baseBoneRelativePositions=boneToRelativePositions(bones);
 	}
+	
+	/*
+	 * same as bone hierachy
+	 */
+	public Vector3 getBaseBoneRelativePosition(int index){
+		return baseBoneRelativePositions.get(index);
+	}
+	
+	/*
+	 * absolute position self+parents
+	 */
 	public Vector3 getBaseBonePosition(int index){
 		return baseBonePositions.get(index);
 	}
@@ -69,6 +82,20 @@ public class AnimationBonesData {
 		return positions;
 		
 	}
+	public static List<Vector3> boneToRelativePositions(JsArray<AnimationBone> bones){
+		List<Vector3> positions=new ArrayList<Vector3>();
+		for(int i=0;i<bones.length();i++){
+			AnimationBone bone=bones.get(i);
+			Vector3 bpos=AnimationBone.jsArrayToVector3(bone.getPos());
+			
+			
+			
+			positions.add(bpos);
+			
+		}
+		return positions;
+		
+	}
 	
 	private List<List<Integer>> bonePath;
 	
@@ -77,7 +104,7 @@ public class AnimationBonesData {
 	}
 	
 	public Vector3 getBonePosition(String name){
-		return getPosition(getBoneIndex(name));
+		return getBonePosition(getBoneIndex(name));
 	}
 	
 	
@@ -99,7 +126,7 @@ public class AnimationBonesData {
 		return bonePath.get(index);
 	}
 	
-	public Vector3 getPosition(int index){
+	public Vector3 getBonePosition(int index){
 		List<Integer> path=bonePath.get(index);
 		
 		Matrix4 tmpmx=bonesMatrixs.get(path.get(path.size()-1)).getMatrix();
@@ -170,28 +197,24 @@ public class AnimationBonesData {
 	
 	
 
-public static List<AngleAndPosition> boneToAngleAndMatrix(JsArray<AnimationBone> bones,AnimationData animationData,int index){
+public static List<AngleAndPosition> boneToAngleAndMatrix(JsArray<AnimationBone> bones,AnimationData animationData,int animationIndex){
 		
 		List<AngleAndPosition> boneMatrix=new ArrayList<AngleAndPosition>();
-		//analyze bone matrix
 		
 		for(int i=0;i<bones.length();i++){
-			
 			AnimationHierarchyItem item=animationData.getHierarchy().get(i);
-			AnimationKey motion=item.getKeys().get(index);
-			
-			//log(bone.getName());
+			AnimationKey motion=item.getKeys().get(animationIndex);
 			
 			Matrix4 mx=THREE.Matrix4();
 			Vector3 motionPos=AnimationBone.jsArrayToVector3(motion.getPos());
-			
-			//seems same as bone
-		//	LogUtils.log(motionPos);
 			mx.setTranslation(motionPos.getX(), motionPos.getY(), motionPos.getZ());
+			mx.setRotationFromQuaternion(motion.getRot());
+			/*
 			Matrix4 mx2=THREE.Matrix4();
 			mx2.setRotationFromQuaternion(motion.getRot());
 			mx.multiplySelf(mx2);
-			
+			*/
+			/*
 			Vector3 rot=GWTThreeUtils.toDegreeAngle(mx2);
 			//LogUtils.log("before-angle:"+ThreeLog.get(rot));
 			//LogUtils.log(mx2);
@@ -202,7 +225,10 @@ public static List<AngleAndPosition> boneToAngleAndMatrix(JsArray<AnimationBone>
 			Matrix4 changed=GWTThreeUtils.rotationToMatrix4(rotR);
 			
 			Vector3 tmpVec=THREE.Vector3();
+			
 			tmpVec.setRotationFromMatrix(changed);
+			*/
+			
 			//LogUtils.log("mx:"+ThreeLog.get(tmpVec));
 			//LogUtils.log("mx-r:"+ThreeLog.get(GWTThreeUtils.radiantToDegree(tmpVec)));
 			

@@ -103,6 +103,7 @@ public class GWTThreeUtils {
 		return mx;
 	}
 	public static Vector3 toPositionVec(Matrix4 mx){
+		
 		Vector3 vec=THREE.Vector3();
 		vec.setPositionFromMatrix(mx);
 		return vec;
