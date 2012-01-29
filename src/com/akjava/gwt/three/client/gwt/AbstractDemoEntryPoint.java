@@ -240,6 +240,7 @@ public abstract class AbstractDemoEntryPoint implements EntryPoint {
 		html.setHeight("100px");
 		html.setStyleName("text");
 		vpanel.add(html);
+		/*
 		final Button bt=new Button("Hide");
 		
 		bt.addClickHandler(new ClickHandler() {
@@ -255,7 +256,9 @@ public abstract class AbstractDemoEntryPoint implements EntryPoint {
 				}
 			}
 		});
+		
 		vpanel.add(bt);
+		*/
 		final PopupPanel dialog2=new PopupPanel();
 		dialog2.add(vpanel);
 		dialog2.setPopupPosition(150, 0);

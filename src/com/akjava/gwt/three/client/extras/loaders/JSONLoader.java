@@ -2,6 +2,7 @@ package com.akjava.gwt.three.client.extras.loaders;
 
 import com.akjava.gwt.three.client.core.Geometry;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.json.client.JSONObject;
 
 public class JSONLoader extends JavaScriptObject{
 
@@ -26,4 +27,16 @@ public class JSONLoader extends JavaScriptObject{
 	public static interface LoadHandler {
 		public void loaded(Geometry geometry);
 	}
+
+	public final native void createModel(JavaScriptObject object,LoadHandler handler,String texturepath)/*-{
+	this.createModel(object,function ( geometry ) {
+		handler.@com.akjava.gwt.three.client.extras.loaders.JSONLoader$LoadHandler::loaded(Lcom/akjava/gwt/three/client/core/Geometry;)(geometry);
+		},texturepath);
+
+	}-*/;
+	public final native void onLoadComplete()/*-{
+	this.onLoadComplete();
+	}-*/;
+	
+	
 }
