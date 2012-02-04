@@ -65,6 +65,7 @@ public abstract class SimpleTabDemoEntryPoint extends TabDemoEntryPoint{
 	
 	protected abstract void beforeUpdate(WebGLRenderer renderer);
 
+	/** called before create Control**/
 	protected abstract  void initializeOthers(WebGLRenderer renderer) ;
 
 	private void createCamera(Scene scene,int width,int height){
@@ -79,6 +80,10 @@ public abstract class SimpleTabDemoEntryPoint extends TabDemoEntryPoint{
 	
 	@Override
 	public void resized(int width, int height) {
+		if(width==0 || height==0){
+			log("ignore-0 size");
+			return;
+		}
 		screenWidth=width;
 		screenHeight=height;
 		createCamera(scene,width,height);

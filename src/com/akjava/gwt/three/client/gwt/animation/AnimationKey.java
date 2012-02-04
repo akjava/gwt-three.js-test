@@ -42,12 +42,20 @@ public class AnimationKey extends JavaScriptObject {
 	}-*/;
 	
 
-	public native final Quaternion getRot()/*-{
+	public native final JsArrayNumber getRot()/*-{
 	return this['rot'];
 	}-*/;
 
-	public native final void setRot(Quaternion rot)/*-{
+	public native final void setRot(JsArrayNumber rot)/*-{
 	this['rot']=rot;
+	}-*/;
+	
+	public native final Quaternion getRotq()/*-{
+	return this['rotq'];
+	}-*/;
+
+	public native final void setRotq(Quaternion rot)/*-{
+	this['rotq']=rot;
 	}-*/;
 	
 	//need angle for Animation Bone Data

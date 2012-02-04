@@ -144,7 +144,31 @@ public class GWTThreeUtils {
 		return THREE.Vector3(array.get(0),array.get(1), array.get(2));
 	}
 	
+	public static final JsArrayNumber clone(JsArrayNumber array){
+		JsArrayNumber cloned=(JsArrayNumber) JsArrayNumber.createArray();
+		for(int i=0;i<array.length();i++){
+			cloned.push(array.get(i));
+		}
+		return cloned;
+	}
+	
 	public static final Quaternion jsArrayToQuaternion(JsArrayNumber array){
 		return THREE.Quaternion(array.get(0),array.get(1), array.get(2),array.get(3));
+	}
+	
+	public static final JsArrayNumber createJsArray(double x,double y,double z){
+		JsArrayNumber array=(JsArrayNumber) JsArrayNumber.createArray();
+		array.push(x);
+		array.push(y);
+		array.push(z);
+		return array;
+	}
+	public static final JsArrayNumber quaternionToJsArray(Quaternion q){
+		JsArrayNumber array=(JsArrayNumber) JsArrayNumber.createArray();
+		array.push(q.getX());
+		array.push(q.getY());
+		array.push(q.getZ());
+		array.push(q.getW());
+		return array;
 	}
 }

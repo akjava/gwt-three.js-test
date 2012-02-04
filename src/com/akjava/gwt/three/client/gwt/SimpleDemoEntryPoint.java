@@ -49,7 +49,8 @@ public abstract class SimpleDemoEntryPoint extends AbstractDemoEntryPoint{
 		cameraZ=100;
 		screenWidth=width;
 		screenHeight=height;
-		renderer.setClearColorHex(0x333333, 1);
+		//renderer.setClearColorHex(0x333333, 1);
+		canvas.setClearColorHex(0x333333);
 		scene=THREE.Scene();
 		createCamera(scene, width, height);
 		
@@ -79,6 +80,9 @@ public abstract class SimpleDemoEntryPoint extends AbstractDemoEntryPoint{
 	
 	@Override
 	public void resized(int width, int height) {
+		if(width==0 || height==0){//ignore 0 resize.
+			return;
+		}
 		screenWidth=width;
 		screenHeight=height;
 		createCamera(scene,width,height);

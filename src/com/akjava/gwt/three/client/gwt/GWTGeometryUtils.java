@@ -5,9 +5,14 @@ import com.akjava.gwt.three.client.core.Geometry;
 import com.akjava.gwt.three.client.core.MorphTarget;
 import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.core.Vertex;
+import com.akjava.gwt.three.client.extras.loaders.JSONLoader;
+import com.akjava.gwt.three.client.extras.loaders.JSONLoader.LoadHandler;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JsArray;
+import com.google.gwt.json.client.JSONObject;
+import com.google.gwt.json.client.JSONParser;
+import com.google.gwt.json.client.JSONValue;
 
 public class GWTGeometryUtils {
 
@@ -68,6 +73,20 @@ for ( var i = 0, l = vertices.length; i < l; i ++ ) {
 	center.divideScalar( vertices.length );
 	return center;
 	}-*/;
+	
+	
+	public static final JSONObject loadJsonModel(String jsonText,LoadHandler handler){
+		JSONLoader loader=THREE.JSONLoader();
+		JSONValue lastJsonValue = JSONParser.parseLenient(jsonText);
+		JSONObject object=lastJsonValue.isObject();
+		if(object==null){
+			return null;
+		}
+		
+		loader.createModel(object.getJavaScriptObject(), handler, "");
+		loader.onLoadComplete();
+		return object;
+	}
 	
 	
 	

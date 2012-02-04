@@ -34,12 +34,19 @@ public class AnimationBone extends JavaScriptObject{
 	public native final void setRotq(double x,double y,double z,double w)/*-{
 	this['rotq']=[x,y,z,w];
 	}-*/;
+	public native final void setRotq(JsArrayNumber array)/*-{
+	this['rotq']=array;
+	}-*/;
 	
 	/*
 	 * sometime it's empty
 	 */
 	public native final JsArrayNumber getRotq()/*-{
 	return this['rotq'];
+	}-*/;
+	
+	public native final void setRot(JsArrayNumber array)/*-{
+	this['rot']=array;
 	}-*/;
 	
 	public native final void setRot(double x,double y,double z)/*-{
@@ -60,11 +67,24 @@ public class AnimationBone extends JavaScriptObject{
 	public native final void setPos(double x,double y,double z)/*-{
 	this['pos']=[x,y,z];
 	}-*/;
+	public native final void setPos(JsArrayNumber array)/*-{
+	this['pos']=array;
+	}-*/;
 	
+	/**
+	 * @deprecated
+	 * @param array
+	 * @return
+	 */
 	public static final Vector3 jsArrayToVector3(JsArrayNumber array){
 		return THREE.Vector3(array.get(0),array.get(1), array.get(2));
 	}
-	
+
+	/**
+	 * @deprecated
+	 * @param array
+	 * @return
+	 */
 	public static final Quaternion jsArrayToQuaternion(JsArrayNumber array){
 		return THREE.Quaternion(array.get(0),array.get(1), array.get(2),array.get(3));
 	}
@@ -75,6 +95,9 @@ public class AnimationBone extends JavaScriptObject{
 	return this['pos'];
 	}-*/;
 	
+	public native final void setScl(JsArrayNumber array)/*-{
+	this['scl']=array;
+	}-*/;
 	public native final void setScl(double x,double y,double z)/*-{
 	this['scl']=[x,y,z];
 	}-*/;
@@ -85,4 +108,6 @@ public class AnimationBone extends JavaScriptObject{
 	public native final JsArrayNumber getScl()/*-{
 	return this['scl'];
 	}-*/;
+	
+	
 }

@@ -198,7 +198,8 @@ public class AnimationBonesData {
 	
 
 public static List<AngleAndPosition> boneToAngleAndMatrix(JsArray<AnimationBone> bones,AnimationData animationData,int animationIndex){
-		
+		LogUtils.log("bonetomx");
+		LogUtils.log(animationData);
 		List<AngleAndPosition> boneMatrix=new ArrayList<AngleAndPosition>();
 		
 		for(int i=0;i<bones.length();i++){
@@ -206,9 +207,9 @@ public static List<AngleAndPosition> boneToAngleAndMatrix(JsArray<AnimationBone>
 			AnimationKey motion=item.getKeys().get(animationIndex);
 			
 			Matrix4 mx=THREE.Matrix4();
-			Vector3 motionPos=AnimationBone.jsArrayToVector3(motion.getPos());
+			Vector3 motionPos=GWTThreeUtils.jsArrayToVector3(motion.getPos());
 			mx.setTranslation(motionPos.getX(), motionPos.getY(), motionPos.getZ());
-			mx.setRotationFromQuaternion(motion.getRot());
+			mx.setRotationFromQuaternion(GWTThreeUtils.jsArrayToQuaternion(motion.getRot()));
 			/*
 			Matrix4 mx2=THREE.Matrix4();
 			mx2.setRotationFromQuaternion(motion.getRot());
@@ -262,12 +263,12 @@ public static List<Matrix4> boneToMatrix(JsArray<AnimationBone> bones,AnimationD
 			//log(bone.getName());
 			
 			Matrix4 mx=THREE.Matrix4();
-			Vector3 motionPos=AnimationBone.jsArrayToVector3(motion.getPos());
+			Vector3 motionPos=GWTThreeUtils.jsArrayToVector3(motion.getPos());
 			//seems same as bone
 		//	LogUtils.log(motionPos);
 			mx.setTranslation(motionPos.getX(), motionPos.getY(), motionPos.getZ());
 			Matrix4 mx2=THREE.Matrix4();
-			mx2.setRotationFromQuaternion(motion.getRot());
+			mx2.setRotationFromQuaternion(GWTThreeUtils.jsArrayToQuaternion(motion.getRot()));
 			mx.multiplySelf(mx2);
 			
 			Vector3 rot=GWTThreeUtils.toDegreeAngle(mx2);

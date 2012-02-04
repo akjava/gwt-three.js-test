@@ -114,8 +114,20 @@ this.bones=bones;
 }-*/;
 
 //dont't call after meshed geometry
+/**
+ @deprecated
+ */
 public final native JsArrayNumber getSkinIndicesAsRaw()/*-{
 return this.skinIndices;
+}-*/;
+
+
+//dont't call after meshed geometry
+/**
+@deprecated
+*/
+public final native JsArrayNumber getSkinWeightAsRaw()/*-{
+return this.skinWeights;
 }-*/;
 
 //dont't call after meshed geometry
@@ -125,6 +137,15 @@ this.skinIndices=skinIndices;
 
 public final native void setSkinWeight(JsArray<Vector4> skinWeights)/*-{
 this.skinWeights=skinWeights;
+}-*/;
+
+//dont't call after meshed geometry
+public final native JsArray<Vector4> getSkinIndices()/*-{
+return this.skinIndices;
+}-*/;
+
+public final native JsArray<Vector4>  getSkinWeight()/*-{
+return this.skinWeights;
 }-*/;
 
 
