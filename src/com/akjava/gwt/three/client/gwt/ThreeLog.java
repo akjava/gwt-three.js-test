@@ -24,6 +24,9 @@ public class ThreeLog {
 		ret+=",z:"+Math.toDegrees(vec.getZ());
 		return ret;
 	}
+	public static String getAsDegree(Vector3 vec){
+		return get(GWTThreeUtils.radiantToDegree(vec));
+	}
 	public static String get(Vector3 vec){
 		if(vec==null){
 			return "Null";

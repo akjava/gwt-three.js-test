@@ -30,15 +30,16 @@ import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.core.Matrix4;
 import com.akjava.gwt.three.client.core.Object3D;
 import com.akjava.gwt.three.client.core.Projector;
-import com.akjava.gwt.three.client.core.Quaternion;
 import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.gwt.GWTGeometryUtils;
 import com.akjava.gwt.three.client.gwt.GWTThreeUtils;
+import com.akjava.gwt.three.client.gwt.ThreeLog;
 import com.akjava.gwt.three.client.gwt.animation.ik.CDDIK;
 import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Timer;
@@ -178,19 +179,25 @@ panel.addClickHandler(new ClickHandler() {
 		Vector3 handPos=hand.getMatrixWorld().getPosition();
 		Object3D joint=joints.get(index);
 		Vector3 jointPos=joint.getMatrixWorld().getPosition();
-		
+		//GWT.log("h0");
 		Matrix4 beforeRot=THREE.Matrix4();
 		beforeRot.setRotationFromEuler(joint.getRotation(), "XYZ");
+		//GWT.log("h1");
 		Matrix4 rotated=cddik.doStep(handPos, jointPos, beforeRot, targetPos);
+		//GWT.log("h2");
 		
 		
 		
 		
-		
-		
+		if(rotated==null){
+			GWT.log("rotated:null");
+			steping=false;
+			return;
+		}
 		
 		Vector3 vec=THREE.Vector3();
 		vec.setRotationFromMatrix(rotated);
+		log("name:"+joint.getName()+",before:"+ThreeLog.getAsDegree(joint.getRotation())+",after:"+ThreeLog.getAsDegree(vec));
 		joint.setRotation(vec);
 		joint.updateMatrixWorld(true);
 		index--;
