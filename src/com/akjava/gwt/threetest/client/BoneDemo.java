@@ -42,6 +42,10 @@ import com.akjava.gwt.three.client.scenes.Scene;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.MouseDownEvent;
+import com.google.gwt.event.dom.client.MouseMoveEvent;
+import com.google.gwt.event.dom.client.MouseOutEvent;
+import com.google.gwt.event.dom.client.MouseUpEvent;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 
@@ -140,7 +144,7 @@ panel.addClickHandler(new ClickHandler() {
 		last=System.currentTimeMillis();
 		timer = new Timer(){
 			public void run(){
-				root.setRotation(Math.toRadians(MainWidget.cameraRotation.getX()),Math.toRadians(MainWidget.cameraRotation.getY()),Math.toRadians(MainWidget.cameraRotation.getZ()));
+				root.setRotation(Math.toRadians(angleX),Math.toRadians(angleY),Math.toRadians(0));
 				renderer.render(scene, camera);
 
 				if(steping){
@@ -158,6 +162,39 @@ panel.addClickHandler(new ClickHandler() {
 			}
 		};
 		timer.scheduleRepeating(1000/60);
+	}
+	
+	int angleX=0;
+	int angleY=0;
+	@Override
+	public void onMouseMove(MouseMoveEvent event) {
+	int diffX=event.getX()-mouseDownX;
+	int diffY=event.getY()-mouseDownY;
+	mouseDownX=event.getX();
+	mouseDownY=event.getY();
+	
+	angleX+=diffX;
+	angleY+=diffY;
+	}
+	
+	protected boolean mouseDown;
+	
+	protected int mouseDownX;
+	protected int mouseDownY;
+	@Override
+	public void onMouseDown(MouseDownEvent event) {
+		mouseDown=true;
+		mouseDownX=event.getX();
+		mouseDownY=event.getY();
+	}
+	@Override
+	public void onMouseUp(MouseUpEvent event) {
+		mouseDown=false;
+	}
+	
+	@Override
+	public void onMouseOut(MouseOutEvent event) {
+		mouseDown=false;
 	}
 	long last;
 	private boolean steping;

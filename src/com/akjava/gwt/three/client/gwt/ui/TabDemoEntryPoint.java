@@ -1,6 +1,5 @@
 package com.akjava.gwt.three.client.gwt.ui;
 
-import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.stats.client.Stats;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.renderers.GWTRenderObject;
@@ -24,8 +23,6 @@ import com.google.gwt.event.dom.client.MouseWheelEvent;
 import com.google.gwt.event.dom.client.MouseWheelHandler;
 import com.google.gwt.event.logical.shared.ResizeEvent;
 import com.google.gwt.event.logical.shared.ResizeHandler;
-import com.google.gwt.event.logical.shared.SelectionEvent;
-import com.google.gwt.event.logical.shared.SelectionHandler;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
@@ -35,7 +32,6 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.PopupPanel;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
-import com.google.gwt.user.client.ui.TabBar.Tab;
 import com.google.gwt.user.client.ui.TabLayoutPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
@@ -179,6 +175,7 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 		
 		canvasWidth=width;
 		canvasHeight=height;
+		log("initialize:"+width+"x"+height);
 		initialize(renderer,width,height);
 		
 		stats = Stats.insertStatsToRootPanel();
@@ -249,7 +246,7 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 			@Override
 			public void onResize(ResizeEvent event) {
 				int w=canvas.getOffsetWidth();
-				int h=canvas.getOffsetHeight();
+				int h=canvas.getOffsetHeight()-tabHeight;
 				canvasWidth=w;
 				canvasHeight=h;
 				resized(w,h);
@@ -303,7 +300,7 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 		int dw=dialog.getOffsetWidth();
 		int dh=dialog.getOffsetHeight();
 		//GWT.log(w+"x"+h+" offset="+dialog.getOffsetWidth());
-		dialog.setPopupPosition(0, h-dh);
+		dialog.setPopupPosition(0, h-dh-18);
 	}
 	
 	public final native void log(JavaScriptObject object)/*-{

@@ -18,6 +18,7 @@ public static final int MODE_NearSingleBone=0;
 public static final int MODE_NearSpecial=1;
 public static final int MODE_NearAgressive=2;
 public static final int MODE_NearParentAndChildren=3;
+public static final int MODE_NearParentAndChildrenAgressive=5;
 public static final int MODE_FROM_GEOMETRY=4;
 public static final String KEY_HALF="_half_";
 public static final String KEY_END="_end_";
@@ -39,7 +40,7 @@ public static final String KEY_END="_end_";
 		return THREE.Vector4(index1,index1,1,0);
 	}
 	
-	public static Vector4 findNearBoneParentAndChildren(List<NameAndVector3> nameAndPositions,Vector3 pos,JsArray<AnimationBone> bones){
+	public static Vector4 findNearBoneParentAndChildren(List<NameAndVector3> nameAndPositions,Vector3 pos,JsArray<AnimationBone> bones,int xloop){
 		Vector3 pt=nameAndPositions.get(0).getVector3().clone();
 		Vector3 near=pt.subSelf(pos);
 		int index1=nameAndPositions.get(0).getIndex();
@@ -47,7 +48,7 @@ public static final String KEY_END="_end_";
 		int index2=nameAndPositions.get(0).getIndex();
 		double near2=pt.length();
 		
-		
+		//First Bone must real bone.
 		for(int i=1;i<nameAndPositions.size();i++){
 			if(nameAndPositions.get(i).getName().startsWith(KEY_HALF)){
 				continue;
@@ -91,7 +92,7 @@ public static final String KEY_END="_end_";
 		
 		
 		if(indexHalf!=-1){
-			if(bones.get(index1).getParent()==indexHalf || bones.get(indexHalf).getParent()==index1){
+			if(bones.get(index1).getParent()==indexHalf || bones.get(indexHalf).getParent()==index1 ||indexHalf==index1){
 				index2=indexHalf;
 				near2=nearHalf;
 			}
@@ -107,8 +108,11 @@ public static final String KEY_END="_end_";
 		//near1*=near1*near1*near1;
 		//near2*=near2*near2*near2;
 		
-		near1*=near1*near1;
-		near2*=near2*near2;
+		
+		for(int i=0;i<xloop;i++){
+			near1*=near1;
+			near2*=near2;
+		}
 		
 		if(index1==index2){
 			return THREE.Vector4(index1,index1,1,0);
@@ -279,7 +283,9 @@ public static Vector4 findNearSpecial(List<NameAndVector3> nameAndPositions,Vect
 		}else if(mode==MODE_NearAgressive){
 			ret=findNearBoneAggresive(nameAndPositions,geometry.vertices().get(i).getPosition(),bones);	
 		}else if(mode==MODE_NearParentAndChildren){
-			ret=findNearBoneParentAndChildren(nameAndPositions,geometry.vertices().get(i).getPosition(),bones);	
+			ret=findNearBoneParentAndChildren(nameAndPositions,geometry.vertices().get(i).getPosition(),bones,2);	
+		}else if(mode==MODE_NearParentAndChildrenAgressive){
+			ret=findNearBoneParentAndChildren(nameAndPositions,geometry.vertices().get(i).getPosition(),bones,3);	
 		}else if(mode==MODE_FROM_GEOMETRY){
 			ret=fromGeometry(geometry,i);	
 		}else{

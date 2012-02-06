@@ -72,10 +72,12 @@ public abstract class SimpleTabDemoEntryPoint extends TabDemoEntryPoint{
 		if(camera!=null){
 			//TODO find update way.
 			scene.remove(camera);
+			camera=null;
 		}
-		camera = THREE.PerspectiveCamera(35,(double)width/height,1,6000);
+		Camera camera = THREE.PerspectiveCamera(35,(double)width/height,1,6000);
 		//camera.getPosition().set(0, 0, cameraZ);
-		scene.add(camera);
+		scene.add(camera); //some kind of trick.
+		this.camera=camera;
 	}
 	
 	@Override

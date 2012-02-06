@@ -53,11 +53,15 @@ public Matrix4  getStepAngleMatrix(Vector3 parentAngle,Vector3 lastJointPos,Vect
 		*/
 		
 		Vector3 jointVector=lastJointPos.clone().subSelf(jointPos);	
+		
 		mx.multiplyVector3(jointVector);
+		
 		jointVector.normalize();
 		
 		Vector3 targetVector=targetPos.clone().subSelf(jointPos);
+		
 		mx.multiplyVector3(targetVector);
+		
 		targetVector.normalize();
 		
 		double acv=jointVector.dot(targetVector);
