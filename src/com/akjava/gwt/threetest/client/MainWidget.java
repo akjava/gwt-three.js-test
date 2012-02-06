@@ -43,8 +43,10 @@ public class MainWidget extends Composite {
 
 	private Demo lastDemo;
 	public static Stats stats;
-	final Demo[] demos=new Demo[]{new AngleDemo(),new BoneDemo(),
+	final Demo[] demos=new Demo[]{new BoneDemo(),
 			new BoxDemo(),new SphereDemo()
+	
+	//new AngleDemo(), not work
 			/*
 			new BoneDemo(),
 			new SplineDemo(),//new CanvasDemo(),
