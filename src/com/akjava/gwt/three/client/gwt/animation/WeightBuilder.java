@@ -21,6 +21,7 @@ public static final int MODE_NearParentAndChildren=3;
 public static final int MODE_NearParentAndChildrenAgressive=5;
 public static final int MODE_FROM_GEOMETRY=4;
 public static final String KEY_HALF="_half_";
+public static final String KEY_ENDSITE="_ENDSITE_";
 public static final String KEY_END="_end_";
 	public static Vector4 findNearSingleBone(List<NameAndVector3> nameAndPositions,Vector3 pos,JsArray<AnimationBone> bones){
 		Vector3 pt=nameAndPositions.get(0).getVector3().clone();
@@ -271,9 +272,11 @@ public static Vector4 findNearSpecial(List<NameAndVector3> nameAndPositions,Vect
 		}
 		
 	}
-	
-	public static void autoWeight(Geometry geometry,JsArray<AnimationBone> bones,int mode,JsArray<Vector4> bodyIndices,JsArray<Vector4> bodyWeight){
-	List<NameAndVector3> nameAndPositions=boneToNameAndPosition(bones);
+
+
+
+public static void autoWeight(Geometry geometry,JsArray<AnimationBone> bones,List<List<Vector3>> endSites,int mode,JsArray<Vector4> bodyIndices,JsArray<Vector4> bodyWeight){
+	List<NameAndVector3> nameAndPositions=boneToNameAndPosition(bones,endSites);
 	for(int i=0;i<geometry.vertices().length();i++){
 		Vector4 ret=null;
 		if(mode==MODE_NearSingleBone){
@@ -302,6 +305,13 @@ public static Vector4 findNearSpecial(List<NameAndVector3> nameAndPositions,Vect
 		bodyWeight.push(v4w);
 		}
 	}
+
+
+
+
+	public static void autoWeight(Geometry geometry,JsArray<AnimationBone> bones,int mode,JsArray<Vector4> bodyIndices,JsArray<Vector4> bodyWeight){
+		autoWeight(geometry,bones,null,mode,bodyIndices,bodyWeight);
+	}
 	
 	
 	
@@ -317,8 +327,14 @@ public static Vector4 findNearSpecial(List<NameAndVector3> nameAndPositions,Vect
 		return v4;
 	}
 
-	//add all bones start,half end position
+	
+	
+	
 	public static List<NameAndVector3> boneToNameAndPosition(JsArray<AnimationBone> bones){
+		return boneToNameAndPosition(bones,null);
+	}
+	//add all bones start,half end position
+	public static List<NameAndVector3> boneToNameAndPosition(JsArray<AnimationBone> bones,List<List<Vector3>> endSites){
 		List<NameAndVector3> lists=new ArrayList<NameAndVector3>();
 		List<Vector3> absolutePos=new ArrayList<Vector3>();
 		List<Integer> hasChild=new ArrayList();
@@ -367,6 +383,14 @@ public static Vector4 findNearSpecial(List<NameAndVector3> nameAndPositions,Vect
 				pos.addSelf(parentPos);
 			}
 			absolutePos.add(pos);
+			
+			
+			if(endSites!=null){
+				List<Vector3> ends=endSites.get(i);
+				for(Vector3 endSite:ends){
+					lists.add(new NameAndVector3(KEY_ENDSITE+bone.getName(),pos.clone().addSelf(endSite),i));//
+				}
+			}
 			
 			
 			lists.add(new NameAndVector3(bone.getName(),pos,i));//end pos

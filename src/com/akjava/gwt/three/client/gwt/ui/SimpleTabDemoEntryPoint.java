@@ -17,7 +17,7 @@ public abstract class SimpleTabDemoEntryPoint extends TabDemoEntryPoint{
 	protected long mouseLast;
 	protected int tmpZoom;
 	protected Scene scene;
-	protected int defaultZoom=10;
+	protected int defaultZoom=3;
 	protected int minCamera=5;
 	@Override
 	public void onMouseWheel(MouseWheelEvent event) {
@@ -83,8 +83,10 @@ public abstract class SimpleTabDemoEntryPoint extends TabDemoEntryPoint{
 	@Override
 	public void resized(int width, int height) {
 		if(width==0 || height==0){
-			log("ignore-0 size");
+			log("never happend ignore-0 size");
 			return;
+		}else{
+			log("resized:"+width+"x"+height);
 		}
 		screenWidth=width;
 		screenHeight=height;

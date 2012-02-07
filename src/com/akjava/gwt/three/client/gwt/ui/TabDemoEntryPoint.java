@@ -25,6 +25,8 @@ import com.google.gwt.event.logical.shared.ResizeEvent;
 import com.google.gwt.event.logical.shared.ResizeHandler;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.Window.ScrollEvent;
+import com.google.gwt.user.client.Window.ScrollHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.HorizontalPanel;
@@ -69,7 +71,7 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 
 	protected TabLayoutPanel tabPanel;
 
-	protected int tabHeight=30;
+	protected int tabHeight=24;
 
 	protected PopupPanel dialog2;
 	public WebGLCanvas getCanvas() {
@@ -87,6 +89,7 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 	public void onModuleLoad() {
 		
 		tabPanel = new TabLayoutPanel(tabHeight, Unit.PX);
+		
 		
 		RootLayoutPanel.get().add(tabPanel);
 		
@@ -110,6 +113,7 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 		//RootLayoutPanel.get().setStyleName("transparent");
 		
 		canvas = new WebGLCanvas(renderer);
+		
 		canvas.setClearColorHex(0);
 		//final FocusPanel glCanvas=new FocusPanel(canvas);
 		
@@ -163,6 +167,8 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 			public void onMouseMove(MouseMoveEvent event) {
 				TabDemoEntryPoint.this.onMouseMove(event);
 			}});
+		
+		
 		
 		//canvas.setStyleName("clear");
 		//glCanvas.getElement().getStyle().setBackgroundColor("#fff");
@@ -245,8 +251,15 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 		Window.addResizeHandler(new ResizeHandler() {
 			@Override
 			public void onResize(ResizeEvent event) {
-				int w=canvas.getOffsetWidth();
-				int h=canvas.getOffsetHeight()-tabHeight;
+				//int w=canvas.getOffsetWidth();
+				//int h=canvas.getOffsetHeight()-tabHeight;
+				int w=Window.getClientWidth();
+				int h=Window.getClientHeight()-tabHeight;
+				
+				if(w<=0 || h<=0){
+					log("ignore 0 resize");
+					return;
+				}
 				canvasWidth=w;
 				canvasHeight=h;
 				resized(w,h);
@@ -254,13 +267,22 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 				rightTop(dialog);
 			}
 		});
+		Window.addWindowScrollHandler(new ScrollHandler() {
+			
+			@Override
+			public void onWindowScroll(ScrollEvent event) {
+				log("scroll:"+event.getScrollLeft()+"x"+event.getScrollTop());
+			}
+		});
+		
+		
 		HTMLPanel html=new HTMLPanel(getHtml());
 		html.setWidth("100%");
 		html.setHeight("20px");
 		html.setStyleName("text");
 		dialog2 = new PopupPanel();
 		dialog2.add(html);
-		dialog2.setPopupPosition(150, 30);
+		dialog2.setPopupPosition(150, 35);
 		dialog2.setWidth("100%");
 		dialog2.setStyleName("transparent");
 		dialog2.show();
