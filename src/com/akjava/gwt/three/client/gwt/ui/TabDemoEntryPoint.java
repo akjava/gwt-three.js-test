@@ -104,7 +104,8 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 			<script type="text/javascript" language="javascript" src="Three.js"></script>
     		<script type="text/javascript" language="javascript" src="stats.js"></script>     
 		 */
-		renderer = THREE.WebGLRenderer(GWTRenderObject.create().preserveDrawingBuffer());
+		renderer = THREE.WebGLRenderer();
+		//renderer = THREE.WebGLRenderer(GWTRenderObject.create().preserveDrawingBuffer()); //crash browser?
 		renderer.setSize(width,height);
 		
 		
