@@ -66,7 +66,9 @@ import com.akjava.gwt.three.client.objects.SkinnedMesh;
 import com.akjava.gwt.three.client.renderers.GWTRenderObject;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
+import com.akjava.gwt.three.client.textures.Texture;
 import com.google.gwt.core.client.JsArray;
+import com.google.gwt.dom.client.CanvasElement;
 
 
 
@@ -74,6 +76,10 @@ import com.google.gwt.core.client.JsArray;
 
 public class THREE {
 
+	public static  native final Texture Texture(CanvasElement canvas)/*-{
+	return  new $wnd.THREE.Texture(canvas);
+	}-*/;
+	
 	public static  native final JSONLoader JSONLoader()/*-{
 	return  new $wnd.THREE.JSONLoader();
 	}-*/;

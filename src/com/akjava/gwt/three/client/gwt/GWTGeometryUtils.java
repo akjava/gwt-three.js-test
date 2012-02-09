@@ -5,6 +5,7 @@ import com.akjava.gwt.three.client.core.Geometry;
 import com.akjava.gwt.three.client.core.MorphTarget;
 import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.core.Vertex;
+import com.akjava.gwt.three.client.extras.GeometryUtils;
 import com.akjava.gwt.three.client.extras.loaders.JSONLoader;
 import com.akjava.gwt.three.client.extras.loaders.JSONLoader.LoadHandler;
 import com.akjava.gwt.three.client.objects.Mesh;
@@ -37,6 +38,31 @@ public class GWTGeometryUtils {
 	public final static  Mesh createLineMesh(Vector3 from,Vector3 to,int color,double lineWidth){
 		return THREE.Line(GWTGeometryUtils.createLineGeometry(from, to),
 				THREE.LineBasicMaterial().color(color).linewidth(lineWidth).build());
+	}
+	
+	public final static  Geometry clonePlusWeights(Geometry geo){
+		Geometry cloned=GeometryUtils.clone(geo);
+		for(int i=0;i<geo.getSkinIndices().length();i++){
+			cloned.getSkinIndices().push(geo.getSkinIndices().get(i).clone());
+		}
+		for(int i=0;i<geo.getSkinWeight().length();i++){
+			cloned.getSkinWeight().push(geo.getSkinWeight().get(i).clone());
+		}
+		return cloned;
+	}
+	public final static  Geometry mergeGeometryPlusWeights(Geometry geo1,Geometry geo2){
+		
+		GeometryUtils.merge(geo1, geo2);
+		
+		for(int i=0;i<geo2.getSkinIndices().length();i++){
+			geo1.getSkinIndices().push(geo2.getSkinIndices().get(i));
+		}
+		
+		for(int i=0;i<geo2.getSkinWeight().length();i++){
+			geo1.getSkinWeight().push(geo2.getSkinWeight().get(i));
+		}
+				
+		return geo1;
 	}
 	
 	/**

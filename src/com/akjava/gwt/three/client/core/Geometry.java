@@ -148,6 +148,10 @@ public final native JsArray<Vector4>  getSkinWeight()/*-{
 return this.skinWeights;
 }-*/;
 
+public native final JsArray<JsArray<UV>> getFaceVertexUvs ()/*-{
+return this["faceVertexUvs"][0];
+}-*/;
+
 
 
 }

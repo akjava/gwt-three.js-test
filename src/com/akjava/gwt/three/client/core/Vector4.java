@@ -62,6 +62,11 @@ this.w+=w;
 }-*/;
 
 
+public final native Vector4  clone()/*-{
+return this.clone();
+}-*/;
+
+
 public native final double getX()/*-{
 return this.x;
 }-*/;
