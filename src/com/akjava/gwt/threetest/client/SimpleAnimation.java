@@ -88,7 +88,7 @@ private long last;
 		final int radius = 600;
 		
 		last = System.currentTimeMillis();
-		timer = new Timer(){
+		Timer timer = new Timer(){
 			double theta;
 			public void run(){
 				try{
@@ -115,7 +115,7 @@ private long last;
 			}
 		};
 		
-		startTimer();
+		startTimer(timer);
 	}
 
 	@Override

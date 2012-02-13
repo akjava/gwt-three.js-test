@@ -128,7 +128,7 @@ private AnimationModel model;
 		final int radius = 600;
 		
 		last = System.currentTimeMillis();
-		timer = new Timer(){
+		Timer timer = new Timer(){
 			double theta;
 			public void run(){
 				try{
@@ -159,7 +159,7 @@ private AnimationModel model;
 			}
 		};
 		
-		startTimer();
+		startTimer(timer);
 	}
 
 	@Override

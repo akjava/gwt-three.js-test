@@ -142,7 +142,8 @@ panel.addClickHandler(new ClickHandler() {
 		
 		*/
 		last=System.currentTimeMillis();
-		timer = new Timer(){
+	
+		Timer timer = new Timer(){
 			public void run(){
 				root.setRotation(Math.toRadians(angleX),Math.toRadians(angleY),Math.toRadians(0));
 				renderer.render(scene, camera);
@@ -161,7 +162,7 @@ panel.addClickHandler(new ClickHandler() {
 				}
 			}
 		};
-		timer.scheduleRepeating(1000/60);
+		startTimer(timer);
 	}
 	
 	int angleX=0;

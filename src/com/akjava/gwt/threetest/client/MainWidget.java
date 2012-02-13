@@ -43,8 +43,8 @@ public class MainWidget extends Composite {
 
 	private Demo lastDemo;
 	public static Stats stats;
-	final Demo[] demos=new Demo[]{new DragDemo(),new BoneDemo(),
-			new BoxDemo(),new SphereDemo(),new CanvasDemo()
+	final Demo[] demos=new Demo[]{new BoneDemo(),
+			new BoxDemo(),new SphereDemo()
 	
 	//new AngleDemo(), not work
 			/*
@@ -67,17 +67,7 @@ public class MainWidget extends Composite {
 		renderer.setSize(width, height);
 		GWT.log("element:"+renderer.getDomElement());
 		
-		if(!GWT.isScript()){
-		Button bt=new Button("start");
-		bt.addClickHandler(new ClickHandler() {
-			
-			@Override
-			public void onClick(ClickEvent event) {
-				lastDemo.startTimer();
-			}
-		});
-		controler.add(bt);
-		}
+		
 		
 		CameraMoveWidget cameraMove=new CameraMoveWidget();
 		controler.add(cameraMove);

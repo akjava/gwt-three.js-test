@@ -48,7 +48,7 @@ private Timer timer;
 		
 		
 		
-		timer = new Timer(){
+		Timer timer = new Timer(){
 			public void run(){
 				mesh.getRotation().incrementX(0.02);
 				mesh.getRotation().incrementY(0.02);
@@ -56,7 +56,7 @@ private Timer timer;
 
 			}
 		};
-		timer.scheduleRepeating(1000/60);
+		startTimer(timer);
 	}
 
 

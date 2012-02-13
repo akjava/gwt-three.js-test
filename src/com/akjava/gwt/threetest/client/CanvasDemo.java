@@ -15,56 +15,31 @@
  */
 package com.akjava.gwt.threetest.client;
 
+import com.akjava.gwt.lib.client.ExportUtils;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
+import com.google.gwt.canvas.client.Canvas;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 
-public class BoxDemo extends AbstractDemo{
-
+public class CanvasDemo extends AbstractDemo{
+private Timer timer;
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
-
-		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
-		camera.getPosition().set(0, 0, 20);
-		
-		
-		
-		final Scene scene=THREE.Scene();
-		
-		final Mesh mesh=THREE.Mesh(THREE.CubeGeometry(5, 5, 5), 
-				THREE.MeshLambertMaterial().color(0xff0000).build());
-		scene.add(mesh);
-		
-		final Light light=THREE.PointLight(0xffffff);
-		light.setPosition(10, 0, 10);
-		scene.add(light);
-		
-		
-		Timer timer = new Timer(){
-			public void run(){
-				MainWidget.stats.update();
-				//turn around;
-				mesh.getRotation().incrementX(0.02);
-				mesh.getRotation().incrementY(0.02);
-				
-				renderer.render(scene, camera);
-			}
-		};
-		
-		
-		startTimer(timer);
+		Canvas canvas=Canvas.createIfSupported();
+		canvas.getContext2d().strokeText("hello", 50, 50);
+		String url=canvas.toDataUrl();
+		ExportUtils.openTabAbsoluteURLImage(url, "test");
 	}
-
 
 
 	@Override
 	public String getName() {
-		return "Simple Cube";
+		return "Sphere";
 	}
 
 }

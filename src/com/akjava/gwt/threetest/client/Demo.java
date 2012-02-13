@@ -16,11 +16,12 @@
 package com.akjava.gwt.threetest.client;
 
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
+import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 
 public interface Demo {
 	public void start(WebGLRenderer renderer,int width,int height,FocusPanel panel);
 	public void stop();
 	public String getName();
-	public void startTimer();
+	public void startTimer(Timer timer);
 }

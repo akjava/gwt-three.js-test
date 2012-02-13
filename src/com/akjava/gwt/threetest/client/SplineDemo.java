@@ -37,10 +37,7 @@ public class SplineDemo extends AbstractDemo{
 private Timer timer;
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
-		if(timer!=null){
-			timer.cancel();
-			timer=null;
-		}
+		stop();
 		
 		
 		

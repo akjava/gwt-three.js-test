@@ -93,7 +93,9 @@ public abstract class AbstractDemo implements Demo{
 	}
 	
 	@Override
-	public void startTimer(){
+	public void startTimer(Timer timer){
+		stop();
+		this.timer=timer;
 		timer.scheduleRepeating(1000/60);
 	}
 	
