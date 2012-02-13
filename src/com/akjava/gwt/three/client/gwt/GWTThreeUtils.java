@@ -23,6 +23,11 @@ public class GWTThreeUtils {
 	ret.setRotationFromMatrix(mx);
 	return ret;
 	}
+	
+	public static Quaternion degreeRotationQuaternion(Vector3 vec){
+		return rotationQuaternion(rotationToMatrix4(degreeToRagiant(vec)));
+	}
+	
 	public static Quaternion rotationQuaternion(Vector3 vec){
 		return rotationQuaternion(rotationToMatrix4(vec));
 	}
@@ -81,6 +86,10 @@ public class GWTThreeUtils {
 	public static Matrix4 rotationToMatrix4(Vector3 vec){
 		return rotationToMatrix4(vec,"XYZ");
 	}
+	public static Matrix4 rotationToMatrix4(Quaternion q){
+		Matrix4 mx=THREE.Matrix4();
+		return mx.setRotationFromQuaternion(q);
+	}
 	public static Matrix4 rotationToMatrix4(Vector3 vec,String order){
 		Matrix4 mx=THREE.Matrix4();
 		mx.setRotationFromEuler(vec, order);
@@ -96,6 +105,11 @@ public class GWTThreeUtils {
 		Vector3 vec=THREE.Vector3();
 		vec.setRotationFromMatrix(mx);
 		return vec;
+	}
+	public static Vector3 rotationToDegreeVector3(Matrix4 mx){
+		Vector3 vec=THREE.Vector3();
+		vec.setRotationFromMatrix(mx);
+		return radiantToDegree(vec);
 	}
 	public static Matrix4 translateToMatrix4(Vector3 vec){
 		Matrix4 mx=THREE.Matrix4();

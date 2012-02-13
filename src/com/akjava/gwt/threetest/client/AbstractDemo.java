@@ -20,6 +20,7 @@ import com.google.gwt.user.client.ui.FocusPanel;
 public abstract class AbstractDemo implements Demo{
 	protected Timer timer;
 
+	protected int width,height;
 	
 	public  void onMouseClick(ClickEvent event){};
 	public  void onMouseWheel(MouseWheelEvent event){};
@@ -29,7 +30,8 @@ public abstract class AbstractDemo implements Demo{
 	public  void onMouseOut(MouseOutEvent event){};
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
-
+		this.width=width;
+		this.height=height;
 		panel.addMouseUpHandler(new MouseUpHandler() {
 			
 			@Override

@@ -1,7 +1,9 @@
 package com.akjava.gwt.three.client.gwt.animation;
 
+import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.core.Matrix4;
 import com.akjava.gwt.three.client.core.Vector3;
+import com.akjava.gwt.three.client.gwt.GWTThreeUtils;
 
 public class AngleAndPosition {
 public AngleAndPosition(Vector3 angle,Vector3 positions,Matrix4 matrix){
@@ -30,6 +32,13 @@ public Matrix4 getMatrix() {
 public void setMatrix(Matrix4 matrix) {
 	this.matrix = matrix;
 }
+
+public void updateMatrix(){
+	matrix=THREE.Matrix4();
+	matrix.setTranslation(position.getX(), position.getY(), position.getZ());
+	matrix.setRotationFromEuler(GWTThreeUtils.degreeToRagiant(angle), "XYZ");
+}
+
 public AngleAndPosition clone(){
 	Vector3 copyVector3=null;
 	Vector3 copyPos3=null;

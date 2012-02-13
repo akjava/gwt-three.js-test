@@ -39,6 +39,7 @@ package com.akjava.gwt.three.client.core;
 
 import com.akjava.gwt.three.client.gwt.animation.AnimationBone;
 import com.akjava.gwt.three.client.gwt.animation.AnimationData;
+import com.akjava.gwt.three.client.gwt.core.BoundingBox;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayNumber;
@@ -54,7 +55,13 @@ public final native JsArray<Vertex> vertices()/*-{
 return this.vertices;
 }-*/;
 
-
+/**
+ * should call computeBoundingBox
+ * @return
+ */
+public final native BoundingBox getBoundingBox()/*-{	
+return this.boundingBox;
+}-*/;
 
 public final native void computeBoundingSphere()/*-{
 this.computeBoundingSphere();

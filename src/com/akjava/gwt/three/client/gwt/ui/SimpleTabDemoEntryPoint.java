@@ -1,7 +1,9 @@
 package com.akjava.gwt.three.client.gwt.ui;
 
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.cameras.Camera;
+import com.akjava.gwt.three.client.gwt.ThreeLog;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
 import com.google.gwt.event.dom.client.MouseDownEvent;
@@ -12,7 +14,7 @@ import com.google.gwt.event.dom.client.MouseWheelEvent;
 public abstract class SimpleTabDemoEntryPoint extends TabDemoEntryPoint{
 
 	protected Camera camera;
-	protected int cameraX,cameraY,cameraZ;
+	protected double cameraX,cameraY,cameraZ;
 	protected int screenWidth,screenHeight;
 	protected long mouseLast;
 	protected int tmpZoom;
@@ -32,7 +34,7 @@ public abstract class SimpleTabDemoEntryPoint extends TabDemoEntryPoint{
 			tmpZoom=defaultZoom;
 		}
 		//GWT.log("wheel:"+event.getDeltaY());
-		int tmp=cameraZ+event.getDeltaY()*tmpZoom;
+		int tmp=(int)cameraZ+event.getDeltaY()*tmpZoom;
 		tmp=Math.max(minCamera, tmp);
 		tmp=Math.min(4000, tmp);
 		cameraZ=tmp;
@@ -60,6 +62,7 @@ public abstract class SimpleTabDemoEntryPoint extends TabDemoEntryPoint{
 	public void update(WebGLRenderer renderer) {
 		beforeUpdate(renderer);
 		camera.getPosition().set(cameraX, cameraY, cameraZ);
+		//LogUtils.log("camera:"+ThreeLog.get(camera.getPosition()));
 		renderer.render(scene, camera);
 	}
 	
@@ -68,7 +71,8 @@ public abstract class SimpleTabDemoEntryPoint extends TabDemoEntryPoint{
 	/** called before create Control**/
 	protected abstract  void initializeOthers(WebGLRenderer renderer) ;
 
-	private void createCamera(Scene scene,int width,int height){
+	protected void createCamera(Scene scene,int width,int height){
+		
 		if(camera!=null){
 			//TODO find update way.
 			scene.remove(camera);

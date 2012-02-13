@@ -39,6 +39,7 @@ package com.akjava.gwt.three.client.objects;
 
 import com.akjava.gwt.three.client.core.Geometry;
 import com.akjava.gwt.three.client.core.Object3D;
+import com.akjava.gwt.three.client.gwt.core.BoundingBox;
 import com.akjava.gwt.three.client.materials.Material;
 import com.google.gwt.core.client.JsArray;
 
@@ -75,6 +76,8 @@ this.materials=[material];
 public final native void gwtBoundingSphere()/*-{	
 this.boundRadius = geometry.boundingSphere.radius;
 }-*/;
+
+
 
 
 /**

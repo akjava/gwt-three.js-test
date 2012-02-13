@@ -66,6 +66,35 @@ public final void setScale(double x,double y,double z){
 	getScale().set(x,y,z);
 }
 
+
+
+public final native void setQuaternion(Quaternion quaternion)/*-{
+ this.quaternion=q;
+}-*/;
+
+
+public final native Matrix4 getMatrix()/*-{
+return this.matrix;
+}-*/;
+
+public final native Matrix4 getMatrixRotationWorld()/*-{
+return this.matrixRotationWorld;
+}-*/;
+
+public final native Quaternion getQuaternion()/*-{
+return this.quaternion;
+}-*/;
+
+public final native void setUseQuaternion(boolean useQuaternion)/*-{
+this.useQuaternion=useQuaternion;
+}-*/;
+
+public final native boolean isUseQuaternion()/*-{
+return this.useQuaternion;
+}-*/;
+
+
+
 public final native Vector3 getScale()/*-{
 return this.scale;
 }-*/;

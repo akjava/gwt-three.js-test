@@ -15,6 +15,11 @@ return this.setFromAxisAngle(axis,angle);
 
 
 
+
+public native final Quaternion slerp( Quaternion qa,Quaternion qb,Quaternion qm,double t)/*-{
+return $wnd.THREE.Quaternion.slerp( qa, qb, qm, t);
+}-*/;
+
 public native final Quaternion multiplySelf(Quaternion q)/*-{
 return this.multiplySelf(q);
 }-*/;

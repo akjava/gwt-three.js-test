@@ -56,6 +56,49 @@ public final native JsArray<Intersect> gwtPickIntersects(int mx,int my,int sw,in
 
 }-*/;
 
+public final native JsArray<Intersect> gwtPickIntersects(int mx,int my,int sw,int sh,Camera camera,Vector3 position,Scene scene)/*-{
+
+var vector = new $wnd.THREE.Vector3( ( mx / sw ) * 2 - 1, - ( my / sh ) * 2 + 1, 0.5 );
+			this.unprojectVector( vector, camera );
+
+			var ray = new $wnd.THREE.Ray(position, vector.subSelf(position ).normalize() );
+
+			return  ray.intersectScene( scene );
+
+}-*/;
+
+public final native Ray gwtCreateRay(int mx,int my,int sw,int sh,Camera camera)/*-{
+
+var vector = new $wnd.THREE.Vector3( ( mx / sw ) * 2 - 1, - ( my / sh ) * 2 + 1, 0.5 );
+			this.unprojectVector( vector, camera );
+
+			var ray = new $wnd.THREE.Ray( camera.position, vector.subSelf( camera.position ).normalize() );
+
+			return  ray;
+
+}-*/;
+
+public final native JsArray<Intersect> gwtPickIntersects(int mx,int my,int sw,int sh,Camera camera,JsArray<Object3D> objects)/*-{
+
+var vector = new $wnd.THREE.Vector3( ( mx / sw ) * 2 - 1, - ( my / sh ) * 2 + 1, 0.5 );
+			this.unprojectVector( vector, camera );
+
+			var ray = new $wnd.THREE.Ray( camera.position, vector.subSelf( camera.position ).normalize() );
+
+			return  ray.intersectObjects( objects );
+
+}-*/;
+
+public final native JsArray<Intersect> gwtPickIntersects(int mx,int my,int sw,int sh,Camera camera,Object3D object)/*-{
+
+var vector = new $wnd.THREE.Vector3( ( mx / sw ) * 2 - 1, - ( my / sh ) * 2 + 1, 0.5 );
+			this.unprojectVector( vector, camera );
+
+			var ray = new $wnd.THREE.Ray( camera.position, vector.subSelf( camera.position ).normalize() );
+
+			return  ray.intersectObject( object );
+
+}-*/;
 
 public final native Vector3 projectVector(Vector3 vector,Camera camera)/*-{
 

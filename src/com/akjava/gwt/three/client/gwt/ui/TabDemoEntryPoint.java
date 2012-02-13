@@ -323,7 +323,7 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 		int dw=dialog.getOffsetWidth();
 		int dh=dialog.getOffsetHeight();
 		//GWT.log(w+"x"+h+" offset="+dialog.getOffsetWidth());
-		log("left-bottom:"+h+","+dh);
+		//log("left-bottom:"+h+","+dh);
 		dialog.setPopupPosition(0, h-dh-tabHeight);//some error
 	}
 	

@@ -45,4 +45,8 @@ protected Intersect(){}
 public final native Object3D getObject()/*-{
 return this.object;
 }-*/;
+
+public final native Vector3 getPoint()/*-{
+return this.point;
+}-*/;
 }

@@ -44,6 +44,7 @@ import com.akjava.gwt.three.client.core.Matrix4;
 import com.akjava.gwt.three.client.core.Object3D;
 import com.akjava.gwt.three.client.core.Projector;
 import com.akjava.gwt.three.client.core.Quaternion;
+import com.akjava.gwt.three.client.core.Ray;
 import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.core.Vector4;
 import com.akjava.gwt.three.client.core.Vertex;
@@ -76,6 +77,10 @@ import com.google.gwt.dom.client.CanvasElement;
 
 public class THREE {
 
+	public static  native final Ray Ray(Vector3 camera,Vector3 vector)/*-{
+	return  new $wnd.THREE.Ray(camera,vector);
+	}-*/;
+	
 	public static  native final Texture Texture(CanvasElement canvas)/*-{
 	return  new $wnd.THREE.Texture(canvas);
 	}-*/;
