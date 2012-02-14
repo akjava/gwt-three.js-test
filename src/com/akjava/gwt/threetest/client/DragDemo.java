@@ -22,6 +22,7 @@
  */
 package com.akjava.gwt.threetest.client;
 
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.core.Intersect;
@@ -98,14 +99,14 @@ JsArray<Object3D> meshs=(JsArray<Object3D>) JsArray.createArray();
 		meshs.push(mesh);
 		
 		//mesh.setPosition(THREE.Vector3(50, 50, 50));
-		timer = new Timer(){
+		Timer timer = new Timer(){
 			public void run(){
 				//camera.setRotation(Math.toRadians(angleX),Math.toRadians(angleY),Math.toRadians(0));
 				renderer.render(scene, camera);
 				
 			}
 		};
-		timer.scheduleRepeating(1000/60);
+		startTimer(timer);
 	}
 	
 	Projector projector=THREE.Projector();
@@ -209,6 +210,7 @@ JsArray<Object3D> meshs=(JsArray<Object3D>) JsArray.createArray();
 	}
 	@Override
 	public  void onMouseWheel(MouseWheelEvent event){
+
 		zoom+=event.getDeltaY();
 		Matrix4 mx=GWTThreeUtils.degitRotationToMatrix4(angleX, angleY, 0);	
 		camera.setPosition(mx.multiplyVector3(THREE.Vector3(0, 0, zoom)));

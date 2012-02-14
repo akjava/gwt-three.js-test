@@ -1,5 +1,10 @@
-My GWT wrapper for three.js r46
+My GWT wrapper for three.js r47
 still only wrapped what i needed.
+
+most of demo under upgrading.
+
+Release
+r4 - akjavathreegwt_120214.jar
 
 Bug
 if method need  Array or Object parameters  ,and in inside it is using instanceof to parameter,it make a problem.

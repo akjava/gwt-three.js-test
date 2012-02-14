@@ -46,9 +46,9 @@ public class MainWidget extends Composite {
 	final Demo[] demos=new Demo[]{new BoneDemo(),
 			new BoxDemo(),new SphereDemo()
 	
-	//new AngleDemo(), not work
+	//new AngleDemo(), some of them for test,others now upgrading
 			/*
-			new BoneDemo(),
+			new DragDemo(),
 			new SplineDemo(),//new CanvasDemo(),
 			new NormalmapDemo(),new  SimpleAnimation(),new ParticleDemo2(),
 			new ExplotionDemo3(),new ExplotionDemo2(),new ParticleDemo(),
@@ -70,11 +70,13 @@ public class MainWidget extends Composite {
 		
 		
 		CameraMoveWidget cameraMove=new CameraMoveWidget();
+		cameraMove.setVisible(false);//useless
 		controler.add(cameraMove);
 		
 		MainWidget.cameraMove=cameraMove;
 		
 		CameraRotationWidget cameraRotation=new CameraRotationWidget();
+		cameraRotation.setVisible(false);//useless
 		controler.add(cameraRotation);
 		
 		MainWidget.cameraRotation=cameraRotation;

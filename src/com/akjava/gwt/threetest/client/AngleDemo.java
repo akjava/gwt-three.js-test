@@ -287,7 +287,7 @@ private Timer timer;
 }
 	
 	/**
-	 * Matrix‚É•ÏŠ·‚Å‚«‚È‚¢A
+
 	 * @param jointPos
 	 * @param targetPos
 	 * @return

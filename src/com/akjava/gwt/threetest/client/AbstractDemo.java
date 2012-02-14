@@ -1,5 +1,7 @@
 package com.akjava.gwt.threetest.client;
 
+import com.akjava.gwt.lib.client.LogUtils;
+import com.akjava.gwt.three.client.gwt.core.CameraControler;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -23,11 +25,23 @@ public abstract class AbstractDemo implements Demo{
 	protected int width,height;
 	
 	public  void onMouseClick(ClickEvent event){};
-	public  void onMouseWheel(MouseWheelEvent event){};
+
 	public  void onMouseMove(MouseMoveEvent event){} ;
 	public  void onMouseDown(MouseDownEvent event){} ;
 	public  void onMouseUp(MouseUpEvent event){} ;
 	public  void onMouseOut(MouseOutEvent event){};
+	
+	
+	protected CameraControler cameraControle=new CameraControler();
+	
+	
+	
+	public void onMouseWheel(MouseWheelEvent event) {
+		LogUtils.log("wheel");
+		cameraControle.doMouseWheel(event.getDeltaY());
+	}
+
+	
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		this.width=width;
@@ -42,6 +56,7 @@ public abstract class AbstractDemo implements Demo{
 		});
 
 
+		
 		panel.addMouseWheelHandler(new MouseWheelHandler() {
 			@Override
 			public void onMouseWheel(MouseWheelEvent event) {

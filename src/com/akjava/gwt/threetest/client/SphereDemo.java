@@ -25,17 +25,20 @@ import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 
 public class SphereDemo extends AbstractDemo{
-private Timer timer;
+
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
+		super.start(renderer, width, height, panel);
 		
 		
-		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
-		camera.getPosition().set(0, 0, 20);
+		
 		
 		
 		
 		final Scene scene=THREE.Scene();
+		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
+		scene.add(camera);
+		cameraControle.setPositionZ(50);
 		
 		final Mesh mesh=THREE.Mesh(THREE.SphereGeometry(5, 16, 16), 
 				THREE.MeshBasicMaterial().color(0xff0000).wireFrame(true).build());
@@ -50,10 +53,13 @@ private Timer timer;
 		
 		Timer timer = new Timer(){
 			public void run(){
+				MainWidget.stats.update();
+				camera.setPosition(cameraControle.getPositionX(), cameraControle.getPositionY(), cameraControle.getPositionZ());
+				
+				
 				mesh.getRotation().incrementX(0.02);
 				mesh.getRotation().incrementY(0.02);
 				renderer.render(scene, camera);
-
 			}
 		};
 		startTimer(timer);

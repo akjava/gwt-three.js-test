@@ -28,13 +28,17 @@ public class BoxDemo extends AbstractDemo{
 
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
-
-		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
-		camera.getPosition().set(0, 0, 20);
+		super.start(renderer, width, height, panel);
+		
+		
 		
 		
 		
 		final Scene scene=THREE.Scene();
+		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
+		scene.add(camera);
+		cameraControle.setPositionZ(20);
+		
 		
 		final Mesh mesh=THREE.Mesh(THREE.CubeGeometry(5, 5, 5), 
 				THREE.MeshLambertMaterial().color(0xff0000).build());
@@ -48,6 +52,9 @@ public class BoxDemo extends AbstractDemo{
 		Timer timer = new Timer(){
 			public void run(){
 				MainWidget.stats.update();
+				camera.setPosition(cameraControle.getPositionX(), cameraControle.getPositionY(), cameraControle.getPositionZ());
+				
+				
 				//turn around;
 				mesh.getRotation().incrementX(0.02);
 				mesh.getRotation().incrementY(0.02);
