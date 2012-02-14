@@ -40,6 +40,7 @@ public class BoxDemo extends AbstractDemo{
 		final Scene scene=THREE.Scene();
 		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
 		scene.add(camera);
+		
 		cameraControle.setPositionZ(20);
 		
 		
@@ -57,7 +58,7 @@ public class BoxDemo extends AbstractDemo{
 				MainWidget.stats.update();
 				camera.setPosition(cameraControle.getPositionX(), cameraControle.getPositionY(), cameraControle.getPositionZ());
 				
-				mesh.setRotation(cameraControle.getRagiantRotattionX(), cameraControle.getRagiantRotattionY(), cameraControle.getRagiantRotattionZ());
+				mesh.setRotation(cameraControle.getRagiantRotationX(), cameraControle.getRagiantRotationY(), cameraControle.getRagiantRotationZ());
 				
 				
 				

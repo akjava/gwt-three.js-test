@@ -13,57 +13,69 @@ public class CameraControler {
 		return defaultZoomIncrement;
 	}
 
+	public void setPositions(double x,double y,double z){
+		setPositionX(x);
+		setPositionY(y);
+		setPositionZ(z);
+	}
+	
+	public void setRotations(double x,double y,double z){
+		setRotattionX(x);
+		setRotattionX(y);
+		setRotattionX(z);
+	}
+	
 	public void incrementRotationX(double x){
-		rotattionX+=x;
-		if(rotattionX>180){
-			rotattionX=-180+(rotattionX-180);
+		rotationX+=x;
+		if(rotationX>180){
+			rotationX=-180+(rotationX-180);
 		}
-		if(rotattionX<180){
-			rotattionX=180+(rotattionX+180);
+		if(rotationX<180){
+			rotationX=180+(rotationX+180);
 		}
 	}
 	public void incrementRotationY(double y){
-		rotattionY+=y;
-		if(rotattionY>180){
-			rotattionY=-180+(rotattionY-180);
+		rotationY+=y;
+		if(rotationY>180){
+			rotationY=-180+(rotationY-180);
 		}
-		if(rotattionY<180){
-			rotattionY=180+(rotattionY+180);
+		if(rotationY<180){
+			rotationY=180+(rotationY+180);
 		}
 	}
 	
-	public double getRagiantRotattionZ() {
-		return Math.toRadians(rotattionZ);
+	public double getRagiantRotationZ() {
+		return Math.toRadians(rotationZ);
 	}
-	public double getRagiantRotattionY() {
-		return Math.toRadians(rotattionY);
+	public double getRagiantRotationY() {
+		return Math.toRadians(rotationY);
 	}
-	public double getRagiantRotattionX() {
-		return Math.toRadians(rotattionX);
+	public double getRagiantRotationX() {
+		return Math.toRadians(rotationX);
 	}
 	
-	public double getRotattionZ() {
-		return rotattionZ;
+	public double getRotationZ() {
+		return rotationZ;
 	}
 
-	public void setRotattionZ(double rotattionZ) {
-		this.rotattionZ = rotattionZ;
+	public void setRotationZ(double rotattionZ) {
+		this.rotationZ = rotattionZ;
 	}
 
-	public double getRotattionX() {
-		return rotattionX;
+	public double getRotationX() {
+		return rotationX;
 	}
 
 	public void setRotattionX(double rotattionX) {
-		this.rotattionX = rotattionX;
+		this.rotationX = rotattionX;
 	}
 
-	public double getRotattionY() {
-		return rotattionY;
+	public double getRotationY() {
+		return rotationY;
 	}
 
-	public void setRotattionY(double rotattionY) {
-		this.rotattionY = rotattionY;
+	public void setRotationY(double rotattionY) {
+		this.rotationY = rotattionY;
 	}
 
 	public void setDefaultZoomIncrement(int defaultZoomIncrement) {
@@ -90,9 +102,9 @@ public class CameraControler {
 	protected double positionX;
 	protected double positionY;
 	
-	protected double rotattionZ;
-	protected double rotattionX;
-	protected double rotattionY;
+	protected double rotationZ;
+	protected double rotationX;
+	protected double rotationY;
 	
 	public double getPositionZ() {
 		return positionZ;
@@ -106,7 +118,7 @@ public class CameraControler {
 		return positionX;
 	}
 
-	public void setPositionX(int positionX) {
+	public void setPositionX(double positionX) {
 		this.positionX = positionX;
 	}
 

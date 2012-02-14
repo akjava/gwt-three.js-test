@@ -70,6 +70,7 @@ import com.akjava.gwt.three.client.scenes.Scene;
 import com.akjava.gwt.three.client.textures.Texture;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.dom.client.CanvasElement;
+import com.google.gwt.dom.client.ImageElement;
 
 
 
@@ -79,6 +80,10 @@ public class THREE {
 
 	public static  native final Ray Ray(Vector3 camera,Vector3 vector)/*-{
 	return  new $wnd.THREE.Ray(camera,vector);
+	}-*/;
+	
+	public static  native final Texture Texture(ImageElement image)/*-{
+	return  new $wnd.THREE.Texture(image);
 	}-*/;
 	
 	public static  native final Texture Texture(CanvasElement canvas)/*-{

@@ -29,4 +29,5 @@ public Bundles INSTANCE=GWT.create(Bundles.class);
 	TextResource sphere();
 	TextResource box();
 	TextResource cdd();
+	TextResource canvas();
 }

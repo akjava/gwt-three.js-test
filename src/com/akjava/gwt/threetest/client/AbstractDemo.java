@@ -20,6 +20,7 @@ import com.google.gwt.event.dom.client.MouseWheelEvent;
 import com.google.gwt.event.dom.client.MouseWheelHandler;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
+import com.google.gwt.user.client.ui.Widget;
 
 public abstract class AbstractDemo implements Demo{
 	protected Timer timer;
@@ -147,6 +148,13 @@ public abstract class AbstractDemo implements Demo{
 		timer.scheduleRepeating(1000/60);
 	}
 	
+	
+	
+	@Override
+	public Widget getControler() {
+		return null;
+	}
+
 	public final native void log(JavaScriptObject object)/*-{
 	console.log(object);
 	}-*/;

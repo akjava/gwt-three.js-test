@@ -7,6 +7,9 @@ Release
 r4 - akjavathreegwt_120214.jar
 
 Bug
+Sometime error happend on Developement Mode,compile and test on browser.
+
+
 if method need  Array or Object parameters  ,and in inside it is using instanceof to parameter,it make a problem.
 i heard some frame problem is there.(maybe linker option fix this problem)
 for example in JSONLoader.js ,if url is object never called console.warn.

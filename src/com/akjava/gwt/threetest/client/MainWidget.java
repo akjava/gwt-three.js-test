@@ -46,7 +46,7 @@ public class MainWidget extends Composite {
 
 	private Demo lastDemo;
 	public static Stats stats;
-	final Demo[] demos=new Demo[]{new BoneDemo(),
+	final Demo[] demos=new Demo[]{new BoneDemo(),new CanvasDemo(),
 			new BoxDemo(),new SphereDemo()
 	
 	//new AngleDemo(), some of them for test,others now upgrading
@@ -79,8 +79,10 @@ public class MainWidget extends Composite {
 		
 		stackPanel.add(howToPanel,"How to",30);
 		
+		controlPanel = new VerticalPanel();
+		controlPanel.setSize("100%","100%");
 		
-		
+		stackPanel.add(controlPanel,"Controler",30);
 		
 		CameraMoveWidget cameraMove=new CameraMoveWidget();
 		cameraMove.setVisible(false);//useless
@@ -127,7 +129,7 @@ private WebGLRenderer renderer;
 
 private FocusPanel focusPanel;
 private VerticalPanel howToPanel;
-
+private VerticalPanel controlPanel;
 	
 
 
@@ -155,6 +157,13 @@ public void startDemo(){
 	demo.start(renderer,width,height,focusPanel);
 	howToPanel.clear();
 	howToPanel.add(new HTMLPanel(demo.getHowToHtml()));
+	
+	controlPanel.clear();
+	Widget w=demo.getControler();
+	if(w!=null){
+		controlPanel.add(w);
+		}
+	
 	lastDemo=demo;
 }
 	
