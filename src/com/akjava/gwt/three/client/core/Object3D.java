@@ -104,7 +104,10 @@ return this.parent;
 }-*/;
 
 /*
+ * 
  * if you use,be care about Object3D.updateMatrixWorld(force)
+ * or call scene.updateMatrixWorld()
+ * sometime this value empty,and make a problem. 
  */
 public final native Matrix4 getMatrixWorld()/*-{
 return this.matrixWorld;

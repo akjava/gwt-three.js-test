@@ -272,7 +272,7 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 			
 			@Override
 			public void onWindowScroll(ScrollEvent event) {
-				log("scroll:"+event.getScrollLeft()+"x"+event.getScrollTop());
+				//log("scroll:"+event.getScrollLeft()+"x"+event.getScrollTop());
 			}
 		});
 		

@@ -23,7 +23,36 @@ public DragObjectControler(Scene scene,Projector projector){
 	scene.add(mouseClickCatcher);
 }
 private Object3D selectedDraggablekObject;
+private Object3D intersectedDraggablekObject;
+
+public void copyIntersectedPosition(){
+	//intersectedDraggablekObject.updateMatrixWorld(true);
+	mouseClickCatcher.getPosition().copy( GWTThreeUtils.toPositionVec(intersectedDraggablekObject.getMatrixWorld()) );
+	
+}
+public Object3D getIntersectedDraggablekObject() {
+	return intersectedDraggablekObject;
+}
+
+
+
+public void setIntersectedDraggablekObject(Object3D intersectedDraggablekObject) {
+	this.intersectedDraggablekObject = intersectedDraggablekObject;
+	copyIntersectedPosition();
+}
+
+
+
+public Object3D getSelectedDraggablekObject() {
+	return selectedDraggablekObject;
+}
 private Vector3 draggableOffset=THREE.Vector3();
+
+public Vector3 getDraggableOffset() {
+	return draggableOffset;
+}
+
+
 
 //target must be rayed
 /*
@@ -34,16 +63,19 @@ private Vector3 draggableOffset=THREE.Vector3();
  */
 public Vector3 moveSelectionPosition(int mouseX,int mouseY,int screenWidth, int screenHeight,Camera camera){
 	if(isSelected()){
-		
+		try{
 		Ray ray=projector.gwtCreateRay(mouseX, mouseY, screenWidth, screenHeight, camera);
 		JsArray<Intersect> intersects = ray.intersectObject( mouseClickCatcher );
 		
 		
 		Vector3 newPos=intersects.get(0).getPoint().subSelf( draggableOffset );
+		log="newPos-raw:"+ThreeLog.get(newPos);
 		Vector3 parentPos=THREE.Vector3();
 		if(selectedDraggablekObject.getParent()!=null){
+			//selectedDraggablekObject.getParent().updateMatrixWorld(true); //if call it bone moving  will be broken.i have no idea.
 			parentPos=GWTThreeUtils.toPositionVec(selectedDraggablekObject.getParent().getMatrixWorld());
 			//LogUtils.log("parent:"+ThreeLog.get(parentPos));
+			log+="parentPos:"+ThreeLog.get(parentPos);
 		}
 		newPos.subSelf(parentPos);
 		
@@ -53,6 +85,8 @@ public Vector3 moveSelectionPosition(int mouseX,int mouseY,int screenWidth, int 
 		Matrix4 rotM=THREE.Matrix4();
 		Vector3 rotation=GWTThreeUtils.rotationToVector3((selectedDraggablekObject.getParent().getMatrixWorld()));
 		//rotM.getInverse(selectedDraggablekObject.getMatrixRotationWorld());
+		
+		log+="parentRot:"+ThreeLog.get(GWTThreeUtils.radiantToDegree(rotation));
 		rotM.getInverse(GWTThreeUtils.rotationToMatrix4(rotation));
 		
 		rotM.multiplyVector3(newPos);
@@ -80,17 +114,25 @@ public Vector3 moveSelectionPosition(int mouseX,int mouseY,int screenWidth, int 
 		*/
 		//must be same as selectedDraggablekObject
 		return newPos;
+		}catch(Exception e){
+			LogUtils.log("moveSelectionPosition:"+e.getMessage());
+			return null;
+		}
 	}else{
 		return null;
 	}
 }
+private String log;
 
 	
 
+public String getLog() {
+	return log;
+}
 public void selectObject(Object3D target,int mouseX,int mouseY,int screenWidth, int screenHeight,Camera camera){
+	try{
 	selectedDraggablekObject=target;
 	Ray ray=projector.gwtCreateRay(mouseX, mouseY, screenWidth, screenHeight, camera);
-	mouseClickCatcher.getPosition().copy( GWTThreeUtils.toPositionVec(target.getMatrixWorld()) );
 	
 	
 	
@@ -99,18 +141,36 @@ public void selectObject(Object3D target,int mouseX,int mouseY,int screenWidth, 
 	//mouseClickCatcher.getRotation().copy(rotation);
 	
 	
-	
+	selectedDraggablekObject.updateMatrixWorld(true);
+	mouseClickCatcher.getPosition().copy( GWTThreeUtils.toPositionVec(selectedDraggablekObject.getMatrixWorld()) );
 	mouseClickCatcher.updateMatrixWorld(true);//very important
 	
 	JsArray<Intersect> pintersects=ray.intersectObject(mouseClickCatcher);
 	draggableOffset.copy(pintersects.get(0).getPoint()).subSelf(mouseClickCatcher.getPosition());
+	/*
+	 * make a problem?
+	if(draggableOffset.getX()<0.0001){
+		draggableOffset.setX(0);
+	}
+	if(draggableOffset.getY()<0.0001){
+		draggableOffset.setY(0);
+	}
+	if(draggableOffset.getZ()<0.0001){
+		draggableOffset.setZ(0);
+	}
+	*/
+	
+	}catch(Exception e){
+		LogUtils.log("selectObject:"+e.getMessage());
+		selectedDraggablekObject=null;
+	}
 	//LogUtils.log("offset:"+ThreeLog.get(draggableOffset));
 }
 
 public void unselectObject(){
 	//follow moved
 	if(selectedDraggablekObject!=null){
-	mouseClickCatcher.getPosition().copy( GWTThreeUtils.toPositionVec(selectedDraggablekObject.getMatrixWorld()) );
+	//mouseClickCatcher.getPosition().copy( GWTThreeUtils.toPositionVec(selectedDraggablekObject.getMatrixWorld()) );
 	selectedDraggablekObject=null;
 	}
 }
