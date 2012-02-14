@@ -1,6 +1,5 @@
 package com.akjava.gwt.three.client.gwt.animation.ik;
 
-import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.core.Matrix4;
 import com.akjava.gwt.three.client.core.Quaternion;

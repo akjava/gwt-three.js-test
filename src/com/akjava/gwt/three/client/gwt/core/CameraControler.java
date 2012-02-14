@@ -13,6 +13,59 @@ public class CameraControler {
 		return defaultZoomIncrement;
 	}
 
+	public void incrementRotationX(double x){
+		rotattionX+=x;
+		if(rotattionX>180){
+			rotattionX=-180+(rotattionX-180);
+		}
+		if(rotattionX<180){
+			rotattionX=180+(rotattionX+180);
+		}
+	}
+	public void incrementRotationY(double y){
+		rotattionY+=y;
+		if(rotattionY>180){
+			rotattionY=-180+(rotattionY-180);
+		}
+		if(rotattionY<180){
+			rotattionY=180+(rotattionY+180);
+		}
+	}
+	
+	public double getRagiantRotattionZ() {
+		return Math.toRadians(rotattionZ);
+	}
+	public double getRagiantRotattionY() {
+		return Math.toRadians(rotattionY);
+	}
+	public double getRagiantRotattionX() {
+		return Math.toRadians(rotattionX);
+	}
+	
+	public double getRotattionZ() {
+		return rotattionZ;
+	}
+
+	public void setRotattionZ(double rotattionZ) {
+		this.rotattionZ = rotattionZ;
+	}
+
+	public double getRotattionX() {
+		return rotattionX;
+	}
+
+	public void setRotattionX(double rotattionX) {
+		this.rotattionX = rotattionX;
+	}
+
+	public double getRotattionY() {
+		return rotattionY;
+	}
+
+	public void setRotattionY(double rotattionY) {
+		this.rotattionY = rotattionY;
+	}
+
 	public void setDefaultZoomIncrement(int defaultZoomIncrement) {
 		this.defaultZoomIncrement = defaultZoomIncrement;
 	}
@@ -33,19 +86,23 @@ public class CameraControler {
 		this.maxCameraZ = maxCameraZ;
 	}
 
-	protected int positionZ=100;
-	protected int positionX;
-	protected int positionY;
+	protected double positionZ=100;
+	protected double positionX;
+	protected double positionY;
 	
-	public int getPositionZ() {
+	protected double rotattionZ;
+	protected double rotattionX;
+	protected double rotattionY;
+	
+	public double getPositionZ() {
 		return positionZ;
 	}
 
-	public void setPositionZ(int positionZ) {
+	public void setPositionZ(double positionZ) {
 		this.positionZ = positionZ;
 	}
 
-	public int getPositionX() {
+	public double getPositionX() {
 		return positionX;
 	}
 
@@ -53,11 +110,11 @@ public class CameraControler {
 		this.positionX = positionX;
 	}
 
-	public int getPositionY() {
+	public double getPositionY() {
 		return positionY;
 	}
 
-	public void setPositionY(int positionY) {
+	public void setPositionY(double positionY) {
 		this.positionY = positionY;
 	}
 

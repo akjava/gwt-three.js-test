@@ -25,4 +25,8 @@ public Bundles INSTANCE=GWT.create(Bundles.class);
 
 	ImageResource rock_texture();
 
+	TextResource howto_default();
+	TextResource sphere();
+	TextResource box();
+	TextResource cdd();
 }

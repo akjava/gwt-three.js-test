@@ -24,4 +24,5 @@ public interface Demo {
 	public void stop();
 	public String getName();
 	public void startTimer(Timer timer);
+	public String getHowToHtml();
 }

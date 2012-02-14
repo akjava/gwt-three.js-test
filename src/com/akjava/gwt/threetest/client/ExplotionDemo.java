@@ -26,6 +26,7 @@ import com.akjava.gwt.three.client.materials.Material;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
+import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
@@ -195,5 +196,8 @@ private Mesh mesh;
 		}
 		
 	}
-
+	@Override
+	public String getHowToHtml(){
+		return Bundles.INSTANCE.howto_default().getText();
+	}
 }

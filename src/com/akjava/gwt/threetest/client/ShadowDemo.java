@@ -21,6 +21,7 @@ import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
+import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 
@@ -94,6 +95,12 @@ private WebGLRenderer renderer;
 	public void stop() {
 		timer.cancel();
 		renderer.setShadowMapEnabled(false);
+	}
+	
+
+	@Override
+	public String getHowToHtml() {
+		return Bundles.INSTANCE.sphere().getText();
 	}
 
 	@Override

@@ -38,6 +38,7 @@ import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
+import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.dom.client.NativeEvent;
 import com.google.gwt.event.dom.client.MouseDownEvent;
@@ -221,5 +222,8 @@ JsArray<Object3D> meshs=(JsArray<Object3D>) JsArray.createArray();
 	public String getName() {
 		return "Drag Object";
 	}
-
+	@Override
+	public String getHowToHtml(){
+		return Bundles.INSTANCE.howto_default().getText();
+	}
 }

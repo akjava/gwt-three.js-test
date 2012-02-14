@@ -1,0 +1,6 @@
+<pre>
+<b>default howto</b> 
+Mouse-Wheel can zoom.
+Mouse-Middle-button Drag to rotate.
+
+</pre>

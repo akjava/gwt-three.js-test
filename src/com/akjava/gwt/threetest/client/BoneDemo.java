@@ -39,6 +39,7 @@ import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
+import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -53,12 +54,13 @@ public class BoneDemo extends AbstractDemo{
 private Timer timer;
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
+		super.start(renderer, width, height, panel);
 		
 		final Scene scene=THREE.Scene();
 	
 		
 		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
-		camera.getPosition().set(0, 0, 100);
+		cameraControle.setPositionZ(50);
 		
 		scene.add(camera);
 		
@@ -145,7 +147,12 @@ panel.addClickHandler(new ClickHandler() {
 	
 		Timer timer = new Timer(){
 			public void run(){
-				root.setRotation(Math.toRadians(angleX),Math.toRadians(angleY),Math.toRadians(0));
+				MainWidget.stats.update();
+				
+				camera.setPosition(cameraControle.getPositionX(), cameraControle.getPositionY(), cameraControle.getPositionZ());
+				//not allow rotation.this version not good at rotation.
+				//root.setRotation(cameraControle.getRagiantRotattionX(), cameraControle.getRagiantRotattionY(), cameraControle.getRagiantRotattionZ());
+				
 				renderer.render(scene, camera);
 
 				if(steping){
@@ -165,38 +172,8 @@ panel.addClickHandler(new ClickHandler() {
 		startTimer(timer);
 	}
 	
-	int angleX=0;
-	int angleY=0;
-	@Override
-	public void onMouseMove(MouseMoveEvent event) {
-	int diffX=event.getX()-mouseDownX;
-	int diffY=event.getY()-mouseDownY;
-	mouseDownX=event.getX();
-	mouseDownY=event.getY();
 	
-	angleX+=diffX;
-	angleY+=diffY;
-	}
-	
-	protected boolean mouseDown;
-	
-	protected int mouseDownX;
-	protected int mouseDownY;
-	@Override
-	public void onMouseDown(MouseDownEvent event) {
-		mouseDown=true;
-		mouseDownX=event.getX();
-		mouseDownY=event.getY();
-	}
-	@Override
-	public void onMouseUp(MouseUpEvent event) {
-		mouseDown=false;
-	}
-	
-	@Override
-	public void onMouseOut(MouseOutEvent event) {
-		mouseDown=false;
-	}
+
 	long last;
 	private boolean steping;
 	int steped;
@@ -250,5 +227,8 @@ panel.addClickHandler(new ClickHandler() {
 	public String getName() {
 		return "CDD-IK Bone";
 	}
-
+	@Override
+	public String getHowToHtml(){
+		return Bundles.INSTANCE.cdd().getText();
+	}
 }

@@ -95,5 +95,8 @@ private Timer timer;
 	public String getName() {
 		return "Texture";
 	}
-
+	@Override
+	public String getHowToHtml(){
+		return Bundles.INSTANCE.howto_default().getText();
+	}
 }

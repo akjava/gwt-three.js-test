@@ -21,6 +21,9 @@ import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
+import com.akjava.gwt.threetest.client.resources.Bundles;
+import com.google.gwt.dom.client.NativeEvent;
+import com.google.gwt.event.dom.client.MouseMoveEvent;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 
@@ -54,10 +57,9 @@ public class BoxDemo extends AbstractDemo{
 				MainWidget.stats.update();
 				camera.setPosition(cameraControle.getPositionX(), cameraControle.getPositionY(), cameraControle.getPositionZ());
 				
+				mesh.setRotation(cameraControle.getRagiantRotattionX(), cameraControle.getRagiantRotattionY(), cameraControle.getRagiantRotattionZ());
 				
-				//turn around;
-				mesh.getRotation().incrementX(0.02);
-				mesh.getRotation().incrementY(0.02);
+				
 				
 				renderer.render(scene, camera);
 			}
@@ -66,12 +68,26 @@ public class BoxDemo extends AbstractDemo{
 		
 		startTimer(timer);
 	}
-
-
+@Override
+	public void onMouseMove(MouseMoveEvent event) {
+	super.onMouseMove(event);
+		if(event.getNativeButton()==NativeEvent.BUTTON_LEFT && mouseDown){
+			int diffX=event.getX()-mouseDownX;
+			int diffY=event.getY()-mouseDownY;
+			mouseDownX=event.getX();
+			mouseDownY=event.getY();
+			
+			cameraControle.incrementRotationX(diffY);
+			cameraControle.incrementRotationY(diffX);
+		}
+	}
 
 	@Override
 	public String getName() {
 		return "Simple Cube";
 	}
-
+	@Override
+	public String getHowToHtml(){
+		return Bundles.INSTANCE.box().getText();
+	}
 }

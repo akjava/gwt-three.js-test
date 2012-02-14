@@ -1,0 +1,24 @@
+<pre>
+<b>Box</b> 
+Mouse-Wheel can zoom.
+Mouse Drag to rotate.
+
+
+Create Cube.
+light is very important
+for MeshLambertMaterial
+<a target="github" href="https://github.com/akjava/gwt-three.js-test/blob/master/src/com/akjava/gwt/threetest/client/BoxDemo.java">github</a>
+
+<div class="code">
+final Mesh mesh=THREE.Mesh(
+THREE.CubeGeometry(5, 5, 5), 
+THREE.MeshLambertMaterial().
+color(0xff0000).build());
+scene.add(mesh);
+
+final Light light=THREE.PointLight(0xffffff);
+light.setPosition(10, 0, 10);
+scene.add(light);
+</div>				
+
+</pre>

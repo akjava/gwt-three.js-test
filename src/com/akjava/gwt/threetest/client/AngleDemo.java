@@ -34,6 +34,7 @@ import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
+import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.event.dom.client.MouseDownEvent;
 import com.google.gwt.event.dom.client.MouseMoveEvent;
 import com.google.gwt.event.dom.client.MouseOutEvent;
@@ -379,5 +380,8 @@ private Timer timer;
 	public String getName() {
 		return "Angle test";
 	}
-
+	@Override
+	public String getHowToHtml(){
+		return Bundles.INSTANCE.howto_default().getText();
+	}
 }

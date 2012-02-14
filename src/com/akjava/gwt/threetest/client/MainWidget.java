@@ -21,6 +21,7 @@ import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.ui.CameraMoveWidget;
 import com.akjava.gwt.three.client.ui.CameraRotationWidget;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -29,6 +30,8 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FocusPanel;
 import com.google.gwt.user.client.ui.HTMLPanel;
+import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.StackLayoutPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -66,6 +69,16 @@ public class MainWidget extends Composite {
 		renderer = THREE.WebGLRenderer();
 		renderer.setSize(width, height);
 		GWT.log("element:"+renderer.getDomElement());
+		
+		StackLayoutPanel stackPanel = new StackLayoutPanel(Unit.PX);
+		stackPanel.setSize("400px","506px");
+		controler.add(stackPanel);
+		
+		howToPanel = new VerticalPanel();
+		howToPanel.setSize("100%","100%");
+		
+		stackPanel.add(howToPanel,"How to",30);
+		
 		
 		
 		
@@ -113,6 +126,7 @@ public class MainWidget extends Composite {
 private WebGLRenderer renderer;
 
 private FocusPanel focusPanel;
+private VerticalPanel howToPanel;
 
 	
 
@@ -139,6 +153,8 @@ public void startDemo(){
 		lastDemo.stop();
 	}
 	demo.start(renderer,width,height,focusPanel);
+	howToPanel.clear();
+	howToPanel.add(new HTMLPanel(demo.getHowToHtml()));
 	lastDemo=demo;
 }
 	

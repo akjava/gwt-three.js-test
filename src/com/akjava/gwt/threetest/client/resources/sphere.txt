@@ -1,0 +1,26 @@
+<pre>
+<b>sphere</b> 
+Mouse-Wheel can zoom.
+auto rotatiing
+can't rotate by mouse-middle-drag
+
+
+Create wire frame sphere
+<a target="github"  href="https://github.com/akjava/gwt-three.js-test/blob/master/src/com/akjava/gwt/threetest/client/SphereDemo.java">github</a>
+
+<div class="code">
+final Mesh mesh=THREE.Mesh(
+THREE.SphereGeometry(5, 16, 16), 
+THREE.MeshBasicMaterial()
+.color(0xff0000).wireFrame(true).build());
+</div>		
+
+
+Do auto rotate like that
+<div class="code">
+mesh.getRotation().incrementX(0.02);
+mesh.getRotation().incrementY(0.02);
+renderer.render(scene, camera);
+</div>				
+		
+</pre>

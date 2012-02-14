@@ -3,7 +3,9 @@ package com.akjava.gwt.threetest.client;
 import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.gwt.core.CameraControler;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
+import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.dom.client.NativeEvent;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.MouseDownEvent;
@@ -24,21 +26,51 @@ public abstract class AbstractDemo implements Demo{
 
 	protected int width,height;
 	
-	public  void onMouseClick(ClickEvent event){};
-
-	public  void onMouseMove(MouseMoveEvent event){} ;
-	public  void onMouseDown(MouseDownEvent event){} ;
-	public  void onMouseUp(MouseUpEvent event){} ;
-	public  void onMouseOut(MouseOutEvent event){};
 	
+
 	
 	protected CameraControler cameraControle=new CameraControler();
 	
+	
+	protected boolean mouseDown;
+	
+	protected int mouseDownX;
+	protected int mouseDownY;
+
+	
+
+	public void onMouseOut(MouseOutEvent event) {
+		mouseDown=false;
+	}
+	
+	public void onMouseDown(MouseDownEvent event) {
+		mouseDown=true;
+		mouseDownX=event.getX();
+		mouseDownY=event.getY();
+	}
+
+
+	public void onMouseUp(MouseUpEvent event) {
+		mouseDown=false;
+	}
 	
 	
 	public void onMouseWheel(MouseWheelEvent event) {
 		LogUtils.log("wheel");
 		cameraControle.doMouseWheel(event.getDeltaY());
+	}
+	
+
+	public void onMouseMove(MouseMoveEvent event) {
+		if(event.getNativeButton()==NativeEvent.BUTTON_MIDDLE && mouseDown){
+			int diffX=event.getX()-mouseDownX;
+			int diffY=event.getY()-mouseDownY;
+			mouseDownX=event.getX();
+			mouseDownY=event.getY();
+			
+			cameraControle.incrementRotationX(diffY);
+			cameraControle.incrementRotationY(diffX);
+		}
 	}
 
 	
@@ -65,7 +97,7 @@ public abstract class AbstractDemo implements Demo{
 		});
 		//hpanel.setFocus(true);
 		
-		
+		/*
 		panel.addClickHandler(new ClickHandler() {
 			
 			@Override
@@ -73,6 +105,7 @@ public abstract class AbstractDemo implements Demo{
 				AbstractDemo.this.onMouseClick(event);
 			}
 		});
+		*/
 		
 		panel.addMouseDownHandler(new MouseDownHandler() {
 			
@@ -120,5 +153,6 @@ public abstract class AbstractDemo implements Demo{
 	public final native void log(String object)/*-{
 	console.log(object);
 	}-*/;
+
 
 }

@@ -1,0 +1,21 @@
+<pre>
+<b>Box</b> 
+Mouse click to start cddik.
+it take a some interval time to next start.
+
+Mouse Wheel to zoom in/out
+
+Explaining about CDD-IK is difficult.
+google "Inverse Kinematics" first.
+read code later.
+CDD-IK is not part of three.js
+
+CDDIK class  is key of  CDD-IK
+<a target="github" href="https://github.com/akjava/gwt-three.js-test/blob/master/src/com/akjava/gwt/threetest/client/BoneDemo.java">github</a>
+
+<div class="code">
+Matrix4 rotated=cddik.doStep
+(handPos, jointPos, beforeRot, targetPos);
+</div>				
+
+</pre>
