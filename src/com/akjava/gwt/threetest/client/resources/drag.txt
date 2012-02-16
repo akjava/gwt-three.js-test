@@ -1,0 +1,22 @@
+<pre>
+<b>Drag Object</b> 
+Mouse-Wheeling to zoom.
+Mouse middle-button Dragging to rotate.
+
+green line is Y-Axis.
+
+In Controelr Tab
+you can change visibility of cyan-color plane 
+which detect mouse-click&move
+(on too zoom out,you can recognize this grid).
+
+Dragging
+read official 2d <a target="demo" href="http://mrdoob.github.com/three.js/examples/webgl_interactive_draggablecubes.html">draggable cubes</a> first.
+
+<a target="github" href="https://github.com/akjava/gwt-three.js-test/blob/master/src/com/akjava/gwt/threetest/client/DragDemo.java">github</a>
+
+any 90 angles works fine.but others seems strange.
+
+still i'm digging.		
+
+</pre>

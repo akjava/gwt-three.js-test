@@ -58,7 +58,7 @@ public class BoxDemo extends AbstractDemo{
 				MainWidget.stats.update();
 				camera.setPosition(cameraControle.getPositionX(), cameraControle.getPositionY(), cameraControle.getPositionZ());
 				
-				mesh.setRotation(cameraControle.getRagiantRotationX(), cameraControle.getRagiantRotationY(), cameraControle.getRagiantRotationZ());
+				mesh.setRotation(cameraControle.getRadiantRotationX(), cameraControle.getRadiantRotationY(), cameraControle.getRadiantRotationZ());
 				
 				
 				
