@@ -44,13 +44,13 @@ public class CameraControler {
 		}
 	}
 	
-	public double getRagiantRotationZ() {
+	public double getRadiantRotationZ() {
 		return Math.toRadians(rotationZ);
 	}
-	public double getRagiantRotationY() {
+	public double getRadiantRotationY() {
 		return Math.toRadians(rotationY);
 	}
-	public double getRagiantRotationX() {
+	public double getRadiantRotationX() {
 		return Math.toRadians(rotationX);
 	}
 	

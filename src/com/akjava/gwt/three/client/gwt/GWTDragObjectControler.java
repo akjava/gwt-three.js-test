@@ -1,5 +1,9 @@
 package com.akjava.gwt.three.client.gwt;
 
+/**
+ * 
+ * based on three.js webgl - draggable cubes
+ */
 import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.cameras.Camera;
@@ -13,21 +17,27 @@ import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.scenes.Scene;
 import com.google.gwt.core.client.JsArray;
 
-public class DragObjectControler {
+
+public class GWTDragObjectControler {
 private Projector projector;
-private Mesh mouseClickCatcher;
-public DragObjectControler(Scene scene,Projector projector){
-	this.projector=projector;
-	mouseClickCatcher=THREE.Mesh(THREE.PlaneGeometry(200, 200, 10, 10), THREE.MeshBasicMaterial().color(0xffff00).wireFrame().build());
-	mouseClickCatcher.setVisible(false);
-	scene.add(mouseClickCatcher);
+private Mesh mouseCatchPlane;
+public Mesh getMouseCatchPlane() {
+	return mouseCatchPlane;
 }
+public GWTDragObjectControler(Scene scene,Projector projector){
+	this.projector=projector;
+	//maybe should black&transparent like js-sample
+	mouseCatchPlane=THREE.Mesh(THREE.PlaneGeometry(2000, 2000, 10, 10), THREE.MeshBasicMaterial().color(0x00ffff).wireFrame().build());
+	mouseCatchPlane.setVisible(false);
+	scene.add(mouseCatchPlane);
+}
+
 private Object3D selectedDraggablekObject;
 private Object3D intersectedDraggablekObject;
 
 public void copyIntersectedPosition(){
 	//intersectedDraggablekObject.updateMatrixWorld(true);
-	mouseClickCatcher.getPosition().copy( GWTThreeUtils.toPositionVec(intersectedDraggablekObject.getMatrixWorld()) );
+	mouseCatchPlane.getPosition().copy( GWTThreeUtils.toPositionVec(intersectedDraggablekObject.getMatrixWorld()) );
 	
 }
 public Object3D getIntersectedDraggablekObject() {
@@ -65,7 +75,7 @@ public Vector3 moveSelectionPosition(int mouseX,int mouseY,int screenWidth, int 
 	if(isSelected()){
 		try{
 		Ray ray=projector.gwtCreateRay(mouseX, mouseY, screenWidth, screenHeight, camera);
-		JsArray<Intersect> intersects = ray.intersectObject( mouseClickCatcher );
+		JsArray<Intersect> intersects = ray.intersectObject( mouseCatchPlane );
 		
 		
 		Vector3 newPos=intersects.get(0).getPoint().subSelf( draggableOffset );
@@ -142,11 +152,11 @@ public void selectObject(Object3D target,int mouseX,int mouseY,int screenWidth, 
 	
 	
 	selectedDraggablekObject.updateMatrixWorld(true);
-	mouseClickCatcher.getPosition().copy( GWTThreeUtils.toPositionVec(selectedDraggablekObject.getMatrixWorld()) );
-	mouseClickCatcher.updateMatrixWorld(true);//very important
+	mouseCatchPlane.getPosition().copy( GWTThreeUtils.toPositionVec(selectedDraggablekObject.getMatrixWorld()) );
+	mouseCatchPlane.updateMatrixWorld(true);//very important
 	
-	JsArray<Intersect> pintersects=ray.intersectObject(mouseClickCatcher);
-	draggableOffset.copy(pintersects.get(0).getPoint()).subSelf(mouseClickCatcher.getPosition());
+	JsArray<Intersect> pintersects=ray.intersectObject(mouseCatchPlane);
+	draggableOffset.copy(pintersects.get(0).getPoint()).subSelf(mouseCatchPlane.getPosition());
 	/*
 	 * make a problem?
 	if(draggableOffset.getX()<0.0001){
@@ -168,9 +178,7 @@ public void selectObject(Object3D target,int mouseX,int mouseY,int screenWidth, 
 }
 
 public void unselectObject(){
-	//follow moved
 	if(selectedDraggablekObject!=null){
-	//mouseClickCatcher.getPosition().copy( GWTThreeUtils.toPositionVec(selectedDraggablekObject.getMatrixWorld()) );
 	selectedDraggablekObject=null;
 	}
 }
