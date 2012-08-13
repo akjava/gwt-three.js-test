@@ -99,6 +99,15 @@ public final native void setReceiveShadow(boolean bool)/*-{
 this.receiveShadow=bool;
 }-*/;
 
+public final native void setOverdraw(boolean bool)/*-{
+this.overdraw=bool;
+}-*/;
+public final native boolean isOverdraw()/*-{
+return this.overdraw;
+}-*/;
+
+
+
 public final native Geometry getGeometry()/*-{
 return this.geometry;
 }-*/;

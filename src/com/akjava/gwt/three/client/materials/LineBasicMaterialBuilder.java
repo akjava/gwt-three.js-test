@@ -114,7 +114,7 @@ public class LineBasicMaterialBuilder extends JavaScriptObject{
 	}
 	
 	private final native Material build(JavaScriptObject object)/*-{
-	return new $wnd.THREE.MeshBasicMaterial(object);
+	return new $wnd.THREE.LineBasicMaterial(object);
 	}-*/;
 	
 	

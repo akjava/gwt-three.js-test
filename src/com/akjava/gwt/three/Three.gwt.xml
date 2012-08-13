@@ -3,4 +3,22 @@
 <module>
 	<inherits name="com.google.gwt.user.User" />
 	<source path="client"/>
+	
+	
+	
+	
+	<define-property name="threejs.canvasRenderer" values="true,false" />
+	<set-property name="threejs.canvasRenderer" value="false" />
+
+	<replace-with
+		class="com.akjava.gwt.three.client.gwt.ui.WebGLBuilder">
+		<when-type-is class="com.akjava.gwt.three.client.gwt.ui.WebGLBuilder" />
+		<when-property-is name="threejs.canvasRenderer" value="false" />
+	</replace-with>
+
+	<replace-with
+		class="com.akjava.gwt.three.client.gwt.ui.CanvasBuilder">
+		<when-type-is class="com.akjava.gwt.three.client.gwt.ui.WebGLBuilder" />
+		<when-property-is name="threejs.canvasRenderer" value="true" />
+	</replace-with>
 </module>

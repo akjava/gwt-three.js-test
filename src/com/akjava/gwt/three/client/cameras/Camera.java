@@ -39,7 +39,8 @@ package com.akjava.gwt.three.client.cameras;
 
 import com.akjava.gwt.three.client.core.Object3D;
 
-public class Camera extends Object3D {
+
+public class Camera extends Object3D{
 	protected Camera() {
 	}
 
@@ -58,5 +59,5 @@ public class Camera extends Object3D {
 	public final native void  lookAt(double x, double y, double z)/*-{
 		this.lookAt(new $wnd.THREE.Vector3(x, y, z));
 	}-*/;
-	
+
 }

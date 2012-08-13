@@ -62,6 +62,11 @@ public class MeshLambertMaterialBuilder extends JavaScriptObject{
 	return this;
 	}-*/;
 	
+	public final native MeshLambertMaterialBuilder shading(int shading)/*-{
+	this["shading"]=shading;
+	return this;
+	}-*/;
+	
 	public final native MeshLambertMaterialBuilder map(Texture texture)/*-{
 	this["map"]=texture;
 	return this;
@@ -69,6 +74,11 @@ public class MeshLambertMaterialBuilder extends JavaScriptObject{
 	
 	public final native MeshLambertMaterialBuilder opacity(double opacity)/*-{
 	this.opacity=opacity;
+	return this;
+	}-*/;
+	
+	public final native MeshLambertMaterialBuilder overdraw(boolean overdraw)/*-{
+	this.overdraw=overdraw;
 	return this;
 	}-*/;
 	

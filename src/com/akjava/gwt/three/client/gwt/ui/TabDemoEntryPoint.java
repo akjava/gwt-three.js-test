@@ -1,8 +1,8 @@
 package com.akjava.gwt.three.client.gwt.ui;
 
+import com.akjava.gwt.html5.client.file.ui.DropVerticalPanelBase;
 import com.akjava.gwt.stats.client.Stats;
 import com.akjava.gwt.three.client.THREE;
-import com.akjava.gwt.three.client.renderers.GWTRenderObject;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer.WebGLCanvas;
 import com.google.gwt.core.client.EntryPoint;
@@ -31,13 +31,13 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.PopupPanel;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.gwt.user.client.ui.TabLayoutPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 /**
+ * TODO move somewhere this is totall not part of three.js
  * Entry point classes define <code>onModuleLoad()</code>.
  */
 public abstract class TabDemoEntryPoint implements EntryPoint {
@@ -63,7 +63,7 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 
 
 
-	private VerticalPanel main;
+	private DropVerticalPanelBase main;
 	
 	protected int canvasWidth,canvasHeight;
 
@@ -104,7 +104,7 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 			<script type="text/javascript" language="javascript" src="Three.js"></script>
     		<script type="text/javascript" language="javascript" src="stats.js"></script>     
 		 */
-		renderer = THREE.WebGLRenderer();
+		renderer = RendererBuilder.createRenderer();
 		//renderer = THREE.WebGLRenderer(GWTRenderObject.create().preserveDrawingBuffer()); //crash browser?
 		renderer.setSize(width,height);
 		
@@ -212,7 +212,7 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 		label.setStyleName("title");
 		dialog.add(dialogRoot);
 		dialogRoot.add(label);
-		main = new VerticalPanel();
+		main = new DropVerticalPanelBase();
 		main.setVisible(false);
 		
 		
@@ -305,7 +305,7 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 	public String getHtml(){
 		return "Powerd by <a href='https://github.com/mrdoob/three.js/'>Three.js</a> & <a href='http://code.google.com/intl/en/webtoolkit/'>GWT</a>";
 	}
-	public abstract void createControl(Panel parent);
+	public abstract void createControl(DropVerticalPanelBase parent);
 	
 	public abstract String getTabTitle();
 	
@@ -333,4 +333,7 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 	public static final native void log(String object)/*-{
 	console.log(object);
 	}-*/;
+	
+
+
 }

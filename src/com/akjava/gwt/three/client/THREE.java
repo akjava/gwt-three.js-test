@@ -52,6 +52,8 @@ import com.akjava.gwt.three.client.extras.animation.Animation;
 import com.akjava.gwt.three.client.extras.loaders.ColladaLoader;
 import com.akjava.gwt.three.client.extras.loaders.JSONLoader;
 import com.akjava.gwt.three.client.extras.modifiers.SubdivisionModifier;
+import com.akjava.gwt.three.client.lights.AmbientLight;
+import com.akjava.gwt.three.client.lights.DirectionalLight;
 import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.materials.LineBasicMaterialBuilder;
 import com.akjava.gwt.three.client.materials.Material;
@@ -59,6 +61,7 @@ import com.akjava.gwt.three.client.materials.MeshBasicMaterialBuilder;
 import com.akjava.gwt.three.client.materials.MeshLambertMaterialBuilder;
 import com.akjava.gwt.three.client.materials.ParticleBasicMaterialBuilder;
 import com.akjava.gwt.three.client.materials.ShaderMaterialBuilder;
+import com.akjava.gwt.three.client.objects.Line;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.objects.MorphAnimMesh;
 import com.akjava.gwt.three.client.objects.Particle;
@@ -110,7 +113,9 @@ public class THREE {
 	return new $wnd.THREE.PerspectiveCamera( fieldOfView, ratio, near, far ); 
 	}-*/;
 	
-	
+	public static native final Camera OrthographicCamera(double left,double right,double top,double bottom,double near,double far)/*-{
+	return new $wnd.THREE.OrthographicCamera( left, right,top,bottom, near, far ); 
+	}-*/;
 	
 	
 	public static native final Animation Animation(SkinnedMesh root,String name)/*-{
@@ -140,9 +145,12 @@ public class THREE {
 	return new $wnd.THREE.Scene();
 	}-*/;
 	
-	public static native final Light AmbientLight(int color)/*-{
+	public static native final AmbientLight AmbientLight(int color)/*-{
 	return new $wnd.THREE.AmbientLight(color);
 	}-*/;
+	public static final  AmbientLight AmbientLight(double color){
+	return AmbientLight((int)color);
+	}
 	
 	
 	public static  final Geometry Cube(double x,double y,double z,int xpart,int ypart,int zpart,Material[] material ){
@@ -212,9 +220,13 @@ public class THREE {
 	return new $wnd.THREE.MeshFaceMaterial();
 	}-*/;
 	
-	public static native final LineBasicMaterialBuilder LineBasicMaterial()/*-{
-	return new $wnd.THREE.LineBasicMaterial();
-	}-*/;
+	
+	public static  final LineBasicMaterialBuilder LineBasicMaterial(){
+		return LineBasicMaterialBuilder.create();
+	}
+	
+	
+
 	
 	
 	
@@ -252,7 +264,7 @@ public class THREE {
 	public static native final SkinnedMesh SkinnedMesh(Geometry geometry,Material material )/*-{
 	return new $wnd.THREE.SkinnedMesh( geometry, material );
 	}-*/;
-	public static native final Mesh Line(Geometry geometry,Material material )/*-{
+	public static native final Line Line(Geometry geometry,Material material )/*-{
 	return new $wnd.THREE.Line( geometry, material );
 	}-*/;
 	
@@ -262,6 +274,10 @@ public class THREE {
 	
 	public static native final WebGLRenderer WebGLRenderer()/*-{
 	return new $wnd.THREE.WebGLRenderer();
+	}-*/;
+	
+	public static native final WebGLRenderer CanvasRenderer()/*-{
+	return new $wnd.THREE.CanvasRenderer();
 	}-*/;
 	
 	public static native final WebGLRenderer WebGLRenderer(GWTRenderObject object)/*-{
@@ -274,12 +290,30 @@ public class THREE {
 	public static native final Light SpotLight(int color)/*-{
 	return new $wnd.THREE.SpotLight(color);
 	}-*/;
-	public static native final Light DirectionalLight(int color,int intensity)/*-{
+	public static native final DirectionalLight DirectionalLight(int color,int intensity)/*-{
 	return new $wnd.THREE.DirectionalLight(color,intensity);
 	}-*/;
+	public static native final DirectionalLight DirectionalLight(int color)/*-{
+	return new $wnd.THREE.DirectionalLight(color);
+	}-*/;
+	public static  final DirectionalLight DirectionalLight(double color,int intensity){
+		return DirectionalLight(color,intensity);
+	}
+	public static  final DirectionalLight DirectionalLight(double color){
+		return DirectionalLight((int)color);
+	}
 	public static native final Projector Projector()/*-{
 	return new $wnd.THREE.Projector();
 	}-*/;
+	
+	public static final int NoShading = 0;
+	public static final int FlatShading = 1;
+	public static final int SmoothShading = 2;
+
+	public static final int NoColors = 0;
+	public static final int FaceColors = 1;
+	public static final int VertexColors = 2;
+	
 	public static final int UVMapping =0;
 	public static final int LatitudeReflectionMapping =1;
 	public static final int CubeReflectionMapping =2;

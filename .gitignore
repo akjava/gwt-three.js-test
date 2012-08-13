@@ -1,5 +1,5 @@
-.settings/
-gwt-unitCache/
-war/WEB-INF/classes/
-war/threetest/
-
+/gwt-unitCache
+/.settings
+/.gwt
+/.gitignore
+/tmp

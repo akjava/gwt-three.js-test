@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.akjava.gwt.threetest.client;
+package com.akjava.gwt.threecanvastest.client;
 
 import com.akjava.gwt.stats.client.Stats;
 import com.akjava.gwt.three.client.THREE;
@@ -46,8 +46,7 @@ public class MainWidget extends Composite {
 
 	private Demo lastDemo;
 	public static Stats stats;
-	final Demo[] demos=new Demo[]{new QuotaViewDemo(),new DragDemo(),new BoneDemo(),new CanvasDemo(),
-			new BoxDemo(),new SphereDemo()
+	final Demo[] demos=new Demo[]{new CameraOrthoGraphics(),new BoxDemo()
 	
 	//new AngleDemo(), some of them for test,others now upgrading
 			/*
@@ -66,7 +65,8 @@ public class MainWidget extends Composite {
 		initWidget(uiBinder.createAndBindUi(this));
 		
 		
-		renderer = THREE.WebGLRenderer();
+		renderer = THREE.CanvasRenderer();
+		//renderer= THREE.WebGLRenderer();
 		renderer.setSize(width, height);
 		GWT.log("element:"+renderer.getDomElement());
 		
