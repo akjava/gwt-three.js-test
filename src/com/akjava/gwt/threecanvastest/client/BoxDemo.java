@@ -22,6 +22,7 @@ import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.NativeEvent;
 import com.google.gwt.event.dom.client.MouseMoveEvent;
 import com.google.gwt.user.client.Timer;
@@ -43,9 +44,9 @@ public class BoxDemo extends AbstractDemo{
 		
 		cameraControle.setPositionZ(20);
 		
-		
+		//ie canvas need overdraw 
 		final Mesh mesh=THREE.Mesh(THREE.CubeGeometry(5, 5, 5), 
-				THREE.MeshLambertMaterial().color(0xff0000).build());
+				THREE.MeshLambertMaterial().color(0xff0000).overdraw(true).build());
 		scene.add(mesh);
 		
 		final Light light=THREE.PointLight(0xffffff);
@@ -73,6 +74,7 @@ public class BoxDemo extends AbstractDemo{
 	public void onMouseMove(MouseMoveEvent event) {
 	super.onMouseMove(event);
 		if(event.getNativeButton()==NativeEvent.BUTTON_LEFT && mouseDown){
+			
 			int diffX=event.getX()-mouseDownX;
 			int diffY=event.getY()-mouseDownY;
 			mouseDownX=event.getX();

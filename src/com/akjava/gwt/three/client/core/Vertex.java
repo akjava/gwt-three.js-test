@@ -2,6 +2,11 @@ package com.akjava.gwt.three.client.core;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * @deprecated  totall removed at r49
+ * @author aki
+ *
+ */
 public class Vertex extends JavaScriptObject{
 protected Vertex(){}
 

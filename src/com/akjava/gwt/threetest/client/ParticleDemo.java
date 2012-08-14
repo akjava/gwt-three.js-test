@@ -72,7 +72,7 @@ private Mesh mesh;
 			int px= (int) (Math.random() * 500 - 250);
 			int py= (int) (Math.random() * 500 - 250);
 			int pz= (int) (Math.random() * 500 - 250);
-			Vertex v=THREE.Vertex(THREE.Vector3(px, py, pz));
+			Vector3 v=THREE.Vector3(px, py, pz);
 			particles.vertices().push(v);
 			
 			velocity[i]=THREE.Vector3(0, 0, -Math.random());
@@ -105,16 +105,16 @@ private Mesh mesh;
 					particleSystem.getRotation().incrementZ(0.001);
 					
 					for(int i=0;i<pcount;i++){
-						Vertex v=particles.vertices().get(i);
-						if(v.getPosition().getZ()<-200){
-							v.getPosition().setZ(200);
+						Vector3 v=particles.vertices().get(i);
+						if(v.getZ()<-200){
+							v.setZ(200);
 							velocity[i].setZ(0);
 						}
 						
 						velocity[i].incrementZ(-Math.random() * .1);
 				        
 				       
-				        v.getPosition().addSelf(
+				        v.addSelf(
 				        		velocity[i]);
 					}
 					

@@ -33,8 +33,8 @@ public class CameraOrthoGraphics extends AbstractDemo{
 		
 		
 		Geometry geometry = THREE.Geometry();
-		geometry.vertices().push( THREE.Vertex( THREE.Vector3( - 500, 0, 0 ) ) );
-		geometry.vertices().push( THREE.Vertex( THREE.Vector3( 500, 0, 0 ) ) );
+		geometry.vertices().push( THREE.Vector3( - 500, 0, 0 )  );
+		geometry.vertices().push( THREE.Vector3( 500, 0, 0 )  );
 		
 		for ( int i = 0; i <= 20; i ++ ) {
 

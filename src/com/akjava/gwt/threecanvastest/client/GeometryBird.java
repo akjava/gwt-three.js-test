@@ -1,15 +1,16 @@
 package com.akjava.gwt.threecanvastest.client;
 
-import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.core.Color;
+import com.akjava.gwt.three.client.core.Vector3;
+import com.akjava.gwt.three.client.materials.Material;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
 import com.akjava.gwt.threecanvastest.client.birds.Bird;
 import com.akjava.gwt.threecanvastest.client.birds.Boid;
-import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.MouseMoveEvent;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 
@@ -33,16 +34,19 @@ public class GeometryBird extends AbstractDemo{
 			
 @Override
 public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
+	super.start(renderer, width, height, panel);
 	SCREEN_WIDTH=width;
 	SCREEN_HEIGHT=height;
-	SCREEN_HEIGHT_HALF=width/2;
+	SCREEN_WIDTH_HALF=width/2;
 	SCREEN_HEIGHT_HALF=height/2;
+	this.renderer=renderer;
 init();
 
 
 
 Timer timer = new Timer(){
 	public void run(){
+		MainWidget.stats.update();
 		render();
 	}
 };
@@ -76,8 +80,10 @@ boid.setWorldSize( 500, 500, 400 );
 
 Bird b=(Bird) THREE.Geometry();
 b.init();
+
+Material material=THREE.MeshBasicMaterial().color(Math.random() * 0xffffff ).build() ;
 bird = birds[ i ] = THREE.Mesh( b, 
-		THREE.MeshBasicMaterial().color(Math.random() * 0xffffff ).build() );
+		material );
 
 bird.setPhase( Math.floor( Math.random() * 62.83 ));
 bird.setPosition( boids[ i ].getPosition());
@@ -88,9 +94,9 @@ scene.add( bird );
 
 }
 
-renderer = THREE.CanvasRenderer();
+//renderer = THREE.CanvasRenderer();
 // renderer.autoClear = false;
-renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
+//renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
 
 //document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 //document.body.appendChild( renderer.domElement );
@@ -124,19 +130,30 @@ boid.repulse( vector );
 
 //
 
-/*
-function animate() {
+@Override
+public void onMouseMove(MouseMoveEvent event) {
+super.onMouseMove(event);
+Vector3 vector = THREE.Vector3( event.getX() - SCREEN_WIDTH_HALF, - event.getY() + SCREEN_HEIGHT_HALF, 0 );
 
-requestAnimationFrame( animate );
+//LogUtils.log(""+ThreeLog.get(vector));
 
-render();
-stats.update();
+for ( int i = 0, il = boids.length; i < il; i++ ) {
+
+boid = boids[ i ];
+
+vector.setZ( boid.getPosition().getZ());
+
+boid.repulse( vector );
 
 }
-*/
+
+}
+
+
 
 public void render() {
-LogUtils.log("render");
+//LogUtils.log("render");
+
 for ( int i = 0, il = birds.length; i < il; i++ ) {
 
 boid = boids[ i ];
@@ -152,8 +169,8 @@ bird.getRotation().setZ( Math.asin( boid.getVelocity().getY() / boid.getVelocity
 
 bird.setPhase( ( bird.getPhase() + ( Math.max( 0, bird.getRotation().getZ() ) + 0.1 )  ) % 62.83);
 double y=Math.sin( bird.getPhase() ) * 5;
-bird.getGeometry().vertices().get( 5 ).getPosition().setY(y);
-bird.getGeometry().vertices().get( 4 ).getPosition().setY(y);
+bird.getGeometry().vertices().get( 5 ).setY(y);
+bird.getGeometry().vertices().get( 4 ).setY(y);
 }
 
 renderer.render( scene, camera );
@@ -167,6 +184,6 @@ public String getName() {
 
 @Override
 public String getHowToHtml() {
-	return "GWt version of <a href='http://mrdoob.github.com/three.js/examples/canvas_camera_orthographic.html' target='threejs'>canvas_camera_orthographics</a>";
+	return "GWt version of <a href='http://mrdoob.github.com/three.js/examples/canvas_geometry_birds.html' target='threejs'>canvas_geometry_birds</a>";
 }
 }

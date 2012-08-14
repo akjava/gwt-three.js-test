@@ -21,7 +21,7 @@ import java.util.List;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.core.Geometry;
-import com.akjava.gwt.three.client.core.Vertex;
+import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.extras.ImageUtils;
 import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.materials.Material;
@@ -29,7 +29,6 @@ import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.objects.ParticleSystem;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
-import com.akjava.gwt.threetest.client.ExplotionDemo.Block;
 import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Timer;
@@ -161,7 +160,7 @@ private Mesh mesh;
 		boolean smoke;
 		public Block2(Geometry parentMesh){
 			
-			vertex = THREE.Vertex(THREE.Vector3(0,0,0));
+			vertex = THREE.Vector3(0,0,0);
 			//Material[] ms=new Material[cube.faces().length()];
 			if(Math.random()<0.1){
 				//orange
@@ -193,11 +192,11 @@ private Mesh mesh;
 		//double xrd,zrd;
 		
 		int ticks;
-		private Vertex vertex;
+		private Vector3 vertex;
 		
 		public void reset(){
-			//vertex.getPosition().set((maxSize*Math.random()+minSize)/10, (maxSize*Math.random()+minSize)/10, (maxSize*Math.random()+minSize)/10);
-			vertex.getPosition().set(0,0,0);
+			//vertex.set((maxSize*Math.random()+minSize)/10, (maxSize*Math.random()+minSize)/10, (maxSize*Math.random()+minSize)/10);
+			vertex.set(0,0,0);
 			
 			//mesh.setRotation(Math.random()*360, 0, Math.random()*360);
 			
@@ -214,13 +213,13 @@ private Mesh mesh;
 		public void update(){
 			
 			if(smoke){
-				vertex.getPosition().incrementX(xd/5);
-				vertex.getPosition().incrementY(yd/5);
-				vertex.getPosition().incrementZ(zd/2);
+				vertex.incrementX(xd/5);
+				vertex.incrementY(yd/5);
+				vertex.incrementZ(zd/2);
 			}else{
-				vertex.getPosition().incrementX(xd/3);
-				vertex.getPosition().incrementY(yd/3);
-				vertex.getPosition().incrementZ(zd/10);
+				vertex.incrementX(xd/3);
+				vertex.incrementY(yd/3);
+				vertex.incrementZ(zd/10);
 			}
 			
 		//	mesh.getRotation().incrementX(xrd);

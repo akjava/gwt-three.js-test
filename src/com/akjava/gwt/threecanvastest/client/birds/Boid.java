@@ -1,7 +1,9 @@
 package com.akjava.gwt.threecanvastest.client.birds;
 
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.core.Vector3;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JsArray;
 
 public class Boid {
@@ -167,8 +169,8 @@ public void repulse(Vector3 target){
 
 double distance = this.position.distanceTo( target );
 
-if ( distance < 150 ) {
 
+if ( distance < 150 ) {
 Vector3 steer = THREE.Vector3();
 
 steer.sub( this.position, target );

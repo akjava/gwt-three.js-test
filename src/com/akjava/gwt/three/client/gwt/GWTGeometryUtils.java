@@ -25,8 +25,8 @@ public class GWTGeometryUtils {
 	 */
 	public final static  Geometry createLineGeometry(Vector3 from,Vector3 to){
 		Geometry lineG = THREE.Geometry();
-		lineG.vertices().push(THREE.Vertex(from));
-		lineG.vertices().push(THREE.Vertex(to));
+		lineG.vertices().push(from);
+		lineG.vertices().push(to);
 		
 		return lineG;
 	}

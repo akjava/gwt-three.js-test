@@ -80,7 +80,7 @@ public class EmitterSystem {
 		if(systems[index]==null){
 			Geometry geometry=THREE.Geometry();
 			for(int i=0;i<particleSize;i++){
-				geometry.vertices().push(THREE.Vertex(THREE.Vector3(0, 0, 0)));
+				geometry.vertices().push(THREE.Vector3(0, 0, 0));
 			}
 			
 			ParticleSystem system=THREE.ParticleSystem(geometry, baseMaterial.build());
@@ -94,8 +94,8 @@ public class EmitterSystem {
 			((ParticleBasicMaterial)system.materials().get(0)).setSize(baseSize);
 			
 			for(int i=0;i<particleSize;i++){
-				Vertex vertex=system.getGeometry().vertices().get(i);
-				vertex.getPosition().set(0, Math.random()*10, 0);
+				Vector3 vertex=system.getGeometry().vertices().get(i);
+				vertex.set(0, Math.random()*10, 0);
 			}
 			system.getGeometry().setDirtyVertices(true);
 			
@@ -143,11 +143,11 @@ public class EmitterSystem {
 		}
 		Vector3 addAccel=THREE.Vector3(0, accel.getY()*steps[j], 0);
 		for(int i=0;i<particleSize;i++){
-			Vertex vertex=system.getGeometry().vertices().get(i);
-			vertex.getPosition().addSelf(velocity);
-			vertex.getPosition().addSelf(addVelocities[j][i]);
-			vertex.getPosition().addSelf(wind);
-			vertex.getPosition().addSelf(addAccel); //do slow
+			Vector3 vertex=system.getGeometry().vertices().get(i);
+			vertex.addSelf(velocity);
+			vertex.addSelf(addVelocities[j][i]);
+			vertex.addSelf(wind);
+			vertex.addSelf(addAccel); //do slow
 			
 			//vertex.getPosition().addSelf(winds[i]);
 		}

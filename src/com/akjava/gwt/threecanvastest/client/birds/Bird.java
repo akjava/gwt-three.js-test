@@ -19,7 +19,7 @@ public class Bird extends Geometry{
 	
 	public final void v(double x,double  y,double z ) {
 
-		this.vertices().push(  THREE.Vertex(THREE.Vector3( x, y, z )) );
+		this.vertices().push(  THREE.Vector3( x, y, z ) );
 
 	}
 	public final void init() {

@@ -154,7 +154,8 @@ public class THREE {
 	}
 	
 	
-	public static  final Geometry Cube(double x,double y,double z,int xpart,int ypart,int zpart,Material[] material ){
+	
+	public static  final Geometry CubeGeometry(double x,double y,double z,int xpart,int ypart,int zpart,Material[] material ){
 		JsArray<Material> arrays=(JsArray<Material>) JsArray.createArray();
 		for(Material m:material){
 			arrays.push(m);
@@ -162,6 +163,26 @@ public class THREE {
 		
 		return Cube(x,y,z,xpart,ypart,zpart,arrays);
 	}
+	
+	public static  final Geometry Cube(double x,double y,double z,int xpart,int ypart,int zpart,Material[] material ){
+		JsArray<Material> arrays=(JsArray<Material>) JsArray.createArray();
+		for(Material m:material){
+			arrays.push(m);
+		}
+		
+		return Cube(x,y,z,xpart,ypart,zpart,arrays);
+	
+	}
+	public static native final Geometry CubeGeometry(double x,double y,double z,int xpart,int ypart,int zpart,JsArray<Material> materials)/*-{
+	
+	material = new $wnd.THREE.MeshBasicMaterial({color: 0xff0000, wireframe: false});
+    var ms=new $wnd.Array();
+    for (var i = 0; i < materials.length; i++) {
+		ms.push(materials[i]);
+        }
+        
+	return new $wnd.THREE.CubeGeometry( x, y, z ,xpart,ypart,zpart,ms);
+	}-*/;
 	
 	//I'm happy to fix array problem.
 	public static native final Geometry Cube(double x,double y,double z,int xpart,int ypart,int zpart,JsArray<Material> materials)/*-{
@@ -238,7 +259,11 @@ public class THREE {
 	
 	
 	
-	
+	/**
+	 * @deprecated r49
+	 * @param vector3f
+	 * @return
+	 */
 	public static native final Vertex Vertex(Vector3 vector3f )/*-{
 	return new $wnd.THREE.Vertex( vector3f);
 	}-*/;

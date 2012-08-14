@@ -195,13 +195,13 @@ private AnimationModel model;
 			if(createBetweenFrame){
 			//make half
 			if(i!=1){
-				JsArray<Vertex> pre=last.vertices();
-				JsArray<Vertex> current=geo.vertices();
-				JsArray<Vertex> half=halfAndHalf(pre,current,0.5);
-				Geometry geo2=makeMorphTargetsGeometry(geometry,half);
-				geo2.computeTangents();
-				Mesh mesh=THREE.Mesh(geo2, material);
-				add(mesh);
+				JsArray<Vector3> pre=last.vertices();
+				JsArray<Vector3> current=geo.vertices();
+				JsArray<Vector3> half=halfAndHalf(pre,current,0.5);
+				//Geometry geo2=makeMorphTargetsGeometry(geometry,half);
+				//geo2.computeTangents();
+				//Mesh mesh=THREE.Mesh(geo2, material);
+				//add(mesh);
 			}
 			}
 			
@@ -245,21 +245,21 @@ private AnimationModel model;
 	return geometry;
 	}-*/;
 	
-	public static JsArray<Vertex> halfAndHalf(JsArray<Vertex> v1,JsArray<Vertex> v2,double level){
+	public static JsArray<Vector3> halfAndHalf(JsArray<Vector3> v1,JsArray<Vector3> v2,double level){
 		if(v1.length()!=v2.length()){
 			return null;
 		}
 		double v2level=1-level;
-		JsArray<Vertex> result=(JsArray<Vertex>) JsArray.createArray();
+		JsArray<Vector3> result=(JsArray<Vector3>) JsArray.createArray();
 		for(int i=0;i<v1.length();i++){
 			//TODO search better way
-			Vertex ve1=v1.get(i);
-			Vertex ve2=v2.get(i);
-			Vertex newV=THREE.Vertex(THREE.Vector3(
-					ve1.getPosition().getX()*level+ve2.getPosition().getX()*v2level,
-					ve1.getPosition().getY()*level+ve2.getPosition().getY()*v2level,
-					ve1.getPosition().getZ()*level+ve2.getPosition().getZ()*v2level
-					));
+			Vector3 ve1=v1.get(i);
+			Vector3 ve2=v2.get(i);
+			Vector3 newV=THREE.Vector3(
+					ve1.getX()*level+ve2.getX()*v2level,
+					ve1.getY()*level+ve2.getY()*v2level,
+					ve1.getZ()*level+ve2.getZ()*v2level
+					);
 			result.push(newV);
 		}
 		return result;

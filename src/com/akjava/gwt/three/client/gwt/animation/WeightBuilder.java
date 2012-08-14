@@ -370,17 +370,17 @@ public static void autoWeight(Geometry geometry,JsArray<AnimationBone> bones,Lis
 	for(int i=0;i<geometry.vertices().length();i++){
 		Vector4 ret=null;
 		if(mode==MODE_NearSingleBone){
-		ret=findNearSingleBone(nameAndPositions,geometry.vertices().get(i).getPosition(),bones);
+		ret=findNearSingleBone(nameAndPositions,geometry.vertices().get(i),bones);
 		}else if(mode==MODE_NearSpecial){
-			ret=findNearSpecial(nameAndPositions,geometry.vertices().get(i).getPosition(),bones,i);	
+			ret=findNearSpecial(nameAndPositions,geometry.vertices().get(i),bones,i);	
 		}else if(mode==MODE_NearAgressive){
-			ret=findNearBoneAggresive(nameAndPositions,geometry.vertices().get(i).getPosition(),bones);	
+			ret=findNearBoneAggresive(nameAndPositions,geometry.vertices().get(i),bones);	
 		}else if(mode==MODE_NearParentAndChildren){
-			ret=findNearBoneParentAndChildren(nameAndPositions,geometry.vertices().get(i).getPosition(),bones,2);	
+			ret=findNearBoneParentAndChildren(nameAndPositions,geometry.vertices().get(i),bones,2);	
 		}else if(mode==MODE_NearParentAndChildrenAgressive){
-			ret=findNearBoneParentAndChildren(nameAndPositions,geometry.vertices().get(i).getPosition(),bones,3);	
+			ret=findNearBoneParentAndChildren(nameAndPositions,geometry.vertices().get(i),bones,3);	
 		}else if(mode==MODE_MODE_Start_And_Half_ParentAndChildrenAgressive){
-			ret=findNearBoneStartAndHalfParentAndChildren(nameAndPositions,geometry.vertices().get(i).getPosition(),bones,3);	
+			ret=findNearBoneStartAndHalfParentAndChildren(nameAndPositions,geometry.vertices().get(i),bones,3);	
 		}else if(mode==MODE_FROM_GEOMETRY){
 			ret=fromGeometry(geometry,i);	
 		}else{

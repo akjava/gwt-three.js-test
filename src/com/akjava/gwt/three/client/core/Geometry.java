@@ -51,7 +51,7 @@ public final native JsArray<Face> faces()/*-{
 return this.faces;
 }-*/;
 
-public final native JsArray<Vertex> vertices()/*-{
+public final native JsArray<Vector3> vertices()/*-{
 return this.vertices;
 }-*/;
 
