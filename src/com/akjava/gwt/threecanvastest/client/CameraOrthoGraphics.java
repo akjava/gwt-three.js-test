@@ -129,28 +129,13 @@ public class CameraOrthoGraphics extends AbstractDemo{
 	}
 	
 	@Override
-	public void onMouseMove(MouseMoveEvent event) {
-	super.onMouseMove(event);
-		if(event.getNativeButton()==NativeEvent.BUTTON_LEFT && mouseDown){
-			int diffX=event.getX()-mouseDownX;
-			int diffY=event.getY()-mouseDownY;
-			mouseDownX=event.getX();
-			mouseDownY=event.getY();
-			
-			cameraControle.incrementRotationX(diffY);
-			cameraControle.incrementRotationY(diffX);
-		}
-	}
-	
-	@Override
 	public String getName() {
 		return "Camera Orthographics";
 	}
 
 	@Override
 	public String getHowToHtml() {
-
-		return "canvas_camera_orthographics";
+		return "GWt version of <a href='http://mrdoob.github.com/three.js/examples/canvas_camera_orthographic.html' target='threejs'>canvas_camera_orthographics</a>";
 	}
 
 }

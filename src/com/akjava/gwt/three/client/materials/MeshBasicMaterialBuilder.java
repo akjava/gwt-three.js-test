@@ -57,6 +57,9 @@ public class MeshBasicMaterialBuilder extends JavaScriptObject{
 		return color(c);
 	}
 	
+	public final  MeshBasicMaterialBuilder color(double c){
+		return color((int)c);
+	}
 	public final native MeshBasicMaterialBuilder color(int c)/*-{
 	this["color"]=c;
 	return this;

@@ -70,6 +70,10 @@ this.computeBoundingSphere();
 public final native void computeFaceNormals()/*-{
  this.computeFaceNormals();
 }-*/;
+public final native void computeCentroids()/*-{
+this.computeFaceNormals();
+}-*/;
+
 public final native void computeVertexNormals()/*-{
  this.computeVertexNormals();
 }-*/;

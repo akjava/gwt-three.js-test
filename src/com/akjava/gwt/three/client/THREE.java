@@ -39,6 +39,7 @@ package com.akjava.gwt.three.client;
 
 import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.core.Color;
+import com.akjava.gwt.three.client.core.Face;
 import com.akjava.gwt.three.client.core.Geometry;
 import com.akjava.gwt.three.client.core.Matrix4;
 import com.akjava.gwt.three.client.core.Object3D;
@@ -328,5 +329,9 @@ public class THREE {
 	public static native final MorphAnimMesh MorphAnimMesh(Geometry geometry,
 			Material material) /*-{
 	return new $wnd.THREE.MorphAnimMesh(geometry,material);
+	}-*/;
+
+	public static native final Face Face3(double a, double b, double c) /*-{
+	return new $wnd.THREE.Face3(a,b,c);
 	}-*/;
 }

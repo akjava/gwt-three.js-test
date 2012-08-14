@@ -46,19 +46,10 @@ public class MainWidget extends Composite {
 
 	private Demo lastDemo;
 	public static Stats stats;
-	final Demo[] demos=new Demo[]{new CameraOrthoGraphics(),new BoxDemo()
+	final Demo[] demos=new Demo[]{new CameraOrthoGraphics(),new BoxDemo(),new GeometryBird()
 	
-	//new AngleDemo(), some of them for test,others now upgrading
-			/*
-			new DragDemo(),
-			new SplineDemo(),//new CanvasDemo(),
-			new NormalmapDemo(),new  SimpleAnimation(),new ParticleDemo2(),
-			new ExplotionDemo3(),new ExplotionDemo2(),new ParticleDemo(),
-			new ExplotionDemo(),new QuotaViewDemo(),new LoadObjDemo(),
-			new PickDemo(),new ShadowDemo(),new TextureDemo(),
-			new CylinderDemo(),new PlainDemo(),new SimpleDemo(),new SphereDemo()
-			*/
-			};
+	};
+	
 	int width=500,height=500;
 	public MainWidget() {
 		stats=Stats.insertStatsToRootPanel();

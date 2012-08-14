@@ -106,6 +106,19 @@ public final native boolean isOverdraw()/*-{
 return this.overdraw;
 }-*/;
 
+public final native void setPhase(double phase)/*-{
+this.phase=phase;
+}-*/;
+
+
+public final native double getPhase()/*-{
+return this.phase;
+}-*/;
+
+public final native void setDoubleSided(boolean sided)/*-{
+this.doubleSided=sided;
+}-*/;
+
 
 
 public final native Geometry getGeometry()/*-{

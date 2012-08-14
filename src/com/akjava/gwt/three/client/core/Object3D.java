@@ -56,6 +56,10 @@ protected Object3D(){}
 	return this.rotation;
 }-*/;
 	
+
+
+	
+	
 	public final void setRotation(Vector3 vector){
 		getRotation().set(vector.getX(),vector.getY(),vector.getZ());
 	}

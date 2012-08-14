@@ -115,6 +115,17 @@ public native final Vector3 multiplyScalar(double s)/*-{
 return this.multiplyScalar(s);
 }-*/;
 
+public native final double distanceToSquared(Vector3 s)/*-{
+return this.distanceToSquared(s);
+}-*/;
+
+public native final double distanceTo(Vector3 s)/*-{
+return this.distanceTo(s);
+}-*/;
+
+public native final void multiplyScalar(Vector3 s)/*-{
+ this.multiplyScalar(s);
+}-*/;
 
 public native final Vector3 sub(Vector3 vec3,Vector3 vec3two)/*-{
 return this.sub(vec3,vec3two);
