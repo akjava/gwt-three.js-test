@@ -60,6 +60,12 @@ public class MeshBasicMaterialBuilder extends JavaScriptObject{
 	public final  MeshBasicMaterialBuilder color(double c){
 		return color((int)c);
 	}
+	
+	public final native MeshBasicMaterialBuilder overdraw(boolean overdraw)/*-{
+	this["overdraw"]=overdraw;
+	return this;
+	}-*/;
+	
 	public final native MeshBasicMaterialBuilder color(int c)/*-{
 	this["color"]=c;
 	return this;
@@ -110,6 +116,10 @@ public class MeshBasicMaterialBuilder extends JavaScriptObject{
 	public final Material build(){
 		return build(this);
 	}
+	
+	
+	
+	
 	
 	private final native Material build(JavaScriptObject object)/*-{
 	return new $wnd.THREE.MeshBasicMaterial(object);

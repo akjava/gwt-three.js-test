@@ -5,14 +5,18 @@ import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.core.Color;
 import com.akjava.gwt.three.client.core.Vector3;
+import com.akjava.gwt.three.client.extras.ImageUtils;
 import com.akjava.gwt.three.client.gwt.ThreeLog;
 import com.akjava.gwt.three.client.materials.Material;
+import com.akjava.gwt.three.client.materials.MeshBasicMaterialBuilder;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
+import com.akjava.gwt.three.client.textures.Texture;
 import com.akjava.gwt.threecanvastest.client.birds.Bird;
 import com.akjava.gwt.threecanvastest.client.birds.Boid;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.dom.client.NativeEvent;
 import com.google.gwt.event.dom.client.MouseDownEvent;
@@ -62,9 +66,11 @@ scene.add( camera );
 
 JsArray<Material> materials = (JsArray<Material>) JsArray.createArray();
 
+
+
 for ( int i = 0; i < 6; i ++ ) {
 
-materials.push( THREE.MeshBasicMaterial(). color( Math.random() * 0xffffff ).build() );
+materials.push( THREE.MeshBasicMaterial().overdraw(true).color( Math.random() * 0xffffff ).build() );
 
 }
 
@@ -74,8 +80,12 @@ scene.add( cube );
 
 // Plane
 
-plane = THREE.Mesh( THREE.PlaneGeometry( 200, 200 ),
-THREE.MeshBasicMaterial(). color( 0xe0e0e0 ).build() );
+
+
+
+ plane = THREE.Mesh( THREE.PlaneGeometry( 200, 200 ),
+THREE.MeshBasicMaterial(). color( 0xe0e0e0 ).overdraw(true).build() );
+
 scene.add( plane );
 
 
@@ -92,6 +102,14 @@ Timer timer = new Timer(){
 
 startTimer(timer);
 }
+
+public static native final JavaScriptObject tmp(Texture texture)/*-{
+return {overdraw:true,map:texture};
+}-*/;
+
+public static native final Material material(Texture texture)/*-{
+return new $wnd.THREE.MeshBasicMaterial({overdraw:true,map:texture});
+}-*/;
 
 
 public void onMouseDown(MouseDownEvent event) {

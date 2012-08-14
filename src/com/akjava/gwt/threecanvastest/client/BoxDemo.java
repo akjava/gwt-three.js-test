@@ -17,10 +17,12 @@ package com.akjava.gwt.threecanvastest.client;
 
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.cameras.Camera;
+import com.akjava.gwt.three.client.extras.ImageUtils;
 import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
+import com.akjava.gwt.three.client.textures.Texture;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.NativeEvent;
@@ -45,6 +47,7 @@ public class BoxDemo extends AbstractDemo{
 		cameraControle.setPositionZ(20);
 		
 		//ie canvas need overdraw 
+		
 		final Mesh mesh=THREE.Mesh(THREE.CubeGeometry(5, 5, 5), 
 				THREE.MeshLambertMaterial().color(0xff0000).overdraw(true).build());
 		scene.add(mesh);

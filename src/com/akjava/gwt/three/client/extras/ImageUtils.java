@@ -5,18 +5,26 @@ import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.user.client.ui.Image;
 
 public class ImageUtils {
+	
+	
+	
 	public static  final Texture loadTexture(String url){
 		return loadTexture(url,-1);
 	}
 	
+	
+	//public static native final Texture loadTexture(String url)/*-{
+	//return $wnd.THREE.ImageUtils.loadTexture(url);
+	//}-*/;
+	
 	public static  final Texture loadTexture(ImageResource resources){
 		Image img=new Image(resources);
-		return loadTexture(img.getUrl(),-1);
+		return loadTexture(img.getUrl(),-1);//why -1
 	}
 	
 	public static native final Texture loadTexture(String url,int id)/*-{
 	var mapping;
-	if(id==0){
+	if(id==0 ){
 		mapping=$wnd.THREE.UVMapping;
 	}
 	else if(id==1){

@@ -2,9 +2,11 @@ package com.akjava.gwt.threecanvastest.client;
 
 
 
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.core.Geometry;
+import com.akjava.gwt.three.client.extras.ImageUtils;
 import com.akjava.gwt.three.client.lights.AmbientLight;
 import com.akjava.gwt.three.client.lights.DirectionalLight;
 import com.akjava.gwt.three.client.lights.Light;
@@ -13,6 +15,7 @@ import com.akjava.gwt.three.client.objects.Line;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
+import com.akjava.gwt.three.client.textures.Texture;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.NativeEvent;
 import com.google.gwt.event.dom.client.MouseMoveEvent;
@@ -43,17 +46,17 @@ public class CameraOrthoGraphics extends AbstractDemo{
 			scene.add( line );
 
 			Line line2 =  THREE.Line( geometry,THREE.LineBasicMaterial().color(0x000000).opacity(0.2).build());
-			//Line line2 =  THREE.Line( geometry,THREE.LineBasicMaterial().color(0xff0000).opacity(1).linewidth(100).build());
 			
 			line2.getPosition().setX(( i * 50 ) - 500);
-			line2.getRotation().setY(90 * Math.PI / 180);
+			line2.getRotation().setY(90 * Math.PI / 180);//turn right
 			scene.add( line2 );
 
 		}
 		
+		
 		geometry = THREE.CubeGeometry( 50, 50, 50 );
 		Material material =  THREE.MeshLambertMaterial().color(0xffffff).overdraw(true).shading(THREE.FlatShading).build();
-
+		
 		for ( int i = 0; i < 100; i ++ ) {
 
 			Mesh cube =  THREE.Mesh( geometry, material );
@@ -61,7 +64,7 @@ public class CameraOrthoGraphics extends AbstractDemo{
 
 			cube.getScale().setY(Math.floor( Math.random() * 2 + 1 ));
 
-			cube.getPosition().setX(Math.floor( ( Math.random() * 1000 - 500 ) / 50 ) * 50 + 25);
+			cube.getPosition().setX(Math.floor( ( Math.random() * 1000 - 500 ) / 50 ) * 50 + 25); //+25 to center
 			cube.getPosition().setY(( cube.getScale().getY() * 50 ) / 2);
 			cube.getPosition().setZ((Math.floor( ( Math.random() * 1000 - 500 ) / 50 ) * 50 + 25));
 
@@ -70,10 +73,11 @@ public class CameraOrthoGraphics extends AbstractDemo{
 		}
 		
 		//light
-		//AmbientLight ambientLight =  THREE.AmbientLight( Math.random() * 0xffffff );
+		
 		AmbientLight ambientLight =  THREE.AmbientLight( Math.random() * 0x10 );
 		scene.add( ambientLight );
 
+		
 		DirectionalLight directionalLight = THREE.DirectionalLight( Math.random() * 0xffffff );
 		directionalLight.getPosition().setX(Math.random() - 0.5);
 		directionalLight.getPosition().setY(Math.random() - 0.5);
@@ -89,7 +93,6 @@ public class CameraOrthoGraphics extends AbstractDemo{
 		scene.add( directionalLight );
 		
 		
-		//cameraControle.setPositionZ(20);
 		
 		
 		
@@ -116,13 +119,6 @@ public class CameraOrthoGraphics extends AbstractDemo{
 			}
 		};
 		
-		/*
-		Timer timer = new Timer(){
-			public void run(){
-				camera.lookAt( scene.getPosition() );
-				renderer.render(scene, camera);
-			}
-		};*/
 		
 		
 		startTimer(timer);
