@@ -113,9 +113,6 @@ public class CameraOrthoGraphics extends AbstractDemo{
 				
 				
 				
-				camera.lookAt( scene.getPosition() );
-				
-				renderer.render(scene, camera);
 			}
 		};
 		
