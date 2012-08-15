@@ -15,6 +15,7 @@
  */
 package com.akjava.gwt.threecanvastest.client;
 
+import com.akjava.gwt.lib.client.GWTHTMLUtils;
 import com.akjava.gwt.stats.client.Stats;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
@@ -46,7 +47,7 @@ public class MainWidget extends Composite {
 
 	private Demo lastDemo;
 	public static Stats stats;
-	final Demo[] demos=new Demo[]{new CharacterMoving(),new GeometryCube(),new CameraOrthoGraphics(),new BoxDemo(),new GeometryBird()
+	final Demo[] demos=new Demo[]{new GeometryCube(),new CameraOrthoGraphics(),new BoxDemo(),new GeometryBird()
 	
 	};
 	
@@ -57,9 +58,11 @@ public class MainWidget extends Composite {
 		
 		
 		renderer = THREE.CanvasRenderer();
-		//renderer= THREE.WebGLRenderer();
+
+		GWTHTMLUtils.unselectiveCanvas(renderer.getDomElement());
+		
 		renderer.setSize(width, height);
-		GWT.log("element:"+renderer.getDomElement());
+		
 		
 		StackLayoutPanel stackPanel = new StackLayoutPanel(Unit.PX);
 		stackPanel.setSize("400px","506px");

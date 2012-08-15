@@ -52,7 +52,7 @@ public final native JsArray<Intersect> gwtPickIntersects(int mx,int my,int sw,in
 
 				var ray = new $wnd.THREE.Ray( camera.position, vector.subSelf( camera.position ).normalize() );
 
-				return  ray.intersectScene( scene );
+				return  ray.intersectObjects( scene.__objects );
 
 }-*/;
 
