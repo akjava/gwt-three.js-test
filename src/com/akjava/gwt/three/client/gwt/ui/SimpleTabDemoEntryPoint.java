@@ -87,10 +87,10 @@ public abstract class SimpleTabDemoEntryPoint extends TabDemoEntryPoint{
 	@Override
 	public void resized(int width, int height) {
 		if(width==0 || height==0){
-			log("never happend ignore-0 size");
+			//log("never happend ignore-0 size");
 			return;
 		}else{
-			log("resized:"+width+"x"+height);
+			//log("resized:"+width+"x"+height);
 		}
 		screenWidth=width;
 		screenHeight=height;

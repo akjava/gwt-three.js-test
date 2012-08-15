@@ -182,7 +182,7 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 		
 		canvasWidth=width;
 		canvasHeight=height;
-		log("initialize:"+width+"x"+height);
+		//log("initialize:"+width+"x"+height);
 		initialize(renderer,width,height);
 		
 		stats = Stats.insertStatsToRootPanel();
@@ -258,7 +258,7 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 				int h=Window.getClientHeight()-tabHeight;
 				
 				if(w<=0 || h<=0){
-					log("ignore 0 resize");
+					//log("ignore 0 resize");
 					return;
 				}
 				canvasWidth=w;
@@ -327,12 +327,7 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 		dialog.setPopupPosition(0, h-dh-tabHeight);//some error
 	}
 	
-	public final native void log(JavaScriptObject object)/*-{
-	console.log(object);
-	}-*/;
-	public static final native void log(String object)/*-{
-	console.log(object);
-	}-*/;
+
 	
 
 
