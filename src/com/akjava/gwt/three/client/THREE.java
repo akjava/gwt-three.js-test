@@ -50,6 +50,7 @@ import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.core.Vector4;
 import com.akjava.gwt.three.client.core.Vertex;
 import com.akjava.gwt.three.client.extras.animation.Animation;
+import com.akjava.gwt.three.client.extras.geometries.CubeGeometry;
 import com.akjava.gwt.three.client.extras.loaders.ColladaLoader;
 import com.akjava.gwt.three.client.extras.loaders.JSONLoader;
 import com.akjava.gwt.three.client.extras.modifiers.SubdivisionModifier;
@@ -155,7 +156,7 @@ public class THREE {
 	
 	
 	
-	public static  final Geometry CubeGeometry(double x,double y,double z,int xpart,int ypart,int zpart,Material[] material ){
+	public static  final CubeGeometry CubeGeometry(double x,double y,double z,int xpart,int ypart,int zpart,Material[] material ){
 		JsArray<Material> arrays=(JsArray<Material>) JsArray.createArray();
 		for(Material m:material){
 			arrays.push(m);
@@ -164,7 +165,7 @@ public class THREE {
 		return Cube(x,y,z,xpart,ypart,zpart,arrays);
 	}
 	
-	public static  final Geometry Cube(double x,double y,double z,int xpart,int ypart,int zpart,Material[] material ){
+	public static  final CubeGeometry Cube(double x,double y,double z,int xpart,int ypart,int zpart,Material[] material ){
 		JsArray<Material> arrays=(JsArray<Material>) JsArray.createArray();
 		for(Material m:material){
 			arrays.push(m);
@@ -173,7 +174,7 @@ public class THREE {
 		return Cube(x,y,z,xpart,ypart,zpart,arrays);
 	
 	}
-	public static native final Geometry CubeGeometry(double x,double y,double z,int xpart,int ypart,int zpart,JsArray<Material> materials)/*-{
+	public static native final CubeGeometry CubeGeometry(double x,double y,double z,int xpart,int ypart,int zpart,JsArray<Material> materials)/*-{
 	
 	material = new $wnd.THREE.MeshBasicMaterial({color: 0xff0000, wireframe: false});
     var ms=new $wnd.Array();
@@ -184,8 +185,13 @@ public class THREE {
 	return new $wnd.THREE.CubeGeometry( x, y, z ,xpart,ypart,zpart,ms);
 	}-*/;
 	
+	
+public static native final CubeGeometry CubeGeometry(double x,double y,double z,int xpart,int ypart,int zpart)/*-{
+	return new $wnd.THREE.CubeGeometry( x, y, z ,xpart,ypart,zpart);
+	}-*/;
+	
 	//I'm happy to fix array problem.
-	public static native final Geometry Cube(double x,double y,double z,int xpart,int ypart,int zpart,JsArray<Material> materials)/*-{
+	public static native final CubeGeometry Cube(double x,double y,double z,int xpart,int ypart,int zpart,JsArray<Material> materials)/*-{
 	
 	material = new $wnd.THREE.MeshBasicMaterial({color: 0xff0000, wireframe: false});
     var ms=new $wnd.Array();
@@ -206,7 +212,7 @@ public class THREE {
 	return new $wnd.THREE.Object3D();
 	}-*/;
 	
-	public static native final Geometry CubeGeometry(double x,double y,double z)/*-{
+	public static native final CubeGeometry CubeGeometry(double x,double y,double z)/*-{
 	return new $wnd.THREE.CubeGeometry( x, y, z );
 	}-*/;
 	

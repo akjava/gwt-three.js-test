@@ -37,7 +37,10 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.core;
 
+import java.util.List;
+
 import com.akjava.gwt.three.client.cameras.Camera;
+import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.scenes.Scene;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
@@ -45,8 +48,10 @@ import com.google.gwt.core.client.JsArray;
 public class Projector extends JavaScriptObject{
 protected Projector(){}
 
-public final native JsArray<Intersect> gwtPickIntersects(int mx,int my,int sw,int sh,Camera camera,Scene scene)/*-{
-	
+/**
+ * @deprecated no more scene support
+ */
+public final native JsArray<Intersect> gwtPickIntersects(int mx,int my,int sw,int sh,Camera camera,Scene scene)/*-{	
 	var vector = new $wnd.THREE.Vector3( ( mx / sw ) * 2 - 1, - ( my / sh ) * 2 + 1, 0.5 );
 				this.unprojectVector( vector, camera );
 
@@ -56,6 +61,9 @@ public final native JsArray<Intersect> gwtPickIntersects(int mx,int my,int sw,in
 
 }-*/;
 
+/**
+ * @deprecated no more scene support r49
+ */
 public final native JsArray<Intersect> gwtPickIntersects(int mx,int my,int sw,int sh,Camera camera,Vector3 position,Scene scene)/*-{
 
 var vector = new $wnd.THREE.Vector3( ( mx / sw ) * 2 - 1, - ( my / sh ) * 2 + 1, 0.5 );
@@ -63,7 +71,7 @@ var vector = new $wnd.THREE.Vector3( ( mx / sw ) * 2 - 1, - ( my / sh ) * 2 + 1,
 
 			var ray = new $wnd.THREE.Ray(position, vector.subSelf(position ).normalize() );
 
-			return  ray.intersectScene( scene );
+			return  ray.intersectScene( scene.__objects );
 
 }-*/;
 
@@ -77,7 +85,14 @@ var vector = new $wnd.THREE.Vector3( ( mx / sw ) * 2 - 1, - ( my / sh ) * 2 + 1,
 			return  ray;
 
 }-*/;
-
+public final JsArray<Intersect> gwtPickIntersectsByList(int mx,int my,int sw,int sh,Camera camera,List<Object3D> objects){
+	@SuppressWarnings("unchecked")
+	JsArray<Object3D> array=(JsArray<Object3D>) JsArray.createArray();
+	for(Object3D obj:objects){
+		array.push(obj);
+	}
+	return gwtPickIntersects(mx, my, sw, sh, camera, array);
+}
 public final native JsArray<Intersect> gwtPickIntersects(int mx,int my,int sw,int sh,Camera camera,JsArray<Object3D> objects)/*-{
 
 var vector = new $wnd.THREE.Vector3( ( mx / sw ) * 2 - 1, - ( my / sh ) * 2 + 1, 0.5 );
@@ -89,7 +104,7 @@ var vector = new $wnd.THREE.Vector3( ( mx / sw ) * 2 - 1, - ( my / sh ) * 2 + 1,
 
 }-*/;
 
-public final native JsArray<Intersect> gwtPickIntersects(int mx,int my,int sw,int sh,Camera camera,Object3D object)/*-{
+public final native JsArray<Intersect> gwtPickIntersectsByObject(int mx,int my,int sw,int sh,Camera camera,Object3D object)/*-{
 
 var vector = new $wnd.THREE.Vector3( ( mx / sw ) * 2 - 1, - ( my / sh ) * 2 + 1, 0.5 );
 			this.unprojectVector( vector, camera );
@@ -110,5 +125,7 @@ public final native Vector3 unprojectVector(Vector3 vector,Camera camera)/*-{
 return this.unprojectVector(vector,camera);
 
 }-*/;
+
+
 
 }
