@@ -38,6 +38,7 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client.materials;
 
 import com.akjava.gwt.three.client.core.Color;
+import com.akjava.gwt.three.client.textures.Texture;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class Material extends JavaScriptObject{
@@ -63,4 +64,10 @@ return this.opacity;
 public final native void setMorphTargets(boolean morphTargets)/*-{
 this.morphTargets=morphTargets;
 }-*/;
+
+//for only BasicMaterial
+public final native void setMap(Texture texture)/*-{
+this.map=texture;
+}-*/;
+
 }

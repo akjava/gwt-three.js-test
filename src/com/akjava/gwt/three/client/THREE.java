@@ -176,8 +176,8 @@ public class THREE {
 	}
 	public static native final CubeGeometry CubeGeometry(double x,double y,double z,int xpart,int ypart,int zpart,JsArray<Material> materials)/*-{
 	
-	material = new $wnd.THREE.MeshBasicMaterial({color: 0xff0000, wireframe: false});
-    var ms=new $wnd.Array();
+	
+    var ms= $wnd.eval("new Array()");
     for (var i = 0; i < materials.length; i++) {
 		ms.push(materials[i]);
         }
