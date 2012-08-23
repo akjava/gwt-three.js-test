@@ -20,7 +20,7 @@ public class GWTThreeUtils {
 	mx.lookAt(p2,p1,up);
 	
 	Vector3 ret=THREE.Vector3();
-	ret.setRotationFromMatrix(mx);
+	ret.getRotationFromMatrix(mx);
 	return ret;
 	}
 	
@@ -103,12 +103,12 @@ public class GWTThreeUtils {
 	
 	public static Vector3 rotationToVector3(Matrix4 mx){
 		Vector3 vec=THREE.Vector3();
-		vec.setRotationFromMatrix(mx);
+		vec.getRotationFromMatrix(mx);
 		return vec;
 	}
 	public static Vector3 rotationToDegreeVector3(Matrix4 mx){
 		Vector3 vec=THREE.Vector3();
-		vec.setRotationFromMatrix(mx);
+		vec.getRotationFromMatrix(mx);
 		return radiantToDegree(vec);
 	}
 	public static Matrix4 translateToMatrix4(Vector3 vec){
@@ -119,12 +119,12 @@ public class GWTThreeUtils {
 	public static Vector3 toPositionVec(Matrix4 mx){
 		
 		Vector3 vec=THREE.Vector3();
-		vec.setPositionFromMatrix(mx);
+		vec.getPositionFromMatrix(mx);
 		return vec;
 	}
 	public static Vector3 toDegreeAngle(Matrix4 mx){
 		Vector3 vec=THREE.Vector3();
-		vec.setRotationFromMatrix(mx);
+		vec.getRotationFromMatrix(mx);
 		double x=Math.toDegrees(vec.getX());
 		x%=360;
 		if(x>180){

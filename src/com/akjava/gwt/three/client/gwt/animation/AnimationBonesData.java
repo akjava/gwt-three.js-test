@@ -131,7 +131,7 @@ public class AnimationBonesData {
 		
 		Matrix4 tmpmx=bonesMatrixs.get(path.get(path.size()-1)).getMatrix();
 		Vector3 pos=THREE.Vector3();
-		pos.setPositionFromMatrix(tmpmx);
+		pos.getPositionFromMatrix(tmpmx);
 		
 		
 		Matrix4 matrix=THREE.Matrix4();
@@ -153,7 +153,7 @@ public class AnimationBonesData {
 		
 		Matrix4 tmpmx=bonesMatrixs.get(path.get(path.size()-1)).getMatrix();
 		Vector3 pos=THREE.Vector3();
-		pos.setPositionFromMatrix(tmpmx);
+		pos.getPositionFromMatrix(tmpmx);
 		
 		
 		Matrix4 matrix=THREE.Matrix4();
@@ -281,7 +281,7 @@ public static List<Matrix4> boneToMatrix(JsArray<AnimationBone> bones,AnimationD
 			Matrix4 changed=GWTThreeUtils.rotationToMatrix4(rotR);
 			
 			Vector3 tmpVec=THREE.Vector3();
-			tmpVec.setRotationFromMatrix(changed);
+			tmpVec.getRotationFromMatrix(changed);
 			//LogUtils.log("mx:"+ThreeLog.get(tmpVec));
 			//LogUtils.log("mx-r:"+ThreeLog.get(GWTThreeUtils.radiantToDegree(tmpVec)));
 			

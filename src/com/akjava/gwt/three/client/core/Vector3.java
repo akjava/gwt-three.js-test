@@ -147,11 +147,21 @@ public native final Vector3 normalize()/*-{
 return this.normalize();
 }-*/;
 
-public native final void setRotationFromMatrix(Matrix4 matrix)/*-{
-this.setRotationFromMatrix(matrix);
+/**
+ * @deprecated
+ * @param matrix
+ * @return
+ */
+public native final Vector3 getRotationFromMatrix(Matrix4 matrix)/*-{
+return this.setEulerFromRotationMatrix(matrix,'XYZ');
 }-*/;
-public native final void setPositionFromMatrix(Matrix4 matrix)/*-{
-this.setPositionFromMatrix(matrix);
+
+public native final Vector3 setEulerFromRotationMatrix(Matrix4 matrix,String order)/*-{
+return this.setEulerFromRotationMatrix(matrix,order);
+}-*/;
+
+public native final Vector3 getPositionFromMatrix(Matrix4 matrix)/*-{
+return this.getPositionFromMatrix(matrix);
 }-*/;
 
 public native final double length()/*-{

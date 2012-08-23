@@ -75,6 +75,7 @@ materials.push( THREE.MeshBasicMaterial().overdraw(true).color( Math.random() * 
 }
 
 cube = THREE.Mesh( THREE.CubeGeometry( 200, 200, 200, 1, 1, 1, materials ), THREE.MeshFaceMaterial() );
+
 cube.getPosition().setY( 150);
 scene.add( cube );
 
@@ -85,7 +86,7 @@ scene.add( cube );
 
  plane = THREE.Mesh( THREE.PlaneGeometry( 200, 200 ),
 THREE.MeshBasicMaterial(). color( 0xe0e0e0 ).overdraw(true).build() );
-
+ plane.getGeometry().applyMatrix(THREE.Matrix4().makeRotationX( - Math.PI / 2 ) );
 scene.add( plane );
 
 
@@ -95,8 +96,9 @@ scene.add( plane );
 
 Timer timer = new Timer(){
 	public void run(){
-		MainWidget.stats.update();
+		MainWidget.stats.begin();
 		render();
+		MainWidget.stats.end();
 	}
 };
 

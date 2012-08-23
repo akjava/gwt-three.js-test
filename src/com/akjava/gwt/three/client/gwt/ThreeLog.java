@@ -12,7 +12,7 @@ public class ThreeLog {
 			return "Null";
 		}
 		Vector3 vec=THREE.Vector3();
-		vec.setRotationFromMatrix(mx);
+		vec.getRotationFromMatrix(mx);
 		return getAngle(vec);
 	}
 	public static String getAngle(Vector3 vec){

@@ -184,6 +184,6 @@ public String getName() {
 
 @Override
 public String getHowToHtml() {
-	return "GWt version of <a href='http://mrdoob.github.com/three.js/examples/canvas_geometry_birds.html' target='threejs'>canvas_geometry_birds</a>";
+	return "now working yet<br>GWt version of <a href='http://mrdoob.github.com/three.js/examples/canvas_geometry_birds.html' target='threejs'>canvas_geometry_birds</a>";
 }
 }

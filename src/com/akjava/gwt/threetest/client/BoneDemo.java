@@ -211,7 +211,7 @@ panel.addClickHandler(new ClickHandler() {
 		}
 		
 		Vector3 vec=THREE.Vector3();
-		vec.setRotationFromMatrix(rotated);
+		vec.getRotationFromMatrix(rotated);
 		log("name:"+joint.getName()+",before:"+ThreeLog.getAsDegree(joint.getRotation())+",after:"+ThreeLog.getAsDegree(vec));
 		joint.setRotation(vec);
 		joint.updateMatrixWorld(true);

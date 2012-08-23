@@ -32,6 +32,17 @@ public native final Vector3 getColumnZ()/*-{
 return this.getColumnZ().clone();
 }-*/;
 
+
+public native final Matrix4 makeRotationX(double v)/*-{
+return this.makeRotationX(v);
+}-*/;
+public native final Matrix4 makeRotationY(double v)/*-{
+return this.makeRotationY(v);
+}-*/;
+public native final Matrix4 makeRotationZ(double v)/*-{
+return this.makeRotationZ(v);
+}-*/;
+
 public native final Matrix4 multiply(Matrix4 a,Matrix4 b)/*-{
 return this.multiply(a,b);
 }-*/;
