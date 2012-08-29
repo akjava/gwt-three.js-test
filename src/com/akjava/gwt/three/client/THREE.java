@@ -340,6 +340,12 @@ public static native final CubeGeometry CubeGeometry(double x,double y,double z,
 	return new $wnd.THREE.Projector();
 	}-*/;
 	
+	
+
+	public static final int FrontSide = 0;
+	public static final int BackSide = 1;
+	public static final int DoubleSide = 2;
+	
 	public static final int NoShading = 0;
 	public static final int FlatShading = 1;
 	public static final int SmoothShading = 2;

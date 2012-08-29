@@ -61,6 +61,12 @@ public class MeshBasicMaterialBuilder extends JavaScriptObject{
 		return color((int)c);
 	}
 	
+	
+	public final native MeshBasicMaterialBuilder side(int side)/*-{
+	this["side"]=side;
+	return this;
+	}-*/;
+	
 	public final native MeshBasicMaterialBuilder overdraw(boolean overdraw)/*-{
 	this["overdraw"]=overdraw;
 	return this;

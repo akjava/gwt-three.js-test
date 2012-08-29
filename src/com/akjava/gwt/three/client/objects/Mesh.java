@@ -114,11 +114,22 @@ this.phase=phase;
 public final native double getPhase()/*-{
 return this.phase;
 }-*/;
-
+/**
+ * @deprecated no more  use materials side THREE.DoubleSide
+ * @param sided
+ */
 public final native void setDoubleSided(boolean sided)/*-{
 this.doubleSided=sided;
 }-*/;
 
+/**
+ * @deprecated no more  use materials side
+ * @param sided
+ */
+public final native void setFlipSided(boolean sided)/*-{
+this.flipSided=sided;
+}-*/;
+ 
 
 
 public final native Geometry getGeometry()/*-{
