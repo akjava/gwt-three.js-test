@@ -82,13 +82,31 @@ public final native void computeBoundingBox()/*-{
  this.computeBoundingBox();
 }-*/;
 
+/**
+ * @deprecated
+ * @return
+ */
 public final native boolean getDirtyVertices()/*-{
-return this.__dirtyVertices;
+return this.verticesNeedUpdate;
 }-*/;
 
-public final native void setDirtyVertices(boolean bool)/*-{
-this.__dirtyVertices=bool;
+public final native boolean isVerticesNeedUpdate()/*-{
+return this.verticesNeedUpdate;
 }-*/;
+
+/**
+ * @deprecated
+ * @param bool
+ */
+public final native void setDirtyVertices(boolean bool)/*-{
+this.verticesNeedUpdate=bool;
+}-*/;
+
+public final native void setVerticesNeedUpdate(boolean bool)/*-{
+this.verticesNeedUpdate=bool;
+}-*/;
+
+ 
 
 public final native boolean getDynamic()/*-{
 return this.dynamic;

@@ -27,6 +27,12 @@ public class ParticleBasicMaterialBuilder extends JavaScriptObject{
 	return this;
 	}-*/;
 	
+	public final native ParticleBasicMaterialBuilder sizeAttenuation(boolean sizeAttenuation)/*-{
+	this["sizeAttenuation"]=sizeAttenuation;
+	return this;
+	}-*/;
+	
+	
 	public final native ParticleBasicMaterialBuilder depthTest(boolean depthTest)/*-{
 	this.depthTest=depthTest;
 	return this;

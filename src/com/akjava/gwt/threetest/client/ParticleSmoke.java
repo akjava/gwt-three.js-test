@@ -15,6 +15,7 @@
  */
 package com.akjava.gwt.threetest.client;
 
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.core.Object3D;
@@ -27,7 +28,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 
-public class ParticleDemo2 extends AbstractDemo{
+public class ParticleSmoke extends AbstractDemo{
 
 private Mesh mesh;
 
@@ -35,10 +36,7 @@ private Mesh mesh;
 //www.airtightinteractive.com/demos/cubes_three/
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
-		if(timer!=null){
-			timer.cancel();
-			timer=null;
-		}
+		super.start(renderer, width, height, panel);
 		
 		renderer.setClearColorHex(0xcccccc, 1);
 		
@@ -67,6 +65,7 @@ private Mesh mesh;
 		mesh.add(group);
 		
 		final EmitterSystem emitterSystem=new EmitterSystem();
+		
 		emitterSystem.setParent(group);
 		emitterSystem.setVelocity(THREE.Vector3(0, 200.0/120, 0));
 		emitterSystem.setVelocityRange(THREE.Vector3(100.0/120,0, 100.0/120));
@@ -79,38 +78,44 @@ private Mesh mesh;
 		//particle.getScale().set(100, 100, 100);
 		//scene.add(particle);
 		
-		MainWidget.cameraRotation.setX(0);
-		MainWidget.cameraRotation.setZ(0);
 		
-	//	MainWidget.cameraMove.setZ(-20);
-		MainWidget.cameraMove.setZ(1000);
+		cameraControle.setRotationX(0);
+		cameraControle.setRotationZ(0);
+		
+		cameraControle.setPositionZ(1000);
 	//	MainWidget.cameraRotation.setX(-90);
-		timer = new Timer(){
+		Timer timer = new Timer(){
 			public void run(){
-				MainWidget.stats.update();
+				MainWidget.stats.begin();
 				try{
 					
 					emitterSystem.update();
 					
-					camera.setPosition(MainWidget.cameraMove.getX(), MainWidget.cameraMove.getY(),MainWidget.cameraMove.getZ());
-					mesh.setRotation(Math.toRadians(MainWidget.cameraRotation.getX()), Math.toRadians(MainWidget.cameraRotation.getY()), Math.toRadians(MainWidget.cameraRotation.getZ()));
+					
+					camera.setPosition(cameraControle.getPositionX(), cameraControle.getPositionY(), cameraControle.getPositionZ());
+					
+					mesh.setRotation(cameraControle.getRadiantRotationX(), cameraControle.getRadiantRotationY(), cameraControle.getRadiantRotationZ());
+				
+					
+					//camera.setPosition(MainWidget.cameraMove.getX(), MainWidget.cameraMove.getY(),MainWidget.cameraMove.getZ());
+					//mesh.setRotation(Math.toRadians(MainWidget.cameraRotation.getX()), Math.toRadians(MainWidget.cameraRotation.getY()), Math.toRadians(MainWidget.cameraRotation.getZ()));
 				
 				renderer.render(scene, camera);
 				}catch(Exception e){
 					GWT.log(e.getMessage());
+					LogUtils.log(e.getMessage());
 				}
+				MainWidget.stats.end();
 			}
 		};
-		timer.scheduleRepeating(1000/60);
-		//timer.schedule(2000);
-		
+		startTimer(timer);
 	}
 
 	
 
 	@Override
 	public String getName() {
-		return "Smoke";
+		return "ParticleSmoke";
 	}
 	@Override
 	public String getHowToHtml(){

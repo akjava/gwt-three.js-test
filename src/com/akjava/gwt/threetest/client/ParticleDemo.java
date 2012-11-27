@@ -40,10 +40,7 @@ private Mesh mesh;
 //www.airtightinteractive.com/demos/cubes_three/
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
-		if(timer!=null){
-			timer.cancel();
-			timer=null;
-		}
+		super.start(renderer, width, height, panel);
 		
 		renderer.setClearColorHex(0x333333, 1);
 		
@@ -59,14 +56,10 @@ private Mesh mesh;
 		light.setPosition(1000,2000, 1500);//light.setPosition(5,5, 5);
 		scene.add(light);
 		
-		
-		//scene.add(THREE.AmbientLight(0x888888));
-		
 		final int pcount=1800;
 		final Geometry particles =  THREE.Geometry();
-		//Material material=THREE.ParticleBasicMaterial().color(0xffffff).size(20).build();
 		Material material=THREE.ParticleBasicMaterial().color(0xffffff).size(20).map(ImageUtils.loadTexture("img/particle.png"))
-		.blending(THREE.AdditiveBlending).transparent(true).build();
+		.blending(THREE.AdditiveBlending).transparent(true).depthTest(false).build();
 		final Vector3[] velocity=new Vector3[pcount];
 		for(int i=0;i<pcount;i++){
 			int px= (int) (Math.random() * 500 - 250);
@@ -91,15 +84,14 @@ private Mesh mesh;
 		
 		root.setRotation(Math.toDegrees(45),Math.toDegrees(45),Math.toDegrees(-45));
 		
-		MainWidget.cameraRotation.setX(-45);
-		MainWidget.cameraRotation.setZ(45);
 		
-	//	MainWidget.cameraMove.setZ(-20);
-		MainWidget.cameraMove.setZ(1000);
-	//	MainWidget.cameraRotation.setX(-90);
-		timer = new Timer(){
+		cameraControle.setRotationX(-45);
+		cameraControle.setRotationZ(45);
+		
+		cameraControle.setPositionZ(1000);
+		Timer timer = new Timer(){
 			public void run(){
-				MainWidget.stats.update();
+				MainWidget.stats.begin();
 				try{
 					
 					particleSystem.getRotation().incrementZ(0.001);
@@ -118,25 +110,24 @@ private Mesh mesh;
 				        		velocity[i]);
 					}
 					
-					particles.setDirtyVertices(true);//call if you move verticle
+					particles.setVerticesNeedUpdate(true);//call if you move verticle
 					
-					camera.setPosition(MainWidget.cameraMove.getX(), MainWidget.cameraMove.getY(),MainWidget.cameraMove.getZ());
-					mesh.setRotation(Math.toRadians(MainWidget.cameraRotation.getX()), Math.toRadians(MainWidget.cameraRotation.getY()), Math.toRadians(MainWidget.cameraRotation.getZ()));
-				
+					camera.setPosition(cameraControle.getPositionX(), cameraControle.getPositionY(), cameraControle.getPositionZ());
+					
+					mesh.setRotation(cameraControle.getRadiantRotationX(), cameraControle.getRadiantRotationY(), cameraControle.getRadiantRotationZ());
+					
+					
 				renderer.render(scene, camera);
 				}catch(Exception e){
 					GWT.log(e.getMessage());
 				}
+				MainWidget.stats.end();
 			}
 		};
-		//timer.schedule(2000);
-		timer.scheduleRepeating(1000/60);
+		startTimer(timer);
 	}
 
-	@Override
-	public void stop() {
-		timer.cancel();
-	}
+	
 
 	@Override
 	public String getName() {

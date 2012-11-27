@@ -20,9 +20,9 @@ public class CameraControler {
 	}
 	
 	public void setRotations(double x,double y,double z){
-		setRotattionX(x);
-		setRotattionX(y);
-		setRotattionX(z);
+		setRotationX(x);
+		setRotationX(y);
+		setRotationX(z);
 	}
 	
 	public void incrementRotationX(double x){
@@ -66,7 +66,7 @@ public class CameraControler {
 		return rotationX;
 	}
 
-	public void setRotattionX(double rotattionX) {
+	public void setRotationX(double rotattionX) {
 		this.rotationX = rotattionX;
 	}
 

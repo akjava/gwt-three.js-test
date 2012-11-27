@@ -24,5 +24,6 @@
 <inherits name="com.google.gwt.json.JSON" /> 
 <inherits name="com.akjava.gwt.lib.Commons"/>
 
+<set-property name="user.agent" value="safari"/>
 <!--  add-linker name="xs"/-->
 </module>

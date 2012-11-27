@@ -1,5 +1,6 @@
 package com.akjava.gwt.threetest.client;
 
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.core.Geometry;
 import com.akjava.gwt.three.client.core.Object3D;
@@ -53,9 +54,13 @@ public class EmitterSystem {
 	
 	private double baseSize=50;
 	
-	private ParticleBasicMaterialBuilder baseMaterial=THREE.ParticleBasicMaterial().opacity(1).transparent(true).
-		depthTest(false).color(0x666666).size(baseSize).map(ImageUtils.loadTexture("img/particle2.png")).blending(THREE.NormalBlending);//
-	
+	/*
+	private ParticleBasicMaterialBuilder baseMaterial=THREE.ParticleBasicMaterial().transparent(true).sizeAttenuation(false).
+		depthTest(false).size(baseSize).blending(THREE.AdditiveBlending).map(ImageUtils.loadTexture("img/particles2.png"));//
+	*/
+	private ParticleBasicMaterialBuilder baseMaterial=THREE.ParticleBasicMaterial().transparent(true).
+			depthTest(false).blending(THREE.NormalBlending).color(0x666666).size(baseSize).map(ImageUtils.loadTexture("img/particle4.png"));//
+
 	
 	Vector3[][] addVelocities;
 	
@@ -77,7 +82,7 @@ public class EmitterSystem {
 			steps=new int[maxStep];
 			addVelocities=new Vector3[maxStep][particleSize];
 		}
-		if(systems[index]==null){
+		if(systems[index]==null){//initialize
 			Geometry geometry=THREE.Geometry();
 			for(int i=0;i<particleSize;i++){
 				geometry.vertices().push(THREE.Vector3(0, 0, 0));
@@ -90,15 +95,17 @@ public class EmitterSystem {
 			
 			
 		}else{
+			//
+		
 			ParticleSystem system=systems[index];
-			((ParticleBasicMaterial)system.materials().get(0)).setSize(baseSize);
+			((ParticleBasicMaterial)system.getMaterial()).setSize(baseSize);
 			
 			for(int i=0;i<particleSize;i++){
 				Vector3 vertex=system.getGeometry().vertices().get(i);
-				vertex.set(0, Math.random()*10, 0);
+				vertex.set(0, 0, 0);
 			}
-			system.getGeometry().setDirtyVertices(true);
-			
+			system.getGeometry().setVerticesNeedUpdate(true);
+		
 		}
 		//addVelocities=new Vector3[maxStep][particleSize];
 		//simple and boring
@@ -124,7 +131,7 @@ public class EmitterSystem {
 		}
 		}
 		*/
-		
+		LogUtils.log("reseted");
 		}
 	
 	private double plusMinus(double value){
@@ -132,6 +139,7 @@ public class EmitterSystem {
 	}
 	
 	public void update(){
+		
 		if(systems==null || systems[index]==null){
 			reset(index);
 		}
@@ -144,6 +152,7 @@ public class EmitterSystem {
 		Vector3 addAccel=THREE.Vector3(0, accel.getY()*steps[j], 0);
 		for(int i=0;i<particleSize;i++){
 			Vector3 vertex=system.getGeometry().vertices().get(i);
+			
 			vertex.addSelf(velocity);
 			vertex.addSelf(addVelocities[j][i]);
 			vertex.addSelf(wind);
@@ -151,11 +160,12 @@ public class EmitterSystem {
 			
 			//vertex.getPosition().addSelf(winds[i]);
 		}
-		system.getGeometry().setDirtyVertices(true);
+		system.getGeometry().setVerticesNeedUpdate(true);
 		
-		//change size and color
-		((ParticleBasicMaterial)system.materials().get(0)).setSize(baseSize+changeSize*steps[j]);
-		((ParticleBasicMaterial)system.materials().get(0)).setOpacity(Math.max(0, 1-changeOpacity*steps[j]));
+		
+		((ParticleBasicMaterial)system.getMaterial()).setSize(baseSize+changeSize*steps[j]);
+		((ParticleBasicMaterial)system.getMaterial()).setOpacity(Math.max(0, 1-changeOpacity*steps[j]));
+		
 		steps[j]++;
 		if(steps[j]==maxStep){
 			reset(j);

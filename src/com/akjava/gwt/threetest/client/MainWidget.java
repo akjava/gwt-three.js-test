@@ -48,6 +48,7 @@ public class MainWidget extends Composite {
 	public static Stats stats;
 	final Demo[] demos=new Demo[]{new DragDemo(),new BoneDemo(),new CanvasDemo(),
 			new SimpleCubeDemo(),new SphereDemo(),new SplineDemo(),new LoadObjDemo()
+	,new ParticleDemo(),new ParticleSmoke()
 	
 	//new AngleDemo(), some of them for test,others now upgrading
 			/*

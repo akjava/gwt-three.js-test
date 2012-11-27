@@ -54,8 +54,14 @@ public native final Geometry getGeometry ()/*-{
 return this.geometry;
 }-*/;
 
+/**
+ * @deprecated
+ */
 public native final JsArray<Material> materials ()/*-{
-return this.materials;
+return null;
 }-*/;
 
+public native final Material getMaterial()/*-{
+return this.material;
+}-*/;
 }

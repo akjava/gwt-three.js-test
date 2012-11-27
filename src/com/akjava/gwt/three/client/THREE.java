@@ -359,11 +359,31 @@ public static native final CubeGeometry CubeGeometry(double x,double y,double z,
 	public static final int CubeReflectionMapping =2;
 	public static final int SphericalReflectionMapping =3;
 	
-	public static final int NormalBlending = 0;
-	public static final int AdditiveBlending = 1;
-	public static final int SubtractiveBlending = 2;
-	public static final int MultiplyBlending = 3;
-	public static final int AdditiveAlphaBlending = 4;
+	/*
+	THREE.NoBlending = 0;
+	THREE.NormalBlending = 1;
+	THREE.AdditiveBlending = 2;
+	THREE.SubtractiveBlending = 3;
+	THREE.MultiplyBlending = 4;
+	THREE.CustomBlending = 5;
+	*/
+	
+	public static class Blending{
+		public static native final int NoBlending()/*-{
+		return new $wnd.THREE.NoBlending;
+		}-*/;
+	}
+	
+	public static final int NoBlending = 0;
+	public static final int NormalBlending = 1;
+	public static final int AdditiveBlending = 2;
+	public static final int SubtractiveBlending = 3;
+	public static final int MultiplyBlending = 4;
+	public static final int CustomBlending=5;
+	/**
+	 * @deprecated anymore
+	 */
+	public static final int AdditiveAlphaBlending = 0;
 
 	public static native final MorphAnimMesh MorphAnimMesh(Geometry geometry,
 			Material material) /*-{
