@@ -90,9 +90,7 @@ public final native boolean getDirtyVertices()/*-{
 return this.verticesNeedUpdate;
 }-*/;
 
-public final native boolean isVerticesNeedUpdate()/*-{
-return this.verticesNeedUpdate;
-}-*/;
+
 
 /**
  * @deprecated
@@ -102,9 +100,49 @@ public final native void setDirtyVertices(boolean bool)/*-{
 this.verticesNeedUpdate=bool;
 }-*/;
 
+public final native boolean isVerticesNeedUpdate()/*-{
+return this.verticesNeedUpdate;
+}-*/;
 public final native void setVerticesNeedUpdate(boolean bool)/*-{
 this.verticesNeedUpdate=bool;
 }-*/;
+public final native void setElementsNeedUpdate (boolean bool)/*-{
+this.elementsNeedUpdate =bool;
+}-*/;
+public final native boolean isElementsNeedUpdate()/*-{
+return this.elementsNeedUpdate ;
+}-*/;
+public final native void setMorphTargetsNeedUpdate (boolean bool)/*-{
+this.morphTargetsNeedUpdate =bool;
+}-*/;
+public final native boolean isMorphTargetsNeedUpdate ()/*-{
+return this.morphTargetsNeedUpdate ;
+}-*/;
+public final native void setUvsNeedUpdate (boolean bool)/*-{
+this.uvsNeedUpdate =bool;
+}-*/;
+public final native boolean isUvsNeedUpdate ()/*-{
+return this.uvsNeedUpdate ;
+}-*/;
+public final native void setNormalsNeedUpdate (boolean bool)/*-{
+this.normalsNeedUpdate =bool;
+}-*/;
+public final native boolean isNormalsNeedUpdate ()/*-{
+return this.normalsNeedUpdate ;
+}-*/;
+public final native void setColorsNeedUpdate (boolean bool)/*-{
+this.colorsNeedUpdate =bool;
+}-*/;
+public final native boolean isColorsNeedUpdate ()/*-{
+return this.colorsNeedUpdate ;
+}-*/;
+public final native void setTangentsNeedUpdate (boolean bool)/*-{
+this.tangentsNeedUpdate =bool;
+}-*/;
+public final native boolean isTangentsNeedUpdate ()/*-{
+return this.tangentsNeedUpdate ;
+}-*/;
+
 
  
 
