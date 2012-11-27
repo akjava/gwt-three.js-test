@@ -175,5 +175,12 @@ public final native boolean getVisible()/*-{
 return this.visible;
 }-*/;
 
+public final native boolean isMatrixAutoUpdate()/*-{
+return this.matrixAutoUpdate ;
+}-*/;
+
+public final native void setMatrixAutoUpdate (boolean bool)/*-{
+this.matrixAutoUpdate=bool;  
+}-*/;
 
 }
