@@ -15,6 +15,8 @@
  */
 package com.akjava.gwt.threetest.client;
 
+import com.akjava.gwt.lib.client.LogUtils;
+import com.akjava.gwt.lib.client.URLUtils;
 import com.akjava.gwt.stats.client.Stats;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
@@ -26,11 +28,11 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FocusPanel;
 import com.google.gwt.user.client.ui.HTMLPanel;
-import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.StackLayoutPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
@@ -66,8 +68,15 @@ public class MainWidget extends Composite {
 		stats=Stats.insertStatsToRootPanel();
 		initWidget(uiBinder.createAndBindUi(this));
 		
+		String type=URLUtils.getFirstTokenValue("renderer","webgl");
 		
+		if(type.equals("canvas")){
+		LogUtils.log("canvas renderer");
+		renderer = THREE.CanvasRenderer();
+		}else{
 		renderer = THREE.WebGLRenderer();
+		}
+		
 		renderer.setSize(width, height);
 		GWT.log("element:"+renderer.getDomElement());
 		
