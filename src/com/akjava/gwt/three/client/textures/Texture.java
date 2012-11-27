@@ -50,4 +50,7 @@ public final native void setNeedsUpdate (boolean needsUpdate )/*-{
 this.needsUpdate=needsUpdate ;
 }-*/;
 
+public final native boolean isNeedsUpdate ()/*-{
+return this.needsUpdate;
+}-*/;
 }
