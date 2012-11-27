@@ -4,6 +4,7 @@ import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.core.Color;
+import com.akjava.gwt.three.client.core.Geometry;
 import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.extras.ImageUtils;
 import com.akjava.gwt.three.client.gwt.ThreeLog;
@@ -64,17 +65,23 @@ scene.add( camera );
 
 // Cube
 
-JsArray<Material> materials = (JsArray<Material>) JsArray.createArray();
+//JsArray<Material> materials = (JsArray<Material>) JsArray.createArray();
 
 
-
+/*
 for ( int i = 0; i < 6; i ++ ) {
 
 materials.push( THREE.MeshBasicMaterial().overdraw(true).color( Math.random() * 0xffffff ).build() );
 
 }
+*/
 
-cube = THREE.Mesh( THREE.CubeGeometry( 200, 200, 200, 1, 1, 1, materials ), THREE.MeshFaceMaterial() );
+Geometry geometry=THREE.CubeGeometry( 200, 200, 200);
+for(int i=0;i<geometry.faces().length();i++){
+	geometry.faces().get(i).getColor().setHex((int) (Math.random() * 0xffffff));
+}
+cube = THREE.Mesh(geometry , THREE.MeshBasicMaterial().vertexColors(THREE.Colors.FaceColors()).build() );
+
 
 cube.getPosition().setY( 150);
 scene.add( cube );

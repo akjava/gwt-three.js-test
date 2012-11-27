@@ -7,11 +7,8 @@ import com.google.gwt.core.client.JsArray;
 public class Face extends JavaScriptObject{
 protected Face(){}
 
-/**
- * @deprecated dont touch direct?
- * @return
- */
-public final native Color color()/*-{
+
+public final native Color getColor()/*-{
 return this.color;
 }-*/;
 

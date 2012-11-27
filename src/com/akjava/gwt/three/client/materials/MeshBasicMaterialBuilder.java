@@ -77,6 +77,15 @@ public class MeshBasicMaterialBuilder extends JavaScriptObject{
 	return this;
 	}-*/;
 	
+	/*
+	 * THREE.Colors
+	 * 
+	 */
+	public final native MeshBasicMaterialBuilder vertexColors(int c)/*-{
+	this["vertexColors"]=c;
+	return this;
+	}-*/;
+	
 	public final native MeshBasicMaterialBuilder morphTargets(boolean w)/*-{
 	this["morphTargets"]=w;
 	return this;

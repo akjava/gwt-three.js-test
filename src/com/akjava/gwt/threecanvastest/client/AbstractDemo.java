@@ -57,7 +57,6 @@ public abstract class AbstractDemo implements Demo{
 	
 	
 	public void onMouseWheel(MouseWheelEvent event) {
-		LogUtils.log("wheel");
 		cameraControle.doMouseWheel(event.getDeltaY());
 	}
 	

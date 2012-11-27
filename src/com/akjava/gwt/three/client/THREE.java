@@ -368,9 +368,21 @@ public static native final CubeGeometry CubeGeometry(double x,double y,double z,
 	THREE.CustomBlending = 5;
 	*/
 	
-	public static class Blending{
+	public static final class Blending{
 		public static native final int NoBlending()/*-{
 		return new $wnd.THREE.NoBlending;
+		}-*/;
+	}
+	
+	public static final class Colors{
+		public static native final int NoColors()/*-{
+		return new $wnd.THREE.NoColors;
+		}-*/;
+		public static native final int FaceColors()/*-{
+		return new $wnd.THREE.FaceColors;
+		}-*/;
+		public static native final int VertexColors()/*-{
+		return new $wnd.THREE.VertexColors;
 		}-*/;
 	}
 	
