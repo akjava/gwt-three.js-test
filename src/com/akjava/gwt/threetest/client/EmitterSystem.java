@@ -122,16 +122,7 @@ public class EmitterSystem {
 		for(int i=0;i<particleSize;i++){
 			winds[i]=THREE.Vector3(plusMinus(velocityRange.getX())*5, plusMinus(velocityRange.getY())*5,plusMinus(velocityRange.getZ())*5);
 		}
-		//grouping
-		/*
-		for(int j=0;j<maxStep;j++){
-			Vector3 move=
-		for(int i=0;i<particleSize;i++){
-		addVelocities[j][i]=move;
-		}
-		}
-		*/
-		LogUtils.log("reseted");
+		
 		}
 	
 	private double plusMinus(double value){
