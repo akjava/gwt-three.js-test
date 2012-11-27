@@ -1,5 +1,6 @@
 package com.akjava.gwt.three.client.gwt;
 
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.core.Geometry;
 import com.akjava.gwt.three.client.core.MorphTarget;
@@ -25,6 +26,7 @@ public class GWTGeometryUtils {
 	 */
 	public final static  Geometry createLineGeometry(Vector3 from,Vector3 to){
 		Geometry lineG = THREE.Geometry();
+		
 		lineG.vertices().push(from);
 		lineG.vertices().push(to);
 		

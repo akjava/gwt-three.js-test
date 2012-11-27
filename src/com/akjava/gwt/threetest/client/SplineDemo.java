@@ -105,12 +105,14 @@ private Timer timer;
 
 	@Override
 	public void stop() {
+		if(timer!=null){
 		timer.cancel();
+		}
 	}
 
 	@Override
 	public String getName() {
-		return "Splite";
+		return "Sprine";
 	}
 	@Override
 	public String getHowToHtml(){
