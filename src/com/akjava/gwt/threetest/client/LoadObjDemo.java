@@ -35,10 +35,8 @@ private Timer timer;
 private Mesh mesh;
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
-		if(timer!=null){
-			timer.cancel();
-			timer=null;
-		}
+		super.start(renderer, width, height, panel);
+		
 		renderer.setClearColorHex(0xcccccc, 1);
 		
 		final Scene scene=THREE.Scene();
@@ -52,7 +50,7 @@ private Mesh mesh;
 		
 		JSONLoader loader=THREE.JSONLoader();
 		
-		loader.load("models/3face.js", new LoadHandler() {
+		loader.load("models/men.js", new LoadHandler() {
 			
 			
 
@@ -74,35 +72,32 @@ private Mesh mesh;
 		
 		scene.add(light);
 		
-		scene.add(THREE.AmbientLight(0xcccccc));
 		
 		
 		//default camera position
-		MainWidget.cameraMove.setX(30);
-		MainWidget.cameraMove.setY(70);
-		MainWidget.cameraMove.setZ(200);
+		cameraControle.setPositions(30,70,200);
 		
-		timer = new Timer(){
+		Timer timer = new Timer(){
 			public void run(){
 				try{
-					camera.setPosition(MainWidget.cameraMove.getX(), MainWidget.cameraMove.getY(),MainWidget.cameraMove.getZ());
-					//TODO change ui
-					mesh.setRotation(Math.toRadians(MainWidget.cameraRotation.getX()), Math.toRadians(MainWidget.cameraRotation.getY()), Math.toRadians(MainWidget.cameraRotation.getZ()));
-				
-				renderer.render(scene, camera);
+					MainWidget.stats.begin();
+					camera.setPosition(cameraControle.getPositionX(), cameraControle.getPositionY(), cameraControle.getPositionZ());
+					
+					mesh.setRotation(cameraControle.getRadiantRotationX(), cameraControle.getRadiantRotationY(), cameraControle.getRadiantRotationZ());
+					
+					
+					
+					renderer.render(scene, camera);
+					MainWidget.stats.end();
 				}catch(Exception e){
 					GWT.log(e.getMessage());
 				}
 			}
 		};
 		
-		timer.scheduleRepeating(1000/60);
+		startTimer(timer);
 	}
 
-	@Override
-	public void stop() {
-		timer.cancel();
-	}
 
 	@Override
 	public String getName() {
