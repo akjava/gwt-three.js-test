@@ -63,18 +63,6 @@ camera.getPosition().setY( 150);
 camera.getPosition().setZ( 500);
 scene.add( camera );
 
-// Cube
-
-//JsArray<Material> materials = (JsArray<Material>) JsArray.createArray();
-
-
-/*
-for ( int i = 0; i < 6; i ++ ) {
-
-materials.push( THREE.MeshBasicMaterial().overdraw(true).color( Math.random() * 0xffffff ).build() );
-
-}
-*/
 
 Geometry geometry=THREE.CubeGeometry( 200, 200, 200);
 for(int i=0;i<geometry.faces().length();i++){
@@ -111,15 +99,6 @@ Timer timer = new Timer(){
 
 startTimer(timer);
 }
-
-public static native final JavaScriptObject tmp(Texture texture)/*-{
-return {overdraw:true,map:texture};
-}-*/;
-
-public static native final Material material(Texture texture)/*-{
-return new $wnd.THREE.MeshBasicMaterial({overdraw:true,map:texture});
-}-*/;
-
 
 public void onMouseDown(MouseDownEvent event) {
 	super.onMouseDown(event);
