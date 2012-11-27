@@ -47,12 +47,15 @@ public class Mesh extends Object3D{
 protected Mesh(){}
 
 
-
+/**
+ * @deprecated
+ * @param index
+ */
 public final native void testSwap(int index)/*-{
 this.geometry.vertices=this.geometry.morphTargets[index].vertices;
 //this.geometry.computeFaceNormals();
 //this.geometry.computeTangents();
-this.geometry.__dirtyVertices=true;
+this.geometry.verticesNeedUpdate =true;
 this.geometry.computeTangents();
 this.geometry.computeFaceNormals();
 }-*/;
