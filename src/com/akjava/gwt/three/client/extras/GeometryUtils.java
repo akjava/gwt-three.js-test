@@ -9,8 +9,13 @@ public class GeometryUtils {
 	return $wnd.THREE.GeometryUtils.center(geo);
 	}-*/;
 	
+	/**
+	 * @deprecated use Geometry.clone();
+	 * @param geo
+	 * @return
+	 */
 	public static native final Geometry clone(Geometry geo)/*-{
-	return $wnd.THREE.GeometryUtils.clone(geo);
+	return geo.clone();
 	}-*/;
 
 	public static native final void merge(Geometry geo,Geometry geo2)/*-{

@@ -163,6 +163,10 @@ public native final JsArray<JsArray<UV>> getFaceVertexUvs ()/*-{
 return this["faceVertexUvs"][0];
 }-*/;
 
+public native final Geometry clone()/*-{
+return this.clone();
+}-*/;
+
 
 
 }

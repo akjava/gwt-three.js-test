@@ -7,7 +7,6 @@ import com.google.gwt.core.client.JsArray;
 public class CubeGeometry extends Geometry{
 protected CubeGeometry(){}
 
-
 public final native JsArray<Material> getMaterials()/*-{	
 return this.materials;
 }-*/;
