@@ -55,7 +55,7 @@ private Timer timer;
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		super.start(renderer, width, height, panel);
-		
+		renderer.setClearColorHex(0xffffff, 1);
 		final Scene scene=THREE.Scene();
 	
 		

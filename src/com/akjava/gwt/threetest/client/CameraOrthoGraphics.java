@@ -27,7 +27,7 @@ public class CameraOrthoGraphics extends AbstractDemo{
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		super.start(renderer, width, height, panel);
-		GWT.log(width+","+height);
+		renderer.setClearColorHex(0xffffff, 1);
 		final Camera camera =  THREE.OrthographicCamera( width / - 2, width / 2,height / 2,height / - 2, - 2000, 1000 );
 		camera.setPosition(200, 100, 200);
 		

@@ -52,6 +52,7 @@ public class GeometryCube extends AbstractDemo{
 @Override
 public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 	super.start(renderer, width, height, panel);
+	renderer.setClearColorHex(0xffffff, 1);
 	windowHalfX=width/2;
 	windowHalfY=height/2;
 	this.renderer=renderer;

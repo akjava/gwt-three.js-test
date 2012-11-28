@@ -61,7 +61,7 @@ JsArray<Object3D> meshs=((JsArray<Object3D>) JsArray.createArray());
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		super.start(renderer, width, height, panel);
-		
+		renderer.setClearColorHex(0xffffff, 1);
 		scene=THREE.Scene();
 	
 		
