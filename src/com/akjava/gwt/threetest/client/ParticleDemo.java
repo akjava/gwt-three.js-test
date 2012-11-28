@@ -59,7 +59,7 @@ private Mesh mesh;
 		final int pcount=1800;
 		final Geometry particles =  THREE.Geometry();
 		Material material=THREE.ParticleBasicMaterial().color(0xffffff).size(20).map(ImageUtils.loadTexture("img/particle.png"))
-		.blending(THREE.AdditiveBlending).transparent(true).depthTest(false).build();
+		.blending(THREE.Blending.AdditiveBlending()).transparent(true).depthTest(false).build();
 		final Vector3[] velocity=new Vector3[pcount];
 		for(int i=0;i<pcount;i++){
 			int px= (int) (Math.random() * 500 - 250);

@@ -59,7 +59,7 @@ public class EmitterSystem {
 		depthTest(false).size(baseSize).blending(THREE.AdditiveBlending).map(ImageUtils.loadTexture("img/particles2.png"));//
 	*/
 	private ParticleBasicMaterialBuilder baseMaterial=THREE.ParticleBasicMaterial().transparent(true).
-			depthTest(false).blending(THREE.NormalBlending).color(0x666666).size(baseSize).map(ImageUtils.loadTexture("img/particle4.png"));//
+			depthTest(false).blending(THREE.Blending.NormalBlending()).color(0x666666).size(baseSize).map(ImageUtils.loadTexture("img/particle4.png"));//
 
 	
 	Vector3[][] addVelocities;

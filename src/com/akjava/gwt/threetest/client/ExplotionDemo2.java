@@ -80,7 +80,7 @@ private Mesh mesh;
 		blocks.add(block);
 		}
 		Material material=THREE.ParticleBasicMaterial().color(0xff0000).size(2).map(ImageUtils.loadTexture("img/particle.png"))
-		.blending(THREE.AdditiveBlending).transparent(true).build();
+		.blending(THREE.Blending.AdditiveBlending()).transparent(true).build();
 		
 		final ParticleSystem particleSystem=THREE.ParticleSystem(particles, material);
 		particleSystem.setSortParticles(true);

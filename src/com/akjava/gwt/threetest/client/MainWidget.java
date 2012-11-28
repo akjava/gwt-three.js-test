@@ -73,6 +73,9 @@ public class MainWidget extends Composite {
 		if(type.equals("canvas")){
 		LogUtils.log("canvas renderer");
 		renderer = THREE.CanvasRenderer();
+		}else if(type.equals("css3d")){
+			LogUtils.log("css3d renderer");
+		renderer=THREE.CSS3DRenderer();
 		}
 		else{
 		renderer = THREE.WebGLRenderer();

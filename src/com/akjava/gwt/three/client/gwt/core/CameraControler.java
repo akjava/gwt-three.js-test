@@ -21,8 +21,8 @@ public class CameraControler {
 	
 	public void setRotations(double x,double y,double z){
 		setRotationX(x);
-		setRotationX(y);
-		setRotationX(z);
+		setRotationY(y);
+		setRotationZ(z);
 	}
 	
 	public void incrementRotationX(double x){

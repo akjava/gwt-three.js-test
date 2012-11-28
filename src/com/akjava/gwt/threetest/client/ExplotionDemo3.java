@@ -98,7 +98,7 @@ private Mesh mesh;
 		
 		
 		Material material=THREE.ParticleBasicMaterial().color(0x888888).size(15).map(ImageUtils.loadTexture("img/particle7.png"))
-		.blending(THREE.NormalBlending).transparent(true).build();
+		.blending(THREE.Blending.NormalBlending()).transparent(true).build();
 		
 		final ParticleSystem particleSystem=THREE.ParticleSystem(particles, material);
 		particleSystem.setSortParticles(true);

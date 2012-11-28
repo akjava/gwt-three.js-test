@@ -73,6 +73,7 @@ import com.akjava.gwt.three.client.renderers.GWTRenderObject;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
 import com.akjava.gwt.three.client.textures.Texture;
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.dom.client.CanvasElement;
 import com.google.gwt.dom.client.ImageElement;
@@ -345,7 +346,7 @@ public static native final CubeGeometry CubeGeometry(double x,double y,double z,
 	}-*/;
 	
 	
-
+	/*
 	public static final int FrontSide = 0;
 	public static final int BackSide = 1;
 	public static final int DoubleSide = 2;
@@ -362,28 +363,69 @@ public static native final CubeGeometry CubeGeometry(double x,double y,double z,
 	public static final int LatitudeReflectionMapping =1;
 	public static final int CubeReflectionMapping =2;
 	public static final int SphericalReflectionMapping =3;
-	
-	/*
-	THREE.NoBlending = 0;
-	THREE.NormalBlending = 1;
-	THREE.AdditiveBlending = 2;
-	THREE.SubtractiveBlending = 3;
-	THREE.MultiplyBlending = 4;
-	THREE.CustomBlending = 5;
 	*/
-	
+	/*
+
+	*/
+	public static final class Side{
+		public static native final int FrontSide()/*-{
+		return $wnd.THREE.FrontSide;
+		}-*/;
+		public static native final int BackSide()/*-{
+		return $wnd.THREE.BackSide;
+		}-*/;
+		
+		public static native final int DoubleSide()/*-{
+		return $wnd.THREE.DoubleSide;
+		}-*/;
+		
+	}
+	public static final class Shading{
+		public static native final int NoShading()/*-{
+		return $wnd.THREE.NoShading;
+		}-*/;
+		public static native final int FlatShading()/*-{
+		return $wnd.THREE.FlatShading;
+		}-*/;
+		
+		public static native final int SmoothShading()/*-{
+		return $wnd.THREE.SmoothShading;
+		}-*/;
+		
+	}
 	public static final class Blending{
-		
-		
-		
-		
 		public static native final int NoBlending()/*-{
 		return $wnd.THREE.NoBlending;
 		}-*/;
+		public static native final int NormalBlending()/*-{
+		return $wnd.THREE.NormalBlending;
+		}-*/;
+		public static native final int AdditiveBlending()/*-{
+		return $wnd.THREE.AdditiveBlending;
+		}-*/;
+		public static native final int SubtractiveBlending()/*-{
+		return $wnd.THREE.SubtractiveBlending;
+		}-*/;
+		public static native final int MultiplyBlending()/*-{
+		return $wnd.THREE.MultiplyBlending;
+		}-*/;
+		public static native final int CustomBlending()/*-{
+		return $wnd.THREE.CustomBlending;
+		}-*/;
 	}
 	
-	
 
+	public static final class TextureConstants{
+		public static native final int MultiplyOperation()/*-{
+		return $wnd.THREE.MultiplyOperation;
+		}-*/;
+		public static native final int MixOperation()/*-{
+		return $wnd.THREE.MixOperation;
+		}-*/;
+		public static native final int AddOperation()/*-{
+		return  $wnd.THREE.AddOperation;
+		}-*/;
+	}
 	public static final class Colors{
 		public static native final int NoColors()/*-{
 		return $wnd.THREE.NoColors;
@@ -395,17 +437,35 @@ public static native final CubeGeometry CubeGeometry(double x,double y,double z,
 		return  $wnd.THREE.VertexColors;
 		}-*/;
 	}
-	
-	public static final int NoBlending = 0;
-	public static final int NormalBlending = 1;
-	public static final int AdditiveBlending = 2;
-	public static final int SubtractiveBlending = 3;
-	public static final int MultiplyBlending = 4;
-	public static final int CustomBlending=5;
-	/**
-	 * @deprecated anymore
-	 */
-	public static final int AdditiveAlphaBlending = 0;
+
+	public static final class MappingModes{
+		public static native final JavaScriptObject UVMapping()/*-{
+		return $wnd.THREE.UVMapping;
+		}-*/;
+		public static native final JavaScriptObject CubeReflectionMapping()/*-{
+		return $wnd.THREE.CubeReflectionMapping;
+		}-*/;
+		public static native final JavaScriptObject CubeRefractionMapping()/*-{
+		return $wnd.THREE.CubeRefractionMapping;
+		}-*/;
+		public static native final JavaScriptObject SphericalReflectionMapping()/*-{
+		return $wnd.THREE.SphericalReflectionMapping;
+		}-*/;
+		public static native final JavaScriptObject SphericalRefractionMapping()/*-{
+		return $wnd.THREE.SphericalRefractionMapping;
+		}-*/;
+	}
+	public static final class WrappingModes{
+		public static native final int RepeatWrapping()/*-{
+		return $wnd.THREE.RepeatWrapping;
+		}-*/;
+		public static native final int ClampToEdgeWrapping()/*-{
+		return $wnd.THREE.ClampToEdgeWrapping;
+		}-*/;
+		public static native final int MirroredRepeatWrapping()/*-{
+		return $wnd.THREE.MirroredRepeatWrapping;
+		}-*/;
+	}
 
 	public static native final MorphAnimMesh MorphAnimMesh(Geometry geometry,
 			Material material) /*-{
