@@ -1,13 +1,9 @@
 package com.akjava.gwt.threecanvastest.client;
 
-import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.gwt.core.CameraControler;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
-import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.NativeEvent;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.MouseDownEvent;
 import com.google.gwt.event.dom.client.MouseDownHandler;
 import com.google.gwt.event.dom.client.MouseMoveEvent;
@@ -27,7 +23,7 @@ public abstract class AbstractDemo implements Demo{
 
 	protected int width,height;
 	
-	
+	protected WebGLRenderer renderer;
 
 	
 	protected CameraControler cameraControle=new CameraControler();
@@ -76,6 +72,7 @@ public abstract class AbstractDemo implements Demo{
 	
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
+		this.renderer=renderer;
 		this.width=width;
 		this.height=height;
 		panel.addMouseUpHandler(new MouseUpHandler() {

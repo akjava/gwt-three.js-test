@@ -47,7 +47,8 @@ public class MainWidget extends Composite {
 
 	private Demo lastDemo;
 	public static Stats stats;
-	final Demo[] demos=new Demo[]{new GeometryCube(),new CameraOrthoGraphics(),new BoxDemo(),new GeometryBird()
+	final Demo[] demos=new Demo[]{new CSS3DTest()
+	//,new GeometryBird()
 	
 	};
 	
@@ -57,8 +58,8 @@ public class MainWidget extends Composite {
 		initWidget(uiBinder.createAndBindUi(this));
 		
 		
-		renderer = THREE.CanvasRenderer();
-		//renderer = THREE.WebGLRenderer();
+		//renderer = THREE.CanvasRenderer();
+		renderer = THREE.CSS3DRenderer();
 		
 		GWTHTMLUtils.unselectiveCanvas(renderer.getDomElement());
 		

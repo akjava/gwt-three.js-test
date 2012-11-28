@@ -27,4 +27,6 @@ public interface Demo {
 	public void startTimer(Timer timer);
 	public String getHowToHtml();
 	public Widget getControler();
+	
+	
 }
