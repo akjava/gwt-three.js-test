@@ -22,13 +22,13 @@ import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.ui.CameraMoveWidget;
 import com.akjava.gwt.three.client.ui.CameraRotationWidget;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FocusPanel;
@@ -50,7 +50,7 @@ public class MainWidget extends Composite {
 	public static Stats stats;
 	final Demo[] demos=new Demo[]{new DragDemo(),new BoneDemo(),new CanvasDemo(),
 			new SimpleCubeDemo(),new SphereDemo(),new SplineDemo(),new LoadObjDemo()
-	,new ParticleDemo(),new ParticleSmoke()
+	,new ParticleDemo(),new ParticleSmoke(),new GeometryCube(),new CameraOrthoGraphics()
 	
 	//new AngleDemo(), some of them for test,others now upgrading
 			/*
@@ -73,7 +73,11 @@ public class MainWidget extends Composite {
 		if(type.equals("canvas")){
 		LogUtils.log("canvas renderer");
 		renderer = THREE.CanvasRenderer();
-		}else{
+		}else if(type.equals("css3d")){
+			LogUtils.log("css3d renderer");
+		renderer=THREE.CSS3DRenderer();
+		}
+		else{
 		renderer = THREE.WebGLRenderer();
 		}
 		

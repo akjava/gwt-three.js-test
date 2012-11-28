@@ -306,6 +306,10 @@ public static native final CubeGeometry CubeGeometry(double x,double y,double z,
 	return new $wnd.THREE.Color(hex);
 	}-*/;
 	
+	public static native final WebGLRenderer CSS3DRenderer()/*-{
+	return new $wnd.THREE.CSS3DRenderer();
+	}-*/;
+	
 	public static native final WebGLRenderer WebGLRenderer()/*-{
 	return new $wnd.THREE.WebGLRenderer();
 	}-*/;
