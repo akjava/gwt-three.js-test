@@ -1,14 +1,16 @@
 My GWT wrapper for three.js r53
-still only wrapped what i needed.
-
+still only wrapped what i needed.(if you wrapped , do pull request,most of things just copy and paste and test it)
 most of demo under upgrading.
+
+Developing cencept
+As possible as can follow latest version.
+but sadly sometime i forgot it.
 
 Release
 r4 - akjavathreegwt_120214.jar
 
 Bug
 Sometime error happend on Developement Mode,compile and test on browser.
-
 
 if method need  Array or Object parameters  ,and in inside it is using instanceof to parameter,it make a problem.
 i heard some frame problem is there.(maybe linker option fix this problem)
