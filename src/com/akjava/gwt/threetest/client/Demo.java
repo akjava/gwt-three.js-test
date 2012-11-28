@@ -27,4 +27,7 @@ public interface Demo {
 	public void startTimer(Timer timer);
 	public String getHowToHtml();
 	public Widget getControler();
+	public boolean isSupportCanvas();
+	public boolean isSupportWebGL();
+	public boolean isSupportCSS3D();
 }

@@ -15,6 +15,9 @@
  */
 package com.akjava.gwt.threetest.client;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.lib.client.URLUtils;
 import com.akjava.gwt.stats.client.Stats;
@@ -22,17 +25,21 @@ import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.ui.CameraMoveWidget;
 import com.akjava.gwt.three.client.ui.CameraRotationWidget;
-
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style.Unit;
+import com.google.gwt.event.dom.client.ChangeEvent;
+import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FocusPanel;
 import com.google.gwt.user.client.ui.HTMLPanel;
+import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.StackLayoutPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
@@ -50,7 +57,7 @@ public class MainWidget extends Composite {
 	public static Stats stats;
 	final Demo[] demos=new Demo[]{new DragDemo(),new BoneDemo(),new CanvasDemo(),
 			new SimpleCubeDemo(),new SphereDemo(),new SplineDemo(),new LoadObjDemo()
-	,new ParticleDemo(),new ParticleSmoke(),new GeometryCube(),new CameraOrthoGraphics()
+	,new ParticleDemo(),new ParticleSmoke(),new GeometryCube(),new CameraOrthoGraphics(),new HelloCSS3DDemo()
 	
 	//new AngleDemo(), some of them for test,others now upgrading
 			/*
@@ -64,6 +71,10 @@ public class MainWidget extends Composite {
 			*/
 			};
 	int width=500,height=500;
+	private int rendererType;
+	public static final int RENDERER_WEBGL=0;
+	public static final int RENDERER_CANVAS=1;
+	public static final int RENDERER_CSS3D=2;
 	public MainWidget() {
 		stats=Stats.insertStatsToRootPanel();
 		initWidget(uiBinder.createAndBindUi(this));
@@ -72,13 +83,16 @@ public class MainWidget extends Composite {
 		
 		if(type.equals("canvas")){
 		LogUtils.log("canvas renderer");
+		rendererType=RENDERER_CANVAS;
 		renderer = THREE.CanvasRenderer();
 		}else if(type.equals("css3d")){
 			LogUtils.log("css3d renderer");
 		renderer=THREE.CSS3DRenderer();
+		rendererType=RENDERER_CSS3D;
 		}
 		else{
 		renderer = THREE.WebGLRenderer();
+		rendererType=RENDERER_WEBGL;
 		}
 		
 		renderer.setSize(width, height);
@@ -125,10 +139,50 @@ public class MainWidget extends Composite {
 		
 		
 		getMain().add(focusPanel);
+		side.add(new Label("Renderer"));
+		final ListBox rendererListBox=new ListBox();
+		rendererListBox.addItem("WebGL");
+		rendererListBox.addItem("Canvas");
+		rendererListBox.addItem("CSS3D");
+		int selection=0;
+		if(rendererType==RENDERER_CANVAS){
+			selection=1;
+		}else if(rendererType==RENDERER_CSS3D){
+			selection=2;
+		}
+		rendererListBox.setSelectedIndex(selection);
+		rendererListBox.addChangeHandler(new ChangeHandler() {
+			
+			@Override
+			public void onChange(ChangeEvent event) {
+				String token="renderer="+rendererListBox.getItemText(rendererListBox.getSelectedIndex()).toLowerCase();
+				
+				Window.open(URLUtils.getLocalChangedUrl("default",token), "_self", null);
+			}
+		});
+		side.add(rendererListBox);
 		
+		List<Demo> supportedDemo=new ArrayList<Demo>();
 		for(int i=0;i<demos.length;i++){
-			DemoButton demoButton=new DemoButton(demos[i]);
+			if(rendererType==RENDERER_CANVAS){
+				if(demos[i].isSupportCanvas()){
+					supportedDemo.add(demos[i]);
+				}
+			}else if(rendererType==RENDERER_CSS3D){
+				if(demos[i].isSupportCSS3D()){
+					supportedDemo.add(demos[i]);
+				}
+			}else{
+				if(demos[i].isSupportWebGL()){
+					supportedDemo.add(demos[i]);
+				}
+			}
+		}
+		
+		for(int i=0;i<supportedDemo.size();i++){
+			DemoButton demoButton=new DemoButton(supportedDemo.get(i));
 			side.add(demoButton);
+			
 			if(i==0){
 				demoButton.startDemo();
 			}

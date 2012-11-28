@@ -35,7 +35,7 @@ import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 
-public class CSS3DTest extends AbstractDemo{
+public class HelloCSS3DDemo extends AbstractDemo{
 
 	private CSS3DObject css3;
 	private Scene scene;

@@ -38,7 +38,7 @@ public abstract class AbstractDemo implements Demo{
 	protected int mouseDownX;
 	protected int mouseDownY;
 
-	
+	protected WebGLRenderer renderer;
 
 	public void onMouseOut(MouseOutEvent event) {
 		mouseDown=false;
@@ -79,6 +79,7 @@ public abstract class AbstractDemo implements Demo{
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		this.width=width;
 		this.height=height;
+		this.renderer=renderer;
 		panel.addMouseUpHandler(new MouseUpHandler() {
 			
 			@Override
@@ -161,6 +162,17 @@ public abstract class AbstractDemo implements Demo{
 	public final native void log(String object)/*-{
 	console.log(object);
 	}-*/;
-
+	@Override
+	public boolean isSupportCanvas(){
+		return true;
+	}
+	@Override
+	public boolean isSupportWebGL(){
+		return true;
+	}
+	@Override
+	public boolean isSupportCSS3D(){
+		return false;
+	}
 
 }

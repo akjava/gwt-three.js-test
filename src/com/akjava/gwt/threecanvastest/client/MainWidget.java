@@ -47,7 +47,7 @@ public class MainWidget extends Composite {
 
 	private Demo lastDemo;
 	public static Stats stats;
-	final Demo[] demos=new Demo[]{new CSS3DTest()
+	final Demo[] demos=new Demo[]{new HelloCSS3DDemo()
 	//,new GeometryBird()
 	
 	};

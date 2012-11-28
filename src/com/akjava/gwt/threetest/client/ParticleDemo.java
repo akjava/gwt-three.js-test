@@ -137,5 +137,9 @@ private Mesh mesh;
 	public String getHowToHtml(){
 		return Bundles.INSTANCE.howto_default().getText();
 	}
+	@Override
+	public boolean isSupportCanvas(){
+		return false;
+	}
 
 }
