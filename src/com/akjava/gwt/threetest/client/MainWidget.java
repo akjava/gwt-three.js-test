@@ -75,6 +75,11 @@ public class MainWidget extends Composite {
 	public static final int RENDERER_WEBGL=0;
 	public static final int RENDERER_CANVAS=1;
 	public static final int RENDERER_CSS3D=2;
+	public void stop(){
+		if(lastDemo!=null){
+			lastDemo.stop();
+		}
+	}
 	public MainWidget() {
 		stats=Stats.insertStatsToRootPanel();
 		initWidget(uiBinder.createAndBindUi(this));
@@ -218,10 +223,10 @@ public DemoButton(Demo demo){
 public void onClick(ClickEvent event) {
 	startDemo();
 }
+
+
 public void startDemo(){
-	if(lastDemo!=null){
-		lastDemo.stop();
-	}
+	stop();
 	demo.start(renderer,width,height,focusPanel);
 	howToPanel.clear();
 	howToPanel.add(new HTMLPanel(demo.getHowToHtml()));

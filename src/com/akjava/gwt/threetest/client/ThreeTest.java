@@ -44,6 +44,7 @@ public void onModuleLoad() {
 	}
 private void createMain(){
 	if(main!=null){
+		main.stop();
 		RootPanel.get("MAIN").remove(main);
 	}
 	main = new MainWidget();

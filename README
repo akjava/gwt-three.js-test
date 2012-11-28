@@ -2,9 +2,12 @@ My GWT wrapper for three.js r53
 still only wrapped what i needed.(if you wrapped , do pull request,most of things just copy and paste and test it)
 most of demo under upgrading.
 
-Developing cencept
+Developing cencept.
 As possible as can follow latest version.
 but sadly sometime i forgot it.
+
+Demo 
+http://akjava.github.com/gwt-three.js-test/
 
 Release
 r4 - akjavathreegwt_120214.jar
