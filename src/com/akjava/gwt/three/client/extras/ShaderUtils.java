@@ -9,6 +9,7 @@ public class ShaderUtils {
 	return $wnd.THREE.ShaderUtils.lib[ name ];
 	}-*/;
 
+	
 
 public static  class Shader extends JavaScriptObject{
 	protected Shader(){}
@@ -21,8 +22,11 @@ public static  class Shader extends JavaScriptObject{
 	return this.vertexShader;
 	}-*/;
 	
+	
+	
 	public  native final Uniforms uniforms()/*-{
 	return this.uniforms;
+	
 	}-*/;
 }
 
@@ -44,7 +48,8 @@ public static class Uniforms extends JavaScriptObject{
 	public native final void set(String key,double x,double y)/*-{
 	this[key].value.set(x,y);
 	}-*/;
-	//TODO add Vector2
 }
+
+
 
 }

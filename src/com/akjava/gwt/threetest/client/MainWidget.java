@@ -55,7 +55,7 @@ public class MainWidget extends Composite {
 
 	private Demo lastDemo;
 	public static Stats stats;
-	final Demo[] demos=new Demo[]{new DragDemo(),new BoneDemo(),new CanvasDemo(),
+	final Demo[] demos=new Demo[]{new CellShaderDemo(),new DragDemo(),new BoneDemo(),new CanvasDemo(),
 			new SimpleCubeDemo(),new SphereDemo(),new SplineDemo(),new LoadObjDemo()
 	,new ParticleDemo(),new ParticleSmoke(),new GeometryCube(),new CameraOrthoGraphics(),new HelloCSS3DDemo(),new PlainDemo()
 	

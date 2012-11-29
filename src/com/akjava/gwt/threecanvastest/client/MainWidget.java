@@ -59,7 +59,7 @@ public class MainWidget extends Composite {
 		
 		
 		//renderer = THREE.CanvasRenderer();
-		renderer = THREE.CSS3DRenderer();
+		//renderer = THREE.CSS3DRenderer();
 		
 		GWTHTMLUtils.unselectiveCanvas(renderer.getDomElement());
 		
