@@ -50,10 +50,7 @@ private AnimationModel model;
 
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
-		if(timer!=null){
-			timer.cancel();
-			timer=null;
-		}
+		super.start(renderer, width, height, panel);
 		renderer.setClearColorHex(0x333333, 1);
 		
 		final Scene scene=THREE.Scene();
@@ -88,8 +85,8 @@ private AnimationModel model;
 				uniforms.set("enableDiffuse", true);
 				uniforms.setHex("uDiffuseColor", 0xff0000);
 				//uniforms.set("tDiffuse", ImageUtils.loadTexture("img/men2buv.png#1"));
-				uniforms.set("tDiffuse", ImageUtils.loadTexture("img/uv.png#2"));
-				uniforms.set("uNormalScale",1);
+				uniforms.set("tDiffuse", ImageUtils.loadTexture("img/uv.png"));
+				uniforms.set("uNormalScale",1,1);
 				
 				Material material=THREE.ShaderMaterial().fragmentShader(shader.fragmentShader()).vertexShader(shader.vertexShader()).uniforms(uniforms).lights(true)
 						.morphTargets(false).build();
@@ -132,6 +129,7 @@ private AnimationModel model;
 		Timer timer = new Timer(){
 			double theta;
 			public void run(){
+				MainWidget.stats.begin();
 				try{
 					theta += 0.2;
 
@@ -153,20 +151,18 @@ private AnimationModel model;
 				
 				renderer.render(scene, camera);
 				
-				MainWidget.stats.update();
+				
 				}catch(Exception e){
 					GWT.log(e.getMessage());
 				}
+				MainWidget.stats.end();
 			}
 		};
 		
 		startTimer(timer);
 	}
 
-	@Override
-	public void stop() {
-		timer.cancel();
-	}
+	
 
 	@Override
 	public String getName() {
@@ -232,14 +228,15 @@ private AnimationModel model;
 	}-*/;
 	
 	public static final native Geometry makeMorphTargetsGeometry(Geometry base,int index)/*-{
-	var geometry=$wnd.THREE.GeometryUtils.clone(base);
+	var geometry=base.clone();
 	geometry.vertices=base.morphTargets[index].vertices;
 	
 	return geometry;
 	}-*/;
 	
+
 	public static final native Geometry makeMorphTargetsGeometry(Geometry base,JsArray<Vertex> vertexs)/*-{
-	var geometry=$wnd.THREE.GeometryUtils.clone(base);
+	var geometry=base.clone(base);
 	geometry.vertices=vertexs;
 	
 	return geometry;

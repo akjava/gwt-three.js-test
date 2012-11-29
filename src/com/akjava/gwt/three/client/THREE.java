@@ -37,6 +37,7 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client;
 
+import com.akjava.gwt.lib.client.JavaScriptUtils;
 import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.core.Color;
 import com.akjava.gwt.three.client.core.Face;
@@ -175,6 +176,12 @@ public class THREE {
 		return Cube(x,y,z,xpart,ypart,zpart,arrays);
 	
 	}
+	
+	@SuppressWarnings("unchecked")
+	public static final JsArray<JavaScriptObject> createJsArray(){
+		return JavaScriptUtils.createJSArray();
+	}
+	
 	public static native final CubeGeometry CubeGeometry(double x,double y,double z,int xpart,int ypart,int zpart,JsArray<Material> materials)/*-{
 	
 	

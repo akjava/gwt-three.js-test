@@ -15,47 +15,71 @@
  */
 package com.akjava.gwt.threetest.client;
 
+import com.akjava.gwt.lib.client.CanvasUtils;
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.cameras.Camera;
+import com.akjava.gwt.three.client.core.Object3D;
+import com.akjava.gwt.three.client.experiments.CSS3DObject;
+import com.akjava.gwt.three.client.experiments.CSS3DRenderer;
 import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.materials.MeshBasicMaterialBuilder;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
 import com.akjava.gwt.threetest.client.resources.Bundles;
+import com.google.gwt.canvas.client.Canvas;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
+import com.google.gwt.user.client.ui.Image;
 
 public class PlainDemo extends AbstractDemo{
-private Timer timer;
+
+	private boolean css3d;
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
-		if(timer!=null){
-			timer.cancel();
-			timer=null;
+		super.start(renderer, width, height, panel);
+		
+		if(renderer.gwtGetType().equals("css3d")){
+			css3d=true;
+		}else{
+			css3d=false;
+			renderer.setClearColorHex(0xffffff, 1);
 		}
-		
-		
-		
 		
 		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
 		camera.getPosition().set(0, 0, 20);
 		
-		
-		
 		final Scene scene=THREE.Scene();
 		
+		final Object3D object;
+		if(css3d){
+			
+			Image img=new Image(createColorImage(0,255,255,0.5,5,5));
+			CSS3DObject obj1 = CSS3DObject.createObject(img.getElement());
+			
+			scene.add(obj1);
+			object=obj1;
+			
+			Image img2=new Image(createColorImage(255,0,0,0.5,5,5));
+			CSS3DObject obj2 = CSS3DObject.createObject(img2.getElement());
+			obj2.setPosition(2, 2, 2);
+			scene.add(obj2);
+			
+		}else{
 		MeshBasicMaterialBuilder basicMaterial=MeshBasicMaterialBuilder.create().wireFrame(false).color(0x00ffff).opacity(0.5).reflectivity(true)
 		.transparent(true);
 		
 		final Mesh mesh=THREE.Mesh(THREE.PlaneGeometry(5, 5), 
 				basicMaterial.build());
 		scene.add(mesh);
+		object=mesh;
 		
 		final Mesh mesh2=THREE.Mesh(THREE.PlaneGeometry(5, 5), 
 				basicMaterial.color(0xff0000).build());
 		mesh2.setPosition(2, 2, 2);
 		scene.add(mesh2);
+		}
 		
 		final Light light=THREE.PointLight(0xffffff);
 		light.setPosition(10, 0, 10);
@@ -64,20 +88,36 @@ private Timer timer;
 		
 		
 		
-		timer = new Timer(){
+		Timer timer = new Timer(){
 			public void run(){
-				mesh.getRotation().incrementX(0.02);
-				mesh.getRotation().incrementY(0.02);
+				object.getRotation().incrementX(0.02);
+				object.getRotation().incrementY(0.02);
 				renderer.render(scene, camera);
 
 			}
 		};
-		timer.scheduleRepeating(1000/60);
+		startTimer(timer);
 	}
 
 	@Override
 	public void stop() {
-		timer.cancel();
+		super.stop();
+		if(css3d){
+		CSS3DRenderer css3r=(CSS3DRenderer)renderer;
+		css3r.gwtClear();
+		}
+	}
+	public String createColorImage(int r,int g,int b,double opacity,int w,int h){
+		Canvas canvas=CanvasUtils.createCanvas(w, h);
+		canvas.getContext2d().setFillStyle("rgba("+r+","+g+","+b+","+opacity+")");
+		canvas.getContext2d().fillRect(0, 0, w, h);
+		String image1=canvas.toDataUrl();
+		return image1;
+	}
+	
+	@Override
+	public boolean isSupportCSS3D(){
+		return true;
 	}
 
 	@Override

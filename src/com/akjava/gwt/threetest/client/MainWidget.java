@@ -57,7 +57,7 @@ public class MainWidget extends Composite {
 	public static Stats stats;
 	final Demo[] demos=new Demo[]{new DragDemo(),new BoneDemo(),new CanvasDemo(),
 			new SimpleCubeDemo(),new SphereDemo(),new SplineDemo(),new LoadObjDemo()
-	,new ParticleDemo(),new ParticleSmoke(),new GeometryCube(),new CameraOrthoGraphics(),new HelloCSS3DDemo()
+	,new ParticleDemo(),new ParticleSmoke(),new GeometryCube(),new CameraOrthoGraphics(),new HelloCSS3DDemo(),new PlainDemo()
 	
 	//new AngleDemo(), some of them for test,others now upgrading
 			/*
@@ -87,17 +87,18 @@ public class MainWidget extends Composite {
 		String type=URLUtils.getFirstTokenValue("renderer","webgl");
 		
 		if(type.equals("canvas")){
-		LogUtils.log("canvas renderer");
 		rendererType=RENDERER_CANVAS;
 		renderer = THREE.CanvasRenderer();
+		renderer.gwtSetType("canvas");
 		}else if(type.equals("css3d")){
-			LogUtils.log("css3d renderer");
 		renderer=THREE.CSS3DRenderer();
 		rendererType=RENDERER_CSS3D;
+		renderer.gwtSetType("css3d");
 		}
 		else{
 		renderer = THREE.WebGLRenderer();
 		rendererType=RENDERER_WEBGL;
+		renderer.gwtSetType("webgl");
 		}
 		
 		renderer.setSize(width, height);
