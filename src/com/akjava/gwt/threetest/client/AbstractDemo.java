@@ -1,6 +1,7 @@
 package com.akjava.gwt.threetest.client;
 
 import com.akjava.gwt.lib.client.LogUtils;
+import com.akjava.gwt.three.client.experiments.CSS3DRenderer;
 import com.akjava.gwt.three.client.gwt.core.CameraControler;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.threetest.client.resources.Bundles;
@@ -139,6 +140,10 @@ public abstract class AbstractDemo implements Demo{
 		if(timer!=null){
 		timer.cancel();
 		timer=null;
+		}
+		if(renderer.gwtGetType().equals("css3d")){
+			CSS3DRenderer css3r=(CSS3DRenderer)renderer;
+			css3r.gwtClear();	//to avoid show duplicate content.
 		}
 	}
 	

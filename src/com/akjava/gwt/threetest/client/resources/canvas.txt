@@ -11,12 +11,7 @@ There are some trick to load datarul texture.
 <a target="github" href="https://github.com/akjava/gwt-three.js-test/blob/master/src/com/akjava/gwt/threetest/client/CanvasDemo.java">github</a>
 
 <div class="code">
-String url=canvas.toDataUrl();
-Image img=new Image(url);
-ImageElement imageElement=
-ImageElement.as(img.getElement());
-Texture texture=THREE.Texture(imageElement);
-texture.setNeedsUpdate(true);
+
 </div>				
 
 </pre>

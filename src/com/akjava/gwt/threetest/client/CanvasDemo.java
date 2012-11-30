@@ -49,11 +49,9 @@ public class CanvasDemo extends AbstractDemo{
 		canvas.getContext2d().setFillStyle("#cccccc");
 		canvas.getContext2d().fillRect(0, 0, canvas.getCoordinateSpaceWidth(), canvas.getCoordinateSpaceHeight());
 		canvas.getContext2d().strokeText("Hello World",25, 25);
-		String url=canvas.toDataUrl();
-		Image img=new Image(url);
-		ImageElement imageElement=ImageElement.as(img.getElement());
-		Texture texture=THREE.Texture(imageElement);
-		texture.setNeedsUpdate(true);
+		
+		Texture texture=THREE.Texture(canvas.getCanvasElement());
+		texture.setNeedsUpdate(true);//very important
 		
 		
 		
