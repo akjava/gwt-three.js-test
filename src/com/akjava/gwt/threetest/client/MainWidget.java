@@ -18,6 +18,7 @@ package com.akjava.gwt.threetest.client;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.akjava.gwt.lib.client.GWTHTMLUtils;
 import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.lib.client.URLUtils;
 import com.akjava.gwt.stats.client.Stats;
@@ -57,7 +58,7 @@ public class MainWidget extends Composite {
 	public static Stats stats;
 	final Demo[] demos=new Demo[]{new CellShaderDemo(),new DragDemo(),new BoneDemo(),new CanvasDemo(),
 			new SimpleCubeDemo(),new SphereDemo(),new SplineDemo(),new LoadObjDemo()
-	,new ParticleDemo(),new ParticleSmoke(),new GeometryCube(),new CameraOrthoGraphics(),new HelloCSS3DDemo(),new PlainDemo(),new PickDemo()
+	,new ParticleDemo(),new ParticleSmoke(),new GeometryCube(),new CameraOrthoGraphics(),new HelloCSS3DDemo(),new PlainDemo(),new PickDemo(),new TileDemo()
 	
 	//new AngleDemo(), some of them for test,others now upgrading
 			/*
@@ -100,6 +101,8 @@ public class MainWidget extends Composite {
 		rendererType=RENDERER_WEBGL;
 		renderer.gwtSetType("webgl");
 		}
+		LogUtils.log(renderer.getDomElement());
+		GWTHTMLUtils.unselectiveCanvas(renderer.getDomElement());
 		
 		renderer.setSize(width, height);
 		GWT.log("element:"+renderer.getDomElement());

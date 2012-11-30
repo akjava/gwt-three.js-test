@@ -5,22 +5,17 @@ package com.akjava.gwt.threetest.client;
 import com.akjava.gwt.html5.client.InputRangeListener;
 import com.akjava.gwt.html5.client.InputRangeWidget;
 import com.akjava.gwt.lib.client.CanvasUtils;
+import com.akjava.gwt.lib.client.GWTHTMLUtils;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.core.Geometry;
-import com.akjava.gwt.three.client.core.Intersect;
 import com.akjava.gwt.three.client.core.Object3D;
-import com.akjava.gwt.three.client.core.Projector;
 import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.experiments.CSS3DObject;
 import com.akjava.gwt.three.client.lights.AmbientLight;
 import com.akjava.gwt.three.client.lights.DirectionalLight;
-import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.core.client.JsArray;
-import com.google.gwt.event.dom.client.DoubleClickEvent;
 import com.google.gwt.event.dom.client.MouseMoveEvent;
 import com.google.gwt.event.dom.client.MouseWheelEvent;
 import com.google.gwt.user.client.Timer;
@@ -35,9 +30,7 @@ public class TileDemo extends AbstractDemo{
 	private Scene scene;
 	private Camera camera;
 
-	private int screenWidth;
-	private int screenheight;
-	private Mesh picker;
+
 	int cpos=1200;
 	private InputRangeWidget range;
 	private Vector3 cameraBase=THREE.Vector3();
@@ -45,7 +38,7 @@ public class TileDemo extends AbstractDemo{
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		super.start(renderer, width, height, panel);
 		
-		GWT.log(width+","+height);
+		
 		camera = THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
 		camera.setPosition(cpos, 600, cpos);
 		
@@ -58,6 +51,7 @@ public class TileDemo extends AbstractDemo{
 			Object3D object;
 			if(renderer.gwtGetType().equals("css3d")){
 				Image img=new Image(CanvasUtils.createColorImageDataUrl((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255),1,50,50));
+				
 				object= CSS3DObject.createObject(img.getElement());
 				
 			}else{
@@ -104,19 +98,13 @@ public class TileDemo extends AbstractDemo{
 		
 		Timer timer = new Timer(){
 			public void run(){
-				MainWidget.stats.update();
+				MainWidget.stats.begin();
 			
 				
-				double timer = System.currentTimeMillis() * 0.0001;
-
-				//camera.getPosition().setX(Math.cos( timer ) * 200);
-				//camera.getPosition().setZ(Math.sin( timer ) * 200);
-				//camera.lookAt( scene.getPosition() );
-
 				renderer.render( scene, camera );
 				
 				
-				
+				MainWidget.stats.end();
 				
 			}
 		};
@@ -126,6 +114,7 @@ public class TileDemo extends AbstractDemo{
 		startTimer(timer);
 	}
 	
+	/*
 	@Override
 	public void onDoubleClick(DoubleClickEvent event) {
 		Projector projector=THREE.Projector();
@@ -141,6 +130,7 @@ public class TileDemo extends AbstractDemo{
 			
 		}
 	}
+	*/
 	
 	public void onMouseMove(MouseMoveEvent event) {
 		super.onMouseMove(event);
@@ -184,7 +174,11 @@ public class TileDemo extends AbstractDemo{
 
 	@Override
 	public String getHowToHtml() {
-		return "camera control";
+		return "Wheel to zoom,mouse drog to rotate";
+	}
+	@Override
+	public boolean isSupportCSS3D(){
+		return true;
 	}
 
 }
