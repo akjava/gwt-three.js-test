@@ -15,18 +15,21 @@
  */
 package com.akjava.gwt.threetest.client;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.core.Geometry;
+import com.akjava.gwt.three.client.core.Object3D;
 import com.akjava.gwt.three.client.experiments.CellShader;
+import com.akjava.gwt.three.client.extras.SceneUtils;
 import com.akjava.gwt.three.client.extras.ShaderUtils;
-import com.akjava.gwt.three.client.extras.ShaderUtils.Shader;
 import com.akjava.gwt.three.client.extras.loaders.JSONLoader;
 import com.akjava.gwt.three.client.extras.loaders.JSONLoader.LoadHandler;
 import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.materials.Material;
-import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
 import com.akjava.gwt.threetest.client.resources.Bundles;
@@ -36,7 +39,7 @@ import com.google.gwt.user.client.ui.FocusPanel;
 
 public class CellShaderDemo extends AbstractDemo{
 
-private Mesh mesh;
+private Object3D object;
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		super.start(renderer, width, height, panel);
@@ -66,11 +69,18 @@ private Mesh mesh;
 				
 				Material material=THREE.ShaderMaterial().fragmentShader(shader.fragmentShader()).vertexShader(shader.vertexShader()).uniforms(shader.uniforms()).build();
 				LogUtils.log(material);
-				mesh = THREE.Mesh(geometry, material);//THREE.MeshBasicMaterial().color(0xff0000).wireFrame().build());
-				mesh.setPosition(0, 0, 0);
-				mesh.setRotation(0, 0, 0);
-				mesh.setScale(5,5,5);
-				scene.add(mesh);
+				
+				List<Material> materials=new ArrayList<Material>();
+				materials.add(material);
+				//materials.add(THREE.MeshBasicMaterial().color(0x0).transparent(true).wireFrame().build());
+				object=SceneUtils.createMultiMaterialObject(geometry, materials);
+				
+				
+				//mesh = THREE.Mesh(geometry, material);//THREE.MeshBasicMaterial().color(0xff0000).wireFrame().build());
+				object.setPosition(0, 0, 0);
+				object.setRotation(0, 0, 0);
+				object.setScale(5,5,5);
+				scene.add(object);
 			}
 		});
 		
@@ -95,7 +105,7 @@ private Mesh mesh;
 					MainWidget.stats.begin();
 					camera.setPosition(cameraControle.getPositionX(), cameraControle.getPositionY(), cameraControle.getPositionZ());
 					
-					mesh.setRotation(cameraControle.getRadiantRotationX(), cameraControle.getRadiantRotationY(), cameraControle.getRadiantRotationZ());
+					object.setRotation(cameraControle.getRadiantRotationX(), cameraControle.getRadiantRotationY(), cameraControle.getRadiantRotationZ());
 					
 					
 					

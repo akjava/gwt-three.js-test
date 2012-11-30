@@ -36,7 +36,7 @@ import com.google.gwt.user.client.ui.FocusPanel;
 
 public class LoadObjDemo extends AbstractDemo{
 
-private Object3D mesh;
+private Object3D object;
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		super.start(renderer, width, height, panel);
@@ -63,13 +63,13 @@ private Object3D mesh;
 				List<Material> materials=new ArrayList<Material>();
 				materials.add(THREE.MeshLambertMaterial().color(0xff0000).build());
 				materials.add(THREE.MeshBasicMaterial().color(0x0).transparent(true).wireFrame().build());
-				mesh=SceneUtils.createMultiMaterialObject(geometry, materials);
+				object=SceneUtils.createMultiMaterialObject(geometry, materials);
 				
 				//mesh = THREE.Mesh(geometry, );
-				mesh.setPosition(0, 0, 0);
-				mesh.setRotation(0, 0, 0);
-				mesh.setScale(5,5,5);
-				scene.add(mesh);
+				object.setPosition(0, 0, 0);
+				object.setRotation(0, 0, 0);
+				object.setScale(5,5,5);
+				scene.add(object);
 			}
 		});
 		
@@ -91,7 +91,7 @@ private Object3D mesh;
 					MainWidget.stats.begin();
 					camera.setPosition(cameraControle.getPositionX(), cameraControle.getPositionY(), cameraControle.getPositionZ());
 					
-					mesh.setRotation(cameraControle.getRadiantRotationX(), cameraControle.getRadiantRotationY(), cameraControle.getRadiantRotationZ());
+					object.setRotation(cameraControle.getRadiantRotationX(), cameraControle.getRadiantRotationY(), cameraControle.getRadiantRotationZ());
 					
 					
 					
