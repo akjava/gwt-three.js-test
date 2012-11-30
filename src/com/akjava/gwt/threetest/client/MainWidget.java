@@ -101,11 +101,14 @@ public class MainWidget extends Composite {
 		rendererType=RENDERER_WEBGL;
 		renderer.gwtSetType("webgl");
 		}
-		LogUtils.log(renderer.getDomElement());
-		GWTHTMLUtils.unselectiveCanvas(renderer.getDomElement());
+		
+		//for canvas
+		GWTHTMLUtils.disableSelectionStart(renderer.getDomElement());
+		//for css3
+		GWTHTMLUtils.disableSelectionStart(renderer.getDomElement());
 		
 		renderer.setSize(width, height);
-		GWT.log("element:"+renderer.getDomElement());
+		
 		
 		StackLayoutPanel stackPanel = new StackLayoutPanel(Unit.PX);
 		stackPanel.setSize("400px","506px");

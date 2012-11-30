@@ -36,3 +36,11 @@ h1 {
 #closeButton {
   margin: 15px 6px 6px;
 }
+.noselection{
+user-select:none;
+-webkit-user-select:none;
+-moz-user-select:none;
+-khtml-user-select:none;
+-webkit-user-drag:none;
+-khtml-user-drag:none;
+}

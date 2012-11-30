@@ -6,6 +6,7 @@ import com.akjava.gwt.html5.client.InputRangeListener;
 import com.akjava.gwt.html5.client.InputRangeWidget;
 import com.akjava.gwt.lib.client.CanvasUtils;
 import com.akjava.gwt.lib.client.GWTHTMLUtils;
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.core.Geometry;
@@ -16,6 +17,14 @@ import com.akjava.gwt.three.client.lights.AmbientLight;
 import com.akjava.gwt.three.client.lights.DirectionalLight;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
+import com.google.gwt.event.dom.client.DragEvent;
+import com.google.gwt.event.dom.client.DragHandler;
+import com.google.gwt.event.dom.client.DragStartEvent;
+import com.google.gwt.event.dom.client.DragStartHandler;
+import com.google.gwt.event.dom.client.DropEvent;
+import com.google.gwt.event.dom.client.DropHandler;
+import com.google.gwt.event.dom.client.MouseDownEvent;
+import com.google.gwt.event.dom.client.MouseDownHandler;
 import com.google.gwt.event.dom.client.MouseMoveEvent;
 import com.google.gwt.event.dom.client.MouseWheelEvent;
 import com.google.gwt.user.client.Timer;
@@ -46,11 +55,14 @@ public class TileDemo extends AbstractDemo{
 		scene.add( camera );
 		
 		
+		
+		
 		for ( int j = 0; j < 20; j ++ ) {
 		for ( int i = 0; i < 20; i ++ ) {
 			Object3D object;
 			if(renderer.gwtGetType().equals("css3d")){
 				Image img=new Image(CanvasUtils.createColorImageDataUrl((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255),1,50,50));
+				
 				
 				object= CSS3DObject.createObject(img.getElement());
 				
