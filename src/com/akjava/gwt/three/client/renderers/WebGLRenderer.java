@@ -88,6 +88,19 @@ public class WebGLRenderer extends JavaScriptObject{
 	return this.domElement;
 	}-*/;
 	
+	/**
+	 * you should set this by yourself
+	 * @param type
+	 * @return
+	 */
+	public final native String gwtSetType (String type)/*-{
+	this.gwtType=type;
+}-*/;
+	
+	public final native String gwtGetType ()/*-{
+		return this.gwtType;
+	}-*/;
+	
 	public static final class WebGLCanvas extends FocusWidget{
 		private WebGLRenderer renderer;
 		public WebGLRenderer getRenderer() {
@@ -104,4 +117,6 @@ public class WebGLRenderer extends JavaScriptObject{
 			renderer.setClearColorHex(hex, 1);
 		}
 	}
+	
+	
 }

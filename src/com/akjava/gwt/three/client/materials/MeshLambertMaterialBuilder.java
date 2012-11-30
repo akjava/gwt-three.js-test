@@ -61,6 +61,10 @@ public class MeshLambertMaterialBuilder extends JavaScriptObject{
 	this["color"]=c;
 	return this;
 	}-*/;
+	public final native MeshLambertMaterialBuilder ambient(int c)/*-{
+	this["ambient"]=c;
+	return this;
+	}-*/;
 	
 	public final native MeshLambertMaterialBuilder side(int side)/*-{
 	this["side"]=side;
