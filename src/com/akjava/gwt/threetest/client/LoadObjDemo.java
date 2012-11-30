@@ -15,24 +15,28 @@
  */
 package com.akjava.gwt.threetest.client;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.core.Geometry;
+import com.akjava.gwt.three.client.core.Object3D;
+import com.akjava.gwt.three.client.extras.SceneUtils;
 import com.akjava.gwt.three.client.extras.loaders.JSONLoader;
 import com.akjava.gwt.three.client.extras.loaders.JSONLoader.LoadHandler;
 import com.akjava.gwt.three.client.lights.Light;
-import com.akjava.gwt.three.client.objects.Mesh;
+import com.akjava.gwt.three.client.materials.Material;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
 import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Timer;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FocusPanel;
 
 public class LoadObjDemo extends AbstractDemo{
-private Timer timer;
-private Mesh mesh;
+
+private Object3D mesh;
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		super.start(renderer, width, height, panel);
@@ -56,8 +60,12 @@ private Mesh mesh;
 
 			@Override
 			public void loaded(Geometry geometry) {
-
-				mesh = THREE.Mesh(geometry, THREE.MeshLambertMaterial().color(0xff0000).build());
+				List<Material> materials=new ArrayList<Material>();
+				materials.add(THREE.MeshLambertMaterial().color(0xff0000).build());
+				materials.add(THREE.MeshBasicMaterial().color(0x0).transparent(true).wireFrame().build());
+				mesh=SceneUtils.createMultiMaterialObject(geometry, materials);
+				
+				//mesh = THREE.Mesh(geometry, );
 				mesh.setPosition(0, 0, 0);
 				mesh.setRotation(0, 0, 0);
 				mesh.setScale(5,5,5);

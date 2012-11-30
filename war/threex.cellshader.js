@@ -5,8 +5,11 @@ THREEx.UniformsLib	= THREEx.UniformsLib	|| {};
 
 // cel shader from ro.me - http://www.ro.me/tech/cel-shader - Apache License 2.0
 /*
+ * original is 
+ * http://learningthreejs.com/data/THREEx/docs/THREEx.CelShader.html
  * 
- * objectMatrix  renamed to modelMatrix fro r49
+ * modified
+ * objectMatrix  renamed to modelMatrix for r49
  * https://github.com/mrdoob/three.js/wiki/Migration
  * by aki miyazaki
  * 

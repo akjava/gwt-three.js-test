@@ -178,7 +178,7 @@ public class THREE {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public static final JsArray<JavaScriptObject> createJsArray(){
+	public static final JsArray createJsArray(){
 		return JavaScriptUtils.createJSArray();
 	}
 	
