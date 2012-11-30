@@ -85,7 +85,7 @@ var vector = new $wnd.THREE.Vector3( ( mx / sw ) * 2 - 1, - ( my / sh ) * 2 + 1,
 			return  ray;
 
 }-*/;
-public final JsArray<Intersect> gwtPickIntersectsByList(int mx,int my,int sw,int sh,Camera camera,List<Object3D> objects){
+public final JsArray<Intersect> gwtPickIntersectsByList(int mx,int my,int sw,int sh,Camera camera,Iterable<Object3D> objects){
 	@SuppressWarnings("unchecked")
 	JsArray<Object3D> array=(JsArray<Object3D>) JsArray.createArray();
 	for(Object3D obj:objects){
