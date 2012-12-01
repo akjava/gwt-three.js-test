@@ -63,20 +63,19 @@ private Object3D object;
 
 			@Override
 			public void loaded(Geometry geometry) {
+				if(!CellShader.exists()){
+					LogUtils.log("not found THREEx.ShaderLib maybe forget include it.");
+				}
 				CellShader shader=(CellShader) CellShader.createObject();
 				
-				LogUtils.log(ShaderUtils.lib("normal"));
 				
 				Material material=THREE.ShaderMaterial().fragmentShader(shader.fragmentShader()).vertexShader(shader.vertexShader()).uniforms(shader.uniforms()).build();
-				LogUtils.log(material);
 				
 				List<Material> materials=new ArrayList<Material>();
 				materials.add(material);
-				//materials.add(THREE.MeshBasicMaterial().color(0x0).transparent(true).wireFrame().build());
 				object=SceneUtils.createMultiMaterialObject(geometry, materials);
 				
 				
-				//mesh = THREE.Mesh(geometry, material);//THREE.MeshBasicMaterial().color(0xff0000).wireFrame().build());
 				object.setPosition(0, 0, 0);
 				object.setRotation(0, 0, 0);
 				object.setScale(5,5,5);
@@ -90,9 +89,6 @@ private Object3D object;
 		light.setPosition(10, 0, 10);
 		
 		scene.add(light);
-		
-		//scene.add(THREE.AmbientLight(0xcc0000));
-		//scene.add(THREE.DirectionalLight(0x00ff00));
 		
 		
 		
@@ -131,6 +127,6 @@ private Object3D object;
 	}
 	@Override
 	public String getHowToHtml(){
-		return Bundles.INSTANCE.howto_default().getText();
+		return Bundles.INSTANCE.cell().getText();
 	}
 }

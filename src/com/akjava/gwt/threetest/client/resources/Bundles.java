@@ -31,4 +31,5 @@ public Bundles INSTANCE=GWT.create(Bundles.class);
 	TextResource cdd();
 	TextResource canvas();
 	TextResource drag();
+	TextResource cell();
 }

@@ -13,6 +13,7 @@ import com.akjava.gwt.three.client.core.Geometry;
 import com.akjava.gwt.three.client.core.Object3D;
 import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.experiments.CSS3DObject;
+import com.akjava.gwt.three.client.extras.ImageUtils;
 import com.akjava.gwt.three.client.lights.AmbientLight;
 import com.akjava.gwt.three.client.lights.DirectionalLight;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
@@ -55,20 +56,31 @@ public class TileDemo extends AbstractDemo{
 		scene.add( camera );
 		
 		
-		
+		String wood="img/wood64.png";
+		String plain="img/plain64.png";
 		
 		for ( int j = 0; j < 20; j ++ ) {
 		for ( int i = 0; i < 20; i ++ ) {
 			Object3D object;
+			int num=(int) (Math.random()*2);
+			String url=wood;
+			if(num==1){
+				url=plain;
+			}
 			if(renderer.gwtGetType().equals("css3d")){
-				Image img=new Image(CanvasUtils.createColorImageDataUrl((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255),1,50,50));
+				Image img=new Image(url);
+				
+				img.setWidth("50px");
+				img.setHeight("50px");
 				
 				
 				object= CSS3DObject.createObject(img.getElement());
 				
 			}else{
+				
+				
 			Geometry g=THREE.PlaneGeometry(50, 50);
-			object=THREE.Mesh(g, THREE.MeshBasicMaterial().color(Math.random()*0xffffff).build());
+			object=THREE.Mesh(g, THREE.MeshBasicMaterial().map(ImageUtils.loadTexture(url)).build());
 			
 			}
 			object.setPosition(i*50+25-500, 0,j*50+25-500);

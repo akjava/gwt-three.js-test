@@ -105,7 +105,7 @@ public class MainWidget extends Composite {
 		//for canvas
 		GWTHTMLUtils.disableSelectionStart(renderer.getDomElement());
 		//for css3
-		GWTHTMLUtils.disableSelectionStart(renderer.getDomElement());
+		GWTHTMLUtils.disableOnDragAndDrop(renderer.getDomElement());
 		
 		renderer.setSize(width, height);
 		

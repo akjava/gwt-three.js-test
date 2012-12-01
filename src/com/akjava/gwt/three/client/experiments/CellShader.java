@@ -22,7 +22,13 @@ public  native final Uniforms uniforms()/*-{
 return $wnd.THREEx.UniformsLib['cel'];
 }-*/;
 
-
+public static native final boolean exists()/*-{
+if($wnd.THREEx.ShaderLib['cel']){
+	return true;
+}else{
+	return false;
+}
+}-*/;
 
 /**
  *  threex.cellshader.js
