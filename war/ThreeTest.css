@@ -44,3 +44,6 @@ user-select:none;
 -webkit-user-drag:none;
 -khtml-user-drag:none;
 }
+.margintop{
+	margin-top: 96px;
+}

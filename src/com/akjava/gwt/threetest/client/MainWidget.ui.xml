@@ -10,7 +10,7 @@
 		
 	</g:VerticalPanel>
 	<g:VerticalPanel  borderWidth="1" width="500px" height="500px" ui:field="main"/>
-	<g:VerticalPanel  width="100px" ui:field="controler">
+	<g:VerticalPanel  width="360px" ui:field="controler">
 	</g:VerticalPanel>
 </g:HorizontalPanel>
 </g:HTMLPanel>

@@ -27,7 +27,6 @@ import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.ui.CameraMoveWidget;
 import com.akjava.gwt.three.client.ui.CameraRotationWidget;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -35,13 +34,15 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FocusPanel;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ListBox;
-import com.google.gwt.user.client.ui.StackLayoutPanel;
+import com.google.gwt.user.client.ui.ScrollPanel;
+import com.google.gwt.user.client.ui.TabPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -82,8 +83,32 @@ public class MainWidget extends Composite {
 		}
 	}
 	public MainWidget() {
-		stats=Stats.insertStatsToRootPanel();
+		try{
+			stats=Stats.insertStatsToRootPanel();
+		stats.setPosition(8, 0);
 		initWidget(uiBinder.createAndBindUi(this));
+		
+		Label dummy=new Label();
+		dummy.setHeight("50px");
+		side.add(dummy);
+		
+		side.add(new Label("Renderer"));
+		final ListBox rendererListBox=new ListBox(true);
+		rendererListBox.setWidth("90px");
+		rendererListBox.addItem("WebGL");
+		rendererListBox.addItem("Canvas");
+		rendererListBox.addItem("CSS3D");
+		rendererListBox.setSelectedIndex(0);
+		side.add(rendererListBox);
+rendererListBox.addChangeHandler(new ChangeHandler() {
+			
+			@Override
+			public void onChange(ChangeEvent event) {
+				String token="renderer="+rendererListBox.getItemText(rendererListBox.getSelectedIndex()).toLowerCase();
+				
+				Window.open(URLUtils.getLocalChangedUrl("default",token), "_self", null);
+			}
+		});
 		
 		String type=URLUtils.getFirstTokenValue("renderer","webgl");
 		
@@ -99,30 +124,39 @@ public class MainWidget extends Composite {
 		else{
 		renderer = THREE.WebGLRenderer();
 		rendererType=RENDERER_WEBGL;
+		if(renderer!=null){
 		renderer.gwtSetType("webgl");
 		}
+		}
 		
+		
+		
+		if(renderer!=null){
 		//for canvas
 		GWTHTMLUtils.disableSelectionStart(renderer.getDomElement());
 		//for css3
 		GWTHTMLUtils.disableOnDragAndDrop(renderer.getDomElement());
 		
 		renderer.setSize(width, height);
+		}else{
+			side.add(new Label("maybe your browser not support webgl.use Chrome Browser or click canvas or css3d renderer"));
+		}
 		
-		
-		StackLayoutPanel stackPanel = new StackLayoutPanel(Unit.PX);
-		stackPanel.setSize("400px","506px");
+		TabPanel stackPanel = new TabPanel();
+		stackPanel.setSize("360px","506px");
 		controler.add(stackPanel);
 		
-		howToPanel = new VerticalPanel();
-		howToPanel.setSize("100%","100%");
+		howToPanel = new ScrollPanel();
+		howToPanel.setSize("360px","480px");
 		
-		stackPanel.add(howToPanel,"How to",30);
+		stackPanel.add(howToPanel,"How to");
+		
+		stackPanel.selectTab(0);
 		
 		controlPanel = new VerticalPanel();
 		controlPanel.setSize("100%","100%");
 		
-		stackPanel.add(controlPanel,"Controler",30);
+		stackPanel.add(controlPanel,"Controler");
 		
 		CameraMoveWidget cameraMove=new CameraMoveWidget();
 		cameraMove.setVisible(false);//useless
@@ -139,11 +173,12 @@ public class MainWidget extends Composite {
 		
 		
 		
+		if(renderer!=null){
 		HTMLPanel div=new HTMLPanel("");
 		div.getElement().appendChild(renderer.getDomElement());
 		focusPanel = new FocusPanel();
 		focusPanel.add(div);
-		
+		}
 		
 		
 		
@@ -151,11 +186,8 @@ public class MainWidget extends Composite {
 		
 		
 		getMain().add(focusPanel);
-		side.add(new Label("Renderer"));
-		final ListBox rendererListBox=new ListBox();
-		rendererListBox.addItem("WebGL");
-		rendererListBox.addItem("Canvas");
-		rendererListBox.addItem("CSS3D");
+		
+		
 		int selection=0;
 		if(rendererType==RENDERER_CANVAS){
 			selection=1;
@@ -163,19 +195,15 @@ public class MainWidget extends Composite {
 			selection=2;
 		}
 		rendererListBox.setSelectedIndex(selection);
-		rendererListBox.addChangeHandler(new ChangeHandler() {
-			
-			@Override
-			public void onChange(ChangeEvent event) {
-				String token="renderer="+rendererListBox.getItemText(rendererListBox.getSelectedIndex()).toLowerCase();
-				
-				Window.open(URLUtils.getLocalChangedUrl("default",token), "_self", null);
-			}
-		});
-		side.add(rendererListBox);
+		
+		
+		
 		
 		List<Demo> supportedDemo=new ArrayList<Demo>();
 		for(int i=0;i<demos.length;i++){
+			if(renderer==null){
+				break;
+			}
 			if(rendererType==RENDERER_CANVAS){
 				if(demos[i].isSupportCanvas()){
 					supportedDemo.add(demos[i]);
@@ -200,7 +228,9 @@ public class MainWidget extends Composite {
 			}
 		}
 		
-		
+		}catch (Exception e) {
+			LogUtils.log(e.getMessage());
+		}
 		
 	}
 
@@ -208,7 +238,7 @@ public class MainWidget extends Composite {
 private WebGLRenderer renderer;
 
 private FocusPanel focusPanel;
-private VerticalPanel howToPanel;
+private ScrollPanel howToPanel;
 private VerticalPanel controlPanel;
 	
 
@@ -235,8 +265,8 @@ public void onClick(ClickEvent event) {
 public void startDemo(){
 	stop();
 	demo.start(renderer,width,height,focusPanel);
-	howToPanel.clear();
-	howToPanel.add(new HTMLPanel(demo.getHowToHtml()));
+	//howToPanel.clear();
+	howToPanel.setWidget(new HTMLPanel(demo.getHowToHtml()));
 	
 	controlPanel.clear();
 	Widget w=demo.getControler();
