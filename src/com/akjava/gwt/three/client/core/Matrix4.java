@@ -64,18 +64,45 @@ public native final Vector3 multiplyVector3(Vector3 vec)/*-{
 return this.multiplyVector3(vec);
 }-*/;
 
-
+/**
+ * @deprecated
+ * @param x
+ * @param y
+ * @param z
+ */
 public native final void setRotationX(double thera)/*-{
-this.setRotationX(thera);
+this.makeRotationX(thera);
 }-*/;
+/**
+ * @deprecated
+ * @param x
+ * @param y
+ * @param z
+ */
 public native final void setRotationY(double thera)/*-{
-this.setRotationY(thera);
+this.makeRotationY(thera);
 }-*/;
+/**
+ * @deprecated
+ * @param x
+ * @param y
+ * @param z
+ */
 public native final void setRotationZ(double thera)/*-{
-this.setRotationZ(thera);
+this.makeRotationZ(thera);
 }-*/;
+/**
+ * @deprecated
+ * @param x
+ * @param y
+ * @param z
+ */
 public native final void setTranslation(double x,double y,double z)/*-{
-this.setTranslation(x,y,z);
+this.makeTranslation(x,y,z);
+}-*/;
+
+public native final void makeTranslation(double x,double y,double z)/*-{
+this.makeTranslation(x,y,z);
 }-*/;
 
 public native final Matrix4 lookAt(Vector3 eye,Vector3 center,Vector3 up)/*-{
