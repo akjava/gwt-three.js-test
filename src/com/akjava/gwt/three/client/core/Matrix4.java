@@ -109,6 +109,12 @@ public native final Matrix4 lookAt(Vector3 eye,Vector3 center,Vector3 up)/*-{
 return this.lookAt(eye,center,up);
 }-*/;
 
+public native final void makeRotationAxis(Vector3 axis,double angle)/*-{
+this.makeRotationAxis(axis,angle);
+}-*/;
 
+public native final void makeScale(double x,double y,double z)/*-{
+this.makeScale(x,y,z);
+}-*/;
 
 }
