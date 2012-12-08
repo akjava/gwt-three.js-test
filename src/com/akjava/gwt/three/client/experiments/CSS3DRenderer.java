@@ -1,5 +1,6 @@
 package com.akjava.gwt.three.client.experiments;
 
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.google.gwt.dom.client.Node;
@@ -13,19 +14,25 @@ public  native final Element getCameraElement()/*-{
 return this.cameraElement;
 }-*/;
 
+/**
+ * @deprecated dont useless?
+ * @param camera
+ */
 public  native final void removeCameraElement(Camera camera)/*-{
 return this.cameraElement.removeChild(camera);
 }-*/;
 
 
 public final void gwtClear(){
-	NodeList<Node> nodes=getCameraElement().getChildNodes();
-	for(int i=0;i<nodes.getLength();i++){
-		Node node=nodes.getItem(i);
-		getCameraElement().removeChild(node);
+	Element el=getCameraElement();
+	while(el.hasChildNodes()){
+		el.removeChild(el.getLastChild());
 	}
 }
-
+/**
+ * @deprecated algoritum broken,use java version
+ * @param camera
+ */
 public  native final void clearCameraElement()/*-{
 var nodes=this.cameraElement.childNodes();
 for(var i=0;i<nodes.length();i++){

@@ -50,6 +50,7 @@ import com.akjava.gwt.three.client.core.Ray;
 import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.core.Vector4;
 import com.akjava.gwt.three.client.core.Vertex;
+import com.akjava.gwt.three.client.experiments.CSS3DRenderer;
 import com.akjava.gwt.three.client.extras.animation.Animation;
 import com.akjava.gwt.three.client.extras.geometries.CubeGeometry;
 import com.akjava.gwt.three.client.extras.loaders.ColladaLoader;
@@ -314,7 +315,7 @@ public static native final CubeGeometry CubeGeometry(double x,double y,double z,
 	return new $wnd.THREE.Color(hex);
 	}-*/;
 	
-	public static native final WebGLRenderer CSS3DRenderer()/*-{
+	public static native final CSS3DRenderer CSS3DRenderer()/*-{
 	return new $wnd.THREE.CSS3DRenderer();
 	}-*/;
 	

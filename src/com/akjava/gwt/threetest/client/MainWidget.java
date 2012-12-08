@@ -41,6 +41,7 @@ import com.google.gwt.user.client.ui.FocusPanel;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ListBox;
+import com.google.gwt.user.client.ui.RadioButton;
 import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.TabPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -82,6 +83,12 @@ public class MainWidget extends Composite {
 			lastDemo.stop();
 		}
 	}
+	
+	
+	private void changeRenderer(String renderer){
+		String token="renderer="+renderer.toLowerCase();
+		Window.open(URLUtils.getLocalChangedUrl("default",token), "_self", null);
+	}
 	public MainWidget() {
 		try{
 			stats=Stats.insertStatsToRootPanel();
@@ -93,7 +100,39 @@ public class MainWidget extends Composite {
 		side.add(dummy);
 		
 		side.add(new Label("Renderer"));
-		final ListBox rendererListBox=new ListBox(true);
+		VerticalPanel renderers=new VerticalPanel();
+		side.add(renderers);
+		RadioButton webglButton=new RadioButton("renderer", "WebGL");
+		webglButton.addClickHandler(new ClickHandler() {
+			@Override
+			public void onClick(ClickEvent event) {
+				changeRenderer("webgl");
+			}
+		});
+		renderers.add(webglButton);
+		webglButton.setValue(true);
+		
+		
+		RadioButton canvasButton=new RadioButton("renderer", "Canvas");
+		canvasButton.addClickHandler(new ClickHandler() {
+			@Override
+			public void onClick(ClickEvent event) {
+				changeRenderer("canvas");
+			}
+		});
+		renderers.add(canvasButton);
+		
+		RadioButton css3dButton=new RadioButton("renderer", "CSS3D");
+		css3dButton.addClickHandler(new ClickHandler() {
+			@Override
+			public void onClick(ClickEvent event) {
+				changeRenderer("css3d");
+			}
+		});
+		renderers.add(css3dButton);
+		
+		/*
+		final ListBox rendererListBox=new ListBox(false);
 		rendererListBox.setWidth("90px");
 		rendererListBox.addItem("WebGL");
 		rendererListBox.addItem("Canvas");
@@ -109,6 +148,7 @@ rendererListBox.addChangeHandler(new ChangeHandler() {
 				Window.open(URLUtils.getLocalChangedUrl("default",token), "_self", null);
 			}
 		});
+		*/
 		
 		String type=URLUtils.getFirstTokenValue("renderer","webgl");
 		
@@ -139,8 +179,7 @@ rendererListBox.addChangeHandler(new ChangeHandler() {
 		
 		renderer.setSize(width, height);
 		}else{
-			side.add(new Label("maybe your browser not support webgl.use Chrome Browser or click canvas or css3d renderer"));
-		}
+			}
 		
 		TabPanel stackPanel = new TabPanel();
 		stackPanel.setSize("360px","506px");
@@ -191,10 +230,12 @@ rendererListBox.addChangeHandler(new ChangeHandler() {
 		int selection=0;
 		if(rendererType==RENDERER_CANVAS){
 			selection=1;
+			canvasButton.setValue(true);
 		}else if(rendererType==RENDERER_CSS3D){
 			selection=2;
+			css3dButton.setValue(true);
 		}
-		rendererListBox.setSelectedIndex(selection);
+		//rendererListBox.setSelectedIndex(selection);
 		
 		
 		
@@ -230,6 +271,8 @@ rendererListBox.addChangeHandler(new ChangeHandler() {
 		
 		}catch (Exception e) {
 			LogUtils.log(e.getMessage());
+			side.add(new Label("maybe your browser not support webgl.use Chrome Browser or click canvas or css3d renderer.sadly mobile browser does not support webgl."));
+			
 		}
 		
 	}
