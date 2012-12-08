@@ -10,7 +10,7 @@ Demo
 http://akjava.github.com/gwt-three.js-test/ThreeTest.html
 
 Release
-r4 - akjavathreegwt_120214.jar
+r7 - akjavathreegwt_121208.jar
 
 Bug
 Sometime error happend on Developement Mode,compile and test on browser.
