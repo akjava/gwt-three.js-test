@@ -94,6 +94,11 @@ public class THREE {
 	return  new $wnd.THREE.Texture(image);
 	}-*/;
 	
+	/**
+	 * dont forget texture.setNeedsUpdate(true);
+	 * @param canvas
+	 * @return
+	 */
 	public static  native final Texture Texture(CanvasElement canvas)/*-{
 	return  new $wnd.THREE.Texture(canvas);
 	}-*/;
