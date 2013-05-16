@@ -187,10 +187,12 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 		
 		stats = Stats.insertStatsToRootPanel();
 		stats.setPosition(0, 30);//for tab header
+		stats.domElement().getStyle().setWidth(100,Unit.PX);
 		timer = new Timer(){
 			public void run(){
+				stats.begin();
 				update(renderer);
-				stats.update();
+				stats.end();
 			}
 		};
 		
