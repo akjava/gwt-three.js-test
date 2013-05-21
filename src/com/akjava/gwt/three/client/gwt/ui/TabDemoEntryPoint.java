@@ -305,7 +305,7 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 	}
 	
 	public String getHtml(){
-		return "Powerd by <a href='https://github.com/mrdoob/three.js/'>Three.js</a> & <a href='http://code.google.com/intl/en/webtoolkit/'>GWT</a>";
+		return "Powerd by <a href='https://github.com/mrdoob/three.js/'>Three.js(r53)</a> & <a href='http://code.google.com/intl/en/webtoolkit/'>GWT(2.4)</a>";
 	}
 	public abstract void createControl(DropVerticalPanelBase parent);
 	

@@ -53,4 +53,14 @@ this.needsUpdate=needsUpdate ;
 public final native boolean isNeedsUpdate ()/*-{
 return this.needsUpdate;
 }-*/;
+
+
+public final native boolean isFlipY ()/*-{
+return this.flipY;
+}-*/;
+
+public final native void setFlipY (boolean flipY )/*-{
+this.flipY=flipY ;
+}-*/;
+
 }
