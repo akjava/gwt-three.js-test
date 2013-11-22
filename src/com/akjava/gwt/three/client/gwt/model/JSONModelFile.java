@@ -1,7 +1,7 @@
 package com.akjava.gwt.three.client.gwt.model;
 
 import com.akjava.gwt.lib.client.LogUtils;
-import com.akjava.gwt.three.client.core.Face;
+import com.akjava.gwt.three.client.core.Face3;
 import com.akjava.gwt.three.client.core.UV;
 import com.akjava.gwt.three.client.core.Vector4;
 import com.akjava.gwt.three.client.core.Vertex;
@@ -127,13 +127,13 @@ public final void setGeometryUvs(JsArray<JsArray<UV>> uvs){
  * call setUvs first
  * @param faces
  */
-public final void setFaces(JsArray<Face> faces){
+public final void setFaces(JsArray<Face3> faces){
 	boolean hasUv=getUvs().length()>0;
 	
 	JsArrayNumber nums=(JsArrayNumber) JsArrayNumber.createArray();
 	int faceIndex=0;
 	for(int i=0;i<faces.length();i++){
-		Face face=faces.get(i);
+		Face3 face=faces.get(i);
 		if(face.isFace4()){
 			int v=1;if(hasUv){v=8+1;};
 			nums.push(v); // quad

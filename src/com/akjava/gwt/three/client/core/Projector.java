@@ -126,6 +126,17 @@ return this.unprojectVector(vector,camera);
 
 }-*/;
 
+public final native Raycaster pickingRay(Vector3 vector,Camera camera)/*-{
+return this.pickingRay(vector,camera);
+}-*/;
+
+/**
+ * FUTURE
+ * @return
+ */
+public final native JavaScriptObject projectScene(Scene scene,Camera camera,Object sortObjects,Object sortElements)/*-{
+return this.projectScene(scene,camera,sortObjects,sortElements);
+}-*/;
 
 
 }

@@ -1,6 +1,5 @@
 package com.akjava.gwt.three.client.gwt;
 
-import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.core.Geometry;
 import com.akjava.gwt.three.client.core.MorphTarget;
@@ -72,10 +71,10 @@ public class GWTGeometryUtils {
 	 * use center
 	 * @param vertices
 	 */
-	public static final void centerOfVertices(JsArray<Vertex> vertices){
+	public static final void centerOfVertices(JsArray<Vector3> vertices){
 		Vector3 center=getCenter(vertices);
 		for(int i=0;i<vertices.length();i++){
-			vertices.get(i).getPosition().subSelf(center);
+			vertices.get(i).subSelf(center);
 		}
 	}
 	
@@ -90,7 +89,7 @@ public class GWTGeometryUtils {
 	}
 	
 	
-	public static final native Vector3 getCenter(JsArray<Vertex> vertices)/*-{
+	public static final native Vector3 getCenter(JsArray<Vector3> vertices)/*-{
 	var center = new $wnd.THREE.Vector3();
 
 for ( var i = 0, l = vertices.length; i < l; i ++ ) {

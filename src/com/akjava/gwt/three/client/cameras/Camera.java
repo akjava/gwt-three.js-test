@@ -37,25 +37,51 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.cameras;
 
+import com.akjava.gwt.three.client.core.Matrix4;
 import com.akjava.gwt.three.client.core.Object3D;
+import com.akjava.gwt.three.client.core.Vector3;
 
 
 public class Camera extends Object3D{
 	protected Camera() {
 	}
 
-	// TODO create PerspectiveCamera
-	public final native void setRatio(double ratio)/*-{
-		this.ratio = ratio;
+	public final native Matrix4 getMatrixWorldInverse()/*-{
+	return this.matrixWorldInverse;
 	}-*/;
 
-	/**
-	 * somehow dont work
-	 */
-	public final native void updateProjectionMatrix()/*-{
-		this.updateProjectionMatrix();
+	public final native void setMatrixWorldInverse(Matrix4 matrixWorldInverse)/*-{
+	this.matrixWorldInverse = matrixWorldInverse;
 	}-*/;
 
+
+	public final native Matrix4 getProjectionMatrix()/*-{
+	return this.projectionMatrix;
+	}-*/;
+
+	public final native void setProjectionMatrix(Matrix4 projectionMatrix)/*-{
+	this.projectionMatrix = projectionMatrix;
+	}-*/;
+
+
+	public final native Matrix4 getProjectionMatrixInverse()/*-{
+	return this.projectionMatrixInverse;
+	}-*/;
+
+	public final native void setProjectionMatrixInverse(Matrix4 projectionMatrixInverse)/*-{
+	this.projectionMatrixInverse = projectionMatrixInverse;
+	}-*/;
+
+	//ignore overwrite Object3d
+	//public final native Object lookAt()/*-{
+	//return this.lookAt();
+	//}-*/;
+
+	public final native Camera clone(Camera camera)/*-{
+	return this.clone(camera);
+	}-*/;
+	
+	
 	public final native void  lookAt(double x, double y, double z)/*-{
 		this.lookAt(new $wnd.THREE.Vector3(x, y, z));
 	}-*/;

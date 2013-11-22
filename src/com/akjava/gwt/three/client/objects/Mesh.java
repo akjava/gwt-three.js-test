@@ -94,13 +94,7 @@ public final native Material getMaterial()/*-{
 return this.material;
 }-*/;
 
-public final native void setCastShadow(boolean bool)/*-{
-this.castShadow=bool;
-}-*/;
 
-public final native void setReceiveShadow(boolean bool)/*-{
-this.receiveShadow=bool;
-}-*/;
 
 public final native void setOverdraw(boolean bool)/*-{
 this.overdraw=bool;

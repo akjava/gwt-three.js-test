@@ -47,7 +47,7 @@ import com.google.gwt.core.client.JsArrayNumber;
 public class Geometry extends JavaScriptObject{
 protected Geometry(){}
 
-public final native JsArray<Face> faces()/*-{
+public final native JsArray<Face3> faces()/*-{
 return this.faces;
 }-*/;
 
@@ -223,6 +223,168 @@ public native final Geometry clone()/*-{
 return this.clone();
 }-*/;
 
+
+public final native JsArray<Vector3> getVertices()/*-{
+return this.vertices;
+}-*/;
+
+public final native void setVertices(JsArray<Vector3> vertices)/*-{
+this.vertices = vertices;
+}-*/;
+
+
+public final native JsArray<Color> getColors()/*-{
+return this.colors;
+}-*/;
+
+public final native void setColors(JsArray<Color> colors)/*-{
+this.colors = colors;
+}-*/;
+
+
+public final native JsArray<Face3> getFaces()/*-{
+return this.faces;
+}-*/;
+
+public final native void setFaces(JsArray<Face3> faces)/*-{
+this.faces = faces;
+}-*/;
+
+
+
+public final native void setFaceVertexUvs(JsArray<JavaScriptObject> faceVertexUvs)/*-{
+this.faceVertexUvs = faceVertexUvs;
+}-*/;
+
+
+
+
+public final native void setMorphTargets(JsArray<MorphTarget> morphTargets)/*-{
+this.morphTargets = morphTargets;
+}-*/;
+
+
+public final native JsArray<Color> getMorphColors()/*-{
+return this.morphColors;
+}-*/;
+
+public final native void setMorphColors(JsArray<Color> morphColors)/*-{
+this.morphColors = morphColors;
+}-*/;
+
+
+public final native JsArray<Vector3> getMorphNormals()/*-{
+return this.morphNormals;
+}-*/;
+
+public final native void setMorphNormals(JsArray<Vector3> morphNormals)/*-{
+this.morphNormals = morphNormals;
+}-*/;
+
+
+public final native JsArray<Vector4> getSkinWeights()/*-{
+return this.skinWeights;
+}-*/;
+
+public final native void setSkinWeights(JsArray<Vector4> skinWeights)/*-{
+this.skinWeights = skinWeights;
+}-*/;
+
+
+
+
+
+
+public final native JsArrayNumber getLineDistances()/*-{
+return this.lineDistances;
+}-*/;
+
+public final native void setLineDistances(JsArrayNumber lineDistances)/*-{
+this.lineDistances = lineDistances;
+}-*/;
+
+
+
+
+public final native void setBoundingBox(Object boundingBox)/*-{
+this.boundingBox = boundingBox;
+}-*/;
+
+
+public final native Object getBoundingSphere()/*-{
+return this.boundingSphere;
+}-*/;
+
+public final native void setBoundingSphere(Object boundingSphere)/*-{
+this.boundingSphere = boundingSphere;
+}-*/;
+
+
+public final native boolean isHasTangents()/*-{
+return this.hasTangents;
+}-*/;
+
+public final native void setHasTangents(boolean hasTangents)/*-{
+this.hasTangents = hasTangents;
+}-*/;
+
+
+
+
+public final native void setDynamic(Object dynamic)/*-{
+this.dynamic = dynamic;
+}-*/;
+
+
+
+
+
+
+
+
+
+public final native boolean isLineDistancesNeedUpdate()/*-{
+return this.lineDistancesNeedUpdate;
+}-*/;
+
+public final native void setLineDistancesNeedUpdate(boolean lineDistancesNeedUpdate)/*-{
+this.lineDistancesNeedUpdate = lineDistancesNeedUpdate;
+}-*/;
+
+
+public final native boolean isBuffersNeedUpdate()/*-{
+return this.buffersNeedUpdate;
+}-*/;
+
+public final native void setBuffersNeedUpdate(boolean buffersNeedUpdate)/*-{
+this.buffersNeedUpdate = buffersNeedUpdate;
+}-*/;
+
+public final native void applyMatrix(Object matrix)/*-{
+this.applyMatrix(matrix);
+}-*/;
+
+
+
+public final native void computeVertexNormals(Object areaWeighted)/*-{
+this.computeVertexNormals(areaWeighted);
+}-*/;
+
+public final native void computeMorphNormals()/*-{
+this.computeMorphNormals();
+}-*/;
+
+
+
+public final native Object mergeVertices()/*-{
+return this.mergeVertices();
+}-*/;
+
+
+
+public final native void dispose()/*-{
+this.dispose();
+}-*/;
 
 
 }

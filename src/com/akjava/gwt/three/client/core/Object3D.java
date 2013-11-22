@@ -183,4 +183,242 @@ public final native void setMatrixAutoUpdate (boolean bool)/*-{
 this.matrixAutoUpdate=bool;  
 }-*/;
 
+
+
+
+
+public final native String getUuid()/*-{
+return this.uuid;
+}-*/;
+
+public final native void setUuid(String uuid)/*-{
+this.uuid = uuid;
+}-*/;
+
+
+
+
+
+
+
+
+
+public final native void setParent(Object parent)/*-{
+this.parent = parent;
+}-*/;
+
+
+
+
+public final native void setChildren(JsArray<Object3D> children)/*-{
+this.children = children;
+}-*/;
+
+
+public final native Vector3 getUp()/*-{
+return this.up;
+}-*/;
+
+public final native void setUp(Vector3 up)/*-{
+this.up = up;
+}-*/;
+
+
+
+
+
+
+
+public final native void setScale(Vector3 scale)/*-{
+this.scale = scale;
+}-*/;
+
+
+public final native Object getRenderDepth()/*-{
+return this.renderDepth;
+}-*/;
+
+public final native void setRenderDepth(Object renderDepth)/*-{
+this.renderDepth = renderDepth;
+}-*/;
+
+
+public final native boolean isRotationAutoUpdate()/*-{
+return this.rotationAutoUpdate;
+}-*/;
+
+public final native void setRotationAutoUpdate(boolean rotationAutoUpdate)/*-{
+this.rotationAutoUpdate = rotationAutoUpdate;
+}-*/;
+
+
+
+
+public final native void setMatrix(Matrix4 matrix)/*-{
+this.matrix = matrix;
+}-*/;
+
+
+
+
+public final native void setMatrixWorld(Matrix4 matrixWorld)/*-{
+this.matrixWorld = matrixWorld;
+}-*/;
+
+
+
+
+public final native boolean isMatrixWorldNeedsUpdate()/*-{
+return this.matrixWorldNeedsUpdate;
+}-*/;
+
+public final native void setMatrixWorldNeedsUpdate(boolean matrixWorldNeedsUpdate)/*-{
+this.matrixWorldNeedsUpdate = matrixWorldNeedsUpdate;
+}-*/;
+
+
+
+
+
+public final native boolean isCastShadow()/*-{
+return this.castShadow;
+}-*/;
+
+public final native void setCastShadow(boolean castShadow)/*-{
+this.castShadow = castShadow;
+}-*/;
+
+
+public final native boolean isReceiveShadow()/*-{
+return this.receiveShadow;
+}-*/;
+
+public final native void setReceiveShadow(boolean receiveShadow)/*-{
+this.receiveShadow = receiveShadow;
+}-*/;
+
+
+public final native boolean isFrustumCulled()/*-{
+return this.frustumCulled;
+}-*/;
+
+public final native void setFrustumCulled(boolean frustumCulled)/*-{
+this.frustumCulled = frustumCulled;
+}-*/;
+
+
+public final native Object getUserData()/*-{
+return this.userData;
+}-*/;
+
+public final native void setUserData(Object userData)/*-{
+this.userData = userData;
+}-*/;
+
+public final native Object applyMatrix()/*-{
+return this.applyMatrix();
+}-*/;
+
+public final native void setRotationFromAxisAngle(Object axis,Object angle)/*-{
+this.setRotationFromAxisAngle(axis,angle);
+}-*/;
+
+public final native void setRotationFromEuler(Object euler)/*-{
+this.setRotationFromEuler(euler);
+}-*/;
+
+public final native void setRotationFromMatrix(Object m)/*-{
+this.setRotationFromMatrix(m);
+}-*/;
+
+public final native void setRotationFromQuaternion(Object q)/*-{
+this.setRotationFromQuaternion(q);
+}-*/;
+
+public final native Object rotateOnAxis()/*-{
+return this.rotateOnAxis();
+}-*/;
+
+public final native Object rotateX()/*-{
+return this.rotateX();
+}-*/;
+
+public final native Object rotateY()/*-{
+return this.rotateY();
+}-*/;
+
+public final native Object rotateZ()/*-{
+return this.rotateZ();
+}-*/;
+
+public final native Object translateOnAxis()/*-{
+return this.translateOnAxis();
+}-*/;
+
+public final native Object translate(Object distance,Object axis)/*-{
+return this.translate(distance,axis);
+}-*/;
+
+public final native Object translateX()/*-{
+return this.translateX();
+}-*/;
+
+public final native Object translateY()/*-{
+return this.translateY();
+}-*/;
+
+public final native Object translateZ()/*-{
+return this.translateZ();
+}-*/;
+
+public final native Object localToWorld(Object vector)/*-{
+return this.localToWorld(vector);
+}-*/;
+
+public final native Object worldToLocal()/*-{
+return this.worldToLocal();
+}-*/;
+
+public final native Object lookAt()/*-{
+return this.lookAt();
+}-*/;
+
+public final native Object add(Object object)/*-{
+return this.add(object);
+}-*/;
+
+public final native void remove(Object object)/*-{
+this.remove(object);
+}-*/;
+
+public final native void traverse(Object callback)/*-{
+this.traverse(callback);
+}-*/;
+
+public final native Object getObjectById(Object id,Object recursive)/*-{
+return this.getObjectById(id,recursive);
+}-*/;
+
+public final native Object getObjectByName(Object name,Object recursive)/*-{
+return this.getObjectByName(name,recursive);
+}-*/;
+
+public final native Object getChildByName(Object name,Object recursive)/*-{
+return this.getChildByName(name,recursive);
+}-*/;
+
+public final native Object getDescendants(Object array)/*-{
+return this.getDescendants(array);
+}-*/;
+
+
+
+public final native void updateMatrixWorld(Object force)/*-{
+this.updateMatrixWorld(force);
+}-*/;
+
+public final native Object3D clone(Object3D object,boolean recursive)/*-{
+return this.clone(object,recursive);
+}-*/;
+
 }

@@ -38,15 +38,20 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client;
 
 import com.akjava.gwt.lib.client.JavaScriptUtils;
-import com.akjava.gwt.three.client.cameras.Camera;
+import com.akjava.gwt.three.client.cameras.OrthographicCamera;
+import com.akjava.gwt.three.client.cameras.PerspectiveCamera;
+import com.akjava.gwt.three.client.core.BufferGeometry;
+import com.akjava.gwt.three.client.core.Clock;
 import com.akjava.gwt.three.client.core.Color;
-import com.akjava.gwt.three.client.core.Face;
+import com.akjava.gwt.three.client.core.EventDispatcher;
+import com.akjava.gwt.three.client.core.Face3;
 import com.akjava.gwt.three.client.core.Geometry;
 import com.akjava.gwt.three.client.core.Matrix4;
 import com.akjava.gwt.three.client.core.Object3D;
 import com.akjava.gwt.three.client.core.Projector;
 import com.akjava.gwt.three.client.core.Quaternion;
 import com.akjava.gwt.three.client.core.Ray;
+import com.akjava.gwt.three.client.core.Raycaster;
 import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.core.Vector4;
 import com.akjava.gwt.three.client.core.Vertex;
@@ -57,8 +62,12 @@ import com.akjava.gwt.three.client.extras.loaders.ColladaLoader;
 import com.akjava.gwt.three.client.extras.loaders.JSONLoader;
 import com.akjava.gwt.three.client.extras.modifiers.SubdivisionModifier;
 import com.akjava.gwt.three.client.lights.AmbientLight;
+import com.akjava.gwt.three.client.lights.AreaLight;
 import com.akjava.gwt.three.client.lights.DirectionalLight;
+import com.akjava.gwt.three.client.lights.HemisphereLight;
 import com.akjava.gwt.three.client.lights.Light;
+import com.akjava.gwt.three.client.lights.PointLight;
+import com.akjava.gwt.three.client.lights.SpotLight;
 import com.akjava.gwt.three.client.materials.LineBasicMaterialBuilder;
 import com.akjava.gwt.three.client.materials.Material;
 import com.akjava.gwt.three.client.materials.MeshBasicMaterialBuilder;
@@ -85,7 +94,48 @@ import com.google.gwt.dom.client.ImageElement;
 
 
 public class THREE {
-
+	public static  native final SpotLight SpotLight(int hex,double intensity,double distance,double angle,double exponent)/*-{
+	return  new $wnd.THREE.SpotLight(hex, intensity, distance, angle, exponent );
+	}-*/;
+	
+	public static  native final PointLight PointLight(int hex,double intensity,double distance)/*-{
+	return  new $wnd.THREE.PointLight(hex, intensity, distance );
+	}-*/;
+	
+	/**
+	 * 
+	 * @param intensity default 1
+	 * @return
+	 */
+	public static  native final HemisphereLight HemisphereLight(int skyColorHex, int groundColorHex,double intensity)/*-{
+	return  new $wnd.THREE.HemisphereLight(skyColorHex, groundColorHex, intensity);
+	}-*/;
+	
+	/**
+	 * 
+	 * @param hex
+	 * @param intensity default 1
+	 * @return
+	 */
+	public static  native final AreaLight AreaLight(int hex,double intensity)/*-{
+	return  new $wnd.THREE.AreaLight(hex,intensity);
+	}-*/;
+	
+	public static  native final Raycaster Raycaster(Vector3 origin,Vector3 direction,double near,double far)/*-{
+	return  new $wnd.THREE.Raycaster(origin,direction,near,far);
+	}-*/;
+	public static  native final EventDispatcher EventDispatcher()/*-{
+	return  new $wnd.THREE.EventDispatcher();
+	}-*/;
+	
+	public static  native final BufferGeometry BufferGeometry()/*-{
+	return  new $wnd.THREE.BufferGeometry();
+	}-*/;
+	
+	public static  native final Clock Clock(boolean autostart)/*-{
+	return  new $wnd.THREE.Clock(autostart);
+	}-*/;
+	
 	public static  native final Ray Ray(Vector3 camera,Vector3 vector)/*-{
 	return  new $wnd.THREE.Ray(camera,vector);
 	}-*/;
@@ -114,11 +164,11 @@ public class THREE {
 	return  new $wnd.THREE.SubdivisionModifier();
 	}-*/;
 	
-	public static native final Camera PerspectiveCamera(int fieldOfView,double ratio,double near,double far)/*-{
+	public static native final PerspectiveCamera PerspectiveCamera(int fieldOfView,double ratio,double near,double far)/*-{
 	return new $wnd.THREE.PerspectiveCamera( fieldOfView, ratio, near, far ); 
 	}-*/;
 	
-	public static native final Camera OrthographicCamera(double left,double right,double top,double bottom,double near,double far)/*-{
+	public static native final OrthographicCamera OrthographicCamera(double left,double right,double top,double bottom,double near,double far)/*-{
 	return new $wnd.THREE.OrthographicCamera( left, right,top,bottom, near, far ); 
 	}-*/;
 	
@@ -480,7 +530,9 @@ public static native final CubeGeometry CubeGeometry(double x,double y,double z,
 	return new $wnd.THREE.MorphAnimMesh(geometry,material);
 	}-*/;
 
-	public static native final Face Face3(double a, double b, double c) /*-{
+	
+	
+	public static native final Face3 Face3(double a, double b, double c) /*-{
 	return new $wnd.THREE.Face3(a,b,c);
 	}-*/;
 }
