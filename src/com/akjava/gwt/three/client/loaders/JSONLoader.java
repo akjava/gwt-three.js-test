@@ -1,33 +1,26 @@
 package com.akjava.gwt.three.client.loaders;
 
 import com.akjava.gwt.three.client.core.Geometry;
+import com.akjava.gwt.three.client.materials.Material;
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.json.client.JSONObject;
+import com.google.gwt.core.client.JsArray;
 
 public class JSONLoader extends Loader{
 
 	protected JSONLoader(){}
 	
 	//show status not support
-	public void load(String path,LoadHandler handler){
+	public void load(String path,JSONLoadHandler handler){
 		load(path,handler,null);
 	}
-	public final native void load(String path,LoadHandler handler,String texturePath)/*-{
-	//r46 version
-	//instance of Object make a crush
-	this.load(path,function ( geometry ) {
-		handler.@com.akjava.gwt.three.client.loaders.JSONLoader$LoadHandler::loaded(Lcom/akjava/gwt/three/client/core/Geometry;)(geometry);
+	public final native void load(String path,JSONLoadHandler handler,String texturePath)/*-{
+	this.load(path,function ( geometry,materials ) {
+		handler.@com.akjava.gwt.three.client.loaders.JSONLoader$JSONLoadHandler::loaded(Lcom/akjava/gwt/three/client/core/Geometry;Lcom/google/gwt/core/client/JsArray;)(geometry,materials);
 		},texturePath);
-			
-	//this.load({model:path,callback:function ( geometry ) {
-	//	handler.@com.akjava.gwt.three.client.extras.loaders.JSONLoader$LoadHandler::loaded(Lcom/akjava/gwt/three/client/core/Geometry;)(geometry);
-	//	}
-	//});
-	
 	}-*/;
 	
-	public static interface LoadHandler {
-		public void loaded(Geometry geometry);
+	public static interface JSONLoadHandler {
+		public void loaded(Geometry geometry,JsArray<Material> materials);
 	}
 
 	
@@ -35,13 +28,13 @@ public class JSONLoader extends Loader{
 	return this.parse(json,texturePath);
 	}-*/;
 	
-	/** @deprecated */
-	public final native void createModel(JavaScriptObject object,LoadHandler handler,String texturepath)/*-{
-	this.createModel(object,function ( geometry ) {
-		handler.@com.akjava.gwt.three.client.loaders.JSONLoader$LoadHandler::loaded(Lcom/akjava/gwt/three/client/core/Geometry;)(geometry);
-		},texturepath);
+	/** @deprecated don't work anymore*/
+	//public final native void createModel(JavaScriptObject object,JSONLoadHandler handler,String texturepath)/*-{
+	//this.createModel(object,function ( geometry ) {
+	//	handler.@com.akjava.gwt.three.client.loaders.JSONLoader$JSONLoadHandler::loaded(Lcom/akjava/gwt/three/client/core/Geometry;)(geometry);
+	//	},texturepath);
 
-	}-*/;
+	//}-*/;
 	
 	
 

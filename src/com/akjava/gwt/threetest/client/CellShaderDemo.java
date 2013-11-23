@@ -25,15 +25,15 @@ import com.akjava.gwt.three.client.core.Geometry;
 import com.akjava.gwt.three.client.core.Object3D;
 import com.akjava.gwt.three.client.experiments.CellShader;
 import com.akjava.gwt.three.client.extras.SceneUtils;
-import com.akjava.gwt.three.client.extras.ShaderUtils;
 import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.loaders.JSONLoader;
-import com.akjava.gwt.three.client.loaders.JSONLoader.LoadHandler;
+import com.akjava.gwt.three.client.loaders.JSONLoader.JSONLoadHandler;
 import com.akjava.gwt.three.client.materials.Material;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
 import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.JsArray;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 
@@ -57,12 +57,15 @@ private Object3D object;
 		
 		JSONLoader loader=THREE.JSONLoader();
 		
-		loader.load("models/female04b.js", new LoadHandler() {
+		loader.load("models/female04b.js", new JSONLoadHandler() {
 			
 			
 
+			
+
 			@Override
-			public void loaded(Geometry geometry) {
+			public void loaded(Geometry geometry, JsArray<Material> ms) {
+				LogUtils.log(ms);
 				if(!CellShader.exists()){
 					LogUtils.log("not found THREEx.ShaderLib maybe forget include it.");
 				}

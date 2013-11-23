@@ -39,7 +39,7 @@ package com.akjava.gwt.three.client.loaders;
 
 import com.akjava.gwt.three.client.core.BufferGeometry;
 import com.akjava.gwt.three.client.core.Geometry;
-import com.akjava.gwt.three.client.loaders.JSONLoader.LoadHandler;
+import com.akjava.gwt.three.client.loaders.JSONLoader.JSONLoadHandler;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.json.client.JSONObject;
 
@@ -62,9 +62,9 @@ public class BufferGeometryLoader extends JavaScriptObject{
 //this.manager = manager;
 //}-*/;
 
-public final native void load(String url,LoadHandler handler)/*-{
+public final native void load(String url,JSONLoadHandler handler)/*-{
 	this.load(url,function ( geometry ) {
-		handler.@com.akjava.gwt.three.client.loaders.BufferGeometryLoader$LoadHandler::onLoad(Lcom/akjava/gwt/three/client/core/BufferGeometry;)(geometry);
+		handler.@com.akjava.gwt.three.client.loaders.BufferGeometryLoader$BufferGeometryLoadHandler::onLoad(Lcom/akjava/gwt/three/client/core/BufferGeometry;)(geometry);
 		});
 }-*/;
 
@@ -72,11 +72,11 @@ public final native void setCrossOrigin(String value)/*-{
 this.setCrossOrigin(value);
 }-*/;
 
-public final native BufferGeometry parse(JSONObject json)/*-{
+public final native BufferGeometry parse(JavaScriptObject json)/*-{
 return this.parse(json);
 }-*/;
 
-public static interface LoadHandler {
+public static interface BufferGeometryLoadHandler {
 	public void onLoad(BufferGeometry geometry);
 }
 

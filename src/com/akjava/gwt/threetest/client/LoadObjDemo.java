@@ -27,7 +27,7 @@ import com.akjava.gwt.three.client.extras.SceneUtils;
 import com.akjava.gwt.three.client.gwt.GWTGeometryUtils;
 import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.loaders.JSONLoader;
-import com.akjava.gwt.three.client.loaders.JSONLoader.LoadHandler;
+import com.akjava.gwt.three.client.loaders.JSONLoader.JSONLoadHandler;
 import com.akjava.gwt.three.client.materials.Material;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;

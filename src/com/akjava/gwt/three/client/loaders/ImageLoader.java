@@ -51,14 +51,14 @@ public class ImageLoader extends JavaScriptObject{
 	}
 
 
-	public final native void load(String url,LoadHandler handler)/*-{
+	public final native void load(String url,ImageLoadHandler handler)/*-{
 	this.load(url,function ( geometry ) {
-		handler.@com.akjava.gwt.three.client.loaders.ImageLoader$LoadHandler::onLoad(Lcom/google/gwt/dom/client/ImageElement;)(geometry);
+		handler.@com.akjava.gwt.three.client.loaders.ImageLoader$ImageLoadHandler::onLoad(Lcom/google/gwt/dom/client/ImageElement;)(geometry);
 		}
 		,function ( onProgress ) {
-		handler.@com.akjava.gwt.three.client.loaders.ImageLoader$LoadHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
+		handler.@com.akjava.gwt.three.client.loaders.ImageLoader$ImageLoadHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
 		},function ( onError ) {
-		handler.@com.akjava.gwt.three.client.loaders.ImageLoader$LoadHandler::onError(Lcom/google/gwt/dom/client/NativeEvent;)(onError);
+		handler.@com.akjava.gwt.three.client.loaders.ImageLoader$ImageLoadHandler::onError(Lcom/google/gwt/dom/client/NativeEvent;)(onError);
 		});
 }-*/;
 
@@ -70,7 +70,7 @@ public final native void setCrossOrigin(String value)/*-{
 this.setCrossOrigin(value);
 }-*/;
 
-public static interface LoadHandler {
+public static interface ImageLoadHandler {
 	public void onLoad(ImageElement imageElement);
 	public void onProgress(NativeEvent progress);
 	public void onError(NativeEvent error);

@@ -7,7 +7,7 @@ import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.core.Vertex;
 import com.akjava.gwt.three.client.extras.GeometryUtils;
 import com.akjava.gwt.three.client.loaders.JSONLoader;
-import com.akjava.gwt.three.client.loaders.JSONLoader.LoadHandler;
+import com.akjava.gwt.three.client.loaders.JSONLoader.JSONLoadHandler;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -103,7 +103,7 @@ for ( var i = 0, l = vertices.length; i < l; i ++ ) {
 	}-*/;
 	
 	
-	public static final JSONObject loadJsonModel(String jsonText,LoadHandler handler){
+	public static final JSONObject loadJsonModel(String jsonText,JSONLoadHandler handler){
 		JSONLoader loader=THREE.JSONLoader();
 		JSONValue lastJsonValue = JSONParser.parseLenient(jsonText);
 		JSONObject object=lastJsonValue.isObject();
@@ -113,7 +113,7 @@ for ( var i = 0, l = vertices.length; i < l; i ++ ) {
 		
 		JavaScriptObject jsobject=loader.parse(object.getJavaScriptObject(), null);
 		JSONObject newobject=new JSONObject(jsobject);
-		handler.loaded((Geometry) newobject.get("geometry").isObject().getJavaScriptObject());
+		handler.loaded((Geometry) newobject.get("geometry").isObject().getJavaScriptObject(),null);
 		
 		//loader.createModel(object.getJavaScriptObject(), handler, "");
 		//loader.onLoadComplete();

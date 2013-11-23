@@ -8,8 +8,10 @@ import java.util.Map;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.core.Geometry;
 import com.akjava.gwt.three.client.loaders.JSONLoader;
-import com.akjava.gwt.three.client.loaders.JSONLoader.LoadHandler;
+import com.akjava.gwt.three.client.loaders.JSONLoader.JSONLoadHandler;
+import com.akjava.gwt.three.client.materials.Material;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArray;
 
 
 //TODO retry and timeout
@@ -41,13 +43,13 @@ private List<String> remains;
 		}
 	}
 	
-	public class Loaded implements LoadHandler{
+	public class Loaded implements JSONLoadHandler{
 		private String name;
 		public Loaded(String name){
 			this.name=name;
 		}
 		@Override
-		public void loaded(Geometry geometry) {
+		public void loaded(Geometry geometry,JsArray<Material> ms) {
 			log("loaded:"+name);
 			log(geometry);
 			// TODO Auto-generated method stub

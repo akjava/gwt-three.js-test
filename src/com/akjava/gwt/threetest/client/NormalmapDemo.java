@@ -31,7 +31,7 @@ import com.akjava.gwt.three.client.extras.ShaderUtils.Uniforms;
 import com.akjava.gwt.three.client.extras.UniformUtils;
 import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.loaders.JSONLoader;
-import com.akjava.gwt.three.client.loaders.JSONLoader.LoadHandler;
+import com.akjava.gwt.three.client.loaders.JSONLoader.JSONLoadHandler;
 import com.akjava.gwt.three.client.materials.Material;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
@@ -67,14 +67,14 @@ private AnimationModel model;
 		JSONLoader loader=THREE.JSONLoader();
 		
 		
-		loader.load("models/animation.js", new LoadHandler() {
+		loader.load("models/animation.js", new JSONLoadHandler() {
 		//loader.load("models/men2b_boned_gun.js", new LoadHandler() {
 			
 			
 			
 
 			@Override
-			public void loaded(Geometry geometry) {
+			public void loaded(Geometry geometry, JsArray<Material> ms) {
 				log(geometry);
 				
 				Shader shader=ShaderUtils.lib("normal");
