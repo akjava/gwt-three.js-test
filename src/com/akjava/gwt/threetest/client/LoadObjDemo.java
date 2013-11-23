@@ -66,7 +66,7 @@ private Object3D object;
 		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
 		scene.add(camera);
 		
-		final JSONLoader loader=THREE.JSONLoader();
+		//final JSONLoader loader=THREE.JSONLoader();
 		
 		RequestBuilder builder=new RequestBuilder(RequestBuilder.GET,"models/men.js");
 		try {
@@ -74,12 +74,8 @@ private Object3D object;
 				
 				@Override
 				public void onResponseReceived(Request request, Response response) {
-					LogUtils.log("loaded:");
 					String text=response.getText();
-					//JSONValue value=JSONParser.parseLenient(text);
-					//JSONObject obj=value.isObject();
 					JSONObject jsonObject=GWTGeometryUtils.loadJsonModelWithMaterial(text);
-					//JavaScriptObject jsobject=loader.parse(jsonobject.getJavaScriptObject(), "models");
 					
 					
 					Geometry geometry=(Geometry)(jsonObject.get("geometry").isObject().getJavaScriptObject());
@@ -89,7 +85,7 @@ private Object3D object;
 					materials.add(THREE.MeshBasicMaterial().color(0x0).transparent(true).wireFrame().build());
 					object=SceneUtils.createMultiMaterialObject(geometry, materials);
 					
-					//mesh = THREE.Mesh(geometry, );
+					
 					object.setPosition(0, 0, 0);
 					object.setRotation(0, 0, 0);
 					object.setScale(5,5,5);
