@@ -10,6 +10,7 @@ import com.akjava.gwt.three.client.loaders.JSONLoader;
 import com.akjava.gwt.three.client.loaders.JSONLoader.LoadHandler;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONParser;
@@ -110,11 +111,29 @@ for ( var i = 0, l = vertices.length; i < l; i ++ ) {
 			return null;
 		}
 		
-		loader.createModel(object.getJavaScriptObject(), handler, "");
-		loader.onLoadComplete();
+		JavaScriptObject jsobject=loader.parse(object.getJavaScriptObject(), null);
+		JSONObject newobject=new JSONObject(jsobject);
+		handler.loaded((Geometry) newobject.get("geometry").isObject().getJavaScriptObject());
+		
+		//loader.createModel(object.getJavaScriptObject(), handler, "");
+		//loader.onLoadComplete();
 		return object;
 	}
 	
+	//TODO create return class
+	public static final JSONObject loadJsonModelWithMaterial(String jsonText){
+		JSONLoader loader=THREE.JSONLoader();
+		JSONValue lastJsonValue = JSONParser.parseLenient(jsonText);
+		JSONObject object=lastJsonValue.isObject();
+		if(object==null){
+			return null;
+		}
+		
+		JavaScriptObject jsobject=loader.parse(object.getJavaScriptObject(), null);
+		JSONObject newobject=new JSONObject(jsobject);
+		
+		return newobject;
+	}
 	
 	
 }
