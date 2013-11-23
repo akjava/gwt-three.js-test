@@ -7,8 +7,8 @@ import java.util.Map;
 
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.core.Geometry;
-import com.akjava.gwt.three.client.extras.loaders.JSONLoader;
-import com.akjava.gwt.three.client.extras.loaders.JSONLoader.LoadHandler;
+import com.akjava.gwt.three.client.loaders.JSONLoader;
+import com.akjava.gwt.three.client.loaders.JSONLoader.LoadHandler;
 import com.google.gwt.core.client.JavaScriptObject;
 
 
