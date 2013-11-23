@@ -65,5 +65,21 @@ public final native void onLoadComplete()/*-{
 this.onLoadComplete();
 }-*/;
 
-//TODO load handler
+public final native void setLoadHandler(LoadHandler handler)/*-{
+	this.onLoadStart=function (  ) {
+	handler.@com.akjava.gwt.three.client.loaders.Loader$LoadHandler::onLoadStart()();
+	};
+	this.onLoadProgress=function (  ) {
+	handler.@com.akjava.gwt.three.client.loaders.Loader$LoadHandler::onLoadProgress()();
+	};
+	this.onLoadComplete=function (  ) {
+	handler.@com.akjava.gwt.three.client.loaders.Loader$LoadHandler::onLoadComplete()();
+	};
+}-*/;
+
+public static interface LoadHandler {
+	public void onLoadStart();
+	public void onLoadProgress();
+	public void onLoadComplete();
+}
 }

@@ -28,6 +28,7 @@ import com.akjava.gwt.three.client.extras.SceneUtils;
 import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.loaders.JSONLoader;
 import com.akjava.gwt.three.client.loaders.JSONLoader.JSONLoadHandler;
+import com.akjava.gwt.three.client.loaders.Loader.LoadHandler;
 import com.akjava.gwt.three.client.materials.Material;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
@@ -56,6 +57,22 @@ private Object3D object;
 		
 		
 		JSONLoader loader=THREE.JSONLoader();
+		loader.setLoadHandler(new LoadHandler() {
+			@Override
+			public void onLoadStart() {
+				LogUtils.log("onstart ok");
+			}
+			
+			@Override
+			public void onLoadProgress() {
+				LogUtils.log("onprogress ok");
+			}
+			
+			@Override
+			public void onLoadComplete() {
+				LogUtils.log("oncomplete ok");
+			}
+		});
 		
 		loader.load("models/female04b.js", new JSONLoadHandler() {
 			
