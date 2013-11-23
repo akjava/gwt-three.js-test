@@ -21,4 +21,6 @@
 		<when-type-is class="com.akjava.gwt.three.client.gwt.ui.WebGLBuilder" />
 		<when-property-is name="threejs.canvasRenderer" value="true" />
 	</replace-with>
+	
+	<set-property name="user.agent" value="safari"/>
 </module>

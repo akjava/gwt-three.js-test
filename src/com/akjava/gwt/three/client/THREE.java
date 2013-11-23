@@ -59,7 +59,6 @@ import com.akjava.gwt.three.client.experiments.CSS3DRenderer;
 import com.akjava.gwt.three.client.extras.animation.Animation;
 import com.akjava.gwt.three.client.extras.geometries.CubeGeometry;
 import com.akjava.gwt.three.client.extras.loaders.ColladaLoader;
-import com.akjava.gwt.three.client.extras.loaders.JSONLoader;
 import com.akjava.gwt.three.client.extras.modifiers.SubdivisionModifier;
 import com.akjava.gwt.three.client.lights.AmbientLight;
 import com.akjava.gwt.three.client.lights.AreaLight;
@@ -68,6 +67,7 @@ import com.akjava.gwt.three.client.lights.HemisphereLight;
 import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.lights.PointLight;
 import com.akjava.gwt.three.client.lights.SpotLight;
+import com.akjava.gwt.three.client.loaders.JSONLoader;
 import com.akjava.gwt.three.client.materials.LineBasicMaterialBuilder;
 import com.akjava.gwt.three.client.materials.Material;
 import com.akjava.gwt.three.client.materials.MeshBasicMaterialBuilder;
@@ -146,6 +146,10 @@ public class THREE {
 	
 	public static  native final Texture Texture(CanvasElement canvas)/*-{
 	return  new $wnd.THREE.Texture(canvas);
+	}-*/;
+	
+	public static  native final JSONLoader JSONLoader(boolean showStatus)/*-{
+	return  new $wnd.THREE.JSONLoader(showStatus);
 	}-*/;
 	
 	public static  native final JSONLoader JSONLoader()/*-{
