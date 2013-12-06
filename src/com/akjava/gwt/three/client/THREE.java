@@ -78,6 +78,7 @@ import com.akjava.gwt.three.client.loaders.ObjectLoader;
 import com.akjava.gwt.three.client.loaders.SceneLoader;
 import com.akjava.gwt.three.client.loaders.TextureLoader;
 import com.akjava.gwt.three.client.loaders.XHRLoader;
+import com.akjava.gwt.three.client.materials.LineBasicMaterial;
 import com.akjava.gwt.three.client.materials.LineBasicMaterialBuilder;
 import com.akjava.gwt.three.client.materials.Material;
 import com.akjava.gwt.three.client.materials.MeshBasicMaterialBuilder;
@@ -106,6 +107,15 @@ import com.google.gwt.dom.client.ImageElement;
 public class THREE {
 	private static native final LoadingManager LoadingManager()/*-{
 	return new $wnd.THREE.LoadingManager();
+	}-*/;
+	
+	/**
+	 * LineBasicMaterial material=Three.LineBasicMaterial(LineBasicMaterial.create().color(0xff0000).transparent(false));
+	 * @param parameter
+	 * @return
+	 */
+	public static  native final LineBasicMaterial LineBasicMaterial(JavaScriptObject parameter)/*-{
+	return  new $wnd.THREE.LineBasicMaterial(parameter);
 	}-*/;
 	
 	public static LoadingManager LoadingManager(LoadingManagerHandler handler){
