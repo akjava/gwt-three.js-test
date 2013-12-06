@@ -37,47 +37,40 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.loaders;
 
+import com.akjava.gwt.three.client.loaders.Loader.LoadHandler;
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.dom.client.ImageElement;
 import com.google.gwt.dom.client.NativeEvent;
 
-/**
- * manager not support yet
- * @author aki
- *
- */
-public class ImageLoader extends JavaScriptObject{
-	protected ImageLoader() {
+
+public class LoadingManager extends JavaScriptObject{
+	protected LoadingManager() {
 	}
 
-
-	public final native void load(String url,ImageLoadHandler handler)/*-{
-	this.load(url,function ( geometry ) {
-		handler.@com.akjava.gwt.three.client.loaders.ImageLoader$ImageLoadHandler::onLoad(Lcom/google/gwt/dom/client/ImageElement;)(geometry);
-		}
-		,function ( onProgress ) {
-		handler.@com.akjava.gwt.three.client.loaders.ImageLoader$ImageLoadHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
-		},function ( onError ) {
-		handler.@com.akjava.gwt.three.client.loaders.ImageLoader$ImageLoadHandler::onError(Lcom/google/gwt/dom/client/NativeEvent;)(onError);
-		});
-}-*/;
-	
-public final native void getLoadingManager()/*-{
-return manager;
+public final native void itemStart(String url)/*-{
+this.itemStart(url);
 }-*/;
 
-public final native void setLoadingManager(LoadingManager manager)/*-{
-this.manager=manager;
+public final native void itemEnd(String url)/*-{
+this.itemEnd(url);
 }-*/;
 
-public final native void setCrossOrigin(String value)/*-{
-this.setCrossOrigin(value);
+
+public final native void setLoadHandler(LoadingManagerHandler handler)/*-{
+this.onLoad=function (  ) {
+handler.@com.akjava.gwt.three.client.loaders.LoadingManager$LoadingManagerHandler::onLoad()();
+};
+this.onProgress=function ( url,loaded,total ) {
+handler.@com.akjava.gwt.three.client.loaders.LoadingManager$LoadingManagerHandler::onProgress(Ljava/lang/String;II)(url,loaded,total);
+};
+this.onError=function ( onError ) {
+handler.@com.akjava.gwt.three.client.loaders.LoadingManager$LoadingManagerHandler::onError(Lcom/google/gwt/dom/client/NativeEvent;)(onError);
+};
 }-*/;
 
-public static interface ImageLoadHandler {
-	public void onLoad(ImageElement imageElement);
-	public void onProgress(NativeEvent progress);
-	public void onError(NativeEvent error);
+public static interface LoadingManagerHandler {
+public void onLoad();
+public void onProgress(String url,int loaded,int total);
+public void onError(NativeEvent error);
 }
 
 }

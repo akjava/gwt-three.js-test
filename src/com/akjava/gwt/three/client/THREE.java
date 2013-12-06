@@ -67,7 +67,10 @@ import com.akjava.gwt.three.client.lights.HemisphereLight;
 import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.lights.PointLight;
 import com.akjava.gwt.three.client.lights.SpotLight;
+import com.akjava.gwt.three.client.loaders.ImageLoader;
 import com.akjava.gwt.three.client.loaders.JSONLoader;
+import com.akjava.gwt.three.client.loaders.LoadingManager;
+import com.akjava.gwt.three.client.loaders.LoadingManager.LoadingManagerHandler;
 import com.akjava.gwt.three.client.materials.LineBasicMaterialBuilder;
 import com.akjava.gwt.three.client.materials.Material;
 import com.akjava.gwt.three.client.materials.MeshBasicMaterialBuilder;
@@ -94,6 +97,20 @@ import com.google.gwt.dom.client.ImageElement;
 
 
 public class THREE {
+	private static native final LoadingManager LoadingManager()/*-{
+	return new $wnd.THREE.LoadingManager();
+	}-*/;
+	
+	public static LoadingManager LoadingManager(LoadingManagerHandler handler){
+		LoadingManager manager=LoadingManager();
+		manager.setLoadHandler(handler);
+		return manager;
+	}
+	
+	public static  native final ImageLoader ImageLoader(LoadingManager manager)/*-{
+	return  new $wnd.THREE.ImageLoader(manager);
+	}-*/;
+	
 	public static  native final SpotLight SpotLight(int hex,double intensity,double distance,double angle,double exponent)/*-{
 	return  new $wnd.THREE.SpotLight(hex, intensity, distance, angle, exponent );
 	}-*/;

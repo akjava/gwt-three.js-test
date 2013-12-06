@@ -54,8 +54,6 @@ public class CanvasDemo extends AbstractDemo{
 		texture.setNeedsUpdate(true);//very important
 		
 		
-		
-		
 		final Scene scene=THREE.Scene();
 		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
 		scene.add(camera);

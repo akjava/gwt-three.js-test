@@ -53,7 +53,7 @@ import com.google.gwt.user.client.ui.RootPanel;
  * @author aki
  *
  */
-public class LoadObjDemo extends AbstractDemo{
+public class LoaderTest extends AbstractDemo{
 
 private Object3D object;
 	@Override
@@ -64,6 +64,41 @@ private Object3D object;
 		
 		final Scene scene=THREE.Scene();
 		
+		ImageLoader imloader=THREE.ImageLoader(THREE.LoadingManager(new LoadingManagerHandler() {
+			
+			@Override
+			public void onProgress(String url, int loaded, int total) {
+				LogUtils.log("onprogress:"+url+",loaded="+loaded+",total="+total);
+			}
+			
+			@Override
+			public void onLoad() {
+				LogUtils.log("onload");
+			}
+			
+			@Override
+			public void onError(NativeEvent error) {
+				LogUtils.log(error);
+			}
+		}));
+		imloader.load("img/wood64.png", new  ImageLoadHandler() {
+			
+			@Override
+			public void onProgress(NativeEvent progress) {
+				LogUtils.log(progress);
+			}
+			
+			@Override
+			public void onLoad(ImageElement imageElement) {
+				Image img=Image.wrap(imageElement);
+				RootPanel.get().add(img);
+			}
+			
+			@Override
+			public void onError(NativeEvent error) {
+				LogUtils.log(error);
+			}
+		});
 		
 		
 		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
