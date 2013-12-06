@@ -37,45 +37,64 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.loaders;
 
+import com.akjava.gwt.three.client.core.Geometry;
+import com.akjava.gwt.three.client.core.Object3D;
+import com.akjava.gwt.three.client.loaders.MaterialLoader.MaterialLoadHandler;
+import com.akjava.gwt.three.client.materials.Material;
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.dom.client.ImageElement;
+import com.google.gwt.core.client.JsArray;
 import com.google.gwt.dom.client.NativeEvent;
 
 /**
- * manager not support yet
+ * not test yet
  * @author aki
  *
  */
-public class ImageLoader extends JavaScriptObject{
-	protected ImageLoader() {
+public class ObjectLoader extends JavaScriptObject{
+	protected ObjectLoader() {
 	}
 
+	public final native LoadingManager getManager()/*-{
+	return this.manager;
+	}-*/;
 
-	public final native void load(String url,ImageLoadHandler handler)/*-{
-	this.load(url,function ( geometry ) {
-		handler.@com.akjava.gwt.three.client.loaders.ImageLoader$ImageLoadHandler::onLoad(Lcom/google/gwt/dom/client/ImageElement;)(geometry);
+	public final native void setManager(LoadingManager manager)/*-{
+	this.manager = manager;
+	}-*/;
+
+	public final native void load(String url,ObjectLoadHandler handler)/*-{
+	this.load(url,function ( object ) {
+		handler.@com.akjava.gwt.three.client.loaders.ObjectLoader$ObjectLoadHandler::onLoad(Lcom/akjava/gwt/three/client/core/Object3D;)(object);
 		}
 		,function ( onProgress ) {
-		handler.@com.akjava.gwt.three.client.loaders.ImageLoader$ImageLoadHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
+		handler.@com.akjava.gwt.three.client.loaders.ObjectLoader$ObjectLoadHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
 		},function ( onError ) {
-		handler.@com.akjava.gwt.three.client.loaders.ImageLoader$ImageLoadHandler::onError(Lcom/google/gwt/dom/client/NativeEvent;)(onError);
+		handler.@com.akjava.gwt.three.client.loaders.ObjectLoader$ObjectLoadHandler::onError(Lcom/google/gwt/dom/client/NativeEvent;)(onError);
 		});
-}-*/;
-	
-public final native void getgManager()/*-{
-return manager;
-}-*/;
-
-public final native void setManager(LoadingManager manager)/*-{
-this.manager=manager;
 }-*/;
 
 public final native void setCrossOrigin(String value)/*-{
 this.setCrossOrigin(value);
 }-*/;
 
-public static interface ImageLoadHandler {
-	public void onLoad(ImageElement imageElement);
+public final native Object3D parse(JavaScriptObject json)/*-{
+return this.parse(json);
+}-*/;
+
+public final native JsArray<Geometry> parseGeometries(JavaScriptObject json)/*-{
+return this.parseGeometries(json);
+}-*/;
+
+public final native JsArray<Material> parseMaterials(JavaScriptObject json)/*-{
+return this.parseMaterials(json);
+}-*/;
+
+public final native Object3D parseObject(JavaScriptObject object,JsArray<Geometry> geometrys,JsArray<Material> materials)/*-{
+return this.parseObject(object,geometrys,materials);
+}-*/;
+
+public static interface ObjectLoadHandler {
+	public void onLoad(Object3D object);
 	public void onProgress(NativeEvent progress);
 	public void onError(NativeEvent error);
 }

@@ -67,10 +67,17 @@ import com.akjava.gwt.three.client.lights.HemisphereLight;
 import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.lights.PointLight;
 import com.akjava.gwt.three.client.lights.SpotLight;
+import com.akjava.gwt.three.client.loaders.BufferGeometryLoader;
+import com.akjava.gwt.three.client.loaders.GeometryLoader;
 import com.akjava.gwt.three.client.loaders.ImageLoader;
 import com.akjava.gwt.three.client.loaders.JSONLoader;
 import com.akjava.gwt.three.client.loaders.LoadingManager;
 import com.akjava.gwt.three.client.loaders.LoadingManager.LoadingManagerHandler;
+import com.akjava.gwt.three.client.loaders.MaterialLoader;
+import com.akjava.gwt.three.client.loaders.ObjectLoader;
+import com.akjava.gwt.three.client.loaders.SceneLoader;
+import com.akjava.gwt.three.client.loaders.TextureLoader;
+import com.akjava.gwt.three.client.loaders.XHRLoader;
 import com.akjava.gwt.three.client.materials.LineBasicMaterialBuilder;
 import com.akjava.gwt.three.client.materials.Material;
 import com.akjava.gwt.three.client.materials.MeshBasicMaterialBuilder;
@@ -106,10 +113,39 @@ public class THREE {
 		manager.setLoadHandler(handler);
 		return manager;
 	}
+	public static  native final BufferGeometryLoader BufferGeometryLoader(LoadingManager manager)/*-{
+	return  new $wnd.THREE.BufferGeometryLoader(manager);
+	}-*/;
+	
+	public static  native final GeometryLoader GeometryLoader(LoadingManager manager)/*-{
+	return  new $wnd.THREE.GeometryLoader(manager);
+	}-*/;
 	
 	public static  native final ImageLoader ImageLoader(LoadingManager manager)/*-{
 	return  new $wnd.THREE.ImageLoader(manager);
 	}-*/;
+	
+	public static  native final MaterialLoader MaterialLoader(LoadingManager manager)/*-{
+	return  new $wnd.THREE.MaterialLoader(manager);
+	}-*/;
+	
+	public static  native final ObjectLoader ObjectLoader(LoadingManager manager)/*-{
+	return  new $wnd.THREE.GeometryLoader(manager);
+	}-*/;
+	
+	public static  native final SceneLoader SceneLoader(LoadingManager manager)/*-{
+	return  new $wnd.THREE.ImageLoader(manager);
+	}-*/;
+	
+	public static  native final TextureLoader TextureLoader(LoadingManager manager)/*-{
+	return  new $wnd.THREE.ImageLoader(manager);
+	}-*/;
+	
+	public static  native final XHRLoader XHRLoader(LoadingManager manager)/*-{
+	return  new $wnd.THREE.ImageLoader(manager);
+	}-*/;
+	
+	
 	
 	public static  native final SpotLight SpotLight(int hex,double intensity,double distance,double angle,double exponent)/*-{
 	return  new $wnd.THREE.SpotLight(hex, intensity, distance, angle, exponent );

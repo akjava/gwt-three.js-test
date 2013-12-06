@@ -37,45 +37,49 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.loaders;
 
+import com.akjava.gwt.three.client.materials.Material;
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.dom.client.ImageElement;
 import com.google.gwt.dom.client.NativeEvent;
 
 /**
- * manager not support yet
+ * not test yet
  * @author aki
  *
  */
-public class ImageLoader extends JavaScriptObject{
-	protected ImageLoader() {
+public class MaterialLoader extends JavaScriptObject{
+	protected MaterialLoader() {
 	}
 
-
-	public final native void load(String url,ImageLoadHandler handler)/*-{
-	this.load(url,function ( geometry ) {
-		handler.@com.akjava.gwt.three.client.loaders.ImageLoader$ImageLoadHandler::onLoad(Lcom/google/gwt/dom/client/ImageElement;)(geometry);
-		}
-		,function ( onProgress ) {
-		handler.@com.akjava.gwt.three.client.loaders.ImageLoader$ImageLoadHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
-		},function ( onError ) {
-		handler.@com.akjava.gwt.three.client.loaders.ImageLoader$ImageLoadHandler::onError(Lcom/google/gwt/dom/client/NativeEvent;)(onError);
-		});
-}-*/;
-	
-public final native void getgManager()/*-{
-return manager;
+public final native LoadingManager getManager()/*-{
+return this.manager;
 }-*/;
 
 public final native void setManager(LoadingManager manager)/*-{
-this.manager=manager;
+this.manager = manager;
+}-*/;
+
+public final native void load(String url,MaterialLoadHandler handler)/*-{
+	this.load(url,function ( material ) {
+		handler.@com.akjava.gwt.three.client.loaders.MaterialLoader$MaterialLoadHandler::onLoad(Lcom/akjava/gwt/three/client/materials/Material;)(material);
+		}
+		,function ( onProgress ) {
+		handler.@com.akjava.gwt.three.client.loaders.MaterialLoader$MaterialLoadHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
+		},function ( onError ) {
+		handler.@com.akjava.gwt.three.client.loaders.MaterialLoader$MaterialLoadHandler::onError(Lcom/google/gwt/dom/client/NativeEvent;)(onError);
+		});
 }-*/;
 
 public final native void setCrossOrigin(String value)/*-{
 this.setCrossOrigin(value);
 }-*/;
 
-public static interface ImageLoadHandler {
-	public void onLoad(ImageElement imageElement);
+public final native Material parse(JavaScriptObject json)/*-{
+return this.parse(json);
+}-*/;
+
+
+public static interface MaterialLoadHandler {
+	public void onLoad(Material material);
 	public void onProgress(NativeEvent progress);
 	public void onError(NativeEvent error);
 }
