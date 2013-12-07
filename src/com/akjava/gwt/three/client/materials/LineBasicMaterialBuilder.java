@@ -40,7 +40,11 @@ package com.akjava.gwt.three.client.materials;
 import com.akjava.gwt.three.client.textures.Texture;
 import com.google.gwt.core.client.JavaScriptObject;
 
-
+/**
+ * @deprecated use LineBasicMaterialParameter
+ * @author aki
+ *
+ */
 public class LineBasicMaterialBuilder extends JavaScriptObject{
 	protected LineBasicMaterialBuilder(){}
 	public final static LineBasicMaterialBuilder create(){

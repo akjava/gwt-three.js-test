@@ -80,6 +80,7 @@ import com.akjava.gwt.three.client.loaders.TextureLoader;
 import com.akjava.gwt.three.client.loaders.XHRLoader;
 import com.akjava.gwt.three.client.materials.LineBasicMaterial;
 import com.akjava.gwt.three.client.materials.LineBasicMaterialBuilder;
+import com.akjava.gwt.three.client.materials.LineDashedMaterial;
 import com.akjava.gwt.three.client.materials.Material;
 import com.akjava.gwt.three.client.materials.MeshBasicMaterialBuilder;
 import com.akjava.gwt.three.client.materials.MeshLambertMaterialBuilder;
@@ -107,6 +108,10 @@ import com.google.gwt.dom.client.ImageElement;
 public class THREE {
 	private static native final LoadingManager LoadingManager()/*-{
 	return new $wnd.THREE.LoadingManager();
+	}-*/;
+	
+	public static  native final LineDashedMaterial LineDashedMaterial(JavaScriptObject parameter)/*-{
+	return  new $wnd.THREE.LineDashedMaterial(parameter);
 	}-*/;
 	
 	/**
@@ -376,7 +381,10 @@ public static native final CubeGeometry CubeGeometry(double x,double y,double z,
 	return new $wnd.THREE.MeshFaceMaterial();
 	}-*/;
 	
-	
+	/**
+	 * @deprecated use LineBasicMaterialParameter.create()
+	 * @return
+	 */
 	public static  final LineBasicMaterialBuilder LineBasicMaterial(){
 		return LineBasicMaterialBuilder.create();
 	}
