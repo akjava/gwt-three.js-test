@@ -27,6 +27,7 @@ import com.akjava.gwt.three.client.core.Object3D;
 import com.akjava.gwt.three.client.core.Projector;
 import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.materials.Material;
+import com.akjava.gwt.three.client.materials.MeshBasicMaterial;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
@@ -123,13 +124,13 @@ public class PickDemo extends AbstractDemo{
 					final Mesh target=meshs.get(sect.getObject().getId());
 					log(target);
 					
-					final int old=target.getMaterial().getColor().getHex();
-					target.getMaterial().getColor().setHex(0xeeeeee);
+					final int old=((MeshBasicMaterial)target.getMaterial()).getColor().getHex();
+					((MeshBasicMaterial)target.getMaterial()).getColor().setHex(0xeeeeee);
 					Timer timer=new Timer(){
 
 						@Override
 						public void run() {
-							target.getMaterial().getColor().setHex(old);
+							((MeshBasicMaterial)target.getMaterial()).getColor().setHex(old);
 						}
 						
 					};

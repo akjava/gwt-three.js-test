@@ -5,6 +5,7 @@ import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.core.Color;
 import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.materials.Material;
+import com.akjava.gwt.three.client.materials.MeshBasicMaterial;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
@@ -161,7 +162,7 @@ boid.run( boids );
 
 bird = birds[ i ];
 
-Color color = bird.getMaterial().getColor();
+Color color = ((MeshBasicMaterial)bird.getMaterial()).getColor();
 double c=( 500 - bird.getPosition().getZ() ) / 1000;
 color.setRGB(c,c,c);
 bird.getRotation().setY( Math.atan2( - boid.getVelocity().getZ(), boid.getVelocity().getX() ));

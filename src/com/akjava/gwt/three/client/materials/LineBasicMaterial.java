@@ -37,6 +37,8 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.materials;
 
+import com.akjava.gwt.three.client.core.Color;
+
 
 
 public class LineBasicMaterial extends Material{
@@ -44,7 +46,13 @@ public class LineBasicMaterial extends Material{
 	}
 
 
+	public final native void setColor(Color c)/*-{
+	this.color=c;
+	}-*/;
 
+	public final native Color getColor()/*-{
+	return this.color;
+	}-*/;
 
 public final native double getLinewidth()/*-{
 return this.linewidth;

@@ -95,13 +95,7 @@ public final native void setBlending(Object blending)/*-{
 this.blending = blending;
 }-*/;
 
-public final native void setColor(Color c)/*-{
-this.color=c;
-}-*/;
 
-public final native Color getColor()/*-{
-return this.color;
-}-*/;
 
 public final native void setOpacity(double opacity)/*-{
 this.opacity=opacity;
@@ -111,14 +105,7 @@ public final native double getOpacity()/*-{
 return this.opacity;
 }-*/;
 
-public final native void setMorphTargets(boolean morphTargets)/*-{
-this.morphTargets=morphTargets;
-}-*/;
 
-//for only BasicMaterial
-public final native void setMap(Texture texture)/*-{
-this.map=texture;
-}-*/;
 
 
 public final native int getBlendSrc()/*-{
