@@ -84,6 +84,7 @@ import com.akjava.gwt.three.client.materials.LineDashedMaterial;
 import com.akjava.gwt.three.client.materials.Material;
 import com.akjava.gwt.three.client.materials.MeshBasicMaterial;
 import com.akjava.gwt.three.client.materials.MeshBasicMaterialBuilder;
+import com.akjava.gwt.three.client.materials.MeshDepthMaterial;
 import com.akjava.gwt.three.client.materials.MeshLambertMaterialBuilder;
 import com.akjava.gwt.three.client.materials.ParticleBasicMaterialBuilder;
 import com.akjava.gwt.three.client.materials.ShaderMaterialBuilder;
@@ -113,6 +114,9 @@ public class THREE {
 	
 	
 	
+	public static  native final MeshDepthMaterial MeshDepthMaterial(JavaScriptObject parameter)/*-{
+	return  new $wnd.THREE.MeshDepthMaterial(parameter);
+	}-*/;
 	
 	public static  native final MeshBasicMaterial MeshBasicMaterial(JavaScriptObject parameter)/*-{
 	return  new $wnd.THREE.MeshBasicMaterial(parameter);
