@@ -40,7 +40,11 @@ package com.akjava.gwt.three.client.materials;
 import com.akjava.gwt.three.client.textures.Texture;
 import com.google.gwt.core.client.JavaScriptObject;
 
-
+/**
+ *  @deprecated
+ * @author aki
+ *
+ */
 public class MeshBasicMaterialBuilder extends JavaScriptObject{
 	protected MeshBasicMaterialBuilder(){}
 	public final static MeshBasicMaterialBuilder create(){

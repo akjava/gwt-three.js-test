@@ -37,19 +37,25 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.materials;
 
-import com.akjava.gwt.three.client.core.Color;
 import com.akjava.gwt.three.client.gwt.JSParameter;
+import com.akjava.gwt.three.client.math.Vector2;
 import com.akjava.gwt.three.client.textures.Texture;
+import com.google.gwt.core.client.JavaScriptObject;
 
 /**
-
+ * can't overwrite.copy this as base
  * @author aki
-
+ *  color: <hex>,
+ *  ambient: <hex>,
+ *  emissive: <hex>,
+ *  specular: <hex>,
+ *  shininess: <float>,
+ 
  */
-public final class MeshLambertMaterialParameter extends JSParameter{
-	protected MeshLambertMaterialParameter(){}
-	public final static MeshLambertMaterialParameter create(){
-		return (MeshLambertMaterialParameter) MeshLambertMaterialParameter.createObject();
+public final class MeshPhongMaterialParameter extends JSParameter{
+	protected MeshPhongMaterialParameter(){}
+	public final static MeshPhongMaterialParameter create(){
+		return (MeshPhongMaterialParameter) MeshPhongMaterialParameter.createObject();
 	}
 	public final MeshBasicMaterialParameter color(int r,int g,int b){
 		int c=(0xff & r)<<16| (0xff & g)<<8|(0xff & b);
@@ -76,142 +82,156 @@ public final class MeshLambertMaterialParameter extends JSParameter{
 	this.emissive=emissive;
 	return this;
 	}-*/;
-
-	public final native MeshLambertMaterialParameter wrapAround(boolean wrapAround)/*-{
-	this.wrapAround=wrapAround;
+	public final MeshBasicMaterialParameter specular(int r,int g,int b){
+		int c=(0xff & r)<<16| (0xff & g)<<8|(0xff & b);
+		return specular(c);
+	}
+	public final native MeshBasicMaterialParameter specular(int specular)/*-{
+	this.specular=specular;
 	return this;
 	}-*/;
-	
-	public final native MeshLambertMaterialParameter map(Texture map)/*-{
+	/*
+
+
+
+	public final native MeshPhongMaterialParameter shininess(double shininess)/*-{
+	this.shininess=shininess;
+	return this;
+	}-*/;
+	public final native MeshPhongMaterialParameter map(Texture map)/*-{
 	this.map=map;
 	return this;
 	}-*/;
-	public final native MeshLambertMaterialParameter lightMap(Texture lightMap)/*-{
+	public final native MeshPhongMaterialParameter lightMap(Texture lightMap)/*-{
 	this.lightMap=lightMap;
 	return this;
 	}-*/;
-	public final native MeshLambertMaterialParameter specularMap(Texture specularMap)/*-{
-	this.specularMap=specularMap;
+	public final native MeshPhongMaterialParameter bumpMap(Texture bumpMap)/*-{
+	this.bumpMap=bumpMap;
 	return this;
 	}-*/;
-	public final native MeshLambertMaterialParameter envMap(Texture envMap)/*-{
-	this.envMap=envMap;
+	public final native MeshPhongMaterialParameter bumpScale(double bumpScale)/*-{
+	this.bumpScale=bumpScale;
 	return this;
 	}-*/;
 	
-	public final native MeshLambertMaterialParameter combine(int combine)/*-{
+	public final native MeshPhongMaterialParameter normalMap(Texture normalMap)/*-{
+	this.normalMap=normalMap;
+	return this;
+	}-*/;
+	public final native MeshPhongMaterialParameter normalScale(Vector2 normalScale)/*-{
+	this.normalScale=normalScale;
+	return this;
+	}-*/;
+	public final native MeshPhongMaterialParameter specularMap(Texture specularMap)/*-{
+	this.specularMap=specularMap;
+	return this;
+	}-*/;
+	
+	public final native MeshPhongMaterialParameter envMap(JavaScriptObject envMap)/*-{
+	this.envMap=envMap;
+	return this;
+	}-*/;
+
+	public final native MeshPhongMaterialParameter combine(int envMap)/*-{
 	this.combine=combine;
 	return this;
 	}-*/;
 	
-	public final native MeshLambertMaterialParameter reflectivity(double reflectivity)/*-{
+	public final native MeshPhongMaterialParameter reflectivity(double reflectivity)/*-{
 	this.reflectivity=reflectivity;
 	return this;
 	}-*/;
-	public final native MeshLambertMaterialParameter refractionRatio(double refractionRatio)/*-{
+	public final native MeshPhongMaterialParameter refractionRatio(double refractionRatio)/*-{
 	this.refractionRatio=refractionRatio;
 	return this;
 	}-*/;
 	
-	public final native MeshLambertMaterialParameter fog(boolean fog)/*-{
-	this.fog=fog;
-	return this;
-	}-*/;
-	
-	public final native MeshLambertMaterialParameter shading(int shading)/*-{
-	this.shading=shading;
-	return this;
-	}-*/;
-	
-	public final native MeshLambertMaterialParameter wireframe(boolean wireframe)/*-{
+	public final native MeshPhongMaterialParameter wireframe(boolean wireframe)/*-{
 	this.wireframe=wireframe;
 	return this;
 	}-*/;
 	
-	public final native MeshLambertMaterialParameter wireframeLinewidth(double wireframeLinewidth)/*-{
+	public final native MeshPhongMaterialParameter wireframeLinewidth(double wireframeLinewidth)/*-{
 	this.wireframeLinewidth=wireframeLinewidth;
 	return this;
 	}-*/;
 	
-	public final native MeshLambertMaterialParameter wireframeLinecap(String wireframeLinecap)/*-{
-	this.wireframeLinecap=wireframeLinecap;
-	return this;
-	}-*/;
-	
-	public final native MeshLambertMaterialParameter wireframeLinejoin(String wireframeLinejoin)/*-{
-	this.wireframeLinejoin=wireframeLinejoin;
-	return this;
-	}-*/;
-	
-	public final native MeshLambertMaterialParameter vertexColors(int vertexColors)/*-{
+	public final native MeshPhongMaterialParameter vertexColors(int vertexColors)/*-{
 	this.vertexColors=vertexColors;
 	return this;
 	}-*/;
 	
-	public final native MeshLambertMaterialParameter skinning(boolean skinning)/*-{
+	public final native MeshPhongMaterialParameter shading(int shading)/*-{
+	this.shading=shading;
+	return this;
+	}-*/;
+	
+	public final native MeshPhongMaterialParameter skinning(boolean skinning)/*-{
 	this.skinning=skinning;
 	return this;
 	}-*/;
-	
-	public final native MeshLambertMaterialParameter morphTargets(boolean morphTargets)/*-{
+	public final native MeshPhongMaterialParameter morphTargets(boolean morphTargets)/*-{
 	this.morphTargets=morphTargets;
 	return this;
 	}-*/;
-	
-	public final native MeshLambertMaterialParameter morphNormals(boolean morphNormals)/*-{
+	public final native MeshPhongMaterialParameter morphNormals(boolean morphNormals)/*-{
 	this.morphNormals=morphNormals;
+	return this;
+	}-*/;
+	public final native MeshPhongMaterialParameter fog(boolean fog)/*-{
+	this.fog=fog;
 	return this;
 	}-*/;
 	
 	
-	//
-	public final native MeshLambertMaterialParameter side(int side)/*-{
+	public final native MeshPhongMaterialParameter side(int side)/*-{
 	this.side=side;
 	return this;
 	}-*/;
 	
-	public final native MeshLambertMaterialParameter opacity(double opacity)/*-{
+	public final native MeshPhongMaterialParameter opacity(double opacity)/*-{
 	this.opacity=opacity;
 	return this;
 	}-*/;
-	public final native MeshLambertMaterialParameter transparent(boolean transparent)/*-{
+	public final native MeshPhongMaterialParameter transparent(boolean transparent)/*-{
 	this.transparent=transparent;
 	return this;
 	}-*/;
 	
-	public final native MeshLambertMaterialParameter depthTest(boolean depthTest)/*-{
+	public final native MeshPhongMaterialParameter depthTest(boolean depthTest)/*-{
 	this.depthTest=depthTest;
 	return this;
 	}-*/;
 	
-	public final native MeshLambertMaterialParameter depthWrite(boolean depthWrite)/*-{
+	public final native MeshPhongMaterialParameter depthWrite(boolean depthWrite)/*-{
 	this.depthWrite=depthWrite;
 	return this;
 	}-*/;
 	
-	public final native MeshLambertMaterialParameter polygonOffset(boolean polygonOffset)/*-{
+	public final native MeshPhongMaterialParameter polygonOffset(boolean polygonOffset)/*-{
 	this.polygonOffset=polygonOffset;
 	return this;
 	}-*/;
 	
-	public final native MeshLambertMaterialParameter blending(int blending)/*-{
+	public final native MeshPhongMaterialParameter blending(int blending)/*-{
 	this.blending=blending;
 	return this;
 	}-*/;
 	
-	public final native MeshLambertMaterialParameter blendSrc(int blendSrc)/*-{
+	public final native MeshPhongMaterialParameter blendSrc(int blendSrc)/*-{
 	this.blendSrc=blendSrc;
 	return this;
 	}-*/;
 	
 	
 	
-	public final native MeshLambertMaterialParameter blendDst(int blendDst)/*-{
+	public final native MeshPhongMaterialParameter blendDst(int blendDst)/*-{
 	this.blendDst=blendDst;
 	return this;
 	}-*/;
 	
-	public final native MeshLambertMaterialParameter blendEquation(int blendEquation)/*-{
+	public final native MeshPhongMaterialParameter blendEquation(int blendEquation)/*-{
 	this.blendEquation=blendEquation;
 	return this;
 	}-*/;
@@ -219,24 +239,24 @@ public final class MeshLambertMaterialParameter extends JSParameter{
 	
 	
 	
-	public final native MeshLambertMaterialParameter polygonOffsetFactor(double polygonOffsetFactor)/*-{
+	public final native MeshPhongMaterialParameter polygonOffsetFactor(double polygonOffsetFactor)/*-{
 	this.polygonOffsetFactor=polygonOffsetFactor;
 	return this;
 	}-*/;
 	
-	public final native MeshLambertMaterialParameter polygonOffsetUnits(double polygonOffsetUnits)/*-{
+	public final native MeshPhongMaterialParameter polygonOffsetUnits(double polygonOffsetUnits)/*-{
 	this.polygonOffsetUnits=polygonOffsetUnits;
 	return this;
 	}-*/;
-	public final native MeshLambertMaterialParameter alphaTest(double alphaTest)/*-{
+	public final native MeshPhongMaterialParameter alphaTest(double alphaTest)/*-{
 	this.alphaTest=alphaTest;
 	return this;
 	}-*/;
-	public final native MeshLambertMaterialParameter overdraw(double overdraw)/*-{
+	public final native MeshPhongMaterialParameter overdraw(double overdraw)/*-{
 	this.overdraw=overdraw;
 	return this;
 	}-*/;
-	public final native MeshLambertMaterialParameter needsUpdate(boolean needsUpdate)/*-{
+	public final native MeshPhongMaterialParameter needsUpdate(boolean needsUpdate)/*-{
 	this.needsUpdate=needsUpdate;
 	return this;
 	}-*/;

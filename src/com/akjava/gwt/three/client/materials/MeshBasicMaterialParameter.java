@@ -55,9 +55,6 @@ public final class MeshBasicMaterialParameter extends JSParameter{
 		int c=(0xff & r)<<16| (0xff & g)<<8|(0xff & b);
 		return color(c);
 	}
-	
-	
-	
 	public final native MeshBasicMaterialParameter color(int color)/*-{
 	this.color=c;
 	return this;
