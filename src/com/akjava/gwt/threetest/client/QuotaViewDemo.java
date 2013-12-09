@@ -86,7 +86,7 @@ private Mesh mesh;
 
 			@Override
 			public void loaded(Geometry geometry, JsArray<Material> ms) {
-				Mesh obj = THREE.Mesh(geometry, THREE.MeshFaceMaterial());
+				Mesh obj = THREE.Mesh(geometry, THREE.MeshFaceMaterial(null));
 				obj.setPosition(-3, -3,0);
 				root.add(obj);
 				obj.setRotation(Math.toRadians(90), Math.toRadians(180-45),0);

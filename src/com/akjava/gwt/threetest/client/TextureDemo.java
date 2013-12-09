@@ -58,7 +58,7 @@ private Timer timer;
 		};
 		
 		final Mesh mesh=THREE.Mesh(THREE.Cube(5, 5, 5,1,1,1,ms), 
-				THREE.MeshFaceMaterial());
+				THREE.MeshFaceMaterial(null));
 		
 		scene.add(mesh);
 		GWT.log("xx2");

@@ -258,7 +258,7 @@ private Mesh mesh;
 				}
 			}
 				
-		mesh = THREE.Mesh(cube, THREE.MeshFaceMaterial());
+		mesh = THREE.Mesh(cube, THREE.MeshFaceMaterial(null));
 		parentMesh.add(mesh);
 		reset();
 		}

@@ -85,6 +85,7 @@ import com.akjava.gwt.three.client.materials.Material;
 import com.akjava.gwt.three.client.materials.MeshBasicMaterial;
 import com.akjava.gwt.three.client.materials.MeshBasicMaterialBuilder;
 import com.akjava.gwt.three.client.materials.MeshDepthMaterial;
+import com.akjava.gwt.three.client.materials.MeshFaceMaterial;
 import com.akjava.gwt.three.client.materials.MeshLambertMaterialBuilder;
 import com.akjava.gwt.three.client.materials.ParticleBasicMaterialBuilder;
 import com.akjava.gwt.three.client.materials.ShaderMaterialBuilder;
@@ -389,8 +390,8 @@ public static native final CubeGeometry CubeGeometry(double x,double y,double z,
 	
 	
 	
-	public static native final Material MeshFaceMaterial()/*-{
-	return new $wnd.THREE.MeshFaceMaterial();
+	public static native final MeshFaceMaterial MeshFaceMaterial(JsArray<Material> materials)/*-{
+	return new $wnd.THREE.MeshFaceMaterial(materials);
 	}-*/;
 	
 	/**
