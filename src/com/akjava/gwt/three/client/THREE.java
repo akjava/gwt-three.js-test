@@ -91,7 +91,11 @@ import com.akjava.gwt.three.client.materials.MeshLambertMaterialBuilder;
 import com.akjava.gwt.three.client.materials.MeshNormalMaterial;
 import com.akjava.gwt.three.client.materials.MeshPhongMaterial;
 import com.akjava.gwt.three.client.materials.ParticleBasicMaterialBuilder;
+import com.akjava.gwt.three.client.materials.ParticleSystemMaterial;
+import com.akjava.gwt.three.client.materials.ShaderMaterial;
 import com.akjava.gwt.three.client.materials.ShaderMaterialBuilder;
+import com.akjava.gwt.three.client.materials.SpriteCanvasMaterial;
+import com.akjava.gwt.three.client.materials.SpriteMaterial;
 import com.akjava.gwt.three.client.objects.Line;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.objects.MorphAnimMesh;
@@ -117,15 +121,19 @@ public class THREE {
 	return new $wnd.THREE.LoadingManager();
 	}-*/;
 	
-	public static  native final MeshPhongMaterial SpriteCanvasMaterial(JavaScriptObject parameter)/*-{
+	public static  native final SpriteMaterial SpriteMaterial(JavaScriptObject parameter)/*-{
+	return  new $wnd.THREE.SpriteMaterial(parameter);
+	}-*/;
+	
+	public static  native final SpriteCanvasMaterial SpriteCanvasMaterial(JavaScriptObject parameter)/*-{
 	return  new $wnd.THREE.SpriteCanvasMaterial(parameter);
 	}-*/;
 	
-	public static  native final MeshPhongMaterial ShaderMaterial(JavaScriptObject parameter)/*-{
+	public static  native final ShaderMaterial ShaderMaterial(JavaScriptObject parameter)/*-{
 	return  new $wnd.THREE.ShaderMaterial(parameter);
 	}-*/;
 	
-	public static  native final MeshPhongMaterial ParticleSystemMaterial(JavaScriptObject parameter)/*-{
+	public static  native final ParticleSystemMaterial ParticleSystemMaterial(JavaScriptObject parameter)/*-{
 	return  new $wnd.THREE.ParticleSystemMaterial(parameter);
 	}-*/;
 	
