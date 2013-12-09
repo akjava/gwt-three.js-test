@@ -41,7 +41,7 @@ import com.akjava.gwt.three.client.gwt.JSParameter;
 import com.akjava.gwt.three.client.textures.Texture;
 
 /**
- * can't overwrite.copy this as base
+
  * @author aki
  *
  */

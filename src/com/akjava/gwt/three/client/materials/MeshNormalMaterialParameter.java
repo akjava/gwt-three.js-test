@@ -40,73 +40,89 @@ package com.akjava.gwt.three.client.materials;
 import com.akjava.gwt.three.client.gwt.JSParameter;
 
 /**
-
  * @author aki
- *
+ 
+ this.shading = THREE.FlatShading;
+
+	this.wireframe = false;
+	this.wireframeLinewidth = 1;
+
+	this.morphTargets = false;
+	
  */
-public final class MeshDepthfMaterialParameter extends JSParameter{
-	protected MeshDepthfMaterialParameter(){}
-	public final static MeshDepthfMaterialParameter create(){
-		return (MeshDepthfMaterialParameter) MeshDepthfMaterialParameter.createObject();
+public final class MeshNormalMaterialParameter extends JSParameter{
+	protected MeshNormalMaterialParameter(){}
+	public final static MeshNormalMaterialParameter create(){
+		return (MeshNormalMaterialParameter) MeshNormalMaterialParameter.createObject();
 	}
 	
-	public final native MeshDepthfMaterialParameter wireframe(boolean wireframe)/*-{
+	public final native MeshNormalMaterialParameter shading(int shading)/*-{
+	this.shading=shading;
+	return this;
+	}-*/;
+	
+	public final native MeshNormalMaterialParameter wireframe(boolean wireframe)/*-{
 	this.wireframe=wireframe;
 	return this;
 	}-*/;
 	
-	public final native MeshDepthfMaterialParameter wireframeLinewidth(double wireframeLinewidth)/*-{
+	public final native MeshNormalMaterialParameter wireframeLinewidth(double wireframeLinewidth)/*-{
 	this.wireframeLinewidth=wireframeLinewidth;
 	return this;
 	}-*/;
 	
-	public final native MeshDepthfMaterialParameter side(int side)/*-{
+	public final native MeshNormalMaterialParameter morphTargets(boolean morphTargets)/*-{
+	this.morphTargets=morphTargets;
+	return this;
+	}-*/;
+	
+	public final native MeshNormalMaterialParameter side(int side)/*-{
 	this.side=side;
 	return this;
 	}-*/;
 	
-	public final native MeshDepthfMaterialParameter opacity(double opacity)/*-{
+	public final native MeshNormalMaterialParameter opacity(double opacity)/*-{
 	this.opacity=opacity;
 	return this;
 	}-*/;
-	public final native MeshDepthfMaterialParameter transparent(boolean transparent)/*-{
+	public final native MeshNormalMaterialParameter transparent(boolean transparent)/*-{
 	this.transparent=transparent;
 	return this;
 	}-*/;
 	
-	public final native MeshDepthfMaterialParameter depthTest(boolean depthTest)/*-{
+	public final native MeshNormalMaterialParameter depthTest(boolean depthTest)/*-{
 	this.depthTest=depthTest;
 	return this;
 	}-*/;
 	
-	public final native MeshDepthfMaterialParameter depthWrite(boolean depthWrite)/*-{
+	public final native MeshNormalMaterialParameter depthWrite(boolean depthWrite)/*-{
 	this.depthWrite=depthWrite;
 	return this;
 	}-*/;
 	
-	public final native MeshDepthfMaterialParameter polygonOffset(boolean polygonOffset)/*-{
+	public final native MeshNormalMaterialParameter polygonOffset(boolean polygonOffset)/*-{
 	this.polygonOffset=polygonOffset;
 	return this;
 	}-*/;
 	
-	public final native MeshDepthfMaterialParameter blending(int blending)/*-{
+	public final native MeshNormalMaterialParameter blending(int blending)/*-{
 	this.blending=blending;
 	return this;
 	}-*/;
 	
-	public final native MeshDepthfMaterialParameter blendSrc(int blendSrc)/*-{
+	public final native MeshNormalMaterialParameter blendSrc(int blendSrc)/*-{
 	this.blendSrc=blendSrc;
 	return this;
 	}-*/;
 	
 	
 	
-	public final native MeshDepthfMaterialParameter blendDst(int blendDst)/*-{
+	public final native MeshNormalMaterialParameter blendDst(int blendDst)/*-{
 	this.blendDst=blendDst;
 	return this;
 	}-*/;
 	
-	public final native MeshDepthfMaterialParameter blendEquation(int blendEquation)/*-{
+	public final native MeshNormalMaterialParameter blendEquation(int blendEquation)/*-{
 	this.blendEquation=blendEquation;
 	return this;
 	}-*/;
@@ -114,24 +130,24 @@ public final class MeshDepthfMaterialParameter extends JSParameter{
 	
 	
 	
-	public final native MeshDepthfMaterialParameter polygonOffsetFactor(double polygonOffsetFactor)/*-{
+	public final native MeshNormalMaterialParameter polygonOffsetFactor(double polygonOffsetFactor)/*-{
 	this.polygonOffsetFactor=polygonOffsetFactor;
 	return this;
 	}-*/;
 	
-	public final native MeshDepthfMaterialParameter polygonOffsetUnits(double polygonOffsetUnits)/*-{
+	public final native MeshNormalMaterialParameter polygonOffsetUnits(double polygonOffsetUnits)/*-{
 	this.polygonOffsetUnits=polygonOffsetUnits;
 	return this;
 	}-*/;
-	public final native MeshDepthfMaterialParameter alphaTest(double alphaTest)/*-{
+	public final native MeshNormalMaterialParameter alphaTest(double alphaTest)/*-{
 	this.alphaTest=alphaTest;
 	return this;
 	}-*/;
-	public final native MeshDepthfMaterialParameter overdraw(double overdraw)/*-{
+	public final native MeshNormalMaterialParameter overdraw(double overdraw)/*-{
 	this.overdraw=overdraw;
 	return this;
 	}-*/;
-	public final native MeshDepthfMaterialParameter needsUpdate(boolean needsUpdate)/*-{
+	public final native MeshNormalMaterialParameter needsUpdate(boolean needsUpdate)/*-{
 	this.needsUpdate=needsUpdate;
 	return this;
 	}-*/;

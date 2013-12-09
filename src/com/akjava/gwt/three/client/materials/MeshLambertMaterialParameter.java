@@ -42,40 +42,9 @@ import com.akjava.gwt.three.client.gwt.JSParameter;
 import com.akjava.gwt.three.client.textures.Texture;
 
 /**
- * can't overwrite.copy this as base
+
  * @author aki
- this.color = new THREE.Color( 0xffffff ); // diffuse
-	this.ambient = new THREE.Color( 0xffffff );
-	this.emissive = new THREE.Color( 0x000000 );
 
-	this.wrapAround = false;
-	this.wrapRGB = new THREE.Vector3( 1, 1, 1 );
-
-	this.map = null;
-
-	this.lightMap = null;
-
-	this.specularMap = null;
-
-	this.envMap = null;
-	this.combine = THREE.MultiplyOperation;
-	this.reflectivity = 1;
-	this.refractionRatio = 0.98;
-
-	this.fog = true;
-
-	this.shading = THREE.SmoothShading;
-
-	this.wireframe = false;
-	this.wireframeLinewidth = 1;
-	this.wireframeLinecap = 'round';
-	this.wireframeLinejoin = 'round';
-
-	this.vertexColors = THREE.NoColors;
-
-	this.skinning = false;
-	this.morphTargets = false;
-	this.morphNormals = false;
  */
 public final class MeshLambertMaterialParameter extends JSParameter{
 	protected MeshLambertMaterialParameter(){}
