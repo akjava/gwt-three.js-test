@@ -117,6 +117,10 @@ public class THREE {
 	return new $wnd.THREE.LoadingManager();
 	}-*/;
 	
+	public static  native final MeshPhongMaterial SpriteCanvasMaterial(JavaScriptObject parameter)/*-{
+	return  new $wnd.THREE.SpriteCanvasMaterial(parameter);
+	}-*/;
+	
 	public static  native final MeshPhongMaterial ShaderMaterial(JavaScriptObject parameter)/*-{
 	return  new $wnd.THREE.ShaderMaterial(parameter);
 	}-*/;
