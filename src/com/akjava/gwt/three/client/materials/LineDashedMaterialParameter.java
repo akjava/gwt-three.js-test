@@ -57,7 +57,7 @@ public final class LineDashedMaterialParameter extends JSParameter{
 	
 	
 	public final native LineDashedMaterialParameter color(int color)/*-{
-	this.color=c;
+	this.color=color;
 	return this;
 	}-*/;
 	

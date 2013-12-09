@@ -55,7 +55,7 @@ public final class ParticleSystemMaterialParameter extends JSParameter{
 		return color(c);
 	}
 	public final native ParticleSystemMaterialParameter color(int color)/*-{
-	this.color=c;
+	this.color=color;
 	return this;
 	}-*/;
 	

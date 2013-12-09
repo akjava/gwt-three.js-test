@@ -62,7 +62,7 @@ public final class MeshPhongMaterialParameter extends JSParameter{
 		return color(c);
 	}
 	public final native MeshPhongMaterialParameter color(int color)/*-{
-	this.color=c;
+	this.color=color;
 	return this;
 	}-*/;
 	

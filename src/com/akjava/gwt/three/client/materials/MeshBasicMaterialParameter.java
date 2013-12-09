@@ -56,7 +56,7 @@ public final class MeshBasicMaterialParameter extends JSParameter{
 		return color(c);
 	}
 	public final native MeshBasicMaterialParameter color(int color)/*-{
-	this.color=c;
+	this.color=color;
 	return this;
 	}-*/;
 	

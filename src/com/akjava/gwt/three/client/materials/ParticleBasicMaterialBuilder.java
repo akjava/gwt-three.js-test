@@ -2,7 +2,11 @@ package com.akjava.gwt.three.client.materials;
 
 import com.akjava.gwt.three.client.textures.Texture;
 import com.google.gwt.core.client.JavaScriptObject;
-
+/**
+ * @deprecated
+ * @author aki
+ *
+ */
 public class ParticleBasicMaterialBuilder extends JavaScriptObject{
 	protected ParticleBasicMaterialBuilder(){}
 	public final static ParticleBasicMaterialBuilder create(){

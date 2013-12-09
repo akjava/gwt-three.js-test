@@ -57,7 +57,7 @@ public final class LineBasicMaterialParameter extends JSParameter{
 	
 	
 	public final native LineBasicMaterialParameter color(int color)/*-{
-	this.color=c;
+	this.color=color;
 	return this;
 	}-*/;
 	
