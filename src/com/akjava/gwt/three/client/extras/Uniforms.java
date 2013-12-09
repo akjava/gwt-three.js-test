@@ -11,7 +11,7 @@ public  class Uniforms extends JavaScriptObject{
 	
 	protected Uniforms(){}
 	//TODO test and more
-	public native final void set(String key,double value)/*-{
+	public native final void setDouble(String key,double value)/*-{
 	this[key]={type:"f",value:value};
 	}-*/;
 	public native final void set(String key,Texture texture)/*-{
