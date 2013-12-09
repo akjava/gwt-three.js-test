@@ -57,36 +57,36 @@ public final class MeshPhongMaterialParameter extends JSParameter{
 	public final static MeshPhongMaterialParameter create(){
 		return (MeshPhongMaterialParameter) MeshPhongMaterialParameter.createObject();
 	}
-	public final MeshBasicMaterialParameter color(int r,int g,int b){
+	public final MeshPhongMaterialParameter color(int r,int g,int b){
 		int c=(0xff & r)<<16| (0xff & g)<<8|(0xff & b);
 		return color(c);
 	}
-	public final native MeshBasicMaterialParameter color(int color)/*-{
+	public final native MeshPhongMaterialParameter color(int color)/*-{
 	this.color=c;
 	return this;
 	}-*/;
 	
-	public final MeshBasicMaterialParameter ambient(int r,int g,int b){
+	public final MeshPhongMaterialParameter ambient(int r,int g,int b){
 		int c=(0xff & r)<<16| (0xff & g)<<8|(0xff & b);
 		return ambient(c);
 	}
-	public final native MeshBasicMaterialParameter ambient(int ambient)/*-{
+	public final native MeshPhongMaterialParameter ambient(int ambient)/*-{
 	this.ambient=ambient;
 	return this;
 	}-*/;
-	public final MeshBasicMaterialParameter emissive(int r,int g,int b){
+	public final MeshPhongMaterialParameter emissive(int r,int g,int b){
 		int c=(0xff & r)<<16| (0xff & g)<<8|(0xff & b);
 		return emissive(c);
 	}
-	public final native MeshBasicMaterialParameter emissive(int emissive)/*-{
+	public final native MeshPhongMaterialParameter emissive(int emissive)/*-{
 	this.emissive=emissive;
 	return this;
 	}-*/;
-	public final MeshBasicMaterialParameter specular(int r,int g,int b){
+	public final MeshPhongMaterialParameter specular(int r,int g,int b){
 		int c=(0xff & r)<<16| (0xff & g)<<8|(0xff & b);
 		return specular(c);
 	}
-	public final native MeshBasicMaterialParameter specular(int specular)/*-{
+	public final native MeshPhongMaterialParameter specular(int specular)/*-{
 	this.specular=specular;
 	return this;
 	}-*/;
