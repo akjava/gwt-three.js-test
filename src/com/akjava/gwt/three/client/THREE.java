@@ -96,6 +96,9 @@ import com.akjava.gwt.three.client.materials.ShaderMaterial;
 import com.akjava.gwt.three.client.materials.ShaderMaterialBuilder;
 import com.akjava.gwt.three.client.materials.SpriteCanvasMaterial;
 import com.akjava.gwt.three.client.materials.SpriteMaterial;
+import com.akjava.gwt.three.client.math.Box2;
+import com.akjava.gwt.three.client.math.Box3;
+import com.akjava.gwt.three.client.math.Vector2;
 import com.akjava.gwt.three.client.objects.Line;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.objects.MorphAnimMesh;
@@ -117,6 +120,14 @@ import com.google.gwt.dom.client.ImageElement;
 
 public class THREE {
 
+	private static native final Box3 Box3(Vector3 min,Vector3 max)/*-{
+	return new $wnd.THREE. Box3(min,max);
+	}-*/;
+	
+	private static native final Box2 Box2(Vector2 min,Vector2 max)/*-{
+	return new $wnd.THREE. Box2(min,max);
+	}-*/;
+	
 	private static native final LoadingManager LoadingManager()/*-{
 	return new $wnd.THREE.LoadingManager();
 	}-*/;
