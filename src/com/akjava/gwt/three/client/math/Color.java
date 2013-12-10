@@ -35,15 +35,28 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
   
  */
-package com.akjava.gwt.three.client.core;
+package com.akjava.gwt.three.client.math;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArrayNumber;
 
 public class Color extends JavaScriptObject{
 protected Color(){}
 
+public final native Color set(Color value)/*-{
+return this.set( value );
+}-*/;
+
+public final native Color set(String value)/*-{
+return this.set( value );
+}-*/;
+
+public final native Color set(int value)/*-{
+return this.set( value );
+}-*/;
+
 public final native void setHex(int hex)/*-{
-this.setHex(hex);
+return this.setHex(hex);
 }-*/;
 
 public final native int getHex()/*-{
@@ -57,12 +70,99 @@ public final  void setIntRGB(int r,int g,int b){
 	setRGB((double)r/255,(double)g/255,(double)b/255);
 }
 
-public final native void setRGB(double r,double g,double b)/*-{
-this.setRGB(r,g,b);
+public final native Color setRGB(double r,double g,double b)/*-{
+return this.setRGB(r,g,b);
+}-*/;
+/**
+ * @deprecated ?
+ */
+public final native void setHSV(double h,double s,double v)/*-{
+return this.setHSV(h,s,v);
 }-*/;
 
-public final native void setHSV(double h,double s,double v)/*-{
-this.setHSV(h,s,v);
+public final native Object setHSL(double h,double s,double l)/*-{
+return this.setHSL(h,s,l);
+}-*/;
+
+public final native Color setStyle(String style)/*-{
+return this.setStyle(style);
+}-*/;
+
+public final native Color copy(Color color)/*-{
+return this.copy(color);
+}-*/;
+
+public final native Color copyGammaToLinear(Color color)/*-{
+return this.copyGammaToLinear(color);
+}-*/;
+
+public final native Color copyLinearToGamma(Color color)/*-{
+return this.copyLinearToGamma(color);
+}-*/;
+
+public final native Color convertGammaToLinear()/*-{
+return this.convertGammaToLinear();
+}-*/;
+
+public final native Color convertLinearToGamma()/*-{
+return this.convertLinearToGamma();
+}-*/;
+
+
+public final native String getHexString()/*-{
+return this.getHexString();
+}-*/;
+
+public final native HSL getHSL()/*-{
+return this.getHSL();
+}-*/;
+
+public final native String getStyle()/*-{
+return this.getStyle();
+}-*/;
+
+public final native Color offsetHSL(double h,double s,double l)/*-{
+return this.offsetHSL(h,s,l);
+}-*/;
+
+public final native Color add(Color color)/*-{
+return this.add(color);
+}-*/;
+
+public final native Object addColors(Color color1,Color color2)/*-{
+return this.addColors(color1,color2);
+}-*/;
+
+public final native Color addScalar(double s)/*-{
+return this.addScalar(s);
+}-*/;
+
+public final native Color multiply(Color color)/*-{
+return this.multiply(color);
+}-*/;
+
+public final native Object multiplyScalar(double s)/*-{
+return this.multiplyScalar(s);
+}-*/;
+
+public final native Color lerp(Color color,double alpha)/*-{
+return this.lerp(color,alpha);
+}-*/;
+
+public final native boolean equals(Color c)/*-{
+return this.equals(c);
+}-*/;
+
+public final native Color fromArray(JsArrayNumber array)/*-{
+return this.fromArray(array);
+}-*/;
+
+public final native JsArrayNumber toArray()/*-{
+return this.toArray();
+}-*/;
+
+public final native Color clone()/*-{
+return this.clone();
 }-*/;
 
 }

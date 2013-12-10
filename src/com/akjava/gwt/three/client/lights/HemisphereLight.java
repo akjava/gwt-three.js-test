@@ -37,7 +37,7 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.lights;
 
-import com.akjava.gwt.three.client.core.Color;
+import com.akjava.gwt.three.client.math.Color;
 
 
 public class HemisphereLight extends Light{

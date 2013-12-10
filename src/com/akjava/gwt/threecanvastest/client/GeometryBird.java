@@ -2,10 +2,10 @@ package com.akjava.gwt.threecanvastest.client;
 
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.cameras.Camera;
-import com.akjava.gwt.three.client.core.Color;
 import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.materials.Material;
 import com.akjava.gwt.three.client.materials.MeshBasicMaterial;
+import com.akjava.gwt.three.client.math.Color;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;

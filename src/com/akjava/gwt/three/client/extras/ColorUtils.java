@@ -1,6 +1,6 @@
 package com.akjava.gwt.three.client.extras;
 
-import com.akjava.gwt.three.client.core.Color;
+import com.akjava.gwt.three.client.math.Color;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class ColorUtils {
