@@ -1,10 +1,10 @@
 package com.akjava.gwt.three.client.gwt.animation.ik;
 
 import com.akjava.gwt.three.client.THREE;
-import com.akjava.gwt.three.client.core.Quaternion;
 import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.gwt.GWTThreeUtils;
 import com.akjava.gwt.three.client.math.Matrix4;
+import com.akjava.gwt.three.client.math.Quaternion;
 
 public class CDDIK {
 

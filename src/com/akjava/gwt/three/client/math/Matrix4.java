@@ -1,6 +1,5 @@
 package com.akjava.gwt.three.client.math;
 
-import com.akjava.gwt.three.client.core.Quaternion;
 import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.core.Vector4;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -163,7 +162,9 @@ return this.makeRotationZ(v);
 }-*/;
 
 
-
+/**
+ * @deprecated use multiply
+ */
 public native final Matrix4 multiplySelf(Matrix4 b)/*-{
 return this.multiply(this,b);
 }-*/;
