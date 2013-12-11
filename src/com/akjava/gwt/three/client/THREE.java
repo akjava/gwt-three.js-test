@@ -93,11 +93,11 @@ import com.akjava.gwt.three.client.math.Box2;
 import com.akjava.gwt.three.client.math.Box3;
 import com.akjava.gwt.three.client.math.Color;
 import com.akjava.gwt.three.client.math.Euler;
+import com.akjava.gwt.three.client.math.GWTPoint;
 import com.akjava.gwt.three.client.math.Line3;
 import com.akjava.gwt.three.client.math.Matrix3;
 import com.akjava.gwt.three.client.math.Matrix4;
 import com.akjava.gwt.three.client.math.Plane;
-import com.akjava.gwt.three.client.math.GWTPoint;
 import com.akjava.gwt.three.client.math.Quaternion;
 import com.akjava.gwt.three.client.math.Ray;
 import com.akjava.gwt.three.client.math.Sphere;
@@ -107,6 +107,7 @@ import com.akjava.gwt.three.client.math.Vector2;
 import com.akjava.gwt.three.client.math.Vector3;
 import com.akjava.gwt.three.client.math.Vector4;
 import com.akjava.gwt.three.client.math.Vertex;
+import com.akjava.gwt.three.client.objects.Bone;
 import com.akjava.gwt.three.client.objects.Line;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.objects.MorphAnimMesh;
@@ -127,6 +128,9 @@ import com.google.gwt.dom.client.ImageElement;
 
 
 public class THREE {
+	public final native Bone Bone(SkinnedMesh mesh)/*-{
+	return $wnd.THREE.Bone(mesh);
+	}-*/;
 
 	public final native Triangle Triangle(Vector3 a,Vector3 b,Vector3 c)/*-{
 	return $wnd.THREE.Triangle(a,b,c);
