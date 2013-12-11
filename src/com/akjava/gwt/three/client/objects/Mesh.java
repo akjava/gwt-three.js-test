@@ -47,6 +47,36 @@ public class Mesh extends Object3D{
 protected Mesh(){}
 
 
+public final native Geometry getGeometry()/*-{
+return this.geometry;
+}-*/;
+
+public final native void setGeometry(Geometry geometry)/*-{
+this.geometry = geometry;
+}-*/;
+
+
+public final native Material getMaterial()/*-{
+return this.material;
+}-*/;
+
+public final native void setMaterial(Material material)/*-{
+this.material = material;
+}-*/;
+
+public final native void updateMorphTargets()/*-{
+this.updateMorphTargets();
+}-*/;
+
+public final native int getMorphTargetIndexByName(String name)/*-{
+return this.getMorphTargetIndexByName(name);
+}-*/;
+
+public final native Mesh clone(Mesh object)/*-{
+return this.clone(object);
+}-*/;
+
+
 /**
  * @deprecated
  * @param index
@@ -60,9 +90,7 @@ this.geometry.computeTangents();
 this.geometry.computeFaceNormals();
 }-*/;
 
-public final native void setMaterial(Material material)/*-{	
-this.material=material;
-}-*/;
+
 /**
  * @deprecated no more array
  * @return
@@ -90,24 +118,36 @@ this.boundRadius = geometry.boundingSphere.radius;
 public final native JsArray<Material> getMaterials()/*-{	
 return this.materials;
 }-*/;
-public final native Material getMaterial()/*-{	
-return this.material;
-}-*/;
 
 
-
+/**
+ * @deprecated
+ * @return
+ */
 public final native void setOverdraw(boolean bool)/*-{
 this.overdraw=bool;
 }-*/;
+
+/**
+ * @deprecated
+ * @return
+ */
 public final native boolean isOverdraw()/*-{
 return this.overdraw;
 }-*/;
 
+/**
+ * @deprecated
+ * @return
+ */
 public final native void setPhase(double phase)/*-{
 this.phase=phase;
 }-*/;
 
-
+/**
+ * @deprecated
+ * @return
+ */
 public final native double getPhase()/*-{
 return this.phase;
 }-*/;
@@ -129,10 +169,6 @@ this.flipSided=sided;
  
 
 
-public final native Geometry getGeometry()/*-{
-return this.geometry;
-}-*/;
-public final native void setGeometry(Geometry geo)/*-{
-return this.geometry=geo;
-}-*/;
+
+
 }

@@ -108,6 +108,7 @@ import com.akjava.gwt.three.client.math.Vector3;
 import com.akjava.gwt.three.client.math.Vector4;
 import com.akjava.gwt.three.client.math.Vertex;
 import com.akjava.gwt.three.client.objects.Bone;
+import com.akjava.gwt.three.client.objects.LOD;
 import com.akjava.gwt.three.client.objects.Line;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.objects.MorphAnimMesh;
@@ -128,6 +129,10 @@ import com.google.gwt.dom.client.ImageElement;
 
 
 public class THREE {
+	public final native LOD LOD()/*-{
+	return $wnd.THREE.LOD();
+	}-*/;
+	
 	public final native Bone Bone(SkinnedMesh mesh)/*-{
 	return $wnd.THREE.Bone(mesh);
 	}-*/;
