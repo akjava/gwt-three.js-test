@@ -40,6 +40,7 @@ package com.akjava.gwt.three.client.core;
 import java.util.List;
 
 import com.akjava.gwt.three.client.cameras.Camera;
+import com.akjava.gwt.three.client.math.Ray;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.scenes.Scene;
 import com.google.gwt.core.client.JavaScriptObject;

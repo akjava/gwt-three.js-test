@@ -35,9 +35,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
   
  */
-package com.akjava.gwt.three.client.core;
+package com.akjava.gwt.three.client.math;
 
-import com.akjava.gwt.three.client.cameras.Camera;
+import com.akjava.gwt.three.client.core.Intersect;
+import com.akjava.gwt.three.client.core.Object3D;
+import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.scenes.Scene;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
@@ -45,16 +47,102 @@ import com.google.gwt.core.client.JsArray;
 public class Ray extends JavaScriptObject{
 protected Ray(){}
 
+public final native Vector3 getOrigin()/*-{
+return this.origin;
+}-*/;
+
+public final native Vector3 getDirection()/*-{
+return this.direction;
+}-*/;
+
+
+
+public final native Ray set(Vector3 origin,Vector3 direction)/*-{
+return this.set(origin,direction);
+}-*/;
+
+public final native Ray copy(Ray ray)/*-{
+return this.copy(ray);
+}-*/;
+
+
+public final native Vector3 at(double t,Vector3 optionalTarget)/*-{
+return this.at(t,optionalTarget);
+}-*/;
+
+public final native Ray recast(double t)/*-{
+return this.recast();
+}-*/;
+
+public final native Vector3 closestPointToPoint(Vector3 point,Vector3 optionalTarget)/*-{
+return this.closestPointToPoint(point,optionalTarget);
+}-*/;
+
+public final native double distanceToPoint(Vector3 point)/*-{
+return this.distanceToPoint(point);
+}-*/;
+
+public final native double distanceSqToSegment(Vector3 v0,Vector3 v1,Vector3 optionalPointOnRay,Vector3 optionalPointOnSegment)/*-{
+return this.distanceSqToSegment(v0,v1,optionalPointOnRay,optionalPointOnSegment);
+}-*/;
+
+public final native boolean isIntersectionSphere(Sphere sphere)/*-{
+return this.isIntersectionSphere(sphere);
+}-*/;
+
+public final native boolean isIntersectionPlane(Plane plane)/*-{
+return this.isIntersectionPlane(plane);
+}-*/;
+
+public final native Double distanceToPlane(Plane plane)/*-{
+return this.distanceToPlane(plane);
+}-*/;
+
+public final native Vector3 intersectPlane(Plane plane,Vector3 optionalTarget)/*-{
+return this.intersectPlane(plane,optionalTarget);
+}-*/;
+
+public final native boolean isIntersectionBox(Box3 box)/*-{
+return this.isIntersectionBox(box);
+}-*/;
+
+public final native Vector3 intersectBox(Box3 box,Vector3 optionalTarget)/*-{
+return this.intersectBox(box,optionalTarget);
+}-*/;
+
+public final native Object intersectTriangle(Vector3 a,Vector3 b,Vector3 c,boolean backfaceCulling,Vector3 optionalTarget)/*-{
+return this.intersectTriangle();
+}-*/;
+
+public final native Ray applyMatrix4(Matrix4 matrix4)/*-{
+return this.applyMatrix4(matrix4);
+}-*/;
+
+public final native boolean equals(Ray ray)/*-{
+return this.equals(ray);
+}-*/;
+
+public final native Ray clone()/*-{
+return this.clone();
+}-*/;
+
+/**
+ * @deprecated?
+ */
 public final native JsArray<Intersect> intersectScene(Scene scene)/*-{
 				return  this.intersectScene( scene );
-
 }-*/;
 
+/**
+ * @deprecated?
+ */
 public final native JsArray<Intersect> intersectObjects(JsArray<Object3D> objects)/*-{
 			return  this.intersectObjects( objects );
-
 }-*/;
 
+/**
+ * @deprecated?
+ */
 public final native JsArray<Intersect> intersectObject(Object3D object)/*-{
 			return  this.intersectObject( object );
 

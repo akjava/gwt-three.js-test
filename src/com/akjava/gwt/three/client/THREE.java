@@ -47,7 +47,6 @@ import com.akjava.gwt.three.client.core.Face3;
 import com.akjava.gwt.three.client.core.Geometry;
 import com.akjava.gwt.three.client.core.Object3D;
 import com.akjava.gwt.three.client.core.Projector;
-import com.akjava.gwt.three.client.core.Ray;
 import com.akjava.gwt.three.client.core.Raycaster;
 import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.core.Vector4;
@@ -97,8 +96,13 @@ import com.akjava.gwt.three.client.math.Box2;
 import com.akjava.gwt.three.client.math.Box3;
 import com.akjava.gwt.three.client.math.Color;
 import com.akjava.gwt.three.client.math.Euler;
+import com.akjava.gwt.three.client.math.Line3;
+import com.akjava.gwt.three.client.math.Matrix3;
 import com.akjava.gwt.three.client.math.Matrix4;
+import com.akjava.gwt.three.client.math.Plane;
 import com.akjava.gwt.three.client.math.Quaternion;
+import com.akjava.gwt.three.client.math.Ray;
+import com.akjava.gwt.three.client.math.Sphere;
 import com.akjava.gwt.three.client.math.Vector2;
 import com.akjava.gwt.three.client.objects.Line;
 import com.akjava.gwt.three.client.objects.Mesh;
@@ -121,6 +125,29 @@ import com.google.gwt.dom.client.ImageElement;
 
 public class THREE {
 
+	public final native Sphere Sphere(Vector3 center,double radius)/*-{
+	return $wnd.THREE.Sphere(center,radius);
+	}-*/;
+	
+	public static final native Plane Plane(Vector3 normal,double constant)/*-{
+	return $wnd.THREE.Plane(normal,constant);
+	}-*/;
+	
+	public final native Matrix4 Matrix4(double n11,double n12,double n13,double n14,double n21,double n22,double n23,double n24,double n31,double n32,double n33,double n34,double n41,double n42,double n43,double n44)/*-{
+	return $wnd.THREE.Matrix4(n11,n12,n13,n14,n21,n22,n23,n24,n31,n32,n33,n34,n41,n42,n43,n44);
+	}-*/;
+	
+	public static final native Matrix3 Matrix3(double n11,double n12,double n13,double n21,double n22,double n23,double n31,double n32,double n33)/*-{
+	return $wnd.THREE.Matrix3(n11,n12,n13,n21,n22,n23,n31,n32,n33);
+	}-*/;
+	public static final native Matrix3 Matrix3()/*-{
+	return $wnd.THREE.Matrix3();
+	}-*/;
+	
+	private static native final Line3 Line3(Vector3 start,Vector3 end)/*-{
+	return new $wnd.THREE.Line3(start,end);
+	}-*/;
+	
 	private static native final Euler Euler(double x,double y,double z,String order)/*-{
 	return new $wnd.THREE. Euler(x,y,z,order);
 	}-*/;
