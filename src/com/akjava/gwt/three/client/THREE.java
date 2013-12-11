@@ -105,6 +105,7 @@ import com.akjava.gwt.three.client.math.Quaternion;
 import com.akjava.gwt.three.client.math.Ray;
 import com.akjava.gwt.three.client.math.Sphere;
 import com.akjava.gwt.three.client.math.Spline;
+import com.akjava.gwt.three.client.math.Triangle;
 import com.akjava.gwt.three.client.math.Vector2;
 import com.akjava.gwt.three.client.objects.Line;
 import com.akjava.gwt.three.client.objects.Mesh;
@@ -127,6 +128,10 @@ import com.google.gwt.dom.client.ImageElement;
 
 public class THREE {
 
+	public final native Triangle Triangle(Vector3 a,Vector3 b,Vector3 c)/*-{
+	return $wnd.THREE.Triangle(a,b,c);
+	}-*/;
+	
 	public final native Spline Spline(JsArray<Point> points)/*-{
 	return $wnd.THREE.Spline(points);
 	}-*/;

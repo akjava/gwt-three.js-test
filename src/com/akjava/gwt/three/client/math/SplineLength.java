@@ -2,7 +2,11 @@ package com.akjava.gwt.three.client.math;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayNumber;
-
+/**
+ * for Spline
+ * @author aki
+ *
+ */
 public class SplineLength extends JavaScriptObject {
 	protected SplineLength() {
 	}
