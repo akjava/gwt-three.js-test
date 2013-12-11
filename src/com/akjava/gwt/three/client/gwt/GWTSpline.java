@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class GWTSpline {
 
-	public static GWTPoint get2DPoint(List<GWTPoint> points,double value){
+	public static GWT2DPoint get2DPoint(List<GWT2DPoint> points,double value){
 		double point = ( points.size() - 1 ) * value;
 		int intPoint = (int) java.lang.Math.floor( point );
 		double weight = point - intPoint;
@@ -25,7 +25,7 @@ public class GWTSpline {
 		double x = GWTSpline.interpolate( points.get(c[0]).getX(), points.get(c[1]).getX(),points.get(c[2]).getX(),points.get(c[3]).getX(), weight );
 		double y = GWTSpline.interpolate( points.get(c[0]).getY(), points.get(c[1]).getY(),points.get(c[2]).getY(),points.get(c[3]).getY(), weight );
 	
-		return GWTPoint.create(x, y);
+		return GWT2DPoint.create(x, y);
 	}
 	
 	// Catmull-Rom

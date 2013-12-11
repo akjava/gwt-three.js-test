@@ -48,7 +48,6 @@ import com.akjava.gwt.three.client.core.Geometry;
 import com.akjava.gwt.three.client.core.Object3D;
 import com.akjava.gwt.three.client.core.Projector;
 import com.akjava.gwt.three.client.core.Raycaster;
-import com.akjava.gwt.three.client.core.Vector4;
 import com.akjava.gwt.three.client.experiments.CSS3DRenderer;
 import com.akjava.gwt.three.client.extras.animation.Animation;
 import com.akjava.gwt.three.client.extras.geometries.CubeGeometry;
@@ -98,7 +97,7 @@ import com.akjava.gwt.three.client.math.Line3;
 import com.akjava.gwt.three.client.math.Matrix3;
 import com.akjava.gwt.three.client.math.Matrix4;
 import com.akjava.gwt.three.client.math.Plane;
-import com.akjava.gwt.three.client.math.Point;
+import com.akjava.gwt.three.client.math.GWTPoint;
 import com.akjava.gwt.three.client.math.Quaternion;
 import com.akjava.gwt.three.client.math.Ray;
 import com.akjava.gwt.three.client.math.Sphere;
@@ -106,6 +105,7 @@ import com.akjava.gwt.three.client.math.Spline;
 import com.akjava.gwt.three.client.math.Triangle;
 import com.akjava.gwt.three.client.math.Vector2;
 import com.akjava.gwt.three.client.math.Vector3;
+import com.akjava.gwt.three.client.math.Vector4;
 import com.akjava.gwt.three.client.math.Vertex;
 import com.akjava.gwt.three.client.objects.Line;
 import com.akjava.gwt.three.client.objects.Mesh;
@@ -132,7 +132,7 @@ public class THREE {
 	return $wnd.THREE.Triangle(a,b,c);
 	}-*/;
 	
-	public final native Spline Spline(JsArray<Point> points)/*-{
+	public final native Spline Spline(JsArray<GWTPoint> points)/*-{
 	return $wnd.THREE.Spline(points);
 	}-*/;
 	

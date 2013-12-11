@@ -8,11 +8,11 @@ public abstract class AbstractMovingXYControler {
 	protected long duration;
 	protected long total;
 	protected boolean moving;
-	protected List<GWTPoint> points;
+	protected List<GWT2DPoint> points;
 
 	
 
-public AbstractMovingXYControler(List<GWTPoint> points,long duration){
+public AbstractMovingXYControler(List<GWT2DPoint> points,long duration){
 	this.points=points;
 	this.duration=duration;
 	moving=true;
@@ -49,12 +49,12 @@ public void setMoving(boolean moving) {
 }
 
 
-public List<GWTPoint> getPoints() {
+public List<GWT2DPoint> getPoints() {
 	return points;
 }
 
 
-public void setPoints(List<GWTPoint> points) {
+public void setPoints(List<GWT2DPoint> points) {
 	this.points = points;
 }
 
@@ -67,7 +67,7 @@ if(!moving){
 }
 total+=delta;
 if(total<duration){
-	GWTPoint pt=GWTSpline.get2DPoint(points, (double)total/duration);
+	GWT2DPoint pt=GWTSpline.get2DPoint(points, (double)total/duration);
 	LogUtils.log(pt);
 	moveTo(pt.getX(),pt.getY());
 }else{

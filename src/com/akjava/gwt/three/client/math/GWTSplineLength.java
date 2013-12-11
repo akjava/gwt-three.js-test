@@ -7,8 +7,8 @@ import com.google.gwt.core.client.JsArrayNumber;
  * @author aki
  *
  */
-public class SplineLength extends JavaScriptObject {
-	protected SplineLength() {
+public class GWTSplineLength extends JavaScriptObject {
+	protected GWTSplineLength() {
 	}
 
 	public final native double totalLength ()/*-{

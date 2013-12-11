@@ -24,7 +24,7 @@ public void setListener(MovingEndListener listener) {
 	this.listener = listener;
 }
 
-public MovingXYControler(List<GWTPoint> points,int duration,Object3D target){
+public MovingXYControler(List<GWT2DPoint> points,int duration,Object3D target){
 	super(points,duration);
 	this.target=target;
 }
@@ -32,7 +32,7 @@ public MovingXYControler(List<GWTPoint> points,int duration,Object3D target){
 @Override
 public void moveEnd() {
 	//move finished
-	GWTPoint last=points.get(points.size()-1);
+	GWT2DPoint last=points.get(points.size()-1);
 	target.getPosition().setX(last.getX());
 	target.getPosition().setY(last.getY());
 	
