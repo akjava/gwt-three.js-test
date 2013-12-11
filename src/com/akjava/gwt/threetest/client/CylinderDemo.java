@@ -73,8 +73,8 @@ private Timer timer;
 		
 		timer = new Timer(){
 			public void run(){
-				mesh.getRotation().incrementX(0.02);
-				mesh.getRotation().incrementY(0.02);
+				mesh.getRotation().gwtIncrementX(0.02);
+				mesh.getRotation().gwtIncrementY(0.02);
 				renderer.render(scene, camera);
 
 			}

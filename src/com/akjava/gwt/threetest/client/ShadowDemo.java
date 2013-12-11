@@ -80,10 +80,10 @@ private WebGLRenderer renderer;
 		
 		timer = new Timer(){
 			public void run(){
-				mesh2.getRotation().incrementX(0.02);
-				mesh2.getRotation().incrementY(0.02);
-				mesh3.getRotation().incrementX(0.02);
-				mesh3.getRotation().incrementZ(0.02);
+				mesh2.getRotation().gwtIncrementX(0.02);
+				mesh2.getRotation().gwtIncrementY(0.02);
+				mesh3.getRotation().gwtIncrementX(0.02);
+				mesh3.getRotation().gwtIncrementZ(0.02);
 				renderer.render(scene, camera);
 
 			}

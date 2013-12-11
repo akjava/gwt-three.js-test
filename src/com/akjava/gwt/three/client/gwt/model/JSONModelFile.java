@@ -2,9 +2,9 @@ package com.akjava.gwt.three.client.gwt.model;
 
 import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.core.Face3;
-import com.akjava.gwt.three.client.core.UV;
 import com.akjava.gwt.three.client.core.Vector4;
 import com.akjava.gwt.three.client.core.Vertex;
+import com.akjava.gwt.three.client.math.UV;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayNumber;

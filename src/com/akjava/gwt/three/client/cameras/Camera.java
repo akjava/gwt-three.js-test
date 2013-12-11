@@ -38,8 +38,8 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client.cameras;
 
 import com.akjava.gwt.three.client.core.Object3D;
-import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.math.Matrix4;
+import com.akjava.gwt.three.client.math.Vector3;
 
 
 public class Camera extends Object3D{

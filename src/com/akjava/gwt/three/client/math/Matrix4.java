@@ -1,6 +1,5 @@
 package com.akjava.gwt.three.client.math;
 
-import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.core.Vector4;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayNumber;

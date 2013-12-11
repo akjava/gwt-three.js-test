@@ -90,8 +90,8 @@ public class PlainDemo extends AbstractDemo{
 		
 		Timer timer = new Timer(){
 			public void run(){
-				object.getRotation().incrementX(0.02);
-				object.getRotation().incrementY(0.02);
+				object.getRotation().gwtIncrementX(0.02);
+				object.getRotation().gwtIncrementY(0.02);
 				renderer.render(scene, camera);
 
 			}

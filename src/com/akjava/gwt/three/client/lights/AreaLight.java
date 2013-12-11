@@ -37,7 +37,7 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.lights;
 
-import com.akjava.gwt.three.client.core.Vector3;
+import com.akjava.gwt.three.client.math.Vector3;
 
 
 public class AreaLight extends Light{

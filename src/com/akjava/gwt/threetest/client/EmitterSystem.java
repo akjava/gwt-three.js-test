@@ -4,11 +4,11 @@ import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.core.Geometry;
 import com.akjava.gwt.three.client.core.Object3D;
-import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.core.Vertex;
 import com.akjava.gwt.three.client.extras.ImageUtils;
 import com.akjava.gwt.three.client.materials.ParticleBasicMaterial;
 import com.akjava.gwt.three.client.materials.ParticleBasicMaterialBuilder;
+import com.akjava.gwt.three.client.math.Vector3;
 import com.akjava.gwt.three.client.objects.ParticleSystem;
 
 /**

@@ -1,7 +1,11 @@
-package com.akjava.gwt.three.client.core;
+package com.akjava.gwt.three.client.math;
 
 import com.google.gwt.core.client.JavaScriptObject;
-
+/**
+ * @deprecated use Vector2
+ * @author aki
+ *
+ */
 public class UV extends JavaScriptObject{
 protected UV(){}
 

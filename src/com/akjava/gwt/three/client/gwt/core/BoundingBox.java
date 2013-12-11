@@ -1,6 +1,6 @@
 package com.akjava.gwt.three.client.gwt.core;
 
-import com.akjava.gwt.three.client.core.Vector3;
+import com.akjava.gwt.three.client.math.Vector3;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class BoundingBox extends JavaScriptObject{

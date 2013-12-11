@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.akjava.gwt.three.client.THREE;
-import com.akjava.gwt.three.client.core.Vector3;
+import com.akjava.gwt.three.client.math.Vector3;
 
 public class IKData {
 	public IKData(String name){

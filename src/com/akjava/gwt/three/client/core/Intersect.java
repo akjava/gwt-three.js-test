@@ -37,6 +37,7 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.core;
 
+import com.akjava.gwt.three.client.math.Vector3;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class Intersect extends JavaScriptObject{

@@ -21,10 +21,10 @@ import java.util.List;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.core.Geometry;
-import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.extras.ImageUtils;
 import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.materials.Material;
+import com.akjava.gwt.three.client.math.Vector3;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.objects.ParticleSystem;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
@@ -190,13 +190,13 @@ private Mesh mesh;
 		public void update(){
 			
 			if(smoke){
-				vertex.incrementX(xd/3);
-				vertex.incrementY(yd/3);
-				vertex.incrementZ(zd);
+				vertex.gwtIncrementX(xd/3);
+				vertex.gwtIncrementY(yd/3);
+				vertex.gwtIncrementZ(zd);
 			}else{
-				vertex.incrementX(xd/5);
-				vertex.incrementY(yd/5);
-				vertex.incrementZ(zd/10);
+				vertex.gwtIncrementX(xd/5);
+				vertex.gwtIncrementY(yd/5);
+				vertex.gwtIncrementZ(zd/10);
 			}
 			
 		//	mesh.getRotation().incrementX(xrd);

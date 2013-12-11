@@ -39,6 +39,7 @@ package com.akjava.gwt.three.client.core;
 
 import com.akjava.gwt.three.client.math.Matrix4;
 import com.akjava.gwt.three.client.math.Quaternion;
+import com.akjava.gwt.three.client.math.Vector3;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 

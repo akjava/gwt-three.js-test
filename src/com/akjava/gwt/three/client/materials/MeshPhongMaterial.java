@@ -37,9 +37,9 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.materials;
 
-import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.math.Color;
 import com.akjava.gwt.three.client.math.Vector2;
+import com.akjava.gwt.three.client.math.Vector3;
 import com.akjava.gwt.three.client.textures.Texture;
 import com.google.gwt.core.client.JavaScriptObject;
 

@@ -38,7 +38,6 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client.math;
 
 import com.akjava.gwt.three.client.core.Object3D;
-import com.akjava.gwt.three.client.core.Vector3;
 import com.google.gwt.core.client.JavaScriptObject;
 
 

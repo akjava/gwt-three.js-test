@@ -1,7 +1,7 @@
 package com.akjava.gwt.three.client.gwt.animation;
 
 import com.akjava.gwt.three.client.THREE;
-import com.akjava.gwt.three.client.core.Vector3;
+import com.akjava.gwt.three.client.math.Vector3;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JsArray;
 

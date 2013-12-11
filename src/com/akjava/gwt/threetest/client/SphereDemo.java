@@ -58,8 +58,8 @@ public class SphereDemo extends AbstractDemo{
 				camera.setPosition(cameraControle.getPositionX(), cameraControle.getPositionY(), cameraControle.getPositionZ());
 				
 				
-				mesh.getRotation().incrementX(0.02);
-				mesh.getRotation().incrementY(0.02);
+				mesh.getRotation().gwtIncrementX(0.02);
+				mesh.getRotation().gwtIncrementY(0.02);
 				renderer.render(scene, camera);
 			}
 		};

@@ -177,17 +177,17 @@ private Mesh mesh;
 		public void update(){
 			
 			if(smoke){
-			mesh.getPosition().incrementX(xd/3);
-			mesh.getPosition().incrementY(yd/3);
-			mesh.getPosition().incrementZ(zd);
+			mesh.getPosition().gwtIncrementX(xd/3);
+			mesh.getPosition().gwtIncrementY(yd/3);
+			mesh.getPosition().gwtIncrementZ(zd);
 			}else{
-				mesh.getPosition().incrementX(xd/5);
-				mesh.getPosition().incrementY(yd/5);
-				mesh.getPosition().incrementZ(zd/10);
+				mesh.getPosition().gwtIncrementX(xd/5);
+				mesh.getPosition().gwtIncrementY(yd/5);
+				mesh.getPosition().gwtIncrementZ(zd/10);
 			}
 			
-			mesh.getRotation().incrementX(xrd);
-			mesh.getRotation().incrementZ(zrd);
+			mesh.getRotation().gwtIncrementX(xrd);
+			mesh.getRotation().gwtIncrementZ(zrd);
 			
 			ticks++;
 			if(ticks>100){

@@ -5,10 +5,10 @@ import java.util.List;
 
 import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.THREE;
-import com.akjava.gwt.three.client.core.Vector3;
 import com.akjava.gwt.three.client.gwt.GWTThreeUtils;
 import com.akjava.gwt.three.client.gwt.ThreeLog;
 import com.akjava.gwt.three.client.math.Matrix4;
+import com.akjava.gwt.three.client.math.Vector3;
 import com.google.gwt.core.client.JsArray;
 
 public class AnimationBonesData {
