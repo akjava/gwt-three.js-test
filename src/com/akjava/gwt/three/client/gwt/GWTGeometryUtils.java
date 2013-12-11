@@ -3,11 +3,12 @@ package com.akjava.gwt.three.client.gwt;
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.core.Geometry;
 import com.akjava.gwt.three.client.core.MorphTarget;
+import com.akjava.gwt.three.client.core.Object3D;
 import com.akjava.gwt.three.client.extras.GeometryUtils;
 import com.akjava.gwt.three.client.loaders.JSONLoader;
 import com.akjava.gwt.three.client.loaders.JSONLoader.JSONLoadHandler;
+import com.akjava.gwt.three.client.materials.LineBasicMaterialParameter;
 import com.akjava.gwt.three.client.math.Vector3;
-import com.akjava.gwt.three.client.math.Vertex;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -32,12 +33,12 @@ public class GWTGeometryUtils {
 		
 		return lineG;
 	}
-	public final static  Mesh createLineMesh(Vector3 from,Vector3 to,int color){
+	public final static  Object3D createLineMesh(Vector3 from,Vector3 to,int color){
 		return THREE.Line(GWTGeometryUtils.createLineGeometry(from, to),
-				THREE.LineBasicMaterial().color(color).build());
+				THREE.LineBasicMaterial(LineBasicMaterialParameter.create().color(color)));
 	}
 	
-	public final static  Mesh createLineMesh(Vector3 from,Vector3 to,int color,double lineWidth){
+	public final static  Object3D createLineMesh(Vector3 from,Vector3 to,int color,double lineWidth){
 		return THREE.Line(GWTGeometryUtils.createLineGeometry(from, to),
 				THREE.LineBasicMaterial().color(color).linewidth(lineWidth).build());
 	}
