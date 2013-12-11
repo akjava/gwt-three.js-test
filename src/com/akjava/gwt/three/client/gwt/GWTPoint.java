@@ -3,9 +3,9 @@ package com.akjava.gwt.three.client.gwt;
 import com.google.gwt.core.client.JavaScriptObject;
 
 
-public class Point extends JavaScriptObject{
+public class GWTPoint extends JavaScriptObject{
 
-	protected Point(){}
+	protected GWTPoint(){}
 	
 	public   final native double getX()/*-{
 	return this.x;
@@ -25,7 +25,7 @@ public class Point extends JavaScriptObject{
 	this.y=y;
 	}-*/;
 	
-	public  static final native Point create(double x,double y)/*-{
+	public  static final native GWTPoint create(double x,double y)/*-{
 	var pt={"x":x,"y":y};
 	return pt;
 	}-*/;

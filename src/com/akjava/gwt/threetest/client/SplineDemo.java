@@ -23,8 +23,8 @@ import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.core.Geometry;
 import com.akjava.gwt.three.client.gwt.AbstractMovingXYControler;
 import com.akjava.gwt.three.client.gwt.Clock;
-import com.akjava.gwt.three.client.gwt.Point;
-import com.akjava.gwt.three.client.gwt.Spline;
+import com.akjava.gwt.three.client.gwt.GWTPoint;
+import com.akjava.gwt.three.client.gwt.GWTSpline;
 import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.materials.Material;
 import com.akjava.gwt.three.client.objects.Mesh;
@@ -48,11 +48,11 @@ private Timer timer;
 		
 		final Scene scene=THREE.Scene();
 		
-		final List<Point> pts=new ArrayList<Point>();
+		final List<GWTPoint> pts=new ArrayList<GWTPoint>();
 		for(int i=0;i<10;i++){
 			double mx=Math.random()*20+i*20-100;
 			double my=Math.random()*100;
-			pts.add(Point.create(mx, my));
+			pts.add(GWTPoint.create(mx, my));
 			final Mesh mesh=THREE.Mesh(THREE.SphereGeometry(2, 16, 16), 
 					THREE.MeshLambertMaterial().color(0xff0000).build());
 			mesh.setPosition(mx, my, 0);

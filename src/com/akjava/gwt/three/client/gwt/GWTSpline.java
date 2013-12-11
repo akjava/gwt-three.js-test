@@ -2,16 +2,18 @@ package com.akjava.gwt.three.client.gwt;
 
 import java.util.List;
 
+
 /**
+ * but now Spline is in three.js
  * http://sole.github.com/tween.js/examples/05_spline.html
  * @author aki
  *
  */
-public class Spline {
+public class GWTSpline {
 
-	public static Point get2DPoint(List<Point> points,double value){
+	public static GWTPoint get2DPoint(List<GWTPoint> points,double value){
 		double point = ( points.size() - 1 ) * value;
-		int intPoint = (int) Math.floor( point );
+		int intPoint = (int) java.lang.Math.floor( point );
 		double weight = point - intPoint;
 		int[] c=new int[4];
 		
@@ -20,10 +22,10 @@ public class Spline {
 		c[ 2 ] = intPoint > points.size() - 2 ? intPoint : intPoint + 1;
 		c[ 3 ] = intPoint > points.size() - 3 ? intPoint : intPoint + 2;
 		
-		double x = Spline.interpolate( points.get(c[0]).getX(), points.get(c[1]).getX(),points.get(c[2]).getX(),points.get(c[3]).getX(), weight );
-		double y = Spline.interpolate( points.get(c[0]).getY(), points.get(c[1]).getY(),points.get(c[2]).getY(),points.get(c[3]).getY(), weight );
+		double x = GWTSpline.interpolate( points.get(c[0]).getX(), points.get(c[1]).getX(),points.get(c[2]).getX(),points.get(c[3]).getX(), weight );
+		double y = GWTSpline.interpolate( points.get(c[0]).getY(), points.get(c[1]).getY(),points.get(c[2]).getY(),points.get(c[3]).getY(), weight );
 	
-		return Point.create(x, y);
+		return GWTPoint.create(x, y);
 	}
 	
 	// Catmull-Rom
