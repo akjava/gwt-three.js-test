@@ -116,6 +116,8 @@ import com.akjava.gwt.three.client.objects.Particle;
 import com.akjava.gwt.three.client.objects.ParticleSystem;
 import com.akjava.gwt.three.client.objects.SkinnedMesh;
 import com.akjava.gwt.three.client.renderers.GWTRenderObject;
+import com.akjava.gwt.three.client.renderers.WebGLRenderTarget;
+import com.akjava.gwt.three.client.renderers.WebGLRenderTargetCube;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
 import com.akjava.gwt.three.client.textures.Texture;
@@ -129,6 +131,14 @@ import com.google.gwt.dom.client.ImageElement;
 
 
 public class THREE {
+	
+	public final native WebGLRenderTargetCube WebGLRenderTargetCube(double widht,double height,JavaScriptObject options)/*-{
+	return $wnd.THREE.WebGLRenderTargetCube(width,height,options);
+	}-*/;
+	
+	public final native WebGLRenderTarget WebGLRenderTarget(double widht,double height,JavaScriptObject options)/*-{
+	return $wnd.THREE.WebGLRenderTarget(width,height,options);
+	}-*/;
 	public final native LOD LOD()/*-{
 	return $wnd.THREE.LOD();
 	}-*/;
