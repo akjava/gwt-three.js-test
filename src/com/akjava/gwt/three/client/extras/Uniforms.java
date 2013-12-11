@@ -1,12 +1,11 @@
 package com.akjava.gwt.three.client.extras;
 
-import com.akjava.gwt.three.client.materials.MeshLambertMaterialParameter;
 import com.akjava.gwt.three.client.textures.Texture;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public  class Uniforms extends JavaScriptObject{
 	public final static Uniforms create(){
-		return (Uniforms) MeshLambertMaterialParameter.createObject();
+		return (Uniforms) Uniforms.createObject();
 	}
 	
 	protected Uniforms(){}

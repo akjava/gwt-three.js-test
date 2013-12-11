@@ -10,7 +10,11 @@ public class ShaderUtils {
 	}-*/;
 
 	
-
+/**
+ * 
+ * @author aki
+ *
+ */
 public static  class Shader extends JavaScriptObject{
 	protected Shader(){}
 	
@@ -30,6 +34,11 @@ public static  class Shader extends JavaScriptObject{
 	}-*/;
 }
 
+/**
+ * @deprecated useUniforms
+ * @author aki
+ *
+ */
 public static class Uniforms extends JavaScriptObject{
 	protected Uniforms(){}
 	
