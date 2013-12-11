@@ -45,6 +45,34 @@ import com.google.gwt.core.client.JsArray;
 public class ParticleSystem extends Object3D{
 protected ParticleSystem(){}
 
+
+
+
+public final native void setGeometry(Object geometry)/*-{
+this.geometry = geometry;
+}-*/;
+
+
+
+
+public final native void setMaterial(Material material)/*-{
+this.material = material;
+}-*/;
+
+
+public final native boolean isSortParticles()/*-{
+return this.sortParticles;
+}-*/;
+
+
+
+
+
+
+public final native ParticleSystem clone(ParticleSystem object)/*-{
+return this.clone(object);
+}-*/;
+
 public native final void setSortParticles (boolean bool)/*-{
 this.sortParticles=bool;
 }-*/;
