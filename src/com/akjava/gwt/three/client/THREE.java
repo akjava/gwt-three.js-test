@@ -98,6 +98,7 @@ import com.akjava.gwt.three.client.materials.SpriteMaterial;
 import com.akjava.gwt.three.client.math.Box2;
 import com.akjava.gwt.three.client.math.Box3;
 import com.akjava.gwt.three.client.math.Color;
+import com.akjava.gwt.three.client.math.Euler;
 import com.akjava.gwt.three.client.math.Vector2;
 import com.akjava.gwt.three.client.objects.Line;
 import com.akjava.gwt.three.client.objects.Mesh;
@@ -120,6 +121,10 @@ import com.google.gwt.dom.client.ImageElement;
 
 public class THREE {
 
+	private static native final Euler Euler(double x,double y,double z,String order)/*-{
+	return new $wnd.THREE. Euler(x,y,z,order);
+	}-*/;
+	
 	private static native final Box3 Box3(Vector3 min,Vector3 max)/*-{
 	return new $wnd.THREE. Box3(min,max);
 	}-*/;
