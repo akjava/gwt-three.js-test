@@ -37,130 +37,66 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.math;
 
+import com.akjava.gwt.three.client.core.Matrix4;
+import com.akjava.gwt.three.client.core.Vector3;
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.core.client.JsArrayInteger;
 import com.google.gwt.core.client.JsArrayNumber;
 
 
-public class Vector2 extends JavaScriptObject{
-	protected Vector2() {
+public class Matrix3 extends JavaScriptObject{
+	protected Matrix3() {
 	}
 
 
-
-public final native Vector2 set(double x,double y)/*-{
-return this.set(x,y);
+public final native Matrix3 set(double n11,double n12,double n13,double n21,double n22,double n23,double n31,double n32,double n33)/*-{
+return this.set(n11,n12,n13,n21,n22,n23,n31,n32,n33);
 }-*/;
 
-public final native Vector2 setX(double x)/*-{
-return this.setX(x);
+public final native Matrix3 identity()/*-{
+return this.identity();
 }-*/;
 
-public final native Vector2 setY(double y)/*-{
-return this.setY(y);
+public final native Matrix3 copy(Matrix3 m)/*-{
+return this.copy(m);
+}-*/;
+/**
+ * @deprecated
+ * @param vector
+ * @return
+ */
+public final native Matrix3 multiplyVector3(Vector3 vector)/*-{
+return this.multiplyVector3(vector);
 }-*/;
 
-public final native void setComponent(int index,double value)/*-{
-this.setComponent(index,value);
+public final native JsArrayNumber multiplyVector3Array(JsArrayNumber a)/*-{
+return this.multiplyVector3Array(a);
 }-*/;
 
-public final native double getComponent(int index)/*-{
-return this.getComponent(index);
-}-*/;
-
-public final native Vector2 copy(Vector2 v)/*-{
-return this.copy(v);
-}-*/;
-
-public final native Vector2 add(Vector2 v)/*-{
-return this.add(v);
-}-*/;
-
-public final native Vector2 addVectors(Vector2 a,Vector2 b)/*-{
-return this.addVectors(a,b);
-}-*/;
-
-public final native Vector2 addScalar(double s)/*-{
-return this.addScalar(s);
-}-*/;
-
-public final native Object sub(Vector2 v)/*-{
-return this.sub(v);
-}-*/;
-
-public final native Vector2 subVectors(Vector2 a,Vector2 b)/*-{
-return this.subVectors(a,b);
-}-*/;
-
-public final native Vector2 multiplyScalar(double s)/*-{
+public final native Matrix3 multiplyScalar(double s)/*-{
 return this.multiplyScalar(s);
 }-*/;
 
-public final native Vector2 divideScalar(double scalar)/*-{
-return this.divideScalar(scalar);
+public final native double determinant()/*-{
+return this.determinant();
 }-*/;
 
-public final native Vector2 min(Vector2 v)/*-{
-return this.min(v);
+public final native Matrix3 getInverse(Matrix4 matrix,boolean throwOnInvertible)/*-{
+return this.getInverse(matrix,throwOnInvertible);
 }-*/;
 
-public final native Vector2 max(Vector2 v)/*-{
-return this.max(v);
+public final native Matrix3 transpose()/*-{
+return this.transpose();
 }-*/;
 
-public final native Vector2 clamp(Vector2 min,Vector2 max)/*-{
-return this.clamp(min,max);
+public final native Matrix3 getNormalMatrix(Matrix4 m)/*-{
+return this.getNormalMatrix(m);
 }-*/;
 
-public final native Vector2 negate()/*-{
-return this.negate();
+public final native Matrix3 transposeIntoArray(JsArrayNumber r)/*-{
+return this.transposeIntoArray(r);
 }-*/;
 
-public final native double dot(Vector2 v)/*-{
-return this.dot(v);
-}-*/;
-
-public final native Vector2 lengthSq()/*-{
-return this.lengthSq();
-}-*/;
-
-public final native double length()/*-{
-return this.length();
-}-*/;
-
-public final native Vector2 normalize()/*-{
-return this.normalize();
-}-*/;
-
-public final native double distanceTo(Vector2 v)/*-{
-return this.distanceTo(v);
-}-*/;
-
-public final native double distanceToSquared(Vector2 v)/*-{
-return this.distanceToSquared(v);
-}-*/;
-
-public final native Vector2 setLength(double l)/*-{
-return this.setLength(l);
-}-*/;
-
-public final native Vector2 lerp(Vector2 v,Object alpha)/*-{
-return this.lerp(v,alpha);
-}-*/;
-
-public final native boolean equals(Vector2 v)/*-{
-return this.equals(v);
-}-*/;
-
-public final native Object fromArray(JsArrayNumber array)/*-{
-return this.fromArray(array);
-}-*/;
-
-public final native JsArrayNumber toArray()/*-{
-return this.toArray();
-}-*/;
-
-public final native Vector2 clone()/*-{
+public final native Matrix3 clone()/*-{
 return this.clone();
 }-*/;
 

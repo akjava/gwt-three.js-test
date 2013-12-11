@@ -37,130 +37,97 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.math;
 
+import com.akjava.gwt.three.client.core.Matrix4;
+import com.akjava.gwt.three.client.core.Vector3;
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.core.client.JsArrayInteger;
-import com.google.gwt.core.client.JsArrayNumber;
 
 
-public class Vector2 extends JavaScriptObject{
-	protected Vector2() {
+public class Plane extends JavaScriptObject{
+	protected Plane() {
 	}
 
-
-
-public final native Vector2 set(double x,double y)/*-{
-return this.set(x,y);
+public final native Vector3 getNormal()/*-{
+return this.normal;
 }-*/;
 
-public final native Vector2 setX(double x)/*-{
-return this.setX(x);
+
+
+
+public final native double getConstant()/*-{
+return this.constant;
 }-*/;
 
-public final native Vector2 setY(double y)/*-{
-return this.setY(y);
+
+
+public final native Plane set(Vector3 normal,double constant)/*-{
+return this.set(normal,constant);
 }-*/;
 
-public final native void setComponent(int index,double value)/*-{
-this.setComponent(index,value);
+public final native Plane setComponents(double x,double y,double z,double w)/*-{
+return this.setComponents(x,y,z,w);
 }-*/;
 
-public final native double getComponent(int index)/*-{
-return this.getComponent(index);
+public final native Plane setFromNormalAndCoplanarPoint(Vector3 normal,Vector3 point)/*-{
+return this.setFromNormalAndCoplanarPoint(normal,point);
 }-*/;
 
-public final native Vector2 copy(Vector2 v)/*-{
-return this.copy(v);
+public final native Plane setFromCoplanarPoints(Vector3 a,Vector3 b,Vector3 c)/*-{
+return this.setFromCoplanarPoints(a,b,c);
 }-*/;
 
-public final native Vector2 add(Vector2 v)/*-{
-return this.add(v);
+public final native Plane copy(Plane plane)/*-{
+return this.copy(plane);
 }-*/;
 
-public final native Vector2 addVectors(Vector2 a,Vector2 b)/*-{
-return this.addVectors(a,b);
-}-*/;
-
-public final native Vector2 addScalar(double s)/*-{
-return this.addScalar(s);
-}-*/;
-
-public final native Object sub(Vector2 v)/*-{
-return this.sub(v);
-}-*/;
-
-public final native Vector2 subVectors(Vector2 a,Vector2 b)/*-{
-return this.subVectors(a,b);
-}-*/;
-
-public final native Vector2 multiplyScalar(double s)/*-{
-return this.multiplyScalar(s);
-}-*/;
-
-public final native Vector2 divideScalar(double scalar)/*-{
-return this.divideScalar(scalar);
-}-*/;
-
-public final native Vector2 min(Vector2 v)/*-{
-return this.min(v);
-}-*/;
-
-public final native Vector2 max(Vector2 v)/*-{
-return this.max(v);
-}-*/;
-
-public final native Vector2 clamp(Vector2 min,Vector2 max)/*-{
-return this.clamp(min,max);
-}-*/;
-
-public final native Vector2 negate()/*-{
-return this.negate();
-}-*/;
-
-public final native double dot(Vector2 v)/*-{
-return this.dot(v);
-}-*/;
-
-public final native Vector2 lengthSq()/*-{
-return this.lengthSq();
-}-*/;
-
-public final native double length()/*-{
-return this.length();
-}-*/;
-
-public final native Vector2 normalize()/*-{
+public final native Plane normalize()/*-{
 return this.normalize();
 }-*/;
 
-public final native double distanceTo(Vector2 v)/*-{
-return this.distanceTo(v);
+public final native Plane negate()/*-{
+return this.negate();
 }-*/;
 
-public final native double distanceToSquared(Vector2 v)/*-{
-return this.distanceToSquared(v);
+public final native Vector3 distanceToPoint(Vector3 point)/*-{
+return this.distanceToPoint(point);
 }-*/;
 
-public final native Vector2 setLength(double l)/*-{
-return this.setLength(l);
+public final native Vector3 distanceToSphere(Sphere sphere)/*-{
+return this.distanceToSphere(sphere);
 }-*/;
 
-public final native Vector2 lerp(Vector2 v,Object alpha)/*-{
-return this.lerp(v,alpha);
+public final native Object projectPoint(Vector3 point,Vector3 optionalTarget)/*-{
+return this.projectPoint(point,optionalTarget);
 }-*/;
 
-public final native boolean equals(Vector2 v)/*-{
-return this.equals(v);
+public final native Object orthoPoint(Vector3 point,Vector3 optionalTarget)/*-{
+return this.orthoPoint(point,optionalTarget);
 }-*/;
 
-public final native Object fromArray(JsArrayNumber array)/*-{
-return this.fromArray(array);
+public final native boolean isIntersectionLine(Line3 line)/*-{
+return this.isIntersectionLine(line);
 }-*/;
 
-public final native JsArrayNumber toArray()/*-{
-return this.toArray();
+public final native Vector3 intersectLine()/*-{
+return this.intersectLine();
 }-*/;
 
-public final native Vector2 clone()/*-{
+public final native Vector3 coplanarPoint(Vector3 optionalTarget)/*-{
+return this.coplanarPoint(optionalTarget);
+}-*/;
+
+public final native Plane applyMatrix4(Matrix4 matrix,Matrix3 optionalNormalMatrix)/*-{
+return this.applyMatrix4(matrix,optionalNormalMatrix);
+}-*/;
+
+public final native Plane translate(Vector3 offset)/*-{
+return this.translate(offset);
+}-*/;
+
+public final native boolean equals(Plane plane)/*-{
+return this.equals(plane);
+}-*/;
+
+public final native Plane clone()/*-{
 return this.clone();
 }-*/;
 

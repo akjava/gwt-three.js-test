@@ -37,130 +37,78 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.math;
 
+import com.akjava.gwt.three.client.core.Matrix4;
+import com.akjava.gwt.three.client.core.Vector3;
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.core.client.JsArrayInteger;
-import com.google.gwt.core.client.JsArrayNumber;
+import com.google.gwt.core.client.JsArray;
 
 
-public class Vector2 extends JavaScriptObject{
-	protected Vector2() {
+public class Sphere extends JavaScriptObject{
+	protected Sphere() {
 	}
 
-
-
-public final native Vector2 set(double x,double y)/*-{
-return this.set(x,y);
+public final native Vector3 getCenter()/*-{
+return this.center;
 }-*/;
 
-public final native Vector2 setX(double x)/*-{
-return this.setX(x);
+
+
+
+public final native double getRadius()/*-{
+return this.radius;
 }-*/;
 
-public final native Vector2 setY(double y)/*-{
-return this.setY(y);
+
+
+public final native Sphere set(Vector3 center,double radius)/*-{
+return this.set(center,radius);
 }-*/;
 
-public final native void setComponent(int index,double value)/*-{
-this.setComponent(index,value);
+public final native Sphere setFromPoints(JsArray<Vector3> points,Vector3 optionalCenter)/*-{
+return this.setFromPoints(points,optionalCenter);
 }-*/;
 
-public final native double getComponent(int index)/*-{
-return this.getComponent(index);
+public final native Sphere copy(Sphere sphere)/*-{
+return this.copy(sphere);
 }-*/;
 
-public final native Vector2 copy(Vector2 v)/*-{
-return this.copy(v);
+public final native boolean empty()/*-{
+return this.empty();
 }-*/;
 
-public final native Vector2 add(Vector2 v)/*-{
-return this.add(v);
+public final native boolean containsPoint(Vector3 point)/*-{
+return this.containsPoint(point);
 }-*/;
 
-public final native Vector2 addVectors(Vector2 a,Vector2 b)/*-{
-return this.addVectors(a,b);
+public final native double distanceToPoint(Sphere point)/*-{
+return this.distanceToPoint(point);
 }-*/;
 
-public final native Vector2 addScalar(double s)/*-{
-return this.addScalar(s);
+public final native boolean intersectsSphere(Sphere sphere)/*-{
+return this.intersectsSphere(sphere);
 }-*/;
 
-public final native Object sub(Vector2 v)/*-{
-return this.sub(v);
+public final native Vector3 clampPoint(Vector3 point,Vector3 optionalTarget)/*-{
+return this.clampPoint(point,optionalTarget);
 }-*/;
 
-public final native Vector2 subVectors(Vector2 a,Vector2 b)/*-{
-return this.subVectors(a,b);
+public final native Box3 getBoundingBox(Box3 optionalTarget)/*-{
+return this.getBoundingBox(optionalTarget);
 }-*/;
 
-public final native Vector2 multiplyScalar(double s)/*-{
-return this.multiplyScalar(s);
+public final native Sphere applyMatrix4(Matrix4 matrix)/*-{
+return this.applyMatrix4(matrix);
 }-*/;
 
-public final native Vector2 divideScalar(double scalar)/*-{
-return this.divideScalar(scalar);
+public final native Sphere translate(Vector3 offset)/*-{
+return this.translate(offset);
 }-*/;
 
-public final native Vector2 min(Vector2 v)/*-{
-return this.min(v);
+public final native boolean equals(Sphere sphere)/*-{
+return this.equals(sphere);
 }-*/;
 
-public final native Vector2 max(Vector2 v)/*-{
-return this.max(v);
-}-*/;
-
-public final native Vector2 clamp(Vector2 min,Vector2 max)/*-{
-return this.clamp(min,max);
-}-*/;
-
-public final native Vector2 negate()/*-{
-return this.negate();
-}-*/;
-
-public final native double dot(Vector2 v)/*-{
-return this.dot(v);
-}-*/;
-
-public final native Vector2 lengthSq()/*-{
-return this.lengthSq();
-}-*/;
-
-public final native double length()/*-{
-return this.length();
-}-*/;
-
-public final native Vector2 normalize()/*-{
-return this.normalize();
-}-*/;
-
-public final native double distanceTo(Vector2 v)/*-{
-return this.distanceTo(v);
-}-*/;
-
-public final native double distanceToSquared(Vector2 v)/*-{
-return this.distanceToSquared(v);
-}-*/;
-
-public final native Vector2 setLength(double l)/*-{
-return this.setLength(l);
-}-*/;
-
-public final native Vector2 lerp(Vector2 v,Object alpha)/*-{
-return this.lerp(v,alpha);
-}-*/;
-
-public final native boolean equals(Vector2 v)/*-{
-return this.equals(v);
-}-*/;
-
-public final native Object fromArray(JsArrayNumber array)/*-{
-return this.fromArray(array);
-}-*/;
-
-public final native JsArrayNumber toArray()/*-{
-return this.toArray();
-}-*/;
-
-public final native Vector2 clone()/*-{
+public final native Sphere clone()/*-{
 return this.clone();
 }-*/;
 
