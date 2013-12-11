@@ -2,10 +2,10 @@ package com.akjava.gwt.three.client.gwt;
 
 import com.akjava.gwt.three.client.THREE;
 import com.akjava.gwt.three.client.cameras.Camera;
-import com.akjava.gwt.three.client.core.Matrix4;
 import com.akjava.gwt.three.client.core.Projector;
 import com.akjava.gwt.three.client.core.Quaternion;
 import com.akjava.gwt.three.client.core.Vector3;
+import com.akjava.gwt.three.client.math.Matrix4;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.google.gwt.core.client.JsArrayNumber;
 

@@ -38,8 +38,8 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client.lights;
 
 import com.akjava.gwt.three.client.cameras.Camera;
-import com.akjava.gwt.three.client.core.Matrix4;
 import com.akjava.gwt.three.client.core.Object3D;
+import com.akjava.gwt.three.client.math.Matrix4;
 import com.akjava.gwt.three.client.renderers.WebGLRenderTarget;
 
 
