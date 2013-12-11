@@ -43,6 +43,7 @@ import com.google.gwt.core.client.JsArray;
 
 
 /**
+ * what is this? on r63
  * THREE.ParticleCanvasMaterial only?
  * not tested yet
  * @return
