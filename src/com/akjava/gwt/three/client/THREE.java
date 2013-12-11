@@ -100,9 +100,11 @@ import com.akjava.gwt.three.client.math.Line3;
 import com.akjava.gwt.three.client.math.Matrix3;
 import com.akjava.gwt.three.client.math.Matrix4;
 import com.akjava.gwt.three.client.math.Plane;
+import com.akjava.gwt.three.client.math.Point;
 import com.akjava.gwt.three.client.math.Quaternion;
 import com.akjava.gwt.three.client.math.Ray;
 import com.akjava.gwt.three.client.math.Sphere;
+import com.akjava.gwt.three.client.math.Spline;
 import com.akjava.gwt.three.client.math.Vector2;
 import com.akjava.gwt.three.client.objects.Line;
 import com.akjava.gwt.three.client.objects.Mesh;
@@ -125,6 +127,10 @@ import com.google.gwt.dom.client.ImageElement;
 
 public class THREE {
 
+	public final native Spline Spline(JsArray<Point> points)/*-{
+	return $wnd.THREE.Spline(points);
+	}-*/;
+	
 	public final native Sphere Sphere(Vector3 center,double radius)/*-{
 	return $wnd.THREE.Sphere(center,radius);
 	}-*/;
