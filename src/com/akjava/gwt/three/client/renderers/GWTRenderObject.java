@@ -1,7 +1,11 @@
 package com.akjava.gwt.three.client.renderers;
 
 import com.google.gwt.core.client.JavaScriptObject;
-
+/**
+ * what is this?
+ * @author aki
+ *
+ */
 public class GWTRenderObject extends JavaScriptObject{
 
 	protected GWTRenderObject(){
