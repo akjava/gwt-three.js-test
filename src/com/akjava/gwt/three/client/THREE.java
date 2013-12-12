@@ -54,6 +54,7 @@ import com.akjava.gwt.three.client.extras.animation.AnimationMorphTarget;
 import com.akjava.gwt.three.client.extras.animation.KeyFrameAnimation;
 import com.akjava.gwt.three.client.extras.cameras.CombinedCamera;
 import com.akjava.gwt.three.client.extras.cameras.CubeCamera;
+import com.akjava.gwt.three.client.extras.core.Gyroscope;
 import com.akjava.gwt.three.client.extras.geometries.CubeGeometry;
 import com.akjava.gwt.three.client.extras.loaders.ColladaLoader;
 import com.akjava.gwt.three.client.extras.modifiers.SubdivisionModifier;
@@ -97,7 +98,6 @@ import com.akjava.gwt.three.client.math.Box2;
 import com.akjava.gwt.three.client.math.Box3;
 import com.akjava.gwt.three.client.math.Color;
 import com.akjava.gwt.three.client.math.Euler;
-import com.akjava.gwt.three.client.math.XYZPoint;
 import com.akjava.gwt.three.client.math.Line3;
 import com.akjava.gwt.three.client.math.Matrix3;
 import com.akjava.gwt.three.client.math.Matrix4;
@@ -111,6 +111,7 @@ import com.akjava.gwt.three.client.math.Vector2;
 import com.akjava.gwt.three.client.math.Vector3;
 import com.akjava.gwt.three.client.math.Vector4;
 import com.akjava.gwt.three.client.math.Vertex;
+import com.akjava.gwt.three.client.math.XYZPoint;
 import com.akjava.gwt.three.client.objects.Bone;
 import com.akjava.gwt.three.client.objects.LOD;
 import com.akjava.gwt.three.client.objects.Line;
@@ -138,6 +139,10 @@ import com.google.gwt.dom.client.ImageElement;
 
 
 public class THREE {
+	public final native Gyroscope Gyroscope()/*-{
+	return $wnd.THREE.Gyroscope();
+	}-*/;
+	
 	public final native CompressedTexture CompressedTexture( JavaScriptObject mipmaps,int width,int height,int format,int type,int mapping,int wrapS,int wrapT,int magFilter,int minFilter,int anisotropy)/*-{
 	return $wnd.THREE.CompressedTexture( mipmaps, width, height, format, type, mapping, wrapS, wrapT, magFilter, minFilter, anisotropy );
 	}-*/;
