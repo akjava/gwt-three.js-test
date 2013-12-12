@@ -50,6 +50,7 @@ import com.akjava.gwt.three.client.core.Projector;
 import com.akjava.gwt.three.client.core.Raycaster;
 import com.akjava.gwt.three.client.experiments.CSS3DRenderer;
 import com.akjava.gwt.three.client.extras.animation.Animation;
+import com.akjava.gwt.three.client.extras.animation.AnimationMorphTarget;
 import com.akjava.gwt.three.client.extras.geometries.CubeGeometry;
 import com.akjava.gwt.three.client.extras.loaders.ColladaLoader;
 import com.akjava.gwt.three.client.extras.modifiers.SubdivisionModifier;
@@ -389,6 +390,13 @@ public class THREE {
 	
 	public static native final Animation Animation(SkinnedMesh root,String name)/*-{
 	return new $wnd.THREE.Animation(root,name);
+	}-*/;
+	public static native final Animation Animation(Object3D root,String name)/*-{
+	return new $wnd.THREE.Animation(root,name);
+	}-*/;
+	
+	public static native final AnimationMorphTarget AnimationMorphTarget(Object3D root,String name)/*-{
+	return new $wnd.THREE.AnimationMorphTarget(root,name);
 	}-*/;
 	
 	public static native final Vector4 Vector4()/*-{
