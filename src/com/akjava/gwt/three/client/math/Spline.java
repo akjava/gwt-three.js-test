@@ -46,7 +46,7 @@ public class Spline extends JavaScriptObject{
 	protected Spline() {
 	}
 
-public final native JsArray<GWTPoint> getPoints()/*-{
+public final native JsArray<XYZPoint> getPoints()/*-{
 return this.points;
 }-*/;
 
@@ -54,7 +54,7 @@ public final native void initFromArray(JsArray<JsArrayNumber> a)/*-{
 this.initFromArray(a);
 }-*/;
 
-public final native GWTPoint getPoint(double k)/*-{
+public final native XYZPoint getPoint(double k)/*-{
 return this.getPoint(k);
 }-*/;
 

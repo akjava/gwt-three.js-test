@@ -97,7 +97,7 @@ import com.akjava.gwt.three.client.math.Box2;
 import com.akjava.gwt.three.client.math.Box3;
 import com.akjava.gwt.three.client.math.Color;
 import com.akjava.gwt.three.client.math.Euler;
-import com.akjava.gwt.three.client.math.GWTPoint;
+import com.akjava.gwt.three.client.math.XYZPoint;
 import com.akjava.gwt.three.client.math.Line3;
 import com.akjava.gwt.three.client.math.Matrix3;
 import com.akjava.gwt.three.client.math.Matrix4;
@@ -173,7 +173,7 @@ public class THREE {
 	return $wnd.THREE.Triangle(a,b,c);
 	}-*/;
 	
-	public final native Spline Spline(JsArray<GWTPoint> points)/*-{
+	public final native Spline Spline(JsArray<XYZPoint> points)/*-{
 	return $wnd.THREE.Spline(points);
 	}-*/;
 	

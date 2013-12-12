@@ -1,11 +1,11 @@
-package com.akjava.gwt.three.client.gwt;
+package com.akjava.gwt.three.client.math;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
 
-public class GWT2DPoint extends JavaScriptObject{
+public class XYPoint extends JavaScriptObject{
 
-	protected GWT2DPoint(){}
+	protected XYPoint(){}
 	
 	public   final native double getX()/*-{
 	return this.x;
@@ -25,7 +25,7 @@ public class GWT2DPoint extends JavaScriptObject{
 	this.y=y;
 	}-*/;
 	
-	public  static final native GWT2DPoint create(double x,double y)/*-{
+	public  static final native XYPoint create(double x,double y)/*-{
 	var pt={"x":x,"y":y};
 	return pt;
 	}-*/;

@@ -3,16 +3,17 @@ package com.akjava.gwt.three.client.gwt;
 import java.util.List;
 
 import com.akjava.gwt.lib.client.LogUtils;
+import com.akjava.gwt.three.client.math.XYPoint;
 
 public abstract class AbstractMovingXYControler {
 	protected long duration;
 	protected long total;
 	protected boolean moving;
-	protected List<GWT2DPoint> points;
+	protected List<XYPoint> points;
 
 	
 
-public AbstractMovingXYControler(List<GWT2DPoint> points,long duration){
+public AbstractMovingXYControler(List<XYPoint> points,long duration){
 	this.points=points;
 	this.duration=duration;
 	moving=true;
@@ -49,12 +50,12 @@ public void setMoving(boolean moving) {
 }
 
 
-public List<GWT2DPoint> getPoints() {
+public List<XYPoint> getPoints() {
 	return points;
 }
 
 
-public void setPoints(List<GWT2DPoint> points) {
+public void setPoints(List<XYPoint> points) {
 	this.points = points;
 }
 
@@ -67,7 +68,7 @@ if(!moving){
 }
 total+=delta;
 if(total<duration){
-	GWT2DPoint pt=GWTSpline.get2DPoint(points, (double)total/duration);
+	XYPoint pt=GWTSpline.get2DPoint(points, (double)total/duration);
 	LogUtils.log(pt);
 	moveTo(pt.getX(),pt.getY());
 }else{

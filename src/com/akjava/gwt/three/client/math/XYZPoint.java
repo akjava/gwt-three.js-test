@@ -7,9 +7,9 @@ import com.google.gwt.core.client.JavaScriptObject;
  * @author aki
  *
  */
-public class GWTPoint extends JavaScriptObject{
+public class XYZPoint extends JavaScriptObject{
 
-	protected GWTPoint(){}
+	protected XYZPoint(){}
 	
 	public   final native double getX()/*-{
 	return this.x;
@@ -36,7 +36,7 @@ public class GWTPoint extends JavaScriptObject{
 	this.z=z;
 	}-*/;
 	
-	public  static final native GWTPoint create(double x,double y,double z)/*-{
+	public  static final native XYZPoint create(double x,double y,double z)/*-{
 	var pt={"x":x,"y":y,"z":z};
 	return pt;
 	}-*/;
