@@ -81,9 +81,15 @@ public final native ImageElement getImage()/*-{
 return this.image;
 }-*/;
 
+public final native JsArray<ImageElement> getImages()/*-{
+return this.image;
+}-*/;
+
 public final native void setImage(ImageElement image)/*-{
 this.image = image;
 }-*/;
+
+
 
 
 public final native JsArray<JavaScriptObject> getMipmaps()/*-{
