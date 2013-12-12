@@ -35,39 +35,96 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
   
  */
-package com.akjava.gwt.three.client.extras;
+package com.akjava.gwt.three.client.extras.core;
 
+import com.akjava.gwt.three.client.core.Geometry;
+import com.akjava.gwt.three.client.math.XYZPoint;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArray;
+import com.google.gwt.core.client.JsArrayNumber;
 
-/**
- * i don't know how to use this.
- * @author aki
- *
- */
-public class FontUtils extends JavaScriptObject{
-	protected FontUtils() {
+
+public class CurvePath extends Curve{
+	protected CurvePath() {
 	}
 
-public static final native JavaScriptObject getFace()/*-{
-return $wnd.THREE.FontUtils.getFace();
+public final native JsArray<Curve> getCurves()/*-{
+return this.curves;
 }-*/;
 
-public static final native JavaScriptObject loadFace(JavaScriptObject data)/*-{
-return $wnd.THREE.FontUtils.loadFace(data);
+public final native void setCurves(JsArray<Curve> curves)/*-{
+this.curves = curves;
 }-*/;
 
-public static final native JavaScriptObject drawText(String text)/*-{
-return $wnd.THREE.FontUtils.drawText(text);
+
+public final native JsArray<Path> getBends()/*-{
+return this.bends;
 }-*/;
 
-public static final native JavaScriptObject extractGlyphPoints(int c,JavaScriptObject face,JavaScriptObject scale,JavaScriptObject offset,JavaScriptObject path)/*-{
-return $wnd.THREE.FontUtils.extractGlyphPoints(c,face,scale,offset,path);
+public final native void setBends(JsArray<Path> bends)/*-{
+this.bends = bends;
 }-*/;
 
-public static final native JavaScriptObject generateShapes(String text,JavaScriptObject parameters)/*-{
-return $wnd.THREE.FontUtils.generateShapes(text,parameters);
+
+public final native boolean isAutoClose()/*-{
+return this.autoClose;
 }-*/;
 
+
+
+public final native void add(Curve curve)/*-{
+this.add(curve);
+}-*/;
+
+public final native void checkConnection()/*-{
+this.checkConnection();
+}-*/;
+
+public final native void closePath()/*-{
+this.closePath();
+}-*/;
+
+
+
+public final native JsArrayNumber getCurveLengths()/*-{
+return this.getCurveLengths();
+}-*/;
+
+/**
+ * TODO implement object
+ * @return
+ */
+public final native JavaScriptObject getBoundingBox()/*-{
+return this.getBoundingBox();
+}-*/;
+
+public final native Geometry createPointsGeometry(double divisions)/*-{
+return this.createPointsGeometry(divisions);
+}-*/;
+
+public final native Geometry createSpacedPointsGeometry(double divisions)/*-{
+return this.createSpacedPointsGeometry(divisions);
+}-*/;
+
+public final native Geometry createGeometry(JsArray<XYZPoint> points)/*-{
+return this.createGeometry(points);
+}-*/;
+
+public final native void addWrapPath(Object bendpath)/*-{
+this.addWrapPath(bendpath);
+}-*/;
+
+public final native JsArray<XYZPoint> getTransformedPoints(int segments,JsArray<Path> bends)/*-{
+return this.getTransformedPoints(segments,bends);
+}-*/;
+
+public final native JsArray<XYZPoint> getTransformedSpacedPoints(int segments,JsArray<Path> bends)/*-{
+return this.getTransformedSpacedPoints(segments,bends);
+}-*/;
+
+public final native JsArray<XYZPoint> getWrapPoints(JsArray<XYZPoint> oldPts,Path path)/*-{
+return this.getWrapPoints(oldPts,path);
+}-*/;
 
 
 }

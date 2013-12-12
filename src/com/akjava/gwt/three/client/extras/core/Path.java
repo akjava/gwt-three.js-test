@@ -35,39 +35,61 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
   
  */
-package com.akjava.gwt.three.client.extras;
+package com.akjava.gwt.three.client.extras.core;
 
-import com.google.gwt.core.client.JavaScriptObject;
+import com.akjava.gwt.three.client.math.Vector2;
+import com.akjava.gwt.three.client.math.XYZPoint;
+import com.google.gwt.core.client.JsArray;
 
-/**
- * i don't know how to use this.
- * @author aki
- *
- */
-public class FontUtils extends JavaScriptObject{
-	protected FontUtils() {
-	}
 
-public static final native JavaScriptObject getFace()/*-{
-return $wnd.THREE.FontUtils.getFace();
+public class Path extends CurvePath {
+protected Path(){}
+
+public final native void fromPoints(JsArray<Vector2> vectors)/*-{
+this.fromPoints(vectors);
 }-*/;
 
-public static final native JavaScriptObject loadFace(JavaScriptObject data)/*-{
-return $wnd.THREE.FontUtils.loadFace(data);
+public final native void moveTo(double x,double y)/*-{
+this.moveTo(x,y);
 }-*/;
 
-public static final native JavaScriptObject drawText(String text)/*-{
-return $wnd.THREE.FontUtils.drawText(text);
+public final native void lineTo(double x,double y)/*-{
+this.lineTo(x,y);
+}-*/;
+public final native void quadraticCurveTo(double  aCPx,double aCPy,double aX,double aY)/*-{
+this.lineTo( aCPx, aCPy, aX, aY);
 }-*/;
 
-public static final native JavaScriptObject extractGlyphPoints(int c,JavaScriptObject face,JavaScriptObject scale,JavaScriptObject offset,JavaScriptObject path)/*-{
-return $wnd.THREE.FontUtils.extractGlyphPoints(c,face,scale,offset,path);
+public final native void bezierCurveTo(double  aCP1x,double aCP1y,double aCP2x,double aCP2y,double aX,double aY )/*-{
+this.lineTo(  aCP1x, aCP1y, aCP2x, aCP2y, aX, aY );
 }-*/;
 
-public static final native JavaScriptObject generateShapes(String text,JavaScriptObject parameters)/*-{
-return $wnd.THREE.FontUtils.generateShapes(text,parameters);
+public final native void splineThru(JsArray<Vector2> pts)/*-{
+this.fromPoints(pts);
 }-*/;
 
+public final native void arc(double aX,double  aY,double  aRadius,double aStartAngle,double  aEndAngle,boolean aClockwise)/*-{
+this.arc(aX, aY, aRadius,aStartAngle, aEndAngle, aClockwise);
+}-*/;
 
+public final native void absarc(double aX,double aY,double aRadius,double aStartAngle,double aEndAngle,boolean aClockwise)/*-{
+this.absarc(aX, aY, aRadius,aStartAngle, aEndAngle, aClockwise);
+}-*/;
+public final native void ellipse(double  aX,double aY,double xRadius,double yRadius,double aStartAngle,double aEndAngle,boolean aClockwise)/*-{
+this.ellipse( aX, aY, xRadius, yRadius,aStartAngle, aEndAngle, aClockwise);
+}-*/;
+
+public final native void absellipse(double   aX,double aY,double xRadius,double yRadius,double aStartAngle,double aEndAngle,boolean aClockwise)/*-{
+this.absellipse( aX, aY, xRadius, yRadius, aStartAngle, aEndAngle, aClockwise);
+}-*/;
+public final native JsArray<XYZPoint> getSpacedPoints(int divisions,boolean closedPath)/*-{
+return this.getSpacedPoints( divisions, closedPath);
+}-*/;
+public final native JsArray<XYZPoint> getPoints(int divisions,boolean closedPath)/*-{
+this.getPoints( divisions, closedPath);
+}-*/;
+public final native JsArray<Shape> toShapes(boolean isCCW)/*-{
+this.getPoints(  isCCW);
+}-*/;
 
 }

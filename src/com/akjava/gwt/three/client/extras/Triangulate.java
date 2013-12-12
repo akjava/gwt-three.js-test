@@ -44,30 +44,8 @@ import com.google.gwt.core.client.JavaScriptObject;
  * @author aki
  *
  */
-public class FontUtils extends JavaScriptObject{
-	protected FontUtils() {
+public class Triangulate extends JavaScriptObject{
+	protected Triangulate() {
 	}
-
-public static final native JavaScriptObject getFace()/*-{
-return $wnd.THREE.FontUtils.getFace();
-}-*/;
-
-public static final native JavaScriptObject loadFace(JavaScriptObject data)/*-{
-return $wnd.THREE.FontUtils.loadFace(data);
-}-*/;
-
-public static final native JavaScriptObject drawText(String text)/*-{
-return $wnd.THREE.FontUtils.drawText(text);
-}-*/;
-
-public static final native JavaScriptObject extractGlyphPoints(int c,JavaScriptObject face,JavaScriptObject scale,JavaScriptObject offset,JavaScriptObject path)/*-{
-return $wnd.THREE.FontUtils.extractGlyphPoints(c,face,scale,offset,path);
-}-*/;
-
-public static final native JavaScriptObject generateShapes(String text,JavaScriptObject parameters)/*-{
-return $wnd.THREE.FontUtils.generateShapes(text,parameters);
-}-*/;
-
-
-
+//TODO implement
 }

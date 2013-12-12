@@ -35,37 +35,53 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
   
  */
-package com.akjava.gwt.three.client.extras;
+package com.akjava.gwt.three.client.extras.core;
 
+import com.akjava.gwt.three.client.math.XYZPoint;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArray;
 
-/**
- * i don't know how to use this.
- * @author aki
- *
- */
-public class FontUtils extends JavaScriptObject{
-	protected FontUtils() {
+
+public class Shape extends Path{
+	protected Shape() {
 	}
 
-public static final native JavaScriptObject getFace()/*-{
-return $wnd.THREE.FontUtils.getFace();
+public final native JsArray<Path> getHoles()/*-{
+return this.holes;
 }-*/;
 
-public static final native JavaScriptObject loadFace(JavaScriptObject data)/*-{
-return $wnd.THREE.FontUtils.loadFace(data);
+public final native void setHoles(JsArray<Path> holes)/*-{
+this.holes = holes;
 }-*/;
 
-public static final native JavaScriptObject drawText(String text)/*-{
-return $wnd.THREE.FontUtils.drawText(text);
+public final native ExtrudeGeometry extrude(JavaScriptObject options)/*-{
+return this.extrude(options);
 }-*/;
 
-public static final native JavaScriptObject extractGlyphPoints(int c,JavaScriptObject face,JavaScriptObject scale,JavaScriptObject offset,JavaScriptObject path)/*-{
-return $wnd.THREE.FontUtils.extractGlyphPoints(c,face,scale,offset,path);
+public final native ShapeGeometry makeGeometry(JavaScriptObject options)/*-{
+return this.makeGeometry(options);
 }-*/;
 
-public static final native JavaScriptObject generateShapes(String text,JavaScriptObject parameters)/*-{
-return $wnd.THREE.FontUtils.generateShapes(text,parameters);
+public final native JsArray<JsArray<XYZPoint>> getPointsHoles(int divisions)/*-{
+return this.getPointsHoles(divisions);
+}-*/;
+
+public final native JsArray<JsArray<XYZPoint>> getSpacedPointsHoles(int divisions)/*-{
+return this.getSpacedPointsHoles(divisions);
+}-*/;
+
+public final native JavaScriptObject extractAllPoints(int divisions)/*-{
+return this.extractAllPoints(divisions);
+}-*/;
+
+public final native JavaScriptObject extractPoints(int divisions)/*-{
+return this.extractPoints(divisions);
+}-*/;
+
+
+
+public final native JavaScriptObject extractAllSpacedPoints(int divisions)/*-{
+return this.extractAllSpacedPoints(divisions);
 }-*/;
 
 
