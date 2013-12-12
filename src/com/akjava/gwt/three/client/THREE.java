@@ -119,6 +119,7 @@ import com.akjava.gwt.three.client.renderers.GWTRenderObject;
 import com.akjava.gwt.three.client.renderers.WebGLRenderTarget;
 import com.akjava.gwt.three.client.renderers.WebGLRenderTargetCube;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
+import com.akjava.gwt.three.client.scenes.Fog;
 import com.akjava.gwt.three.client.scenes.Scene;
 import com.akjava.gwt.three.client.textures.Texture;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -131,6 +132,14 @@ import com.google.gwt.dom.client.ImageElement;
 
 
 public class THREE {
+	
+	public final native Fog Fog(int hex, double near, double far)/*-{
+	return $wnd.THREE.Fog(hex,near,far);
+	}-*/;
+	
+	public final native Fog FogExp2(int hex, double density)/*-{
+	return $wnd.THREE.FogExp2(hex,density);
+	}-*/;
 	
 	public final native WebGLRenderTargetCube WebGLRenderTargetCube(double widht,double height,JavaScriptObject options)/*-{
 	return $wnd.THREE.WebGLRenderTargetCube(width,height,options);
