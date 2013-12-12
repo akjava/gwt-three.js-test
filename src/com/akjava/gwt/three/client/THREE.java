@@ -121,6 +121,8 @@ import com.akjava.gwt.three.client.renderers.WebGLRenderTargetCube;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Fog;
 import com.akjava.gwt.three.client.scenes.Scene;
+import com.akjava.gwt.three.client.textures.CompressedTexture;
+import com.akjava.gwt.three.client.textures.DataTexture;
 import com.akjava.gwt.three.client.textures.Texture;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
@@ -132,6 +134,13 @@ import com.google.gwt.dom.client.ImageElement;
 
 
 public class THREE {
+	public final native CompressedTexture CompressedTexture( JavaScriptObject mipmaps,int width,int height,int format,int type,int mapping,int wrapS,int wrapT,int magFilter,int minFilter,int anisotropy)/*-{
+	return $wnd.THREE.CompressedTexture( mipmaps, width, height, format, type, mapping, wrapS, wrapT, magFilter, minFilter, anisotropy );
+	}-*/;
+	
+	public final native DataTexture DataTexture( JavaScriptObject data,int width,int height,int format,int type,int mapping,int wrapS,int wrapT,int magFilter,int minFilter,int anisotropy)/*-{
+	return $wnd.THREE.DataTexture( data, width, height, format, type, mapping, wrapS, wrapT, magFilter, minFilter, anisotropy);
+	}-*/;
 	
 	public final native Fog Fog(int hex, double near, double far)/*-{
 	return $wnd.THREE.Fog(hex,near,far);
@@ -341,7 +350,7 @@ public class THREE {
 	return  new $wnd.THREE.Texture(image);
 	}-*/;
 	
-	public static  native final Texture Texture(ImageElement image,JavaScriptObject mapping, int wrapS,int  wrapT, int magFilter,int minFilter,int format,int type,double anisotropy)/*-{
+	public static  native final Texture Texture(ImageElement image,JavaScriptObject mapping, int wrapS,int  wrapT, int magFilter,int minFilter,int format,int type,int anisotropy)/*-{
 	return  new $wnd.THREE.Texture(image,mapping, wrapS, wrapT, magFilter, minFilter, format, type, anisotropy);
 	}-*/;
 	

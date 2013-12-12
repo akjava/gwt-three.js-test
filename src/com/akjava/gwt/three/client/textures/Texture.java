@@ -143,11 +143,11 @@ this.minFilter = minFilter;
  * i'm not sure
  * @return
  */
-public final native double getAnisotropy()/*-{
+public final native int getAnisotropy()/*-{
 return this.anisotropy;
 }-*/;
 
-public final native void setAnisotropy(Object anisotropy)/*-{
+public final native void setAnisotropy(int anisotropy)/*-{
 this.anisotropy = anisotropy;
 }-*/;
 
