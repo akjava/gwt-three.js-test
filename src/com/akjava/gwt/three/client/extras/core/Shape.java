@@ -37,6 +37,7 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.extras.core;
 
+import com.akjava.gwt.three.client.core.Geometry;
 import com.akjava.gwt.three.client.math.XYZPoint;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
@@ -54,11 +55,12 @@ public final native void setHoles(JsArray<Path> holes)/*-{
 this.holes = holes;
 }-*/;
 
-public final native ExtrudeGeometry extrude(JavaScriptObject options)/*-{
+public final native Geometry extrude(JavaScriptObject options)/*-{
+//public final native ExtrudeGeometry extrude(JavaScriptObject options)/*-{
 return this.extrude(options);
 }-*/;
-
-public final native ShapeGeometry makeGeometry(JavaScriptObject options)/*-{
+public final native Geometry makeGeometry(JavaScriptObject options)/*-{
+//public final native ShapeGeometry makeGeometry(JavaScriptObject options)/*-{
 return this.makeGeometry(options);
 }-*/;
 
