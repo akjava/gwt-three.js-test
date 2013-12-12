@@ -51,6 +51,9 @@ import com.akjava.gwt.three.client.core.Raycaster;
 import com.akjava.gwt.three.client.experiments.CSS3DRenderer;
 import com.akjava.gwt.three.client.extras.animation.Animation;
 import com.akjava.gwt.three.client.extras.animation.AnimationMorphTarget;
+import com.akjava.gwt.three.client.extras.animation.KeyFrameAnimation;
+import com.akjava.gwt.three.client.extras.cameras.CombinedCamera;
+import com.akjava.gwt.three.client.extras.cameras.CubeCamera;
 import com.akjava.gwt.three.client.extras.geometries.CubeGeometry;
 import com.akjava.gwt.three.client.extras.loaders.ColladaLoader;
 import com.akjava.gwt.three.client.extras.modifiers.SubdivisionModifier;
@@ -387,6 +390,13 @@ public class THREE {
 	return new $wnd.THREE.OrthographicCamera( left, right,top,bottom, near, far ); 
 	}-*/;
 	
+	public static native final CombinedCamera CombinedCamera(double width, double height,double fov, double near, double far, double doubleorthoNear,double orthoFar )/*-{
+	return new $wnd.THREE.CombinedCamera( width, height, fov, near, far, orthoNear, orthoFar); 
+	}-*/;
+	
+	public static native final CubeCamera CubeCamera(double near,double  far,double  cubeResolution )/*-{
+	return new $wnd.THREE.CubeCamera( near, far, cubeResolution ); 
+	}-*/;
 	
 	public static native final Animation Animation(SkinnedMesh root,String name)/*-{
 	return new $wnd.THREE.Animation(root,name);
@@ -397,6 +407,10 @@ public class THREE {
 	
 	public static native final AnimationMorphTarget AnimationMorphTarget(Object3D root,String name)/*-{
 	return new $wnd.THREE.AnimationMorphTarget(root,name);
+	}-*/;
+	
+	public static native final KeyFrameAnimation KeyFrameAnimation(Object3D root,String name)/*-{
+	return new $wnd.THREE.KeyFrameAnimation(root,name);
 	}-*/;
 	
 	public static native final Vector4 Vector4()/*-{
