@@ -49,23 +49,23 @@ public class FontUtils extends JavaScriptObject{
 	}
 
 public static final native JavaScriptObject getFace()/*-{
-return this.getFace();
+return $wnd.THREE.FontUtils.getFace();
 }-*/;
 
 public static final native JavaScriptObject loadFace(JavaScriptObject data)/*-{
-return this.loadFace(data);
+return $wnd.THREE.FontUtils.loadFace(data);
 }-*/;
 
 public static final native JavaScriptObject drawText(String text)/*-{
-return this.drawText(text);
+return $wnd.THREE.FontUtils.drawText(text);
 }-*/;
 
 public static final native JavaScriptObject extractGlyphPoints(int c,JavaScriptObject face,JavaScriptObject scale,JavaScriptObject offset,JavaScriptObject path)/*-{
-return this.extractGlyphPoints(c,face,scale,offset,path);
+return $wnd.THREE.FontUtils.extractGlyphPoints(c,face,scale,offset,path);
 }-*/;
 
 public static final native JavaScriptObject generateShapes(String text,JavaScriptObject parameters)/*-{
-return this.generateShapes(text,parameters);
+return $wnd.THREE.FontUtils.generateShapes(text,parameters);
 }-*/;
 
 

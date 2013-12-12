@@ -17,66 +17,66 @@ public class ImageUtils extends JavaScriptObject{
 
 public static final native Texture loadTexture(String url,JavaScriptObject mapping,ImageUtilsLoadHandler handler)/*-{
 if(handler){
-return this.loadTexture(url,mapping,function ( texture ) {
+return $wnd.THREE.ImageUtils.loadTexture(url,mapping,function ( texture ) {
 		handler.@com.akjava.gwt.three.client.extras.ImageUtils$ImageUtilsLoadHandler::onLoad(Lcom/google/gwt/core/client/JavaScriptObject;)(texture);
 		},function ( onError ) {
 		handler.@com.akjava.gwt.three.client.extras.ImageUtils$ImageUtilsLoadHandler::onError(Lcom/google/gwt/dom/client/NativeEvent;)(onError);
 		});
 }else{
-	return this.loadTexture(url,mapping);
+	return $wnd.THREE.ImageUtils.loadTexture(url,mapping);
 }
 }-*/;
 
 public static final native CompressedTexture loadCompressedTexture(String url,JavaScriptObject mapping,ImageUtilsLoadHandler handler)/*-{
 if(handler){
-	return this.loadCompressedTexture(url,mapping,function ( texture ) {
+	return $wnd.THREE.ImageUtils.loadCompressedTexture(url,mapping,function ( texture ) {
 		handler.@com.akjava.gwt.three.client.extras.ImageUtils$ImageUtilsLoadHandler::onLoad(Lcom/google/gwt/core/client/JavaScriptObject;)(texture);
 		},onError);
 }else{
-	return this.loadCompressedTexture(url,mapping);
+	return $wnd.THREE.ImageUtils.loadCompressedTexture(url,mapping);
 }
 }-*/;
 
 
 public static final native Texture loadTextureCube(JsArrayString array,JavaScriptObject mapping,ImageUtilsLoadHandler handler)/*-{
 if(handler){
-return this.loadTextureCube(array,mapping,function ( texture ) {
+return $wnd.THREE.ImageUtils.loadTextureCube(array,mapping,function ( texture ) {
 		handler.@com.akjava.gwt.three.client.extras.ImageUtils$ImageUtilsLoadHandler::onLoad(Lcom/google/gwt/core/client/JavaScriptObject;)(texture);
 		},onError);
 }else{
-	return this.loadTextureCube(array,mapping);
+	return $wnd.THREE.ImageUtils.loadTextureCube(array,mapping);
 }
 }-*/;
 	
 
 public static final native CompressedTexture loadCompressedTextureCube(JsArrayString array,JavaScriptObject mapping,ImageUtilsLoadHandler handler)/*-{
 if(handler){
-this.loadCompressedTextureCube(array,mapping,function ( texture ) {
+$wnd.THREE.ImageUtils.loadCompressedTextureCube(array,mapping,function ( texture ) {
 		handler.@com.akjava.gwt.three.client.extras.ImageUtils$ImageUtilsLoadHandler::onLoad(Lcom/google/gwt/core/client/JavaScriptObject;)(texture);
 		},onError);
 }else{
-	this.loadCompressedTextureCube(array,mapping);
+	$wnd.THREE.ImageUtils.loadCompressedTextureCube(array,mapping);
 }
 }-*/;
 
 public static final native CompressedTexture loadCompressedTextureCube(String url,JavaScriptObject mapping,ImageUtilsLoadHandler handler)/*-{
 if(handler){
-this.loadCompressedTextureCube(url,mapping,function ( texture ) {
+$wnd.THREE.ImageUtils.loadCompressedTextureCube(url,mapping,function ( texture ) {
 		handler.@com.akjava.gwt.three.client.extras.ImageUtils$ImageUtilsLoadHandler::onLoad(Lcom/google/gwt/core/client/JavaScriptObject;)(texture);
 		},onError);
 }else{
-	this.loadCompressedTextureCube(url,mapping);
+	$wnd.THREE.ImageUtils.loadCompressedTextureCube(url,mapping);
 }
 }-*/;
 
 
 public static final native CompressedTexture loadDDSTexture(String url,JavaScriptObject mapping,ImageUtilsLoadHandler handler)/*-{
 	if(handler){
-this.loadDDSTexture(url,mapping,function ( texture ) {
+$wnd.THREE.ImageUtils.loadDDSTexture(url,mapping,function ( texture ) {
 		handler.@com.akjava.gwt.three.client.extras.ImageUtils$ImageUtilsLoadHandler::onLoad(Lcom/google/gwt/core/client/JavaScriptObject;)(texture);
 		},onError);
 }else{
-	this.loadDDSTexture(url,mapping);
+	$wnd.THREE.ImageUtils.loadDDSTexture(url,mapping);
 }
 }-*/;
 
@@ -87,7 +87,7 @@ this.loadDDSTexture(url,mapping,function ( texture ) {
  * @return
  */
 public static final native JavaScriptObject parseDDS(JavaScriptObject buffer,boolean loadMipmaps)/*-{
-return this.parseDDS(buffer,loadMipmaps);
+return $wnd.THREE.ImageUtils.parseDDS(buffer,loadMipmaps);
 }-*/;
 
 /**
@@ -97,11 +97,11 @@ return this.parseDDS(buffer,loadMipmaps);
  * @return
  */
 public static final native CanvasElement getNormalMap(ImageElement image,int depth)/*-{
-return this.getNormalMap(image,depth);
+return $wnd.THREE.ImageUtils.getNormalMap(image,depth);
 }-*/;
 
 public static final native DataTexture generateDataTexture(int width,int height,Color color)/*-{
-return this.generateDataTexture(width,height,color);
+return $wnd.THREE.ImageUtils.generateDataTexture(width,height,color);
 }-*/;
 
 	public static  final Texture loadTexture(String url){
