@@ -341,6 +341,10 @@ public class THREE {
 	return  new $wnd.THREE.Texture(image);
 	}-*/;
 	
+	public static  native final Texture Texture(ImageElement image,JavaScriptObject mapping, int wrapS,int  wrapT, int magFilter,int minFilter,int format,int type,double anisotropy)/*-{
+	return  new $wnd.THREE.Texture(image,mapping, wrapS, wrapT, magFilter, minFilter, format, type, anisotropy);
+	}-*/;
+	
 	public static  native final Texture Texture(CanvasElement canvas)/*-{
 	return  new $wnd.THREE.Texture(canvas);
 	}-*/;
