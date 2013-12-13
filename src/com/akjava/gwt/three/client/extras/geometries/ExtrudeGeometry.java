@@ -35,54 +35,24 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
   
  */
-package com.akjava.gwt.three.client.extras.core;
+package com.akjava.gwt.three.client.extras.geometries;
 
-import com.akjava.gwt.three.client.extras.geometries.ExtrudeGeometry;
-import com.akjava.gwt.three.client.extras.geometries.ShapeGeometry;
-import com.akjava.gwt.three.client.gwt.math.XYZObject;
+import com.akjava.gwt.three.client.core.Geometry;
+import com.akjava.gwt.three.client.extras.core.Shape;
+import com.akjava.gwt.three.client.gwt.core.BoundingBox;
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.core.client.JsArray;
 
 
-public class Shape extends Path{
-	protected Shape() {
+public class ExtrudeGeometry extends Geometry{
+	protected ExtrudeGeometry() {
 	}
-
-public final native JsArray<Path> getHoles()/*-{
-return this.holes;
+	
+public final native BoundingBox getShapebb()/*-{
+return this.shapebb;
 }-*/;
 
-public final native void setHoles(JsArray<Path> holes)/*-{
-this.holes = holes;
-}-*/;
-
-public final native ExtrudeGeometry extrude(JavaScriptObject options)/*-{
-return this.extrude(options);
-}-*/;
-public final native ShapeGeometry makeGeometry(JavaScriptObject options)/*-{
-return this.makeGeometry(options);
-}-*/;
-
-public final native JsArray<JsArray<XYZObject>> getPointsHoles(int divisions)/*-{
-return this.getPointsHoles(divisions);
-}-*/;
-
-public final native JsArray<JsArray<XYZObject>> getSpacedPointsHoles(int divisions)/*-{
-return this.getSpacedPointsHoles(divisions);
-}-*/;
-
-public final native JavaScriptObject extractAllPoints(int divisions)/*-{
-return this.extractAllPoints(divisions);
-}-*/;
-
-public final native JavaScriptObject extractPoints(int divisions)/*-{
-return this.extractPoints(divisions);
-}-*/;
-
-
-
-public final native JavaScriptObject extractAllSpacedPoints(int divisions)/*-{
-return this.extractAllSpacedPoints(divisions);
+public final native Object addShape(Shape shape,JavaScriptObject options)/*-{
+return this.addShape(shape,options);
 }-*/;
 
 

@@ -35,55 +35,56 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
   
  */
-package com.akjava.gwt.three.client.extras.core;
+package com.akjava.gwt.three.client.extras.geometries;
 
-import com.akjava.gwt.three.client.extras.geometries.ExtrudeGeometry;
-import com.akjava.gwt.three.client.extras.geometries.ShapeGeometry;
-import com.akjava.gwt.three.client.gwt.math.XYZObject;
-import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.core.client.JsArray;
+import com.akjava.gwt.three.client.core.Geometry;
 
 
-public class Shape extends Path{
-	protected Shape() {
+public class SphereGeometry extends Geometry{
+	protected SphereGeometry() {
 	}
 
-public final native JsArray<Path> getHoles()/*-{
-return this.holes;
+public final native double getRadius()/*-{
+return this.radius;
 }-*/;
 
-public final native void setHoles(JsArray<Path> holes)/*-{
-this.holes = holes;
-}-*/;
 
-public final native ExtrudeGeometry extrude(JavaScriptObject options)/*-{
-return this.extrude(options);
-}-*/;
-public final native ShapeGeometry makeGeometry(JavaScriptObject options)/*-{
-return this.makeGeometry(options);
-}-*/;
-
-public final native JsArray<JsArray<XYZObject>> getPointsHoles(int divisions)/*-{
-return this.getPointsHoles(divisions);
-}-*/;
-
-public final native JsArray<JsArray<XYZObject>> getSpacedPointsHoles(int divisions)/*-{
-return this.getSpacedPointsHoles(divisions);
-}-*/;
-
-public final native JavaScriptObject extractAllPoints(int divisions)/*-{
-return this.extractAllPoints(divisions);
-}-*/;
-
-public final native JavaScriptObject extractPoints(int divisions)/*-{
-return this.extractPoints(divisions);
+public final native int getWidthSegments()/*-{
+return this.widthSegments;
 }-*/;
 
 
 
-public final native JavaScriptObject extractAllSpacedPoints(int divisions)/*-{
-return this.extractAllSpacedPoints(divisions);
+public final native int getHeightSegments()/*-{
+return this.heightSegments;
 }-*/;
+
+
+
+public final native double getPhiStart()/*-{
+return this.phiStart;
+}-*/;
+
+
+
+public final native double getPhiLength()/*-{
+return this.phiLength;
+}-*/;
+
+
+
+
+public final native double getThetaStart()/*-{
+return this.thetaStart;
+}-*/;
+
+
+
+public final native double getThetaLength()/*-{
+return this.thetaLength;
+}-*/;
+
+
 
 
 

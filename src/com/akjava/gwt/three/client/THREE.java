@@ -55,6 +55,8 @@ import com.akjava.gwt.three.client.extras.animation.KeyFrameAnimation;
 import com.akjava.gwt.three.client.extras.cameras.CombinedCamera;
 import com.akjava.gwt.three.client.extras.cameras.CubeCamera;
 import com.akjava.gwt.three.client.extras.core.Gyroscope;
+import com.akjava.gwt.three.client.extras.core.Path;
+import com.akjava.gwt.three.client.extras.core.Shape;
 import com.akjava.gwt.three.client.extras.curves.ArcCurve;
 import com.akjava.gwt.three.client.extras.curves.ClosedSplineCurve3;
 import com.akjava.gwt.three.client.extras.curves.CubicBezierCurve;
@@ -66,7 +68,24 @@ import com.akjava.gwt.three.client.extras.curves.QuadraticBezierCurve;
 import com.akjava.gwt.three.client.extras.curves.QuadraticBezierCurve3;
 import com.akjava.gwt.three.client.extras.curves.SplineCurve;
 import com.akjava.gwt.three.client.extras.curves.SplineCurve3;
+import com.akjava.gwt.three.client.extras.geometries.CircleGeometry;
 import com.akjava.gwt.three.client.extras.geometries.CubeGeometry;
+import com.akjava.gwt.three.client.extras.geometries.CylinderGeometry;
+import com.akjava.gwt.three.client.extras.geometries.ExtrudeGeometry;
+import com.akjava.gwt.three.client.extras.geometries.IcosahedronGeometry;
+import com.akjava.gwt.three.client.extras.geometries.LatheGeometry;
+import com.akjava.gwt.three.client.extras.geometries.OctahedronGeometry;
+import com.akjava.gwt.three.client.extras.geometries.ParametricGeometry;
+import com.akjava.gwt.three.client.extras.geometries.PlaneGeometry;
+import com.akjava.gwt.three.client.extras.geometries.PolyhedronGeometry;
+import com.akjava.gwt.three.client.extras.geometries.RingGeometry;
+import com.akjava.gwt.three.client.extras.geometries.ShapeGeometry;
+import com.akjava.gwt.three.client.extras.geometries.SphereGeometry;
+import com.akjava.gwt.three.client.extras.geometries.TetrahedronGeometry;
+import com.akjava.gwt.three.client.extras.geometries.TextGeometry;
+import com.akjava.gwt.three.client.extras.geometries.TorusGeometry;
+import com.akjava.gwt.three.client.extras.geometries.TorusKnotGeometry;
+import com.akjava.gwt.three.client.extras.geometries.TubeGeometry;
 import com.akjava.gwt.three.client.extras.loaders.ColladaLoader;
 import com.akjava.gwt.three.client.extras.modifiers.SubdivisionModifier;
 import com.akjava.gwt.three.client.gwt.math.XY;
@@ -144,6 +163,7 @@ import com.akjava.gwt.three.client.textures.DataTexture;
 import com.akjava.gwt.three.client.textures.Texture;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
+import com.google.gwt.core.client.JsArrayNumber;
 import com.google.gwt.dom.client.CanvasElement;
 import com.google.gwt.dom.client.ImageElement;
 
@@ -152,93 +172,147 @@ import com.google.gwt.dom.client.ImageElement;
 
 
 public class THREE {
-	public final native SplineCurve3 SplineCurve3(JsArray<XYZ> points)/*-{
+	public static final native TubeGeometry TubeGeometry(Path path,int segments,double radius,double radialSegments,boolean closed )/*-{
+	return $wnd.THREE.TubeGeometry();
+	}-*/;
+	public static final native TorusKnotGeometry TorusKnotGeometry(double radius,double tube,int radialSegments,int tubularSegments,double p,double q,double heightScale)/*-{
+	return $wnd.THREE.TorusKnotGeometry(radius, tube, radialSegments, tubularSegments, p, q, heightScale);
+	}-*/;
+	public static final native TorusGeometry TorusGeometry(double radius,double tube,int radialSegments,int tubularSegments,double arc)/*-{
+	return $wnd.THREE.TorusGeometry(radius, tube, radialSegments, tubularSegments, arc);
+	}-*/;
+	public static final native TextGeometry TextGeometry(String text,JavaScriptObject parameters)/*-{
+	return $wnd.THREE.TextGeometry( text, parameters);
+	}-*/;
+	public static final native TetrahedronGeometry TetrahedronGeometry(double radius,int detail )/*-{
+	return $wnd.THREE.TetrahedronGeometry(radius, detail );
+	}-*/;
+	public static final native SphereGeometry SphereGeometry(double radius,int widthSegments,int heightSegments,double phiStart,double phiLength,double thetaStart,double thetaLength)/*-{
+	return $wnd.THREE.SphereGeometry(radius, widthSegments, heightSegments, phiStart, phiLength, thetaStart, thetaLength);
+	}-*/;
+	public static final native ShapeGeometry ShapeGeometry(JsArray<Shape> shapes,JavaScriptObject options)/*-{
+	return $wnd.THREE.ShapeGeometry(shapes, options);
+	}-*/;
+	public static final native RingGeometry RingGeometry(double innerRadius,double  outerRadius,int thetaSegments,int phiSegments,double  thetaStart,double  thetaLength)/*-{
+	return $wnd.THREE.RingGeometry(innerRadius, outerRadius, thetaSegments, phiSegments, thetaStart, thetaLength);
+	}-*/;
+	public static final native PolyhedronGeometry PolyhedronGeometry(JsArray<JsArrayNumber> vertices,JsArray<JsArrayNumber> faces,double radius,int detail)/*-{
+	return $wnd.THREE.PolyhedronGeometry(vertices, faces, radius, detail);
+	}-*/;
+	public static final native PlaneGeometry PlaneGeometry(double width,double height,int widthSegments,int heightSegments)/*-{
+	return $wnd.THREE.PlaneGeometry(width, height, widthSegments, heightSegments);
+	}-*/;
+	public static final native ParametricGeometry ParametricGeometry(JavaScriptObject func,int slices,int stacks)/*-{
+	return $wnd.THREE.ParametricGeometry(func, slices, stacks);
+	}-*/;
+	public static final native OctahedronGeometry OctahedronGeometry(double radius,int detail)/*-{
+	return $wnd.THREE.OctahedronGeometry(radius, detail);
+	}-*/;
+	public static final native LatheGeometry LatheGeometry(JsArray<XYZ> points,int segments,double phiStart,double phiLength)/*-{
+	return $wnd.THREE.LatheGeometry(points, segments, phiStart, phiLength);
+	}-*/;
+	public static final native IcosahedronGeometry IcosahedronGeometry(double radius,int detail)/*-{
+	return $wnd.THREE.IcosahedronGeometry(radius, detail);
+	}-*/;
+	public static final native ExtrudeGeometry ExtrudeGeometry(JsArray<Shape> shapes, JavaScriptObject options)/*-{
+	return $wnd.THREE.ExtrudeGeometry(shapes, options);
+	}-*/;
+	public static final native CylinderGeometry CylinderGeometry(double radiusTop,double  radiusBottom,double  height,int radialSegments,int heightSegments,boolean openEnded)/*-{
+	return $wnd.THREE.CylinderGeometry(radiusTop, radiusBottom, height, radialSegments, heightSegments, openEnded);
+	}-*/;
+	public static final native CubeGeometry CubeGeometry(double width,double height,double depth,int widthSegments,int heightSegments,int depthSegments )/*-{
+	return $wnd.THREE.CubeGeometry( width, height, depth, widthSegments, heightSegments, depthSegments );
+	}-*/;
+	public static final native CircleGeometry CircleGeometry(double radius,int segments,double thetaStart,double thetaLength)/*-{
+	return $wnd.THREE.CircleGeometry(radius, segments, thetaStart, thetaLength);
+	}-*/;
+	public static final native SplineCurve3 SplineCurve3(JsArray<XYZ> points)/*-{
 	return $wnd.THREE.SplineCurve3(points);
 	}-*/;
 	
-	public final native SplineCurve SplineCurve(JsArray<XY> points)/*-{
+	public static final native SplineCurve SplineCurve(JsArray<XY> points)/*-{
 	return $wnd.THREE.SplineCurve(points);
 	}-*/;
 	
-	public final native QuadraticBezierCurve3 QuadraticBezierCurve3(XYZ v0,XYZ v1,XYZ v2)/*-{
+	public static final native QuadraticBezierCurve3 QuadraticBezierCurve3(XYZ v0,XYZ v1,XYZ v2)/*-{
 	return $wnd.THREE.QuadraticBezierCurve3(v0, v1, v2);
 	}-*/;
 	
-	public final native QuadraticBezierCurve QuadraticBezierCurve(XY v0,XY v1,XY v2)/*-{
+	public static final native QuadraticBezierCurve QuadraticBezierCurve(XY v0,XY v1,XY v2)/*-{
 	return $wnd.THREE.QuadraticBezierCurve(v0, v1, v2);
 	}-*/;
 	
-	public final native LineCurve3 LineCurve3(Vector3 v1,Vector3 v2)/*-{
+	public static final native LineCurve3 LineCurve3(Vector3 v1,Vector3 v2)/*-{
 	return $wnd.THREE.LineCurve3(v1, v2);
 	}-*/;
 	
-	public final native LineCurve LineCurve(Vector2 v1,Vector2 v2)/*-{
+	public static final native LineCurve LineCurve(Vector2 v1,Vector2 v2)/*-{
 	return $wnd.THREE.LineCurve(v1, v2);
 	}-*/;
 	
-	public final native EllipseCurve EllipseCurve(double aX,double  aY,double  xRadius,double  yRadius,double  aStartAngle,double  aEndAngle,boolean aClockwise)/*-{
+	public static final native EllipseCurve EllipseCurve(double aX,double  aY,double  xRadius,double  yRadius,double  aStartAngle,double  aEndAngle,boolean aClockwise)/*-{
 	return $wnd.THREE.EllipseCurve(aX, aY, xRadius, yRadius, aStartAngle, aEndAngle, aClockwise);
 	}-*/;
 	
-	public final native CubicBezierCurve3 CubicBezierCurve3(XYZ v0,XYZ v1,XYZ v2,XYZ v3)/*-{
+	public static final native CubicBezierCurve3 CubicBezierCurve3(XYZ v0,XYZ v1,XYZ v2,XYZ v3)/*-{
 	return $wnd.THREE.CubicBezierCurve3(v0, v1, v2, v3);
 	}-*/;
 	
-	public final native CubicBezierCurve CubicBezierCurve(XY v0,XY v1,XY v2,XY v3)/*-{
+	public static final native CubicBezierCurve CubicBezierCurve(XY v0,XY v1,XY v2,XY v3)/*-{
 	return $wnd.THREE.CubicBezierCurve(v0, v1, v2, v3);
 	}-*/;
 	
-	public final native ClosedSplineCurve3 ClosedSplineCurve3(JsArray<XYZ> points)/*-{
+	public static final native ClosedSplineCurve3 ClosedSplineCurve3(JsArray<XYZ> points)/*-{
 	return $wnd.THREE.ClosedSplineCurve3(points);
 	}-*/;
-	public final native ArcCurve ArcCurve(double aX,double  aY,double  aRadius,double  aStartAngle,double  aEndAngle,boolean aClockwise)/*-{
+	public static final native ArcCurve ArcCurve(double aX,double  aY,double  aRadius,double  aStartAngle,double  aEndAngle,boolean aClockwise)/*-{
 	return $wnd.THREE.ArcCurve(aX, aY, aRadius, aStartAngle, aEndAngle, aClockwise);
 	}-*/;
 	
-	public final native Gyroscope Gyroscope()/*-{
+	public static final native Gyroscope Gyroscope()/*-{
 	return $wnd.THREE.Gyroscope();
 	}-*/;
 	
-	public final native CompressedTexture CompressedTexture( JavaScriptObject mipmaps,int width,int height,int format,int type,int mapping,int wrapS,int wrapT,int magFilter,int minFilter,int anisotropy)/*-{
+	public static final native CompressedTexture CompressedTexture( JavaScriptObject mipmaps,int width,int height,int format,int type,int mapping,int wrapS,int wrapT,int magFilter,int minFilter,int anisotropy)/*-{
 	return $wnd.THREE.CompressedTexture( mipmaps, width, height, format, type, mapping, wrapS, wrapT, magFilter, minFilter, anisotropy );
 	}-*/;
 	
-	public final native DataTexture DataTexture( JavaScriptObject data,int width,int height,int format,int type,int mapping,int wrapS,int wrapT,int magFilter,int minFilter,int anisotropy)/*-{
+	public static final native DataTexture DataTexture( JavaScriptObject data,int width,int height,int format,int type,int mapping,int wrapS,int wrapT,int magFilter,int minFilter,int anisotropy)/*-{
 	return $wnd.THREE.DataTexture( data, width, height, format, type, mapping, wrapS, wrapT, magFilter, minFilter, anisotropy);
 	}-*/;
 	
-	public final native Fog Fog(int hex, double near, double far)/*-{
+	public static final native Fog Fog(int hex, double near, double far)/*-{
 	return $wnd.THREE.Fog(hex,near,far);
 	}-*/;
 	
-	public final native Fog FogExp2(int hex, double density)/*-{
+	public static final native Fog FogExp2(int hex, double density)/*-{
 	return $wnd.THREE.FogExp2(hex,density);
 	}-*/;
 	
-	public final native WebGLRenderTargetCube WebGLRenderTargetCube(double widht,double height,JavaScriptObject options)/*-{
+	public static final native WebGLRenderTargetCube WebGLRenderTargetCube(double widht,double height,JavaScriptObject options)/*-{
 	return $wnd.THREE.WebGLRenderTargetCube(width,height,options);
 	}-*/;
 	
-	public final native WebGLRenderTarget WebGLRenderTarget(double widht,double height,JavaScriptObject options)/*-{
+	public static final native WebGLRenderTarget WebGLRenderTarget(double widht,double height,JavaScriptObject options)/*-{
 	return $wnd.THREE.WebGLRenderTarget(width,height,options);
 	}-*/;
-	public final native LOD LOD()/*-{
+	public static final native LOD LOD()/*-{
 	return $wnd.THREE.LOD();
 	}-*/;
 	
-	public final native Bone Bone(SkinnedMesh mesh)/*-{
+	public static final native Bone Bone(SkinnedMesh mesh)/*-{
 	return $wnd.THREE.Bone(mesh);
 	}-*/;
 
-	public final native Triangle Triangle(Vector3 a,Vector3 b,Vector3 c)/*-{
+	public static final native Triangle Triangle(Vector3 a,Vector3 b,Vector3 c)/*-{
 	return $wnd.THREE.Triangle(a,b,c);
 	}-*/;
 	
-	public final native Spline Spline(JsArray<XYZObject> points)/*-{
+	public static final native Spline Spline(JsArray<XYZObject> points)/*-{
 	return $wnd.THREE.Spline(points);
 	}-*/;
 	
-	public final native Sphere Sphere(Vector3 center,double radius)/*-{
+	public static final native Sphere Sphere(Vector3 center,double radius)/*-{
 	return $wnd.THREE.Sphere(center,radius);
 	}-*/;
 	
@@ -246,7 +320,7 @@ public class THREE {
 	return $wnd.THREE.Plane(normal,constant);
 	}-*/;
 	
-	public final native Matrix4 Matrix4(double n11,double n12,double n13,double n14,double n21,double n22,double n23,double n24,double n31,double n32,double n33,double n34,double n41,double n42,double n43,double n44)/*-{
+	public static final native Matrix4 Matrix4(double n11,double n12,double n13,double n14,double n21,double n22,double n23,double n24,double n31,double n32,double n33,double n34,double n41,double n42,double n43,double n44)/*-{
 	return $wnd.THREE.Matrix4(n11,n12,n13,n14,n21,n22,n23,n24,n31,n32,n33,n34,n41,n42,n43,n44);
 	}-*/;
 	
@@ -542,9 +616,7 @@ public class THREE {
 	}-*/;
 	
 	
-public static native final CubeGeometry CubeGeometry(double x,double y,double z,int xpart,int ypart,int zpart)/*-{
-	return new $wnd.THREE.CubeGeometry( x, y, z ,xpart,ypart,zpart);
-	}-*/;
+
 	
 	//I'm happy to fix array problem.
 	public static native final CubeGeometry Cube(double x,double y,double z,int xpart,int ypart,int zpart,JsArray<Material> materials)/*-{
@@ -575,9 +647,7 @@ public static native final CubeGeometry CubeGeometry(double x,double y,double z,
 	public static native final Geometry PlaneGeometry(double x,double y)/*-{
 	return new $wnd.THREE.PlaneGeometry( x, y );
 	}-*/;
-	public static native final Geometry PlaneGeometry(double x,double y,int sx,int sy)/*-{
-	return new $wnd.THREE.PlaneGeometry( x, y ,sx,sy);
-	}-*/;
+
 	
 	public static native final Geometry SphereGeometry(double radius ,int segments,int rings)/*-{
 	return new $wnd.THREE.SphereGeometry( radius, segments, rings );
