@@ -1,18 +1,11 @@
-package com.akjava.gwt.three.client.math;
+package com.akjava.gwt.three.client.gwt.math;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
 
-public class XYPoint extends JavaScriptObject{
+public class XYObject extends XY{
 
-	protected XYPoint(){}
-	
-	public   final native double getX()/*-{
-	return this.x;
-	}-*/;
-	public   final native double getY()/*-{
-	return this.y;
-	}-*/;
+	protected XYObject(){}
 	
 	public   final native void setX(double x)/*-{
 	 this.x=x;
@@ -25,7 +18,7 @@ public class XYPoint extends JavaScriptObject{
 	this.y=y;
 	}-*/;
 	
-	public  static final native XYPoint create(double x,double y)/*-{
+	public  static final native XYObject create(double x,double y)/*-{
 	var pt={"x":x,"y":y};
 	return pt;
 	}-*/;

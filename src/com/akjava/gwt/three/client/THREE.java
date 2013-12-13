@@ -55,9 +55,23 @@ import com.akjava.gwt.three.client.extras.animation.KeyFrameAnimation;
 import com.akjava.gwt.three.client.extras.cameras.CombinedCamera;
 import com.akjava.gwt.three.client.extras.cameras.CubeCamera;
 import com.akjava.gwt.three.client.extras.core.Gyroscope;
+import com.akjava.gwt.three.client.extras.curves.ArcCurve;
+import com.akjava.gwt.three.client.extras.curves.ClosedSplineCurve3;
+import com.akjava.gwt.three.client.extras.curves.CubicBezierCurve;
+import com.akjava.gwt.three.client.extras.curves.CubicBezierCurve3;
+import com.akjava.gwt.three.client.extras.curves.EllipseCurve;
+import com.akjava.gwt.three.client.extras.curves.LineCurve;
+import com.akjava.gwt.three.client.extras.curves.LineCurve3;
+import com.akjava.gwt.three.client.extras.curves.QuadraticBezierCurve;
+import com.akjava.gwt.three.client.extras.curves.QuadraticBezierCurve3;
+import com.akjava.gwt.three.client.extras.curves.SplineCurve;
+import com.akjava.gwt.three.client.extras.curves.SplineCurve3;
 import com.akjava.gwt.three.client.extras.geometries.CubeGeometry;
 import com.akjava.gwt.three.client.extras.loaders.ColladaLoader;
 import com.akjava.gwt.three.client.extras.modifiers.SubdivisionModifier;
+import com.akjava.gwt.three.client.gwt.math.XY;
+import com.akjava.gwt.three.client.gwt.math.XYZ;
+import com.akjava.gwt.three.client.gwt.math.XYZObject;
 import com.akjava.gwt.three.client.lights.AmbientLight;
 import com.akjava.gwt.three.client.lights.AreaLight;
 import com.akjava.gwt.three.client.lights.DirectionalLight;
@@ -111,7 +125,6 @@ import com.akjava.gwt.three.client.math.Vector2;
 import com.akjava.gwt.three.client.math.Vector3;
 import com.akjava.gwt.three.client.math.Vector4;
 import com.akjava.gwt.three.client.math.Vertex;
-import com.akjava.gwt.three.client.math.XYZPoint;
 import com.akjava.gwt.three.client.objects.Bone;
 import com.akjava.gwt.three.client.objects.LOD;
 import com.akjava.gwt.three.client.objects.Line;
@@ -139,6 +152,49 @@ import com.google.gwt.dom.client.ImageElement;
 
 
 public class THREE {
+	public final native SplineCurve3 SplineCurve3(JsArray<XYZ> points)/*-{
+	return $wnd.THREE.SplineCurve3(points);
+	}-*/;
+	
+	public final native SplineCurve SplineCurve(JsArray<XY> points)/*-{
+	return $wnd.THREE.SplineCurve(points);
+	}-*/;
+	
+	public final native QuadraticBezierCurve3 QuadraticBezierCurve3(XYZ v0,XYZ v1,XYZ v2)/*-{
+	return $wnd.THREE.QuadraticBezierCurve3(v0, v1, v2);
+	}-*/;
+	
+	public final native QuadraticBezierCurve QuadraticBezierCurve(XY v0,XY v1,XY v2)/*-{
+	return $wnd.THREE.QuadraticBezierCurve(v0, v1, v2);
+	}-*/;
+	
+	public final native LineCurve3 LineCurve3(Vector3 v1,Vector3 v2)/*-{
+	return $wnd.THREE.LineCurve3(v1, v2);
+	}-*/;
+	
+	public final native LineCurve LineCurve(Vector2 v1,Vector2 v2)/*-{
+	return $wnd.THREE.LineCurve(v1, v2);
+	}-*/;
+	
+	public final native EllipseCurve EllipseCurve(double aX,double  aY,double  xRadius,double  yRadius,double  aStartAngle,double  aEndAngle,boolean aClockwise)/*-{
+	return $wnd.THREE.EllipseCurve(aX, aY, xRadius, yRadius, aStartAngle, aEndAngle, aClockwise);
+	}-*/;
+	
+	public final native CubicBezierCurve3 CubicBezierCurve3(XYZ v0,XYZ v1,XYZ v2,XYZ v3)/*-{
+	return $wnd.THREE.CubicBezierCurve3(v0, v1, v2, v3);
+	}-*/;
+	
+	public final native CubicBezierCurve CubicBezierCurve(XY v0,XY v1,XY v2,XY v3)/*-{
+	return $wnd.THREE.CubicBezierCurve(v0, v1, v2, v3);
+	}-*/;
+	
+	public final native ClosedSplineCurve3 ClosedSplineCurve3(JsArray<XYZ> points)/*-{
+	return $wnd.THREE.ClosedSplineCurve3(points);
+	}-*/;
+	public final native ArcCurve ArcCurve(double aX,double  aY,double  aRadius,double  aStartAngle,double  aEndAngle,boolean aClockwise)/*-{
+	return $wnd.THREE.ArcCurve(aX, aY, aRadius, aStartAngle, aEndAngle, aClockwise);
+	}-*/;
+	
 	public final native Gyroscope Gyroscope()/*-{
 	return $wnd.THREE.Gyroscope();
 	}-*/;
@@ -178,7 +234,7 @@ public class THREE {
 	return $wnd.THREE.Triangle(a,b,c);
 	}-*/;
 	
-	public final native Spline Spline(JsArray<XYZPoint> points)/*-{
+	public final native Spline Spline(JsArray<XYZObject> points)/*-{
 	return $wnd.THREE.Spline(points);
 	}-*/;
 	

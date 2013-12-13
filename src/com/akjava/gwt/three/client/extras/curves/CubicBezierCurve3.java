@@ -35,43 +35,56 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
   
  */
-package com.akjava.gwt.three.client.math;
+package com.akjava.gwt.three.client.extras.curves;
 
-import com.akjava.gwt.three.client.gwt.math.XYZObject;
+import com.akjava.gwt.three.client.gwt.math.XYZ;
+import com.akjava.gwt.three.client.math.Vector3;
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.core.client.JsArray;
-import com.google.gwt.core.client.JsArrayNumber;
 
 
-public class Spline extends JavaScriptObject{
-	protected Spline() {
+public class CubicBezierCurve3 extends JavaScriptObject{
+	protected CubicBezierCurve3() {
 	}
 
-public final native JsArray<XYZObject> getPoints()/*-{
-return this.points;
+
+public final native XYZ getV0()/*-{
+return this.v0;
 }-*/;
 
-public final native void initFromArray(JsArray<JsArrayNumber> a)/*-{
-this.initFromArray(a);
+public final native void setV0(XYZ v0)/*-{
+this.v0 = v0;
 }-*/;
 
-public final native XYZObject getPoint(double k)/*-{
-return this.getPoint(k);
+
+public final native XYZ getV1()/*-{
+return this.v1;
 }-*/;
 
-public final native JsArray<JsArrayNumber> getControlPointsArray()/*-{
-return this.getControlPointsArray();
+public final native void setV1(XYZ v1)/*-{
+this.v1 = v1;
 }-*/;
 
-public final native GWTSplineLength getLength(double nSubDivisions)/*-{
-return this.getLength(nSubDivisions);
+
+public final native XYZ getV2()/*-{
+return this.v2;
 }-*/;
 
-public final native void reparametrizeByArcLength(double samplingCoef)/*-{
-this.reparametrizeByArcLength(samplingCoef);
+public final native void setV2(XYZ v2)/*-{
+this.v2 = v2;
 }-*/;
 
-public static final native double interpolate(double p0, double p1, double p2, double p3, double t, double t2, double t3)/*-{
-return interpolate( p0, p1, p2, p3, t, t2, t3);
+
+public final native XYZ getV3()/*-{
+return this.v3;
 }-*/;
+
+public final native void setV3(XYZ v3)/*-{
+this.v3 = v3;
+}-*/;
+
+public final native Vector3 gwtGetPointAsVector3(double t)/*-{
+return this.getPoint(t);
+}-*/;
+
+
 }

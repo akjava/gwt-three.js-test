@@ -37,7 +37,8 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.extras.core;
 
-import com.akjava.gwt.three.client.math.XYZPoint;
+import com.akjava.gwt.three.client.gwt.math.XYZObject;
+import com.akjava.gwt.three.client.math.Vector2;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayNumber;
@@ -47,19 +48,19 @@ public class Curve extends JavaScriptObject{
 	protected Curve() {
 	}
 
-public final native XYZPoint getPoint(double t)/*-{
+public final native Vector2 getPoint(double t)/*-{
 return this.getPoint(t);
 }-*/;
 
-public final native XYZPoint getPointAt(double u)/*-{
+public final native Vector2 getPointAt(double u)/*-{
 return this.getPointAt(u);
 }-*/;
 
-public final native JsArray<XYZPoint> getPoints(double divisions)/*-{
+public final native JsArray<Vector2> getPoints(double divisions)/*-{
 return this.getPoints(divisions);
 }-*/;
 
-public final native JsArray<XYZPoint> getSpacedPoints(double divisions)/*-{
+public final native JsArray<Vector2> getSpacedPoints(double divisions)/*-{
 return this.getSpacedPoints(divisions);
 }-*/;
 
@@ -79,11 +80,11 @@ public final native double getUtoTmapping(double u,double distance)/*-{
 return this.getUtoTmapping(u,distance);
 }-*/;
 
-public final native double getTangent(double t)/*-{
+public final native Vector2 getTangent(double t)/*-{
 return this.getTangent(t);
 }-*/;
 
-public final native double getTangentAt(double u)/*-{
+public final native Vector2 getTangentAt(double u)/*-{
 return this.getTangentAt(u);
 }-*/;
 

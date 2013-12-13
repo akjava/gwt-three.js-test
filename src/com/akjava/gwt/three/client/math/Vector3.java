@@ -37,31 +37,12 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.math;
 
-import com.google.gwt.core.client.JavaScriptObject;
+import com.akjava.gwt.three.client.gwt.math.XYZ;
 import com.google.gwt.core.client.JsArrayNumber;
 
-public class Vector3 extends JavaScriptObject{
+public class Vector3 extends XYZ{
 	protected Vector3(){};
 	
-
-public final native double getX()/*-{
-return this.x;
-}-*/;
-
-
-
-public final native double getY()/*-{
-return this.y;
-}-*/;
-
-
-
-public final native double getZ()/*-{
-return this.z;
-}-*/;
-
-
-
 public final native Vector3 set(double x,double y,double z)/*-{
 return this.set(x,y,z);
 }-*/;

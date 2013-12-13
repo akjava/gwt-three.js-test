@@ -3,7 +3,7 @@ package com.akjava.gwt.three.client.gwt;
 import java.util.List;
 
 import com.akjava.gwt.three.client.core.Object3D;
-import com.akjava.gwt.three.client.math.XYPoint;
+import com.akjava.gwt.three.client.gwt.math.XYObject;
 
 public class MovingXYControler extends AbstractMovingXYControler{
 
@@ -25,7 +25,7 @@ public void setListener(MovingEndListener listener) {
 	this.listener = listener;
 }
 
-public MovingXYControler(List<XYPoint> points,int duration,Object3D target){
+public MovingXYControler(List<XYObject> points,int duration,Object3D target){
 	super(points,duration);
 	this.target=target;
 }
@@ -33,7 +33,7 @@ public MovingXYControler(List<XYPoint> points,int duration,Object3D target){
 @Override
 public void moveEnd() {
 	//move finished
-	XYPoint last=points.get(points.size()-1);
+	XYObject last=points.get(points.size()-1);
 	target.getPosition().setX(last.getX());
 	target.getPosition().setY(last.getY());
 	

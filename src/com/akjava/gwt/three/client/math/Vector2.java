@@ -37,12 +37,13 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.math;
 
+import com.akjava.gwt.three.client.gwt.math.XY;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayInteger;
 import com.google.gwt.core.client.JsArrayNumber;
 
 
-public class Vector2 extends JavaScriptObject{
+public class Vector2 extends XY{
 	protected Vector2() {
 	}
 
@@ -163,6 +164,7 @@ return this.toArray();
 public final native Vector2 clone()/*-{
 return this.clone();
 }-*/;
+
 
 
 }

@@ -38,7 +38,7 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client.extras.core;
 
 import com.akjava.gwt.three.client.core.Geometry;
-import com.akjava.gwt.three.client.math.XYZPoint;
+import com.akjava.gwt.three.client.gwt.math.XYZObject;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayNumber;
@@ -106,7 +106,7 @@ public final native Geometry createSpacedPointsGeometry(double divisions)/*-{
 return this.createSpacedPointsGeometry(divisions);
 }-*/;
 
-public final native Geometry createGeometry(JsArray<XYZPoint> points)/*-{
+public final native Geometry createGeometry(JsArray<XYZObject> points)/*-{
 return this.createGeometry(points);
 }-*/;
 
@@ -114,15 +114,15 @@ public final native void addWrapPath(Object bendpath)/*-{
 this.addWrapPath(bendpath);
 }-*/;
 
-public final native JsArray<XYZPoint> getTransformedPoints(int segments,JsArray<Path> bends)/*-{
+public final native JsArray<XYZObject> getTransformedPoints(int segments,JsArray<Path> bends)/*-{
 return this.getTransformedPoints(segments,bends);
 }-*/;
 
-public final native JsArray<XYZPoint> getTransformedSpacedPoints(int segments,JsArray<Path> bends)/*-{
+public final native JsArray<XYZObject> getTransformedSpacedPoints(int segments,JsArray<Path> bends)/*-{
 return this.getTransformedSpacedPoints(segments,bends);
 }-*/;
 
-public final native JsArray<XYZPoint> getWrapPoints(JsArray<XYZPoint> oldPts,Path path)/*-{
+public final native JsArray<XYZObject> getWrapPoints(JsArray<XYZObject> oldPts,Path path)/*-{
 return this.getWrapPoints(oldPts,path);
 }-*/;
 

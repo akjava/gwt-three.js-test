@@ -38,7 +38,7 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client.extras.core;
 
 import com.akjava.gwt.three.client.core.Geometry;
-import com.akjava.gwt.three.client.math.XYZPoint;
+import com.akjava.gwt.three.client.gwt.math.XYZObject;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 
@@ -64,11 +64,11 @@ public final native Geometry makeGeometry(JavaScriptObject options)/*-{
 return this.makeGeometry(options);
 }-*/;
 
-public final native JsArray<JsArray<XYZPoint>> getPointsHoles(int divisions)/*-{
+public final native JsArray<JsArray<XYZObject>> getPointsHoles(int divisions)/*-{
 return this.getPointsHoles(divisions);
 }-*/;
 
-public final native JsArray<JsArray<XYZPoint>> getSpacedPointsHoles(int divisions)/*-{
+public final native JsArray<JsArray<XYZObject>> getSpacedPointsHoles(int divisions)/*-{
 return this.getSpacedPointsHoles(divisions);
 }-*/;
 

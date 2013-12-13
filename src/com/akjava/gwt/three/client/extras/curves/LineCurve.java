@@ -35,43 +35,34 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
   
  */
-package com.akjava.gwt.three.client.math;
+package com.akjava.gwt.three.client.extras.curves;
 
-import com.akjava.gwt.three.client.gwt.math.XYZObject;
-import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.core.client.JsArray;
-import com.google.gwt.core.client.JsArrayNumber;
+import com.akjava.gwt.three.client.extras.core.Curve;
+import com.akjava.gwt.three.client.math.Vector2;
 
 
-public class Spline extends JavaScriptObject{
-	protected Spline() {
+public class LineCurve extends Curve{
+	protected LineCurve() {
 	}
 
-public final native JsArray<XYZObject> getPoints()/*-{
-return this.points;
+public final native Vector2 getV1()/*-{
+return this.v1;
 }-*/;
 
-public final native void initFromArray(JsArray<JsArrayNumber> a)/*-{
-this.initFromArray(a);
+public final native void setV1(Vector2 v1)/*-{
+this.v1 = v1;
 }-*/;
 
-public final native XYZObject getPoint(double k)/*-{
-return this.getPoint(k);
+
+public final native Vector2 getV2()/*-{
+return this.v2;
 }-*/;
 
-public final native JsArray<JsArrayNumber> getControlPointsArray()/*-{
-return this.getControlPointsArray();
+public final native void setV2(Vector2 v2)/*-{
+this.v2 = v2;
 }-*/;
 
-public final native GWTSplineLength getLength(double nSubDivisions)/*-{
-return this.getLength(nSubDivisions);
-}-*/;
 
-public final native void reparametrizeByArcLength(double samplingCoef)/*-{
-this.reparametrizeByArcLength(samplingCoef);
-}-*/;
 
-public static final native double interpolate(double p0, double p1, double p2, double p3, double t, double t2, double t3)/*-{
-return interpolate( p0, p1, p2, p3, t, t2, t3);
-}-*/;
+
 }

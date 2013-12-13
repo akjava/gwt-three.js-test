@@ -24,9 +24,9 @@ import com.akjava.gwt.three.client.core.Geometry;
 import com.akjava.gwt.three.client.gwt.AbstractMovingXYControler;
 import com.akjava.gwt.three.client.gwt.Clock;
 import com.akjava.gwt.three.client.gwt.GWTSpline;
+import com.akjava.gwt.three.client.gwt.math.XYObject;
 import com.akjava.gwt.three.client.lights.Light;
 import com.akjava.gwt.three.client.materials.Material;
-import com.akjava.gwt.three.client.math.XYPoint;
 import com.akjava.gwt.three.client.objects.Mesh;
 import com.akjava.gwt.three.client.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.scenes.Scene;
@@ -48,11 +48,11 @@ private Timer timer;
 		
 		final Scene scene=THREE.Scene();
 		
-		final List<XYPoint> pts=new ArrayList<XYPoint>();
+		final List<XYObject> pts=new ArrayList<XYObject>();
 		for(int i=0;i<10;i++){
 			double mx=Math.random()*20+i*20-100;
 			double my=Math.random()*100;
-			pts.add(XYPoint.create(mx, my));
+			pts.add(XYObject.create(mx, my));
 			final Mesh mesh=THREE.Mesh(THREE.SphereGeometry(2, 16, 16), 
 					THREE.MeshLambertMaterial().color(0xff0000).build());
 			mesh.setPosition(mx, my, 0);
