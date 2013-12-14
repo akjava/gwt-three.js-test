@@ -16,6 +16,7 @@
 package com.akjava.gwt.threecanvastest.client;
 
 import com.akjava.gwt.lib.client.GWTHTMLUtils;
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.stats.client.Stats;
 import com.akjava.gwt.three.client.java.ui.CameraMoveWidget;
 import com.akjava.gwt.three.client.java.ui.CameraRotationWidget;
@@ -47,8 +48,8 @@ public class MainWidget extends Composite {
 
 	private Demo lastDemo;
 	public static Stats stats;
-	final Demo[] demos=new Demo[]{new HelloCSS3DDemo()
-	//,new GeometryBird()
+	final Demo[] demos=new Demo[]{//new HelloCSS3DDemo()
+	new BoxDemo()
 	
 	};
 	
@@ -58,9 +59,10 @@ public class MainWidget extends Composite {
 		initWidget(uiBinder.createAndBindUi(this));
 		
 		
-		//renderer = THREE.CanvasRenderer();
+		renderer = THREE.CanvasRenderer();
 		//renderer = THREE.CSS3DRenderer();
-		
+		LogUtils.log("renderer:"+renderer);
+		LogUtils.log(renderer.getDomElement());
 		GWTHTMLUtils.disableSelectionStart(renderer.getDomElement());
 		
 		renderer.setSize(width, height);
