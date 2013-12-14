@@ -196,7 +196,7 @@ panel.addClickHandler(new ClickHandler() {
 		Vector3 jointPos=joint.getMatrixWorld().getPosition();
 		//GWT.log("h0");
 		Matrix4 beforeRot=THREE.Matrix4();
-		beforeRot.setRotationFromEuler(joint.getRotation(), "XYZ");
+		beforeRot.makeRotationFromEuler(joint.getRotation());
 		//GWT.log("h1");
 		Matrix4 rotated=cddik.doStep(handPos, jointPos, beforeRot, targetPos);
 		//GWT.log("h2");
@@ -212,7 +212,7 @@ panel.addClickHandler(new ClickHandler() {
 		
 		Vector3 vec=THREE.Vector3();
 		vec.getRotationFromMatrix(rotated);
-		log("name:"+joint.getName()+",before:"+ThreeLog.getAsDegree(joint.getRotation())+",after:"+ThreeLog.getAsDegree(vec));
+		//log("name:"+joint.getName()+",before:"+ThreeLog.getAsDegree(joint.getRotation())+",after:"+ThreeLog.getAsDegree(vec));
 		joint.setRotation(vec);
 		joint.updateMatrixWorld(true);
 		index--;

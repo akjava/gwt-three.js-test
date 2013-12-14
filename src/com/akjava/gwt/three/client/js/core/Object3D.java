@@ -37,6 +37,7 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.core;
 
+import com.akjava.gwt.three.client.js.math.Euler;
 import com.akjava.gwt.three.client.js.math.Matrix4;
 import com.akjava.gwt.three.client.js.math.Quaternion;
 import com.akjava.gwt.three.client.js.math.Vector3;
@@ -55,19 +56,29 @@ protected Object3D(){}
 	public final void setPosition(double x,double y,double z){
 		getPosition().set(x,y,z);
 	}
-	public final native Vector3 getRotation()/*-{
+	public final native Euler getRotation()/*-{
 	return this.rotation;
 }-*/;
 	
+	public final native void setRotation(Euler euler)/*-{
+	this.rotation=rotation;
+	}-*/;
 
 
 	
-	
+	/**
+	 * @deprecated
+	 * @param vector
+	 */
 	public final void setRotation(Vector3 vector){
-		getRotation().set(vector.getX(),vector.getY(),vector.getZ());
+		setRotation(vector.getX(),vector.getY(),vector.getZ());
 	}
+	/**
+	 * @deprecated
+	 * @param vector
+	 */
 public final void setRotation(double x,double y,double z){
-	getRotation().set(x,y,z);
+	getRotation().set(x,y,z,"XYZ");
 }
 public final void setScale(double x,double y,double z){
 	getScale().set(x,y,z);

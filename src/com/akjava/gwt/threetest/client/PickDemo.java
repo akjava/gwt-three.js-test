@@ -50,7 +50,7 @@ public class PickDemo extends AbstractDemo{
 		
 		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
 		camera.getPosition().set(0, 0, 50);
-		camera.getRotation().set(0, 0, 0);
+		camera.setRotation(THREE.Euler(0, 0, 0, "XYZ"));
 		
 		
 		final Scene scene=THREE.Scene();

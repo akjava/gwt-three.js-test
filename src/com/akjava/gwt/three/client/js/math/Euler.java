@@ -113,5 +113,17 @@ public final native void setOrder(String value)/*-{
 this.order=value;
 }-*/;
 
+/** Euler.js 's getter will _updateQuaternion */
+public native final void gwtIncrementX(double x)/*-{
+this.x+=x;
+}-*/;
+/** Euler.js 's getter will _updateQuaternion */
+public native final void gwtIncrementY(double y)/*-{
+this.y+=y;
+}-*/;
+/** Euler.js 's getter will _updateQuaternion */
+public native final void gwtIncrementZ(double z)/*-{
+this.z+=z;
+}-*/;
 
 }
