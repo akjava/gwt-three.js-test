@@ -1,4 +1,4 @@
-package com.akjava.gwt.three.client.experiments;
+package com.akjava.gwt.three.client.examples.renderers;
 
 import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.js.cameras.Camera;

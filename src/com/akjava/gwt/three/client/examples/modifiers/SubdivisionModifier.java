@@ -1,4 +1,4 @@
-package com.akjava.gwt.three.client.extras.modifiers;
+package com.akjava.gwt.three.client.examples.modifiers;
 
 import com.akjava.gwt.three.client.js.core.Geometry;
 import com.google.gwt.core.client.JavaScriptObject;

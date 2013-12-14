@@ -38,8 +38,8 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client.js;
 
 import com.akjava.gwt.lib.client.JavaScriptUtils;
-import com.akjava.gwt.three.client.experiments.CSS3DRenderer;
-import com.akjava.gwt.three.client.extras.modifiers.SubdivisionModifier;
+import com.akjava.gwt.three.client.examples.modifiers.SubdivisionModifier;
+import com.akjava.gwt.three.client.examples.renderers.CSS3DRenderer;
 import com.akjava.gwt.three.client.gwt.math.XY;
 import com.akjava.gwt.three.client.gwt.math.XYZ;
 import com.akjava.gwt.three.client.gwt.math.XYZObject;

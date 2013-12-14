@@ -1,4 +1,4 @@
-package com.akjava.gwt.three.client.experiments;
+package com.akjava.gwt.three.client.examples.renderers;
 
 import com.akjava.gwt.three.client.js.extras.ShaderUtils.Uniforms;
 import com.google.gwt.core.client.JavaScriptObject;

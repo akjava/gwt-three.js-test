@@ -1,4 +1,4 @@
-package com.akjava.gwt.three.client.experiments;
+package com.akjava.gwt.three.client.examples.renderers;
 
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.google.gwt.dom.client.CanvasElement;

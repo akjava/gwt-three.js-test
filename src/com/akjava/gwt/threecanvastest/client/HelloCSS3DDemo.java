@@ -16,8 +16,8 @@
 package com.akjava.gwt.threecanvastest.client;
 
 import com.akjava.gwt.lib.client.LogUtils;
-import com.akjava.gwt.three.client.experiments.CSS3DObject;
-import com.akjava.gwt.three.client.experiments.CSS3DRenderer;
+import com.akjava.gwt.three.client.examples.renderers.CSS3DObject;
+import com.akjava.gwt.three.client.examples.renderers.CSS3DRenderer;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;

@@ -7,7 +7,7 @@ import com.akjava.gwt.html5.client.InputRangeWidget;
 import com.akjava.gwt.lib.client.CanvasUtils;
 import com.akjava.gwt.lib.client.GWTHTMLUtils;
 import com.akjava.gwt.lib.client.LogUtils;
-import com.akjava.gwt.three.client.experiments.CSS3DObject;
+import com.akjava.gwt.three.client.examples.renderers.CSS3DObject;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Geometry;
