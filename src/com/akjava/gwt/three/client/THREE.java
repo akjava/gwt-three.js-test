@@ -38,6 +38,7 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client;
 
 import com.akjava.gwt.lib.client.JavaScriptUtils;
+import com.akjava.gwt.three.client.cameras.Camera;
 import com.akjava.gwt.three.client.cameras.OrthographicCamera;
 import com.akjava.gwt.three.client.cameras.PerspectiveCamera;
 import com.akjava.gwt.three.client.core.BufferGeometry;
@@ -86,6 +87,20 @@ import com.akjava.gwt.three.client.extras.geometries.TextGeometry;
 import com.akjava.gwt.three.client.extras.geometries.TorusGeometry;
 import com.akjava.gwt.three.client.extras.geometries.TorusKnotGeometry;
 import com.akjava.gwt.three.client.extras.geometries.TubeGeometry;
+import com.akjava.gwt.three.client.extras.helpers.ArrowHelper;
+import com.akjava.gwt.three.client.extras.helpers.AxisHelper;
+import com.akjava.gwt.three.client.extras.helpers.BoundingBoxHelper;
+import com.akjava.gwt.three.client.extras.helpers.BoxHelper;
+import com.akjava.gwt.three.client.extras.helpers.CameraHelper;
+import com.akjava.gwt.three.client.extras.helpers.DirectionalLightHelper;
+import com.akjava.gwt.three.client.extras.helpers.FaceNormalsHelper;
+import com.akjava.gwt.three.client.extras.helpers.GridHelper;
+import com.akjava.gwt.three.client.extras.helpers.HemisphereLightHelper;
+import com.akjava.gwt.three.client.extras.helpers.PointLightHelper;
+import com.akjava.gwt.three.client.extras.helpers.SpotLightHelper;
+import com.akjava.gwt.three.client.extras.helpers.VertexNormalsHelper;
+import com.akjava.gwt.three.client.extras.helpers.VertexTangentsHelper;
+import com.akjava.gwt.three.client.extras.helpers.WireframeHelper;
 import com.akjava.gwt.three.client.extras.loaders.ColladaLoader;
 import com.akjava.gwt.three.client.extras.modifiers.SubdivisionModifier;
 import com.akjava.gwt.three.client.gwt.math.XY;
@@ -169,11 +184,67 @@ import com.google.gwt.dom.client.ImageElement;
 
 
 
+/**
+	
+ * @author aki
+ *
+ */
 
 
 public class THREE {
+	public static final native ArrowHelper ArrowHelper(Vector3 dir,Vector3 origin,double length,int hex)/*-{
+	return $wnd.THREE.ArrowHelper( dir, origin, length, hex);
+	}-*/;
+
+public static final native AxisHelper AxisHelper(double size)/*-{
+return $wnd.THREE.ArrowHelper(size);
+}-*/;
+
+
+	public static final native BoundingBoxHelper BoundingBoxHelper(Object3D object,int hex)/*-{
+	return $wnd.THREE.BoundingBoxHelper(object, hex);
+	}-*/;
+	public static final native BoxHelper BoxHelper(Object3D object)/*-{
+	return $wnd.THREE.BoxHelper(object);
+	}-*/;
+	public static final native CameraHelper CameraHelper(Camera camera)/*-{
+	return $wnd.THREE.CameraHelper(camera);
+	}-*/;
+	public static final native DirectionalLightHelper DirectionalLightHelper(DirectionalLight light,double size)/*-{
+	return $wnd.THREE.DirectionalLightHelper(light, size);
+	}-*/;
+	public static final native FaceNormalsHelper FaceNormalsHelper(Object3D object,double size,int hex,double linewidth)/*-{
+	return $wnd.THREE.FaceNormalsHelper(object, size, hex, linewidth);
+	}-*/;
+	public static final native GridHelper GridHelper(int size,int step )/*-{
+	return $wnd.THREE.GridHelper(size, step );
+	}-*/;
+	public static final native HemisphereLightHelper HemisphereLightHelper(HemisphereLight light,double sphereSize,double arrowLength,double domeSize)/*-{
+	return $wnd.THREE.HemisphereLightHelper(light, sphereSize, arrowLength, domeSize);
+	}-*/;
+	public static final native PointLightHelper PointLightHelper(PointLight light,double sphereSize)/*-{
+	return $wnd.THREE.PointLightHelper( light, sphereSize);
+	}-*/;
+	public static final native SpotLightHelper SpotLightHelper(SpotLight light)/*-{
+	return $wnd.THREE.SpotLightHelper(light);
+	}-*/;
+	public static final native VertexNormalsHelper VertexNormalsHelper(Object3D object,double size,int hex,double linewidth)/*-{
+	return $wnd.THREE.VertexNormalsHelper(object, size, hex, linewidth);
+	}-*/;
+	public static final native VertexTangentsHelper VertexTangentsHelper(Object3D object,double size,int hex,double linewidth)/*-{
+	return $wnd.THREE.ArrowHelper();
+	}-*/;
+	public static final native WireframeHelper WireframeHelper(Object3D object)/*-{
+	return $wnd.THREE.WireframeHelper(object);
+	}-*/;
+
+	
+	
+	
+
+	 
 	public static final native TubeGeometry TubeGeometry(Path path,int segments,double radius,double radialSegments,boolean closed )/*-{
-	return $wnd.THREE.TubeGeometry();
+	return $wnd.THREE.TubeGeometry(path, segments, radius, radialSegments, closed );
 	}-*/;
 	public static final native TorusKnotGeometry TorusKnotGeometry(double radius,double tube,int radialSegments,int tubularSegments,double p,double q,double heightScale)/*-{
 	return $wnd.THREE.TorusKnotGeometry(radius, tube, radialSegments, tubularSegments, p, q, heightScale);
