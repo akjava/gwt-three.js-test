@@ -45,7 +45,7 @@ private Object3D object;
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		super.start(renderer, width, height, panel);
 		
-		renderer.setClearColorHex(0xffffff, 1);
+		renderer.setClearColor(0xffffff, 1);
 		
 		final Scene scene=THREE.Scene();
 		
@@ -83,7 +83,7 @@ private Object3D object;
 
 			@Override
 			public void loaded(Geometry geometry, JsArray<Material> ms) {
-				LogUtils.log(ms);
+				
 				if(!CellShader.exists()){
 					LogUtils.log("not found THREEx.ShaderLib maybe forget include it.");
 				}
@@ -121,11 +121,7 @@ private Object3D object;
 				try{
 					MainWidget.stats.begin();
 					camera.setPosition(cameraControle.getPositionX(), cameraControle.getPositionY(), cameraControle.getPositionZ());
-					//camera.updateMatrix();
-					//LogUtils.log(cameraControle.getRadiantRotationX()+","+cameraControle.getRadiantRotationY());
 					object.setRotation(cameraControle.getRadiantRotationX(), cameraControle.getRadiantRotationY(), cameraControle.getRadiantRotationZ());
-					//object.updateMatrix();
-					
 					
 					renderer.render(scene, camera);
 					MainWidget.stats.end();

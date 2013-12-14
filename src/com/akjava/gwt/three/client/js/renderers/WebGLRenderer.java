@@ -305,7 +305,7 @@ public final native void enableScissorTest(boolean enable)/*-{
 this.enableScissorTest(enable);
 }-*/;
 
-public final native void setClearColor(Color color,double alpha)/*-{
+public final native void setClearColor(int color,double alpha)/*-{
 this.setClearColor(color,alpha);
 }-*/;
 
@@ -362,8 +362,14 @@ return this.updateShadowMap(scene,camera);
 	this.clear();
 	}-*/;
 	
+	/**
+	 * @deprecated
+	 * @param color
+	 * @param alpha
+	 */
 	public  native final void setClearColorHex(int color,double alpha)/*-{
-	this.setClearColorHex(color,alpha);
+	this.setClearColor(color,alpha);
+	//this.setClearColorHex(color,alpha);
 	}-*/;
 	
 

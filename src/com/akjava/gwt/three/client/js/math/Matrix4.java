@@ -80,11 +80,12 @@ return this.multiplyScalar(s);
 
 
 /**
- * @deprecated
+ * @deprecated use applyMatrix4
  * @return
  */
 public final native Object multiplyVector4(Vector4 vector)/*-{
-return this.multiplyVector4(vector);
+return this.applyMatrix4(vector);
+//return this.multiplyVector4(vector);
 }-*/;
 
 public final native JsArrayNumber multiplyVector3Array(JsArrayNumber array)/*-{
@@ -185,11 +186,12 @@ return this.getInverse(b,throwOnInvertible);
 }-*/;
 
 /**
- * @deprecated
+ * @deprecated use Vector3's applyProjection
  * @return
  */
 public native final Vector3 multiplyVector3(Vector3 vec)/*-{
-return this.multiplyVector3(vec);
+return vec.applyProjection(this)
+//return this.multiplyVector3(vec);
 }-*/;
 
 
