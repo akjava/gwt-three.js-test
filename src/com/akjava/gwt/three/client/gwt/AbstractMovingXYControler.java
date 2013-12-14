@@ -69,7 +69,6 @@ if(!moving){
 total+=delta;
 if(total<duration){
 	XYObject pt=GWTSpline.get2DPoint(points, (double)total/duration);
-	LogUtils.log(pt);
 	moveTo(pt.getX(),pt.getY());
 }else{
 	moving=false;

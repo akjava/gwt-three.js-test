@@ -39,7 +39,7 @@ private Timer timer;
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		stop();
-		renderer.setClearColorHex(0xffffff, 1);
+		renderer.setClearColor(0xffffff, 1);
 		
 		
 		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
