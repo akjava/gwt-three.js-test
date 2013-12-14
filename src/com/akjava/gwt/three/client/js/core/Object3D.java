@@ -60,7 +60,7 @@ protected Object3D(){}
 	return this.rotation;
 }-*/;
 	
-	public final native void setRotation(Euler euler)/*-{
+	public final native void setRotation(Euler rotation)/*-{
 	this.rotation=rotation;
 	}-*/;
 

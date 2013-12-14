@@ -13,7 +13,7 @@ import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.user.client.ui.Image;
 
 public class ImageUtils extends JavaScriptObject{
-	
+protected ImageUtils(){}
 
 public static final native Texture loadTexture(String url,JavaScriptObject mapping,ImageUtilsLoadHandler handler)/*-{
 if(handler){

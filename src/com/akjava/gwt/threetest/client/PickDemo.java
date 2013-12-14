@@ -44,7 +44,7 @@ public class PickDemo extends AbstractDemo{
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		super.start(renderer, width, height, panel);
-		renderer.setClearColorHex(0xffffff, 1);
+		renderer.setClearColor(0xffffff, 1);
 		
 		meshs = new HashMap<Integer,Mesh>();
 		
