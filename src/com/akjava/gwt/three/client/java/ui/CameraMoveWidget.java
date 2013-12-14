@@ -1,4 +1,4 @@
-package com.akjava.gwt.three.client.ui;
+package com.akjava.gwt.three.client.java.ui;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;

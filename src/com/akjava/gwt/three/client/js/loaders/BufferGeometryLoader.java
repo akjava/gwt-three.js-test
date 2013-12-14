@@ -64,7 +64,7 @@ public class BufferGeometryLoader extends JavaScriptObject{
 
 public final native void load(String url,JSONLoadHandler handler)/*-{
 	this.load(url,function ( geometry ) {
-		handler.@com.akjava.gwt.three.client.js.loaders.BufferGeometryLoader$BufferGeometryLoadHandler::onLoad(Lcom/akjava/gwt/three/client/core/BufferGeometry;)(geometry);
+		handler.@com.akjava.gwt.three.client.js.loaders.BufferGeometryLoader$BufferGeometryLoadHandler::onLoad(Lcom/akjava/gwt/three/client/js/core/BufferGeometry;)(geometry);
 		});
 }-*/;
 

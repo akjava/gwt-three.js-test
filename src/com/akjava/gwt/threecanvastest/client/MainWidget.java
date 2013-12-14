@@ -17,10 +17,10 @@ package com.akjava.gwt.threecanvastest.client;
 
 import com.akjava.gwt.lib.client.GWTHTMLUtils;
 import com.akjava.gwt.stats.client.Stats;
+import com.akjava.gwt.three.client.java.ui.CameraMoveWidget;
+import com.akjava.gwt.three.client.java.ui.CameraRotationWidget;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
-import com.akjava.gwt.three.client.ui.CameraMoveWidget;
-import com.akjava.gwt.three.client.ui.CameraRotationWidget;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
