@@ -431,23 +431,23 @@ return new $wnd.THREE.ArrowHelper(size);
 	return new $wnd.THREE.Matrix3();
 	}-*/;
 	
-	private static native final Line3 Line3(Vector3 start,Vector3 end)/*-{
+	public static native final Line3 Line3(Vector3 start,Vector3 end)/*-{
 	return new $wnd.THREE.Line3(start,end);
 	}-*/;
 	
-	private static native final Euler Euler(double x,double y,double z,String order)/*-{
+	public static native final Euler Euler(double x,double y,double z,String order)/*-{
 	return new $wnd.THREE. Euler(x,y,z,order);
 	}-*/;
 	
-	private static native final Box3 Box3(Vector3 min,Vector3 max)/*-{
+	public static native final Box3 Box3(Vector3 min,Vector3 max)/*-{
 	return new $wnd.THREE. Box3(min,max);
 	}-*/;
 	
-	private static native final Box2 Box2(Vector2 min,Vector2 max)/*-{
+	public static native final Box2 Box2(Vector2 min,Vector2 max)/*-{
 	return new $wnd.THREE. Box2(min,max);
 	}-*/;
 	
-	private static native final LoadingManager LoadingManager()/*-{
+	public static native final LoadingManager LoadingManager()/*-{
 	return new $wnd.THREE.LoadingManager();
 	}-*/;
 	

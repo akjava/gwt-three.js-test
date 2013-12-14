@@ -38,6 +38,7 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client.js.math;
 
 import com.akjava.gwt.three.client.gwt.math.XYZ;
+import com.akjava.gwt.three.client.js.THREE;
 import com.google.gwt.core.client.JsArrayNumber;
 
 public class Vector3 extends XYZ{
@@ -363,19 +364,27 @@ return this.cross(vec3);
 
 
 
-
+public final Vector3 getRotationFromMatrix(Matrix4 matrix){
+	return getRotationFromMatrix(matrix,"XYZ");
+}
+public static Euler dummy_euler=THREE.Euler(0,0,0,"XYZ");
+public final synchronized Vector3 getRotationFromMatrix(Matrix4 matrix,String order){
+	dummy_euler.setFromRotationMatrix(matrix, order);
+	set(dummy_euler.getX(),dummy_euler.getY(), dummy_euler.getZ());
+	return this;
+}
 /**
  * @deprecated
  * @param matrix
  * @return
  */
-public native final Vector3 getRotationFromMatrix(Matrix4 matrix)/*-{
-return this.setEulerFromRotationMatrix(matrix,'XYZ');
-}-*/;
+//public native final Vector3 getRotationFromMatrix(Matrix4 matrix)/*-{
+//return this.setEulerFromRotationMatrix(matrix,'XYZ');
+//}-*/;
 
-public native final Vector3 setEulerFromRotationMatrix(Matrix4 matrix,String order)/*-{
-return this.setEulerFromRotationMatrix(matrix,order);
-}-*/;
+//public native final Vector3 setEulerFromRotationMatrix(Matrix4 matrix,String order)/*-{
+//return this.setEulerFromRotationMatrix(matrix,order);
+//}-*/;
 
 /**
  * @deprecated

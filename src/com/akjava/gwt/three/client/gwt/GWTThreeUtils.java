@@ -92,7 +92,7 @@ public class GWTThreeUtils {
 	}
 	public static Matrix4 rotationToMatrix4(Vector3 vec,String order){
 		Matrix4 mx=THREE.Matrix4();
-		mx.setRotationFromEuler(vec, order);
+		mx.makeRotationFromEuler(THREE.Euler(vec.getX(), vec.getY(), vec.getZ(), order));
 		return mx;
 	}
 	public static Vector3 rotationToVector3(Quaternion q){
