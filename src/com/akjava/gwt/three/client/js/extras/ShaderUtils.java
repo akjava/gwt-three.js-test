@@ -11,7 +11,7 @@ public class ShaderUtils {
 
 	
 /**
- * 
+ * @deprecated
  * @author aki
  *
  */

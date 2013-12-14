@@ -1,6 +1,7 @@
-package com.akjava.gwt.three.client.js.extras;
+package com.akjava.gwt.three.client.gwt.extras;
 
 
+import com.akjava.gwt.three.client.js.extras.Uniforms;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class Shader extends JavaScriptObject{
