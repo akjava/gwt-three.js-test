@@ -106,6 +106,10 @@ import com.akjava.gwt.three.client.extras.modifiers.SubdivisionModifier;
 import com.akjava.gwt.three.client.extras.objects.ImmediateRenderObject;
 import com.akjava.gwt.three.client.extras.objects.LensFlare;
 import com.akjava.gwt.three.client.extras.objects.MorphBlendMesh;
+import com.akjava.gwt.three.client.extras.renderers.plugins.DepthPassPlugin;
+import com.akjava.gwt.three.client.extras.renderers.plugins.LensFlarePlugin;
+import com.akjava.gwt.three.client.extras.renderers.plugins.ShadowMapPlugin;
+import com.akjava.gwt.three.client.extras.renderers.plugins.SpritePlugin;
 import com.akjava.gwt.three.client.gwt.math.XY;
 import com.akjava.gwt.three.client.gwt.math.XYZ;
 import com.akjava.gwt.three.client.gwt.math.XYZObject;
@@ -195,6 +199,18 @@ import com.google.gwt.dom.client.ImageElement;
 
 
 public class THREE {
+	public static final native DepthPassPlugin DepthPassPlugin()/*-{
+	return $wnd.THREE.DepthPassPlugin();
+	}-*/;
+	public static final native LensFlarePlugin LensFlarePlugin()/*-{
+	return $wnd.THREE.LensFlarePlugin();
+	}-*/;
+	public static final native ShadowMapPlugin ShadowMapPlugin()/*-{
+	return $wnd.THREE.ShadowMapPlugin();
+	}-*/;
+	public static final native SpritePlugin SpritePlugin()/*-{
+	return $wnd.THREE.SpritePlugin();
+	}-*/;
 	public static final native ImmediateRenderObject ImmediateRenderObject()/*-{
 	return $wnd.THREE.ImmediateRenderObject();
 	}-*/;
