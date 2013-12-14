@@ -2,9 +2,9 @@ package com.akjava.gwt.three.client.gwt.ui;
 
 import com.akjava.gwt.html5.client.file.ui.DropVerticalPanelBase;
 import com.akjava.gwt.stats.client.Stats;
-import com.akjava.gwt.three.client.THREE;
-import com.akjava.gwt.three.client.renderers.WebGLRenderer;
-import com.akjava.gwt.three.client.renderers.WebGLRenderer.WebGLCanvas;
+import com.akjava.gwt.three.client.js.THREE;
+import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
+import com.akjava.gwt.three.client.js.renderers.WebGLRenderer.WebGLCanvas;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;

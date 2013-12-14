@@ -2,8 +2,8 @@ package com.akjava.gwt.three.client.gwt;
 
 import java.util.List;
 
-import com.akjava.gwt.three.client.core.Object3D;
 import com.akjava.gwt.three.client.gwt.math.XYObject;
+import com.akjava.gwt.three.client.js.core.Object3D;
 
 public class MovingXYControler extends AbstractMovingXYControler{
 

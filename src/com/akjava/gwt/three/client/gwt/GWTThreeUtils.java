@@ -1,12 +1,12 @@
 package com.akjava.gwt.three.client.gwt;
 
-import com.akjava.gwt.three.client.THREE;
-import com.akjava.gwt.three.client.cameras.Camera;
-import com.akjava.gwt.three.client.core.Projector;
-import com.akjava.gwt.three.client.math.Matrix4;
-import com.akjava.gwt.three.client.math.Quaternion;
-import com.akjava.gwt.three.client.math.Vector3;
-import com.akjava.gwt.three.client.objects.Mesh;
+import com.akjava.gwt.three.client.js.THREE;
+import com.akjava.gwt.three.client.js.cameras.Camera;
+import com.akjava.gwt.three.client.js.core.Projector;
+import com.akjava.gwt.three.client.js.math.Matrix4;
+import com.akjava.gwt.three.client.js.math.Quaternion;
+import com.akjava.gwt.three.client.js.math.Vector3;
+import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.google.gwt.core.client.JsArrayNumber;
 
 public class GWTThreeUtils {

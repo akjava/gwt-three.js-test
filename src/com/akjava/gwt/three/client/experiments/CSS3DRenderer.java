@@ -1,8 +1,8 @@
 package com.akjava.gwt.three.client.experiments;
 
 import com.akjava.gwt.lib.client.LogUtils;
-import com.akjava.gwt.three.client.cameras.Camera;
-import com.akjava.gwt.three.client.renderers.WebGLRenderer;
+import com.akjava.gwt.three.client.js.cameras.Camera;
+import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.google.gwt.dom.client.Node;
 import com.google.gwt.dom.client.NodeList;
 import com.google.gwt.user.client.Element;

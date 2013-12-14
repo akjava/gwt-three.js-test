@@ -3,7 +3,7 @@ package com.akjava.gwt.threetest.client;
 import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.experiments.CSS3DRenderer;
 import com.akjava.gwt.three.client.gwt.core.CameraControler;
-import com.akjava.gwt.three.client.renderers.WebGLRenderer;
+import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.NativeEvent;

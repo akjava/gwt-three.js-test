@@ -1,6 +1,6 @@
 package com.akjava.gwt.three.client.gwt;
 
-import com.akjava.gwt.three.client.core.Object3D;
+import com.akjava.gwt.three.client.js.core.Object3D;
 import com.google.gwt.core.client.JsArray;
 
 public class Object3DUtils {

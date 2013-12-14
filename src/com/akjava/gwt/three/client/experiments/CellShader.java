@@ -1,6 +1,6 @@
 package com.akjava.gwt.three.client.experiments;
 
-import com.akjava.gwt.three.client.extras.ShaderUtils.Uniforms;
+import com.akjava.gwt.three.client.js.extras.ShaderUtils.Uniforms;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class CellShader extends JavaScriptObject{

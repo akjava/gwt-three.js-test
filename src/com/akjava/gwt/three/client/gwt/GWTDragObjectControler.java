@@ -5,16 +5,16 @@ package com.akjava.gwt.three.client.gwt;
  * based on three.js webgl - draggable cubes
  */
 import com.akjava.gwt.lib.client.LogUtils;
-import com.akjava.gwt.three.client.THREE;
-import com.akjava.gwt.three.client.cameras.Camera;
-import com.akjava.gwt.three.client.core.Intersect;
-import com.akjava.gwt.three.client.core.Object3D;
-import com.akjava.gwt.three.client.core.Projector;
-import com.akjava.gwt.three.client.math.Matrix4;
-import com.akjava.gwt.three.client.math.Ray;
-import com.akjava.gwt.three.client.math.Vector3;
-import com.akjava.gwt.three.client.objects.Mesh;
-import com.akjava.gwt.three.client.scenes.Scene;
+import com.akjava.gwt.three.client.js.THREE;
+import com.akjava.gwt.three.client.js.cameras.Camera;
+import com.akjava.gwt.three.client.js.core.Intersect;
+import com.akjava.gwt.three.client.js.core.Object3D;
+import com.akjava.gwt.three.client.js.core.Projector;
+import com.akjava.gwt.three.client.js.math.Matrix4;
+import com.akjava.gwt.three.client.js.math.Ray;
+import com.akjava.gwt.three.client.js.math.Vector3;
+import com.akjava.gwt.three.client.js.objects.Mesh;
+import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.google.gwt.core.client.JsArray;
 
 

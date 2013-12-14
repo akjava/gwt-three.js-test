@@ -1,15 +1,15 @@
 package com.akjava.gwt.three.client.gwt;
 
-import com.akjava.gwt.three.client.THREE;
-import com.akjava.gwt.three.client.core.Geometry;
-import com.akjava.gwt.three.client.core.MorphTarget;
-import com.akjava.gwt.three.client.core.Object3D;
-import com.akjava.gwt.three.client.extras.GeometryUtils;
-import com.akjava.gwt.three.client.loaders.JSONLoader;
-import com.akjava.gwt.three.client.loaders.JSONLoader.JSONLoadHandler;
-import com.akjava.gwt.three.client.materials.LineBasicMaterialParameter;
-import com.akjava.gwt.three.client.math.Vector3;
-import com.akjava.gwt.three.client.objects.Mesh;
+import com.akjava.gwt.three.client.js.THREE;
+import com.akjava.gwt.three.client.js.core.Geometry;
+import com.akjava.gwt.three.client.js.core.MorphTarget;
+import com.akjava.gwt.three.client.js.core.Object3D;
+import com.akjava.gwt.three.client.js.extras.GeometryUtils;
+import com.akjava.gwt.three.client.js.loaders.JSONLoader;
+import com.akjava.gwt.three.client.js.loaders.JSONLoader.JSONLoadHandler;
+import com.akjava.gwt.three.client.js.materials.LineBasicMaterialParameter;
+import com.akjava.gwt.three.client.js.math.Vector3;
+import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;

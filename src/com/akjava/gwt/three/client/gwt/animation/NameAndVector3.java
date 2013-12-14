@@ -1,7 +1,7 @@
 package com.akjava.gwt.three.client.gwt.animation;
 
-import com.akjava.gwt.three.client.THREE;
-import com.akjava.gwt.three.client.math.Vector3;
+import com.akjava.gwt.three.client.js.THREE;
+import com.akjava.gwt.three.client.js.math.Vector3;
 
 public class NameAndVector3 {
 private String name;

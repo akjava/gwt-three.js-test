@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.Map;
 
 import com.akjava.gwt.lib.client.LogUtils;
-import com.akjava.gwt.three.client.THREE;
-import com.akjava.gwt.three.client.core.Geometry;
-import com.akjava.gwt.three.client.math.Vector3;
-import com.akjava.gwt.three.client.math.Vector4;
+import com.akjava.gwt.three.client.js.THREE;
+import com.akjava.gwt.three.client.js.core.Geometry;
+import com.akjava.gwt.three.client.js.math.Vector3;
+import com.akjava.gwt.three.client.js.math.Vector4;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.user.client.Window;
 

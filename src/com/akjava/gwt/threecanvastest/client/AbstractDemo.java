@@ -1,7 +1,7 @@
 package com.akjava.gwt.threecanvastest.client;
 
 import com.akjava.gwt.three.client.gwt.core.CameraControler;
-import com.akjava.gwt.three.client.renderers.WebGLRenderer;
+import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.NativeEvent;
 import com.google.gwt.event.dom.client.MouseDownEvent;

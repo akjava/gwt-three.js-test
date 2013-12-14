@@ -15,7 +15,7 @@
  */
 package com.akjava.gwt.threecanvastest.client;
 
-import com.akjava.gwt.three.client.renderers.WebGLRenderer;
+import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 import com.google.gwt.user.client.ui.Widget;

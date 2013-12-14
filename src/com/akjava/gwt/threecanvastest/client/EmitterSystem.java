@@ -1,14 +1,14 @@
 package com.akjava.gwt.threecanvastest.client;
 
-import com.akjava.gwt.three.client.THREE;
-import com.akjava.gwt.three.client.core.Geometry;
-import com.akjava.gwt.three.client.core.Object3D;
 
-import com.akjava.gwt.three.client.extras.ImageUtils;
-import com.akjava.gwt.three.client.materials.ParticleBasicMaterial;
-import com.akjava.gwt.three.client.materials.ParticleBasicMaterialBuilder;
-import com.akjava.gwt.three.client.math.Vector3;
-import com.akjava.gwt.three.client.objects.ParticleSystem;
+import com.akjava.gwt.three.client.js.THREE;
+import com.akjava.gwt.three.client.js.core.Geometry;
+import com.akjava.gwt.three.client.js.core.Object3D;
+import com.akjava.gwt.three.client.js.extras.ImageUtils;
+import com.akjava.gwt.three.client.js.materials.ParticleBasicMaterial;
+import com.akjava.gwt.three.client.js.materials.ParticleBasicMaterialBuilder;
+import com.akjava.gwt.three.client.js.math.Vector3;
+import com.akjava.gwt.three.client.js.objects.ParticleSystem;
 
 /**
  * TODO time base

@@ -1,6 +1,6 @@
 package com.akjava.gwt.three.client.experiments;
 
-import com.akjava.gwt.three.client.core.Object3D;
+import com.akjava.gwt.three.client.js.core.Object3D;
 import com.google.gwt.dom.client.CanvasElement;
 import com.google.gwt.user.client.Element;
 
