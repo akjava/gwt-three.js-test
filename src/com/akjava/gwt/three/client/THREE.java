@@ -103,6 +103,9 @@ import com.akjava.gwt.three.client.extras.helpers.VertexTangentsHelper;
 import com.akjava.gwt.three.client.extras.helpers.WireframeHelper;
 import com.akjava.gwt.three.client.extras.loaders.ColladaLoader;
 import com.akjava.gwt.three.client.extras.modifiers.SubdivisionModifier;
+import com.akjava.gwt.three.client.extras.objects.ImmediateRenderObject;
+import com.akjava.gwt.three.client.extras.objects.LensFlare;
+import com.akjava.gwt.three.client.extras.objects.MorphBlendMesh;
 import com.akjava.gwt.three.client.gwt.math.XY;
 import com.akjava.gwt.three.client.gwt.math.XYZ;
 import com.akjava.gwt.three.client.gwt.math.XYZObject;
@@ -192,6 +195,16 @@ import com.google.gwt.dom.client.ImageElement;
 
 
 public class THREE {
+	public static final native ImmediateRenderObject ImmediateRenderObject()/*-{
+	return $wnd.THREE.ImmediateRenderObject();
+	}-*/;
+	public static final native LensFlare LensFlare(Texture texture,double size,double distance,int blending,Color color)/*-{
+	return $wnd.THREE.LensFlare(texture, size, distance, blending, color);
+	}-*/;
+	public static final native MorphBlendMesh MorphBlendMesh(Geometry geometry,Material material)/*-{
+	return $wnd.THREE.MorphBlendMesh(geometry, material);
+	}-*/;
+	
 	public static final native ArrowHelper ArrowHelper(Vector3 dir,Vector3 origin,double length,int hex)/*-{
 	return $wnd.THREE.ArrowHelper( dir, origin, length, hex);
 	}-*/;
