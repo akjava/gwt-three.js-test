@@ -122,6 +122,9 @@ public class MainWidget extends Composite {
 		});
 		renderers.add(canvasButton);
 		
+		/*
+		 * somehow not work
+		 * 
 		RadioButton css3dButton=new RadioButton("renderer", "CSS3D");
 		css3dButton.addClickHandler(new ClickHandler() {
 			@Override
@@ -130,6 +133,8 @@ public class MainWidget extends Composite {
 			}
 		});
 		renderers.add(css3dButton);
+		*/
+		
 		
 		/*
 		final ListBox rendererListBox=new ListBox(false);
@@ -233,7 +238,7 @@ rendererListBox.addChangeHandler(new ChangeHandler() {
 			canvasButton.setValue(true);
 		}else if(rendererType==RENDERER_CSS3D){
 			selection=2;
-			css3dButton.setValue(true);
+			//css3dButton.setValue(true);
 		}
 		//rendererListBox.setSelectedIndex(selection);
 		
