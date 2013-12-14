@@ -3,7 +3,7 @@ package com.akjava.gwt.three.client.js.math;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class HSL extends JavaScriptObject{
-
+protected HSL(){}
 	public final native double h()/*-{
 	return this.h;
 	}-*/;

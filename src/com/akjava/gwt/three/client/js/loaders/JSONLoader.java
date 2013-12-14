@@ -10,7 +10,7 @@ public class JSONLoader extends Loader{
 	protected JSONLoader(){}
 	
 	//show status not support
-	public void load(String path,JSONLoadHandler handler){
+	public final void load(String path,JSONLoadHandler handler){
 		load(path,handler,null);
 	}
 	public final native void load(String path,JSONLoadHandler handler,String texturePath)/*-{

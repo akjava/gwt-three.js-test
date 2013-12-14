@@ -57,7 +57,7 @@ public final native JsArray<Intersect> gwtPickIntersects(int mx,int my,int sw,in
 	var vector = new $wnd.THREE.Vector3( ( mx / sw ) * 2 - 1, - ( my / sh ) * 2 + 1, 0.5 );
 				this.unprojectVector( vector, camera );
 
-				var ray = new $wnd.THREE.Ray( camera.position, vector.subSelf( camera.position ).normalize() );
+				var ray = new $wnd.THREE.Raycaster( camera.position, vector.sub( camera.position ).normalize() );
 
 				return  ray.intersectObjects( scene.__objects );
 
@@ -71,7 +71,7 @@ public final native JsArray<Intersect> gwtPickIntersects(int mx,int my,int sw,in
 var vector = new $wnd.THREE.Vector3( ( mx / sw ) * 2 - 1, - ( my / sh ) * 2 + 1, 0.5 );
 			this.unprojectVector( vector, camera );
 
-			var ray = new $wnd.THREE.Ray(position, vector.subSelf(position ).normalize() );
+			var ray = new $wnd.THREE.Raycaster(position, vector.sub(position ).normalize() );
 
 			return  ray.intersectScene( scene.__objects );
 
@@ -82,7 +82,7 @@ public final native Ray gwtCreateRay(int mx,int my,int sw,int sh,Camera camera)/
 var vector = new $wnd.THREE.Vector3( ( mx / sw ) * 2 - 1, - ( my / sh ) * 2 + 1, 0.5 );
 			this.unprojectVector( vector, camera );
 
-			var ray = new $wnd.THREE.Ray( camera.position, vector.subSelf( camera.position ).normalize() );
+			var ray = new $wnd.THREE.Raycaster( camera.position, vector.sub( camera.position ).normalize() );
 
 			return  ray;
 
@@ -100,7 +100,7 @@ public final native JsArray<Intersect> gwtPickIntersects(int mx,int my,int sw,in
 var vector = new $wnd.THREE.Vector3( ( mx / sw ) * 2 - 1, - ( my / sh ) * 2 + 1, 0.5 );
 			this.unprojectVector( vector, camera );
 
-			var ray = new $wnd.THREE.Ray( camera.position, vector.subSelf( camera.position ).normalize() );
+			var ray = new $wnd.THREE.Raycaster( camera.position, vector.sub( camera.position ).normalize() );
 
 			return  ray.intersectObjects( objects );
 
@@ -111,7 +111,7 @@ public final native JsArray<Intersect> gwtPickIntersectsByObject(int mx,int my,i
 var vector = new $wnd.THREE.Vector3( ( mx / sw ) * 2 - 1, - ( my / sh ) * 2 + 1, 0.5 );
 			this.unprojectVector( vector, camera );
 
-			var ray = new $wnd.THREE.Ray( camera.position, vector.subSelf( camera.position ).normalize() );
+			var ray = new $wnd.THREE.Raycaster( camera.position, vector.sub( camera.position ).normalize() );
 
 			return  ray.intersectObject( object );
 

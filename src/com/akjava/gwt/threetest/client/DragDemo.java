@@ -22,7 +22,7 @@
  */
 package com.akjava.gwt.threetest.client;
 
-import com.akjava.gwt.lib.client.ExportUtils;
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.gwt.GWTDragObjectControler;
 import com.akjava.gwt.three.client.gwt.GWTGeometryUtils;
 import com.akjava.gwt.three.client.js.THREE;
@@ -36,6 +36,7 @@ import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.threetest.client.resources.Bundles;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.dom.client.NativeEvent;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -45,7 +46,6 @@ import com.google.gwt.event.dom.client.MouseMoveEvent;
 import com.google.gwt.event.dom.client.MouseOutEvent;
 import com.google.gwt.event.dom.client.MouseUpEvent;
 import com.google.gwt.user.client.Timer;
-import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.FocusPanel;
 import com.google.gwt.user.client.ui.Widget;
@@ -75,6 +75,7 @@ JsArray<Object3D> meshs=((JsArray<Object3D>) JsArray.createArray());
 		root.add(GWTGeometryUtils.createLineMesh(THREE.Vector3(0, -2000, 0), THREE.Vector3(0, 2000, 0), 0x00ff00));
 		
 		Mesh ground=THREE.Mesh(THREE.PlaneGeometry(100, 100, 50, 50), THREE.MeshBasicMaterial().color(0x888888).wireFrame().build());
+		
 		ground.setRotation(Math.toRadians(-90), 0, 0);
 		ground.setPosition(0,-5,0);
 		root.add(ground);

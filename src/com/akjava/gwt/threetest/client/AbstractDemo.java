@@ -46,6 +46,7 @@ public abstract class AbstractDemo implements Demo{
 	}
 	
 	public void onMouseDown(MouseDownEvent event) {
+		
 		mouseDown=true;
 		mouseDownX=event.getX();
 		mouseDownY=event.getY();
@@ -64,6 +65,7 @@ public abstract class AbstractDemo implements Demo{
 	
 
 	public void onMouseMove(MouseMoveEvent event) {
+		
 		if(event.getNativeButton()==NativeEvent.BUTTON_MIDDLE && mouseDown){
 			int diffX=event.getX()-mouseDownX;
 			int diffY=event.getY()-mouseDownY;

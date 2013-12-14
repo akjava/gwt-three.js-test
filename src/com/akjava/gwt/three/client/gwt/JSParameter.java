@@ -3,6 +3,7 @@ package com.akjava.gwt.three.client.gwt;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class JSParameter extends JavaScriptObject{
+	protected JSParameter(){}
 	public final static JSParameter createParameter(){
 		return (JSParameter) JSParameter.createObject();
 	}

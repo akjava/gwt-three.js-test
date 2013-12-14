@@ -200,71 +200,71 @@ import com.google.gwt.dom.client.ImageElement;
 
 public class THREE {
 	public static final native DepthPassPlugin DepthPassPlugin()/*-{
-	return $wnd.THREE.DepthPassPlugin();
+	return new $wnd.THREE.DepthPassPlugin();
 	}-*/;
 	public static final native LensFlarePlugin LensFlarePlugin()/*-{
-	return $wnd.THREE.LensFlarePlugin();
+	return new $wnd.THREE.LensFlarePlugin();
 	}-*/;
 	public static final native ShadowMapPlugin ShadowMapPlugin()/*-{
-	return $wnd.THREE.ShadowMapPlugin();
+	return new $wnd.THREE.ShadowMapPlugin();
 	}-*/;
 	public static final native SpritePlugin SpritePlugin()/*-{
-	return $wnd.THREE.SpritePlugin();
+	return new $wnd.THREE.SpritePlugin();
 	}-*/;
 	public static final native ImmediateRenderObject ImmediateRenderObject()/*-{
-	return $wnd.THREE.ImmediateRenderObject();
+	return new $wnd.THREE.ImmediateRenderObject();
 	}-*/;
 	public static final native LensFlare LensFlare(Texture texture,double size,double distance,int blending,Color color)/*-{
-	return $wnd.THREE.LensFlare(texture, size, distance, blending, color);
+	return new $wnd.THREE.LensFlare(texture, size, distance, blending, color);
 	}-*/;
 	public static final native MorphBlendMesh MorphBlendMesh(Geometry geometry,Material material)/*-{
-	return $wnd.THREE.MorphBlendMesh(geometry, material);
+	return new $wnd.THREE.MorphBlendMesh(geometry, material);
 	}-*/;
 	
 	public static final native ArrowHelper ArrowHelper(Vector3 dir,Vector3 origin,double length,int hex)/*-{
-	return $wnd.THREE.ArrowHelper( dir, origin, length, hex);
+	return new $wnd.THREE.ArrowHelper( dir, origin, length, hex);
 	}-*/;
 
 public static final native AxisHelper AxisHelper(double size)/*-{
-return $wnd.THREE.ArrowHelper(size);
+return new $wnd.THREE.ArrowHelper(size);
 }-*/;
 
 
 	public static final native BoundingBoxHelper BoundingBoxHelper(Object3D object,int hex)/*-{
-	return $wnd.THREE.BoundingBoxHelper(object, hex);
+	return new $wnd.THREE.BoundingBoxHelper(object, hex);
 	}-*/;
 	public static final native BoxHelper BoxHelper(Object3D object)/*-{
-	return $wnd.THREE.BoxHelper(object);
+	return new $wnd.THREE.BoxHelper(object);
 	}-*/;
 	public static final native CameraHelper CameraHelper(Camera camera)/*-{
-	return $wnd.THREE.CameraHelper(camera);
+	return new $wnd.THREE.CameraHelper(camera);
 	}-*/;
 	public static final native DirectionalLightHelper DirectionalLightHelper(DirectionalLight light,double size)/*-{
-	return $wnd.THREE.DirectionalLightHelper(light, size);
+	return new $wnd.THREE.DirectionalLightHelper(light, size);
 	}-*/;
 	public static final native FaceNormalsHelper FaceNormalsHelper(Object3D object,double size,int hex,double linewidth)/*-{
-	return $wnd.THREE.FaceNormalsHelper(object, size, hex, linewidth);
+	return new $wnd.THREE.FaceNormalsHelper(object, size, hex, linewidth);
 	}-*/;
 	public static final native GridHelper GridHelper(int size,int step )/*-{
-	return $wnd.THREE.GridHelper(size, step );
+	return new $wnd.THREE.GridHelper(size, step );
 	}-*/;
 	public static final native HemisphereLightHelper HemisphereLightHelper(HemisphereLight light,double sphereSize,double arrowLength,double domeSize)/*-{
-	return $wnd.THREE.HemisphereLightHelper(light, sphereSize, arrowLength, domeSize);
+	return new $wnd.THREE.HemisphereLightHelper(light, sphereSize, arrowLength, domeSize);
 	}-*/;
 	public static final native PointLightHelper PointLightHelper(PointLight light,double sphereSize)/*-{
-	return $wnd.THREE.PointLightHelper( light, sphereSize);
+	return new $wnd.THREE.PointLightHelper( light, sphereSize);
 	}-*/;
 	public static final native SpotLightHelper SpotLightHelper(SpotLight light)/*-{
-	return $wnd.THREE.SpotLightHelper(light);
+	return new $wnd.THREE.SpotLightHelper(light);
 	}-*/;
 	public static final native VertexNormalsHelper VertexNormalsHelper(Object3D object,double size,int hex,double linewidth)/*-{
-	return $wnd.THREE.VertexNormalsHelper(object, size, hex, linewidth);
+	return new $wnd.THREE.VertexNormalsHelper(object, size, hex, linewidth);
 	}-*/;
 	public static final native VertexTangentsHelper VertexTangentsHelper(Object3D object,double size,int hex,double linewidth)/*-{
-	return $wnd.THREE.ArrowHelper();
+	return new $wnd.THREE.ArrowHelper();
 	}-*/;
 	public static final native WireframeHelper WireframeHelper(Object3D object)/*-{
-	return $wnd.THREE.WireframeHelper(object);
+	return new $wnd.THREE.WireframeHelper(object);
 	}-*/;
 
 	
@@ -273,162 +273,162 @@ return $wnd.THREE.ArrowHelper(size);
 
 	 
 	public static final native TubeGeometry TubeGeometry(Path path,int segments,double radius,double radialSegments,boolean closed )/*-{
-	return $wnd.THREE.TubeGeometry(path, segments, radius, radialSegments, closed );
+	return new $wnd.THREE.TubeGeometry(path, segments, radius, radialSegments, closed );
 	}-*/;
 	public static final native TorusKnotGeometry TorusKnotGeometry(double radius,double tube,int radialSegments,int tubularSegments,double p,double q,double heightScale)/*-{
-	return $wnd.THREE.TorusKnotGeometry(radius, tube, radialSegments, tubularSegments, p, q, heightScale);
+	return new $wnd.THREE.TorusKnotGeometry(radius, tube, radialSegments, tubularSegments, p, q, heightScale);
 	}-*/;
 	public static final native TorusGeometry TorusGeometry(double radius,double tube,int radialSegments,int tubularSegments,double arc)/*-{
-	return $wnd.THREE.TorusGeometry(radius, tube, radialSegments, tubularSegments, arc);
+	return new $wnd.THREE.TorusGeometry(radius, tube, radialSegments, tubularSegments, arc);
 	}-*/;
 	public static final native TextGeometry TextGeometry(String text,JavaScriptObject parameters)/*-{
-	return $wnd.THREE.TextGeometry( text, parameters);
+	return new $wnd.THREE.TextGeometry( text, parameters);
 	}-*/;
 	public static final native TetrahedronGeometry TetrahedronGeometry(double radius,int detail )/*-{
-	return $wnd.THREE.TetrahedronGeometry(radius, detail );
+	return new $wnd.THREE.TetrahedronGeometry(radius, detail );
 	}-*/;
 	public static final native SphereGeometry SphereGeometry(double radius,int widthSegments,int heightSegments,double phiStart,double phiLength,double thetaStart,double thetaLength)/*-{
-	return $wnd.THREE.SphereGeometry(radius, widthSegments, heightSegments, phiStart, phiLength, thetaStart, thetaLength);
+	return new $wnd.THREE.SphereGeometry(radius, widthSegments, heightSegments, phiStart, phiLength, thetaStart, thetaLength);
 	}-*/;
 	public static final native ShapeGeometry ShapeGeometry(JsArray<Shape> shapes,JavaScriptObject options)/*-{
-	return $wnd.THREE.ShapeGeometry(shapes, options);
+	return new $wnd.THREE.ShapeGeometry(shapes, options);
 	}-*/;
 	public static final native RingGeometry RingGeometry(double innerRadius,double  outerRadius,int thetaSegments,int phiSegments,double  thetaStart,double  thetaLength)/*-{
-	return $wnd.THREE.RingGeometry(innerRadius, outerRadius, thetaSegments, phiSegments, thetaStart, thetaLength);
+	return new $wnd.THREE.RingGeometry(innerRadius, outerRadius, thetaSegments, phiSegments, thetaStart, thetaLength);
 	}-*/;
 	public static final native PolyhedronGeometry PolyhedronGeometry(JsArray<JsArrayNumber> vertices,JsArray<JsArrayNumber> faces,double radius,int detail)/*-{
-	return $wnd.THREE.PolyhedronGeometry(vertices, faces, radius, detail);
+	return new $wnd.THREE.PolyhedronGeometry(vertices, faces, radius, detail);
 	}-*/;
 	public static final native PlaneGeometry PlaneGeometry(double width,double height,int widthSegments,int heightSegments)/*-{
-	return $wnd.THREE.PlaneGeometry(width, height, widthSegments, heightSegments);
+	return new $wnd.THREE.PlaneGeometry(width, height, widthSegments, heightSegments);
 	}-*/;
 	public static final native ParametricGeometry ParametricGeometry(JavaScriptObject func,int slices,int stacks)/*-{
-	return $wnd.THREE.ParametricGeometry(func, slices, stacks);
+	return new $wnd.THREE.ParametricGeometry(func, slices, stacks);
 	}-*/;
 	public static final native OctahedronGeometry OctahedronGeometry(double radius,int detail)/*-{
-	return $wnd.THREE.OctahedronGeometry(radius, detail);
+	return new $wnd.THREE.OctahedronGeometry(radius, detail);
 	}-*/;
 	public static final native LatheGeometry LatheGeometry(JsArray<XYZ> points,int segments,double phiStart,double phiLength)/*-{
-	return $wnd.THREE.LatheGeometry(points, segments, phiStart, phiLength);
+	return new $wnd.THREE.LatheGeometry(points, segments, phiStart, phiLength);
 	}-*/;
 	public static final native IcosahedronGeometry IcosahedronGeometry(double radius,int detail)/*-{
-	return $wnd.THREE.IcosahedronGeometry(radius, detail);
+	return new $wnd.THREE.IcosahedronGeometry(radius, detail);
 	}-*/;
 	public static final native ExtrudeGeometry ExtrudeGeometry(JsArray<Shape> shapes, JavaScriptObject options)/*-{
-	return $wnd.THREE.ExtrudeGeometry(shapes, options);
+	return new $wnd.THREE.ExtrudeGeometry(shapes, options);
 	}-*/;
 	public static final native CylinderGeometry CylinderGeometry(double radiusTop,double  radiusBottom,double  height,int radialSegments,int heightSegments,boolean openEnded)/*-{
-	return $wnd.THREE.CylinderGeometry(radiusTop, radiusBottom, height, radialSegments, heightSegments, openEnded);
+	return new $wnd.THREE.CylinderGeometry(radiusTop, radiusBottom, height, radialSegments, heightSegments, openEnded);
 	}-*/;
 	public static final native CubeGeometry CubeGeometry(double width,double height,double depth,int widthSegments,int heightSegments,int depthSegments )/*-{
-	return $wnd.THREE.CubeGeometry( width, height, depth, widthSegments, heightSegments, depthSegments );
+	return new $wnd.THREE.CubeGeometry( width, height, depth, widthSegments, heightSegments, depthSegments );
 	}-*/;
 	public static final native CircleGeometry CircleGeometry(double radius,int segments,double thetaStart,double thetaLength)/*-{
-	return $wnd.THREE.CircleGeometry(radius, segments, thetaStart, thetaLength);
+	return new $wnd.THREE.CircleGeometry(radius, segments, thetaStart, thetaLength);
 	}-*/;
 	public static final native SplineCurve3 SplineCurve3(JsArray<XYZ> points)/*-{
-	return $wnd.THREE.SplineCurve3(points);
+	return new $wnd.THREE.SplineCurve3(points);
 	}-*/;
 	
 	public static final native SplineCurve SplineCurve(JsArray<XY> points)/*-{
-	return $wnd.THREE.SplineCurve(points);
+	return new $wnd.THREE.SplineCurve(points);
 	}-*/;
 	
 	public static final native QuadraticBezierCurve3 QuadraticBezierCurve3(XYZ v0,XYZ v1,XYZ v2)/*-{
-	return $wnd.THREE.QuadraticBezierCurve3(v0, v1, v2);
+	return new $wnd.THREE.QuadraticBezierCurve3(v0, v1, v2);
 	}-*/;
 	
 	public static final native QuadraticBezierCurve QuadraticBezierCurve(XY v0,XY v1,XY v2)/*-{
-	return $wnd.THREE.QuadraticBezierCurve(v0, v1, v2);
+	return new $wnd.THREE.QuadraticBezierCurve(v0, v1, v2);
 	}-*/;
 	
 	public static final native LineCurve3 LineCurve3(Vector3 v1,Vector3 v2)/*-{
-	return $wnd.THREE.LineCurve3(v1, v2);
+	return new $wnd.THREE.LineCurve3(v1, v2);
 	}-*/;
 	
 	public static final native LineCurve LineCurve(Vector2 v1,Vector2 v2)/*-{
-	return $wnd.THREE.LineCurve(v1, v2);
+	return new $wnd.THREE.LineCurve(v1, v2);
 	}-*/;
 	
 	public static final native EllipseCurve EllipseCurve(double aX,double  aY,double  xRadius,double  yRadius,double  aStartAngle,double  aEndAngle,boolean aClockwise)/*-{
-	return $wnd.THREE.EllipseCurve(aX, aY, xRadius, yRadius, aStartAngle, aEndAngle, aClockwise);
+	return new $wnd.THREE.EllipseCurve(aX, aY, xRadius, yRadius, aStartAngle, aEndAngle, aClockwise);
 	}-*/;
 	
 	public static final native CubicBezierCurve3 CubicBezierCurve3(XYZ v0,XYZ v1,XYZ v2,XYZ v3)/*-{
-	return $wnd.THREE.CubicBezierCurve3(v0, v1, v2, v3);
+	return new $wnd.THREE.CubicBezierCurve3(v0, v1, v2, v3);
 	}-*/;
 	
 	public static final native CubicBezierCurve CubicBezierCurve(XY v0,XY v1,XY v2,XY v3)/*-{
-	return $wnd.THREE.CubicBezierCurve(v0, v1, v2, v3);
+	return new $wnd.THREE.CubicBezierCurve(v0, v1, v2, v3);
 	}-*/;
 	
 	public static final native ClosedSplineCurve3 ClosedSplineCurve3(JsArray<XYZ> points)/*-{
-	return $wnd.THREE.ClosedSplineCurve3(points);
+	return new $wnd.THREE.ClosedSplineCurve3(points);
 	}-*/;
 	public static final native ArcCurve ArcCurve(double aX,double  aY,double  aRadius,double  aStartAngle,double  aEndAngle,boolean aClockwise)/*-{
-	return $wnd.THREE.ArcCurve(aX, aY, aRadius, aStartAngle, aEndAngle, aClockwise);
+	return new $wnd.THREE.ArcCurve(aX, aY, aRadius, aStartAngle, aEndAngle, aClockwise);
 	}-*/;
 	
 	public static final native Gyroscope Gyroscope()/*-{
-	return $wnd.THREE.Gyroscope();
+	return new $wnd.THREE.Gyroscope();
 	}-*/;
 	
 	public static final native CompressedTexture CompressedTexture( JavaScriptObject mipmaps,int width,int height,int format,int type,int mapping,int wrapS,int wrapT,int magFilter,int minFilter,int anisotropy)/*-{
-	return $wnd.THREE.CompressedTexture( mipmaps, width, height, format, type, mapping, wrapS, wrapT, magFilter, minFilter, anisotropy );
+	return new $wnd.THREE.CompressedTexture( mipmaps, width, height, format, type, mapping, wrapS, wrapT, magFilter, minFilter, anisotropy );
 	}-*/;
 	
 	public static final native DataTexture DataTexture( JavaScriptObject data,int width,int height,int format,int type,int mapping,int wrapS,int wrapT,int magFilter,int minFilter,int anisotropy)/*-{
-	return $wnd.THREE.DataTexture( data, width, height, format, type, mapping, wrapS, wrapT, magFilter, minFilter, anisotropy);
+	return new $wnd.THREE.DataTexture( data, width, height, format, type, mapping, wrapS, wrapT, magFilter, minFilter, anisotropy);
 	}-*/;
 	
 	public static final native Fog Fog(int hex, double near, double far)/*-{
-	return $wnd.THREE.Fog(hex,near,far);
+	return new $wnd.THREE.Fog(hex,near,far);
 	}-*/;
 	
 	public static final native Fog FogExp2(int hex, double density)/*-{
-	return $wnd.THREE.FogExp2(hex,density);
+	return new $wnd.THREE.FogExp2(hex,density);
 	}-*/;
 	
 	public static final native WebGLRenderTargetCube WebGLRenderTargetCube(double widht,double height,JavaScriptObject options)/*-{
-	return $wnd.THREE.WebGLRenderTargetCube(width,height,options);
+	return new $wnd.THREE.WebGLRenderTargetCube(width,height,options);
 	}-*/;
 	
 	public static final native WebGLRenderTarget WebGLRenderTarget(double widht,double height,JavaScriptObject options)/*-{
-	return $wnd.THREE.WebGLRenderTarget(width,height,options);
+	return new $wnd.THREE.WebGLRenderTarget(width,height,options);
 	}-*/;
 	public static final native LOD LOD()/*-{
-	return $wnd.THREE.LOD();
+	return new $wnd.THREE.LOD();
 	}-*/;
 	
 	public static final native Bone Bone(SkinnedMesh mesh)/*-{
-	return $wnd.THREE.Bone(mesh);
+	return new $wnd.THREE.Bone(mesh);
 	}-*/;
 
 	public static final native Triangle Triangle(Vector3 a,Vector3 b,Vector3 c)/*-{
-	return $wnd.THREE.Triangle(a,b,c);
+	return new $wnd.THREE.Triangle(a,b,c);
 	}-*/;
 	
 	public static final native Spline Spline(JsArray<XYZObject> points)/*-{
-	return $wnd.THREE.Spline(points);
+	return new $wnd.THREE.Spline(points);
 	}-*/;
 	
 	public static final native Sphere Sphere(Vector3 center,double radius)/*-{
-	return $wnd.THREE.Sphere(center,radius);
+	return new $wnd.THREE.Sphere(center,radius);
 	}-*/;
 	
 	public static final native Plane Plane(Vector3 normal,double constant)/*-{
-	return $wnd.THREE.Plane(normal,constant);
+	return new $wnd.THREE.Plane(normal,constant);
 	}-*/;
 	
 	public static final native Matrix4 Matrix4(double n11,double n12,double n13,double n14,double n21,double n22,double n23,double n24,double n31,double n32,double n33,double n34,double n41,double n42,double n43,double n44)/*-{
-	return $wnd.THREE.Matrix4(n11,n12,n13,n14,n21,n22,n23,n24,n31,n32,n33,n34,n41,n42,n43,n44);
+	return new $wnd.THREE.Matrix4(n11,n12,n13,n14,n21,n22,n23,n24,n31,n32,n33,n34,n41,n42,n43,n44);
 	}-*/;
 	
 	public static final native Matrix3 Matrix3(double n11,double n12,double n13,double n21,double n22,double n23,double n31,double n32,double n33)/*-{
-	return $wnd.THREE.Matrix3(n11,n12,n13,n21,n22,n23,n31,n32,n33);
+	return new $wnd.THREE.Matrix3(n11,n12,n13,n21,n22,n23,n31,n32,n33);
 	}-*/;
 	public static final native Matrix3 Matrix3()/*-{
-	return $wnd.THREE.Matrix3();
+	return new $wnd.THREE.Matrix3();
 	}-*/;
 	
 	private static native final Line3 Line3(Vector3 start,Vector3 end)/*-{
@@ -945,10 +945,10 @@ return $wnd.THREE.ArrowHelper(size);
 
 	public static final class TextureConstants{
 		public static native final int MultiplyOperation()/*-{
-		return $wnd.THREE.MultiplyOperation;
+		return new $wnd.THREE.MultiplyOperation;
 		}-*/;
 		public static native final int MixOperation()/*-{
-		return $wnd.THREE.MixOperation;
+		return new $wnd.THREE.MixOperation;
 		}-*/;
 		public static native final int AddOperation()/*-{
 		return  $wnd.THREE.AddOperation;

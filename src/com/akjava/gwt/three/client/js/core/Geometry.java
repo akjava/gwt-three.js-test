@@ -49,7 +49,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayNumber;
 
-public class Geometry extends JavaScriptObject{
+public class Geometry extends Object3D{
 protected Geometry(){}
 
 public final native JsArray<Face3> faces()/*-{

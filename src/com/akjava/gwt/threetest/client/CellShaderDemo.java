@@ -60,19 +60,20 @@ private Object3D object;
 		loader.setLoadHandler(new LoadHandler() {
 			@Override
 			public void onLoadStart() {
-				LogUtils.log("onstart ok");
+				//LogUtils.log("onstart ok");
 			}
 			
 			@Override
 			public void onLoadProgress() {
-				LogUtils.log("onprogress ok");
+				//LogUtils.log("onprogress ok");
 			}
 			
 			@Override
 			public void onLoadComplete() {
-				LogUtils.log("oncomplete ok");
+				//LogUtils.log("oncomplete ok");
 			}
 		});
+		
 		
 		loader.load("models/female04b.js", new JSONLoadHandler() {
 			
@@ -120,9 +121,10 @@ private Object3D object;
 				try{
 					MainWidget.stats.begin();
 					camera.setPosition(cameraControle.getPositionX(), cameraControle.getPositionY(), cameraControle.getPositionZ());
-					
+					//camera.updateMatrix();
+					//LogUtils.log(cameraControle.getRadiantRotationX()+","+cameraControle.getRadiantRotationY());
 					object.setRotation(cameraControle.getRadiantRotationX(), cameraControle.getRadiantRotationY(), cameraControle.getRadiantRotationZ());
-					
+					//object.updateMatrix();
 					
 					
 					renderer.render(scene, camera);
