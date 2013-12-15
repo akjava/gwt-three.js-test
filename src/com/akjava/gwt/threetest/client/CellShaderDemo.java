@@ -30,6 +30,7 @@ import com.akjava.gwt.three.client.js.loaders.JSONLoader;
 import com.akjava.gwt.three.client.js.loaders.JSONLoader.JSONLoadHandler;
 import com.akjava.gwt.three.client.js.loaders.Loader.LoadHandler;
 import com.akjava.gwt.three.client.js.materials.Material;
+import com.akjava.gwt.three.client.js.math.Euler;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.threetest.client.resources.Bundles;
@@ -98,7 +99,7 @@ private Object3D object;
 				
 				
 				object.setPosition(0, 0, 0);
-				object.setRotation(0, 0, 0);
+				object.setRotation(THREE.Euler(0, 0, 0, Euler.XYZ));
 				object.setScale(5,5,5);
 				scene.add(object);
 			}
@@ -121,7 +122,7 @@ private Object3D object;
 				try{
 					MainWidget.stats.begin();
 					camera.setPosition(cameraControle.getPositionX(), cameraControle.getPositionY(), cameraControle.getPositionZ());
-					object.setRotation(cameraControle.getRadiantRotationX(), cameraControle.getRadiantRotationY(), cameraControle.getRadiantRotationZ());
+					object.getRotation().set(cameraControle.getRadiantRotationX(), cameraControle.getRadiantRotationY(), cameraControle.getRadiantRotationZ(),Euler.XYZ);
 					
 					renderer.render(scene, camera);
 					MainWidget.stats.end();
