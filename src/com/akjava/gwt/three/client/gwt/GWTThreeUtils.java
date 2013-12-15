@@ -3,6 +3,7 @@ package com.akjava.gwt.three.client.gwt;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Projector;
+import com.akjava.gwt.three.client.js.math.Euler;
 import com.akjava.gwt.three.client.js.math.Matrix4;
 import com.akjava.gwt.three.client.js.math.Quaternion;
 import com.akjava.gwt.three.client.js.math.Vector3;
@@ -62,6 +63,15 @@ public class GWTThreeUtils {
 		mesh.setPosition(position);
 		return mesh;
 	}
+	
+	public static Vector3 radiantToDegree(Euler euler){
+		Vector3 ret=THREE.Vector3();
+		ret.setX(Math.toDegrees(euler.getX()));
+		ret.setY(Math.toDegrees(euler.getY()));
+		ret.setZ(Math.toDegrees(euler.getZ()));
+		return ret;
+	}
+	
 	public static Vector3 radiantToDegree(Vector3 vec){
 		Vector3 ret=THREE.Vector3();
 		ret.setX(Math.toDegrees(vec.getX()));

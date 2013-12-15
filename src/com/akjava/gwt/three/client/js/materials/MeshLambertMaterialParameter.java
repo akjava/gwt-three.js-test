@@ -51,6 +51,10 @@ public final class MeshLambertMaterialParameter extends JSParameter{
 	public final static MeshLambertMaterialParameter create(){
 		return (MeshLambertMaterialParameter) MeshLambertMaterialParameter.createObject();
 	}
+	public final static MeshLambertMaterialParameter create(JSParameter parameter){
+		return (MeshLambertMaterialParameter) parameter;
+	}
+
 	public final MeshBasicMaterialParameter color(int r,int g,int b){
 		int c=(0xff & r)<<16| (0xff & g)<<8|(0xff & b);
 		return color(c);

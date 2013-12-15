@@ -155,11 +155,18 @@ return this.name;
 public final native void setName(String name)/*-{
 this.name=name;
 }-*/;
-
+/**
+ * @deprecated
+ * @param eulerOrder
+ */
 public final native String getEulerOrder()/*-{
 return this.eulerOrder;
 }-*/;
 
+/**
+ * @deprecated
+ * @param eulerOrder
+ */
 public final native void setEulerOrder(String eulerOrder)/*-{
 this.eulerOrder=eulerOrder;
 }-*/;

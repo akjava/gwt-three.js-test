@@ -58,8 +58,8 @@ public final native JsArray<Intersect> gwtPickIntersects(int mx,int my,int sw,in
 				this.unprojectVector( vector, camera );
 
 				var ray = new $wnd.THREE.Raycaster( camera.position, vector.sub( camera.position ).normalize() );
-
-				return  ray.intersectObjects( scene.__objects );
+console.log( scene);
+				return  ray.intersectObjects( scene.children );
 
 }-*/;
 
@@ -72,8 +72,8 @@ var vector = new $wnd.THREE.Vector3( ( mx / sw ) * 2 - 1, - ( my / sh ) * 2 + 1,
 			this.unprojectVector( vector, camera );
 
 			var ray = new $wnd.THREE.Raycaster(position, vector.sub(position ).normalize() );
-
-			return  ray.intersectScene( scene.__objects );
+			
+			return  ray.intersectScene( scene.children );
 
 }-*/;
 

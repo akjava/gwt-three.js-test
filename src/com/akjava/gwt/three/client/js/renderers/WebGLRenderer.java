@@ -408,7 +408,10 @@ return this.updateShadowMap(scene,camera);
 		super(renderer.getDomElement());
 		this.renderer=renderer;
 		}
-		
+		public void setClearColor(int hex){
+			getElement().getStyle().setBackgroundColor("#"+Integer.toHexString(hex));
+			renderer.setClearColor(hex, 1);
+		}
 		public void setClearColorHex(int hex){
 			
 			getElement().getStyle().setBackgroundColor("#"+Integer.toHexString(hex));
