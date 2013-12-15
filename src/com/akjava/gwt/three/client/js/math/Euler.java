@@ -45,6 +45,13 @@ public class Euler extends JavaScriptObject{
 	protected Euler() {
 	}
 
+	
+	public static final String XYZ="XYZ";
+	public static final String YZX="YZX";
+	public static final String ZXY="ZXY";
+	public static final String XZY="XZY";
+	public static final String YXZ="YXZ";
+	public static final String ZYX="ZYX";
 
 
 public final native Euler set(double x,double y,double z,String order)/*-{
