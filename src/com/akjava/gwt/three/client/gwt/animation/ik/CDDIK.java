@@ -89,9 +89,9 @@ public Matrix4  getStepAngleMatrix(Vector3 parentAngle,Vector3 lastJointPos,Vect
 	
 public Matrix4  getStepAngleMatrix(Vector3 lastJointPos,Vector3 jointPos,Matrix4 jointRot,Vector3 targetPos){
 		
-		Vector3 jointVector=lastJointPos.clone().subSelf(jointPos).normalize();
+		Vector3 jointVector=lastJointPos.clone().sub(jointPos).normalize();
 		
-		Vector3 targetVector=targetPos.clone().subSelf(jointPos).normalize();
+		Vector3 targetVector=targetPos.clone().sub(jointPos).normalize();
 		
 		double acv=jointVector.dot(targetVector);
 		double angle=Math.acos(acv);
@@ -100,7 +100,7 @@ public Matrix4  getStepAngleMatrix(Vector3 lastJointPos,Vector3 jointPos,Matrix4
 			return null;
 		}
 		//LogUtils.log("angle:"+angle+","+Math.toDegrees(angle));
-		Vector3 axis=THREE.Vector3().cross(jointVector,targetVector);
+		Vector3 axis=THREE.Vector3().crossVectors(jointVector,targetVector);
 		axis.normalize();
 		Quaternion q=THREE.Quaternion().setFromAxisAngle(axis,angle);
 		
@@ -109,7 +109,7 @@ public Matrix4  getStepAngleMatrix(Vector3 lastJointPos,Vector3 jointPos,Matrix4
 		
 		
 		
-		Matrix4 matrix=THREE.Matrix4().setRotationFromQuaternion(q);
+		Matrix4 matrix=THREE.Matrix4().makeRotationFromQuaternion(q);
 		
 		return matrix;
 	}

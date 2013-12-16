@@ -31,6 +31,15 @@ public final native Matrix4 copyPosition(Matrix4 m)/*-{
 return this.copyPosition(m);
 }-*/;
 
+/**
+ * watch out ,this is not work as same as old setRotationFromEuler.
+MAKE means just create a matrix form euler.
+ so postion data which set before  is gone.
+ so if you have to call makeRotationFromEuler() first and setPosition() later.
+when update your code.
+ * @param euler
+ * @return
+ */
 public final native Matrix4 makeRotationFromEuler(Euler euler)/*-{
 return this.makeRotationFromEuler(euler);
 }-*/;
@@ -169,7 +178,8 @@ return this.multiply(this,b);
 }-*/;
 
 /**
- * @deprecated use makeRotationFromQuaternion
+ * @deprecated must use makeRotationFromQuaternion
+ * MAKE clear all postion data.
  */
 
 public native final Matrix4 setRotationFromQuaternion(Quaternion q)/*-{

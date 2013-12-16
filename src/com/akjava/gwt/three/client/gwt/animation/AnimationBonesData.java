@@ -262,14 +262,15 @@ public static List<Matrix4> boneToMatrix(JsArray<AnimationBone> bones,AnimationD
 			
 			//log(bone.getName());
 			
-			Matrix4 mx=THREE.Matrix4();
 			Vector3 motionPos=GWTThreeUtils.jsArrayToVector3(motion.getPos());
+			Matrix4 mx=THREE.Matrix4().makeTranslation(motionPos.getX(), motionPos.getY(), motionPos.getZ());
+			
 			//seems same as bone
 		//	LogUtils.log(motionPos);
-			mx.setTranslation(motionPos.getX(), motionPos.getY(), motionPos.getZ());
-			Matrix4 mx2=THREE.Matrix4();
-			mx2.setRotationFromQuaternion(GWTThreeUtils.jsArrayToQuaternion(motion.getRot()));
-			mx.multiplySelf(mx2);
+			//mx.setTranslation(motionPos.getX(), motionPos.getY(), motionPos.getZ());
+			Matrix4 mx2=THREE.Matrix4().makeRotationFromQuaternion(GWTThreeUtils.jsArrayToQuaternion(motion.getRot()));
+			//mx2.setRotationFromQuaternion();
+			mx.multiply(mx2);
 			
 			Vector3 rot=GWTThreeUtils.toDegreeAngle(mx2);
 			//LogUtils.log("before-angle:"+ThreeLog.get(rot));
