@@ -120,9 +120,7 @@ public class GWTThreeUtils {
 		return radiantToDegree(vec);
 	}
 	public static Matrix4 translateToMatrix4(Vector3 vec){
-		Matrix4 mx=THREE.Matrix4();
-		mx.setTranslation(vec.getX(),vec.getY(),vec.getZ());
-		return mx;
+		return THREE.Matrix4().makeTranslation(vec.getX(),vec.getY(),vec.getZ());
 	}
 	public static Vector3 toPositionVec(Matrix4 mx){
 		
