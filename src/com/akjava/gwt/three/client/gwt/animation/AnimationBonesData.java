@@ -129,9 +129,12 @@ public class AnimationBonesData {
 	public Vector3 getBonePosition(int index){
 		List<Integer> path=bonePath.get(index);
 		
+		/*
 		Matrix4 tmpmx=bonesMatrixs.get(path.get(path.size()-1)).getMatrix();
 		Vector3 pos=THREE.Vector3();
 		pos.getPositionFromMatrix(tmpmx);
+		*/
+		Vector3 pos=getMatrixPosition(path.get(path.size()-1));
 		
 		
 		Matrix4 matrix=THREE.Matrix4();
@@ -191,8 +194,11 @@ public class AnimationBonesData {
 	}
 	
 	public Vector3 getMatrixPosition(int index){
+		/*
 		Matrix4 pos= bonesMatrixs.get(index).getMatrix();
 		return GWTThreeUtils.toPositionVec(pos);
+		*/
+		return bonesMatrixs.get(index).getPosition().clone();
 	}
 	
 	
@@ -206,10 +212,14 @@ public static List<AngleAndPosition> boneToAngleAndMatrix(JsArray<AnimationBone>
 			AnimationHierarchyItem item=animationData.getHierarchy().get(i);
 			AnimationKey motion=item.getKeys().get(animationIndex);
 			
-			Matrix4 mx=THREE.Matrix4();
+			//Matrix4 mx=THREE.Matrix4();
 			Vector3 motionPos=GWTThreeUtils.jsArrayToVector3(motion.getPos());
-			mx.setTranslation(motionPos.getX(), motionPos.getY(), motionPos.getZ());
-			mx.setRotationFromQuaternion(GWTThreeUtils.jsArrayToQuaternion(motion.getRot()));
+			//mx.setTranslation(motionPos.getX(), motionPos.getY(), motionPos.getZ());
+			//mx.setRotationFromQuaternion(GWTThreeUtils.jsArrayToQuaternion(motion.getRot()));
+			
+			Matrix4 mx=THREE.Matrix4().makeTranslation(motionPos.getX(), motionPos.getY(), motionPos.getZ());
+			Matrix4 mx2=THREE.Matrix4().makeRotationFromQuaternion(GWTThreeUtils.jsArrayToQuaternion(motion.getRot()));
+			mx.multiply(mx2);
 			/*
 			Matrix4 mx2=THREE.Matrix4();
 			mx2.setRotationFromQuaternion(motion.getRot());

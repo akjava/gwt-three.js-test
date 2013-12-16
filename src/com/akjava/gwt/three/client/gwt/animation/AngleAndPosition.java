@@ -26,6 +26,7 @@ public Vector3 getAngle() {
 public void setAngle(Vector3 angle) {
 	this.angle = angle;
 }
+
 public Matrix4 getMatrix() {
 	return matrix;
 }
@@ -33,10 +34,13 @@ public void setMatrix(Matrix4 matrix) {
 	this.matrix = matrix;
 }
 
+
 public void updateMatrix(){
-	matrix=THREE.Matrix4();
-	matrix.setTranslation(position.getX(), position.getY(), position.getZ());
-	matrix.setRotationFromEuler(GWTThreeUtils.degreeToRagiant(angle), "XYZ");
+	Vector3 vec=GWTThreeUtils.degreeToRagiant(angle);
+	Matrix4 m2=THREE.Matrix4().makeRotationFromEuler(THREE.Euler(vec.getX(), vec.getY(), vec.getZ(), "XYZ"));
+	matrix=THREE.Matrix4().makeTranslation(position.getX(), position.getY(), position.getZ()).multiply(m2);
+	//matrix.setTranslation(position.getX(), position.getY(), position.getZ());
+	//matrix.setRotationFromEuler(GWTThreeUtils.degreeToRagiant(angle), "XYZ");
 }
 
 public AngleAndPosition clone(){
