@@ -367,8 +367,11 @@ return this.cross(vec3);
 public final Vector3 getRotationFromMatrix(Matrix4 matrix){
 	return getRotationFromMatrix(matrix,"XYZ");
 }
-public static Euler dummy_euler=THREE.Euler(0,0,0,"XYZ");
+public static Euler dummy_euler;
 public  final synchronized Vector3 getRotationFromMatrix(Matrix4 matrix,String order){
+	if(dummy_euler==null){
+		dummy_euler=THREE.Euler(0,0,0,"XYZ");
+	}
 	dummy_euler.setFromRotationMatrix(matrix, order);
 	set(dummy_euler.getX(),dummy_euler.getY(), dummy_euler.getZ());
 	return this;

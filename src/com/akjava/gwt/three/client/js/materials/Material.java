@@ -227,4 +227,9 @@ public final native void setValues(JavaScriptObject parameters)/*-{
  this.setValues(parameters);
 }-*/;
 
+//force get color
+public final native Color gwtGetColor()/*-{
+return this.color;
+}-*/;
+
 }

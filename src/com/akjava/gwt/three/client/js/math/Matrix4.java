@@ -222,7 +222,7 @@ this.setRotationZ(thera);
  * @param thera
  */
 public native final void setTranslation(double x,double y,double z)/*-{
-this.setTranslation(x,y,z);
+this.makeTranslation(x,y,z);
 }-*/;
 
 public final native Matrix4 scale(double v)/*-{
