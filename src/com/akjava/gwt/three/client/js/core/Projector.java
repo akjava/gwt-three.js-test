@@ -51,6 +51,7 @@ public class Projector extends JavaScriptObject{
 protected Projector(){}
 
 /**
+ * temporaly fixed ,now just pick from scene.child() array,not recursive
  * @deprecated no more scene support
  */
 public final native JsArray<Intersect> gwtPickIntersects(int mx,int my,int sw,int sh,Camera camera,Scene scene)/*-{	
@@ -58,13 +59,13 @@ public final native JsArray<Intersect> gwtPickIntersects(int mx,int my,int sw,in
 				this.unprojectVector( vector, camera );
 
 				var ray = new $wnd.THREE.Raycaster( camera.position, vector.sub( camera.position ).normalize() );
-console.log( scene);
 				return  ray.intersectObjects( scene.children );
 
 }-*/;
 
 /**
  * @deprecated no more scene support r49
+ * emporaly fixed ,now  just pick from scene.child() array,not recursive
  */
 public final native JsArray<Intersect> gwtPickIntersects(int mx,int my,int sw,int sh,Camera camera,Vector3 position,Scene scene)/*-{
 

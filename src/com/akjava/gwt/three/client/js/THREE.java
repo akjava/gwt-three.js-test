@@ -699,6 +699,7 @@ return new $wnd.THREE.ArrowHelper(size);
 	
 	}
 	
+	//TODO support generic
 	@SuppressWarnings("unchecked")
 	public static final JsArray createJsArray(){
 		return JavaScriptUtils.createJSArray();

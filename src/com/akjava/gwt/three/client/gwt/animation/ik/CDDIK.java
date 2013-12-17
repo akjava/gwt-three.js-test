@@ -72,7 +72,7 @@ public Matrix4  getStepAngleMatrix(Vector3 parentAngle,Vector3 lastJointPos,Vect
 			return null;
 		}
 		//LogUtils.log("angle:"+angle+","+Math.toDegrees(angle));
-		Vector3 axis=THREE.Vector3().cross(jointVector,targetVector);
+		Vector3 axis=THREE.Vector3().crossVectors(jointVector,targetVector);
 		axis.normalize();
 		Quaternion q=THREE.Quaternion().setFromAxisAngle(axis,angle);
 		

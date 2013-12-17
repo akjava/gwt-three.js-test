@@ -141,7 +141,7 @@ public class AnimationBonesData {
 		for(int j=0;j<path.size()-1;j++){//last is boneself
 		//	log(""+path.get(j));
 			Matrix4 mx=bonesMatrixs.get(path.get(j)).getMatrix();
-			matrix.multiply(matrix, mx);
+			matrix.multiplyMatrices(matrix, mx);
 		}
 		matrix.multiplyVector3(pos);
 		return pos;
@@ -163,7 +163,7 @@ public class AnimationBonesData {
 		for(int j=0;j<path.size()-1;j++){//last is boneself
 		//	log(""+path.get(j));
 			Matrix4 mx=bonesMatrixs.get(path.get(j)).getMatrix();
-			matrix.multiply(matrix, mx);
+			matrix.multiplyMatrices(matrix, mx);
 		}
 		matrix.multiplyVector3(pos);
 		return pos;
