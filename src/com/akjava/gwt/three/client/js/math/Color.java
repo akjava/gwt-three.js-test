@@ -55,7 +55,7 @@ public final native Color set(int value)/*-{
 return this.set( value );
 }-*/;
 
-public final native void setHex(int hex)/*-{
+public final native Color setHex(int hex)/*-{
 return this.setHex(hex);
 }-*/;
 
