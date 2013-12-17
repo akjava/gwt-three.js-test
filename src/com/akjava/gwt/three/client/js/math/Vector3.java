@@ -266,7 +266,7 @@ public final native Vector3 getColumnFromMatrix(int index,Matrix4 matrix)/*-{
 return this.getColumnFromMatrix(index,matrix);
 }-*/;
 
-public final native Vector3 equals(Vector3 v)/*-{
+public final native boolean equals(Vector3 v)/*-{
 return this.equals(v);
 }-*/;
 
