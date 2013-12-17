@@ -4,6 +4,7 @@ import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.core.Geometry;
 import com.akjava.gwt.three.client.js.core.MorphTarget;
 import com.akjava.gwt.three.client.js.extras.GeometryUtils;
+import com.akjava.gwt.three.client.js.extras.geometries.CubeGeometry;
 import com.akjava.gwt.three.client.js.loaders.JSONLoader;
 import com.akjava.gwt.three.client.js.loaders.JSONLoader.JSONLoadHandler;
 import com.akjava.gwt.three.client.js.materials.LineBasicMaterialParameter;
@@ -32,6 +33,10 @@ public class GWTGeometryUtils {
 		
 		return lineG;
 	}
+	public final static boolean isSquare(CubeGeometry geometry){
+		return geometry.getWidth()==geometry.getHeight() && geometry.getHeight()==geometry.getDepth();
+	}
+	
 	public final static  Line createLineMesh(Vector3 from,Vector3 to,int color){
 		return THREE.Line(GWTGeometryUtils.createLineGeometry(from, to),
 				THREE.LineBasicMaterial(LineBasicMaterialParameter.create().color(color)));
