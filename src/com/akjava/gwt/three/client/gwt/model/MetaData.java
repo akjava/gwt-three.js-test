@@ -12,4 +12,23 @@ public class MetaData extends JavaScriptObject{
 	public native final double getFormatVersion()/*-{
 	return this["formatVersion"];
 	}-*/;
+	
+	public native final void setGeneratedBy(String generatedBy)/*-{
+	this["generatedBy"]=generatedBy;
+	}-*/;
+	
+	public native final double getGeneratedBy()/*-{
+	return this["generatedBy"];
+	}-*/;
+	
+	
+	
+	public native final MetaData clone()/*-{
+	var copy = {};
+    for (var attr in this) {
+        if (this.hasOwnProperty(attr)) copy[attr] = this[attr];
+    }
+    return copy;
+	}-*/;
+	
 }
