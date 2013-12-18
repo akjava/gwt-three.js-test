@@ -2,10 +2,9 @@ package com.akjava.gwt.three.client.gwt.model;
 
 import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.js.core.Face3;
-import com.akjava.gwt.three.client.js.math.UV;
 import com.akjava.gwt.three.client.js.math.Vector2;
+import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.math.Vector4;
-import com.akjava.gwt.three.client.js.math.Vertex;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayNumber;
@@ -167,12 +166,12 @@ public final void setSkinIndicesAndWeights(JsArray<Vector4> indices,JsArray<Vect
 	setSkinWeights(weightsArray);
 }
 
-public final void setVertices(JsArray<Vertex> vx){
+public final void setVertices(JsArray<Vector3> vx){
 	JsArrayNumber nums=(JsArrayNumber) JsArrayNumber.createArray();
 	for(int i=0;i<vx.length();i++){
-		nums.push(vx.get(i).getPosition().getX());
-		nums.push(vx.get(i).getPosition().getY());
-		nums.push(vx.get(i).getPosition().getZ());
+		nums.push(vx.get(i).getX());
+		nums.push(vx.get(i).getY());
+		nums.push(vx.get(i).getZ());
 	}
 	setVertices(nums);
 }
