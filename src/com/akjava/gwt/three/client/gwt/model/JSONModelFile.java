@@ -3,6 +3,7 @@ package com.akjava.gwt.three.client.gwt.model;
 import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.js.core.Face3;
 import com.akjava.gwt.three.client.js.math.UV;
+import com.akjava.gwt.three.client.js.math.Vector2;
 import com.akjava.gwt.three.client.js.math.Vector4;
 import com.akjava.gwt.three.client.js.math.Vertex;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -178,7 +179,7 @@ public final void setVertices(JsArray<Vertex> vx){
 /*
  * single uv only
  */
-public final void setGeometryUvs(JsArray<JsArray<UV>> uvs){
+public final void setGeometryUvs(JsArray<JsArray<Vector2>> uvs){
 	@SuppressWarnings("unchecked")
 	JsArray<JsArrayNumber> uvArray=(JsArray<JsArrayNumber>) JsArray.createArray();
 	JsArrayNumber nums=(JsArrayNumber) JsArrayNumber.createArray();
@@ -187,13 +188,13 @@ public final void setGeometryUvs(JsArray<JsArray<UV>> uvs){
 	//LogUtils.log("uvs:"+uvs.length());
 	for(int i=0;i<uvs.length();i++){
 		
-		JsArray<UV> u=uvs.get(i);
+		JsArray<Vector2> u=uvs.get(i);
 		//LogUtils.log("uvs:-u"+u.length());
 		
 		for(int j=0;j<u.length();j++){
-			UV uv=u.get(j);
-			nums.push(uv.getU());
-			nums.push(uv.getV());
+			Vector2 uv=u.get(j);
+			nums.push(uv.getX());
+			nums.push(uv.getY());
 		}
 		
 	}
