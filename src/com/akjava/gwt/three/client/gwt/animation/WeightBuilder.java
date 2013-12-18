@@ -128,7 +128,7 @@ public static final String KEY_START="_start_";
 	}
 	
 	public static Vector4 findNearBoneStartAndHalfParentAndChildren(List<NameAndVector3> nameAndPositions,Vector3 pos,JsArray<AnimationBone> bones,int xloop){
-		LogUtils.log("findNearBoneStartAndHalfParentAndChildren");
+		//LogUtils.log("findNearBoneStartAndHalfParentAndChildren");
 		Vector3 pt=nameAndPositions.get(0).getVector3().clone();
 		Vector3 near=pt.subSelf(pos);
 		int index1=nameAndPositions.get(0).getIndex();

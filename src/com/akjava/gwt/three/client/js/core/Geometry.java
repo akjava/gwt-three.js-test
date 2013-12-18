@@ -42,7 +42,7 @@ import com.akjava.gwt.three.client.gwt.animation.AnimationData;
 import com.akjava.gwt.three.client.gwt.core.BoundingBox;
 import com.akjava.gwt.three.client.js.math.Color;
 import com.akjava.gwt.three.client.js.math.Matrix4;
-import com.akjava.gwt.three.client.js.math.UV;
+import com.akjava.gwt.three.client.js.math.Vector2;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.math.Vector4;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -220,7 +220,8 @@ public final native JsArray<Vector4>  getSkinWeight()/*-{
 return this.skinWeights;
 }-*/;
 
-public native final JsArray<JsArray<UV>> getFaceVertexUvs ()/*-{
+//maybe
+public native final JsArray<JsArray<Vector2>> getFaceVertexUvs ()/*-{
 return this["faceVertexUvs"][0];
 }-*/;
 

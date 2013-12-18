@@ -24,7 +24,7 @@ package com.akjava.gwt.threetest.client;
 
 import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.gwt.GWTDragObjectControler;
-import com.akjava.gwt.three.client.gwt.GWTGeometryUtils;
+import com.akjava.gwt.three.client.java.utils.GWTGeometryUtils;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Intersect;

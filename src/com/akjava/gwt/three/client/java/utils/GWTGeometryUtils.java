@@ -1,5 +1,6 @@
-package com.akjava.gwt.three.client.gwt;
+package com.akjava.gwt.three.client.java.utils;
 
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.core.Geometry;
 import com.akjava.gwt.three.client.js.core.MorphTarget;
@@ -9,6 +10,7 @@ import com.akjava.gwt.three.client.js.loaders.JSONLoader;
 import com.akjava.gwt.three.client.js.loaders.JSONLoader.JSONLoadHandler;
 import com.akjava.gwt.three.client.js.materials.LineBasicMaterialParameter;
 import com.akjava.gwt.three.client.js.math.Vector3;
+import com.akjava.gwt.three.client.js.math.Vector4;
 import com.akjava.gwt.three.client.js.objects.Line;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -70,6 +72,32 @@ public class GWTGeometryUtils {
 		}
 				
 		return geo1;
+	}
+	public final static boolean isValidSkinIndicesAndWeight(Geometry geometry){
+		if(geometry.getSkinIndices()==null||geometry.getSkinWeight()==null){
+			return false;
+		}else if(geometry.getSkinIndices().length()==0 || geometry.getSkinWeight().length()==0){
+			return false;
+		}else if(geometry.getSkinIndices().length()!=geometry.getSkinWeight().length()){
+			LogUtils.log("isValidSkinIndicesAndWeight():getSkinIndices and getSkinWeight length is difference");
+			return false;
+		}else{
+			Vector4 zero=THREE.Vector4(0,0,0,0);
+			boolean allzero=true;
+			for(int i=0;i<geometry.getSkinWeight().length();i++){
+				Vector4 weight=geometry.getSkinWeight().get(i);
+				if(!weight.equals(zero)){
+					allzero=false;
+					break;
+				}
+			}
+			if(allzero){
+				LogUtils.log("isValidSkinIndicesAndWeight():all-zero weight");
+				return false;
+			}
+		}
+		
+		return true;
 	}
 	
 	/**
