@@ -1,7 +1,8 @@
-package com.akjava.gwt.three.client.gwt.ui;
+package com.akjava.gwt.three.client.java.ui;
 
 import com.akjava.gwt.html5.client.file.ui.DropVerticalPanelBase;
 import com.akjava.gwt.stats.client.Stats;
+import com.akjava.gwt.three.client.gwt.ui.RendererBuilder;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer.WebGLCanvas;
@@ -11,6 +12,15 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.DragLeaveEvent;
+import com.google.gwt.event.dom.client.DragLeaveHandler;
+import com.google.gwt.event.dom.client.DragOverEvent;
+import com.google.gwt.event.dom.client.DragOverHandler;
+import com.google.gwt.event.dom.client.DropEvent;
+import com.google.gwt.event.dom.client.DropHandler;
+import com.google.gwt.event.dom.client.HasDragLeaveHandlers;
+import com.google.gwt.event.dom.client.HasDragOverHandlers;
+import com.google.gwt.event.dom.client.HasDropHandlers;
 import com.google.gwt.event.dom.client.MouseDownEvent;
 import com.google.gwt.event.dom.client.MouseDownHandler;
 import com.google.gwt.event.dom.client.MouseMoveEvent;
@@ -23,6 +33,7 @@ import com.google.gwt.event.dom.client.MouseWheelEvent;
 import com.google.gwt.event.dom.client.MouseWheelHandler;
 import com.google.gwt.event.logical.shared.ResizeEvent;
 import com.google.gwt.event.logical.shared.ResizeHandler;
+import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.Window.ScrollEvent;
@@ -86,10 +97,76 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 	public abstract void update(WebGLRenderer renderer);
 	public abstract void initialize(WebGLRenderer renderer,int width,int height);
 	public abstract void resized(int width,int height);
+	public class TabLayoutPanelWithDragAndDrop extends TabLayoutPanel implements HasDropHandlers, HasDragOverHandlers,
+	HasDragLeaveHandlers{
+		public TabLayoutPanelWithDragAndDrop(double barHeight, Unit barUnit) {
+			super(barHeight, barUnit);
+			// TODO Auto-generated constructor stub
+		}
+
+		/**
+		 * 
+		 */
+		  @Override
+		    public HandlerRegistration addDropHandler(DropHandler handler) {
+		        return addBitlessDomHandler(handler, DropEvent.getType());
+		    }
+
+		    @Override
+		    public HandlerRegistration addDragOverHandler(DragOverHandler handler) {
+		        return addBitlessDomHandler(handler, DragOverEvent.getType());
+		    }
+
+		    @Override
+		    public HandlerRegistration addDragLeaveHandler(DragLeaveHandler handler) {
+		        return addBitlessDomHandler(handler, DragLeaveEvent.getType());
+		    }
+		
+		    public HandlerRegistration addMouseWheelHandler(MouseWheelHandler handler) {
+		        return addDomHandler(handler, MouseWheelEvent.getType());
+		      }
+		
+	}
+	protected void onDrop(DropEvent event){
+		event.preventDefault();
+	}
+	protected void onDragOver(DragOverEvent event){
+		event.preventDefault();
+	}
+	protected void onDragLeave(DragLeaveEvent event){
+		event.preventDefault();
+	}
+	
 	public void onModuleLoad() {
+		/*
+		DropVerticalPanelBase rootPanel=new DropVerticalPanelBase();
+		rootPanel.setSize("100%", "100%");
 		
-		tabPanel = new TabLayoutPanel(tabHeight, Unit.PX);
+		//RootLayoutPanel.get().add(rootPanel);
+		*/
 		
+		//support drag and drop anywhere
+		tabPanel = new TabLayoutPanelWithDragAndDrop(tabHeight, Unit.PX);
+		((TabLayoutPanelWithDragAndDrop)tabPanel).addDropHandler(new DropHandler() {
+			@Override
+			public void onDrop(DropEvent event) {
+				TabDemoEntryPoint.this.onDrop(event);
+			}
+		});
+		((TabLayoutPanelWithDragAndDrop)tabPanel).addDragOverHandler(new DragOverHandler() {
+			
+			@Override
+			public void onDragOver(DragOverEvent event) {
+				TabDemoEntryPoint.this.onDragOver(event);
+			}
+		});
+		((TabLayoutPanelWithDragAndDrop)tabPanel).addDragLeaveHandler(new DragLeaveHandler() {
+			
+			@Override
+			public void onDragLeave(DragLeaveEvent event) {
+				TabDemoEntryPoint.this.onDragLeave(event);
+			}
+		});
 		
 		RootLayoutPanel.get().add(tabPanel);
 		

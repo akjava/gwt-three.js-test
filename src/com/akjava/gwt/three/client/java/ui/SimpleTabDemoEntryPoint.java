@@ -1,4 +1,4 @@
-package com.akjava.gwt.three.client.gwt.ui;
+package com.akjava.gwt.three.client.java.ui;
 
 import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.gwt.ThreeLog;
