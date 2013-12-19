@@ -12,6 +12,8 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.DoubleClickEvent;
+import com.google.gwt.event.dom.client.DoubleClickHandler;
 import com.google.gwt.event.dom.client.DragLeaveEvent;
 import com.google.gwt.event.dom.client.DragLeaveHandler;
 import com.google.gwt.event.dom.client.DragOverEvent;
@@ -88,6 +90,7 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 	public WebGLCanvas getCanvas() {
 		return canvas;
 	}
+	public abstract void onDoubleClick(DoubleClickEvent event);
 	public abstract void onMouseClick(ClickEvent event);
 	public abstract void onMouseWheel(MouseWheelEvent event);
 	public abstract void onMouseMove(MouseMoveEvent event) ;
@@ -204,6 +207,13 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 			}
 		});
 
+		canvas.addDoubleClickHandler(new DoubleClickHandler() {
+			
+			@Override
+			public void onDoubleClick(DoubleClickEvent event) {
+				TabDemoEntryPoint.this.onDoubleClick(event);
+			}
+		});
 
 		canvas.addMouseWheelHandler(new MouseWheelHandler() {
 			@Override
@@ -366,6 +376,7 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 		dialog2.show();
 		
 	}
+	
 	
 	protected void showControl(){
 		main.setVisible(true);

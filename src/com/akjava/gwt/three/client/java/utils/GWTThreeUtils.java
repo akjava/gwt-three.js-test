@@ -1,17 +1,76 @@
-package com.akjava.gwt.three.client.gwt;
+package com.akjava.gwt.three.client.java.utils;
 
+import com.akjava.gwt.lib.client.LogUtils;
+import com.akjava.gwt.three.client.gwt.model.JSONModelFile;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
+import com.akjava.gwt.three.client.js.core.Geometry;
 import com.akjava.gwt.three.client.js.core.Projector;
+import com.akjava.gwt.three.client.js.loaders.JSONLoader;
+import com.akjava.gwt.three.client.js.loaders.JSONLoader.JSONLoadHandler;
+import com.akjava.gwt.three.client.js.materials.Material;
+import com.akjava.gwt.three.client.js.math.Color;
 import com.akjava.gwt.three.client.js.math.Euler;
 import com.akjava.gwt.three.client.js.math.Matrix4;
 import com.akjava.gwt.three.client.js.math.Quaternion;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.objects.Mesh;
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayNumber;
+import com.google.gwt.json.client.JSONObject;
+import com.google.gwt.json.client.JSONParser;
+import com.google.gwt.json.client.JSONValue;
 
 public class GWTThreeUtils {
 
+	public static class InvalidModelFormatException extends Exception{
+		public InvalidModelFormatException(String string) {
+			super(string);
+		}
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+		
+		
+	}
+	
+	public static void loadJsonModel(JSONModelFile modelformat,JSONLoadHandler handler){
+		JSONLoader loader=THREE.JSONLoader();
+		JavaScriptObject jsobject=loader.parse(modelformat, null);
+		JSONObject newobject=new JSONObject(jsobject);
+		
+		handler.loaded((Geometry) newobject.get("geometry").isObject().getJavaScriptObject(),null);
+	}
+	
+	public static JSONModelFile parseJsonObject(String jsonText) throws InvalidModelFormatException{
+		JSONValue lastJsonValue = JSONParser.parseStrict(jsonText);
+		JSONObject object=lastJsonValue.isObject();
+		if(object==null){
+			throw new InvalidModelFormatException("invalid-json object");
+		}
+		JSONModelFile file=(JSONModelFile)object.getJavaScriptObject();
+		if(file.getMetaData()==null){
+			throw new InvalidModelFormatException("no metadatas");
+		}
+		if(file.getMetaData().getFormatVersion()==0){
+			throw new InvalidModelFormatException("invalid version:"+file.getMetaData().getFormatVersion());
+		}
+		return file;
+	}
+	
+	public static void changeMeshMaterialColor(Mesh mesh,int newColor){
+		Material material=mesh.getMaterial();
+		if(material==null){
+			return;
+		}
+		Color color=material.gwtGetColor();
+		if(color==null){
+			return;
+		}
+		color.set(newColor);
+	}
 	/*
 	 * get angle from p1 to p2 ,use Z vector 
 	 */

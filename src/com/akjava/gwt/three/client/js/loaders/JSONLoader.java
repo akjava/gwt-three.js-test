@@ -23,7 +23,7 @@ public class JSONLoader extends Loader{
 		public void loaded(Geometry geometry,JsArray<Material> materials);
 	}
 
-	
+	//TODO implement class to easy access
 	public final native JavaScriptObject parse(JavaScriptObject json,String texturePath)/*-{
 	return this.parse(json,texturePath);
 	}-*/;

@@ -144,7 +144,7 @@ for ( var i = 0, l = vertices.length; i < l; i ++ ) {
 	
 	public static final JSONObject loadJsonModel(String jsonText,JSONLoadHandler handler){
 		JSONLoader loader=THREE.JSONLoader();
-		JSONValue lastJsonValue = JSONParser.parseLenient(jsonText);
+		JSONValue lastJsonValue = JSONParser.parseStrict(jsonText);
 		JSONObject object=lastJsonValue.isObject();
 		if(object==null){
 			return null;
@@ -162,7 +162,7 @@ for ( var i = 0, l = vertices.length; i < l; i ++ ) {
 	//TODO create return class
 	public static final JSONObject loadJsonModelWithMaterial(String jsonText){
 		JSONLoader loader=THREE.JSONLoader();
-		JSONValue lastJsonValue = JSONParser.parseLenient(jsonText);
+		JSONValue lastJsonValue = JSONParser.parseStrict(jsonText);
 		JSONObject object=lastJsonValue.isObject();
 		if(object==null){
 			return null;
