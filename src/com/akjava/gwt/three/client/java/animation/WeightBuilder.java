@@ -15,6 +15,12 @@ import com.akjava.gwt.three.client.js.math.Vector4;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.user.client.Window;
 
+/**
+ * creating 2-bone indices and weight from geometry and bone position.
+ * some algorithm is totally experimental.
+ * @author aki
+ *
+ */
 public class WeightBuilder {
 public static final int MODE_NearSingleBone=0;
 public static final int MODE_NearSpecial=1;
@@ -22,7 +28,9 @@ public static final int MODE_NearAgressive=2;
 public static final int MODE_NearParentAndChildren=3;
 public static final int MODE_NearParentAndChildrenAgressive=5;
 public static final int MODE_MODE_Start_And_Half_ParentAndChildrenAgressive=6;
-public static final int MODE_FROM_GEOMETRY=4;
+public static final int MODE_FROM_GEOMETRY=4;	//use geometry own 
+public static final int MODE_ROOT_ALL=7;	//use geometry own 
+
 public static final String KEY_HALF="_half_";
 public static final String KEY_ENDSITE="_ENDSITE_";
 public static final String KEY_END="_end_";
@@ -385,11 +393,13 @@ public static void autoWeight(Geometry geometry,JsArray<AnimationBone> bones,Lis
 			ret=findNearBoneStartAndHalfParentAndChildren(nameAndPositions,geometry.vertices().get(i),bones,3);	
 		}else if(mode==MODE_FROM_GEOMETRY){
 			ret=fromGeometry(geometry,i);	
+		}else if(mode==MODE_ROOT_ALL){
+			ret=THREE.Vector4(0,0,1,0);	
 		}else{
 			Window.alert("null mode");
 		}
 		
-		
+		//now support only 2 bones
 		Vector4 v4=THREE.Vector4();
 		v4.set(ret.getX(), ret.getY(), 0, 0);
 		bodyIndices.push(v4);
