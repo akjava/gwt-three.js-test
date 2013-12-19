@@ -73,6 +73,12 @@ public class GWTGeometryUtils {
 				
 		return geo1;
 	}
+/**
+ * somehow Blender 2.65 Exporter make  all zero "skinIndices" & skinWeights,this geometry not sweat for skin
+ * use this for avoid that.
+ * @param geometry
+ * @return
+ */
 	public final static boolean isValidSkinIndicesAndWeight(Geometry geometry){
 		if(geometry.getSkinIndices()==null||geometry.getSkinWeight()==null){
 			return false;
