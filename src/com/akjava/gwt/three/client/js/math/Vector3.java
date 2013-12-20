@@ -254,17 +254,46 @@ public final native void setEulerFromQuaternion(Quaternion q,String order)/*-{
 this.setEulerFromQuaternion(q,order);
 }-*/;
 
+/**
+ * @deprecated after r64
+ * use setFromMatrixPosition
+ * @param m
+ * @return
+ */
 public final native Vector3 getPositionFromMatrix(Matrix4 m)/*-{
 return this.getPositionFromMatrix(m);
 }-*/;
 
+public final native Vector3 setFromMatrixPosition(Matrix4 m)/*-{
+return this.setFromMatrixPosition(m);
+}-*/;
+/**
+ * @deprecated after r64
+ * use setFromMatrixScale
+ * @param m
+ * @return
+ */
 public final native Vector3 getScaleFromMatrix(Matrix4 m)/*-{
 return this.getScaleFromMatrix(m);
 }-*/;
 
+public final native Vector3 setFromMatrixScale(Matrix4 m)/*-{
+return this.setFromMatrixScale(m);
+}-*/;
+
+/**
+ * @deprecated after r64
+ * use setFromMatrixColumn
+ * @param m
+ * @return
+ */
 public final native Vector3 getColumnFromMatrix(int index,Matrix4 matrix)/*-{
 return this.getColumnFromMatrix(index,matrix);
 }-*/;
+public final native Vector3 setFromMatrixColumn(int index,Matrix4 matrix)/*-{
+return this.setFromMatrixColumn(index,matrix);
+}-*/;
+
 
 public final native boolean equals(Vector3 v)/*-{
 return this.equals(v);

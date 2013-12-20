@@ -1,4 +1,7 @@
 *r64
+I checked all changed it via compare with each code.so skip changes which no effect on wrapper.
+but i didn't compare all the code.
+
 ArrowHelper - Added options for setting arrowhead size.
 add:THREE.java
 public static final native ArrowHelper ArrowHelper(Vector3 dir,Vector3 origin,double length,int hex,double headLength,double headWidth)
@@ -16,3 +19,13 @@ public final native Vector3 getParameter(Vector3 point,Vector3 optionalTarget)
 Color - Added optionalTarget to getHSL()
 add:Color.java
 public final native HSL getHSL(HSL hsl)
+
+Vector3 - get*FromMatrix to setFromMatrix*
+deprecate:Vector3.java
+public final native Vector3 getPositionFromMatrix(Matrix4 m)
+public final native Vector3 getScaleFromMatrix(Matrix4 m)
+public final native Vector3 getColumnFromMatrix(int index,Matrix4 matrix)
+add:Vector3.java
+public final native Vector3 setFromMatrixPosition(Matrix4 m)
+public final native Vector3 setFromMatrixScale(Matrix4 m)
+public final native Vector3 setFromMatrixColumn(int index,Matrix4 matrix)
