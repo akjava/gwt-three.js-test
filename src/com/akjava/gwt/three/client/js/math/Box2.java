@@ -112,6 +112,9 @@ return this.containsBox(box);
 public final native Vector2 getParameter(Vector2 point)/*-{
 return this.getParameter(point);
 }-*/;
+public final native Vector2 getParameter(Vector2 point,Vector2 optionalTarget)/*-{
+return this.getParameter(point,optionalTarget);
+}-*/;
 
 public final native boolean isIntersectionBox(Box2 box)/*-{
 return this.isIntersectionBox(box);

@@ -1,0 +1,10 @@
+*r64
+ArrowHelper - Added options for setting arrowhead size.
+add:THREE.java
+public static final native ArrowHelper ArrowHelper(Vector3 dir,Vector3 origin,double length,int hex,double headLength,double headWidth)
+add:ArrowHelper.java
+public final native void setLength(double length,double headLength,double headWidth)
+
+Box2 - Added optionalTarget to getParameter()
+add:Box2
+Vector2 getParameter(Vector2 point,Vector2 optionalTarget)
