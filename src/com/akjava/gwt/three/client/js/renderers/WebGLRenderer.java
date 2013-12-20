@@ -330,6 +330,18 @@ return this.getClearAlpha();
 public final native void clear(int color,int depth,int stencil)/*-{
 this.clear(color,depth,stencil);
 }-*/;
+
+public final native void clearColor()/*-{
+this.clearColor();
+}-*/;
+public final native void clearDepth()/*-{
+this.clearDepth();
+}-*/;
+public final native void clearStencil()/*-{
+this.clearStencil();
+}-*/;
+
+
 //i have no idea
 public final native void clearTarget(WebGLRenderTarget renderTarget,int color,int depth,int stencil)/*-{
 this.clearTarget(renderTarget,color,depth,stencil);
