@@ -113,6 +113,10 @@ public final native String getHexString()/*-{
 return this.getHexString();
 }-*/;
 
+public final native HSL getHSL(HSL hsl)/*-{
+return this.getHSL(hsl);
+}-*/;
+
 public final native HSL getHSL()/*-{
 return this.getHSL();
 }-*/;
