@@ -182,10 +182,7 @@ public class GWTThreeUtils {
 		return THREE.Matrix4().makeTranslation(vec.getX(),vec.getY(),vec.getZ());
 	}
 	public static Vector3 toPositionVec(Matrix4 mx){
-		
-		Vector3 vec=THREE.Vector3();
-		vec.getPositionFromMatrix(mx);
-		return vec;
+		return THREE.Vector3().setFromMatrixPosition(mx);
 	}
 	public static Vector3 toDegreeAngle(Matrix4 mx){
 		Vector3 vec=THREE.Vector3();

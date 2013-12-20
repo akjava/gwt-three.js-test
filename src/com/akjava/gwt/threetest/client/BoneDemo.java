@@ -192,10 +192,10 @@ panel.addClickHandler(new ClickHandler() {
 	private CDDIK cddik=new CDDIK();
 	public  void doStep(){
 		//Vector3 handPos=hand.getMatrixWorld().getPosition();
-		Vector3 handPos=THREE.Vector3().getPositionFromMatrix(hand.getMatrixWorld());
+		Vector3 handPos=THREE.Vector3().setFromMatrixPosition(hand.getMatrixWorld());
 		Object3D joint=joints.get(index);
 		//Vector3 jointPos=joint.getMatrixWorld().getPosition();
-		Vector3 jointPos=THREE.Vector3().getPositionFromMatrix(joint.getMatrixWorld());
+		Vector3 jointPos=THREE.Vector3().setFromMatrixPosition(joint.getMatrixWorld());
 		//GWT.log("h0");
 		Matrix4 beforeRot=THREE.Matrix4();
 		beforeRot.makeRotationFromEuler(joint.getRotation());

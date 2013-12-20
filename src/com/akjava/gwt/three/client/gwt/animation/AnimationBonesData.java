@@ -156,7 +156,7 @@ public class AnimationBonesData {
 		
 		Matrix4 tmpmx=bonesMatrixs.get(path.get(path.size()-1)).getMatrix();
 		Vector3 pos=THREE.Vector3();
-		pos.getPositionFromMatrix(tmpmx);
+		pos.setFromMatrixPosition(tmpmx);
 		
 		
 		Matrix4 matrix=THREE.Matrix4();
