@@ -68,6 +68,9 @@ return this.setDirection(vec);
 public final native void setLength(double length)/*-{
 this.setLength(length);
 }-*/;
+public final native void setLength(double length,double headLength,double headWidth)/*-{
+this.setLength(length,headLength, headWidth);
+}-*/;
 
 public final native void setColor(int hex)/*-{
 this.setColor(hex);

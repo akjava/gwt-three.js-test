@@ -221,6 +221,9 @@ public class THREE {
 	return new $wnd.THREE.MorphBlendMesh(geometry, material);
 	}-*/;
 	
+	public static final native ArrowHelper ArrowHelper(Vector3 dir,Vector3 origin,double length,int hex,double headLength,double headWidth)/*-{
+	return new $wnd.THREE.ArrowHelper( dir, origin, length, hex,headLength, headWidth);
+	}-*/;
 	public static final native ArrowHelper ArrowHelper(Vector3 dir,Vector3 origin,double length,int hex)/*-{
 	return new $wnd.THREE.ArrowHelper( dir, origin, length, hex);
 	}-*/;
