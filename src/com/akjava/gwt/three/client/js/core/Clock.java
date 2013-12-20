@@ -44,11 +44,11 @@ public class Clock extends JavaScriptObject{
 	protected Clock() {
 	}
 
-public final native Object getAutoStart()/*-{
+public final native boolean isAutoStart()/*-{
 return this.autoStart;
 }-*/;
 
-public final native void setAutoStart(Object autoStart)/*-{
+public final native void setAutoStart(boolean autoStart)/*-{
 this.autoStart = autoStart;
 }-*/;
 
