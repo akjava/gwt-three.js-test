@@ -3,7 +3,7 @@ package com.akjava.gwt.three.client.gwt.math;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
- * for spline
+ * @deprecated
  * @author aki
  *
  */
