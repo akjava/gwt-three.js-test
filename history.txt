@@ -7,4 +7,8 @@ public final native void setLength(double length,double headLength,double headWi
 
 Box2 - Added optionalTarget to getParameter()
 add:Box2
-Vector2 getParameter(Vector2 point,Vector2 optionalTarget)
+public final native Vector2 getParameter(Vector2 point,Vector2 optionalTarget)
+
+Box3 - Added optionalTarget to getParameter()
+add:Box3
+public final native Vector3 getParameter(Vector3 point,Vector3 optionalTarget)
