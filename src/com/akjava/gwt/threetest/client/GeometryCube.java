@@ -1,13 +1,13 @@
 package com.akjava.gwt.threetest.client;
 
 import com.akjava.gwt.lib.client.LogUtils;
-import com.akjava.gwt.three.client.gwt.ThreeLog;
+import com.akjava.gwt.three.client.java.MeshBasicMaterialBuilder;
+import com.akjava.gwt.three.client.java.ThreeLog;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Geometry;
 import com.akjava.gwt.three.client.js.extras.ImageUtils;
 import com.akjava.gwt.three.client.js.materials.Material;
-import com.akjava.gwt.three.client.js.materials.MeshBasicMaterialBuilder;
 import com.akjava.gwt.three.client.js.math.Color;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.objects.Mesh;

@@ -39,6 +39,7 @@ package com.akjava.gwt.three.client.js.core;
 
 import java.util.List;
 
+import com.akjava.gwt.three.client.gwt.core.Intersect;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.math.Ray;
 import com.akjava.gwt.three.client.js.math.Vector3;

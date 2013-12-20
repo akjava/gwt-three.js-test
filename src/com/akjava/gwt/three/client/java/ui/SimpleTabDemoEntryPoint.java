@@ -1,7 +1,7 @@
 package com.akjava.gwt.three.client.java.ui;
 
 import com.akjava.gwt.lib.client.LogUtils;
-import com.akjava.gwt.three.client.gwt.ThreeLog;
+import com.akjava.gwt.three.client.java.ThreeLog;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;

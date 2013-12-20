@@ -37,6 +37,7 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.core;
 
+import com.akjava.gwt.three.client.gwt.core.Intersect;
 import com.akjava.gwt.three.client.js.math.Ray;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.google.gwt.core.client.JavaScriptObject;

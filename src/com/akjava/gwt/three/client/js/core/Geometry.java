@@ -40,6 +40,7 @@ package com.akjava.gwt.three.client.js.core;
 import com.akjava.gwt.three.client.gwt.animation.AnimationBone;
 import com.akjava.gwt.three.client.gwt.animation.AnimationData;
 import com.akjava.gwt.three.client.gwt.core.BoundingBox;
+import com.akjava.gwt.three.client.gwt.core.MorphTarget;
 import com.akjava.gwt.three.client.js.math.Color;
 import com.akjava.gwt.three.client.js.math.Matrix4;
 import com.akjava.gwt.three.client.js.math.Vector2;

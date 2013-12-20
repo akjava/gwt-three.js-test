@@ -38,7 +38,7 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client.js.renderers;
 
 import com.akjava.gwt.three.client.gwt.extras.Shader;
-import com.akjava.gwt.three.client.js.extras.Uniforms;
+import com.akjava.gwt.three.client.gwt.extras.Uniforms;
 import com.google.gwt.core.client.JsArray;
 
 /**

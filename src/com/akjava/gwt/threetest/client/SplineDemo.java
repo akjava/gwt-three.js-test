@@ -18,10 +18,10 @@ package com.akjava.gwt.threetest.client;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.akjava.gwt.three.client.gwt.AbstractMovingXYControler;
-import com.akjava.gwt.three.client.gwt.Clock;
-import com.akjava.gwt.three.client.gwt.GWTSpline;
 import com.akjava.gwt.three.client.gwt.math.XYObject;
+import com.akjava.gwt.three.client.java.JClock;
+import com.akjava.gwt.three.client.java.GWTSpline;
+import com.akjava.gwt.three.client.java.ui.AbstractMovingXYControler;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Geometry;
@@ -71,7 +71,7 @@ private Timer timer;
 		
 		final Geometry geo=THREE.SphereGeometry(2, 16, 16);
 		final Material material=THREE.MeshLambertMaterial().color(0x0000ff).build();
-		final Clock clock=new Clock();
+		final JClock clock=new JClock();
 		final AbstractMovingXYControler moving=new AbstractMovingXYControler(pts,totalDuration) {
 			
 			@Override

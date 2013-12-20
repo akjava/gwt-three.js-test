@@ -1,12 +1,12 @@
 package com.akjava.gwt.threetest.client;
 
 import com.akjava.gwt.lib.client.LogUtils;
+import com.akjava.gwt.three.client.java.ParticleBasicMaterialBuilder;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.core.Geometry;
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.akjava.gwt.three.client.js.extras.ImageUtils;
 import com.akjava.gwt.three.client.js.materials.ParticleBasicMaterial;
-import com.akjava.gwt.three.client.js.materials.ParticleBasicMaterialBuilder;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.math.Vertex;
 import com.akjava.gwt.three.client.js.objects.ParticleSystem;

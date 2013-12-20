@@ -37,7 +37,7 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.math;
 
-import com.akjava.gwt.three.client.js.core.Intersect;
+import com.akjava.gwt.three.client.gwt.core.Intersect;
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.google.gwt.core.client.JavaScriptObject;
