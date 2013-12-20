@@ -1,4 +1,4 @@
-package com.akjava.gwt.three.client.js.math;
+package com.akjava.gwt.three.client.gwt.math;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
