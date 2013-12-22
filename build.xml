@@ -17,7 +17,7 @@
          ================================= -->
     <target name="default" depends="depends" description="description">
         <javac destdir="tmp" srcdir="src">
-        	<classpath path="lib\akjavalibgwt_121208.jar;lib\akjavastatgwt_120820.jar;lib\akjavahtml5gwt_121208.jar;C:\eclipse\gwt-2.4.0\gwt-user.jar;C:\eclipse\gwt-2.4.0\gwt-dev.jar">
+        	<classpath path="lib\akjavalibgwt-dep_131220.jar;lib\akjavastatgwt_120820.jar;lib\akjavahtml5gwt_131220.jar;C:\eclipse\plugins\com.google.gwt.eclipse.sdkbundle_2.5.1\gwt-2.5.1\gwt-user.jar;C:\eclipse\plugins\com.google.gwt.eclipse.sdkbundle_2.5.1\gwt-2.5.1\gwt-dev.jar">
         		
         	</classpath>
         </javac>
