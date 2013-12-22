@@ -18,22 +18,41 @@ package com.akjava.gwt.threetest.client;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.akjava.gwt.three.client.THREE;
-import com.akjava.gwt.three.client.cameras.Camera;
-import com.akjava.gwt.three.client.core.Geometry;
-import com.akjava.gwt.three.client.core.Object3D;
-import com.akjava.gwt.three.client.extras.SceneUtils;
-import com.akjava.gwt.three.client.extras.loaders.JSONLoader;
-import com.akjava.gwt.three.client.extras.loaders.JSONLoader.LoadHandler;
-import com.akjava.gwt.three.client.lights.Light;
-import com.akjava.gwt.three.client.materials.Material;
-import com.akjava.gwt.three.client.renderers.WebGLRenderer;
-import com.akjava.gwt.three.client.scenes.Scene;
+import com.akjava.gwt.lib.client.LogUtils;
+import com.akjava.gwt.three.client.java.utils.GWTGeometryUtils;
+import com.akjava.gwt.three.client.js.THREE;
+import com.akjava.gwt.three.client.js.cameras.Camera;
+import com.akjava.gwt.three.client.js.core.Geometry;
+import com.akjava.gwt.three.client.js.core.Object3D;
+import com.akjava.gwt.three.client.js.extras.SceneUtils;
+import com.akjava.gwt.three.client.js.lights.Light;
+import com.akjava.gwt.three.client.js.loaders.ImageLoader;
+import com.akjava.gwt.three.client.js.loaders.ImageLoader.ImageLoadHandler;
+import com.akjava.gwt.three.client.js.loaders.LoadingManager.LoadingManagerHandler;
+import com.akjava.gwt.three.client.js.materials.Material;
+import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
+import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.ImageElement;
+import com.google.gwt.dom.client.NativeEvent;
+import com.google.gwt.http.client.Request;
+import com.google.gwt.http.client.RequestBuilder;
+import com.google.gwt.http.client.RequestCallback;
+import com.google.gwt.http.client.RequestException;
+import com.google.gwt.http.client.Response;
+import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.Timer;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.FocusPanel;
+import com.google.gwt.user.client.ui.Image;
+import com.google.gwt.user.client.ui.RootPanel;
 
+/**
+ * json
+ * @author aki
+ *
+ */
 public class LoadObjDemo extends AbstractDemo{
 
 private Object3D object;
@@ -46,14 +65,48 @@ private Object3D object;
 		final Scene scene=THREE.Scene();
 		
 		
+		
 		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
 		scene.add(camera);
 		
+		//final JSONLoader loader=THREE.JSONLoader();
+		
+		RequestBuilder builder=new RequestBuilder(RequestBuilder.GET,"models/men.js");
+		try {
+			builder.sendRequest(null, new RequestCallback() {
+				
+				@Override
+				public void onResponseReceived(Request request, Response response) {
+					String text=response.getText();
+					JSONObject jsonObject=GWTGeometryUtils.loadJsonModelWithMaterial(text);
+					
+					
+					Geometry geometry=(Geometry)(jsonObject.get("geometry").isObject().getJavaScriptObject());
+					
+					List<Material> materials=new ArrayList<Material>();
+					materials.add(THREE.MeshLambertMaterial().color(0x0000ff).build());
+					materials.add(THREE.MeshBasicMaterial().color(0x0).transparent(true).wireFrame().build());
+					object=SceneUtils.createMultiMaterialObject(geometry, materials);
+					
+					
+					object.setPosition(0, 0, 0);
+					object.setRotation(0, 0, 0);
+					object.setScale(5,5,5);
+					scene.add(object);
+				}
+				
+				@Override
+				public void onError(Request request, Throwable exception) {
+					Window.alert(exception.getMessage());
+				}
+			});
+		} catch (RequestException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 		
-		
-		JSONLoader loader=THREE.JSONLoader();
-		
+		/*
 		loader.load("models/men.js", new LoadHandler() {
 			
 			
@@ -72,6 +125,7 @@ private Object3D object;
 				scene.add(object);
 			}
 		});
+		*/
 		
 		
 		

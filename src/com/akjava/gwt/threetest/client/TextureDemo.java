@@ -15,15 +15,15 @@
  */
 package com.akjava.gwt.threetest.client;
 
-import com.akjava.gwt.three.client.THREE;
-import com.akjava.gwt.three.client.cameras.Camera;
-import com.akjava.gwt.three.client.extras.ImageUtils;
-import com.akjava.gwt.three.client.lights.Light;
-import com.akjava.gwt.three.client.materials.Material;
-import com.akjava.gwt.three.client.objects.Mesh;
-import com.akjava.gwt.three.client.renderers.WebGLRenderer;
-import com.akjava.gwt.three.client.scenes.Scene;
-import com.akjava.gwt.three.client.textures.Texture;
+import com.akjava.gwt.three.client.js.THREE;
+import com.akjava.gwt.three.client.js.cameras.Camera;
+import com.akjava.gwt.three.client.js.extras.ImageUtils;
+import com.akjava.gwt.three.client.js.lights.Light;
+import com.akjava.gwt.three.client.js.materials.Material;
+import com.akjava.gwt.three.client.js.objects.Mesh;
+import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
+import com.akjava.gwt.three.client.js.scenes.Scene;
+import com.akjava.gwt.three.client.js.textures.Texture;
 import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Timer;
@@ -58,7 +58,7 @@ private Timer timer;
 		};
 		
 		final Mesh mesh=THREE.Mesh(THREE.Cube(5, 5, 5,1,1,1,ms), 
-				THREE.MeshFaceMaterial());
+				THREE.MeshFaceMaterial(null));
 		
 		scene.add(mesh);
 		GWT.log("xx2");
@@ -74,8 +74,8 @@ private Timer timer;
 				try{
 				
 				//cancel();
-				mesh.getRotation().incrementX(0.02);
-				mesh.getRotation().incrementY(0.02);
+				mesh.getRotation().gwtIncrementX(0.02);
+				mesh.getRotation().gwtIncrementY(0.02);
 				renderer.render(scene, camera);
 				}catch(Exception e){
 					GWT.log(e.getMessage());

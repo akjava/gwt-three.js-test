@@ -18,18 +18,18 @@ package com.akjava.gwt.threetest.client;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.akjava.gwt.three.client.THREE;
-import com.akjava.gwt.three.client.cameras.Camera;
-import com.akjava.gwt.three.client.core.Geometry;
-import com.akjava.gwt.three.client.gwt.AbstractMovingXYControler;
-import com.akjava.gwt.three.client.gwt.Clock;
-import com.akjava.gwt.three.client.gwt.Point;
-import com.akjava.gwt.three.client.gwt.Spline;
-import com.akjava.gwt.three.client.lights.Light;
-import com.akjava.gwt.three.client.materials.Material;
-import com.akjava.gwt.three.client.objects.Mesh;
-import com.akjava.gwt.three.client.renderers.WebGLRenderer;
-import com.akjava.gwt.three.client.scenes.Scene;
+import com.akjava.gwt.three.client.gwt.math.XYObject;
+import com.akjava.gwt.three.client.java.JClock;
+import com.akjava.gwt.three.client.java.GWTSpline;
+import com.akjava.gwt.three.client.java.ui.AbstractMovingXYControler;
+import com.akjava.gwt.three.client.js.THREE;
+import com.akjava.gwt.three.client.js.cameras.Camera;
+import com.akjava.gwt.three.client.js.core.Geometry;
+import com.akjava.gwt.three.client.js.lights.Light;
+import com.akjava.gwt.three.client.js.materials.Material;
+import com.akjava.gwt.three.client.js.objects.Mesh;
+import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
+import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
@@ -39,7 +39,7 @@ private Timer timer;
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		stop();
-		renderer.setClearColorHex(0xffffff, 1);
+		renderer.setClearColor(0xffffff, 1);
 		
 		
 		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
@@ -48,11 +48,11 @@ private Timer timer;
 		
 		final Scene scene=THREE.Scene();
 		
-		final List<Point> pts=new ArrayList<Point>();
+		final List<XYObject> pts=new ArrayList<XYObject>();
 		for(int i=0;i<10;i++){
 			double mx=Math.random()*20+i*20-100;
 			double my=Math.random()*100;
-			pts.add(Point.create(mx, my));
+			pts.add(XYObject.create(mx, my));
 			final Mesh mesh=THREE.Mesh(THREE.SphereGeometry(2, 16, 16), 
 					THREE.MeshLambertMaterial().color(0xff0000).build());
 			mesh.setPosition(mx, my, 0);
@@ -71,7 +71,7 @@ private Timer timer;
 		
 		final Geometry geo=THREE.SphereGeometry(2, 16, 16);
 		final Material material=THREE.MeshLambertMaterial().color(0x0000ff).build();
-		final Clock clock=new Clock();
+		final JClock clock=new JClock();
 		final AbstractMovingXYControler moving=new AbstractMovingXYControler(pts,totalDuration) {
 			
 			@Override

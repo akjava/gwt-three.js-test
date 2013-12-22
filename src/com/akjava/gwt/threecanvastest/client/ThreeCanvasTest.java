@@ -25,7 +25,7 @@ public class ThreeCanvasTest implements EntryPoint {
 	
 
 	/**
-	 * This is the entry point method.
+	 * maybe this is already deprecased,all most demo moved to threetest
 	 */
 public void onModuleLoad() {
 	MainWidget main=new MainWidget();

@@ -3,8 +3,8 @@ package com.akjava.gwt.three.client.gwt.animation.ik;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.akjava.gwt.three.client.THREE;
-import com.akjava.gwt.three.client.core.Vector3;
+import com.akjava.gwt.three.client.js.THREE;
+import com.akjava.gwt.three.client.js.math.Vector3;
 
 public class IKData {
 	public IKData(String name){

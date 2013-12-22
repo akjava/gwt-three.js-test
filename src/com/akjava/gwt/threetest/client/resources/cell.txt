@@ -1,7 +1,7 @@
 <pre>
 <b>Cell Shader</b> 
 Mouse-Wheel can zoom.
-Mouse Drag to rotate.
+Mouse Drag with MIDDLE-BUTTON to rotate.
 
 
 <pre>

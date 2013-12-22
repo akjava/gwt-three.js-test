@@ -1,7 +1,7 @@
 package com.akjava.gwt.threecanvastest.client.birds;
 
-import com.akjava.gwt.three.client.THREE;
-import com.akjava.gwt.three.client.core.Geometry;
+import com.akjava.gwt.three.client.js.THREE;
+import com.akjava.gwt.three.client.js.core.Geometry;
 
 public class Bird extends Geometry{
 

@@ -1,9 +1,9 @@
 package com.akjava.gwt.threetest.client;
 
 import com.akjava.gwt.lib.client.LogUtils;
-import com.akjava.gwt.three.client.experiments.CSS3DRenderer;
+import com.akjava.gwt.three.client.examples.renderers.CSS3DRenderer;
 import com.akjava.gwt.three.client.gwt.core.CameraControler;
-import com.akjava.gwt.three.client.renderers.WebGLRenderer;
+import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.NativeEvent;
@@ -46,6 +46,7 @@ public abstract class AbstractDemo implements Demo{
 	}
 	
 	public void onMouseDown(MouseDownEvent event) {
+		
 		mouseDown=true;
 		mouseDownX=event.getX();
 		mouseDownY=event.getY();
@@ -64,6 +65,7 @@ public abstract class AbstractDemo implements Demo{
 	
 
 	public void onMouseMove(MouseMoveEvent event) {
+		
 		if(event.getNativeButton()==NativeEvent.BUTTON_MIDDLE && mouseDown){
 			int diffX=event.getX()-mouseDownX;
 			int diffY=event.getY()-mouseDownY;

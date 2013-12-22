@@ -19,21 +19,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.akjava.gwt.lib.client.LogUtils;
-import com.akjava.gwt.three.client.THREE;
-import com.akjava.gwt.three.client.cameras.Camera;
-import com.akjava.gwt.three.client.core.Geometry;
-import com.akjava.gwt.three.client.core.Object3D;
-import com.akjava.gwt.three.client.experiments.CellShader;
-import com.akjava.gwt.three.client.extras.SceneUtils;
-import com.akjava.gwt.three.client.extras.ShaderUtils;
-import com.akjava.gwt.three.client.extras.loaders.JSONLoader;
-import com.akjava.gwt.three.client.extras.loaders.JSONLoader.LoadHandler;
-import com.akjava.gwt.three.client.lights.Light;
-import com.akjava.gwt.three.client.materials.Material;
-import com.akjava.gwt.three.client.renderers.WebGLRenderer;
-import com.akjava.gwt.three.client.scenes.Scene;
+import com.akjava.gwt.three.client.examples.renderers.CellShader;
+import com.akjava.gwt.three.client.js.THREE;
+import com.akjava.gwt.three.client.js.cameras.Camera;
+import com.akjava.gwt.three.client.js.core.Geometry;
+import com.akjava.gwt.three.client.js.core.Object3D;
+import com.akjava.gwt.three.client.js.extras.SceneUtils;
+import com.akjava.gwt.three.client.js.lights.Light;
+import com.akjava.gwt.three.client.js.loaders.JSONLoader;
+import com.akjava.gwt.three.client.js.loaders.JSONLoader.JSONLoadHandler;
+import com.akjava.gwt.three.client.js.loaders.Loader.LoadHandler;
+import com.akjava.gwt.three.client.js.materials.Material;
+import com.akjava.gwt.three.client.js.math.Euler;
+import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
+import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.JsArray;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 
@@ -44,7 +46,7 @@ private Object3D object;
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		super.start(renderer, width, height, panel);
 		
-		renderer.setClearColorHex(0xffffff, 1);
+		renderer.setClearColor(0xffffff, 1);
 		
 		final Scene scene=THREE.Scene();
 		
@@ -56,13 +58,33 @@ private Object3D object;
 		
 		
 		JSONLoader loader=THREE.JSONLoader();
+		loader.setLoadHandler(new LoadHandler() {
+			@Override
+			public void onLoadStart() {
+				//LogUtils.log("onstart ok");
+			}
+			
+			@Override
+			public void onLoadProgress() {
+				//LogUtils.log("onprogress ok");
+			}
+			
+			@Override
+			public void onLoadComplete() {
+				//LogUtils.log("oncomplete ok");
+			}
+		});
 		
-		loader.load("models/female04b.js", new LoadHandler() {
+		
+		loader.load("models/female04b.js", new JSONLoadHandler() {
 			
 			
 
+			
+
 			@Override
-			public void loaded(Geometry geometry) {
+			public void loaded(Geometry geometry, JsArray<Material> ms) {
+				
 				if(!CellShader.exists()){
 					LogUtils.log("not found THREEx.ShaderLib maybe forget include it.");
 				}
@@ -77,7 +99,7 @@ private Object3D object;
 				
 				
 				object.setPosition(0, 0, 0);
-				object.setRotation(0, 0, 0);
+				object.setRotation(THREE.Euler(0, 0, 0, Euler.XYZ));
 				object.setScale(5,5,5);
 				scene.add(object);
 			}
@@ -100,10 +122,7 @@ private Object3D object;
 				try{
 					MainWidget.stats.begin();
 					camera.setPosition(cameraControle.getPositionX(), cameraControle.getPositionY(), cameraControle.getPositionZ());
-					
-					object.setRotation(cameraControle.getRadiantRotationX(), cameraControle.getRadiantRotationY(), cameraControle.getRadiantRotationZ());
-					
-					
+					object.getRotation().set(cameraControle.getRadiantRotationX(), cameraControle.getRadiantRotationY(), cameraControle.getRadiantRotationZ(),Euler.XYZ);
 					
 					renderer.render(scene, camera);
 					MainWidget.stats.end();

@@ -1,9 +1,9 @@
 package com.akjava.gwt.three.client.gwt.animation;
 
-import com.akjava.gwt.three.client.THREE;
-import com.akjava.gwt.three.client.core.Matrix4;
-import com.akjava.gwt.three.client.core.Vector3;
-import com.akjava.gwt.three.client.gwt.GWTThreeUtils;
+import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
+import com.akjava.gwt.three.client.js.THREE;
+import com.akjava.gwt.three.client.js.math.Matrix4;
+import com.akjava.gwt.three.client.js.math.Vector3;
 
 public class AngleAndPosition {
 public AngleAndPosition(Vector3 angle,Vector3 positions,Matrix4 matrix){
@@ -26,6 +26,7 @@ public Vector3 getAngle() {
 public void setAngle(Vector3 angle) {
 	this.angle = angle;
 }
+
 public Matrix4 getMatrix() {
 	return matrix;
 }
@@ -33,10 +34,13 @@ public void setMatrix(Matrix4 matrix) {
 	this.matrix = matrix;
 }
 
+
 public void updateMatrix(){
-	matrix=THREE.Matrix4();
-	matrix.setTranslation(position.getX(), position.getY(), position.getZ());
-	matrix.setRotationFromEuler(GWTThreeUtils.degreeToRagiant(angle), "XYZ");
+	Vector3 vec=GWTThreeUtils.degreeToRagiant(angle);
+	Matrix4 m2=THREE.Matrix4().makeRotationFromEuler(THREE.Euler(vec.getX(), vec.getY(), vec.getZ(), "XYZ"));
+	matrix=THREE.Matrix4().makeTranslation(position.getX(), position.getY(), position.getZ()).multiply(m2);
+	//matrix.setTranslation(position.getX(), position.getY(), position.getZ());
+	//matrix.setRotationFromEuler(GWTThreeUtils.degreeToRagiant(angle), "XYZ");
 }
 
 public AngleAndPosition clone(){

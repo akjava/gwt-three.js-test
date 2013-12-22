@@ -17,16 +17,16 @@ package com.akjava.gwt.threetest.client;
 
 import com.akjava.gwt.lib.client.CanvasUtils;
 import com.akjava.gwt.lib.client.LogUtils;
-import com.akjava.gwt.three.client.THREE;
-import com.akjava.gwt.three.client.cameras.Camera;
-import com.akjava.gwt.three.client.core.Object3D;
-import com.akjava.gwt.three.client.experiments.CSS3DObject;
-import com.akjava.gwt.three.client.experiments.CSS3DRenderer;
-import com.akjava.gwt.three.client.lights.Light;
-import com.akjava.gwt.three.client.materials.MeshBasicMaterialBuilder;
-import com.akjava.gwt.three.client.objects.Mesh;
-import com.akjava.gwt.three.client.renderers.WebGLRenderer;
-import com.akjava.gwt.three.client.scenes.Scene;
+import com.akjava.gwt.three.client.examples.renderers.CSS3DObject;
+import com.akjava.gwt.three.client.examples.renderers.CSS3DRenderer;
+import com.akjava.gwt.three.client.java.MeshBasicMaterialBuilder;
+import com.akjava.gwt.three.client.js.THREE;
+import com.akjava.gwt.three.client.js.cameras.Camera;
+import com.akjava.gwt.three.client.js.core.Object3D;
+import com.akjava.gwt.three.client.js.lights.Light;
+import com.akjava.gwt.three.client.js.objects.Mesh;
+import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
+import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.canvas.client.Canvas;
 import com.google.gwt.user.client.Timer;
@@ -90,8 +90,8 @@ public class PlainDemo extends AbstractDemo{
 		
 		Timer timer = new Timer(){
 			public void run(){
-				object.getRotation().incrementX(0.02);
-				object.getRotation().incrementY(0.02);
+				object.getRotation().gwtIncrementX(0.02);
+				object.getRotation().gwtIncrementY(0.02);
 				renderer.render(scene, camera);
 
 			}

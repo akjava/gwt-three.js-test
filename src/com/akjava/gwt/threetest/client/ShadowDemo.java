@@ -15,12 +15,12 @@
  */
 package com.akjava.gwt.threetest.client;
 
-import com.akjava.gwt.three.client.THREE;
-import com.akjava.gwt.three.client.cameras.Camera;
-import com.akjava.gwt.three.client.lights.Light;
-import com.akjava.gwt.three.client.objects.Mesh;
-import com.akjava.gwt.three.client.renderers.WebGLRenderer;
-import com.akjava.gwt.three.client.scenes.Scene;
+import com.akjava.gwt.three.client.js.THREE;
+import com.akjava.gwt.three.client.js.cameras.Camera;
+import com.akjava.gwt.three.client.js.lights.Light;
+import com.akjava.gwt.three.client.js.objects.Mesh;
+import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
+import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
@@ -80,10 +80,10 @@ private WebGLRenderer renderer;
 		
 		timer = new Timer(){
 			public void run(){
-				mesh2.getRotation().incrementX(0.02);
-				mesh2.getRotation().incrementY(0.02);
-				mesh3.getRotation().incrementX(0.02);
-				mesh3.getRotation().incrementZ(0.02);
+				mesh2.getRotation().gwtIncrementX(0.02);
+				mesh2.getRotation().gwtIncrementY(0.02);
+				mesh3.getRotation().gwtIncrementX(0.02);
+				mesh3.getRotation().gwtIncrementZ(0.02);
 				renderer.render(scene, camera);
 
 			}

@@ -18,14 +18,14 @@ package com.akjava.gwt.threetest.client;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.akjava.gwt.three.client.THREE;
-import com.akjava.gwt.three.client.cameras.Camera;
-import com.akjava.gwt.three.client.core.Geometry;
-import com.akjava.gwt.three.client.lights.Light;
-import com.akjava.gwt.three.client.materials.Material;
-import com.akjava.gwt.three.client.objects.Mesh;
-import com.akjava.gwt.three.client.renderers.WebGLRenderer;
-import com.akjava.gwt.three.client.scenes.Scene;
+import com.akjava.gwt.three.client.js.THREE;
+import com.akjava.gwt.three.client.js.cameras.Camera;
+import com.akjava.gwt.three.client.js.core.Geometry;
+import com.akjava.gwt.three.client.js.lights.Light;
+import com.akjava.gwt.three.client.js.materials.Material;
+import com.akjava.gwt.three.client.js.objects.Mesh;
+import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
+import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Timer;
@@ -148,7 +148,7 @@ private Mesh mesh;
 				}
 			}
 				
-		mesh = THREE.Mesh(cube, THREE.MeshFaceMaterial());
+		mesh = THREE.Mesh(cube, THREE.MeshFaceMaterial(null));
 		parentMesh.add(mesh);
 		reset();
 		}
@@ -177,17 +177,17 @@ private Mesh mesh;
 		public void update(){
 			
 			if(smoke){
-			mesh.getPosition().incrementX(xd/3);
-			mesh.getPosition().incrementY(yd/3);
-			mesh.getPosition().incrementZ(zd);
+			mesh.getPosition().gwtIncrementX(xd/3);
+			mesh.getPosition().gwtIncrementY(yd/3);
+			mesh.getPosition().gwtIncrementZ(zd);
 			}else{
-				mesh.getPosition().incrementX(xd/5);
-				mesh.getPosition().incrementY(yd/5);
-				mesh.getPosition().incrementZ(zd/10);
+				mesh.getPosition().gwtIncrementX(xd/5);
+				mesh.getPosition().gwtIncrementY(yd/5);
+				mesh.getPosition().gwtIncrementZ(zd/10);
 			}
 			
-			mesh.getRotation().incrementX(xrd);
-			mesh.getRotation().incrementZ(zrd);
+			mesh.getRotation().gwtIncrementX(xrd);
+			mesh.getRotation().gwtIncrementZ(zrd);
 			
 			ticks++;
 			if(ticks>100){

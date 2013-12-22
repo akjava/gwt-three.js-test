@@ -1,6 +1,6 @@
 package com.akjava.gwt.three.client.gwt.collada;
 
-import com.akjava.gwt.three.client.core.Geometry;
+import com.akjava.gwt.three.client.js.core.Geometry;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayString;

@@ -20,16 +20,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.akjava.gwt.three.client.THREE;
-import com.akjava.gwt.three.client.cameras.Camera;
-import com.akjava.gwt.three.client.core.Intersect;
-import com.akjava.gwt.three.client.core.Object3D;
-import com.akjava.gwt.three.client.core.Projector;
-import com.akjava.gwt.three.client.lights.Light;
-import com.akjava.gwt.three.client.materials.Material;
-import com.akjava.gwt.three.client.objects.Mesh;
-import com.akjava.gwt.three.client.renderers.WebGLRenderer;
-import com.akjava.gwt.three.client.scenes.Scene;
+import com.akjava.gwt.three.client.gwt.core.Intersect;
+import com.akjava.gwt.three.client.js.THREE;
+import com.akjava.gwt.three.client.js.cameras.Camera;
+import com.akjava.gwt.three.client.js.core.Object3D;
+import com.akjava.gwt.three.client.js.core.Projector;
+import com.akjava.gwt.three.client.js.lights.Light;
+import com.akjava.gwt.three.client.js.materials.Material;
+import com.akjava.gwt.three.client.js.materials.MeshBasicMaterial;
+import com.akjava.gwt.three.client.js.objects.Mesh;
+import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
+import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -43,13 +44,13 @@ public class PickDemo extends AbstractDemo{
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		super.start(renderer, width, height, panel);
-		renderer.setClearColorHex(0xffffff, 1);
+		renderer.setClearColor(0xffffff, 1);
 		
 		meshs = new HashMap<Integer,Mesh>();
 		
 		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
 		camera.getPosition().set(0, 0, 50);
-		camera.getRotation().set(0, 0, 0);
+		camera.setRotation(THREE.Euler(0, 0, 0, "XYZ"));
 		
 		
 		final Scene scene=THREE.Scene();
@@ -93,8 +94,8 @@ public class PickDemo extends AbstractDemo{
 		
 		Timer timer = new Timer(){
 			public void run(){
-				mesh.getRotation().incrementX(0.02);
-				mesh.getRotation().incrementY(0.02);
+				mesh.getRotation().gwtIncrementX(0.02);
+				mesh.getRotation().gwtIncrementY(0.02);
 
 				renderer.render(scene, camera);
 				camera.setPosition(MainWidget.cameraMove.getX(), MainWidget.cameraMove.getY(),MainWidget.cameraMove.getZ());
@@ -123,13 +124,13 @@ public class PickDemo extends AbstractDemo{
 					final Mesh target=meshs.get(sect.getObject().getId());
 					log(target);
 					
-					final int old=target.getMaterial().getColor().getHex();
-					target.getMaterial().getColor().setHex(0xeeeeee);
+					final int old=((MeshBasicMaterial)target.getMaterial()).getColor().getHex();
+					((MeshBasicMaterial)target.getMaterial()).getColor().setHex(0xeeeeee);
 					Timer timer=new Timer(){
 
 						@Override
 						public void run() {
-							target.getMaterial().getColor().setHex(old);
+							((MeshBasicMaterial)target.getMaterial()).getColor().setHex(old);
 						}
 						
 					};

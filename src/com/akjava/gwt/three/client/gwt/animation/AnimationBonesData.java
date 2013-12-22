@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.akjava.gwt.lib.client.LogUtils;
-import com.akjava.gwt.three.client.THREE;
-import com.akjava.gwt.three.client.core.Matrix4;
-import com.akjava.gwt.three.client.core.Vector3;
-import com.akjava.gwt.three.client.gwt.GWTThreeUtils;
-import com.akjava.gwt.three.client.gwt.ThreeLog;
+import com.akjava.gwt.three.client.java.ThreeLog;
+import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
+import com.akjava.gwt.three.client.js.THREE;
+import com.akjava.gwt.three.client.js.math.Matrix4;
+import com.akjava.gwt.three.client.js.math.Vector3;
 import com.google.gwt.core.client.JsArray;
 
 public class AnimationBonesData {
@@ -129,16 +129,19 @@ public class AnimationBonesData {
 	public Vector3 getBonePosition(int index){
 		List<Integer> path=bonePath.get(index);
 		
+		/*
 		Matrix4 tmpmx=bonesMatrixs.get(path.get(path.size()-1)).getMatrix();
 		Vector3 pos=THREE.Vector3();
 		pos.getPositionFromMatrix(tmpmx);
+		*/
+		Vector3 pos=getMatrixPosition(path.get(path.size()-1));
 		
 		
 		Matrix4 matrix=THREE.Matrix4();
 		for(int j=0;j<path.size()-1;j++){//last is boneself
 		//	log(""+path.get(j));
 			Matrix4 mx=bonesMatrixs.get(path.get(j)).getMatrix();
-			matrix.multiply(matrix, mx);
+			matrix.multiplyMatrices(matrix, mx);
 		}
 		matrix.multiplyVector3(pos);
 		return pos;
@@ -153,14 +156,14 @@ public class AnimationBonesData {
 		
 		Matrix4 tmpmx=bonesMatrixs.get(path.get(path.size()-1)).getMatrix();
 		Vector3 pos=THREE.Vector3();
-		pos.getPositionFromMatrix(tmpmx);
+		pos.setFromMatrixPosition(tmpmx);
 		
 		
 		Matrix4 matrix=THREE.Matrix4();
 		for(int j=0;j<path.size()-1;j++){//last is boneself
 		//	log(""+path.get(j));
 			Matrix4 mx=bonesMatrixs.get(path.get(j)).getMatrix();
-			matrix.multiply(matrix, mx);
+			matrix.multiplyMatrices(matrix, mx);
 		}
 		matrix.multiplyVector3(pos);
 		return pos;
@@ -191,8 +194,11 @@ public class AnimationBonesData {
 	}
 	
 	public Vector3 getMatrixPosition(int index){
+		/*
 		Matrix4 pos= bonesMatrixs.get(index).getMatrix();
 		return GWTThreeUtils.toPositionVec(pos);
+		*/
+		return bonesMatrixs.get(index).getPosition().clone();
 	}
 	
 	
@@ -206,10 +212,14 @@ public static List<AngleAndPosition> boneToAngleAndMatrix(JsArray<AnimationBone>
 			AnimationHierarchyItem item=animationData.getHierarchy().get(i);
 			AnimationKey motion=item.getKeys().get(animationIndex);
 			
-			Matrix4 mx=THREE.Matrix4();
+			//Matrix4 mx=THREE.Matrix4();
 			Vector3 motionPos=GWTThreeUtils.jsArrayToVector3(motion.getPos());
-			mx.setTranslation(motionPos.getX(), motionPos.getY(), motionPos.getZ());
-			mx.setRotationFromQuaternion(GWTThreeUtils.jsArrayToQuaternion(motion.getRot()));
+			//mx.setTranslation(motionPos.getX(), motionPos.getY(), motionPos.getZ());
+			//mx.setRotationFromQuaternion(GWTThreeUtils.jsArrayToQuaternion(motion.getRot()));
+			
+			Matrix4 mx=THREE.Matrix4().makeTranslation(motionPos.getX(), motionPos.getY(), motionPos.getZ());
+			Matrix4 mx2=THREE.Matrix4().makeRotationFromQuaternion(GWTThreeUtils.jsArrayToQuaternion(motion.getRot()));
+			mx.multiply(mx2);
 			/*
 			Matrix4 mx2=THREE.Matrix4();
 			mx2.setRotationFromQuaternion(motion.getRot());
@@ -262,14 +272,15 @@ public static List<Matrix4> boneToMatrix(JsArray<AnimationBone> bones,AnimationD
 			
 			//log(bone.getName());
 			
-			Matrix4 mx=THREE.Matrix4();
 			Vector3 motionPos=GWTThreeUtils.jsArrayToVector3(motion.getPos());
+			Matrix4 mx=THREE.Matrix4().makeTranslation(motionPos.getX(), motionPos.getY(), motionPos.getZ());
+			
 			//seems same as bone
 		//	LogUtils.log(motionPos);
-			mx.setTranslation(motionPos.getX(), motionPos.getY(), motionPos.getZ());
-			Matrix4 mx2=THREE.Matrix4();
-			mx2.setRotationFromQuaternion(GWTThreeUtils.jsArrayToQuaternion(motion.getRot()));
-			mx.multiplySelf(mx2);
+			//mx.setTranslation(motionPos.getX(), motionPos.getY(), motionPos.getZ());
+			Matrix4 mx2=THREE.Matrix4().makeRotationFromQuaternion(GWTThreeUtils.jsArrayToQuaternion(motion.getRot()));
+			//mx2.setRotationFromQuaternion();
+			mx.multiply(mx2);
 			
 			Vector3 rot=GWTThreeUtils.toDegreeAngle(mx2);
 			//LogUtils.log("before-angle:"+ThreeLog.get(rot));

@@ -22,10 +22,10 @@ import com.akjava.gwt.lib.client.GWTHTMLUtils;
 import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.lib.client.URLUtils;
 import com.akjava.gwt.stats.client.Stats;
-import com.akjava.gwt.three.client.THREE;
-import com.akjava.gwt.three.client.renderers.WebGLRenderer;
-import com.akjava.gwt.three.client.ui.CameraMoveWidget;
-import com.akjava.gwt.three.client.ui.CameraRotationWidget;
+import com.akjava.gwt.three.client.java.ui.CameraMoveWidget;
+import com.akjava.gwt.three.client.java.ui.CameraRotationWidget;
+import com.akjava.gwt.three.client.js.THREE;
+import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ChangeHandler;
@@ -122,6 +122,9 @@ public class MainWidget extends Composite {
 		});
 		renderers.add(canvasButton);
 		
+		/*
+		 * somehow not work
+		 * 
 		RadioButton css3dButton=new RadioButton("renderer", "CSS3D");
 		css3dButton.addClickHandler(new ClickHandler() {
 			@Override
@@ -130,6 +133,8 @@ public class MainWidget extends Composite {
 			}
 		});
 		renderers.add(css3dButton);
+		*/
+		
 		
 		/*
 		final ListBox rendererListBox=new ListBox(false);
@@ -233,7 +238,7 @@ rendererListBox.addChangeHandler(new ChangeHandler() {
 			canvasButton.setValue(true);
 		}else if(rendererType==RENDERER_CSS3D){
 			selection=2;
-			css3dButton.setValue(true);
+			//css3dButton.setValue(true);
 		}
 		//rendererListBox.setSelectedIndex(selection);
 		

@@ -18,24 +18,24 @@ package com.akjava.gwt.threetest.client;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.akjava.gwt.three.client.THREE;
-import com.akjava.gwt.three.client.cameras.Camera;
-import com.akjava.gwt.three.client.core.Geometry;
-import com.akjava.gwt.three.client.core.Object3D;
-import com.akjava.gwt.three.client.core.Vector3;
-import com.akjava.gwt.three.client.core.Vertex;
-import com.akjava.gwt.three.client.extras.ImageUtils;
-import com.akjava.gwt.three.client.extras.ShaderUtils;
-import com.akjava.gwt.three.client.extras.ShaderUtils.Shader;
-import com.akjava.gwt.three.client.extras.ShaderUtils.Uniforms;
-import com.akjava.gwt.three.client.extras.UniformUtils;
-import com.akjava.gwt.three.client.extras.loaders.JSONLoader;
-import com.akjava.gwt.three.client.extras.loaders.JSONLoader.LoadHandler;
-import com.akjava.gwt.three.client.lights.Light;
-import com.akjava.gwt.three.client.materials.Material;
-import com.akjava.gwt.three.client.objects.Mesh;
-import com.akjava.gwt.three.client.renderers.WebGLRenderer;
-import com.akjava.gwt.three.client.scenes.Scene;
+import com.akjava.gwt.three.client.java.utils.ShaderUtils;
+import com.akjava.gwt.three.client.java.utils.UniformUtils;
+import com.akjava.gwt.three.client.java.utils.ShaderUtils.Shader;
+import com.akjava.gwt.three.client.java.utils.ShaderUtils.Uniforms;
+import com.akjava.gwt.three.client.js.THREE;
+import com.akjava.gwt.three.client.js.cameras.Camera;
+import com.akjava.gwt.three.client.js.core.Geometry;
+import com.akjava.gwt.three.client.js.core.Object3D;
+import com.akjava.gwt.three.client.js.extras.ImageUtils;
+import com.akjava.gwt.three.client.js.lights.Light;
+import com.akjava.gwt.three.client.js.loaders.JSONLoader;
+import com.akjava.gwt.three.client.js.loaders.JSONLoader.JSONLoadHandler;
+import com.akjava.gwt.three.client.js.materials.Material;
+import com.akjava.gwt.three.client.js.math.Vector3;
+import com.akjava.gwt.three.client.js.math.Vertex;
+import com.akjava.gwt.three.client.js.objects.Mesh;
+import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
+import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JsArray;
@@ -67,14 +67,14 @@ private AnimationModel model;
 		JSONLoader loader=THREE.JSONLoader();
 		
 		
-		loader.load("models/animation.js", new LoadHandler() {
+		loader.load("models/animation.js", new JSONLoadHandler() {
 		//loader.load("models/men2b_boned_gun.js", new LoadHandler() {
 			
 			
 			
 
 			@Override
-			public void loaded(Geometry geometry) {
+			public void loaded(Geometry geometry, JsArray<Material> ms) {
 				log(geometry);
 				
 				Shader shader=ShaderUtils.lib("normal");

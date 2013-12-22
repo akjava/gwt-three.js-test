@@ -18,17 +18,17 @@ package com.akjava.gwt.threetest.client;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.akjava.gwt.three.client.THREE;
-import com.akjava.gwt.three.client.cameras.Camera;
-import com.akjava.gwt.three.client.core.Geometry;
-import com.akjava.gwt.three.client.core.Vector3;
-import com.akjava.gwt.three.client.extras.ImageUtils;
-import com.akjava.gwt.three.client.lights.Light;
-import com.akjava.gwt.three.client.materials.Material;
-import com.akjava.gwt.three.client.objects.Mesh;
-import com.akjava.gwt.three.client.objects.ParticleSystem;
-import com.akjava.gwt.three.client.renderers.WebGLRenderer;
-import com.akjava.gwt.three.client.scenes.Scene;
+import com.akjava.gwt.three.client.js.THREE;
+import com.akjava.gwt.three.client.js.cameras.Camera;
+import com.akjava.gwt.three.client.js.core.Geometry;
+import com.akjava.gwt.three.client.js.extras.ImageUtils;
+import com.akjava.gwt.three.client.js.lights.Light;
+import com.akjava.gwt.three.client.js.materials.Material;
+import com.akjava.gwt.three.client.js.math.Vector3;
+import com.akjava.gwt.three.client.js.objects.Mesh;
+import com.akjava.gwt.three.client.js.objects.ParticleSystem;
+import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
+import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Timer;
@@ -213,13 +213,13 @@ private Mesh mesh;
 		public void update(){
 			
 			if(smoke){
-				vertex.incrementX(xd/5);
-				vertex.incrementY(yd/5);
-				vertex.incrementZ(zd/2);
+				vertex.gwtIncrementX(xd/5);
+				vertex.gwtIncrementY(yd/5);
+				vertex.gwtIncrementZ(zd/2);
 			}else{
-				vertex.incrementX(xd/3);
-				vertex.incrementY(yd/3);
-				vertex.incrementZ(zd/10);
+				vertex.gwtIncrementX(xd/3);
+				vertex.gwtIncrementY(yd/3);
+				vertex.gwtIncrementZ(zd/10);
 			}
 			
 		//	mesh.getRotation().incrementX(xrd);
@@ -258,7 +258,7 @@ private Mesh mesh;
 				}
 			}
 				
-		mesh = THREE.Mesh(cube, THREE.MeshFaceMaterial());
+		mesh = THREE.Mesh(cube, THREE.MeshFaceMaterial(null));
 		parentMesh.add(mesh);
 		reset();
 		}
@@ -287,17 +287,17 @@ private Mesh mesh;
 		public void update(){
 			
 			if(smoke){
-			mesh.getPosition().incrementX(xd/3);
-			mesh.getPosition().incrementY(yd/3);
-			mesh.getPosition().incrementZ(zd);
+			mesh.getPosition().gwtIncrementX(xd/3);
+			mesh.getPosition().gwtIncrementY(yd/3);
+			mesh.getPosition().gwtIncrementZ(zd);
 			}else{
-				mesh.getPosition().incrementX(xd/3);
-				mesh.getPosition().incrementY(yd/3);
-				mesh.getPosition().incrementZ(zd/5);
+				mesh.getPosition().gwtIncrementX(xd/3);
+				mesh.getPosition().gwtIncrementY(yd/3);
+				mesh.getPosition().gwtIncrementZ(zd/5);
 			}
 			
-			mesh.getRotation().incrementX(xrd);
-			mesh.getRotation().incrementZ(zrd);
+			mesh.getRotation().gwtIncrementX(xrd);
+			mesh.getRotation().gwtIncrementZ(zrd);
 			
 			ticks++;
 			if(ticks>200){
