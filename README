@@ -1,23 +1,54 @@
-My GWT wrapper for three.js
-still only wrapped what i needed.(if you wrapped , do pull request,most of things just copy and paste and test it)
-most of demo under upgrading.
+This is My GWT wrapper for three.js
+Most of code is just converted form js files.
+so methods was never tested there are many bugs.
+I'm still not built a way to test all methods.
 
-stable version for r53
+leleased version for three.js-r64
 
-dev version for r63
-(not tested yet,just temporaly implement)
+[Bug cases]
+I'll list common bug cases.
+1. wrong type;sometime i misunderstand js codes.it's really difficult to recognize arg or return use Matrix3 or Matrix4 etc.
+2. still raw JavaScriptObject.To use in GWT,it must be implement.I only implement object which my need.
+3. instanceof problem,somecase your array don't pass instanceof check.use Thrree.createArray()
+I'm going to support iterable and do it inside it.
+4. lack of setter value.most of properties was initialized in constructor,so it should not be replaced after.
+but some case need do that. 
+5. shared object problem.some js-function shared object to work fast,sometime it'make problem.
+if you found something,please post issue or pull request.
 
-Developing cencept.
+[Why Java?]
+beside I'm not familiar with javascript.
+I'm using GoogleAppEngine-Java on server-side.
+Using Java only is effect on me.
+
+however if you are new on GWT,I heavy recommend you use javascript.
+
+[How to use]
+1 .Don't use deprecated class,method.I'll remove soon.
+2  Compile project,otherwise storm of errors show on gwt-console or too slow fps.
+3 check origina js code.
+4 use right three.js version(sadly sometime only work on old version)
+
+[Tested]
+BVHPoseEditor - https://github.com/akjava/BVH-Pose-Editor
+GTHApe	- https://github.com/akjava/gthape
+gwt-box2d-three-samples - https://github.com/akjava/gwt-box2d-three-samples
+
+
+but sadly most most of package i never tested yet.
+especially in extaras
+
+[Developing cencept]
 As possible as can follow latest version.
 but sadly sometime i forgot it.
 
-Demo 
+[Demo] 
 http://akjava.github.com/gwt-three.js-test/ThreeTest.html
 
-Release
+[Release]
 r4 - akjavathreegwt_120214.jar
 
-Bug
+[Bug]
 Sometime error happend on Developement Mode,compile and test on browser.
 
 if method need  Array or Object parameters  ,and in inside it is using instanceof to parameter,it make a problem.
@@ -27,3 +58,11 @@ for example in JSONLoader.js ,if url is object never called console.warn.
 >var worker, scope = this;
 >if ( url instanceof Object ) {  
 >console.warn( 'DEPRECATED: JSONLoader( parameters ) is now JSONLoader( url, callback, texturePath ).' );
+
+[Introduce pacakages]
+com.akjava.gwt.three.client.js - basic as possible as can simply wrap three.js ;most of them extended JavaScriptObject
+com.akjava.gwt.three.client.gwt - wrap js-object to easy access for java. most of them extended JavaScriptObject
+com.akjava.gwt.three.client.java - some utils for non three.js codes.most of them pure java.
+com.akjava.gwt.three.client.examples - some test for three.js examples codes but most of them now work fine so far.
+com.akjava.gwt.threetest - test codes.
+com.akjava.gwt.threecanvastest - canvastest . not update anymore.
