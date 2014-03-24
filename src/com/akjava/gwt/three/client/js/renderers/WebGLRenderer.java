@@ -66,7 +66,7 @@ public class WebGLRenderer extends JavaScriptObject{
 	}-*/;
 	
 	
-	//**clearing
+	
 
 public final native boolean isAutoClear()/*-{
 return this.autoClear;
