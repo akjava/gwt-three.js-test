@@ -98,5 +98,12 @@ public final native Matrix3 clone()/*-{
 return this.clone();
 }-*/;
 
+public final native Matrix3 fromArray(JsArrayNumber array)/*-{
+return this.fromArray(array);
+}-*/;
+
+public final native JsArrayNumber toArray()/*-{
+return this.toArray();
+}-*/;
 
 }
