@@ -64,13 +64,7 @@ public class Camera extends Object3D{
 	}-*/;
 
 
-	public final native Matrix4 getProjectionMatrixInverse()/*-{
-	return this.projectionMatrixInverse;
-	}-*/;
 
-	public final native void setProjectionMatrixInverse(Matrix4 projectionMatrixInverse)/*-{
-	this.projectionMatrixInverse = projectionMatrixInverse;
-	}-*/;
 
 	//ignore overwrite Object3d
 	//public final native Object lookAt()/*-{
