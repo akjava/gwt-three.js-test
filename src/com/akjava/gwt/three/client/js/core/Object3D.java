@@ -44,7 +44,7 @@ import com.akjava.gwt.three.client.js.math.Vector3;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 
-public class Object3D extends JavaScriptObject{
+public class Object3D extends EventDispatcher{
 protected Object3D(){}
 	public final native Vector3 getPosition()/*-{
 		return this.position;

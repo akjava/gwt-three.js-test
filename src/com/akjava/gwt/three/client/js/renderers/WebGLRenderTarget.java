@@ -1,9 +1,10 @@
 package com.akjava.gwt.three.client.js.renderers;
 
+import com.akjava.gwt.three.client.js.core.EventDispatcher;
 import com.akjava.gwt.three.client.js.math.Vector2;
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class WebGLRenderTarget extends JavaScriptObject{
+public class WebGLRenderTarget extends EventDispatcher{
 
 	protected WebGLRenderTarget(){}
 	

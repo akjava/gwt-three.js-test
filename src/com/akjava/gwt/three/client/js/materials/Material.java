@@ -37,11 +37,11 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.materials;
 
+import com.akjava.gwt.three.client.js.core.EventDispatcher;
 import com.akjava.gwt.three.client.js.math.Color;
-import com.akjava.gwt.three.client.js.textures.Texture;
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class Material extends JavaScriptObject{
+public class Material extends EventDispatcher{
 protected Material(){}
 
 public final native int getId()/*-{

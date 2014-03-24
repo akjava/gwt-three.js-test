@@ -42,7 +42,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 
 
-public class BufferGeometry extends JavaScriptObject{
+public class BufferGeometry extends EventDispatcher{
 	protected BufferGeometry() {
 	}
 

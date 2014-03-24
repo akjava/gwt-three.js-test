@@ -37,11 +37,12 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.core;
 
-import com.akjava.gwt.three.client.js.core.Object3D;
+import com.akjava.gwt.three.client.gwt.core.ThreeEvent;
+import com.akjava.gwt.three.client.gwt.core.ThreeEventListener;
 import com.google.gwt.core.client.JavaScriptObject;
 
 
-public class EventDispatcher extends Object3D{
+public class EventDispatcher extends JavaScriptObject{
 	protected EventDispatcher() {
 	}
 
@@ -49,20 +50,20 @@ public final native void apply(JavaScriptObject object)/*-{
 this.apply(object);
 }-*/;
 
-public final native void addEventListener(JavaScriptObject type,JavaScriptObject listener)/*-{
+public final native void addEventListener(String type,ThreeEventListener listener)/*-{
 this.addEventListener(type,listener);
 }-*/;
 
-public final native Object hasEventListener(JavaScriptObject type,JavaScriptObject listener)/*-{
+public final native Object hasEventListener(String type,ThreeEventListener listener)/*-{
 return this.hasEventListener(type,listener);
 }-*/;
 
-public final native Object removeEventListener(JavaScriptObject type,JavaScriptObject listener)/*-{
+public final native Object removeEventListener(String type,ThreeEventListener listener)/*-{
 return this.removeEventListener(type,listener);
 }-*/;
 
-public final native Object dispatchEvent()/*-{
-return this.dispatchEvent();
+public final native Object dispatchEvent(ThreeEvent event)/*-{
+return this.dispatchEvent(event);
 }-*/;
 
 

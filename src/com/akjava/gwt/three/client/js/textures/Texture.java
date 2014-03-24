@@ -37,12 +37,13 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.textures;
 
+import com.akjava.gwt.three.client.js.core.EventDispatcher;
 import com.akjava.gwt.three.client.js.math.Vector2;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.dom.client.ImageElement;
 
-public class Texture extends JavaScriptObject{
+public class Texture extends EventDispatcher{
 protected Texture(){}
 
 /**
