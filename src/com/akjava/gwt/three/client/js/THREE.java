@@ -104,6 +104,7 @@ import com.akjava.gwt.three.client.js.extras.helpers.BoundingBoxHelper;
 import com.akjava.gwt.three.client.js.extras.helpers.BoxHelper;
 import com.akjava.gwt.three.client.js.extras.helpers.CameraHelper;
 import com.akjava.gwt.three.client.js.extras.helpers.DirectionalLightHelper;
+import com.akjava.gwt.three.client.js.extras.helpers.EdgesHelper;
 import com.akjava.gwt.three.client.js.extras.helpers.FaceNormalsHelper;
 import com.akjava.gwt.three.client.js.extras.helpers.GridHelper;
 import com.akjava.gwt.three.client.js.extras.helpers.HemisphereLightHelper;
@@ -131,12 +132,12 @@ import com.akjava.gwt.three.client.js.loaders.GeometryLoader;
 import com.akjava.gwt.three.client.js.loaders.ImageLoader;
 import com.akjava.gwt.three.client.js.loaders.JSONLoader;
 import com.akjava.gwt.three.client.js.loaders.LoadingManager;
+import com.akjava.gwt.three.client.js.loaders.LoadingManager.LoadingManagerHandler;
 import com.akjava.gwt.three.client.js.loaders.MaterialLoader;
 import com.akjava.gwt.three.client.js.loaders.ObjectLoader;
 import com.akjava.gwt.three.client.js.loaders.SceneLoader;
 import com.akjava.gwt.three.client.js.loaders.TextureLoader;
 import com.akjava.gwt.three.client.js.loaders.XHRLoader;
-import com.akjava.gwt.three.client.js.loaders.LoadingManager.LoadingManagerHandler;
 import com.akjava.gwt.three.client.js.materials.LineBasicMaterial;
 import com.akjava.gwt.three.client.js.materials.LineDashedMaterial;
 import com.akjava.gwt.three.client.js.materials.Material;
@@ -238,6 +239,12 @@ return new $wnd.THREE.ArrowHelper(size);
 	}-*/;
 	public static final native BoxHelper BoxHelper(Object3D object)/*-{
 	return new $wnd.THREE.BoxHelper(object);
+	}-*/;
+	public static final native EdgesHelper EdgesHelper(Object3D object)/*-{
+	return new $wnd.THREE.EdgesHelper(object);
+	}-*/;
+	public static final native EdgesHelper EdgesHelper(Object3D object,int hex)/*-{
+	return new $wnd.THREE.EdgesHelper(object,hex);
 	}-*/;
 	public static final native CameraHelper CameraHelper(Camera camera)/*-{
 	return new $wnd.THREE.CameraHelper(camera);
