@@ -373,7 +373,7 @@ this.applyMatrix(matrix);
 
 
 
-public final native void computeVertexNormals(Object areaWeighted)/*-{
+public final native void computeVertexNormals(boolean areaWeighted)/*-{
 this.computeVertexNormals(areaWeighted);
 }-*/;
 
