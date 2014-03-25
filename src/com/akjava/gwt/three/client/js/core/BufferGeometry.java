@@ -40,6 +40,8 @@ package com.akjava.gwt.three.client.js.core;
 import com.akjava.gwt.three.client.gwt.core.Offsets;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
+import com.google.gwt.core.client.JsArrayNumber;
+import com.google.gwt.typedarrays.shared.ArrayBuffer;
 
 
 public class BufferGeometry extends EventDispatcher{
@@ -48,8 +50,14 @@ public class BufferGeometry extends EventDispatcher{
 
 
 
+	//TODO make return class
+	public final native JsArray<JavaScriptObject> computeOffsets(int indexBufferSize)/*-{
+	return this.computeOffsets(indexBufferSize);
+	}-*/;
 
-
+	public final native void reorderBuffers(ArrayBuffer indexBuffer,ArrayBuffer indexMap,int vertexCount)/*-{
+	this.reorderBuffers(indexBuffer,indexMap,vertexCount);
+	}-*/;
 
 
 
@@ -63,13 +71,7 @@ this.attributes = attributes;
 }-*/;
 
 
-public final native boolean isDynamic()/*-{
-return this.dynamic;
-}-*/;
 
-public final native void setDynamic(boolean dynamic)/*-{
-this.dynamic = dynamic;
-}-*/;
 
 
 public final native JsArray<Offsets> getOffsets()/*-{
