@@ -6,7 +6,7 @@ import com.akjava.gwt.three.client.gwt.materials.LineBasicMaterialParameter;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.core.Geometry;
 import com.akjava.gwt.three.client.js.extras.GeometryUtils;
-import com.akjava.gwt.three.client.js.extras.geometries.CubeGeometry;
+import com.akjava.gwt.three.client.js.extras.geometries.BoxGeometry;
 import com.akjava.gwt.three.client.js.loaders.JSONLoader;
 import com.akjava.gwt.three.client.js.loaders.JSONLoader.JSONLoadHandler;
 import com.akjava.gwt.three.client.js.math.Vector3;
@@ -35,7 +35,7 @@ public class GWTGeometryUtils {
 		
 		return lineG;
 	}
-	public final static boolean isSquare(CubeGeometry geometry){
+	public final static boolean isSquare(BoxGeometry geometry){
 		return geometry.getWidth()==geometry.getHeight() && geometry.getHeight()==geometry.getDepth();
 	}
 	

@@ -4,8 +4,8 @@ import com.akjava.gwt.three.client.js.core.Geometry;
 import com.akjava.gwt.three.client.js.materials.Material;
 import com.google.gwt.core.client.JsArray;
 
-public class CubeGeometry extends Geometry{
-protected CubeGeometry(){}
+public class BoxGeometry extends Geometry{
+protected BoxGeometry(){}
 
 
 public final native double getWidth()/*-{

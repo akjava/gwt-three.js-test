@@ -81,7 +81,7 @@ import com.akjava.gwt.three.client.js.extras.curves.QuadraticBezierCurve3;
 import com.akjava.gwt.three.client.js.extras.curves.SplineCurve;
 import com.akjava.gwt.three.client.js.extras.curves.SplineCurve3;
 import com.akjava.gwt.three.client.js.extras.geometries.CircleGeometry;
-import com.akjava.gwt.three.client.js.extras.geometries.CubeGeometry;
+import com.akjava.gwt.three.client.js.extras.geometries.BoxGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.CylinderGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.ExtrudeGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.IcosahedronGeometry;
@@ -332,7 +332,7 @@ return new $wnd.THREE.ArrowHelper(size);
 	public static final native CylinderGeometry CylinderGeometry(double radiusTop,double  radiusBottom,double  height,int radialSegments,int heightSegments,boolean openEnded)/*-{
 	return new $wnd.THREE.CylinderGeometry(radiusTop, radiusBottom, height, radialSegments, heightSegments, openEnded);
 	}-*/;
-	public static final native CubeGeometry CubeGeometry(double width,double height,double depth,int widthSegments,int heightSegments,int depthSegments )/*-{
+	public static final native BoxGeometry CubeGeometry(double width,double height,double depth,int widthSegments,int heightSegments,int depthSegments )/*-{
 	return new $wnd.THREE.CubeGeometry( width, height, depth, widthSegments, heightSegments, depthSegments );
 	}-*/;
 	public static final native CircleGeometry CircleGeometry(double radius,int segments,double thetaStart,double thetaLength)/*-{
@@ -692,7 +692,7 @@ return new $wnd.THREE.ArrowHelper(size);
 	
 	
 	
-	public static  final CubeGeometry CubeGeometry(double x,double y,double z,int xpart,int ypart,int zpart,Material[] material ){
+	public static  final BoxGeometry CubeGeometry(double x,double y,double z,int xpart,int ypart,int zpart,Material[] material ){
 		JsArray<Material> arrays=(JsArray<Material>) JsArray.createArray();
 		for(Material m:material){
 			arrays.push(m);
@@ -701,7 +701,7 @@ return new $wnd.THREE.ArrowHelper(size);
 		return Cube(x,y,z,xpart,ypart,zpart,arrays);
 	}
 	
-	public static  final CubeGeometry Cube(double x,double y,double z,int xpart,int ypart,int zpart,Material[] material ){
+	public static  final BoxGeometry Cube(double x,double y,double z,int xpart,int ypart,int zpart,Material[] material ){
 		JsArray<Material> arrays=(JsArray<Material>) JsArray.createArray();
 		for(Material m:material){
 			arrays.push(m);
@@ -717,7 +717,7 @@ return new $wnd.THREE.ArrowHelper(size);
 		return JavaScriptUtils.createJSArray();
 	}
 	
-	public static native final CubeGeometry CubeGeometry(double x,double y,double z,int xpart,int ypart,int zpart,JsArray<Material> materials)/*-{
+	public static native final BoxGeometry CubeGeometry(double x,double y,double z,int xpart,int ypart,int zpart,JsArray<Material> materials)/*-{
 	
 	
     var ms= $wnd.eval("new Array()");
@@ -732,7 +732,7 @@ return new $wnd.THREE.ArrowHelper(size);
 
 	
 	//I'm happy to fix array problem.
-	public static native final CubeGeometry Cube(double x,double y,double z,int xpart,int ypart,int zpart,JsArray<Material> materials)/*-{
+	public static native final BoxGeometry Cube(double x,double y,double z,int xpart,int ypart,int zpart,JsArray<Material> materials)/*-{
 	
 	material = new $wnd.THREE.MeshBasicMaterial({color: 0xff0000, wireframe: false});
     var ms=new $wnd.Array();
@@ -753,7 +753,7 @@ return new $wnd.THREE.ArrowHelper(size);
 	return new $wnd.THREE.Object3D();
 	}-*/;
 	
-	public static native final CubeGeometry CubeGeometry(double x,double y,double z)/*-{
+	public static native final BoxGeometry CubeGeometry(double x,double y,double z)/*-{
 	return new $wnd.THREE.CubeGeometry( x, y, z );
 	}-*/;
 	
