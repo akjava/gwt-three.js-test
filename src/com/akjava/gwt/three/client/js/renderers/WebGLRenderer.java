@@ -141,13 +141,7 @@ this.gammaOutput = gammaOutput;
 }-*/;
 
 
-public final native boolean isPhysicallyBasedShading()/*-{
-return this.physicallyBasedShading;
-}-*/;
 
-public final native void setPhysicallyBasedShading(boolean physicallyBasedShading)/*-{
-this.physicallyBasedShading = physicallyBasedShading;
-}-*/;
 	
 
 //**shadow map
