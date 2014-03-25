@@ -226,6 +226,25 @@ public native final double getW()/*-{
 return this.w;
 }-*/;
 
+public final native Vector4 clampScalar(double minVal,double maxVal)/*-{
+return this.clampScalar(minVal,maxVal);
+}-*/;
+
+public final native Vector4 floor()/*-{
+return this.floor();
+}-*/;
+
+public final native Vector4 ceil()/*-{
+return this.ceil();
+}-*/;
+
+public final native Vector4 round()/*-{
+return this.round();
+}-*/;
+
+public final native Vector4 roundToZero()/*-{
+return this.roundToZero();
+}-*/;
 
 }
 

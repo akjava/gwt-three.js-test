@@ -165,6 +165,24 @@ public final native Vector2 clone()/*-{
 return this.clone();
 }-*/;
 
+public final native Vector2 clampScalar(double minVal,double maxVal)/*-{
+return this.clampScalar(minVal,maxVal);
+}-*/;
 
+public final native Vector2 floor()/*-{
+return this.floor();
+}-*/;
+
+public final native Vector2 ceil()/*-{
+return this.ceil();
+}-*/;
+
+public final native Vector2 round()/*-{
+return this.round();
+}-*/;
+
+public final native Vector2 roundToZero()/*-{
+return this.roundToZero();
+}-*/;
 
 }

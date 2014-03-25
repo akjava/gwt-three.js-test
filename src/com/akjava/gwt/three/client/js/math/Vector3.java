@@ -426,7 +426,25 @@ public native final void divideSelf(Vector3 vec3)/*-{
 this.divide(vec3);
 }-*/;
 
+public final native Vector3 clampScalar(double minVal,double maxVal)/*-{
+return this.clampScalar(minVal,maxVal);
+}-*/;
 
+public final native Vector3 floor()/*-{
+return this.floor();
+}-*/;
+
+public final native Vector3 ceil()/*-{
+return this.ceil();
+}-*/;
+
+public final native Vector3 round()/*-{
+return this.round();
+}-*/;
+
+public final native Vector3 roundToZero()/*-{
+return this.roundToZero();
+}-*/;
 
 }
 
