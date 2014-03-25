@@ -847,6 +847,9 @@ return new $wnd.THREE.ArrowHelper(size);
 	public static native final Color Color(int hex)/*-{
 	return new $wnd.THREE.Color(hex);
 	}-*/;
+	public static native final Color Color(int r,int g,int b)/*-{
+	return new $wnd.THREE.Color(r,g,b);
+	}-*/;
 	
 	public static native final CSS3DRenderer CSS3DRenderer()/*-{
 	return new $wnd.THREE.CSS3DRenderer();
