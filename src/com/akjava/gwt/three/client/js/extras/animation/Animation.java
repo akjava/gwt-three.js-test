@@ -138,7 +138,9 @@ return this.getPrevKeyWith(type,h,key);
 public native final void play()/*-{
 this.play();
 }-*/;
-
+public native final void play(int startTime)/*-{
+this.play(startTime);
+}-*/;
 
 
 }
