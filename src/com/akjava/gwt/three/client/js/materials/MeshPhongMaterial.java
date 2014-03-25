@@ -102,13 +102,7 @@ this.metal = metal;
 }-*/;
 
 
-public final native boolean isPerPixel()/*-{
-return this.perPixel;
-}-*/;
 
-public final native void setPerPixel(boolean perPixel)/*-{
-this.perPixel = perPixel;
-}-*/;
 
 
 public final native boolean isWrapAround()/*-{
