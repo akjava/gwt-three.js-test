@@ -82,22 +82,6 @@ this.fog = fog;
 }-*/;
 
 
-public final native Vector2 getUvOffset()/*-{
-return this.uvOffset;
-}-*/;
-
-public final native void setUvOffset(Vector2 uvOffset)/*-{
-this.uvOffset = uvOffset;
-}-*/;
-
-
-public final native Vector2 getUvScale()/*-{
-return this.uvScale;
-}-*/;
-
-public final native void setUvScale(Vector2 uvScale)/*-{
-this.uvScale = uvScale;
-}-*/;
 
 public final native SpriteMaterial clone()/*-{
 return this.clone();
