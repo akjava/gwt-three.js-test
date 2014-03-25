@@ -1,3 +1,81 @@
+*66
+BufferGeometry - Added computeOffsets and reorderBuffers methods.,Removed dynamic property.
+add:BufferGeometry.java
+public final native JsArray<JavaScriptObject> computeOffsets(int indexBufferSize)
+public final native void reorderBuffers(ArrayBuffer indexBuffer,ArrayBuffer indexMap,int vertexCount)
+remove:BufferGeometry.java
+public final native boolean isDynamic()
+public final native void setDynamic(boolean dynamic)
+
+Color - Support for new THREE.Color( r, g, b )
+add:THREE.java
+public static native final Color Color(int r,int g,int b)
+
+CubeGeometry - Renamed to BoxGeometry
+renamed:CubeGeometry.java -> BoxGeometry.java
+
+LOD - Added clone()
+add:LOD.java
+LOD clone(LOD object)
+
+Math
+add:Math.java
+public static final native boolean isPowerOfTwo(double value)
+
+Skipped support on GWT
+Geometry2 - Started Geometry to Geometry2 transition
+Too big change and usually such kind changes would happen again.so I'm watching it.but any patch welcome
+
+This release's update does not affect on GWT
+Animation
+CanvasRenderer and SoftwareRenderer
+ExtrudeGeometry
+
+
+*65
+Camera - remove getProjectionMatrixInverse & setProjectionMatrixInverse(Matrix4 projectionMatrixInverse)
+Camera.java
+
+EdgesHelper - created new class
+add:EdgesHelper.java
+add:THREE.java
+public static final native EdgesHelper EdgesHelper(Object3D object)
+public static final native EdgesHelper EdgesHelper(Object3D object,int hex)
+
+Matrix3 -Added fromArray and toArray methods.
+add:Matrix3.java
+public final native Matrix3 fromArray(JsArrayNumber array)
+public final native JsArrayNumber toArray()
+
+SpriteMaterial - Moved uvOffset and uvScale to texture.offset and texture.repeat
+remove:SpriteMaterial.java
+public final native Vector2 getUvOffset()
+public final native void setUvOffset(Vector2 uvOffset)
+public final native Vector2 getUvScale()
+public final native void setUvScale(Vector2 uvScale)
+
+WireframeHelper - Added line color option
+add:THREE.java
+public static final native WireframeHelper WireframeHelper(Object3D object,int lineColor)
+
+This release's update does not affect on GWT
+BoundingBoxHelper
+BufferGeometry
+CanvasRenderer - maybe
+FaceNormalsHelper
+Geometry
+ImageUtils
+Loader
+Matrix4
+Object3D
+Projector - maybe
+Raycaster
+Scene
+Texture
+TorusGeometry
+VertexNormalsHelper
+VertexTangentsHelper
+
 *r64
 I checked all changed it via compare with each code.so skip changes which no effect on wrapper.
 but i didn't compare all the code.

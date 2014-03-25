@@ -100,5 +100,8 @@ public static final native double radToDeg(double radians)/*-{
 return this.radToDeg(radians);
 }-*/;
 
+public static final native boolean isPowerOfTwo(double value)/*-{
+return this.isPowerOfTwo(value);
+}-*/;
 
 }
