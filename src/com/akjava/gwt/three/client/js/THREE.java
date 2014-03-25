@@ -276,7 +276,9 @@ return new $wnd.THREE.ArrowHelper(size);
 	public static final native WireframeHelper WireframeHelper(Object3D object)/*-{
 	return new $wnd.THREE.WireframeHelper(object);
 	}-*/;
-
+	public static final native WireframeHelper WireframeHelper(Object3D object,int lineColor)/*-{
+	return new $wnd.THREE.WireframeHelper(object,lineColor);
+	}-*/;
 	
 	
 	
