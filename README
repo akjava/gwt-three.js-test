@@ -3,7 +3,7 @@ Most of code is just converted form js files.
 so methods was never tested there are many bugs.
 I'm still not built a way to test all methods.
 
-leleased version for three.js-r64
+leleased version for three.js-r66
 
 [Bug cases]
 I'll list common bug cases.
@@ -30,6 +30,7 @@ however if you are new on GWT,I heavy recommend you use javascript.
 4 use right three.js version(sadly sometime only work on old version)
 
 [Tested]
+BVH-Motion-Creator - https://github.com/akjava/BVH-Motion-Creator
 BVHPoseEditor - https://github.com/akjava/BVH-Pose-Editor
 GTHApe	- https://github.com/akjava/gthape
 gwt-box2d-three-samples - https://github.com/akjava/gwt-box2d-three-samples
