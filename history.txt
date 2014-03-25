@@ -18,9 +18,22 @@ LOD - Added clone()
 add:LOD.java
 LOD clone(LOD object)
 
-Math
+Math - Added isPowerOfTwo()
 add:Math.java
 public static final native boolean isPowerOfTwo(double value)
+
+MeshPhongMaterial - Removed perPixel property
+remove:MeshPhongMaterial.java
+public final native boolean isPerPixel()
+public final native void setPerPixel(boolean perPixel)
+
+Vector2, Vector3 and Vector4 - Added clampScalar, floor, ceil, round and roundToZero methods
+add:Vector2.java,Vector3.java,Vector4.java
+public final native Vector* clampScalar(double minVal,double maxVal)
+public final native Vector* floor()
+public final native Vector* ceil()
+public final native Vector* round()
+public final native Vector* roundToZero()
 
 Skipped support on GWT
 Geometry2 - Started Geometry to Geometry2 transition
@@ -30,7 +43,9 @@ This release's update does not affect on GWT
 Animation
 CanvasRenderer and SoftwareRenderer
 ExtrudeGeometry
-
+Path and Shape
+Projector 
+Raycaster
 
 *65
 Camera - remove getProjectionMatrixInverse & setProjectionMatrixInverse(Matrix4 projectionMatrixInverse)
@@ -53,6 +68,12 @@ public final native Vector2 getUvOffset()
 public final native void setUvOffset(Vector2 uvOffset)
 public final native Vector2 getUvScale()
 public final native void setUvScale(Vector2 uvScale)
+
+
+WebGLRenderer - Removed physicallyBasedShading property.
+remove:WebGLRenderer.java
+public final native boolean isPhysicallyBasedShading()
+public final native void setPhysicallyBasedShading(boolean physicallyBasedShading)
 
 WireframeHelper - Added line color option
 add:THREE.java
