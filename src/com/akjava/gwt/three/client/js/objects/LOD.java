@@ -70,6 +70,9 @@ public final native void update(Camera camera)/*-{
 this.update();
 }-*/;
 
+public final native LOD clone(LOD object)/*-{
+return this.clone(object);
+}-*/;
 
 
 
