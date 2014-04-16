@@ -16,6 +16,7 @@ import com.akjava.gwt.three.client.js.math.Quaternion;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayNumber;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONParser;
@@ -36,12 +37,17 @@ public class GWTThreeUtils {
 		
 	}
 	
-	public static void loadJsonModel(JSONModelFile modelformat,JSONLoadHandler handler){
+	public static void loadJsonModel(JSONModelFile modelformat,JSONLoadHandler handler,String texturePath){
 		JSONLoader loader=THREE.JSONLoader();
-		JavaScriptObject jsobject=loader.parse(modelformat, null);
+		JavaScriptObject jsobject=loader.parse(modelformat, texturePath);
 		JSONObject newobject=new JSONObject(jsobject);
 		
-		handler.loaded((Geometry) newobject.get("geometry").isObject().getJavaScriptObject(),null);
+		//LogUtils.log(newobject.getJavaScriptObject());
+		
+		handler.loaded((Geometry) newobject.get("geometry").isObject().getJavaScriptObject(),(JsArray<Material>)newobject.get("materials").isArray().getJavaScriptObject());
+	}
+	public static void loadJsonModel(JSONModelFile modelformat,JSONLoadHandler handler){
+		loadJsonModel(modelformat,handler,null);
 	}
 	
 	public static JSONModelFile parseJsonObject(String jsonText) throws InvalidModelFormatException{
