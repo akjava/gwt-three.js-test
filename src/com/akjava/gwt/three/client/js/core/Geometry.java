@@ -174,6 +174,10 @@ return this.morphTargets;
 }-*/;
 
 
+public final native JsArray<AnimationData> getAnimations()/*-{
+return this.animation;
+}-*/;
+
 public final native AnimationData getAnimation()/*-{
 return this.animation;
 }-*/;
