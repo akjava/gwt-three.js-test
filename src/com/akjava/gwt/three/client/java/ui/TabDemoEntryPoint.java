@@ -2,6 +2,7 @@ package com.akjava.gwt.three.client.java.ui;
 
 import com.akjava.gwt.html5.client.file.ui.DropVerticalPanelBase;
 import com.akjava.gwt.stats.client.Stats;
+import com.akjava.gwt.three.client.gwt.renderers.GWTRenderObject;
 import com.akjava.gwt.three.client.gwt.ui.RendererBuilder;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
@@ -184,7 +185,8 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 			<script type="text/javascript" language="javascript" src="Three.js"></script>
     		<script type="text/javascript" language="javascript" src="stats.js"></script>     
 		 */
-		renderer = RendererBuilder.createRenderer();
+		//renderer = RendererBuilder.createRenderer();//stop using it cant' contain args
+		renderer = THREE.WebGLRenderer(GWTRenderObject.create().alpha(true));
 		//renderer = THREE.WebGLRenderer(GWTRenderObject.create().preserveDrawingBuffer()); //crash browser?
 		renderer.setSize(width,height);
 		

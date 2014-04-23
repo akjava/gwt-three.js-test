@@ -177,7 +177,9 @@ return this.morphTargets;
 public final native JsArray<AnimationData> getAnimations()/*-{
 return this.animations;
 }-*/;
-
+/*
+ * I'm not sure maybe this is for compatible,should youse 
+ */
 public final native AnimationData getAnimation()/*-{
 return this.animation;
 }-*/;
@@ -226,8 +228,9 @@ return this.skinWeights;
 }-*/;
 
 //maybe
-public native final JsArray<JsArray<Vector2>> getFaceVertexUvs ()/*-{
-return this["faceVertexUvs"][0];
+public native final JsArray<JsArray<JsArray<Vector2>>> getFaceVertexUvs ()/*-{
+	return this["faceVertexUvs"];
+	//return this["faceVertexUvs"];
 }-*/;
 
 public native final Geometry clone()/*-{

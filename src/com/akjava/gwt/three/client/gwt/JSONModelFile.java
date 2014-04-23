@@ -39,7 +39,7 @@ public static JSONModelFile create(String generatedBy){
 }
 
 public final String getJsonText(){
-	
+	//TODO print pretty
 	return new JSONObject(this).toString();
 }
 
@@ -69,6 +69,19 @@ return this["faces"];
 public native final void setNormals (JsArrayNumber normals)/*-{
 this["normals"]=normals;
 }-*/;
+//vertex normal
+public native final void setNormals (JsArray<Face3> faces)/*-{
+this["normals"]=[];
+for (i = 0; i <faces.length; i++) {
+	for(j=0;j<3;j++){
+        this["normals"].push(faces[i].vertexNormals[j].x);
+        this["normals"].push(faces[i].vertexNormals[j].y);
+        this["normals"].push(faces[i].vertexNormals[j].z);
+	}
+    }
+    
+}-*/;
+
 public native final JsArrayNumber getNormals ()/*-{
 return this["normals"];
 }-*/;
@@ -160,8 +173,9 @@ public final void setSkinIndicesAndWeights(JsArray<Vector4> indices,JsArray<Vect
 		weightsArray.push(weights.get(i).getX());
 		weightsArray.push(weights.get(i).getY());
 	}
-	LogUtils.log("indicesArray.length"+indicesArray.length());
-	LogUtils.log("weightsArray.length"+weightsArray.length());
+	
+	//LogUtils.log("indicesArray.length:"+indicesArray.length());
+	//LogUtils.log("weightsArray.length:"+weightsArray.length());
 	setSkinIndices(indicesArray);
 	setSkinWeights(weightsArray);
 }
@@ -178,24 +192,29 @@ public final void setVertices(JsArray<Vector3> vx){
 /*
  * single uv only
  */
-public final void setGeometryUvs(JsArray<JsArray<Vector2>> uvs){
+public final void setGeometryUvs(JsArray<JsArray<JsArray<Vector2>>> uvss){
 	@SuppressWarnings("unchecked")
 	JsArray<JsArrayNumber> uvArray=(JsArray<JsArrayNumber>) JsArray.createArray();
+	
+	for(int k=0;k<uvss.length();k++){//usually  get 1
+	JsArray<JsArray<Vector2>> uvs=uvss.get(k);
+	
 	JsArrayNumber nums=(JsArrayNumber) JsArrayNumber.createArray();
 	uvArray.push(nums);
 	
 	//LogUtils.log("uvs:"+uvs.length());
-	for(int i=0;i<uvs.length();i++){
+	for(int i=0;i<uvs.length();i++){//same as face number
 		
 		JsArray<Vector2> u=uvs.get(i);
 		//LogUtils.log("uvs:-u"+u.length());
 		
-		for(int j=0;j<u.length();j++){
+		for(int j=0;j<u.length();j++){//usually 3
 			Vector2 uv=u.get(j);
 			nums.push(uv.getX());
 			nums.push(uv.getY());
 		}
 		
+	}
 	}
 	setUvs(uvArray);
 }
@@ -205,13 +224,14 @@ public final void setGeometryUvs(JsArray<JsArray<Vector2>> uvs){
  */
 public final void setFaces(JsArray<Face3> faces){
 	boolean hasUv=getUvs().length()>0;
+	boolean hasNormal=getNormals().length()>0;
 	
 	JsArrayNumber nums=(JsArrayNumber) JsArrayNumber.createArray();
 	int faceIndex=0;
 	for(int i=0;i<faces.length();i++){
 		Face3 face=faces.get(i);
 		if(face.isFace4()){
-			int v=1;if(hasUv){v=8+1;};
+			int v=1;if(hasUv){v=8+1;};if(hasNormal){v+=32;}
 			nums.push(v); // quad
 			nums.push(face.getA());
 			nums.push(face.getB());
@@ -224,10 +244,18 @@ public final void setFaces(JsArray<Face3> faces){
 				nums.push(faceIndex+2);
 				nums.push(faceIndex+3);
 			}
+			
+			if(hasNormal){
+				nums.push(faceIndex);
+				nums.push(faceIndex+1);
+				nums.push(faceIndex+2);
+				nums.push(faceIndex+3);
+			}
+			
 			faceIndex+=4;
 			
 		}else{
-			int v=0;if(hasUv){v=8+0;};
+			int v=0;if(hasUv){v=8+0;};if(hasNormal){v+=32;}
 			nums.push(v); // triangle
 			nums.push(face.getA());
 			nums.push(face.getB());
@@ -238,6 +266,13 @@ public final void setFaces(JsArray<Face3> faces){
 				nums.push(faceIndex+1);
 				nums.push(faceIndex+2);
 			}
+			
+			if(hasNormal){
+				nums.push(faceIndex);
+				nums.push(faceIndex+1);
+				nums.push(faceIndex+2);
+			}
+			
 			faceIndex+=3;
 		}
 		

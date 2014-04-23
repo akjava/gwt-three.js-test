@@ -50,7 +50,7 @@ public class GWTGeometryUtils {
 	}
 	
 	public final static  Geometry clonePlusWeights(Geometry geo){
-		Geometry cloned=GeometryUtils.clone(geo);
+		Geometry cloned=geo.clone();
 		for(int i=0;i<geo.getSkinIndices().length();i++){
 			cloned.getSkinIndices().push(geo.getSkinIndices().get(i).clone());
 		}

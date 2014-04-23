@@ -71,6 +71,9 @@ public abstract class SimpleTabDemoEntryPoint extends TabDemoEntryPoint{
 	/** called before create Control**/
 	protected abstract  void initializeOthers(WebGLRenderer renderer) ;
 
+	protected double nearCamera=0.5;
+	protected double farCamera=6000;
+	
 	protected void createCamera(Scene scene,int width,int height){
 		
 		if(camera!=null){
@@ -78,7 +81,7 @@ public abstract class SimpleTabDemoEntryPoint extends TabDemoEntryPoint{
 			scene.remove(camera);
 			camera=null;
 		}
-		Camera camera = THREE.PerspectiveCamera(35,(double)width/height,1,6000);
+		Camera camera = THREE.PerspectiveCamera(35,(double)width/height,nearCamera,farCamera);
 		//camera.getPosition().set(0, 0, cameraZ);
 		scene.add(camera); //some kind of trick.
 		this.camera=camera;
