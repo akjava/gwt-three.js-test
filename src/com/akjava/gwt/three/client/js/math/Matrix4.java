@@ -200,7 +200,7 @@ return this.getInverse(b,throwOnInvertible);
  * @return
  */
 public native final Vector3 multiplyVector3(Vector3 vec)/*-{
-return vec.applyProjection(this)
+return vec.applyProjection(this);
 //return this.multiplyVector3(vec);
 }-*/;
 

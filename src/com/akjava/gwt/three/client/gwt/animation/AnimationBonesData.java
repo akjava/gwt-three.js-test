@@ -107,6 +107,10 @@ public class AnimationBonesData {
 		return getBonePosition(getBoneIndex(name));
 	}
 	
+	public Vector3 getBonePosition(String name,boolean endSite){
+		return getBonePosition(getBoneIndex(name),endSite);
+	}
+	
 	
 	public Vector3 getParentAngles(int index){
 		List<Integer> path=bonePath.get(index);
@@ -127,23 +131,25 @@ public class AnimationBonesData {
 	}
 	
 	public Vector3 getBonePosition(int index){
+		return getBonePosition(index,false);
+	}
+	public Vector3 getBonePosition(int index,boolean endSite){
 		List<Integer> path=bonePath.get(index);
 		
-		/*
-		Matrix4 tmpmx=bonesMatrixs.get(path.get(path.size()-1)).getMatrix();
-		Vector3 pos=THREE.Vector3();
-		pos.getPositionFromMatrix(tmpmx);
-		*/
 		Vector3 pos=getMatrixPosition(path.get(path.size()-1));
 		
-		
+		int size=path.size()-1;
+		if(endSite){
+			size=path.size();
+		}
 		Matrix4 matrix=THREE.Matrix4();
-		for(int j=0;j<path.size()-1;j++){//last is boneself
-		//	log(""+path.get(j));
+		for(int j=0;j<size;j++){//last is boneself
 			Matrix4 mx=bonesMatrixs.get(path.get(j)).getMatrix();
 			matrix.multiplyMatrices(matrix, mx);
 		}
-		matrix.multiplyVector3(pos);
+		
+		pos.applyProjection(matrix);
+		
 		return pos;
 	}
 	public Vector3 getParentPosition(String name){

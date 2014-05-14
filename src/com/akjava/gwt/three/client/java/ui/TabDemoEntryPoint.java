@@ -77,7 +77,7 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 
 
 
-	private DropVerticalPanelBase main;
+	protected DropVerticalPanelBase main;
 	
 	protected int canvasWidth,canvasHeight;
 
@@ -87,7 +87,7 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 
 	protected int tabHeight=24;
 
-	protected PopupPanel dialog2;
+	protected PopupPanel popupPanel;
 	public WebGLCanvas getCanvas() {
 		return canvas;
 	}
@@ -370,12 +370,12 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 		html.setWidth("100%");
 		html.setHeight("20px");
 		html.setStyleName("text");
-		dialog2 = new PopupPanel();
-		dialog2.add(html);
-		dialog2.setPopupPosition(150, 35);
-		dialog2.setWidth("100%");
-		dialog2.setStyleName("transparent");
-		dialog2.show();
+		popupPanel = new PopupPanel();
+		popupPanel.add(html);
+		popupPanel.setPopupPosition(150, 35);
+		popupPanel.setWidth("100%");
+		popupPanel.setStyleName("transparent");
+		popupPanel.show();
 		
 	}
 	
