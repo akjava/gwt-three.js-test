@@ -37,6 +37,11 @@ public NameAndVector3(String name,Vector3 position,int index){
 	this.position=position;
 	this.index=index;
 }
+
+public String toString(){
+	return name+","+index+","+position;
+}
+
 @Override
 public boolean equals(Object object){
 	NameAndVector3 target=null;

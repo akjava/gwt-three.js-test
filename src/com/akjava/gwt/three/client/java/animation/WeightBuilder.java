@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.gwt.animation.AnimationBone;
@@ -12,6 +13,9 @@ import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.core.Geometry;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.math.Vector4;
+import com.google.common.base.Functions;
+import com.google.common.collect.ImmutableSortedMap;
+import com.google.common.collect.Ordering;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.user.client.Window;
 
@@ -30,7 +34,7 @@ public static final int MODE_NearParentAndChildrenAgressive=5;
 public static final int MODE_MODE_Start_And_Half_ParentAndChildrenAgressive=6;
 public static final int MODE_FROM_GEOMETRY=4;	//use geometry own 
 public static final int MODE_ROOT_ALL=7;	
-public static final int MODE_MAKEHUMAN=8;	//special for makehuman model
+
 
 public static final String KEY_HALF="_half_";
 public static final String KEY_ENDSITE="_ENDSITE_";
@@ -396,8 +400,6 @@ public static void autoWeight(Geometry geometry,JsArray<AnimationBone> bones,Lis
 			ret=fromGeometry(geometry,i);	
 		}else if(mode==MODE_ROOT_ALL){
 			ret=THREE.Vector4(0,0,1,0);	
-		}else if(mode==MODE_MAKEHUMAN){
-			ret=makehuman(nameAndPositions,bones,geometry,i);	
 		}else{
 			Window.alert("null mode");
 		}
@@ -414,210 +416,50 @@ public static void autoWeight(Geometry geometry,JsArray<AnimationBone> bones,Lis
 	}
 
 
-  public static Vector4 makehuman(List<NameAndVector3> nameAndPositions,JsArray<AnimationBone> bones,Geometry geometry,int index){
-	  Vector4 v4=THREE.Vector4();
-		
-		v4.setX(geometry.getSkinIndices().get(index).getX());
-		v4.setY(geometry.getSkinIndices().get(index).getY());
-		
-		v4.setZ(geometry.getSkinWeight().get(index).getX());
-		v4.setW(geometry.getSkinWeight().get(index).getY());
-		
-		
-		boolean firstIsEmpty=false;
-	    boolean isEmpty=false;
-	    
-	   
-		
-		if(v4.getX()==0 && v4.getY()==0){//both is root
-			
-			if(v4.getW()==1 || v4.getZ()==1){//totally root;
-				return v4;
-			}
-			if(v4.getZ()==0){
-				firstIsEmpty=true;
-				isEmpty=true;
-			}else if(v4.getW()==0){
-				isEmpty=true;
-			}
-			
-			
-			if(isEmpty){
-				//rThigh or lThigh;
-				double centerX=bones.get(0).getPos().get(0);
-				
-				
-				
-				double centerY=bones.get(0).getPos().get(1)+bones.get(7).getPos().get(1)/2;//half
-				double atX=geometry.getVertices().get(index).getX();
-				double atY=geometry.getVertices().get(index).getY();
-				
-				if(atY<centerY){
-				if(atX<centerX){
-					
-					if(firstIsEmpty){
-						v4.setX(4);//lThigh
-						v4.setZ(1-v4.getW());
-					}else{
-						v4.setY(4);//lThigh
-						v4.setW(1-v4.getZ());
-					}
-					
-				}else if(atX>centerX){
-					
-					if(firstIsEmpty){
-						v4.setX(1);//rThigh
-						v4.setZ(1-v4.getW());
-					}else{
-						v4.setY(1);//rThigh
-						v4.setW(1-v4.getZ());
-					}
-				}
-				}else{
-					double v;
-					if(firstIsEmpty){
-						v=(1-v4.getW());
-					}else{
-						v=(1-v4.getZ());
-					}
-					
-					if(v<0.2){//small is usually legs,TODO check by position
-						if(atX<centerX){
-							
-							if(firstIsEmpty){
-								v4.setX(4);//lThigh
-								v4.setZ(1-v4.getW());
-							}else{
-								v4.setY(4);//lThigh
-								v4.setW(1-v4.getZ());
-							}
-							
-						}else if(atX>centerX){
-							
-							if(firstIsEmpty){
-								v4.setX(1);//rThigh
-								v4.setZ(1-v4.getW());
-							}else{
-								v4.setY(1);//rThigh
-								v4.setW(1-v4.getZ());
-							}
-						}
-					}else{
-						if(firstIsEmpty){
-							v4.setX(7);
-						}else{
-							v4.setY(7);
-						}
-					}
-					
-					
-					
-					if(firstIsEmpty){
-						v4.setZ(1-v4.getW());
-					}else{
-						v4.setW(1-v4.getZ());
-					}
-					
-				}
-			}
-			
-			
-		}else{
-			
-			
-			if(v4.getX()==0 && v4.getZ()==0 && v4.getW()!=1){
-				firstIsEmpty=true;
-				isEmpty=true;
-			}
-			else if(v4.getY()==0 && v4.getW()==0 && v4.getZ()!=1){
-				isEmpty=true;
-			}
-			
-			if(isEmpty){//fix arms
-				int target;
-				if(firstIsEmpty){
-					target=(int) v4.getY();
-				}else{
-					target=(int) v4.getX();
-				}
-				
-				int second=findClosedBone(nameAndPositions, geometry.getVertices().get(index), target);
-				//LogUtils.log(target+",second="+second);
-				
-				
-				
-				if(firstIsEmpty){
-					v4.setX(second);
-					v4.setZ(1-v4.getW());
-				}else{
-					v4.setY(second);
-					v4.setW(1-v4.getZ());
-				}
-				
-				//horrible rThigh & lThigh case
-				if(target==1 && second==4){
-					if(firstIsEmpty){
-						v4.setX(0);
-					}else{
-						v4.setY(0);
-					}
-				}else if(target==4 && second==1){
-					if(firstIsEmpty){
-						v4.setX(0);
-					}else{
-						v4.setY(0);
-					}
-				}
-				
-			}
-			
-			//not allow chest-sholder
-			if(v4.getX()==8 && v4.getY()==10){//chest-rsholder to rcolor-rsholder
-				v4.setX(9);
-			}
-			else if(v4.getX()==8 && v4.getY()==14){//chest-lsholder to lcolor-lsholder
-				v4.setX(13);
-			}else if(v4.getY()==8 && v4.getX()==10){//chest-rsholder to rcolor-rsholder
-				v4.setY(9);
-			}
-			else if(v4.getY()==8 && v4.getX()==14){//chest-lsholder to lcolor-lsholder
-				v4.setY(13);
-			}
-			
-			//now allow chest-neck
-			//not good at check to color
-			/*
-			if(v4.getX()==8 && v4.getY()==17){//chest-rsholder to rcolor-rsholder
-				double centerX=bones.get(0).getPos().get(0);
-				double atX=geometry.getVertices().get(index).getX();
-				
-				if(atX<centerX){
-					v4.setX(9);
-					
-				}else if(atX>centerX){
-					v4.setX(13);
-					
-				}
-				
-				
-			}else if(v4.getY()==8 && v4.getX()==17){//neck
-				double centerX=bones.get(0).getPos().get(0);
-				double atX=geometry.getVertices().get(index).getX();
-				
-				if(atX<centerX){
-					v4.setY(9);
-					
-				}else if(atX>centerX){
-					v4.setY(13);
-					
-				}
-			}
-			*/
-			
-		}
-		
-		return v4;
+  public static boolean isHasIndex(Vector4 v4,int target){
+	return v4.getX()==target || v4.getY()==target;  
   }
+  public static int getAnother(Vector4 v4,int target){
+	  if(v4.getX()==target){
+		  return (int)v4.getY();
+	  }else if(v4.getY()==target){
+		  return (int)v4.getX();
+	  } 
+	  return -1;
+  }
+ 
+  public static void replaceIndex(Vector4 v4,int target,int replace){
+	  if(v4.getX()==target){
+		  v4.setX(replace);
+	  }else if(v4.getY()==target){
+		  v4.setY(replace);
+	  }
+  }
+  public static boolean isConnected(Vector4 v4,JsArray<AnimationBone> bones){
+	  //same
+	  if(v4.getX()==v4.getY()){
+		  return true;
+	  }
+	  
+	  //100% value no need to check
+	  if(v4.getZ()==1 || v4.getW()==1){
+		  return true;
+	  }
+	 
+	  
+	  return bones.get((int)v4.getX()).getParent()==v4.getY() || bones.get((int)v4.getY()).getParent()==v4.getX();  
+  }
+  
+  
+    //is this slow?
+  	public static Set<NameAndVector3>  sortNameAndPosition(List<NameAndVector3> nameAndPositions,Vector3 vertexPos){
+  		
+  		Map<NameAndVector3,Integer> map=new HashMap<NameAndVector3, Integer>();
+  		final Ordering<NameAndVector3> orders=Ordering.natural().reverse().nullsLast().onResultOf(Functions.forMap(map, null));
+  		LogUtils.log(ImmutableSortedMap.copyOf(map, orders));
+  		
+  		return ImmutableSortedMap.copyOf(map, orders).keySet();
+  	}
   
 	public static int  findClosedBone(List<NameAndVector3> nameAndPositions,Vector3 vertexPos,int ignoreIndex){
 		int minIndex=-1;
