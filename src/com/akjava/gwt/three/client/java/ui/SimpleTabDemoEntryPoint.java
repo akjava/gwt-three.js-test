@@ -120,4 +120,10 @@ public abstract class SimpleTabDemoEntryPoint extends TabDemoEntryPoint{
 	public void onMouseOut(MouseOutEvent event) {
 		mouseDown=false;
 	}
+	public double getCameraZ() {
+		return cameraZ;
+	}
+	public void setCameraZ(double cameraZ) {
+		this.cameraZ = cameraZ;
+	}
 }
