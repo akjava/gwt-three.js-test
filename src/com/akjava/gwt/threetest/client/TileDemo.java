@@ -4,9 +4,6 @@ package com.akjava.gwt.threetest.client;
 
 import com.akjava.gwt.html5.client.InputRangeListener;
 import com.akjava.gwt.html5.client.InputRangeWidget;
-import com.akjava.gwt.lib.client.CanvasUtils;
-import com.akjava.gwt.lib.client.GWTHTMLUtils;
-import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.examples.renderers.CSS3DObject;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
@@ -18,16 +15,9 @@ import com.akjava.gwt.three.client.js.lights.DirectionalLight;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
-import com.google.gwt.event.dom.client.DragEvent;
-import com.google.gwt.event.dom.client.DragHandler;
-import com.google.gwt.event.dom.client.DragStartEvent;
-import com.google.gwt.event.dom.client.DragStartHandler;
-import com.google.gwt.event.dom.client.DropEvent;
-import com.google.gwt.event.dom.client.DropHandler;
-import com.google.gwt.event.dom.client.MouseDownEvent;
-import com.google.gwt.event.dom.client.MouseDownHandler;
 import com.google.gwt.event.dom.client.MouseMoveEvent;
 import com.google.gwt.event.dom.client.MouseWheelEvent;
+import com.google.gwt.user.client.TakesValue;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 import com.google.gwt.user.client.ui.Image;
@@ -160,7 +150,7 @@ public class TileDemo extends AbstractDemo{
 		super.onMouseMove(event);
 		if(mouseDown){
 		int diff=event.getX()-mouseDownX;
-		range.setValue(range.getValue()+diff);
+		((TakesValue<Integer>)range).setValue(range.getValue()+diff);
 		mouseDownX=event.getX();
 		mouseDownY=event.getY();
 		}
