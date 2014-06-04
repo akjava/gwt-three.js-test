@@ -51,7 +51,7 @@ public abstract class SimpleTabDemoEntryPoint extends TabDemoEntryPoint{
 		cameraZ=100;
 		screenWidth=width;
 		screenHeight=height;
-		renderer.setClearColorHex(0x333333, 1);//now default is alpha.really need it?
+		renderer.setClearColor(0x333333, 1);//this is only filter color
 		scene=THREE.Scene();
 		createCamera(scene, width, height);
 		

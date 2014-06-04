@@ -197,7 +197,7 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 		
 		canvas = new WebGLCanvas(renderer);
 		
-		canvas.setClearColorHex(0);
+		//canvas.setClearColorHex(0);
 		//final FocusPanel glCanvas=new FocusPanel(canvas);
 		
 		canvas.addMouseUpHandler(new MouseUpHandler() {

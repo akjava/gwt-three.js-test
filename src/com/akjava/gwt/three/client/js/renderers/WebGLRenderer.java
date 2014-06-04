@@ -405,6 +405,12 @@ return this.updateShadowMap(scene,camera);
 		return this.gwtType;
 	}-*/;
 	
+	
+	/**
+	 * this is just container.should rename it
+	 * @author aki
+	 *
+	 */
 	public static final class WebGLCanvas extends FocusWidget{
 		private WebGLRenderer renderer;
 		public WebGLRenderer getRenderer() {
@@ -415,14 +421,22 @@ return this.updateShadowMap(scene,camera);
 		this.renderer=renderer;
 		}
 		public void setClearColor(int hex){
-			getElement().getStyle().setBackgroundColor("#"+Integer.toHexString(hex));
+			//getElement().getStyle().setBackgroundColor("#"+Integer.toHexString(hex));
 			renderer.setClearColor(hex, 1);
 		}
 		public void setClearColorHex(int hex){
 			
-			getElement().getStyle().setBackgroundColor("#"+Integer.toHexString(hex));
+			//getElement().getStyle().setBackgroundColor("#"+Integer.toHexString(hex));
 			renderer.setClearColorHex(hex, 1);
 		}
+		
+		/*
+		 * just set this div's bg color
+		 */
+		public void setBackground(int hex){
+			getElement().getStyle().setBackgroundColor("#"+Integer.toHexString(hex));
+		}
+		
 	}
 	
 	
