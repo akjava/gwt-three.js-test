@@ -11,7 +11,9 @@ public class AnimationHandler {
 
 
 
-
+	public final native Animation remove(String name)/*-{
+	return $wnd.THREE.AnimationHandler.remove(name);
+	}-*/;
 
 	public final native Animation get(String name)/*-{
 	return $wnd.THREE.AnimationHandler.get(name);
