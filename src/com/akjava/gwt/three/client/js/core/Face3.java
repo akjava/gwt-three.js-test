@@ -128,11 +128,17 @@ public final native void setMaterialIndex(Object materialIndex)/*-{
 this.materialIndex = materialIndex;
 }-*/;
 
-
+/**
+ * @deprecated no more exist after r67
+ */
 public final native Vector3 getCentroid()/*-{
 return this.centroid;
 }-*/;
 
+/**
+ * @deprecated no more exist after r67
+ * @param centroid
+ */
 public final native void setCentroid(Vector3 centroid)/*-{
 this.centroid = centroid;
 }-*/;
