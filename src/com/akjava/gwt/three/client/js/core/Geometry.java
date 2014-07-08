@@ -76,6 +76,10 @@ this.computeBoundingSphere();
 public final native void computeFaceNormals()/*-{
  this.computeFaceNormals();
 }-*/;
+
+/**
+ * @deprecated no more exist after r67
+ */
 public final native void computeCentroids()/*-{
 this.computeFaceNormals();
 }-*/;
