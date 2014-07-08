@@ -102,6 +102,11 @@ public final native void setTarget(Vector3 target)/*-{
 this.target = target;
 }-*/;
 
+/**
+ * @deprecated no more support loop
+ * @param loop
+ * @param startTimeMS
+ */
 public final native void play(boolean loop,double startTimeMS)/*-{
 this.play(loop,startTimeMS);
 }-*/;
@@ -138,9 +143,12 @@ return this.getPrevKeyWith(type,h,key);
 public native final void play()/*-{
 this.play();
 }-*/;
-public native final void play(int startTime)/*-{
+public native final void play(double startTime)/*-{
 this.play(startTime);
 }-*/;
 
+public native final void play(double startTime,double weight)/*-{
+this.play(startTime,weight);
+}-*/;
 
 }
