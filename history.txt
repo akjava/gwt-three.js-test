@@ -1,3 +1,30 @@
+*67
+Animation - Implemented skeletal animation blending.
+Animation.java
+add:void play(double startTime,double weight)
+
+AnimationHandler - Make it possible to remove animationData. (@gero3)
+AnimationHandler.java
+add:public final native Animation remove(String name)
+
+Cache - Created class for caching files.
+create:Cache.java
+
+CanvasRenderer - etc
+seems no effect on Java.setViewport already support WebGLRenderer which CanvasRenderer extended.
+
+DirectionLightHelper
+seems no effect on Java.
+
+Face3 - Removed centroid. 
+deprecated:Face3.java
+public final native Vector3 getCentroid()
+public final native void setCentroid(Vector3 centroid)
+
+Geometry - Removed computeCentroids().
+deprecated:Geometry.java
+public final native void computeCentroids()
+
 *66
 BufferGeometry - Added computeOffsets and reorderBuffers methods.,Removed dynamic property.
 add:BufferGeometry.java
