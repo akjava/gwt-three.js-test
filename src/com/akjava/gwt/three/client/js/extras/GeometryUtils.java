@@ -20,18 +20,35 @@ public class GeometryUtils {
 	return geo.clone();
 	}-*/;
 
+	/**
+	 * @deprecated
+	 * moved to Geometry on r67
+	 * @param geometry
+	 */
 	public static native final void merge(Geometry geo,Geometry geo2,int materialIndexOffset)/*-{
 	return $wnd.THREE.GeometryUtils.merge(geo,geo2,materialIndexOffset);
 	}-*/;
-	
+	/**
+	 * @deprecated
+	 * moved to Geometry on r67
+	 * @param geometry
+	 */
 	public static native final void merge(Geometry geo,Geometry geo2)/*-{
 	return $wnd.THREE.GeometryUtils.merge(geo,geo2);
 	}-*/;
-	
+	/**
+	 * @deprecated
+	 * moved to Geometry on r67
+	 * @param geometry
+	 */
 	public static native final void merge(Geometry geo,Mesh mesh,int materialIndexOffset)/*-{
 	return $wnd.THREE.GeometryUtils.merge(geo,mesh,materialIndexOffset);
 	}-*/;
-	
+	/**
+	 * @deprecated
+	 * moved to Geometry on r67
+	 * @param geometry
+	 */
 	public static native final void merge(Geometry geo,Mesh mesh)/*-{
 	return $wnd.THREE.GeometryUtils.merge(geo,mesh);
 	}-*/;
@@ -53,6 +70,11 @@ public class GeometryUtils {
 	}-*/;
 	
 	
+	/**
+	 * @deprecated
+	 * removed on r67
+	 * @param geometry
+	 */
 	public static final native void triangulateQuads(Geometry geometry)/*-{
 	$wnd.THREE.GeometryUtils.triangulateQuads(geometry);
 	}-*/;

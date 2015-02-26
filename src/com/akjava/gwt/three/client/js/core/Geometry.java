@@ -46,6 +46,7 @@ import com.akjava.gwt.three.client.js.math.Matrix4;
 import com.akjava.gwt.three.client.js.math.Vector2;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.math.Vector4;
+import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayNumber;
@@ -404,5 +405,17 @@ public final native void dispose()/*-{
 this.dispose();
 }-*/;
 
+
+public  native final void merge(Geometry geo,Matrix4 matrix,int materialIndexOffset)/*-{
+return this.merge(geo,matrix,materialIndexOffset);
+}-*/;
+
+public  native final void merge(Geometry geo,Matrix4 matrix)/*-{
+return this.merge(geo,matrix);
+}-*/;
+
+public  native final void merge(Geometry geo)/*-{
+return this.merge(geo);
+}-*/;
 
 }

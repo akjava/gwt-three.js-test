@@ -24,6 +24,15 @@ public final native void setCentroid(Vector3 centroid)
 Geometry - Removed computeCentroids().
 deprecated:Geometry.java
 public final native void computeCentroids()
+add:Geometry.java
+public  native final void merge(Geometry geo,Matrix4 matrix,int materialIndexOffset)
+public  native final void merge(Geometry geo,Matrix4 matrix)
+public  native final void merge(Geometry geo)
+
+GeometryUtils -Removed triangulateQuads.Moved merge to Geometry.
+deprecated:GeometryUtils.java
+public static final native void triangulateQuads(Geometry geometry)
+public static native final void merge(...)
 
 *66
 BufferGeometry - Added computeOffsets and reorderBuffers methods.,Removed dynamic property.
