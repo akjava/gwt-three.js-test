@@ -70,6 +70,9 @@ public final native JsArray getBoneMatrices()
 public final native void setBoneMatrices(JsArray boneMatrices)
 public final native Bone addBone(Bone bone)
 
+SkeletonHelper - Added class to visualise Skeletons.
+add:SkeletonHelper.java
+
 *66
 BufferGeometry - Added computeOffsets and reorderBuffers methods.,Removed dynamic property.
 add:BufferGeometry.java
