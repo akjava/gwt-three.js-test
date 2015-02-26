@@ -80,8 +80,8 @@ import com.akjava.gwt.three.client.js.extras.curves.QuadraticBezierCurve;
 import com.akjava.gwt.three.client.js.extras.curves.QuadraticBezierCurve3;
 import com.akjava.gwt.three.client.js.extras.curves.SplineCurve;
 import com.akjava.gwt.three.client.js.extras.curves.SplineCurve3;
-import com.akjava.gwt.three.client.js.extras.geometries.CircleGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.BoxGeometry;
+import com.akjava.gwt.three.client.js.extras.geometries.CircleGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.CylinderGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.ExtrudeGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.IcosahedronGeometry;
@@ -175,6 +175,7 @@ import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.objects.MorphAnimMesh;
 import com.akjava.gwt.three.client.js.objects.Particle;
 import com.akjava.gwt.three.client.js.objects.ParticleSystem;
+import com.akjava.gwt.three.client.js.objects.Skelton;
 import com.akjava.gwt.three.client.js.objects.SkinnedMesh;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderTarget;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderTargetCube;
@@ -1020,5 +1021,9 @@ return new $wnd.THREE.ArrowHelper(size);
 	
 	public static native final Face3 Face3(double a, double b, double c) /*-{
 	return new $wnd.THREE.Face3(a,b,c);
+	}-*/;
+	
+	public static final native Skelton Skeleton(JsArray<Bone> bones,boolean useVertexTexture)/*-{
+	return new $wnd.THREE.Skeleton(bones,useVertexTexture);
 	}-*/;
 }
