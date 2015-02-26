@@ -66,9 +66,26 @@ public final native Matrix3 multiplyVector3(Vector3 vector)/*-{
 return this.multiplyVector3(vector);
 }-*/;
 
+/**
+ * @deprecated
+ * multiplyVector3Array() has been renamed. Use matrix.applyToVector3Array( array ) instead.
+ */
 public final native JsArrayNumber multiplyVector3Array(JsArrayNumber a)/*-{
-return this.multiplyVector3Array(a);
+return this.applyToVector3Array(a);
 }-*/;
+
+public final native JsArrayNumber applyToVector3Array(JsArrayNumber a)/*-{
+return this.applyToVector3Array(a);
+}-*/;
+
+public final native JsArrayNumber applyToVector3Array(JsArrayNumber a,int offset,int length)/*-{
+return this.applyToVector3Array(a,offset,length);
+}-*/;
+
+public final native JsArrayNumber flattenToArrayOffset(JsArrayNumber a,int offset)/*-{
+return this.flattenToArrayOffset(a,offset);
+}-*/;
+
 
 public final native Matrix3 multiplyScalar(double s)/*-{
 return this.multiplyScalar(s);

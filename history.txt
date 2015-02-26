@@ -3,7 +3,7 @@ Animation - Implemented skeletal animation blending.
 Animation.java
 add:void play(double startTime,double weight)
 
-AnimationHandler - Make it possible to remove animationData. (@gero3)
+AnimationHandler - Make it possible to remove animationData.
 AnimationHandler.java
 add:public final native Animation remove(String name)
 
@@ -37,6 +37,16 @@ public static native final void merge(...)
 ImageLoder - Implemented Cache
 add:ImageLoader.js
 public final native Cache getCache()
+
+Matrix3 - Rename multiplyVector3Array() to applyToVector3Array()
+deprecated:Matrix3.java
+public final native JsArrayNumber multiplyVector3Array(JsArrayNumber a)
+add:Matrix3.java
+public final native JsArrayNumber applyToVector3Array(JsArrayNumber a)
+public final native JsArrayNumber applyToVector3Array(JsArrayNumber a,int offset,int length)
+Added flattenToArrayOffset methods. 
+add:Matrix3.java
+public final native JsArrayNumber flattenToArrayOffset(JsArrayNumber a,int offset)
 
 *66
 BufferGeometry - Added computeOffsets and reorderBuffers methods.,Removed dynamic property.
