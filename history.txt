@@ -58,6 +58,18 @@ public final native JsArrayNumber applyToVector3Array(JsArrayNumber a,int offset
 Skeleton - Created class to handle skeletons/bones
 create:Skelton.java
 
+add:SkinnedMesh.java
+public final native Skelton getSkelton()
+public final native void setSkelton(Skelton skelton)
+deprecated:SkinnedMesh.java
+public final native boolean isUseVertexTexture()
+public final native void setUseVertexTexture(boolean useVertexTexture)
+public final native JsArray<Bone> getBones()
+public final native void setBones(JsArray<Bone> bones)
+public final native JsArray getBoneMatrices()
+public final native void setBoneMatrices(JsArray boneMatrices)
+public final native Bone addBone(Bone bone)
+
 *66
 BufferGeometry - Added computeOffsets and reorderBuffers methods.,Removed dynamic property.
 add:BufferGeometry.java

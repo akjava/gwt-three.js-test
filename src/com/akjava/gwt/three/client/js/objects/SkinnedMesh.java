@@ -7,12 +7,30 @@ public class SkinnedMesh extends Mesh{
 protected SkinnedMesh(){}
 
 
-public final native boolean isUseVertexTexture()/*-{
-return this.useVertexTexture;
+public final native Skelton getSkelton()/*-{
+return this.skeleton;
 }-*/;
 
+public final native void setSkelton(Skelton skelton)/*-{
+this.skeleton=skelton;
+}-*/;
+
+/**
+ * 
+ * @deprecated
+ * use getSkelton()
+ */
+public final native boolean isUseVertexTexture()/*-{
+return this.skelton.useVertexTexture;
+}-*/;
+
+/**
+ * 
+ * @deprecated
+ * use getSkelton()
+ */
 public final native void setUseVertexTexture(boolean useVertexTexture)/*-{
-this.useVertexTexture = useVertexTexture;
+this.skelton.useVertexTexture = useVertexTexture;
 }-*/;
 
 
@@ -24,30 +42,52 @@ public final native void setIdentityMatrix(Matrix4 identityMatrix)/*-{
 this.identityMatrix = identityMatrix;
 }-*/;
 
-
+/**
+ * 
+ * @deprecated
+ * use getSkelton()
+ */
 public final native JsArray<Bone> getBones()/*-{
-return this.bones;
+return this.skelton.bones;
 }-*/;
-
+/**
+ * 
+ * @deprecated
+ * use getSkelton()
+ */
 public final native void setBones(JsArray<Bone> bones)/*-{
-this.bones = bones;
+this.skelton.bones = bones;
 }-*/;
 
+/**
+ * 
+ * @deprecated
+ * use getSkelton()
+ */
 //TODO support float32array
 public final native JsArray getBoneMatrices()/*-{
-return this.boneMatrices;
+return this.skelton.boneMatrices;
 }-*/;
 
+/**
+ * 
+ * @deprecated
+ * use getSkelton()
+ */
 //TODO support float32array
 public final native void setBoneMatrices(JsArray boneMatrices)/*-{
-this.boneMatrices = boneMatrices;
+this.skelton.boneMatrices = boneMatrices;
 }-*/;
 
 
 
-
+/**
+ * 
+ * @deprecated
+ * use getSkelton()
+ */
 public final native Bone addBone(Bone bone)/*-{
-return this.addBone(bone);
+return this.skelton.addBone(bone);
 }-*/;
 
 
