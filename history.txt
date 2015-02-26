@@ -48,6 +48,13 @@ Added flattenToArrayOffset methods.
 add:Matrix3.java
 public final native JsArrayNumber flattenToArrayOffset(JsArrayNumber a,int offset)
 
+Matrix4 - Rename multiplyVector3Array() to applyToVector3Array()
+deprecated:Matrix4.java
+public final native JsArrayNumber multiplyVector3Array(JsArrayNumber array)
+add:Matrix4.java
+public final native JsArrayNumber applyToVector3Array(JsArrayNumber a)
+public final native JsArrayNumber applyToVector3Array(JsArrayNumber a,int offset,int length)
+
 *66
 BufferGeometry - Added computeOffsets and reorderBuffers methods.,Removed dynamic property.
 add:BufferGeometry.java

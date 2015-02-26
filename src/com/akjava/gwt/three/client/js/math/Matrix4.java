@@ -97,8 +97,12 @@ return this.applyMatrix4(vector);
 //return this.multiplyVector4(vector);
 }-*/;
 
+/**
+ * @deprecated
+ * multiplyVector3Array() has been renamed. Use matrix.applyToVector3Array( array ) instead.
+ */
 public final native JsArrayNumber multiplyVector3Array(JsArrayNumber array)/*-{
-return this.multiplyVector3Array(array);
+return this.applyToVector3Array(array);
 }-*/;
 
 /**
@@ -282,5 +286,13 @@ return this.fromArray(array);
 
 public final native JsArrayNumber toArray()/*-{
 return this.toArray();
+}-*/;
+
+public final native JsArrayNumber applyToVector3Array(JsArrayNumber a)/*-{
+return this.applyToVector3Array(a);
+}-*/;
+
+public final native JsArrayNumber applyToVector3Array(JsArrayNumber a,int offset,int length)/*-{
+return this.applyToVector3Array(a,offset,length);
 }-*/;
 }
