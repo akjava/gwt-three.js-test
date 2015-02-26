@@ -34,6 +34,10 @@ deprecated:GeometryUtils.java
 public static final native void triangulateQuads(Geometry geometry)
 public static native final void merge(...)
 
+ImageLoder - Implemented Cache
+add:ImageLoader.js
+public final native Cache getCache()
+
 *66
 BufferGeometry - Added computeOffsets and reorderBuffers methods.,Removed dynamic property.
 add:BufferGeometry.java

@@ -61,6 +61,7 @@ public class ImageLoader extends JavaScriptObject{
 		handler.@com.akjava.gwt.three.client.js.loaders.ImageLoader$ImageLoadHandler::onError(Lcom/google/gwt/dom/client/NativeEvent;)(onError);
 		});
 }-*/;
+
 	
 public final native void getgManager()/*-{
 return manager;
@@ -79,5 +80,9 @@ public static interface ImageLoadHandler {
 	public void onProgress(NativeEvent progress);
 	public void onError(NativeEvent error);
 }
+
+public final native Cache getCache()/*-{
+return cache;
+}-*/;
 
 }
