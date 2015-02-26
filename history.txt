@@ -55,6 +55,9 @@ add:Matrix4.java
 public final native JsArrayNumber applyToVector3Array(JsArrayNumber a)
 public final native JsArrayNumber applyToVector3Array(JsArrayNumber a,int offset,int length)
 
+Skeleton - Created class to handle skeletons/bones
+create:Skelton.java
+
 *66
 BufferGeometry - Added computeOffsets and reorderBuffers methods.,Removed dynamic property.
 add:BufferGeometry.java
