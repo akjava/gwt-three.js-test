@@ -7,11 +7,11 @@ public class SkinnedMesh extends Mesh{
 protected SkinnedMesh(){}
 
 
-public final native Skelton getSkelton()/*-{
+public final native Skeleton getSkeleton()/*-{
 return this.skeleton;
 }-*/;
 
-public final native void setSkelton(Skelton skelton)/*-{
+public final native void setSkeleton(Skeleton skelton)/*-{
 this.skeleton=skelton;
 }-*/;
 

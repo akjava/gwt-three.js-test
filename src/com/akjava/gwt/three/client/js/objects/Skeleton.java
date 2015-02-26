@@ -42,8 +42,8 @@ import com.google.gwt.core.client.JsArray;
 import com.google.gwt.typedarrays.shared.Float32Array;
 
 
-public class Skelton extends Mesh{
-	protected Skelton() {
+public class Skeleton extends Mesh{
+	protected Skeleton() {
 	}
 
 

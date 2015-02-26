@@ -109,6 +109,7 @@ import com.akjava.gwt.three.client.js.extras.helpers.FaceNormalsHelper;
 import com.akjava.gwt.three.client.js.extras.helpers.GridHelper;
 import com.akjava.gwt.three.client.js.extras.helpers.HemisphereLightHelper;
 import com.akjava.gwt.three.client.js.extras.helpers.PointLightHelper;
+import com.akjava.gwt.three.client.js.extras.helpers.SkeletonHelper;
 import com.akjava.gwt.three.client.js.extras.helpers.SpotLightHelper;
 import com.akjava.gwt.three.client.js.extras.helpers.VertexNormalsHelper;
 import com.akjava.gwt.three.client.js.extras.helpers.VertexTangentsHelper;
@@ -175,7 +176,7 @@ import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.objects.MorphAnimMesh;
 import com.akjava.gwt.three.client.js.objects.Particle;
 import com.akjava.gwt.three.client.js.objects.ParticleSystem;
-import com.akjava.gwt.three.client.js.objects.Skelton;
+import com.akjava.gwt.three.client.js.objects.Skeleton;
 import com.akjava.gwt.three.client.js.objects.SkinnedMesh;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderTarget;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderTargetCube;
@@ -1023,7 +1024,11 @@ return new $wnd.THREE.ArrowHelper(size);
 	return new $wnd.THREE.Face3(a,b,c);
 	}-*/;
 	
-	public static final native Skelton Skeleton(JsArray<Bone> bones,boolean useVertexTexture)/*-{
+	public static final native Skeleton Skeleton(JsArray<Bone> bones,boolean useVertexTexture)/*-{
 	return new $wnd.THREE.Skeleton(bones,useVertexTexture);
+	}-*/;
+	
+	public static final native SkeletonHelper SkeletonHelper(SkinnedMesh object)/*-{
+	return new $wnd.THREE.SkeletonHelper(object);
 	}-*/;
 }
