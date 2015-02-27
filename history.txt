@@ -73,6 +73,14 @@ public final native Bone addBone(Bone bone)
 SkeletonHelper - Added class to visualise Skeletons.
 add:SkeletonHelper.java
 
+SVGRenderer - examples sot support yet.
+
+WebGLRenderer
+add:GWTRenderObject.java
+public  native final GWTRenderObject depth(boolean depth)
+public  native final GWTRenderObject stencil(boolean stencil)
+public  native final GWTRenderObject logarithmicDepthBuffer(boolean logarithmicDepthBuffer)
+
 *66
 BufferGeometry - Added computeOffsets and reorderBuffers methods.,Removed dynamic property.
 add:BufferGeometry.java

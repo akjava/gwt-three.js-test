@@ -58,5 +58,21 @@ public class GWTRenderObject extends JavaScriptObject{
 	return this;
 	}-*/;
 	
+	public  native final GWTRenderObject depth(boolean depth)/*-{
+	this["depth"]=depth;
+	return this;
+	}-*/;
+	
+	public  native final GWTRenderObject stencil(boolean stencil)/*-{
+	this["stencil"]=stencil;
+	return this;
+	}-*/;
+	
+	public  native final GWTRenderObject logarithmicDepthBuffer(boolean logarithmicDepthBuffer)/*-{
+	this["logarithmicDepthBuffer"]=logarithmicDepthBuffer;
+	return this;
+	}-*/;
+	
+	
 	
 }
