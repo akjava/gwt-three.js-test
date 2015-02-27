@@ -1,3 +1,21 @@
+*68
+Animation - Refactored skinning code
+deprecated:Animation.java
+public final native boolean isIsPaused()
+public final native void setIsPaused(boolean isPaused)
+
+AnimationHandler - Refactoring
+deprecated:AnimationHandler.java
+public final native Animation remove(String name)
+public static native final void removeFromUpdate(Animation data)
+public static native final void add(AnimationData data)
+public static native final void removeFromUpdate(Animation data)
+public static native final void addToUpdate(Animation data)
+add:AnimationHandler.java
+public static native final void stop(Animation data)
+public static native final void play(Animation data)
+public final native Animation init(String name)
+
 *67
 Animation - Implemented skeletal animation blending.
 Animation.java

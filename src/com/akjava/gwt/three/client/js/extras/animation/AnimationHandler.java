@@ -10,13 +10,24 @@ public class AnimationHandler {
 
 
 
-
+	/**
+	 * @deprecated
+	 * on r68 dropped
+	 */
 	public final native Animation remove(String name)/*-{
 	return $wnd.THREE.AnimationHandler.remove(name);
 	}-*/;
 
+	/**
+	 * @deprecated
+	 * on r68 changed
+	 */
 	public final native Animation get(String name)/*-{
-	return $wnd.THREE.AnimationHandler.get(name);
+	return $wnd.THREE.AnimationHandler.init(name);
+	}-*/;
+	
+	public final native Animation init(String name)/*-{
+	return $wnd.THREE.AnimationHandler.init(name);
 	}-*/;
 
 	
@@ -29,13 +40,37 @@ public class AnimationHandler {
 	return $wnd.THREE.AnimationHandler.update(delta);
 	}-*/;
 	
+	/**
+	 * @deprecated
+	 * on r68 dropped
+	 */
 	public static native final void add(AnimationData data)/*-{
 	return $wnd.THREE.AnimationHandler.add(data);
 	}-*/;
+	/**
+	 * @deprecated
+	 * on r68 renamed
+	 */
 	public static native final void removeFromUpdate(Animation data)/*-{
-	return $wnd.THREE.AnimationHandler.removeFromUpdate(data);
+	return $wnd.THREE.AnimationHandler.stop(data);
 	}-*/;
+	/**
+	 * @deprecated
+	 * on r68 renamed
+	 */
 	public static native final void addToUpdate(Animation data)/*-{
-	return $wnd.THREE.AnimationHandler.addToUpdate(data);
+	return $wnd.THREE.AnimationHandler.play(data);
 	}-*/;
+	
+	public static native final void stop(Animation data)/*-{
+	return $wnd.THREE.AnimationHandler.stop(data);
+	}-*/;
+	
+	public static native final void play(Animation data)/*-{
+	return $wnd.THREE.AnimationHandler.play(data);
+	}-*/;
+	
+	
+	
+	
 }
