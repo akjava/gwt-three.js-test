@@ -26,4 +26,7 @@
 <inherits name="com.akjava.gwt.html5.Html5widget" />
 
 <!--  add-linker name="xs"/-->
+<!-- 
+<set-property name="user.agent" value="safari"/>
+ -->
 </module>
