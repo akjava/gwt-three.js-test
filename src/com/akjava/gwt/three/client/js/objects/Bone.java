@@ -56,15 +56,29 @@ public final native void setSkin(Object skin)/*-{
 this.skin = skin;
 }-*/;
 
-
+/**
+ * @deprecated
+ * removed on r68
+ * @return
+ */
 public final native Matrix4 getSkinMatrix()/*-{
 return this.skinMatrix;
 }-*/;
 
+/**
+ * @deprecated
+ * removed on r68
+ * @return
+ */
 public final native void setSkinMatrix(Matrix4 skinMatrix)/*-{
 this.skinMatrix = skinMatrix;
 }-*/;
 
+/**
+ * @deprecated
+ * removed on r68
+ * @return
+ */
 public final native void update(Matrix4 parentSkinMatrix,boolean forceUpdate)/*-{
 this.update(parentSkinMatrix,forceUpdate);
 }-*/;

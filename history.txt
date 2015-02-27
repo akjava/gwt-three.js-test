@@ -16,6 +16,12 @@ public static native final void stop(Animation data)
 public static native final void play(Animation data)
 public final native Animation init(String name)
 
+Bone - Refactored skinning code.
+deprecated:Bone.java
+public final native Matrix4 getSkinMatrix()
+public final native void setSkinMatrix(Matrix4 skinMatrix)
+public final native void update(Matrix4 parentSkinMatrix,boolean forceUpdate)
+
 *67
 Animation - Implemented skeletal animation blending.
 Animation.java
