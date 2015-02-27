@@ -59,11 +59,17 @@ public final native void setIsPlaying(boolean isPlaying)/*-{
 this.isPlaying = isPlaying;
 }-*/;
 
-
+/**
+ * @deprecated
+ * on r68 dropped
+ */
 public final native boolean isIsPaused()/*-{
 return this.isPaused;
 }-*/;
-
+/**
+ * @deprecated
+ * on r68 dropped
+ */
 public final native void setIsPaused(boolean isPaused)/*-{
 this.isPaused = isPaused;
 }-*/;
@@ -111,6 +117,10 @@ public final native void play(boolean loop,double startTimeMS)/*-{
 this.play(loop,startTimeMS);
 }-*/;
 
+/**
+ * @deprecated
+ * on r68 dropped
+ */
 public final native void pause()/*-{
 this.pause();
 }-*/;
