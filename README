@@ -5,12 +5,12 @@ Most of code is just converted form js files.
 so methods was never tested there are many bugs.
 I'm still not built a way to test all methods.
 
-stable reeleased version for three.js-r66
+Stable reeleased version for three.js-r66
 developed version for three.js-r67
 
 [Bug cases]
 I'll list common bug cases.
-1. wrong type;sometime i misunderstand js codes.it's really difficult to recognize arg or return use Matrix3 or Matrix4 etc.
+1. wrong type;sometime I misunderstand js codes.it's really difficult to recognize arg or return use Matrix3 or Matrix4 etc.
 2. still raw JavaScriptObject.To use in GWT,it must be implement.I only implement object which my need.
 3. instanceof problem,somecase your array don't pass instanceof check.use Thrree.createArray()
 I'm going to support iterable and do it inside it.
@@ -32,7 +32,7 @@ however if you are new on GWT,I heavy recommend you use javascript.
 3 check origina js code.
 4 use right three.js version(sadly sometime only work on old version)
 
-[Tested]
+[Tested on Stable-version]
 BVH-Motion-Creator - https://github.com/akjava/BVH-Motion-Creator
 BVHPoseEditor - https://github.com/akjava/BVH-Pose-Editor
 GTHApe	- https://github.com/akjava/gthape
