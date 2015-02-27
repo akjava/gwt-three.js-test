@@ -35,25 +35,130 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
   
  */
-package com.akjava.gwt.three.client.js.extras.cameras;
+package com.akjava.gwt.three.client.examples.camera;
 
-import com.akjava.gwt.three.client.js.core.Object3D;
-import com.akjava.gwt.three.client.js.renderers.WebGLRenderTargetCube;
-import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
-import com.akjava.gwt.three.client.js.scenes.Scene;
+import com.akjava.gwt.three.client.js.cameras.Camera;
+import com.akjava.gwt.three.client.js.cameras.OrthographicCamera;
+import com.akjava.gwt.three.client.js.cameras.PerspectiveCamera;
 
 
-public class CubeCamera extends Object3D{
-	protected CubeCamera() {
+public class CombinedCamera extends Camera{
+	protected CombinedCamera() {
 	}
 
-
-public final native void updateCubeMap(WebGLRenderer renderer,Scene scene)/*-{
-this.updateCubeMap(renderer,scene);
+public final native double getFov()/*-{
+return this.fov;
 }-*/;
 
-public final native WebGLRenderTargetCube getRenderTarget()/*-{
-return this.renderTarget;
+
+
+
+public final native double getLeft()/*-{
+return this.left;
+}-*/;
+
+public final native void setLeft(double left)/*-{
+this.left = left;
+}-*/;
+
+
+public final native double getRight()/*-{
+return this.right;
+}-*/;
+
+public final native void setRight(double right)/*-{
+this.right = right;
+}-*/;
+
+
+public final native double getTop()/*-{
+return this.top;
+}-*/;
+
+public final native void setTop(double top)/*-{
+this.top = top;
+}-*/;
+
+
+public final native double getBottom()/*-{
+return this.bottom;
+}-*/;
+
+public final native void setBottom(double bottom)/*-{
+this.bottom = bottom;
+}-*/;
+
+
+public final native OrthographicCamera getCameraO()/*-{
+return this.cameraO;
+}-*/;
+
+
+
+
+public final native PerspectiveCamera getCameraP()/*-{
+return this.cameraP;
+}-*/;
+
+
+
+
+public final native double getZoom()/*-{
+return this.zoom;
+}-*/;
+
+
+
+public final native void toPerspective()/*-{
+this.toPerspective();
+}-*/;
+
+public final native void toOrthographic()/*-{
+this.toOrthographic();
+}-*/;
+
+public final native void setSize(double width,double height)/*-{
+this.setSize(width,height);
+}-*/;
+
+public final native void setFov(Object fov)/*-{
+this.setFov(fov);
+}-*/;
+
+public final native void updateProjectionMatrix()/*-{
+this.updateProjectionMatrix();
+}-*/;
+
+public final native double setLens(double focalLength,double frameHeight)/*-{
+return this.setLens(focalLength,frameHeight);
+}-*/;
+
+public final native void setZoom(double zoom)/*-{
+this.setZoom(zoom);
+}-*/;
+
+public final native void toFrontView()/*-{
+this.toFrontView();
+}-*/;
+
+public final native void toBackView()/*-{
+this.toBackView();
+}-*/;
+
+public final native void toLeftView()/*-{
+this.toLeftView();
+}-*/;
+
+public final native void toRightView()/*-{
+this.toRightView();
+}-*/;
+
+public final native void toTopView()/*-{
+this.toTopView();
+}-*/;
+
+public final native void toBottomView()/*-{
+this.toBottomView();
 }-*/;
 
 
