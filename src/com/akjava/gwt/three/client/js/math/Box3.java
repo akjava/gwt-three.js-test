@@ -65,6 +65,10 @@ public final native Box3 set(Vector3 min,Vector3 max)/*-{
 return this.set(min,max);
 }-*/;
 
+/**
+ * @deprecated
+ * removed on r68
+ */
 public final native void addPoint(Vector3 point)/*-{
 this.addPoint(point);
 }-*/;
