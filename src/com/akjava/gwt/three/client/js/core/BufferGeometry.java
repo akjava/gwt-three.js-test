@@ -62,15 +62,19 @@ public class BufferGeometry extends EventDispatcher{
 
 
 
-public final native Object getAttributes()/*-{
+public final native JavaScriptObject getAttributes()/*-{
 return this.attributes;
 }-*/;
 
-public final native void setAttributes(Object attributes)/*-{
+public final native void setAttributes(JavaScriptObject attributes)/*-{
 this.attributes = attributes;
 }-*/;
 
 
+//TODO support settings
+public final native BufferGeometry fromGeometry(Geometry geometry, JavaScriptObject settings)/*-{
+return this.fromGeometry(geometry,settings);
+}-*/;
 
 
 
@@ -124,8 +128,25 @@ public final native void setMorphTargets(JsArray morphTargets)/*-{
 this.morphTargets = morphTargets;
 }-*/;
 
+/**
+ * @deprecated
+ * it's gone
+ */
 public final native void addAttribute(Object name,Object type,Object numItems,Object itemSize)/*-{
 this.addAttribute(name,type,numItems,itemSize);
+}-*/;
+
+public final native void addDrawCall(int start,int count,int indexOffset)/*-{
+this.addDrawCall(start,count,indexOffset);
+}-*/;
+
+
+public final native void addAttribute(String name,BufferAttribute attribute)/*-{
+this.addAttribute(name,attribute);
+}-*/;
+
+public final native BufferAttribute getAttribute(String name)/*-{
+return this.getAttribute(name);
 }-*/;
 
 public final native void applyMatrix(Object matrix)/*-{
