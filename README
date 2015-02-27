@@ -1,9 +1,12 @@
+#GWTWrapper for Three.js
+
 This is My GWT wrapper for three.js
 Most of code is just converted form js files.
 so methods was never tested there are many bugs.
 I'm still not built a way to test all methods.
 
 reeleased version for three.js-r66
+developed version for three.js-r67
 
 [Bug cases]
 I'll list common bug cases.
