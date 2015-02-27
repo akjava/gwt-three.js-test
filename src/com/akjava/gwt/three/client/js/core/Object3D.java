@@ -434,9 +434,6 @@ return this.getDescendants(array);
 
 
 
-public final native void updateMatrixWorld(Object force)/*-{
-this.updateMatrixWorld(force);
-}-*/;
 
 public final native Object3D clone(Object3D object,boolean recursive)/*-{
 return this.clone(object,recursive);
