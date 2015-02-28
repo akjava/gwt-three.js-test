@@ -24,7 +24,7 @@ import com.akjava.gwt.three.client.js.materials.Material;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.math.Vertex;
 import com.akjava.gwt.three.client.js.objects.Mesh;
-import com.akjava.gwt.three.client.js.objects.ParticleSystem;
+import com.akjava.gwt.three.client.js.objects.PointCloud;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.threetest.client.resources.Bundles;
@@ -71,7 +71,7 @@ private Mesh mesh;
 			velocity[i]=THREE.Vector3(0, 0, -Math.random());
 		}
 		
-		final ParticleSystem particleSystem=THREE.ParticleSystem(particles, material);
+		final PointCloud particleSystem=THREE.PointCloud(particles, material);
 		particleSystem.setSortParticles(true);
 		
 		final Mesh root=THREE.Mesh(THREE.PlaneGeometry(500, 500), THREE.MeshLambertMaterial().color(0x00ee88).build());

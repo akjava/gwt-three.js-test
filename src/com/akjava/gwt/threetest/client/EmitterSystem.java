@@ -9,7 +9,7 @@ import com.akjava.gwt.three.client.js.extras.ImageUtils;
 import com.akjava.gwt.three.client.js.materials.ParticleBasicMaterial;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.math.Vertex;
-import com.akjava.gwt.three.client.js.objects.ParticleSystem;
+import com.akjava.gwt.three.client.js.objects.PointCloud;
 
 /**
  * TODO time base
@@ -72,13 +72,13 @@ public class EmitterSystem {
 	
 	private double changeOpacity=1.0/120;
 	private double changeSize=150.0/120;
-	ParticleSystem[] systems;
+	PointCloud[] systems;
 	int steps[];
 	int index;
 	Vector3 winds[]=new Vector3[particleSize];
 	public void reset(int index){
 		if(systems==null){
-			systems=new ParticleSystem[maxStep];
+			systems=new PointCloud[maxStep];
 			steps=new int[maxStep];
 			addVelocities=new Vector3[maxStep][particleSize];
 		}
@@ -88,7 +88,7 @@ public class EmitterSystem {
 				geometry.vertices().push(THREE.Vector3(0, 0, 0));
 			}
 			
-			ParticleSystem system=THREE.ParticleSystem(geometry, baseMaterial.build());
+			PointCloud system=THREE.PointCloud(geometry, baseMaterial.build());
 			//system.setSortParticles(true);
 			systems[index]=system;
 			parent.add(system);
@@ -97,7 +97,7 @@ public class EmitterSystem {
 		}else{
 			//
 		
-			ParticleSystem system=systems[index];
+			PointCloud system=systems[index];
 			((ParticleBasicMaterial)system.getMaterial()).setSize(baseSize);
 			
 			for(int i=0;i<particleSize;i++){
@@ -136,7 +136,7 @@ public class EmitterSystem {
 		}
 		
 		for(int j=0;j<maxStep;j++){
-		ParticleSystem system=systems[j];
+		PointCloud system=systems[j];
 		if(system==null){
 			break;
 		}

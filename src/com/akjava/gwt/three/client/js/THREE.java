@@ -176,7 +176,7 @@ import com.akjava.gwt.three.client.js.objects.Line;
 import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.objects.MorphAnimMesh;
 import com.akjava.gwt.three.client.js.objects.Particle;
-import com.akjava.gwt.three.client.js.objects.ParticleSystem;
+import com.akjava.gwt.three.client.js.objects.PointCloud;
 import com.akjava.gwt.three.client.js.objects.Skeleton;
 import com.akjava.gwt.three.client.js.objects.SkinnedMesh;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderTarget;
@@ -842,8 +842,8 @@ return new $wnd.THREE.ArrowHelper(size);
 	public static native final Particle Particle(Material material )/*-{
 	return new $wnd.THREE.Particle(material );
 	}-*/;
-	public static native final ParticleSystem ParticleSystem(Geometry geometry,Material material )/*-{
-	return new $wnd.THREE.ParticleSystem( geometry, material );
+	public static native final PointCloud PointCloud(Geometry geometry,Material material )/*-{
+	return new $wnd.THREE.PointCloud( geometry, material );
 	}-*/;
 	
 	public static native final Mesh Mesh(Geometry geometry,Material material )/*-{
