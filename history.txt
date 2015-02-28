@@ -81,6 +81,16 @@ MorphAnimMesh - Added interpolateTargets() method
 add:MorphAnimMesh.java
 public final native void interpolateTargets(int a,int b,double t)
 
+
+add:Object3D.java
+public static final native Vector3 getDefaultUp()
+public final native void traverseVisible(Object callback)
+deprecated:Object3D.java
+public final native void setRotation(Euler rotation)
+public final native void setQuaternion(Quaternion quaternion)
+public final native void setScale(Vector3 scale)
+public final native Object getDescendants(Object array)
+
 *67
 Animation - Implemented skeletal animation blending.
 Animation.java

@@ -60,6 +60,10 @@ protected Object3D(){}
 	return this.rotation;
 }-*/;
 	
+	/**
+	 * @deprecated
+	 * Made position, rotation, quaternion and scale properties immutable on r68
+	 */
 	public final native void setRotation(Euler rotation)/*-{
 	this.rotation=rotation;
 	}-*/;
@@ -85,7 +89,10 @@ public final void setScale(double x,double y,double z){
 }
 
 
-
+/**
+ * @deprecated
+ * Made position, rotation, quaternion and scale properties immutable on r68
+ */
 public final native void setQuaternion(Quaternion quaternion)/*-{
  this.quaternion=q;
 }-*/;
@@ -249,7 +256,10 @@ this.up = up;
 
 
 
-
+/**
+ * @deprecated
+ * Made position, rotation, quaternion and scale properties immutable on r68
+ */
 public final native void setScale(Vector3 scale)/*-{
 this.scale = scale;
 }-*/;
@@ -428,6 +438,9 @@ public final native Object getChildByName(Object name,Object recursive)/*-{
 return this.getChildByName(name,recursive);
 }-*/;
 
+/**
+ * @deprecated on r68
+ */
 public final native Object getDescendants(Object array)/*-{
 return this.getDescendants(array);
 }-*/;
@@ -435,8 +448,18 @@ return this.getDescendants(array);
 
 
 
+
 public final native Object3D clone(Object3D object,boolean recursive)/*-{
 return this.clone(object,recursive);
 }-*/;
+
+public static final native Vector3 getDefaultUp()/*-{
+return $wnd.THREE.Object3D.DefaultUp;
+}-*/;
+
+public final native void traverseVisible(Object callback)/*-{
+this.traverseVisible(callback);
+}-*/;
+
 
 }
