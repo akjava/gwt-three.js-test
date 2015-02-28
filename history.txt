@@ -132,6 +132,11 @@ add:Texture.java
 public static final native Texture getDefaultImage()
 public static final native JavaScriptObject getDefaultMapping()
 
+WebGLRenderer - etc
+deprecated:WebGLRenderer
+public final native boolean isAutoUpdateObjects()
+public final native void setAutoUpdateObjects(boolean autoUpdateObjects)
+
 *67
 Animation - Implemented skeletal animation blending.
 Animation.java

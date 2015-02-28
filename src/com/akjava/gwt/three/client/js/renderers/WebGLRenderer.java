@@ -121,7 +121,11 @@ this.sortObjects = sortObjects;
 public final native boolean isAutoUpdateObjects()/*-{
 return this.autoUpdateObjects;
 }-*/;
-
+/**
+ * @deprecated
+ * 
+ * removed on r68
+ */
 public final native void setAutoUpdateObjects(boolean autoUpdateObjects)/*-{
 this.autoUpdateObjects = autoUpdateObjects;
 }-*/;
