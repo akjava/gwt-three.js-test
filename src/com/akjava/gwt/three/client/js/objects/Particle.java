@@ -40,6 +40,8 @@ package com.akjava.gwt.three.client.js.objects;
 
 
 /**
+ * @deprecated
+ * no more need
  * still exits some compatibility
  */
 public class Particle extends Sprite{

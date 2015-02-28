@@ -149,7 +149,7 @@ import com.akjava.gwt.three.client.js.materials.MeshFaceMaterial;
 import com.akjava.gwt.three.client.js.materials.MeshLambertMaterial;
 import com.akjava.gwt.three.client.js.materials.MeshNormalMaterial;
 import com.akjava.gwt.three.client.js.materials.MeshPhongMaterial;
-import com.akjava.gwt.three.client.js.materials.ParticleSystemMaterial;
+import com.akjava.gwt.three.client.js.materials.PointCloudMaterial;
 import com.akjava.gwt.three.client.js.materials.ShaderMaterial;
 import com.akjava.gwt.three.client.js.materials.SpriteCanvasMaterial;
 import com.akjava.gwt.three.client.js.materials.SpriteMaterial;
@@ -479,7 +479,7 @@ return new $wnd.THREE.ArrowHelper(size);
 	return  new $wnd.THREE.ShaderMaterial(parameter);
 	}-*/;
 	
-	public static  native final ParticleSystemMaterial ParticleSystemMaterial(JavaScriptObject parameter)/*-{
+	public static  native final PointCloudMaterial ParticleSystemMaterial(JavaScriptObject parameter)/*-{
 	return  new $wnd.THREE.ParticleSystemMaterial(parameter);
 	}-*/;
 	
@@ -838,7 +838,9 @@ return new $wnd.THREE.ArrowHelper(size);
 	}-*/;
 	
 	
-	
+	/**
+	 * @deprecated
+	 */
 	public static native final Particle Particle(Material material )/*-{
 	return new $wnd.THREE.Particle(material );
 	}-*/;

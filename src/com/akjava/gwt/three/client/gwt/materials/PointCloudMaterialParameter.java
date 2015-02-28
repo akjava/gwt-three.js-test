@@ -45,93 +45,93 @@ import com.akjava.gwt.three.client.js.textures.Texture;
  * @author aki
  *
  */
-public final class ParticleSystemMaterialParameter extends JSParameter{
-	protected ParticleSystemMaterialParameter(){}
-	public final static ParticleSystemMaterialParameter create(){
-		return (ParticleSystemMaterialParameter) ParticleSystemMaterialParameter.createObject();
+public final class PointCloudMaterialParameter extends JSParameter{
+	protected PointCloudMaterialParameter(){}
+	public final static PointCloudMaterialParameter create(){
+		return (PointCloudMaterialParameter) PointCloudMaterialParameter.createObject();
 	}
-	public final ParticleSystemMaterialParameter color(int r,int g,int b){
+	public final PointCloudMaterialParameter color(int r,int g,int b){
 		int c=(0xff & r)<<16| (0xff & g)<<8|(0xff & b);
 		return color(c);
 	}
-	public final native ParticleSystemMaterialParameter color(int color)/*-{
+	public final native PointCloudMaterialParameter color(int color)/*-{
 	this.color=color;
 	return this;
 	}-*/;
 	
-	public final native ParticleSystemMaterialParameter map(Texture map)/*-{
+	public final native PointCloudMaterialParameter map(Texture map)/*-{
 	this.map=map;
 	return this;
 	}-*/;
 	
-	public final native ParticleSystemMaterialParameter size(double size)/*-{
+	public final native PointCloudMaterialParameter size(double size)/*-{
 	this.size=size;
 	return this;
 	}-*/;
 	
-	public final native ParticleSystemMaterialParameter sizeAttenuation(boolean sizeAttenuation)/*-{
+	public final native PointCloudMaterialParameter sizeAttenuation(boolean sizeAttenuation)/*-{
 	this.sizeAttenuation=sizeAttenuation;
 	return this;
 	}-*/;
 	
-	public final native ParticleSystemMaterialParameter vertexColors(boolean vertexColors)/*-{
+	public final native PointCloudMaterialParameter vertexColors(boolean vertexColors)/*-{
 	this.vertexColors=vertexColors;
 	return this;
 	}-*/;
 	
-	public final native ParticleSystemMaterialParameter fog(boolean fog)/*-{
+	public final native PointCloudMaterialParameter fog(boolean fog)/*-{
 	this.fog=fog;
 	return this;
 	}-*/;
 	
 	
-	public final native ParticleSystemMaterialParameter side(int side)/*-{
+	public final native PointCloudMaterialParameter side(int side)/*-{
 	this.side=side;
 	return this;
 	}-*/;
 	
-	public final native ParticleSystemMaterialParameter opacity(double opacity)/*-{
+	public final native PointCloudMaterialParameter opacity(double opacity)/*-{
 	this.opacity=opacity;
 	return this;
 	}-*/;
-	public final native ParticleSystemMaterialParameter transparent(boolean transparent)/*-{
+	public final native PointCloudMaterialParameter transparent(boolean transparent)/*-{
 	this.transparent=transparent;
 	return this;
 	}-*/;
 	
-	public final native ParticleSystemMaterialParameter depthTest(boolean depthTest)/*-{
+	public final native PointCloudMaterialParameter depthTest(boolean depthTest)/*-{
 	this.depthTest=depthTest;
 	return this;
 	}-*/;
 	
-	public final native ParticleSystemMaterialParameter depthWrite(boolean depthWrite)/*-{
+	public final native PointCloudMaterialParameter depthWrite(boolean depthWrite)/*-{
 	this.depthWrite=depthWrite;
 	return this;
 	}-*/;
 	
-	public final native ParticleSystemMaterialParameter polygonOffset(boolean polygonOffset)/*-{
+	public final native PointCloudMaterialParameter polygonOffset(boolean polygonOffset)/*-{
 	this.polygonOffset=polygonOffset;
 	return this;
 	}-*/;
 	
-	public final native ParticleSystemMaterialParameter blending(int blending)/*-{
+	public final native PointCloudMaterialParameter blending(int blending)/*-{
 	this.blending=blending;
 	return this;
 	}-*/;
 	
-	public final native ParticleSystemMaterialParameter blendSrc(int blendSrc)/*-{
+	public final native PointCloudMaterialParameter blendSrc(int blendSrc)/*-{
 	this.blendSrc=blendSrc;
 	return this;
 	}-*/;
 	
 	
 	
-	public final native ParticleSystemMaterialParameter blendDst(int blendDst)/*-{
+	public final native PointCloudMaterialParameter blendDst(int blendDst)/*-{
 	this.blendDst=blendDst;
 	return this;
 	}-*/;
 	
-	public final native ParticleSystemMaterialParameter blendEquation(int blendEquation)/*-{
+	public final native PointCloudMaterialParameter blendEquation(int blendEquation)/*-{
 	this.blendEquation=blendEquation;
 	return this;
 	}-*/;
@@ -139,24 +139,24 @@ public final class ParticleSystemMaterialParameter extends JSParameter{
 	
 	
 	
-	public final native ParticleSystemMaterialParameter polygonOffsetFactor(double polygonOffsetFactor)/*-{
+	public final native PointCloudMaterialParameter polygonOffsetFactor(double polygonOffsetFactor)/*-{
 	this.polygonOffsetFactor=polygonOffsetFactor;
 	return this;
 	}-*/;
 	
-	public final native ParticleSystemMaterialParameter polygonOffsetUnits(double polygonOffsetUnits)/*-{
+	public final native PointCloudMaterialParameter polygonOffsetUnits(double polygonOffsetUnits)/*-{
 	this.polygonOffsetUnits=polygonOffsetUnits;
 	return this;
 	}-*/;
-	public final native ParticleSystemMaterialParameter alphaTest(double alphaTest)/*-{
+	public final native PointCloudMaterialParameter alphaTest(double alphaTest)/*-{
 	this.alphaTest=alphaTest;
 	return this;
 	}-*/;
-	public final native ParticleSystemMaterialParameter overdraw(double overdraw)/*-{
+	public final native PointCloudMaterialParameter overdraw(double overdraw)/*-{
 	this.overdraw=overdraw;
 	return this;
 	}-*/;
-	public final native ParticleSystemMaterialParameter needsUpdate(boolean needsUpdate)/*-{
+	public final native PointCloudMaterialParameter needsUpdate(boolean needsUpdate)/*-{
 	this.needsUpdate=needsUpdate;
 	return this;
 	}-*/;

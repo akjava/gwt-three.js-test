@@ -163,7 +163,7 @@ public final class ShaderMaterialParameter extends JSParameter{
 	return this;
 	}-*/;
 	
-	public final native ParticleSystemMaterialParameter side(int side)/*-{
+	public final native PointCloudMaterialParameter side(int side)/*-{
 	this.side=side;
 	return this;
 	}-*/;

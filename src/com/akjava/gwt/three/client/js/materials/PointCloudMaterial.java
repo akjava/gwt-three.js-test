@@ -41,8 +41,8 @@ import com.akjava.gwt.three.client.js.math.Color;
 import com.akjava.gwt.three.client.js.textures.Texture;
 
 
-public class ParticleSystemMaterial extends Material{
-	protected ParticleSystemMaterial() {
+public class PointCloudMaterial extends Material{
+	protected PointCloudMaterial() {
 	}
 
 public final native Color getColor()/*-{
@@ -98,7 +98,7 @@ public final native void setFog(boolean fog)/*-{
 this.fog = fog;
 }-*/;
 
-public final native ParticleSystemMaterial clone()/*-{
+public final native PointCloudMaterial clone()/*-{
 return this.clone();
 }-*/;
 

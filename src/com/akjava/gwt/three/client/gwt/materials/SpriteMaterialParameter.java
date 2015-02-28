@@ -51,27 +51,27 @@ public final class SpriteMaterialParameter extends JSParameter{
 		return (SpriteMaterialParameter) SpriteMaterialParameter.createObject();
 	}
 	
-	public final ParticleSystemMaterialParameter color(int r,int g,int b){
+	public final PointCloudMaterialParameter color(int r,int g,int b){
 		int c=(0xff & r)<<16| (0xff & g)<<8|(0xff & b);
 		return color(c);
 	}
-	public final native ParticleSystemMaterialParameter color(int color)/*-{
+	public final native PointCloudMaterialParameter color(int color)/*-{
 	this.color=color;
 	return this;
 	}-*/;
-	public final native ParticleSystemMaterialParameter rotation(double rotation)/*-{
+	public final native PointCloudMaterialParameter rotation(double rotation)/*-{
 	this.rotation=rotation;
 	return this;
 	}-*/;
-	public final native ParticleSystemMaterialParameter fog(boolean fog)/*-{
+	public final native PointCloudMaterialParameter fog(boolean fog)/*-{
 	this.fog=fog;
 	return this;
 	}-*/;
-	public final native ParticleSystemMaterialParameter uvOffset(Vector2 uvOffset)/*-{
+	public final native PointCloudMaterialParameter uvOffset(Vector2 uvOffset)/*-{
 	this.uvOffset=uvOffset;
 	return this;
 	}-*/;
-	public final native ParticleSystemMaterialParameter uvScale(Vector2 uvScale)/*-{
+	public final native PointCloudMaterialParameter uvScale(Vector2 uvScale)/*-{
 	this.uvScale=uvScale;
 	return this;
 	}-*/;

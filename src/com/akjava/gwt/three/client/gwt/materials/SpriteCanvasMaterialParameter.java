@@ -51,16 +51,16 @@ public final class SpriteCanvasMaterialParameter extends JSParameter{
 		return (SpriteCanvasMaterialParameter) SpriteCanvasMaterialParameter.createObject();
 	}
 	
-	public final ParticleSystemMaterialParameter color(int r,int g,int b){
+	public final PointCloudMaterialParameter color(int r,int g,int b){
 		int c=(0xff & r)<<16| (0xff & g)<<8|(0xff & b);
 		return color(c);
 	}
-	public final native ParticleSystemMaterialParameter color(int color)/*-{
+	public final native PointCloudMaterialParameter color(int color)/*-{
 	this.color=color;
 	return this;
 	}-*/;
 	
-	public final native ParticleSystemMaterialParameter program(JavaScriptObject program)/*-{
+	public final native PointCloudMaterialParameter program(JavaScriptObject program)/*-{
 	this.program=program;
 	return this;
 	}-*/;
