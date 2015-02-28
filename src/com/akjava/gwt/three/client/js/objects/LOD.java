@@ -37,8 +37,10 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.objects;
 
+import com.akjava.gwt.three.client.gwt.core.Intersect;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Object3D;
+import com.akjava.gwt.three.client.js.core.Raycaster;
 import com.google.gwt.core.client.JsArray;
 
 /**
@@ -75,5 +77,7 @@ return this.clone(object);
 }-*/;
 
 
-
+public final native void raycast(Raycaster raycaster,JsArray<Intersect> intersects)/*-{
+this.raycast(raycaster,intersects);
+}-*/;
 }

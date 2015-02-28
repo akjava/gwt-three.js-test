@@ -62,6 +62,10 @@ public final native void raycast(Raycaster raycaster,JsArray<Intersect> intersec
 add:Intersect.java
 public final native double getDistance()
 
+LOD - Added raycast() method
+add:LOD.java
+public final native void raycast(Raycaster raycaster,JsArray<Intersect> intersects)
+
 *67
 Animation - Implemented skeletal animation blending.
 Animation.java
