@@ -111,6 +111,11 @@ public final native Vector3 intersectSphere (Sphere sphere,Vector3 optionalTarge
 
 SceneLoader - Moved to examples folder
 move:SceneLoader.java to com.akjava.gwt.three.client.examples.loaders
+
+Skeleton - Refactored skinning code
+add:THREE.java 
+public static final native Skeleton Skeleton(JsArray<Bone> bones,JsArray<Matrix4> boneInverses,boolean useVertexTexture)
+
 *67
 Animation - Implemented skeletal animation blending.
 Animation.java

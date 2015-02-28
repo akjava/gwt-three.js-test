@@ -1036,8 +1036,8 @@ return new $wnd.THREE.ArrowHelper(size);
 	return new $wnd.THREE.Face3(a,b,c);
 	}-*/;
 	
-	public static final native Skeleton Skeleton(JsArray<Bone> bones,boolean useVertexTexture)/*-{
-	return new $wnd.THREE.Skeleton(bones,useVertexTexture);
+	public static final native Skeleton Skeleton(JsArray<Bone> bones,JsArray<Matrix4> boneInverses,boolean useVertexTexture)/*-{
+	return new $wnd.THREE.Skeleton(bones,boneInverses,useVertexTexture);
 	}-*/;
 	
 	public static final native SkeletonHelper SkeletonHelper(SkinnedMesh object)/*-{
