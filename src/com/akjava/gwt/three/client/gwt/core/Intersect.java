@@ -51,4 +51,9 @@ return this.object;
 public final native Vector3 getPoint()/*-{
 return this.point;
 }-*/;
+
+public final native double getDistance()/*-{
+return this.distance;
+}-*/;
+//TODO face,faceIndex
 }

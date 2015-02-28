@@ -56,6 +56,12 @@ KeyFrameAnimation - Refactored skinning code.
 add:AnimationHandler
 public final native Animation init(AnimationData data)
 
+Line - Added raycast() method
+add:Line.java
+public final native void raycast(Raycaster raycaster,JsArray<Intersect> intersects)
+add:Intersect.java
+public final native double getDistance()
+
 *67
 Animation - Implemented skeletal animation blending.
 Animation.java
