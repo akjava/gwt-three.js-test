@@ -70,6 +70,9 @@ $wnd.THREE.ImageUtils.loadCompressedTextureCube(url,mapping,function ( texture )
 }-*/;
 
 
+/**
+ * @deprecated
+ */
 public static final native CompressedTexture loadDDSTexture(String url,JavaScriptObject mapping,ImageUtilsLoadHandler handler)/*-{
 	if(handler){
 $wnd.THREE.ImageUtils.loadDDSTexture(url,mapping,function ( texture ) {

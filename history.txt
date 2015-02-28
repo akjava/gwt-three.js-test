@@ -48,7 +48,9 @@ create:CubeTexture.java
 GeometryUtils - Moved center method to Geometry.Moved remaining file to examples.
 move:GeometryUtils.java to com.akjava.gwt.three.client.examples.utils
 
-
+ImageUtils - Moved loadDDSTextue to DDSLoader in examples.
+deprecated:ImageUtils.java
+public static final native CompressedTexture loadDDSTexture(String url,JavaScriptObject mapping,ImageUtilsLoadHandler handler)
 
 *67
 Animation - Implemented skeletal animation blending.
