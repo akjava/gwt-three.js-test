@@ -257,4 +257,11 @@ public final native void dispose()/*-{
 this.dispose();
 }-*/;
 
+public static final native Texture getDefaultImage()/*-{
+return $wnd.THREE.Texture.DEFAULT_IMAGE;
+}-*/;
+
+public static final native JavaScriptObject getDefaultMapping()/*-{
+return $wnd.THREE.Texture.DEFAULT_MAPPING;
+}-*/;
 }
