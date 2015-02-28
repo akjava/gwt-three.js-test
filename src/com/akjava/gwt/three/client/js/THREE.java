@@ -1040,7 +1040,7 @@ return new $wnd.THREE.ArrowHelper(size);
 	return new $wnd.THREE.Skeleton(bones,boneInverses,useVertexTexture);
 	}-*/;
 	
-	public static final native SkeletonHelper SkeletonHelper(SkinnedMesh object)/*-{
+	public static final native SkeletonHelper SkeletonHelper(Object3D object)/*-{
 	return new $wnd.THREE.SkeletonHelper(object);
 	}-*/;
 	
