@@ -38,6 +38,13 @@ public final native void addDrawCall(int start,int count,int indexOffset)
 public final native void addAttribute(String name,BufferAttribute attribute)
 public final native BufferAttribute getAttribute(String name)
 
+CombinedCamera - Moved to examples
+move:CubeCamera.java to com.akjava.gwt.three.client.js.cameras
+move:CombinedCamera.java to com.akjava.gwt.three.client.examples.camera
+
+CubeTexture - Created
+create:CubeTexture.java
+
 *67
 Animation - Implemented skeletal animation blending.
 Animation.java
