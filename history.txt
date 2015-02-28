@@ -105,7 +105,9 @@ Quaternion - Added dot method
 add:Quaternion.java
 public final native double dot(Vector4 vector)
 
-
+Ray - Added intersectSphere method
+add:Ray.java
+public final native Vector3 intersectSphere (Sphere sphere,Vector3 optionalTarget)
 *67
 Animation - Implemented skeletal animation blending.
 Animation.java

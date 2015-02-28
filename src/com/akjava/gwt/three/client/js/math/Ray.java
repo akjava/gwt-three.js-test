@@ -147,5 +147,8 @@ public final native JsArray<Intersect> intersectObject(Object3D object)/*-{
 
 }-*/;
 
+public final native Vector3 intersectSphere (Sphere sphere,Vector3 optionalTarget)/*-{
+return this.intersectSphere(sphere,optionalTarget);
+}-*/;
 
 }
