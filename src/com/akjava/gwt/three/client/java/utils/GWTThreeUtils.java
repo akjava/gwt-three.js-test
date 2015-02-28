@@ -124,7 +124,7 @@ public class GWTThreeUtils {
 	}
 	
 	public static Mesh createSimpleBox(Vector3 position,double size,int color){
-		Mesh mesh=THREE.Mesh(THREE.CubeGeometry(size, size, size), THREE.MeshLambertMaterial().color(color).build());
+		Mesh mesh=THREE.Mesh(THREE.BoxGeometry(size, size, size), THREE.MeshLambertMaterial().color(color).build());
 		mesh.setPosition(position);
 		return mesh;
 	}

@@ -71,7 +71,7 @@ private Mesh mesh;
 		plain.setPosition(-2+x*4, -2+y*4,0);
 		plain.setReceiveShadow(true);
 		
-		Mesh box=THREE.Mesh(THREE.CubeGeometry(2, 2, 4), THREE.MeshLambertMaterial().color(0x0000ff).build());
+		Mesh box=THREE.Mesh(THREE.BoxGeometry(2, 2, 4), THREE.MeshLambertMaterial().color(0x0000ff).build());
 		box.setCastShadow(true);
 		plain.add(box);
 		box.setPosition(1,1, 2);

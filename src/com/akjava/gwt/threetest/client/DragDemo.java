@@ -86,7 +86,7 @@ JsArray<Object3D> meshs=((JsArray<Object3D>) JsArray.createArray());
 		
 		dragObjectControler = new GWTDragObjectControler(scene,projector);
 		
-		Object3D mesh =  THREE.Mesh(THREE.CubeGeometry(10,10,10), THREE.MeshLambertMaterial().color(0x00ff00).build());
+		Object3D mesh =  THREE.Mesh(THREE.BoxGeometry(10,10,10), THREE.MeshLambertMaterial().color(0x00ff00).build());
 		root.add(mesh);
 		meshs.push(mesh);
 		

@@ -60,7 +60,7 @@ public class CanvasDemo extends AbstractDemo{
 		cameraControle.setPositionZ(20);
 		
 		
-		final Mesh mesh=THREE.Mesh(THREE.CubeGeometry(5, 5, 5), 
+		final Mesh mesh=THREE.Mesh(THREE.BoxGeometry(5, 5, 5), 
 				THREE.MeshLambertMaterial().map(texture).build());
 		scene.add(mesh);
 		

@@ -44,7 +44,7 @@ public class SimpleCubeDemo extends AbstractDemo{
 		cameraControle.setPositionZ(20);
 		
 		
-		final Mesh mesh=THREE.Mesh(THREE.CubeGeometry(5, 5, 5), 
+		final Mesh mesh=THREE.Mesh(THREE.BoxGeometry(5, 5, 5), 
 				THREE.MeshLambertMaterial().color(0xff0000).build());
 		scene.add(mesh);
 		

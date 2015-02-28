@@ -77,7 +77,7 @@ private Timer timer;
 		root=THREE.Object3D();
 		scene.add(root);
 		
-		targetMesh = THREE.Mesh(THREE.CubeGeometry(.5, .5, .5), 
+		targetMesh = THREE.Mesh(THREE.BoxGeometry(.5, .5, .5), 
 				THREE.MeshBasicMaterial().color(0x0000ff).build());
 		root.add(targetMesh);
 		targetMesh.setPosition(targetPos);
@@ -98,14 +98,14 @@ private Timer timer;
 			
 			
 			if(i==3){
-				hand=THREE.Mesh(THREE.CubeGeometry(.5, .5, .5), 
+				hand=THREE.Mesh(THREE.BoxGeometry(.5, .5, .5), 
 						THREE.MeshBasicMaterial().color(color).build());
 				parent.add(hand);
 				Vector3 pos=THREE.Vector3(2, 0, 0);
 				hand.setPosition(pos);
 				parent.add(GWTGeometryUtils.createLineMesh(THREE.Vector3(), pos, 0x888888));
 			}else{
-				final Mesh mesh=THREE.Mesh(THREE.CubeGeometry(.5, .5, .5), 
+				final Mesh mesh=THREE.Mesh(THREE.BoxGeometry(.5, .5, .5), 
 						THREE.MeshBasicMaterial().color(color).build());
 				parent.add(mesh);
 				Vector3 pos=THREE.Vector3(2, 0, 0);

@@ -336,8 +336,8 @@ return new $wnd.THREE.ArrowHelper(size);
 	public static final native CylinderGeometry CylinderGeometry(double radiusTop,double  radiusBottom,double  height,int radialSegments,int heightSegments,boolean openEnded)/*-{
 	return new $wnd.THREE.CylinderGeometry(radiusTop, radiusBottom, height, radialSegments, heightSegments, openEnded);
 	}-*/;
-	public static final native BoxGeometry CubeGeometry(double width,double height,double depth,int widthSegments,int heightSegments,int depthSegments )/*-{
-	return new $wnd.THREE.CubeGeometry( width, height, depth, widthSegments, heightSegments, depthSegments );
+	public static final native BoxGeometry BoxGeometry(double width,double height,double depth,int widthSegments,int heightSegments,int depthSegments )/*-{
+	return new $wnd.THREE.BoxGeometry( width, height, depth, widthSegments, heightSegments, depthSegments );
 	}-*/;
 	public static final native CircleGeometry CircleGeometry(double radius,int segments,double thetaStart,double thetaLength)/*-{
 	return new $wnd.THREE.CircleGeometry(radius, segments, thetaStart, thetaLength);
@@ -704,7 +704,7 @@ return new $wnd.THREE.ArrowHelper(size);
 	
 	
 	
-	public static  final BoxGeometry CubeGeometry(double x,double y,double z,int xpart,int ypart,int zpart,Material[] material ){
+	public static  final BoxGeometry BoxGeometry(double x,double y,double z,int xpart,int ypart,int zpart,Material[] material ){
 		JsArray<Material> arrays=(JsArray<Material>) JsArray.createArray();
 		for(Material m:material){
 			arrays.push(m);
@@ -729,7 +729,7 @@ return new $wnd.THREE.ArrowHelper(size);
 		return JavaScriptUtils.createJSArray();
 	}
 	
-	public static native final BoxGeometry CubeGeometry(double x,double y,double z,int xpart,int ypart,int zpart,JsArray<Material> materials)/*-{
+	public static native final BoxGeometry BoxGeometry(double x,double y,double z,int xpart,int ypart,int zpart,JsArray<Material> materials)/*-{
 	
 	
     var ms= $wnd.eval("new Array()");
@@ -737,7 +737,7 @@ return new $wnd.THREE.ArrowHelper(size);
 		ms.push(materials[i]);
         }
         
-	return new $wnd.THREE.CubeGeometry( x, y, z ,xpart,ypart,zpart,ms);
+	return new $wnd.THREE.BoxGeometry( x, y, z ,xpart,ypart,zpart,ms);
 	}-*/;
 	
 	
@@ -752,7 +752,7 @@ return new $wnd.THREE.ArrowHelper(size);
 		ms.push(materials[i]);
         }
         
-	return new $wnd.THREE.CubeGeometry( x, y, z ,xpart,ypart,zpart,ms);
+	return new $wnd.THREE.BoxGeometry( x, y, z ,xpart,ypart,zpart,ms);
 	}-*/;
 	
 	
@@ -765,8 +765,8 @@ return new $wnd.THREE.ArrowHelper(size);
 	return new $wnd.THREE.Object3D();
 	}-*/;
 	
-	public static native final BoxGeometry CubeGeometry(double x,double y,double z)/*-{
-	return new $wnd.THREE.CubeGeometry( x, y, z );
+	public static native final BoxGeometry BoxGeometry(double x,double y,double z)/*-{
+	return new $wnd.THREE.BoxGeometry( x, y, z );
 	}-*/;
 	
 	public static native final Geometry PlaneGeometry(double x,double y)/*-{

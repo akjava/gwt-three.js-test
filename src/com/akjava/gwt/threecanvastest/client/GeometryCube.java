@@ -64,7 +64,7 @@ camera.getPosition().setZ( 500);
 scene.add( camera );
 
 
-Geometry geometry=THREE.CubeGeometry( 200, 200, 200);
+Geometry geometry=THREE.BoxGeometry( 200, 200, 200);
 for(int i=0;i<geometry.faces().length();i++){
 	geometry.faces().get(i).getColor().setHex((int) (Math.random() * 0xffffff));
 }
