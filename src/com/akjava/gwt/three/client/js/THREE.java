@@ -184,6 +184,7 @@ import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Fog;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.three.client.js.textures.CompressedTexture;
+import com.akjava.gwt.three.client.js.textures.CubeTexture;
 import com.akjava.gwt.three.client.js.textures.DataTexture;
 import com.akjava.gwt.three.client.js.textures.Texture;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -1030,5 +1031,9 @@ return new $wnd.THREE.ArrowHelper(size);
 	
 	public static final native SkeletonHelper SkeletonHelper(SkinnedMesh object)/*-{
 	return new $wnd.THREE.SkeletonHelper(object);
+	}-*/;
+	
+	public static  native final CubeTexture CubeTexture(JsArray<ImageElement> images,JavaScriptObject mapping, int wrapS,int  wrapT, int magFilter,int minFilter,int format,int type,int anisotropy)/*-{
+	return  new $wnd.THREE.CubeTexture(images,mapping, wrapS, wrapT, magFilter, minFilter, format, type, anisotropy);
 	}-*/;
 }
