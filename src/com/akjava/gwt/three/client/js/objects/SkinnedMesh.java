@@ -104,5 +104,11 @@ public final native SkinnedMesh clone(SkinnedMesh object)/*-{
 return this.clone(object);
 }-*/;
 
+//TODO support
+/*
+this.bindMode
+this.bindMatrix;
+this.bindMatrixInverse
+*/
 
 }

@@ -120,6 +120,8 @@ SkeletonHelper - Refactored skinning code
 add:SkeletonHelper.java
 public final native Object3D getRoot()
 
+SkinnedMesh - Refactored skinning code
+todo:SkinnedMesh.java
 
 *67
 Animation - Implemented skeletal animation blending.
