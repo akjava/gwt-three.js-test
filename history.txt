@@ -45,6 +45,11 @@ move:CombinedCamera.java to com.akjava.gwt.three.client.examples.camera
 CubeTexture - Created
 create:CubeTexture.java
 
+GeometryUtils - Moved center method to Geometry.Moved remaining file to examples.
+move:GeometryUtils.java to com.akjava.gwt.three.client.examples.utils
+
+
+
 *67
 Animation - Implemented skeletal animation blending.
 Animation.java
@@ -176,6 +181,7 @@ ExtrudeGeometry
 Path and Shape
 Projector 
 Raycaster
+
 
 *65
 Camera - remove getProjectionMatrixInverse & setProjectionMatrixInverse(Matrix4 projectionMatrixInverse)
