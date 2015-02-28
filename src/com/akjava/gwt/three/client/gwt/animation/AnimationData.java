@@ -50,4 +50,12 @@ public native final void setHierarchy (JsArray<AnimationHierarchyItem> hierarchy
 this["hierarchy"]=hierarchy;
 }-*/;
 
+public native final double getNode ()/*-{
+return this["node"];
+}-*/;
+
+public native final boolean isInitialized ()/*-{
+return this["initialized"];
+}-*/;
+
 }

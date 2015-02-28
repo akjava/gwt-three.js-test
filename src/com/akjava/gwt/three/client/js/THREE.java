@@ -42,6 +42,7 @@ import com.akjava.gwt.three.client.examples.ColladaLoader;
 import com.akjava.gwt.three.client.examples.camera.CombinedCamera;
 import com.akjava.gwt.three.client.examples.modifiers.SubdivisionModifier;
 import com.akjava.gwt.three.client.examples.renderers.CSS3DRenderer;
+import com.akjava.gwt.three.client.gwt.animation.AnimationData;
 import com.akjava.gwt.three.client.gwt.math.XY;
 import com.akjava.gwt.three.client.gwt.math.XYZ;
 import com.akjava.gwt.three.client.gwt.math.XYZObject;
@@ -659,8 +660,16 @@ return new $wnd.THREE.ArrowHelper(size);
 	return new $wnd.THREE.AnimationMorphTarget(root,name);
 	}-*/;
 	
+	/**
+	 * @deprecated
+	 * changed on r68
+	 */
 	public static native final KeyFrameAnimation KeyFrameAnimation(Object3D root,String name)/*-{
 	return new $wnd.THREE.KeyFrameAnimation(root,name);
+	}-*/;
+	
+	public static native final KeyFrameAnimation KeyFrameAnimation(AnimationData data)/*-{
+	return new $wnd.THREE.KeyFrameAnimation(data);
 	}-*/;
 	
 	public static native final Vector4 Vector4()/*-{

@@ -23,11 +23,11 @@ public class AnimationHandler {
 	 * on r68 changed
 	 */
 	public final native Animation get(String name)/*-{
-	return $wnd.THREE.AnimationHandler.init(name);
+	return $wnd.THREE.AnimationHandler.get(name);
 	}-*/;
 	
-	public final native Animation init(String name)/*-{
-	return $wnd.THREE.AnimationHandler.init(name);
+	public final native Animation init(AnimationData data)/*-{
+	return $wnd.THREE.AnimationHandler.init(data);
 	}-*/;
 
 	

@@ -52,6 +52,10 @@ ImageUtils - Moved loadDDSTextue to DDSLoader in examples.
 deprecated:ImageUtils.java
 public static final native CompressedTexture loadDDSTexture(String url,JavaScriptObject mapping,ImageUtilsLoadHandler handler)
 
+KeyFrameAnimation - Refactored skinning code. 
+add:AnimationHandler
+public final native Animation init(AnimationData data)
+
 *67
 Animation - Implemented skeletal animation blending.
 Animation.java
