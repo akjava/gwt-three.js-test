@@ -103,6 +103,11 @@ public final class MeshLambertMaterialParameter extends JSParameter{
 	return this;
 	}-*/;
 	
+	public final native MeshBasicMaterialParameter alphaMap(Texture alphaMap)/*-{
+	this.alphaMap=alphaMap;
+	return this;
+	}-*/;
+	
 	public final native MeshLambertMaterialParameter combine(int combine)/*-{
 	this.combine=combine;
 	return this;

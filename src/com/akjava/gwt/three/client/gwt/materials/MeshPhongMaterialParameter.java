@@ -128,8 +128,13 @@ public final class MeshPhongMaterialParameter extends JSParameter{
 	return this;
 	}-*/;
 	
-	public final native MeshPhongMaterialParameter envMap(JavaScriptObject envMap)/*-{
+	public final native MeshPhongMaterialParameter envMap(Texture envMap)/*-{
 	this.envMap=envMap;
+	return this;
+	}-*/;
+	
+	public final native MeshBasicMaterialParameter alphaMap(Texture alphaMap)/*-{
+	this.alphaMap=alphaMap;
 	return this;
 	}-*/;
 

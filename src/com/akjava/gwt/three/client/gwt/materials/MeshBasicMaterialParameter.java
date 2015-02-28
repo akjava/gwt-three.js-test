@@ -79,6 +79,11 @@ public final class MeshBasicMaterialParameter extends JSParameter{
 	return this;
 	}-*/;
 	
+	public final native MeshBasicMaterialParameter alphaMap(Texture alphaMap)/*-{
+	this.alphaMap=alphaMap;
+	return this;
+	}-*/;
+	
 	public final native MeshBasicMaterialParameter combine(int combine)/*-{
 	this.combine=combine;
 	return this;
