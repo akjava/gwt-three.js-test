@@ -77,6 +77,10 @@ MeshBasicMaterial,MeshLambertMaterial,MeshPhongMaterial - Added alphaMap propert
 add:MeshBasicMaterialParameter.java,MeshLambertMaterialParameter.java,MeshPhongMaterialParameter.java
 public final native MeshBasicMaterialParameter alphaMap(Texture alphaMap)
 
+MorphAnimMesh - Added interpolateTargets() method
+add:MorphAnimMesh.java
+public final native void interpolateTargets(int a,int b,double t)
+
 *67
 Animation - Implemented skeletal animation blending.
 Animation.java

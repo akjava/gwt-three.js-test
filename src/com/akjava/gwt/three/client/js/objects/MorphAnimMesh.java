@@ -106,6 +106,9 @@ return this.clone(object);
 	this.mirroredLoop=mirroredLoop;
 	}-*/;
 	
+	public final native void interpolateTargets(int a,int b,double t)/*-{
+	this.interpolateTargets(a,b,t);
+	}-*/;
 	
 	
 
