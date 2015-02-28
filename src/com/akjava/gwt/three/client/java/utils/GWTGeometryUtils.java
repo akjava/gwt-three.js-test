@@ -1,11 +1,11 @@
 package com.akjava.gwt.three.client.java.utils;
 
 import com.akjava.gwt.lib.client.LogUtils;
+import com.akjava.gwt.three.client.examples.utils.GeometryUtils;
 import com.akjava.gwt.three.client.gwt.core.MorphTarget;
 import com.akjava.gwt.three.client.gwt.materials.LineBasicMaterialParameter;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.core.Geometry;
-import com.akjava.gwt.three.client.js.extras.GeometryUtils;
 import com.akjava.gwt.three.client.js.extras.geometries.BoxGeometry;
 import com.akjava.gwt.three.client.js.loaders.JSONLoader;
 import com.akjava.gwt.three.client.js.loaders.JSONLoader.JSONLoadHandler;
