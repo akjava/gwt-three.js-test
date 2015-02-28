@@ -108,6 +108,9 @@ public final native double dot(Vector4 vector)
 Ray - Added intersectSphere method
 add:Ray.java
 public final native Vector3 intersectSphere (Sphere sphere,Vector3 optionalTarget)
+
+SceneLoader - Moved to examples folder
+move:SceneLoader.java to com.akjava.gwt.three.client.examples.loaders
 *67
 Animation - Implemented skeletal animation blending.
 Animation.java
