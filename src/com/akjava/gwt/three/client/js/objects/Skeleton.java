@@ -66,6 +66,6 @@ return this.boneMatrices;
 }-*/;
 
 public final native JsArray<Matrix4> getBoneInverses()/*-{
-return this.bones;
+return this.boneInverses;
 }-*/;
 }
