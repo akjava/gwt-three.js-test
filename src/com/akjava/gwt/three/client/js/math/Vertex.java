@@ -3,7 +3,8 @@ package com.akjava.gwt.three.client.js.math;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
- * @deprecated  totall removed at r49
+ * @deprecated totally removed at r49
+ * deleted on r68
  * @author aki
  *
  */
