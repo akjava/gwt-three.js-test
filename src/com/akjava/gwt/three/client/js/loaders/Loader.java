@@ -82,4 +82,8 @@ public static interface LoadHandler {
 	public void onLoadProgress();
 	public void onLoadComplete();
 }
+/**
+ * implementing THREE.Loader.Handlers is skipped
+ * i have no idea how to handle regex-js-class on GWT/Java
+ */
 }
