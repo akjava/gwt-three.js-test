@@ -137,4 +137,8 @@ this.z=z;
 public native final void setW(double w)/*-{
 this.w=w;
 }-*/;
+
+public final native double dot(Vector4 vector)/*-{
+return this.dot(vector);
+}-*/;
 }

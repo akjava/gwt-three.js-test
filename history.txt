@@ -101,6 +101,10 @@ public final native void raycast(Raycaster raycaster,JsArray<Intersect> intersec
 ParticleSystemMaterial - Renamed to PointCloudMaterial
 rename:ParticleSystemMaterial.java to PointCloudMaterial.java
 
+Quaternion - Added dot method
+add:Quaternion.java
+public final native double dot(Vector4 vector)
+
 
 *67
 Animation - Implemented skeletal animation blending.
