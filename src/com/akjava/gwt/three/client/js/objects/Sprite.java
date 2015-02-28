@@ -37,8 +37,11 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.objects;
 
+import com.akjava.gwt.three.client.gwt.core.Intersect;
 import com.akjava.gwt.three.client.js.core.Object3D;
+import com.akjava.gwt.three.client.js.core.Raycaster;
 import com.akjava.gwt.three.client.js.materials.Material;
+import com.google.gwt.core.client.JsArray;
 
 
 public class Sprite extends Object3D{
@@ -59,5 +62,7 @@ public final native Sprite clone(Sprite object)/*-{
 return this.clone(object);
 }-*/;
 
-
+public final native void raycast(Raycaster raycaster,JsArray<Intersect> intersects)/*-{
+this.raycast(raycaster,intersects);
+}-*/;
 }
