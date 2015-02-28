@@ -19,7 +19,7 @@ public class ParticleBasicMaterialBuilder extends JavaScriptObject{
 	}
 	
 	private final native ParticleBasicMaterial build(JavaScriptObject object)/*-{
-	return new $wnd.THREE.ParticleBasicMaterial(object);
+	return new $wnd.THREE.PointCloudMaterial(object);
 	}-*/;
 	
 	public final ParticleBasicMaterialBuilder color(int r,int g,int b){
