@@ -17,6 +17,8 @@ BufferAttribute - Added clone()
 add:BufferAttribute.java
 public final  native BufferAttribute clone()
 
+Camera - Added getWorldDirection() method
+public final native Vector3 getWorldDirection(Vector3 optionalTarget)
 
 *68
 Animation - Refactored skinning code

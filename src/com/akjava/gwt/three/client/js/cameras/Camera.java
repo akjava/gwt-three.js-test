@@ -80,4 +80,8 @@ public class Camera extends Object3D{
 		this.lookAt(new $wnd.THREE.Vector3(x, y, z));
 	}-*/;
 
+	public final native Vector3 getWorldDirection(Vector3 optionalTarget)/*-{
+	return this.getWorldDirection(optionalTarget);
+	}-*/;
+	
 }
