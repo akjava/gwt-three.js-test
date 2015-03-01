@@ -1,5 +1,6 @@
-package com.akjava.gwt.three.client.js.renderers;
+package com.akjava.gwt.three.client.examples.renderers;
 
+import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Element;
 
