@@ -1024,6 +1024,21 @@ return new $wnd.THREE.ArrowHelper(size);
 		return $wnd.THREE.MirroredRepeatWrapping;
 		}-*/;
 	}
+	
+	public static final class MOUSE{
+		public static native final int LEFT()/*-{
+		return $wnd.THREE.MOUSE.LEFT;
+		}-*/;
+		
+		public static native final int MIDDLE()/*-{
+		return $wnd.THREE.MOUSE.MIDDLE;
+		}-*/;
+		
+		public static native final int RIGHT()/*-{
+		return $wnd.THREE.MOUSE.RIGHT;
+		}-*/;
+		
+	}
 
 	public static native final MorphAnimMesh MorphAnimMesh(Geometry geometry,
 			Material material) /*-{

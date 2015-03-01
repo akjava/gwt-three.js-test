@@ -32,12 +32,12 @@ this.material = material;
 }-*/;
 
 
-public final native int getType()/*-{
-return this.type;
+public final native int getMode()/*-{
+return this.mode;
 }-*/;
 
-public final native void setType(int type)/*-{
-this.type = type;
+public final native void setMode(int mode)/*-{
+this.mode = mode;
 }-*/;
 
 

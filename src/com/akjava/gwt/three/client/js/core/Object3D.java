@@ -462,4 +462,8 @@ this.traverseVisible(callback);
 }-*/;
 
 
+public final native String getType()/*-{
+return this.type;
+}-*/;
+
 }

@@ -1,3 +1,10 @@
+*69
+THREE - Added type property to all relevant objects.Added MOUSE enum
+add:THREE.java
+public static final class MOUSE
+add:Object3D.java
+public final native String getType()
+
 *68
 Animation - Refactored skinning code
 deprecated:Animation.java
