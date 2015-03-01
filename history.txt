@@ -5,6 +5,14 @@ public static final class MOUSE
 add:Object3D.java
 public final native String getType()
 
+
+Audio,AudioListener - Added.
+create:Audio.java
+create:AudioListener.java
+add:THREE.java
+public static final native AudioListener AudioListener()
+public static final native Audio Audio(AudioListener listener)
+
 *68
 Animation - Refactored skinning code
 deprecated:Animation.java

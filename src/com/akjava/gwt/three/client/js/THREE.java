@@ -68,6 +68,8 @@ import com.akjava.gwt.three.client.js.core.Raycaster;
 import com.akjava.gwt.three.client.js.extras.animation.Animation;
 import com.akjava.gwt.three.client.js.extras.animation.AnimationMorphTarget;
 import com.akjava.gwt.three.client.js.extras.animation.KeyFrameAnimation;
+import com.akjava.gwt.three.client.js.extras.audio.Audio;
+import com.akjava.gwt.three.client.js.extras.audio.AudioListener;
 import com.akjava.gwt.three.client.js.extras.core.Gyroscope;
 import com.akjava.gwt.three.client.js.extras.core.Path;
 import com.akjava.gwt.three.client.js.extras.core.Shape;
@@ -1061,5 +1063,13 @@ return new $wnd.THREE.ArrowHelper(size);
 	
 	public static  native final CubeTexture CubeTexture(JsArray<ImageElement> images,JavaScriptObject mapping, int wrapS,int  wrapT, int magFilter,int minFilter,int format,int type,int anisotropy)/*-{
 	return  new $wnd.THREE.CubeTexture(images,mapping, wrapS, wrapT, magFilter, minFilter, format, type, anisotropy);
+	}-*/;
+	
+	public static final native AudioListener AudioListener()/*-{
+	return new $wnd.THREE.AudioListener();
+	}-*/;
+	
+	public static final native Audio Audio(AudioListener listener)/*-{
+	return new $wnd.THREE.Audio(listener);
 	}-*/;
 }
