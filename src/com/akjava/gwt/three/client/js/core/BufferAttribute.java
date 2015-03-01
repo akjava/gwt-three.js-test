@@ -54,4 +54,10 @@ public class BufferAttribute extends JavaScriptObject{
 	public final  native BufferAttribute setXYZW(int index,int x,int y,int z,int w)/*-{
 	return this.setXYZW(index,x,y,z,w);
 	}-*/;
+	
+	public final  native BufferAttribute clone()/*-{
+	return this.clone();
+	}-*/;
+	
+	
 }

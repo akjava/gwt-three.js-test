@@ -13,6 +13,11 @@ add:THREE.java
 public static final native AudioListener AudioListener()
 public static final native Audio Audio(AudioListener listener)
 
+BufferAttribute - Added clone()
+add:BufferAttribute.java
+public final  native BufferAttribute clone()
+
+
 *68
 Animation - Refactored skinning code
 deprecated:Animation.java
