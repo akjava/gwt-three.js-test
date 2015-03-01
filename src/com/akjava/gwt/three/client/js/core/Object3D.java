@@ -43,6 +43,7 @@ import com.akjava.gwt.three.client.js.math.Quaternion;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
+import com.google.gwt.json.client.JSONObject;
 
 public class Object3D extends EventDispatcher{
 protected Object3D(){}
@@ -464,6 +465,10 @@ this.traverseVisible(callback);
 
 public final native String getType()/*-{
 return this.type;
+}-*/;
+
+public final native JSONObject toJSON()/*-{
+return this.toJSON();
 }-*/;
 
 }
