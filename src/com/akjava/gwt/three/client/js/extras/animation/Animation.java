@@ -161,4 +161,9 @@ public native final void play(double startTime,double weight)/*-{
 this.play(startTime,weight);
 }-*/;
 
+public native final void resetBlendWeights()/*-{
+this.resetBlendWeights();
+}-*/;
+
+
 }
