@@ -5,12 +5,12 @@ package com.akjava.gwt.three.client.java;
  * based on three.js webgl - draggable cubes
  */
 import com.akjava.gwt.lib.client.LogUtils;
+import com.akjava.gwt.three.client.examples.renderers.Projector;
 import com.akjava.gwt.three.client.gwt.core.Intersect;
 import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Object3D;
-import com.akjava.gwt.three.client.js.core.Projector;
 import com.akjava.gwt.three.client.js.math.Matrix4;
 import com.akjava.gwt.three.client.js.math.Ray;
 import com.akjava.gwt.three.client.js.math.Vector3;

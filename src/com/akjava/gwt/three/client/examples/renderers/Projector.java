@@ -35,19 +35,27 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
   
  */
-package com.akjava.gwt.three.client.js.core;
-
-import java.util.List;
+package com.akjava.gwt.three.client.examples.renderers;
 
 import com.akjava.gwt.three.client.gwt.core.Intersect;
 import com.akjava.gwt.three.client.js.cameras.Camera;
+import com.akjava.gwt.three.client.js.core.Object3D;
+import com.akjava.gwt.three.client.js.core.Raycaster;
 import com.akjava.gwt.three.client.js.math.Ray;
 import com.akjava.gwt.three.client.js.math.Vector3;
-import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 
+/**
+ * @deprecated
+ * on three.js r69 move to example
+ * so i dropped support r69's projector,too much things TODO so far.
+ * maybe this tips help you 
+ * http://stackoverflow.com/questions/27409074/three-js-converting-3d-position-to-2d-screen-position-r69
+ * @author aki
+ *
+ */
 public class Projector extends JavaScriptObject{
 protected Projector(){}
 

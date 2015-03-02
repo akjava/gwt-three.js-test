@@ -23,13 +23,13 @@
 package com.akjava.gwt.threetest.client;
 
 import com.akjava.gwt.lib.client.LogUtils;
+import com.akjava.gwt.three.client.examples.renderers.Projector;
 import com.akjava.gwt.three.client.gwt.core.Intersect;
 import com.akjava.gwt.three.client.java.GWTDragObjectControler;
 import com.akjava.gwt.three.client.java.utils.GWTGeometryUtils;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Object3D;
-import com.akjava.gwt.three.client.js.core.Projector;
 import com.akjava.gwt.three.client.js.lights.Light;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.objects.Mesh;

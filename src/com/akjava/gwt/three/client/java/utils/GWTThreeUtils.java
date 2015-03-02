@@ -1,11 +1,11 @@
 package com.akjava.gwt.three.client.java.utils;
 
 import com.akjava.gwt.lib.client.LogUtils;
+import com.akjava.gwt.three.client.examples.renderers.Projector;
 import com.akjava.gwt.three.client.gwt.JSONModelFile;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Geometry;
-import com.akjava.gwt.three.client.js.core.Projector;
 import com.akjava.gwt.three.client.js.loaders.JSONLoader;
 import com.akjava.gwt.three.client.js.loaders.JSONLoader.JSONLoadHandler;
 import com.akjava.gwt.three.client.js.materials.Material;

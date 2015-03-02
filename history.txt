@@ -52,6 +52,12 @@ public final native double getZoom()
 
 PlaneBufferGeometry - Added. PlaneGeometry relies on this one
 create:PlaneBufferGeometry.java
+
+Projector - Moved to examples folder.
+move:Projector.java to com.akjava.gwt.three.client.examples.renderers
+STOP SUPPORT THIS ON GWT SO FAR.
+
+
 *68
 Animation - Refactored skinning code
 deprecated:Animation.java

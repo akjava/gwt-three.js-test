@@ -25,6 +25,7 @@ package com.akjava.gwt.threetest.client;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.akjava.gwt.three.client.examples.renderers.Projector;
 import com.akjava.gwt.three.client.gwt.animation.ik.CDDIK;
 import com.akjava.gwt.three.client.java.ThreeLog;
 import com.akjava.gwt.three.client.java.utils.GWTGeometryUtils;
@@ -32,7 +33,6 @@ import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Object3D;
-import com.akjava.gwt.three.client.js.core.Projector;
 import com.akjava.gwt.three.client.js.lights.Light;
 import com.akjava.gwt.three.client.js.math.Matrix4;
 import com.akjava.gwt.three.client.js.math.Vector3;
