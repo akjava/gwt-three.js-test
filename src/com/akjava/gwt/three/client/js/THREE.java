@@ -540,19 +540,21 @@ return new $wnd.THREE.ArrowHelper(size);
 	}-*/;
 	
 	public static  native final ObjectLoader ObjectLoader(LoadingManager manager)/*-{
-	return  new $wnd.THREE.GeometryLoader(manager);
+	return  new $wnd.THREE.ObjectLoader(manager);
 	}-*/;
 	
 	public static  native final SceneLoader SceneLoader(LoadingManager manager)/*-{
-	return  new $wnd.THREE.ImageLoader(manager);
+	return  new $wnd.THREE.SceneLoader(manager);
 	}-*/;
 	
+	
+	
 	public static  native final TextureLoader TextureLoader(LoadingManager manager)/*-{
-	return  new $wnd.THREE.ImageLoader(manager);
+	return  new $wnd.THREE.TextureLoader(manager);
 	}-*/;
 	
 	public static  native final XHRLoader XHRLoader(LoadingManager manager)/*-{
-	return  new $wnd.THREE.ImageLoader(manager);
+	return  new $wnd.THREE.XHRLoader(manager);
 	}-*/;
 	
 	
