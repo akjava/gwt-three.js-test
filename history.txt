@@ -49,6 +49,9 @@ public final native Vector3 getWorldDirection(Vector3 optionalTarget)
 OrthographicCamera,PerspectiveCamera - Added zoom property
 add:OrthographicCamera.java,PerspectiveCamera.java
 public final native double getZoom()
+
+PlaneBufferGeometry - Added. PlaneGeometry relies on this one
+create:PlaneBufferGeometry.java
 *68
 Animation - Refactored skinning code
 deprecated:Animation.java

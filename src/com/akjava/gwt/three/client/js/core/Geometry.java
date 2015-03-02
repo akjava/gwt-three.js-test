@@ -37,6 +37,7 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.core;
 
+import com.akjava.gwt.three.client.gwt.JSParameter;
 import com.akjava.gwt.three.client.gwt.animation.AnimationBone;
 import com.akjava.gwt.three.client.gwt.animation.AnimationData;
 import com.akjava.gwt.three.client.gwt.core.BoundingBox;
@@ -422,5 +423,8 @@ public  native final Geometry fromBufferGeometry(BufferGeometry geo)/*-{
 return this.fromBufferGeometry(geo);
 }-*/;
 
+public  native final JSParameter getParameter()/*-{
+return this.parameters;
+}-*/;
 
 }

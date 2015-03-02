@@ -4,6 +4,8 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 /*
  * i'm not sure 
+ * 
+ * TODO null check,should rename JSParameter to GWT
  */
 public class JSParameter extends JavaScriptObject{
 	protected JSParameter(){}

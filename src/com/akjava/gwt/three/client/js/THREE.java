@@ -320,6 +320,8 @@ return new $wnd.THREE.ArrowHelper(size);
 	public static final native PolyhedronGeometry PolyhedronGeometry(JsArray<JsArrayNumber> vertices,JsArray<JsArrayNumber> faces,double radius,int detail)/*-{
 	return new $wnd.THREE.PolyhedronGeometry(vertices, faces, radius, detail);
 	}-*/;
+	
+	// on r69 recommending use PlaneBufferGeometry
 	public static final native PlaneGeometry PlaneGeometry(double width,double height,int widthSegments,int heightSegments)/*-{
 	return new $wnd.THREE.PlaneGeometry(width, height, widthSegments, heightSegments);
 	}-*/;
