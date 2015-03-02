@@ -46,6 +46,9 @@ public final native Euler getWorldRotation(Euler optionalTarget)
 public final native Vector3 getWorldScale(Vector3 optionalTarget)
 public final native Vector3 getWorldDirection(Vector3 optionalTarget)
 
+OrthographicCamera,PerspectiveCamera - Added zoom property
+add:OrthographicCamera.java,PerspectiveCamera.java
+public final native double getZoom()
 *68
 Animation - Refactored skinning code
 deprecated:Animation.java

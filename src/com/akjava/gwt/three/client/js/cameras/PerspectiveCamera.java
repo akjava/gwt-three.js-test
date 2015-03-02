@@ -94,5 +94,7 @@ public final native PerspectiveCamera clone()/*-{
 return this.clone();
 }-*/;
 
-
+public final native double getZoom()/*-{
+return this.zoom;
+}-*/;
 }
