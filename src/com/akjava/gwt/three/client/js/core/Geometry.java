@@ -407,15 +407,20 @@ this.dispose();
 
 
 public  native final void merge(Geometry geo,Matrix4 matrix,int materialIndexOffset)/*-{
-return this.merge(geo,matrix,materialIndexOffset);
+this.merge(geo,matrix,materialIndexOffset);
 }-*/;
 
 public  native final void merge(Geometry geo,Matrix4 matrix)/*-{
-return this.merge(geo,matrix);
+this.merge(geo,matrix);
 }-*/;
 
 public  native final void merge(Geometry geo)/*-{
-return this.merge(geo);
+this.merge(geo);
 }-*/;
+
+public  native final Geometry fromBufferGeometry(BufferGeometry geo)/*-{
+return this.fromBufferGeometry(geo);
+}-*/;
+
 
 }

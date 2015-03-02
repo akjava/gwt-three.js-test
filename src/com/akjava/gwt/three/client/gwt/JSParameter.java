@@ -2,6 +2,9 @@ package com.akjava.gwt.three.client.gwt;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/*
+ * i'm not sure 
+ */
 public class JSParameter extends JavaScriptObject{
 	protected JSParameter(){}
 	public final static JSParameter createParameter(){

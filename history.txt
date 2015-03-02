@@ -26,6 +26,9 @@ move:CanvasRenderer.java to com.akjava.gwt.three.client.examples.renderers
 CompressedTextureLoader - Moved back from examples folder
 create:CompressedTextureLoader.java
 
+Geometry - Added fromBufferGeometry(),Moved makeGroups() method to WebGLRenderer
+add:WebGLRenderer.java
+public final native JSParameter makeGroups(Geometry geometry,boolean usesFaceMaterial)
 *68
 Animation - Refactored skinning code
 deprecated:Animation.java

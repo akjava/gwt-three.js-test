@@ -37,7 +37,9 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.renderers;
 
+import com.akjava.gwt.three.client.gwt.JSParameter;
 import com.akjava.gwt.three.client.js.cameras.Camera;
+import com.akjava.gwt.three.client.js.core.Geometry;
 import com.akjava.gwt.three.client.js.math.Color;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -446,6 +448,9 @@ return this.updateShadowMap(scene,camera);
 		}
 		
 	}
-	
+	//TODO create group class
+	public final native JSParameter makeGroups(Geometry geometry,boolean usesFaceMaterial)/*-{
+	return this.makeGroups(geometry,usesFaceMaterial);
+	}-*/;
 	
 }
