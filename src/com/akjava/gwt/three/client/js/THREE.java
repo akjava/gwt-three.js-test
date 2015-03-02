@@ -441,10 +441,19 @@ return new $wnd.THREE.ArrowHelper(size);
 	return new $wnd.THREE.Plane(normal,constant);
 	}-*/;
 	
+
+	/**
+	 * @deprecated
+	 * on r69 ,use set()
+	 */
 	public static final native Matrix4 Matrix4(double n11,double n12,double n13,double n14,double n21,double n22,double n23,double n24,double n31,double n32,double n33,double n34,double n41,double n42,double n43,double n44)/*-{
 	return new $wnd.THREE.Matrix4(n11,n12,n13,n14,n21,n22,n23,n24,n31,n32,n33,n34,n41,n42,n43,n44);
 	}-*/;
 	
+	/**
+	 * @deprecated
+	 * on r69 ,use set()
+	 */
 	public static final native Matrix3 Matrix3(double n11,double n12,double n13,double n21,double n22,double n23,double n31,double n32,double n33)/*-{
 	return new $wnd.THREE.Matrix3(n11,n12,n13,n21,n22,n23,n31,n32,n33);
 	}-*/;

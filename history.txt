@@ -33,6 +33,10 @@ public final native JSParameter makeGroups(Geometry geometry,boolean usesFaceMat
 Group - Added. Use it instead of Object3D when possible
 create:Group.java
 
+Matrix3,Matrix4 - Simplified constructor
+deprecated:THREE.java
+public static final native Matrix4 Matrix4(double n11,double n12,double n13,double n14,double n21,double n22,double n23,double n24,double n31,double n32,double n33,double n34,double n41,double n42,double n43,double n44)
+public static final native Matrix3 Matrix3(double n11,double n12,double n13,double n21,double n22,double n23,double n31,double n32,double n33)
 *68
 Animation - Refactored skinning code
 deprecated:Animation.java
