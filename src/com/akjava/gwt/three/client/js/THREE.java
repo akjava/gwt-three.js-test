@@ -87,6 +87,7 @@ import com.akjava.gwt.three.client.js.extras.curves.SplineCurve3;
 import com.akjava.gwt.three.client.js.extras.geometries.BoxGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.CircleGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.CylinderGeometry;
+import com.akjava.gwt.three.client.js.extras.geometries.DodecahedronGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.ExtrudeGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.IcosahedronGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.LatheGeometry;
@@ -1078,5 +1079,9 @@ return new $wnd.THREE.ArrowHelper(size);
 	
 	public static  native final CompressedTextureLoader CompressedTextureLoader()/*-{
 	return  new $wnd.THREE.CompressedTextureLoader();
+	}-*/;
+	
+	public static  native final DodecahedronGeometry DodecahedronGeometry(double radius,int detail)/*-{
+	return  new $wnd.THREE.DodecahedronGeometry(radius, detail);
 	}-*/;
 }
