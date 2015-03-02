@@ -37,12 +37,12 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.loaders;
 
-import com.akjava.gwt.three.client.js.core.Object3D;
 import com.akjava.gwt.three.client.js.textures.Texture;
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.NativeEvent;
 
 
-public class TextureLoader extends Object3D{
+public class TextureLoader extends JavaScriptObject{
 	protected TextureLoader() {
 	}
 
