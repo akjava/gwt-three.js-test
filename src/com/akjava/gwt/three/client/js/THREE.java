@@ -175,6 +175,7 @@ import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.math.Vector4;
 import com.akjava.gwt.three.client.js.math.Vertex;
 import com.akjava.gwt.three.client.js.objects.Bone;
+import com.akjava.gwt.three.client.js.objects.Group;
 import com.akjava.gwt.three.client.js.objects.LOD;
 import com.akjava.gwt.three.client.js.objects.Line;
 import com.akjava.gwt.three.client.js.objects.Mesh;
@@ -1083,5 +1084,9 @@ return new $wnd.THREE.ArrowHelper(size);
 	
 	public static  native final DodecahedronGeometry DodecahedronGeometry(double radius,int detail)/*-{
 	return  new $wnd.THREE.DodecahedronGeometry(radius, detail);
+	}-*/;
+	
+	public static final native Group Group()/*-{
+	return new $wnd.THREE.Group();
 	}-*/;
 }

@@ -29,6 +29,10 @@ create:CompressedTextureLoader.java
 Geometry - Added fromBufferGeometry(),Moved makeGroups() method to WebGLRenderer
 add:WebGLRenderer.java
 public final native JSParameter makeGroups(Geometry geometry,boolean usesFaceMaterial)
+
+Group - Added. Use it instead of Object3D when possible
+create:Group.java
+
 *68
 Animation - Refactored skinning code
 deprecated:Animation.java
