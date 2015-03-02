@@ -79,9 +79,5 @@ public class Camera extends Object3D{
 	public final native void  lookAt(double x, double y, double z)/*-{
 		this.lookAt(new $wnd.THREE.Vector3(x, y, z));
 	}-*/;
-
-	public final native Vector3 getWorldDirection(Vector3 optionalTarget)/*-{
-	return this.getWorldDirection(optionalTarget);
-	}-*/;
 	
 }

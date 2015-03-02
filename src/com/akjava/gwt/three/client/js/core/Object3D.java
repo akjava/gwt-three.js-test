@@ -59,7 +59,7 @@ protected Object3D(){}
 	}
 	public final native Euler getRotation()/*-{
 	return this.rotation;
-}-*/;
+	}-*/;
 	
 	/**
 	 * @deprecated
@@ -470,5 +470,24 @@ return this.type;
 public final native JSONObject toJSON()/*-{
 return this.toJSON();
 }-*/;
+
+
+public final native Vector3 getWorldPosition(Vector3 optionalTarget)/*-{
+return this.getWorldPosition(optionalTarget);
+}-*/;
+public final native Quaternion getWorldQuaternion(Quaternion optionalTarget)/*-{
+return this.getWorldQuaternion(optionalTarget);
+}-*/;
+public final native Euler getWorldRotation(Euler optionalTarget)/*-{
+return this.getWorldRotation(optionalTarget);
+}-*/;
+public final native Vector3 getWorldScale(Vector3 optionalTarget)/*-{
+return this.getWorldScale(optionalTarget);
+}-*/;
+public final native Vector3 getWorldDirection(Vector3 optionalTarget)/*-{
+return this.getWorldDirection(optionalTarget);
+}-*/;
+
+
 
 }
