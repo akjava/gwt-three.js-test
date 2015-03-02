@@ -133,6 +133,7 @@ import com.akjava.gwt.three.client.js.lights.Light;
 import com.akjava.gwt.three.client.js.lights.PointLight;
 import com.akjava.gwt.three.client.js.lights.SpotLight;
 import com.akjava.gwt.three.client.js.loaders.BufferGeometryLoader;
+import com.akjava.gwt.three.client.js.loaders.CompressedTextureLoader;
 import com.akjava.gwt.three.client.js.loaders.GeometryLoader;
 import com.akjava.gwt.three.client.js.loaders.ImageLoader;
 import com.akjava.gwt.three.client.js.loaders.JSONLoader;
@@ -1073,5 +1074,9 @@ return new $wnd.THREE.ArrowHelper(size);
 	
 	public static final native Audio Audio(AudioListener listener)/*-{
 	return new $wnd.THREE.Audio(listener);
+	}-*/;
+	
+	public static  native final CompressedTextureLoader CompressedTextureLoader()/*-{
+	return  new $wnd.THREE.CompressedTextureLoader();
 	}-*/;
 }

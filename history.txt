@@ -22,6 +22,10 @@ public final native Vector3 getWorldDirection(Vector3 optionalTarget)
 
 CanvasRenderer - Moved to examples folder.
 move:CanvasRenderer.java to com.akjava.gwt.three.client.examples.renderers
+
+CompressedTextureLoader - Moved back from examples folder
+create:CompressedTextureLoader.java
+
 *68
 Animation - Refactored skinning code
 deprecated:Animation.java
