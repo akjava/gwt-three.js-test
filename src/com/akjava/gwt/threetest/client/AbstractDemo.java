@@ -1,14 +1,14 @@
 package com.akjava.gwt.threetest.client;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.examples.renderers.CSS3DRenderer;
 import com.akjava.gwt.three.client.gwt.core.CameraControler;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
-import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.NativeEvent;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.MouseDownEvent;
 import com.google.gwt.event.dom.client.MouseDownHandler;
 import com.google.gwt.event.dom.client.MouseMoveEvent;
@@ -19,6 +19,7 @@ import com.google.gwt.event.dom.client.MouseUpEvent;
 import com.google.gwt.event.dom.client.MouseUpHandler;
 import com.google.gwt.event.dom.client.MouseWheelEvent;
 import com.google.gwt.event.dom.client.MouseWheelHandler;
+import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 import com.google.gwt.user.client.ui.Widget;
@@ -77,13 +78,19 @@ public abstract class AbstractDemo implements Demo{
 		}
 	}
 
+	private List<HandlerRegistration> registrations=new ArrayList<HandlerRegistration>();
+	
+	
+	protected void addHandlerRegistration(HandlerRegistration handlerRegistration){
+		registrations.add(handlerRegistration);
+	}
 	
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		this.width=width;
 		this.height=height;
 		this.renderer=renderer;
-		panel.addMouseUpHandler(new MouseUpHandler() {
+		HandlerRegistration handlerRegistration=panel.addMouseUpHandler(new MouseUpHandler() {
 			
 			@Override
 			public void onMouseUp(MouseUpEvent event) {
@@ -91,15 +98,18 @@ public abstract class AbstractDemo implements Demo{
 				AbstractDemo.this.onMouseUp(event);
 			}
 		});
-
+		registrations.add(handlerRegistration);
 
 		
-		panel.addMouseWheelHandler(new MouseWheelHandler() {
+		
+		handlerRegistration=panel.addMouseWheelHandler(new MouseWheelHandler() {
 			@Override
 			public void onMouseWheel(MouseWheelEvent event) {
 				AbstractDemo.this.onMouseWheel(event);
 			}
 		});
+		
+		registrations.add(handlerRegistration);
 		//hpanel.setFocus(true);
 		
 		/*
@@ -112,7 +122,7 @@ public abstract class AbstractDemo implements Demo{
 		});
 		*/
 		
-		panel.addMouseDownHandler(new MouseDownHandler() {
+		handlerRegistration=panel.addMouseDownHandler(new MouseDownHandler() {
 			
 			@Override
 			public void onMouseDown(MouseDownEvent event) {
@@ -120,21 +130,24 @@ public abstract class AbstractDemo implements Demo{
 				
 			}
 		});
+		registrations.add(handlerRegistration);
 		
-		panel.addMouseOutHandler(new MouseOutHandler() {
+		handlerRegistration=panel.addMouseOutHandler(new MouseOutHandler() {
 			
 			@Override
 			public void onMouseOut(MouseOutEvent event) {
 				AbstractDemo.this.onMouseOut(event);
 			}
 		});
+		registrations.add(handlerRegistration);
 		
-		panel.addMouseMoveHandler(new MouseMoveHandler(){
+		handlerRegistration=panel.addMouseMoveHandler(new MouseMoveHandler(){
 
 			@Override
 			public void onMouseMove(MouseMoveEvent event) {
 				AbstractDemo.this.onMouseMove(event);
 			}});
+		registrations.add(handlerRegistration);
 	}
 	
 	@Override
@@ -147,6 +160,14 @@ public abstract class AbstractDemo implements Demo{
 			CSS3DRenderer css3r=(CSS3DRenderer)renderer;
 			css3r.gwtClear();	//to avoid show duplicate content.
 		}
+		
+	}
+	
+	public void clearHandlerRegistration(){
+		for(HandlerRegistration r:registrations){
+			r.removeHandler();
+		}
+		registrations.clear();
 	}
 	
 	@Override
