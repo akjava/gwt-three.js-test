@@ -46,7 +46,7 @@ import com.google.gwt.user.client.ui.FocusPanel;
  *
  */
 public class SkeletonHelperDemo extends AbstractDemo{
-
+	private SkeletonHelper helper;
 private Object3D object;
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
@@ -67,6 +67,8 @@ private Object3D object;
 		try {
 			builder.sendRequest(null, new RequestCallback() {
 				
+				
+
 				@Override
 				public void onResponseReceived(Request request, Response response) {
 					
@@ -85,7 +87,7 @@ private Object3D object;
 					 */
 					
 					SkinnedMesh skinned=THREE.SkinnedMesh(geometry, material);
-					SkeletonHelper helper=THREE.SkeletonHelper(skinned);
+					helper = THREE.SkeletonHelper(skinned);
 					
 					
 					object=THREE.Object3D();
@@ -96,7 +98,7 @@ private Object3D object;
 					scene.add(object);
 					
 					object.add(skinned);
-					object.add(helper);
+					scene.add(helper);
 				}
 				
 				@Override
@@ -152,7 +154,7 @@ private Object3D object;
 					object.getRotation().set(cameraControle.getRadiantRotationX(), cameraControle.getRadiantRotationY(), cameraControle.getRadiantRotationZ(),"XYZ");
 					
 					
-					
+					helper.update();
 					renderer.render(scene, camera);
 					MainWidget.stats.end();
 				}catch(Exception e){
