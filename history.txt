@@ -57,11 +57,13 @@ Projector - Moved to examples folder.
 move:Projector.java to com.akjava.gwt.three.client.examples.renderers
 STOP SUPPORT THIS ON GWT SO FAR.
 
-Quaternion - Added offset parameter to fromArray() method,Added array and offset parameters to toArray() method.
+Quaternion,Vector2,Vector3,Vector4 - Added offset parameter to fromArray() method,Added array and offset parameters to toArray() method.
 add:Quaternion.java
-public final native Quaternion fromArray(JsArrayNumber array,int offset)
+public final native * fromArray(JsArrayNumber array,int offset)
 public final native JsArrayNumber toArray(JsArrayNumber array)
 public final native JsArrayNumber toArray(JsArrayNumber array,int offset)
+
+
 *68
 Animation - Refactored skinning code
 deprecated:Animation.java

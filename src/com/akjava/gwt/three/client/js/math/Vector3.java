@@ -446,5 +446,17 @@ public final native Vector3 roundToZero()/*-{
 return this.roundToZero();
 }-*/;
 
+public final native Vector3 fromArray(JsArrayNumber array,int offset)/*-{
+return this.fromArray(array,offset);
+}-*/;
+
+public final native JsArrayNumber toArray(JsArrayNumber array)/*-{
+return this.toArray(array);
+}-*/;
+
+public final native JsArrayNumber toArray(JsArrayNumber array,int offset)/*-{
+return this.toArray(array,offset);
+}-*/;
+
 }
 
