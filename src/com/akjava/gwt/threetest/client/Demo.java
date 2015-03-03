@@ -23,6 +23,7 @@ import com.google.gwt.user.client.ui.Widget;
 public interface Demo {
 	public void start(WebGLRenderer renderer,int width,int height,FocusPanel panel);
 	public void stop();
+	public void clearHandlerRegistration();
 	public String getName();
 	public void startTimer(Timer timer);
 	public String getHowToHtml();

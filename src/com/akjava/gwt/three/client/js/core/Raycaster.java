@@ -37,6 +37,7 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.core;
 
+import com.akjava.gwt.lib.client.JavaScriptUtils;
 import com.akjava.gwt.three.client.gwt.core.Intersect;
 import com.akjava.gwt.three.client.js.math.Ray;
 import com.akjava.gwt.three.client.js.math.Vector3;
@@ -83,6 +84,16 @@ public  final native JsArray<Intersect> intersectObject(Object3D object,boolean 
 return this.intersectObject(object,recursive);
 }-*/;
 
+/**
+ * 
+ * @param objects
+ * possible warning:'THREE.Raycaster.intersectObjects: objects is not an Array.'  if array created by normal-way
+ * must be create by javascript ,otherway use JavaScriptUtils
+ * JsArray<Object3D> meshs=((JsArray<Object3D>) JavaScriptUtils.createJSArray().cast());
+ * 
+ * @param recursive
+ * @return
+ */
 public  final native JsArray<Intersect> intersectObjects(JsArray<Object3D> objects,boolean recursive)/*-{
 return this.intersectObjects(objects,recursive);
 }-*/;

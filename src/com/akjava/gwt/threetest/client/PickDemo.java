@@ -35,6 +35,7 @@ import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 
@@ -106,7 +107,7 @@ public class PickDemo extends AbstractDemo{
 		startTimer(timer);
 		
 		final Projector projector=THREE.Projector();
-		panel.addClickHandler(new ClickHandler() {
+		HandlerRegistration handlerRegistration=panel.addClickHandler(new ClickHandler() {
 			
 			@Override
 			public void onClick(ClickEvent event) {
@@ -140,6 +141,7 @@ public class PickDemo extends AbstractDemo{
 				}
 			}
 		});
+		addHandlerRegistration(handlerRegistration);
 	}
 
 	

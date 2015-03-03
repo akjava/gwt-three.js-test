@@ -82,6 +82,7 @@ public class MainWidget extends Composite {
 	public void stop(){
 		if(lastDemo!=null){
 			lastDemo.stop();
+			lastDemo.clearHandlerRegistration();
 		}
 	}
 	

@@ -22,6 +22,7 @@
  */
 package com.akjava.gwt.threetest.client;
 
+import com.akjava.gwt.lib.client.JavaScriptUtils;
 import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.examples.renderers.Projector;
 import com.akjava.gwt.three.client.gwt.core.Intersect;
@@ -57,7 +58,7 @@ private Scene scene;
 private Object3D root;
 
 @SuppressWarnings("unchecked")
-JsArray<Object3D> meshs=((JsArray<Object3D>) JsArray.createArray());
+JsArray<Object3D> meshs=((JsArray<Object3D>) JavaScriptUtils.createJSArray().cast());
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		super.start(renderer, width, height, panel);
@@ -139,7 +140,7 @@ JsArray<Object3D> meshs=((JsArray<Object3D>) JsArray.createArray());
 		double mouseX=((double)event.getX()/width)*2-1;
 		double mouseY=-((double)event.getY()/height)*2+1;;
 		Vector3 vector =  THREE.Vector3( mouseX, mouseY, 0.5 );
-		projector.unprojectVector( vector, camera );
+		vector.unproject(camera );
 		Ray ray=THREE.Ray(camera.getPosition(), vector.subSelf( camera.getPosition() ).normalize());
 		JsArray<Intersect> intersects=ray.intersectObjects(meshs);
 		*/

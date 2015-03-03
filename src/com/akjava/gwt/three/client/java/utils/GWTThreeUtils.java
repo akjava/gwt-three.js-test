@@ -119,7 +119,7 @@ public class GWTThreeUtils {
 	//for camera position & rotation 0,0,0,
 	public static Vector3 toWebGLXY(int mouseX,int mouseY,Camera camera,int width,int height){
 		Vector3 mouseXY=THREE.Vector3(mouseX-width/2, -(mouseY-height/2), 0);
-		Vector3 pj=projector.projectVector(mouseXY, camera);
+		Vector3 pj=mouseXY.project(camera);
 		return pj;
 	}
 	
