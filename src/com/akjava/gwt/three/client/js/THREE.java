@@ -193,11 +193,13 @@ import com.akjava.gwt.three.client.js.textures.CompressedTexture;
 import com.akjava.gwt.three.client.js.textures.CubeTexture;
 import com.akjava.gwt.three.client.js.textures.DataTexture;
 import com.akjava.gwt.three.client.js.textures.Texture;
+import com.akjava.gwt.three.client.js.textures.VideoTexture;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayNumber;
 import com.google.gwt.dom.client.CanvasElement;
 import com.google.gwt.dom.client.ImageElement;
+import com.google.gwt.dom.client.VideoElement;
 
 
 
@@ -1099,5 +1101,9 @@ return new $wnd.THREE.ArrowHelper(size);
 	
 	public static final native Group Group()/*-{
 	return new $wnd.THREE.Group();
+	}-*/;
+	
+	public static  native final VideoTexture VideoTexture(VideoElement image,JavaScriptObject mapping, int wrapS,int  wrapT, int magFilter,int minFilter,int format,int type,int anisotropy)/*-{
+	return  new $wnd.THREE.VideoTexture(image,mapping, wrapS, wrapT, magFilter, minFilter, format, type, anisotropy);
 	}-*/;
 }

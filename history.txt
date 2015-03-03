@@ -67,6 +67,9 @@ Vector3 -Added project() and unproject() methods. Previously Projector.*projectV
 add:Vector3.java
 public final native Vector3 project(Camera camera)
 public final native Vector3 unproject(Camera camera)
+
+VideoTexture - Added
+create:VideoTexture.java
 *68
 Animation - Refactored skinning code
 deprecated:Animation.java
