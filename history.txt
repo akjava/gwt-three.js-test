@@ -70,6 +70,11 @@ public final native Vector3 unproject(Camera camera)
 
 VideoTexture - Added
 create:VideoTexture.java
+
+WebGLRenderer - *
+add:WebGLRenderer.java
+public final native void uploadTexture (Texture texture)
+
 *68
 Animation - Refactored skinning code
 deprecated:Animation.java

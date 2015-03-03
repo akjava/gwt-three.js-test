@@ -42,6 +42,7 @@ import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Geometry;
 import com.akjava.gwt.three.client.js.math.Color;
 import com.akjava.gwt.three.client.js.scenes.Scene;
+import com.akjava.gwt.three.client.js.textures.Texture;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.dom.client.CanvasElement;
@@ -452,5 +453,9 @@ return this.updateShadowMap(scene,camera);
 	public final native JSParameter makeGroups(Geometry geometry,boolean usesFaceMaterial)/*-{
 	return this.makeGroups(geometry,usesFaceMaterial);
 	}-*/;
+	
+	public final native void uploadTexture (Texture texture)/*-{
+	return this.uploadTexture(texture);
+}-*/;
 	
 }
