@@ -51,7 +51,7 @@ import com.google.gwt.core.client.JsArray;
 /**
  * @deprecated
  * on three.js r69 move to example
- * so i dropped support r69's projector,too much things TODO so far.
+ * so i dropped support r69's projector  so far,because too much things todo.
  * maybe this tips help you 
  * http://stackoverflow.com/questions/27409074/three-js-converting-3d-position-to-2d-screen-position-r69
  * @author aki
@@ -151,5 +151,9 @@ public final native JavaScriptObject projectScene(Scene scene,Camera camera,Obje
 return this.projectScene(scene,camera,sortObjects,sortElements);
 }-*/;
 
+
+public static native final Projector createProjector()/*-{
+return new $wnd.THREE.Projector();
+}-*/;
 
 }

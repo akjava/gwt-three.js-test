@@ -84,6 +84,10 @@ public  final native JsArray<Intersect> intersectObject(Object3D object,boolean 
 return this.intersectObject(object,recursive);
 }-*/;
 
+public  final native JsArray<Intersect> intersectObject(Object3D object)/*-{
+return this.intersectObject(object);
+}-*/;
+
 /**
  * 
  * @param objects

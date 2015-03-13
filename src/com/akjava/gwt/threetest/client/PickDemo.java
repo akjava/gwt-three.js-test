@@ -20,8 +20,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.akjava.gwt.three.client.examples.renderers.Projector;
 import com.akjava.gwt.three.client.gwt.core.Intersect;
+import com.akjava.gwt.three.client.java.GWTDragObjectControler;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Object3D;
@@ -106,7 +106,6 @@ public class PickDemo extends AbstractDemo{
 		};
 		startTimer(timer);
 		
-		final Projector projector=THREE.Projector();
 		HandlerRegistration handlerRegistration=panel.addClickHandler(new ClickHandler() {
 			
 			@Override
@@ -115,7 +114,7 @@ public class PickDemo extends AbstractDemo{
 				for(Mesh mesh:meshs.values()){
 					list.add(mesh);
 				}
-				JsArray<Intersect> intersects=projector.gwtPickIntersectsByList(event.getX(), event.getY(), width, height, camera,list);
+				JsArray<Intersect> intersects=GWTDragObjectControler.pickIntersectsByList(event.getX(), event.getY(), width, height, camera,list);
 				if(intersects.length()>0){
 				
 				}

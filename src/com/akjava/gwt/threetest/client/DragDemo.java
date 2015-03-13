@@ -23,8 +23,6 @@
 package com.akjava.gwt.threetest.client;
 
 import com.akjava.gwt.lib.client.JavaScriptUtils;
-import com.akjava.gwt.lib.client.LogUtils;
-import com.akjava.gwt.three.client.examples.renderers.Projector;
 import com.akjava.gwt.three.client.gwt.core.Intersect;
 import com.akjava.gwt.three.client.java.GWTDragObjectControler;
 import com.akjava.gwt.three.client.java.utils.GWTGeometryUtils;
@@ -37,7 +35,6 @@ import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.threetest.client.resources.Bundles;
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.dom.client.NativeEvent;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -85,7 +82,7 @@ JsArray<Object3D> meshs=((JsArray<Object3D>) JavaScriptUtils.createJSArray().cas
 		pointLight.setPosition(0, 100, 100);
 		root.add(pointLight);
 		
-		dragObjectControler = new GWTDragObjectControler(scene,projector);
+		dragObjectControler = new GWTDragObjectControler(scene,null);
 		
 		Object3D mesh =  THREE.Mesh(THREE.BoxGeometry(10,10,10), THREE.MeshLambertMaterial().color(0x00ff00).build());
 		root.add(mesh);
@@ -107,7 +104,6 @@ JsArray<Object3D> meshs=((JsArray<Object3D>) JavaScriptUtils.createJSArray().cas
 		startTimer(timer);
 	}
 	
-	Projector projector=THREE.Projector();
 
 	@Override
 	public void onMouseMove(MouseMoveEvent event) {
@@ -144,7 +140,7 @@ JsArray<Object3D> meshs=((JsArray<Object3D>) JavaScriptUtils.createJSArray().cas
 		Ray ray=THREE.Ray(camera.getPosition(), vector.subSelf( camera.getPosition() ).normalize());
 		JsArray<Intersect> intersects=ray.intersectObjects(meshs);
 		*/
-		JsArray<Intersect> intersects=projector.gwtPickIntersects(event.getX(), event.getY(), width, height, camera, meshs);
+		JsArray<Intersect> intersects=GWTDragObjectControler.pickIntersects(event.getX(), event.getY(), width, height, camera, meshs);
 		
 		
 		

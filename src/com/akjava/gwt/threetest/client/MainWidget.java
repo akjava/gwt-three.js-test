@@ -122,7 +122,8 @@ public class MainWidget extends Composite {
 				changeRenderer("canvas");
 			}
 		});
-		renderers.add(canvasButton);
+		//renderers.add(canvasButton);
+		//somehow not work on r70,stop support canvas render
 		
 		/*
 		 * somehow not work

@@ -1,7 +1,5 @@
 package com.akjava.gwt.three.client.java.utils;
 
-import com.akjava.gwt.lib.client.LogUtils;
-import com.akjava.gwt.three.client.examples.renderers.Projector;
 import com.akjava.gwt.three.client.gwt.JSONModelFile;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
@@ -114,7 +112,6 @@ public class GWTThreeUtils {
         ( - pos.y + 1) * height / 2 ,0);
 	}-*/;
 	
-	private static final Projector projector=THREE.Projector();
 	
 	//for camera position & rotation 0,0,0,
 	public static Vector3 toWebGLXY(int mouseX,int mouseY,Camera camera,int width,int height){

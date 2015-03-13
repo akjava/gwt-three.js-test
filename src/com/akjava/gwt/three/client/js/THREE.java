@@ -43,7 +43,6 @@ import com.akjava.gwt.three.client.examples.camera.CombinedCamera;
 import com.akjava.gwt.three.client.examples.loaders.SceneLoader;
 import com.akjava.gwt.three.client.examples.modifiers.SubdivisionModifier;
 import com.akjava.gwt.three.client.examples.renderers.CSS3DRenderer;
-import com.akjava.gwt.three.client.examples.renderers.Projector;
 import com.akjava.gwt.three.client.gwt.animation.AnimationData;
 import com.akjava.gwt.three.client.gwt.math.XY;
 import com.akjava.gwt.three.client.gwt.math.XYZ;
@@ -925,9 +924,7 @@ return new $wnd.THREE.ArrowHelper(size);
 	public static  final DirectionalLight DirectionalLight(double color){
 		return DirectionalLight((int)color);
 	}
-	public static native final Projector Projector()/*-{
-	return new $wnd.THREE.Projector();
-	}-*/;
+
 	
 	
 	/*

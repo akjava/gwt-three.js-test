@@ -4,33 +4,41 @@ package com.akjava.gwt.three.client.java;
  * 
  * based on three.js webgl - draggable cubes
  */
+import com.akjava.gwt.lib.client.JavaScriptUtils;
 import com.akjava.gwt.lib.client.LogUtils;
-import com.akjava.gwt.three.client.examples.renderers.Projector;
 import com.akjava.gwt.three.client.gwt.core.Intersect;
 import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Object3D;
+import com.akjava.gwt.three.client.js.core.Raycaster;
 import com.akjava.gwt.three.client.js.math.Matrix4;
-import com.akjava.gwt.three.client.js.math.Ray;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.scenes.Scene;
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 
 
 public class GWTDragObjectControler {
-private Projector projector;
+
 private Mesh mouseCatchPlane;
 public Mesh getMouseCatchPlane() {
 	return mouseCatchPlane;
 }
-public GWTDragObjectControler(Scene scene,Projector projector){
-	this.projector=projector;
+
+public GWTDragObjectControler(Scene scene){
 	//maybe should black&transparent like js-sample
 	mouseCatchPlane=THREE.Mesh(THREE.PlaneGeometry(2000, 2000, 10, 10), THREE.MeshBasicMaterial().color(0x00ffff).wireFrame().build());
 	mouseCatchPlane.setVisible(false);
 	scene.add(mouseCatchPlane);
+}
+
+/**
+ * @deprecated no more support projector
+ */
+public GWTDragObjectControler(Scene scene,JavaScriptObject projector){
+	this(scene);
 }
 
 private Object3D selectedDraggablekObject;
@@ -65,6 +73,40 @@ public Vector3 getDraggableOffset() {
 
 
 
+
+
+public final native Raycaster createRaycaster(int mx,int my,int sw,int sh,Camera camera)/*-{
+
+var vector = new $wnd.THREE.Vector3( ( mx / sw ) * 2 - 1, - ( my / sh ) * 2 + 1, 0.5 );
+			vector.unproject(camera );
+
+			var ray = new $wnd.THREE.Raycaster( camera.position, vector.sub( camera.position ).normalize() );
+
+			return  ray;
+
+}-*/;
+
+
+public static final native JsArray<Intersect> pickIntersects(int mx,int my,int sw,int sh,Camera camera,JsArray<Object3D> objects)/*-{
+
+var vector = new $wnd.THREE.Vector3( ( mx / sw ) * 2 - 1, - ( my / sh ) * 2 + 1, 0.5 );
+			vector.unproject(camera);
+
+			var ray = new $wnd.THREE.Raycaster( camera.position, vector.sub( camera.position ).normalize() );
+
+			return  ray.intersectObjects( objects );
+
+}-*/;
+
+public static final JsArray<Intersect> pickIntersectsByList(int mx,int my,int sw,int sh,Camera camera,Iterable<Object3D> objects){
+	@SuppressWarnings("unchecked")
+	JsArray<Object3D> array=((JsArray<Object3D>) JavaScriptUtils.createJSArray().cast());
+	for(Object3D obj:objects){
+		array.push(obj);
+	}
+	return pickIntersects(mx, my, sw, sh, camera, array);
+}
+
 //target must be rayed
 /*
  *** sometime it error happend,check
@@ -75,7 +117,7 @@ public Vector3 getDraggableOffset() {
 public Vector3 moveSelectionPosition(int mouseX,int mouseY,int screenWidth, int screenHeight,Camera camera){
 	if(isSelected()){
 		try{
-		Ray ray=projector.gwtCreateRay(mouseX, mouseY, screenWidth, screenHeight, camera);
+		Raycaster ray=createRaycaster(mouseX, mouseY, screenWidth, screenHeight, camera);
 		JsArray<Intersect> intersects = ray.intersectObject( mouseCatchPlane );
 		
 		
@@ -143,7 +185,7 @@ public String getLog() {
 public void selectObject(Object3D target,int mouseX,int mouseY,int screenWidth, int screenHeight,Camera camera){
 	try{
 	selectedDraggablekObject=target;
-	Ray ray=projector.gwtCreateRay(mouseX, mouseY, screenWidth, screenHeight, camera);
+	Raycaster ray=createRaycaster(mouseX, mouseY, screenWidth, screenHeight, camera);
 	
 	
 	

@@ -128,23 +128,7 @@ public class TileDemo extends AbstractDemo{
 		startTimer(timer);
 	}
 	
-	/*
-	@Override
-	public void onDoubleClick(DoubleClickEvent event) {
-		Projector projector=THREE.Projector();
-		JsArray<Intersect> intersects=projector.gwtPickIntersects(event.getX(), event.getY(), width, height, camera,scene);
-		for(int i=0;i<intersects.length();i++){
-			Intersect intersect=intersects.get(i);
-			picker.setPosition(intersect.getObject().getPosition());
-			
-			
-			
-			cameraBase=intersect.getObject().getPosition().clone();
-			updateCamera();
-			
-		}
-	}
-	*/
+
 	
 	public void onMouseMove(MouseMoveEvent event) {
 		super.onMouseMove(event);
