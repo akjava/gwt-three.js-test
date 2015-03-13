@@ -181,5 +181,8 @@ public final native void dispose()/*-{
 this.dispose();
 }-*/;
 
+public  native final BufferGeometry merge(BufferGeometry geo,int offset)/*-{
+return this.merge(geo,offset);
+}-*/;
 
 }

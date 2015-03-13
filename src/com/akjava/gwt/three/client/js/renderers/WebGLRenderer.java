@@ -40,7 +40,9 @@ package com.akjava.gwt.three.client.js.renderers;
 import com.akjava.gwt.three.client.gwt.JSParameter;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Geometry;
+import com.akjava.gwt.three.client.js.materials.Material;
 import com.akjava.gwt.three.client.js.math.Color;
+import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.three.client.js.textures.Texture;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -457,5 +459,29 @@ return this.updateShadowMap(scene,camera);
 	public final native void uploadTexture (Texture texture)/*-{
 	return this.uploadTexture(texture);
 }-*/;
+	
+	public final native double getPixelRatio()/*-{
+	return this.getPixelRatio();
+	}-*/;
+	
+	public final native void setPixelRatio(double value)/*-{
+	this.setPixelRatio(value);
+	}-*/;
+	
+	public final native JavaScriptObject forceContextLoss()/*-{
+	return this.forceContextLoss();
+	}-*/;
+	
+	/**
+	 * 
+	 * @param geometryGroup,i have no idea,
+	 * @param object maybe mesh has geometry
+	 * @param hint maybe 
+	 * @param dispose
+	 * @param material
+	 */
+	public final native void setMeshBuffers(JavaScriptObject geometryGroup, Mesh object,int hint,boolean dispose,Material material)/*-{
+	this.setMeshBuffers(geometryGroup, object, hint, dispose, material);
+	}-*/;
 	
 }

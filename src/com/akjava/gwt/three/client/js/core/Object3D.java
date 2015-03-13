@@ -37,6 +37,7 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.core;
 
+import com.akjava.gwt.three.client.gwt.core.TraverseAncestorsListener;
 import com.akjava.gwt.three.client.js.math.Euler;
 import com.akjava.gwt.three.client.js.math.Matrix4;
 import com.akjava.gwt.three.client.js.math.Quaternion;
@@ -266,10 +267,18 @@ this.scale = scale;
 }-*/;
 
 
+/**
+ * @deprecated on r70
+ * @return
+ */
 public final native Object getRenderDepth()/*-{
 return this.renderDepth;
 }-*/;
 
+/**
+ * @deprecated removed on r70
+ * @param renderDepth
+ */
 public final native void setRenderDepth(Object renderDepth)/*-{
 this.renderDepth = renderDepth;
 }-*/;
@@ -427,14 +436,17 @@ public final native void traverse(Object callback)/*-{
 this.traverse(callback);
 }-*/;
 
-public final native Object getObjectById(Object id,Object recursive)/*-{
+public final native Object3D getObjectById(int id,boolean recursive)/*-{
 return this.getObjectById(id,recursive);
 }-*/;
 
-public final native Object getObjectByName(Object name,Object recursive)/*-{
+public final native Object3D getObjectByName(String name,boolean recursive)/*-{
 return this.getObjectByName(name,recursive);
 }-*/;
 
+/**
+ * @deprecated use getObjectByName
+ */
 public final native Object getChildByName(Object name,Object recursive)/*-{
 return this.getChildByName(name,recursive);
 }-*/;
@@ -488,6 +500,18 @@ public final native Vector3 getWorldDirection(Vector3 optionalTarget)/*-{
 return this.getWorldDirection(optionalTarget);
 }-*/;
 
+//TODO test,difference value
+public final native Object3D getObjectByProperty(String name,Object value,boolean recursive)/*-{
+return this.getObjectByProperty(name,value,recursive);
+}-*/;
 
+
+public final native void traverseAncestors(TraverseAncestorsListener listener)/*-{
+this.traverseAncestors(
+function(event){
+	listener.@com.akjava.gwt.three.client.gwt.core.TraverseAncestorsListener::callback(Lcom/akjava/gwt/three/client/js/core/Object3D;)(event);
+}
+);
+}-*/;
 
 }

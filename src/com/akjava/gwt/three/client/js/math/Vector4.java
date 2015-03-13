@@ -258,5 +258,9 @@ public final native JsArrayNumber toArray(JsArrayNumber array,int offset)/*-{
 return this.toArray(array,offset);
 }-*/;
 
+public final native Vector4 fromAttribute(JavaScriptObject attribute,int index,int offset)/*-{
+return this.fromAttribute(attribute,index,offset);
+}-*/;
+
 }
 

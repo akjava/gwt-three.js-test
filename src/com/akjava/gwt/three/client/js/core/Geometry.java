@@ -418,6 +418,10 @@ this.merge(geo,matrix);
 public  native final void merge(Geometry geo)/*-{
 this.merge(geo);
 }-*/;
+public  native final void mergeMesh(Mesh mesh)/*-{
+this.mergeMesh(mesh);
+}-*/;
+
 
 public  native final Geometry fromBufferGeometry(BufferGeometry geo)/*-{
 return this.fromBufferGeometry(geo);

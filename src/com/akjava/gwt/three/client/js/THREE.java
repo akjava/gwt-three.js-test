@@ -134,6 +134,7 @@ import com.akjava.gwt.three.client.js.lights.HemisphereLight;
 import com.akjava.gwt.three.client.js.lights.Light;
 import com.akjava.gwt.three.client.js.lights.PointLight;
 import com.akjava.gwt.three.client.js.lights.SpotLight;
+import com.akjava.gwt.three.client.js.loaders.BinaryTextureLoader;
 import com.akjava.gwt.three.client.js.loaders.BufferGeometryLoader;
 import com.akjava.gwt.three.client.js.loaders.CompressedTextureLoader;
 import com.akjava.gwt.three.client.js.loaders.GeometryLoader;
@@ -498,8 +499,8 @@ return new $wnd.THREE.ArrowHelper(size);
 	return  new $wnd.THREE.ShaderMaterial(parameter);
 	}-*/;
 	
-	public static  native final PointCloudMaterial ParticleSystemMaterial(JavaScriptObject parameter)/*-{
-	return  new $wnd.THREE.ParticleSystemMaterial(parameter);
+	public static  native final PointCloudMaterial PointCloudMaterial(JavaScriptObject parameter)/*-{
+	return  new $wnd.THREE.PointCloudMaterial(parameter);
 	}-*/;
 	
 	public static  native final MeshPhongMaterial MeshPhongMaterial(JavaScriptObject parameter)/*-{
@@ -1022,21 +1023,29 @@ return new $wnd.THREE.ArrowHelper(size);
 	}
 
 	public static final class MappingModes{
-		public static native final JavaScriptObject UVMapping()/*-{
+		public static native final int UVMapping()/*-{
 		return $wnd.THREE.UVMapping;
 		}-*/;
-		public static native final JavaScriptObject CubeReflectionMapping()/*-{
+		public static native final int CubeReflectionMapping()/*-{
 		return $wnd.THREE.CubeReflectionMapping;
 		}-*/;
-		public static native final JavaScriptObject CubeRefractionMapping()/*-{
+		public static native final int CubeRefractionMapping()/*-{
 		return $wnd.THREE.CubeRefractionMapping;
 		}-*/;
-		public static native final JavaScriptObject SphericalReflectionMapping()/*-{
+		
+		public static native final int EquirectangularReflectionMapping()/*-{
+		return $wnd.THREE.EquirectangularReflectionMapping;
+		}-*/;
+		
+		public static native final int EquirectangularRefractionMapping()/*-{
+		return $wnd.THREE.EquirectangularRefractionMapping;
+		}-*/;
+		
+		public static native final int SphericalReflectionMapping()/*-{
 		return $wnd.THREE.SphericalReflectionMapping;
 		}-*/;
-		public static native final JavaScriptObject SphericalRefractionMapping()/*-{
-		return $wnd.THREE.SphericalRefractionMapping;
-		}-*/;
+		
+		
 	}
 	public static final class WrappingModes{
 		public static native final int RepeatWrapping()/*-{
@@ -1115,5 +1124,36 @@ return new $wnd.THREE.ArrowHelper(size);
 	
 	public static native final MorphAnimation MorphAnimation(MorphAnimMesh mesh)/*-{
 	return new $wnd.THREE.MorphAnimation(mesh);
+	}-*/;
+	
+	public static final native CylinderGeometry CylinderGeometry(double radiusTop,double  radiusBottom,double  height,int radialSegments,int heightSegments,boolean openEnded,double thetaStart,double thetaLength)/*-{
+	return new $wnd.THREE.CylinderGeometry(radiusTop, radiusBottom, height, radialSegments, heightSegments, openEnded,thetaStart, thetaLength);
+	}-*/;
+	
+	public static final class Tapper{
+		public static final native JavaScriptObject NoTaper()/*-{
+		return $wnd.THREE.TubeGeometry.NoTaper;
+		}-*/;
+
+		public static final native JavaScriptObject SinusoidalTaper()/*-{
+		return $wnd.THREE.TubeGeometry.SinusoidalTaper;
+		}-*/;
+	}
+	/**
+	 * 
+	 * @param path
+	 * @param segments
+	 * @param radius
+	 * @param radialSegments
+	 * @param closed
+	 * @param tapper ,choice from Tapper class
+	 * @return
+	 */
+	public static final native TubeGeometry TubeGeometry(Path path,int segments,double radius,double radialSegments,boolean closed ,JavaScriptObject tapper)/*-{
+	return new $wnd.THREE.TubeGeometry(path, segments, radius, radialSegments, tapper );
+	}-*/;
+	
+	public static  native final BinaryTextureLoader BinaryTextureLoader()/*-{
+	return  new $wnd.THREE.BinaryTextureLoader();
 	}-*/;
 }

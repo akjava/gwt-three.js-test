@@ -37,8 +37,8 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.core;
 
-import com.akjava.gwt.lib.client.JavaScriptUtils;
 import com.akjava.gwt.three.client.gwt.core.Intersect;
+import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.math.Ray;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -98,5 +98,7 @@ public  final native JsArray<Intersect> intersectObjects(JsArray<Object3D> objec
 return this.intersectObjects(objects,recursive);
 }-*/;
 
-
+public final native void setFromCamera(Vector3 coords,Camera camera)/*-{
+this.setFromCamera(coords,camera);
+}-*/;
 }

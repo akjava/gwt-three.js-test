@@ -61,7 +61,10 @@ public final native void setMaterial(Material material)/*-{
 this.material = material;
 }-*/;
 
-
+/**
+ * @deprecated on r70
+ * @param bool
+ */
 public final native boolean isSortParticles()/*-{
 return this.sortParticles;
 }-*/;
@@ -74,7 +77,10 @@ return this.sortParticles;
 public final native PointCloud clone(PointCloud object)/*-{
 return this.clone(object);
 }-*/;
-
+/**
+ * @deprecated on r70
+ * @param bool
+ */
 public native final void setSortParticles (boolean bool)/*-{
 this.sortParticles=bool;
 }-*/;

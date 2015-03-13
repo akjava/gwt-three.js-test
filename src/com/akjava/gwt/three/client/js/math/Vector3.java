@@ -40,6 +40,7 @@ package com.akjava.gwt.three.client.js.math;
 import com.akjava.gwt.three.client.gwt.math.XYZ;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayNumber;
 
 public class Vector3 extends XYZ{
@@ -468,6 +469,10 @@ public final native Vector3 unproject(Camera camera)/*-{
 
 return this.unproject(camera);
 
+}-*/;
+
+public final native Vector3 fromAttribute(JavaScriptObject attribute,int index,int offset)/*-{
+return this.fromAttribute(attribute,index,offset);
 }-*/;
 
 }

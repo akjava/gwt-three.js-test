@@ -37,7 +37,7 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.loaders;
 
-import com.akjava.gwt.three.client.js.core.BufferGeometry;
+import com.akjava.gwt.three.client.js.textures.DataTexture;
 import com.google.gwt.core.client.JavaScriptObject;
 
 
@@ -47,8 +47,8 @@ import com.google.gwt.core.client.JavaScriptObject;
  * @author aki
  *
  */
-public class BufferGeometryLoader extends JavaScriptObject{
-	protected BufferGeometryLoader() {
+public class BinaryTextureLoader extends JavaScriptObject{
+	protected BinaryTextureLoader() {
 	}
 
 //public final native Object getManager()/*-{
@@ -59,22 +59,15 @@ public class BufferGeometryLoader extends JavaScriptObject{
 //this.manager = manager;
 //}-*/;
 
-public final native void load(String url,BufferGeometryLoadHandler handler)/*-{
-	this.load(url,function ( geometry ) {
-		handler.@com.akjava.gwt.three.client.js.loaders.BufferGeometryLoader$BufferGeometryLoadHandler::onLoad(Lcom/akjava/gwt/three/client/js/core/BufferGeometry;)(geometry);
+public final native void load(String url,BinaryTextureLoadHandler handler)/*-{
+	this.load(url,function ( texture ) {
+		handler.@com.akjava.gwt.three.client.js.loaders.BinaryTextureLoader$BinaryTextureLoadHandler::onLoad(Lcom/akjava/gwt/three/client/js/textures/DataTexture;)(texture);
 		});
 }-*/;
 
-public final native void setCrossOrigin(String value)/*-{
-this.setCrossOrigin(value);
-}-*/;
 
-public final native BufferGeometry parse(JavaScriptObject json)/*-{
-return this.parse(json);
-}-*/;
-
-public static interface BufferGeometryLoadHandler {
-	public void onLoad(BufferGeometry geometry);
+public static interface BinaryTextureLoadHandler {
+	public void onLoad(DataTexture geometry);
 }
 
 

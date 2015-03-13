@@ -295,4 +295,8 @@ return this.applyToVector3Array(a);
 public final native JsArrayNumber applyToVector3Array(JsArrayNumber a,int offset,int length)/*-{
 return this.applyToVector3Array(a,offset,length);
 }-*/;
+
+public native final Matrix4 extractBasis(Vector3 x,Vector3 y,Vector3 z)/*-{
+return this.extractBasis(x,y,z);
+}-*/;
 }

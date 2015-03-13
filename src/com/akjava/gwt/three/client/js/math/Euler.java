@@ -133,4 +133,12 @@ public native final void gwtIncrementZ(double z)/*-{
 this.z+=z;
 }-*/;
 
+public final native Euler setFromRotationMatrix(Matrix4 m,String order,boolean update)/*-{
+return this.setFromRotationMatrix(m,order,update);
+}-*/;
+
+public final native Vector3 toVector3(Vector3 optionalResult)/*-{
+return toVector3(optionalResult);
+}-*/;
+
 }
