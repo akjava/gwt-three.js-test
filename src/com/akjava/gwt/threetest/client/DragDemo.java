@@ -72,7 +72,7 @@ JsArray<Object3D> meshs=((JsArray<Object3D>) JavaScriptUtils.createJSArray().cas
 		
 		root.add(GWTGeometryUtils.createLineMesh(THREE.Vector3(0, -2000, 0), THREE.Vector3(0, 2000, 0), 0x00ff00));
 		
-		Mesh ground=THREE.Mesh(THREE.PlaneGeometry(100, 100, 50, 50), THREE.MeshBasicMaterial().color(0x888888).wireFrame().build());
+		Mesh ground=THREE.Mesh(THREE.PlaneBufferGeometry(100, 100, 50, 50), THREE.MeshBasicMaterial().color(0x888888).wireFrame().build());
 		
 		ground.setRotation(Math.toRadians(-90), 0, 0);
 		ground.setPosition(0,-5,0);

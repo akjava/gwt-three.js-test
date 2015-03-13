@@ -93,6 +93,7 @@ import com.akjava.gwt.three.client.js.extras.geometries.IcosahedronGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.LatheGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.OctahedronGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.ParametricGeometry;
+import com.akjava.gwt.three.client.js.extras.geometries.PlaneBufferGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.PlaneGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.PolyhedronGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.RingGeometry;
@@ -876,6 +877,9 @@ return new $wnd.THREE.ArrowHelper(size);
 	public static native final Mesh Mesh(Geometry geometry,Material material )/*-{
 	return new $wnd.THREE.Mesh( geometry, material );
 	}-*/;
+	public static native final Mesh Mesh(BufferGeometry geometry,Material material )/*-{
+	return new $wnd.THREE.Mesh( geometry, material );
+	}-*/;
 	public static native final SkinnedMesh SkinnedMesh(Geometry geometry,Material material )/*-{
 	return new $wnd.THREE.SkinnedMesh( geometry, material );
 	}-*/;
@@ -1152,5 +1156,12 @@ return new $wnd.THREE.ArrowHelper(size);
 	
 	public static  native final BinaryTextureLoader BinaryTextureLoader()/*-{
 	return  new $wnd.THREE.BinaryTextureLoader();
+	}-*/;
+	
+	public static final native PlaneBufferGeometry PlaneBufferGeometry(double width,double height,int widthSegments,int heightSegments)/*-{
+	return new $wnd.THREE.PlaneBufferGeometry(width, height, widthSegments, heightSegments);
+	}-*/;
+	public static final native PlaneBufferGeometry PlaneBufferGeometry(double width,double height)/*-{
+	return new $wnd.THREE.PlaneBufferGeometry(width, height);
 	}-*/;
 }

@@ -29,7 +29,7 @@ public Mesh getMouseCatchPlane() {
 
 public GWTDragObjectControler(Scene scene){
 	//maybe should black&transparent like js-sample
-	mouseCatchPlane=THREE.Mesh(THREE.PlaneGeometry(2000, 2000, 10, 10), THREE.MeshBasicMaterial().color(0x00ffff).wireFrame().build());
+	mouseCatchPlane=THREE.Mesh(THREE.PlaneBufferGeometry(2000, 2000, 10, 10), THREE.MeshBasicMaterial().color(0x00ffff).wireFrame().build());
 	mouseCatchPlane.setVisible(false);
 	scene.add(mouseCatchPlane);
 }

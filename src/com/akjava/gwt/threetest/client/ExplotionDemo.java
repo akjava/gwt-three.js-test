@@ -66,7 +66,7 @@ private Mesh mesh;
 		
 		
 		
-		final Mesh root=THREE.Mesh(THREE.PlaneGeometry(36, 36), THREE.MeshLambertMaterial().color(0x00ee88).build());
+		final Mesh root=THREE.Mesh(THREE.PlaneBufferGeometry(36, 36), THREE.MeshLambertMaterial().color(0x00ee88).build());
 		scene.add(root);
 		mesh=root;
 		

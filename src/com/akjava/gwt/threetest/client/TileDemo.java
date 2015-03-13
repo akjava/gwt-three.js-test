@@ -7,6 +7,7 @@ import com.akjava.gwt.html5.client.InputRangeWidget;
 import com.akjava.gwt.three.client.examples.renderers.CSS3DObject;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
+import com.akjava.gwt.three.client.js.core.BufferGeometry;
 import com.akjava.gwt.three.client.js.core.Geometry;
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.akjava.gwt.three.client.js.extras.ImageUtils;
@@ -69,7 +70,7 @@ public class TileDemo extends AbstractDemo{
 			}else{
 				
 				
-			Geometry g=THREE.PlaneGeometry(50, 50);
+			BufferGeometry g=THREE.PlaneBufferGeometry(50, 50);
 			object=THREE.Mesh(g, THREE.MeshBasicMaterial().map(ImageUtils.loadTexture(url)).build());
 			
 			}

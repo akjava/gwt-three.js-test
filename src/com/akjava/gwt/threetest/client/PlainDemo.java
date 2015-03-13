@@ -70,12 +70,12 @@ public class PlainDemo extends AbstractDemo{
 		MeshBasicMaterialBuilder basicMaterial=MeshBasicMaterialBuilder.create().wireFrame(false).color(0x00ffff).opacity(0.5).reflectivity(true)
 		.transparent(true);
 		
-		final Mesh mesh=THREE.Mesh(THREE.PlaneGeometry(5, 5), 
+		final Mesh mesh=THREE.Mesh(THREE.PlaneBufferGeometry(5, 5), 
 				basicMaterial.build());
 		scene.add(mesh);
 		object=mesh;
 		
-		final Mesh mesh2=THREE.Mesh(THREE.PlaneGeometry(5, 5), 
+		final Mesh mesh2=THREE.Mesh(THREE.PlaneBufferGeometry(5, 5), 
 				basicMaterial.color(0xff0000).build());
 		mesh2.setPosition(2, 2, 2);
 		scene.add(mesh2);

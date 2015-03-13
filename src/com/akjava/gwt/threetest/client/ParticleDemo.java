@@ -74,7 +74,7 @@ private Mesh mesh;
 		final PointCloud particleSystem=THREE.PointCloud(particles, material);
 		particleSystem.setSortParticles(true);
 		
-		final Mesh root=THREE.Mesh(THREE.PlaneGeometry(500, 500), THREE.MeshLambertMaterial().color(0x00ee88).build());
+		final Mesh root=THREE.Mesh(THREE.PlaneBufferGeometry(500, 500), THREE.MeshLambertMaterial().color(0x00ee88).build());
 		scene.add(root);
 		mesh=root;
 		

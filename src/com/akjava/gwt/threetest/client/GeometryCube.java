@@ -80,7 +80,7 @@ scene.add( cube );
 
 
 
- plane = THREE.Mesh( THREE.PlaneGeometry( 200, 200 ),
+ plane = THREE.Mesh( THREE.PlaneBufferGeometry( 200, 200 ),
 THREE.MeshBasicMaterial(). color( 0xe0e0e0 ).overdraw(true).build() );
  plane.getGeometry().applyMatrix(THREE.Matrix4().makeRotationX( - Math.PI / 2 ) );
 scene.add( plane );
