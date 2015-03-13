@@ -1,6 +1,5 @@
 package com.akjava.gwt.threetest.client;
 
-import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.java.ParticleBasicMaterialBuilder;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.core.Geometry;
@@ -8,8 +7,8 @@ import com.akjava.gwt.three.client.js.core.Object3D;
 import com.akjava.gwt.three.client.js.extras.ImageUtils;
 import com.akjava.gwt.three.client.js.materials.ParticleBasicMaterial;
 import com.akjava.gwt.three.client.js.math.Vector3;
-import com.akjava.gwt.three.client.js.math.Vertex;
 import com.akjava.gwt.three.client.js.objects.PointCloud;
+import com.akjava.gwt.three.client.js.textures.Texture;
 
 /**
  * TODO time base
@@ -17,6 +16,16 @@ import com.akjava.gwt.three.client.js.objects.PointCloud;
  *
  */
 public class EmitterSystem {
+	
+	public EmitterSystem(){
+		Texture texture=ImageUtils.loadTexture("img/particle4.png");
+		//need for stop:Texture is not power of two. Texture.minFilter is set to THREE.LinearFilter or THREE.NearestFilter. ( undefined )
+		texture.setMinFilter(THREE.Filters.LinearFilter());
+		baseMaterial=THREE.ParticleBasicMaterial().transparent(true).
+		depthTest(false).blending(THREE.Blending.NormalBlending()).color(0x666666).size(baseSize).map(texture);//
+
+	}
+	
 	private Object3D parent;
 	public Object3D getParent() {
 		return parent;
@@ -58,9 +67,7 @@ public class EmitterSystem {
 	private ParticleBasicMaterialBuilder baseMaterial=THREE.ParticleBasicMaterial().transparent(true).sizeAttenuation(false).
 		depthTest(false).size(baseSize).blending(THREE.AdditiveBlending).map(ImageUtils.loadTexture("img/particles2.png"));//
 	*/
-	private ParticleBasicMaterialBuilder baseMaterial=THREE.ParticleBasicMaterial().transparent(true).
-			depthTest(false).blending(THREE.Blending.NormalBlending()).color(0x666666).size(baseSize).map(ImageUtils.loadTexture("img/particle4.png"));//
-
+	private ParticleBasicMaterialBuilder baseMaterial;
 	
 	Vector3[][] addVelocities;
 	

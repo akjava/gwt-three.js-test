@@ -1060,6 +1060,28 @@ return new $wnd.THREE.ArrowHelper(size);
 		}-*/;
 	}
 	
+	public static final class Filters{
+		public static native final int NearestFilter()/*-{
+		return $wnd.THREE.NearestFilter;
+		}-*/;
+		public static native final int NearestMipMapNearestFilter()/*-{
+		return $wnd.THREE.NearestMipMapNearestFilter;
+		}-*/;
+		public static native final int NearestMipMapLinearFilter()/*-{
+		return $wnd.THREE.NearestMipMapLinearFilter;
+		}-*/;
+		public static native final int LinearFilter()/*-{
+		return $wnd.THREE.LinearFilter;
+		}-*/;
+		public static native final int LinearMipMapNearestFilter()/*-{
+		return $wnd.THREE.LinearMipMapNearestFilter;
+		}-*/;
+		public static native final int LinearMipMapLinearFilter()/*-{
+		return $wnd.THREE.LinearMipMapLinearFilter;
+		}-*/;
+	}
+	
+	
 	public static final class MOUSE{
 		public static native final int LEFT()/*-{
 		return $wnd.THREE.MOUSE.LEFT;

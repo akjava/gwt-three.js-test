@@ -52,7 +52,8 @@ public class CanvasDemo extends AbstractDemo{
 		
 		Texture texture=THREE.Texture(canvas.getCanvasElement());
 		texture.setNeedsUpdate(true);//very important
-		
+		//need for stop:Texture is not power of two. Texture.minFilter is set to THREE.LinearFilter or THREE.NearestFilter. ( undefined )
+		texture.setMinFilter(THREE.Filters.LinearFilter());
 		
 		final Scene scene=THREE.Scene();
 		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);

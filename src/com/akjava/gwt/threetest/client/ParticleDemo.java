@@ -15,6 +15,7 @@
  */
 package com.akjava.gwt.threetest.client;
 
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Geometry;
@@ -22,11 +23,11 @@ import com.akjava.gwt.three.client.js.extras.ImageUtils;
 import com.akjava.gwt.three.client.js.lights.Light;
 import com.akjava.gwt.three.client.js.materials.Material;
 import com.akjava.gwt.three.client.js.math.Vector3;
-import com.akjava.gwt.three.client.js.math.Vertex;
 import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.objects.PointCloud;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
+import com.akjava.gwt.three.client.js.textures.Texture;
 import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Timer;
@@ -58,7 +59,10 @@ private Mesh mesh;
 		
 		final int pcount=1800;
 		final Geometry particles =  THREE.Geometry();
-		Material material=THREE.ParticleBasicMaterial().color(0xffffff).size(20).map(ImageUtils.loadTexture("img/particle.png"))
+		Texture texture=ImageUtils.loadTexture("img/particle.png");
+		//need for stop:Texture is not power of two. Texture.minFilter is set to THREE.LinearFilter or THREE.NearestFilter. ( undefined )
+		texture.setMinFilter(THREE.Filters.LinearFilter());
+		Material material=THREE.ParticleBasicMaterial().color(0xffffff).size(20).map(texture)
 		.blending(THREE.Blending.AdditiveBlending()).transparent(true).depthTest(false).build();
 		final Vector3[] velocity=new Vector3[pcount];
 		for(int i=0;i<pcount;i++){
@@ -119,7 +123,7 @@ private Mesh mesh;
 					
 				renderer.render(scene, camera);
 				}catch(Exception e){
-					GWT.log(e.getMessage());
+					LogUtils.log(e.getMessage());
 				}
 				MainWidget.stats.end();
 			}
