@@ -1,5 +1,7 @@
 #Change History
 ##for three.js r70
+possible warning/erros
+
 ###core
 ####BufferGeometry
 + add merge: function ( geometry, offset )
