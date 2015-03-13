@@ -4,37 +4,37 @@ possible warning/erros
 
 ###core
 ####BufferGeometry
-+ add merge: function ( geometry, offset )
+ + add merge: function ( geometry, offset )
 ###Geometry
-+ mergeMesh: function ( mesh )
+ + mergeMesh: function ( mesh )
 ###Object3D
-- this.renderDepth
-+ getObjectByProperty: function ( name, value, recursive )
-+ traverseAncestors: function ( callback )
+ - this.renderDepth
+ + getObjectByProperty: function ( name, value, recursive )
+ + traverseAncestors: function ( callback )
 ###Raycaster
-+ setFromCamera: function ( coords, camera )
+ + setFromCamera: function ( coords, camera )
 ###extras-animation
 ###MorphAnimation
-+ this.lastFrame
-+ this.currentFrame
+ + this.lastFrame
+ + this.currentFrame
 ###extras-geometries
 ####CylinderGeometry
-+ thetaStart, thetaLength on constructor
+ + thetaStart, thetaLength on constructor
 ####TubeGeometry
-+ tapper on constructor
-+ THREE.TubeGeometry.NoTaper,THREE.TubeGeometry.SinusoidalTaper
+ + tapper on constructor
+ + THREE.TubeGeometry.NoTaper,THREE.TubeGeometry.SinusoidalTaper
 ###math
 ####Euler
-+ setFromRotationMatrix: function ( m, order, update )
-+ toVector3: function ( optionalResult ) 
+ + setFromRotationMatrix: function ( m, order, update )
+ + toVector3: function ( optionalResult ) 
 ####Matrix4
-+ extractBasis: function ( xAxis, yAxis, zAxis )
+ + extractBasis: function ( xAxis, yAxis, zAxis )
 ####Vector2,3,4 
-+ fromAttribute: function ( attribute, index, offset )
+ + fromAttribute: function ( attribute, index, offset )
 ###objects
 ####PointCloud
-- this.sortParticles
+ - this.sortParticles
 ###renderers
 ####WebGLRenderer
-+ this.pixelRatio
-+ getPixelRatio();
+ + this.pixelRatio
+ + getPixelRatio();
