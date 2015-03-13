@@ -60,7 +60,7 @@ private Object3D object;
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		super.start(renderer, width, height, panel);
 		
-		renderer.setClearColorHex(0x333333, 1);
+		renderer.setClearColor(0x333333, 1);
 		
 		final Scene scene=THREE.Scene();
 		

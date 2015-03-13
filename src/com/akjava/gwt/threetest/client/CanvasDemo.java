@@ -16,16 +16,17 @@
 package com.akjava.gwt.threetest.client;
 
 import com.akjava.gwt.lib.client.ExportUtils;
+import com.akjava.gwt.three.client.gwt.materials.MeshLambertMaterialParameter;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.lights.Light;
+import com.akjava.gwt.three.client.js.math.Euler;
 import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.three.client.js.textures.Texture;
 import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.canvas.client.Canvas;
-import com.google.gwt.dom.client.ImageElement;
 import com.google.gwt.dom.client.NativeEvent;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -33,7 +34,6 @@ import com.google.gwt.event.dom.client.MouseMoveEvent;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FocusPanel;
-import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Widget;
 
 public class CanvasDemo extends AbstractDemo{
@@ -42,7 +42,7 @@ public class CanvasDemo extends AbstractDemo{
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		super.start(renderer, width, height, panel);
-		renderer.setClearColorHex(0xffffff, 1);
+		renderer.setClearColor(0xffffff, 1);
 		canvas = Canvas.createIfSupported();
 		canvas.setCoordinateSpaceWidth(100);
 		canvas.setCoordinateSpaceHeight(100);
@@ -62,7 +62,7 @@ public class CanvasDemo extends AbstractDemo{
 		
 		
 		final Mesh mesh=THREE.Mesh(THREE.BoxGeometry(5, 5, 5), 
-				THREE.MeshLambertMaterial().map(texture).build());
+				THREE.MeshLambertMaterial(MeshLambertMaterialParameter.create().map(texture)));
 		scene.add(mesh);
 		
 		final Light light=THREE.PointLight(0xffffff);
@@ -72,14 +72,15 @@ public class CanvasDemo extends AbstractDemo{
 		
 		Timer timer = new Timer(){
 			public void run(){
-				MainWidget.stats.update();
+				MainWidget.stats.begin();
 				camera.setPosition(cameraControle.getPositionX(), cameraControle.getPositionY(), cameraControle.getPositionZ());
 				
-				mesh.setRotation(cameraControle.getRadiantRotationX(), cameraControle.getRadiantRotationY(), cameraControle.getRadiantRotationZ());
+				mesh.getRotation().set(cameraControle.getRadiantRotationX(), cameraControle.getRadiantRotationY(), cameraControle.getRadiantRotationZ(),Euler.XYZ);
 				
 				
 				
 				renderer.render(scene, camera);
+				MainWidget.stats.end();
 			}
 		};
 		

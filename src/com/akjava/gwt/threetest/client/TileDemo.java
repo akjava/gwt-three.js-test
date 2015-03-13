@@ -71,7 +71,10 @@ public class TileDemo extends AbstractDemo{
 				
 				
 			BufferGeometry g=THREE.PlaneBufferGeometry(50, 50);
-			object=THREE.Mesh(g, THREE.MeshBasicMaterial().map(ImageUtils.loadTexture(url)).build());
+			object=THREE.Mesh(g, THREE.MeshBasicMaterial(
+					GWTMaterialParamUtils.MeshBasicMaterial().map(ImageUtils.loadTexture(url))
+					)
+					);
 			
 			}
 			object.setPosition(i*50+25-500, 0,j*50+25-500);
@@ -156,7 +159,7 @@ public class TileDemo extends AbstractDemo{
 		double rad=Math.toRadians(range.getValue());
 		camera.getPosition().setX(Math.cos( rad ) * cpos);
 		camera.getPosition().setZ(Math.sin( rad ) * cpos);
-		camera.getPosition().addSelf(cameraBase);
+		camera.getPosition().add(cameraBase);
 		//GWT.log(ThreeLog.get(camera.getPosition()));
 		camera.lookAt( cameraBase );
 	}

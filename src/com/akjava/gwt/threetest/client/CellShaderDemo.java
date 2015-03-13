@@ -20,6 +20,7 @@ import java.util.List;
 
 import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.examples.renderers.CellShader;
+import com.akjava.gwt.three.client.gwt.materials.ShaderMaterialParameter;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Geometry;
@@ -91,7 +92,11 @@ private Object3D object;
 				CellShader shader=(CellShader) CellShader.createObject();
 				
 				
-				Material material=THREE.ShaderMaterial().fragmentShader(shader.fragmentShader()).vertexShader(shader.vertexShader()).uniforms(shader.uniforms()).build();
+				Material material=THREE.ShaderMaterial(ShaderMaterialParameter.create().
+						fragmentShader(shader.fragmentShader()).
+						vertexShader(shader.vertexShader()).
+						uniforms(shader.uniforms())
+						);
 				
 				List<Material> materials=new ArrayList<Material>();
 				materials.add(material);
@@ -99,7 +104,7 @@ private Object3D object;
 				
 				
 				object.setPosition(0, 0, 0);
-				object.setRotation(THREE.Euler(0, 0, 0, Euler.XYZ));
+				object.getRotation().set(0, 0, 0, Euler.XYZ);
 				object.setScale(5,5,5);
 				scene.add(object);
 			}

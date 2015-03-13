@@ -41,7 +41,7 @@ private WebGLRenderer renderer;
 		
 		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
 		camera.getPosition().set(0, 0, 100);
-		camera.setRotation(Math.toRadians(10),0, 0);
+		camera.getRotation().set(Math.toRadians(10),0, 0);
 		
 		
 		final Scene scene=THREE.Scene();
@@ -49,7 +49,7 @@ private WebGLRenderer renderer;
 		
 		final Mesh mesh=THREE.Mesh(THREE.BoxGeometry(40, 5,40), 
 				THREE.MeshLambertMaterial().color(0xeeeeee).build());
-		mesh.setRotation(0, -Math.PI/2, 0);
+		mesh.getRotation().set(0, -Math.PI/2, 0);
 		mesh.setPosition(0, -10, 0);
 		scene.add(mesh);
 		mesh.setCastShadow(true);

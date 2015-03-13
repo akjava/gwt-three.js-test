@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.akjava.gwt.three.client.gwt.core.Intersect;
+import com.akjava.gwt.three.client.gwt.materials.MeshLambertMaterialParameter;
 import com.akjava.gwt.three.client.java.GWTDragObjectControler;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
@@ -51,30 +52,40 @@ public class PickDemo extends AbstractDemo{
 		
 		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
 		camera.getPosition().set(0, 0, 50);
-		camera.setRotation(THREE.Euler(0, 0, 0, "XYZ"));
+		camera.getRotation().copy(THREE.Euler(0, 0, 0, "XYZ"));
 		
 		
 		final Scene scene=THREE.Scene();
 		
 		
-		final Material material=THREE.MeshLambertMaterial().color(0xff00ff).build();
+		final Material material=THREE.MeshLambertMaterial(
+				GWTMaterialParamUtils.MeshLambertMaterial()
+				.color(0xff00ff)
+				);
 		
 		final Mesh mesh=THREE.Mesh(THREE.CylinderGeometry(5, 5, 5,6), 
 				material);
 		scene.add(mesh);
 		
-		final Mesh mesh2=THREE.Mesh(THREE.CylinderGeometry(5, 5, 5,15), 
-				THREE.MeshLambertMaterial().color(0x00ff00).build());
+		final Mesh mesh2=THREE.Mesh(THREE.CylinderGeometry(5, 5, 5,15),
+				THREE.MeshLambertMaterial(
+						GWTMaterialParamUtils.MeshLambertMaterial()
+						.color(0x00ff00)
+						)
+						);
+				
 		mesh2.setPosition(0, 10, 0);
 		scene.add(mesh2);
 		
 		final Mesh mesh3=THREE.Mesh(THREE.CylinderGeometry(5, 1, 5,15), 
-				THREE.MeshLambertMaterial().color(0x0000ff).build());
+				THREE.MeshLambertMaterial(GWTMaterialParamUtils.MeshLambertMaterial()
+						.color(0x0000ff)));
 		mesh3.setPosition(0, -10, 0);
 		scene.add(mesh3);
 		
 		final Mesh mesh4=THREE.Mesh(THREE.CylinderGeometry(5, 4.5, 5,5), 
-				THREE.MeshLambertMaterial().color(0xffff00).build());
+				THREE.MeshLambertMaterial(GWTMaterialParamUtils.MeshLambertMaterial()
+						.color(0xffff00)));
 		mesh4.setPosition(-10,0, 0);
 		scene.add(mesh4);
 		

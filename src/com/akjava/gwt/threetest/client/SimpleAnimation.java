@@ -43,7 +43,7 @@ private long last;
 			timer.cancel();
 			timer=null;
 		}
-		renderer.setClearColorHex(0x333333, 1);
+		renderer.setClearColor(0x333333, 1);
 		
 		final Scene scene=THREE.Scene();
 		

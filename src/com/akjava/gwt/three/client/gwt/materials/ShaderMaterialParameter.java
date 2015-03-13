@@ -40,6 +40,7 @@ package com.akjava.gwt.three.client.gwt.materials;
 import com.akjava.gwt.three.client.gwt.JSParameter;
 import com.akjava.gwt.three.client.gwt.extras.Defines;
 import com.akjava.gwt.three.client.gwt.extras.Uniforms;
+import com.akjava.gwt.three.client.java.ShaderMaterialBuilder;
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
@@ -74,6 +75,10 @@ public final class ShaderMaterialParameter extends JSParameter{
 	return this;
 	}-*/;
 
+	public final native ShaderMaterialParameter uniforms(Uniforms uniforms)/*-{
+	this["uniforms"]=uniforms;
+	return this;
+	}-*/;
 	/**
 
 	this.linewidth = 1;

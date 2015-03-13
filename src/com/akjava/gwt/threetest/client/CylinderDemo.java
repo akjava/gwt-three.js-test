@@ -34,7 +34,7 @@ private Timer timer;
 			timer.cancel();
 			timer=null;
 		}
-		//renderer.setClearColorHex(0xff0000, 0.5);
+		//renderer.setClearColor(0xff0000, 0.5);
 		
 		
 		

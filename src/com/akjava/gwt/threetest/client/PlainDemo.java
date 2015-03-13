@@ -16,10 +16,9 @@
 package com.akjava.gwt.threetest.client;
 
 import com.akjava.gwt.lib.client.CanvasUtils;
-import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.examples.renderers.CSS3DObject;
 import com.akjava.gwt.three.client.examples.renderers.CSS3DRenderer;
-import com.akjava.gwt.three.client.java.MeshBasicMaterialBuilder;
+import com.akjava.gwt.three.client.gwt.materials.MeshBasicMaterialParameter;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Object3D;
@@ -44,7 +43,7 @@ public class PlainDemo extends AbstractDemo{
 			css3d=true;
 		}else{
 			css3d=false;
-			renderer.setClearColorHex(0xffffff, 1);
+			renderer.setClearColor(0xffffff, 1);
 		}
 		
 		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
@@ -67,16 +66,16 @@ public class PlainDemo extends AbstractDemo{
 			scene.add(obj2);
 			
 		}else{
-		MeshBasicMaterialBuilder basicMaterial=MeshBasicMaterialBuilder.create().wireFrame(false).color(0x00ffff).opacity(0.5).reflectivity(true)
-		.transparent(true);
 		
 		final Mesh mesh=THREE.Mesh(THREE.PlaneBufferGeometry(5, 5), 
-				basicMaterial.build());
+				THREE.MeshBasicMaterial(MeshBasicMaterialParameter.create().wireframe(false).color(0x00ffff).opacity(0.5).reflectivity(0.5)
+				.transparent(true)));
 		scene.add(mesh);
 		object=mesh;
 		
-		final Mesh mesh2=THREE.Mesh(THREE.PlaneBufferGeometry(5, 5), 
-				basicMaterial.color(0xff0000).build());
+		final Mesh mesh2=THREE.Mesh(THREE.PlaneBufferGeometry(5, 5),
+				THREE.MeshBasicMaterial(MeshBasicMaterialParameter.create().wireframe(false).color(0xff0000).opacity(0.5).reflectivity(0.5)
+						.transparent(true)));
 		mesh2.setPosition(2, 2, 2);
 		scene.add(mesh2);
 		}

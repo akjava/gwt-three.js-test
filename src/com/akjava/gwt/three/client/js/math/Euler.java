@@ -58,6 +58,10 @@ public final native Euler set(double x,double y,double z,String order)/*-{
 return this.set(x,y,z,order);
 }-*/;
 
+public final native Euler set(double x,double y,double z)/*-{
+return this.set(x,y,z);
+}-*/;
+
 public final native Euler copy(Euler euler)/*-{
 return this.copy(euler);
 }-*/;

@@ -15,9 +15,11 @@
  */
 package com.akjava.gwt.threetest.client;
 
+import com.akjava.gwt.three.client.gwt.materials.MeshLambertMaterialParameter;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.lights.Light;
+import com.akjava.gwt.three.client.js.math.Euler;
 import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
@@ -32,7 +34,7 @@ public class SimpleCubeDemo extends AbstractDemo{
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		super.start(renderer, width, height, panel);
-		renderer.setClearColorHex(0xffffff, 1);
+		renderer.setClearColor(0xffffff, 1);
 		
 		
 		
@@ -45,7 +47,7 @@ public class SimpleCubeDemo extends AbstractDemo{
 		
 		
 		final Mesh mesh=THREE.Mesh(THREE.BoxGeometry(5, 5, 5), 
-				THREE.MeshLambertMaterial().color(0xff0000).build());
+				THREE.MeshLambertMaterial(MeshLambertMaterialParameter.create().color(0xff0000)));
 		scene.add(mesh);
 		
 		final Light light=THREE.PointLight(0xffffff);
@@ -58,7 +60,7 @@ public class SimpleCubeDemo extends AbstractDemo{
 				MainWidget.stats.begin();
 				camera.setPosition(cameraControle.getPositionX(), cameraControle.getPositionY(), cameraControle.getPositionZ());
 				
-				mesh.setRotation(cameraControle.getRadiantRotationX(), cameraControle.getRadiantRotationY(), cameraControle.getRadiantRotationZ());
+				mesh.getRotation().set(cameraControle.getRadiantRotationX(), cameraControle.getRadiantRotationY(), cameraControle.getRadiantRotationZ(),Euler.XYZ);
 				
 				
 				

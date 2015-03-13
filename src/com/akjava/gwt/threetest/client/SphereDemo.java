@@ -15,6 +15,7 @@
  */
 package com.akjava.gwt.threetest.client;
 
+import com.akjava.gwt.three.client.gwt.materials.MeshBasicMaterialParameter;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.lights.Light;
@@ -30,7 +31,7 @@ public class SphereDemo extends AbstractDemo{
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		super.start(renderer, width, height, panel);
-		renderer.setClearColorHex(0xffffff, 1);
+		renderer.setClearColor(0xffffff, 1);
 		
 		
 		
@@ -42,7 +43,7 @@ public class SphereDemo extends AbstractDemo{
 		cameraControle.setPositionZ(50);
 		
 		final Mesh mesh=THREE.Mesh(THREE.SphereGeometry(5, 16, 16), 
-				THREE.MeshBasicMaterial().color(0xff0000).wireFrame(true).build());
+				THREE.MeshBasicMaterial(MeshBasicMaterialParameter.create().color(0xff0000).wireframe(true)));
 		scene.add(mesh);
 		
 		final Light light=THREE.PointLight(0xffffff);
@@ -54,13 +55,14 @@ public class SphereDemo extends AbstractDemo{
 		
 		Timer timer = new Timer(){
 			public void run(){
-				MainWidget.stats.update();
+				MainWidget.stats.begin();
 				camera.setPosition(cameraControle.getPositionX(), cameraControle.getPositionY(), cameraControle.getPositionZ());
 				
 				
 				mesh.getRotation().gwtIncrementX(0.02);
 				mesh.getRotation().gwtIncrementY(0.02);
 				renderer.render(scene, camera);
+				MainWidget.stats.end();
 			}
 		};
 		startTimer(timer);

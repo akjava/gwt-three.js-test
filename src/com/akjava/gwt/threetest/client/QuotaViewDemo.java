@@ -40,7 +40,7 @@ private Mesh mesh;
 			timer.cancel();
 			timer=null;
 		}
-		//renderer.setClearColorHex(0x333333, 1);
+		//renderer.setClearColor(0x333333, 1);
 		renderer.setShadowMapEnabled(true);
 		
 		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
@@ -89,7 +89,7 @@ private Mesh mesh;
 				Mesh obj = THREE.Mesh(geometry, THREE.MeshFaceMaterial(null));
 				obj.setPosition(-3, -3,0);
 				root.add(obj);
-				obj.setRotation(Math.toRadians(90), Math.toRadians(180-45),0);
+				obj.getRotation().set(Math.toRadians(90), Math.toRadians(180-45),0);
 				
 				
 			}
@@ -98,7 +98,7 @@ private Mesh mesh;
 		
 		
 		
-		root.setRotation(Math.toDegrees(45),Math.toDegrees(45),Math.toDegrees(-45));
+		root.getRotation().set(Math.toDegrees(45),Math.toDegrees(45),Math.toDegrees(-45));
 		
 		MainWidget.cameraRotation.setX(-45);
 		MainWidget.cameraRotation.setZ(45);

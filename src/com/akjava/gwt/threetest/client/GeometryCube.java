@@ -1,29 +1,14 @@
 package com.akjava.gwt.threetest.client;
 
-import com.akjava.gwt.lib.client.LogUtils;
-import com.akjava.gwt.three.client.java.MeshBasicMaterialBuilder;
-import com.akjava.gwt.three.client.java.ThreeLog;
+import com.akjava.gwt.three.client.gwt.materials.MeshBasicMaterialParameter;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Geometry;
-import com.akjava.gwt.three.client.js.extras.ImageUtils;
-import com.akjava.gwt.three.client.js.materials.Material;
-import com.akjava.gwt.three.client.js.math.Color;
-import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
-import com.akjava.gwt.three.client.js.textures.Texture;
-import com.akjava.gwt.threecanvastest.client.birds.Bird;
-import com.akjava.gwt.threecanvastest.client.birds.Boid;
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.core.client.JsArray;
-import com.google.gwt.dom.client.NativeEvent;
 import com.google.gwt.event.dom.client.MouseDownEvent;
 import com.google.gwt.event.dom.client.MouseMoveEvent;
-import com.google.gwt.event.dom.client.MouseOutEvent;
-import com.google.gwt.event.dom.client.MouseUpEvent;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 
@@ -52,7 +37,7 @@ public class GeometryCube extends AbstractDemo{
 @Override
 public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 	super.start(renderer, width, height, panel);
-	renderer.setClearColorHex(0xffffff, 1);
+	renderer.setClearColor(0xffffff, 1);
 	windowHalfX=width/2;
 	windowHalfY=height/2;
 	this.renderer=renderer;
@@ -69,7 +54,9 @@ Geometry geometry=THREE.BoxGeometry( 200, 200, 200);
 for(int i=0;i<geometry.faces().length();i++){
 	geometry.faces().get(i).getColor().setHex((int) (Math.random() * 0xffffff));
 }
-cube = THREE.Mesh(geometry , THREE.MeshBasicMaterial().vertexColors(THREE.Colors.FaceColors()).build() );
+cube = THREE.Mesh(geometry , THREE.MeshBasicMaterial(
+		MeshBasicMaterialParameter.create().vertexColors(THREE.Colors.FaceColors()))
+		);
 
 
 cube.getPosition().setY( 150);
@@ -81,7 +68,7 @@ scene.add( cube );
 
 
  plane = THREE.Mesh( THREE.PlaneBufferGeometry( 200, 200 ),
-THREE.MeshBasicMaterial(). color( 0xe0e0e0 ).overdraw(true).build() );
+THREE.MeshBasicMaterial(MeshBasicMaterialParameter.create().color( 0xe0e0e0 ).overdraw(true)));
  plane.getGeometry().applyMatrix(THREE.Matrix4().makeRotationX( - Math.PI / 2 ) );
 scene.add( plane );
 

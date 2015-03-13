@@ -15,7 +15,6 @@
  */
 package com.akjava.gwt.threetest.client;
 
-import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.gwt.materials.MeshLambertMaterialParameter;
 import com.akjava.gwt.three.client.java.utils.GWTGeometryUtils;
 import com.akjava.gwt.three.client.js.THREE;
@@ -126,7 +125,7 @@ private Object3D object;
 				
 				//mesh = THREE.Mesh(geometry, );
 				object.setPosition(0, 0, 0);
-				object.setRotation(0, 0, 0);
+				object.getRotation().set(0, 0, 0);
 				object.setScale(5,5,5);
 				scene.add(object);
 			}

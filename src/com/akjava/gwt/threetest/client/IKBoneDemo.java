@@ -26,12 +26,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.akjava.gwt.three.client.gwt.animation.ik.CDDIK;
+import com.akjava.gwt.three.client.gwt.materials.MeshBasicMaterialParameter;
 import com.akjava.gwt.three.client.java.utils.GWTGeometryUtils;
 import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.akjava.gwt.three.client.js.lights.Light;
+import com.akjava.gwt.three.client.js.math.Euler;
 import com.akjava.gwt.three.client.js.math.Matrix4;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.objects.Mesh;
@@ -44,12 +46,12 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 
-public class BoneDemo extends AbstractDemo{
-private Timer timer;
+public class IKBoneDemo extends AbstractDemo{
+//private Timer timer;
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		super.start(renderer, width, height, panel);
-		renderer.setClearColorHex(0xffffff, 1);
+		renderer.setClearColor(0xffffff, 1);
 		final Scene scene=THREE.Scene();
 	
 		
@@ -72,7 +74,7 @@ private Timer timer;
 		scene.add(root);
 		
 		targetMesh = THREE.Mesh(THREE.BoxGeometry(.5, .5, .5), 
-				THREE.MeshBasicMaterial().color(0x0000ff).build());
+				THREE.MeshBasicMaterial(MeshBasicMaterialParameter.create().color(0x0000ff)));
 		root.add(targetMesh);
 		targetMesh.setPosition(targetPos);
 		
@@ -93,14 +95,14 @@ private Timer timer;
 			
 			if(i==3){
 				hand=THREE.Mesh(THREE.BoxGeometry(.5, .5, .5), 
-						THREE.MeshBasicMaterial().color(color).build());
+						THREE.MeshBasicMaterial(MeshBasicMaterialParameter.create().color(color)));
 				parent.add(hand);
 				Vector3 pos=THREE.Vector3(2, 0, 0);
 				hand.setPosition(pos);
 				parent.add(GWTGeometryUtils.createLineMesh(THREE.Vector3(), pos, 0x888888));
 			}else{
 				final Mesh mesh=THREE.Mesh(THREE.BoxGeometry(.5, .5, .5), 
-						THREE.MeshBasicMaterial().color(color).build());
+						THREE.MeshBasicMaterial(MeshBasicMaterialParameter.create().color(color)));
 				parent.add(mesh);
 				Vector3 pos=THREE.Vector3(2, 0, 0);
 				mesh.setPosition(pos);
@@ -141,7 +143,7 @@ panel.addClickHandler(new ClickHandler() {
 	
 		Timer timer = new Timer(){
 			public void run(){
-				MainWidget.stats.update();
+				MainWidget.stats.begin();
 				
 				camera.setPosition(cameraControle.getPositionX(), cameraControle.getPositionY(), cameraControle.getPositionZ());
 				//not allow rotation.this version not good at rotation.
@@ -161,6 +163,7 @@ panel.addClickHandler(new ClickHandler() {
 					}
 					
 				}
+				MainWidget.stats.end();
 			}
 		};
 		startTimer(timer);
@@ -209,7 +212,7 @@ panel.addClickHandler(new ClickHandler() {
 		Vector3 vec=THREE.Vector3();
 		vec.getRotationFromMatrix(rotated);
 		//log("name:"+joint.getName()+",before:"+ThreeLog.getAsDegree(joint.getRotation())+",after:"+ThreeLog.getAsDegree(vec));
-		joint.setRotation(vec);
+		joint.getRotation().set(vec.getX(), vec.getY(), vec.getZ(), Euler.XYZ);
 		joint.updateMatrixWorld(true);
 		index--;
 		if(index<0){

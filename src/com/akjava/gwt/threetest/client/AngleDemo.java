@@ -215,7 +215,7 @@ private Timer timer;
 		
 		timer = new Timer(){
 			public void run(){
-				root.setRotation(Math.toRadians(angleX),Math.toRadians(angleY),Math.toRadians(0));
+				root.getRotation().set(Math.toRadians(angleX),Math.toRadians(angleY),Math.toRadians(0));
 				renderer.render(scene, camera);
 				}
 		};

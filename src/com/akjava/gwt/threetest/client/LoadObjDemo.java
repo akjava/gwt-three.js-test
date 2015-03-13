@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.akjava.gwt.lib.client.LogUtils;
+import com.akjava.gwt.three.client.gwt.materials.MeshBasicMaterialParameter;
+import com.akjava.gwt.three.client.gwt.materials.MeshLambertMaterialParameter;
 import com.akjava.gwt.three.client.java.utils.GWTGeometryUtils;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
@@ -30,6 +32,7 @@ import com.akjava.gwt.three.client.js.loaders.ImageLoader;
 import com.akjava.gwt.three.client.js.loaders.ImageLoader.ImageLoadHandler;
 import com.akjava.gwt.three.client.js.loaders.LoadingManager.LoadingManagerHandler;
 import com.akjava.gwt.three.client.js.materials.Material;
+import com.akjava.gwt.three.client.js.math.Euler;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.threetest.client.resources.Bundles;
@@ -60,7 +63,7 @@ private Object3D object;
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		super.start(renderer, width, height, panel);
 		
-		renderer.setClearColorHex(0x333333, 1);
+		renderer.setClearColor(0x333333, 1);
 		
 		final Scene scene=THREE.Scene();
 		
@@ -84,13 +87,13 @@ private Object3D object;
 					Geometry geometry=(Geometry)(jsonObject.get("geometry").isObject().getJavaScriptObject());
 					
 					List<Material> materials=new ArrayList<Material>();
-					materials.add(THREE.MeshLambertMaterial().color(0x0000ff).build());
-					materials.add(THREE.MeshBasicMaterial().color(0x0).transparent(true).wireFrame().build());
+					materials.add(THREE.MeshLambertMaterial(MeshLambertMaterialParameter.create().color(0x0000ff)));
+					materials.add(THREE.MeshBasicMaterial(MeshBasicMaterialParameter.create().color(0x0).transparent(true).wireframe(true)));
 					object=SceneUtils.createMultiMaterialObject(geometry, materials);
 					
 					
 					object.setPosition(0, 0, 0);
-					object.setRotation(0, 0, 0);
+					object.getRotation().set(0, 0, 0,Euler.XYZ);
 					object.setScale(5,5,5);
 					scene.add(object);
 				}
@@ -120,7 +123,7 @@ private Object3D object;
 				
 				//mesh = THREE.Mesh(geometry, );
 				object.setPosition(0, 0, 0);
-				object.setRotation(0, 0, 0);
+				object.getRotation().set(0, 0, 0);
 				object.setScale(5,5,5);
 				scene.add(object);
 			}
@@ -145,7 +148,7 @@ private Object3D object;
 					MainWidget.stats.begin();
 					camera.setPosition(cameraControle.getPositionX(), cameraControle.getPositionY(), cameraControle.getPositionZ());
 					
-					object.setRotation(cameraControle.getRadiantRotationX(), cameraControle.getRadiantRotationY(), cameraControle.getRadiantRotationZ());
+					object.getRotation().set(cameraControle.getRadiantRotationX(), cameraControle.getRadiantRotationY(), cameraControle.getRadiantRotationZ());
 					
 					
 					

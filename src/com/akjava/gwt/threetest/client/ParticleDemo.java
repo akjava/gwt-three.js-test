@@ -16,12 +16,15 @@
 package com.akjava.gwt.threetest.client;
 
 import com.akjava.gwt.lib.client.LogUtils;
+import com.akjava.gwt.three.client.gwt.materials.MeshLambertMaterialParameter;
+import com.akjava.gwt.three.client.gwt.materials.PointCloudMaterialParameter;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Geometry;
 import com.akjava.gwt.three.client.js.extras.ImageUtils;
 import com.akjava.gwt.three.client.js.lights.Light;
 import com.akjava.gwt.three.client.js.materials.Material;
+import com.akjava.gwt.three.client.js.math.Euler;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.objects.PointCloud;
@@ -29,12 +32,11 @@ import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.three.client.js.textures.Texture;
 import com.akjava.gwt.threetest.client.resources.Bundles;
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 
 public class ParticleDemo extends AbstractDemo{
-private Timer timer;
+
 private Mesh mesh;
 
 //original is here
@@ -43,7 +45,7 @@ private Mesh mesh;
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		super.start(renderer, width, height, panel);
 		
-		renderer.setClearColorHex(0x333333, 1);
+		renderer.setClearColor(0x333333, 1);
 		
 		
 		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
@@ -62,8 +64,11 @@ private Mesh mesh;
 		Texture texture=ImageUtils.loadTexture("img/particle.png");
 		//need for stop:Texture is not power of two. Texture.minFilter is set to THREE.LinearFilter or THREE.NearestFilter. ( undefined )
 		texture.setMinFilter(THREE.Filters.LinearFilter());
-		Material material=THREE.ParticleBasicMaterial().color(0xffffff).size(20).map(texture)
-		.blending(THREE.Blending.AdditiveBlending()).transparent(true).depthTest(false).build();
+		Material material=THREE.PointCloudMaterial(
+				PointCloudMaterialParameter.create().
+				color(0xffffff).size(20).map(texture).blending(THREE.Blending.AdditiveBlending()).transparent(true).depthTest(false)
+				)
+		;
 		final Vector3[] velocity=new Vector3[pcount];
 		for(int i=0;i<pcount;i++){
 			int px= (int) (Math.random() * 500 - 250);
@@ -76,9 +81,11 @@ private Mesh mesh;
 		}
 		
 		final PointCloud particleSystem=THREE.PointCloud(particles, material);
-		particleSystem.setSortParticles(true);
+		//particleSystem.setSortParticles(true); no need since r70
 		
-		final Mesh root=THREE.Mesh(THREE.PlaneBufferGeometry(500, 500), THREE.MeshLambertMaterial().color(0x00ee88).build());
+		final Mesh root=THREE.Mesh(THREE.PlaneBufferGeometry(500, 500), THREE.MeshLambertMaterial(
+				MeshLambertMaterialParameter.create().color(0x00ee88))
+				);
 		scene.add(root);
 		mesh=root;
 		
@@ -86,7 +93,7 @@ private Mesh mesh;
 		
 		
 		
-		root.setRotation(Math.toDegrees(45),Math.toDegrees(45),Math.toDegrees(-45));
+		root.getRotation().set(Math.toDegrees(45),Math.toDegrees(45),Math.toDegrees(-45),Euler.XYZ);
 		
 		
 		cameraControle.setRotationX(-45);
@@ -110,7 +117,7 @@ private Mesh mesh;
 						velocity[i].gwtIncrementZ(-Math.random() * .1);
 				        
 				       
-				        v.addSelf(
+				        v.add(
 				        		velocity[i]);
 					}
 					
@@ -118,7 +125,7 @@ private Mesh mesh;
 					
 					camera.setPosition(cameraControle.getPositionX(), cameraControle.getPositionY(), cameraControle.getPositionZ());
 					
-					mesh.setRotation(cameraControle.getRadiantRotationX(), cameraControle.getRadiantRotationY(), cameraControle.getRadiantRotationZ());
+					mesh.getRotation().set(cameraControle.getRadiantRotationX(), cameraControle.getRadiantRotationY(), cameraControle.getRadiantRotationZ(),Euler.XYZ);
 					
 					
 				renderer.render(scene, camera);

@@ -18,9 +18,9 @@ package com.akjava.gwt.threetest.client;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.akjava.gwt.three.client.gwt.materials.MeshLambertMaterialParameter;
 import com.akjava.gwt.three.client.gwt.math.XYObject;
 import com.akjava.gwt.three.client.java.JClock;
-import com.akjava.gwt.three.client.java.GWTSpline;
 import com.akjava.gwt.three.client.java.ui.AbstractMovingXYControler;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
@@ -34,6 +34,12 @@ import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 
+/**
+ * 
+ * AbstractMovingXYControler is almost deprecated 
+ * @author aki
+ *
+ */
 public class SplineDemo extends AbstractDemo{
 private Timer timer;
 	@Override
@@ -54,7 +60,7 @@ private Timer timer;
 			double my=Math.random()*100;
 			pts.add(XYObject.create(mx, my));
 			final Mesh mesh=THREE.Mesh(THREE.SphereGeometry(2, 16, 16), 
-					THREE.MeshLambertMaterial().color(0xff0000).build());
+					THREE.MeshLambertMaterial(MeshLambertMaterialParameter.create().color(0xff0000)));
 			mesh.setPosition(mx, my, 0);
 			scene.add(mesh);
 		}
@@ -66,12 +72,13 @@ private Timer timer;
 		
 		
 		
-		final long s=System.currentTimeMillis();
+		
 		final long totalDuration=1000*10;
 		
 		final Geometry geo=THREE.SphereGeometry(2, 16, 16);
-		final Material material=THREE.MeshLambertMaterial().color(0x0000ff).build();
+		final Material material=THREE.MeshLambertMaterial(MeshLambertMaterialParameter.create().color(0x0000ff));
 		final JClock clock=new JClock();
+		
 		final AbstractMovingXYControler moving=new AbstractMovingXYControler(pts,totalDuration) {
 			
 			@Override
@@ -90,13 +97,13 @@ private Timer timer;
 		};
 		timer = new Timer(){
 			public void run(){
-				MainWidget.stats.update();
+				MainWidget.stats.begin();
 				long t=clock.delta();
 				if(moving.isMoving()){
 					moving.update(t);
 				}
 				renderer.render(scene, camera);
-
+				MainWidget.stats.end();
 			}
 			
 		};

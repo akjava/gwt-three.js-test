@@ -24,12 +24,15 @@ package com.akjava.gwt.threetest.client;
 
 import com.akjava.gwt.lib.client.JavaScriptUtils;
 import com.akjava.gwt.three.client.gwt.core.Intersect;
+import com.akjava.gwt.three.client.gwt.materials.MeshBasicMaterialParameter;
+import com.akjava.gwt.three.client.gwt.materials.MeshLambertMaterialParameter;
 import com.akjava.gwt.three.client.java.GWTDragObjectControler;
 import com.akjava.gwt.three.client.java.utils.GWTGeometryUtils;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.akjava.gwt.three.client.js.lights.Light;
+import com.akjava.gwt.three.client.js.math.Euler;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
@@ -59,7 +62,7 @@ JsArray<Object3D> meshs=((JsArray<Object3D>) JavaScriptUtils.createJSArray().cas
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		super.start(renderer, width, height, panel);
-		renderer.setClearColorHex(0xffffff, 1);
+		renderer.setClearColor(0xffffff, 1);
 		scene=THREE.Scene();
 	
 		
@@ -72,9 +75,11 @@ JsArray<Object3D> meshs=((JsArray<Object3D>) JavaScriptUtils.createJSArray().cas
 		
 		root.add(GWTGeometryUtils.createLineMesh(THREE.Vector3(0, -2000, 0), THREE.Vector3(0, 2000, 0), 0x00ff00));
 		
-		Mesh ground=THREE.Mesh(THREE.PlaneBufferGeometry(100, 100, 50, 50), THREE.MeshBasicMaterial().color(0x888888).wireFrame().build());
+		Mesh ground=THREE.Mesh(THREE.PlaneBufferGeometry(100, 100, 50, 50), 
+				THREE.MeshBasicMaterial(MeshBasicMaterialParameter.create().color(0x888888).wireframe(true))
+				);
 		
-		ground.setRotation(Math.toRadians(-90), 0, 0);
+		ground.getRotation().set(Math.toRadians(-90), 0, 0,Euler.XYZ);
 		ground.setPosition(0,-5,0);
 		root.add(ground);
 		
@@ -82,22 +87,27 @@ JsArray<Object3D> meshs=((JsArray<Object3D>) JavaScriptUtils.createJSArray().cas
 		pointLight.setPosition(0, 100, 100);
 		root.add(pointLight);
 		
-		dragObjectControler = new GWTDragObjectControler(scene,null);
+		dragObjectControler = new GWTDragObjectControler(scene);
 		
-		Object3D mesh =  THREE.Mesh(THREE.BoxGeometry(10,10,10), THREE.MeshLambertMaterial().color(0x00ff00).build());
+		Object3D mesh =  THREE.Mesh(THREE.BoxGeometry(10,10,10), 
+				THREE.MeshLambertMaterial(MeshLambertMaterialParameter.create().color(0x00ff00))
+				);
 		root.add(mesh);
 		meshs.push(mesh);
 		
 
 		Timer timer = new Timer(){
 			public void run(){
-				MainWidget.stats.update();
+				MainWidget.stats.begin();
 				camera.setPosition(cameraControle.getPositionX(), cameraControle.getPositionY(), cameraControle.getPositionZ());
 				
-				root.setRotation(cameraControle.getRadiantRotationX(), cameraControle.getRadiantRotationY(), cameraControle.getRadiantRotationZ());
+				root.getRotation().set(
+						cameraControle.getRadiantRotationX(), cameraControle.getRadiantRotationY(), cameraControle.getRadiantRotationZ()
+						,Euler.XYZ);
 				
 				
 				renderer.render(scene, camera);
+				MainWidget.stats.end();
 				
 			}
 		};

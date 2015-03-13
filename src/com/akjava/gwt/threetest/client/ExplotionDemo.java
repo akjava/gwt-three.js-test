@@ -46,7 +46,7 @@ private Mesh mesh;
 		
 		
 		
-		renderer.setClearColorHex(0x333333, 1);
+		renderer.setClearColor(0x333333, 1);
 		renderer.setShadowMapEnabled(true);
 		
 		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
@@ -77,7 +77,7 @@ private Mesh mesh;
 		}
 		
 		
-		root.setRotation(Math.toDegrees(45),Math.toDegrees(45),Math.toDegrees(-45));
+		root.getRotation().set(Math.toDegrees(45),Math.toDegrees(45),Math.toDegrees(-45));
 		
 		MainWidget.cameraRotation.setX(-45);
 		MainWidget.cameraRotation.setZ(45);
@@ -96,7 +96,7 @@ private Mesh mesh;
 					camera.setPosition(MainWidget.cameraMove.getX(), MainWidget.cameraMove.getY(),MainWidget.cameraMove.getZ());
 					
 					
-					mesh.setRotation(Math.toRadians(MainWidget.cameraRotation.getX()), Math.toRadians(MainWidget.cameraRotation.getY()), Math.toRadians(MainWidget.cameraRotation.getZ()));
+					mesh.getRotation().set(Math.toRadians(MainWidget.cameraRotation.getX()), Math.toRadians(MainWidget.cameraRotation.getY()), Math.toRadians(MainWidget.cameraRotation.getZ()));
 				
 				//cancel();
 				if(mesh!=null){
@@ -162,7 +162,7 @@ private Mesh mesh;
 		private Mesh mesh;
 		public void reset(){
 			mesh.setPosition(0, 0, 0);
-			mesh.setRotation(Math.random()*360, 0, Math.random()*360);
+			mesh.getRotation().set(Math.random()*360, 0, Math.random()*360);
 			
 			xrd=Math.random()*MAX_ROT*2 - MAX_ROT;
 			zrd=Math.random()*MAX_ROT*2 - MAX_ROT;

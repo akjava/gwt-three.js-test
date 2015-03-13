@@ -16,6 +16,7 @@
 package com.akjava.gwt.threetest.client;
 
 import com.akjava.gwt.lib.client.LogUtils;
+import com.akjava.gwt.three.client.gwt.materials.MeshLambertMaterialParameter;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Object3D;
@@ -38,7 +39,7 @@ private Mesh mesh;
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		super.start(renderer, width, height, panel);
 		
-		renderer.setClearColorHex(0xcccccc, 1);
+		renderer.setClearColor(0xcccccc, 1);
 		
 		
 		final Camera camera=THREE.PerspectiveCamera(35,(double)width/height,.1,10000);
@@ -52,10 +53,10 @@ private Mesh mesh;
 		light.setPosition(1000,2000, 1500);//light.setPosition(5,5, 5);
 		scene.add(light);
 		
+		final Mesh root=THREE.Mesh(THREE.PlaneBufferGeometry(50, 50), 
+				THREE.MeshLambertMaterial(MeshLambertMaterialParameter.create().color(0x00ee88)
+						));
 		
-		
-		
-		final Mesh root=THREE.Mesh(THREE.PlaneBufferGeometry(50, 50), THREE.MeshLambertMaterial().color(0x00ee88).build());
 		scene.add(root);
 		mesh=root;
 		
@@ -71,7 +72,7 @@ private Mesh mesh;
 		emitterSystem.setVelocityRange(THREE.Vector3(100.0/120,0, 100.0/120));
 		
 		
-		root.setRotation(Math.toDegrees(45),Math.toDegrees(45),Math.toDegrees(-45));
+		root.getRotation().set(Math.toDegrees(45),Math.toDegrees(45),Math.toDegrees(-45));
 		
 		
 		//Particle particle=THREE.Particle(THREE.MeshLambertMaterial().color(0x00ee88).build());
@@ -94,7 +95,7 @@ private Mesh mesh;
 					
 					camera.setPosition(cameraControle.getPositionX(), cameraControle.getPositionY(), cameraControle.getPositionZ());
 					
-					mesh.setRotation(cameraControle.getRadiantRotationX(), cameraControle.getRadiantRotationY(), cameraControle.getRadiantRotationZ());
+					mesh.getRotation().set(cameraControle.getRadiantRotationX(), cameraControle.getRadiantRotationY(), cameraControle.getRadiantRotationZ());
 				
 					
 					//camera.setPosition(MainWidget.cameraMove.getX(), MainWidget.cameraMove.getY(),MainWidget.cameraMove.getZ());

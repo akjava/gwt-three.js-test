@@ -2,23 +2,18 @@ package com.akjava.gwt.threetest.client;
 
 
 
-import com.akjava.gwt.lib.client.LogUtils;
+import com.akjava.gwt.three.client.gwt.materials.LineBasicMaterialParameter;
+import com.akjava.gwt.three.client.gwt.materials.MeshLambertMaterialParameter;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Geometry;
-import com.akjava.gwt.three.client.js.extras.ImageUtils;
 import com.akjava.gwt.three.client.js.lights.AmbientLight;
 import com.akjava.gwt.three.client.js.lights.DirectionalLight;
-import com.akjava.gwt.three.client.js.lights.Light;
 import com.akjava.gwt.three.client.js.materials.Material;
 import com.akjava.gwt.three.client.js.objects.Line;
 import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
-import com.akjava.gwt.three.client.js.textures.Texture;
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.dom.client.NativeEvent;
-import com.google.gwt.event.dom.client.MouseMoveEvent;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 
@@ -27,7 +22,7 @@ public class CameraOrthoGraphics extends AbstractDemo{
 	@Override
 	public void start(final WebGLRenderer renderer,final int width,final int height,FocusPanel panel) {
 		super.start(renderer, width, height, panel);
-		renderer.setClearColorHex(0xffffff, 1);
+		renderer.setClearColor(0xffffff, 1);
 		final Camera camera =  THREE.OrthographicCamera( width / - 2, width / 2,height / 2,height / - 2, - 2000, 1000 );
 		camera.setPosition(200, 100, 200);
 		
@@ -41,11 +36,13 @@ public class CameraOrthoGraphics extends AbstractDemo{
 		
 		for ( int i = 0; i <= 20; i ++ ) {
 
-			Line line =  THREE.Line( geometry,THREE.LineBasicMaterial().color(0x000000).opacity(0.2).build());
+			Line line =  THREE.Line( 
+					geometry,THREE.LineBasicMaterial(LineBasicMaterialParameter.create().color(0x000000).opacity(0.2))
+					);
 			line.getPosition().setZ(( i * 50 ) - 500);
 			scene.add( line );
 
-			Line line2 =  THREE.Line( geometry,THREE.LineBasicMaterial().color(0x000000).opacity(0.2).build());
+			Line line2 =  THREE.Line( geometry,THREE.LineBasicMaterial(LineBasicMaterialParameter.create().color(0x000000).opacity(0.2)));
 			
 			line2.getPosition().setX(( i * 50 ) - 500);
 			line2.getRotation().setY(90 * Math.PI / 180);//turn right
@@ -55,12 +52,12 @@ public class CameraOrthoGraphics extends AbstractDemo{
 		
 		
 		geometry = THREE.BoxGeometry( 50, 50, 50 );
-		Material material =  THREE.MeshLambertMaterial().color(0xffffff).overdraw(true).shading(THREE.Shading.FlatShading()).build();
+		Material material =  THREE.MeshLambertMaterial(MeshLambertMaterialParameter.create().color(0xffffff).overdraw(true).shading(THREE.Shading.FlatShading()));
 		
 		for ( int i = 0; i < 100; i ++ ) {
 
 			Mesh cube =  THREE.Mesh( geometry, material );
-			cube.setOverdraw(true);
+			
 
 			cube.getScale().setY(Math.floor( Math.random() * 2 + 1 ));
 
@@ -100,7 +97,7 @@ public class CameraOrthoGraphics extends AbstractDemo{
 		
 		Timer timer = new Timer(){
 			public void run(){
-				MainWidget.stats.update();
+				MainWidget.stats.begin();
 			
 				
 				double timer = System.currentTimeMillis() * 0.0001;
@@ -111,7 +108,7 @@ public class CameraOrthoGraphics extends AbstractDemo{
 
 				renderer.render( scene, camera );
 				
-				
+				MainWidget.stats.end();
 				
 			}
 		};
