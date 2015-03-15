@@ -47,7 +47,7 @@ import com.akjava.gwt.three.client.gwt.animation.AnimationData;
 import com.akjava.gwt.three.client.gwt.math.XY;
 import com.akjava.gwt.three.client.gwt.math.XYZ;
 import com.akjava.gwt.three.client.gwt.math.XYZObject;
-import com.akjava.gwt.three.client.gwt.renderers.GWTRenderObject;
+import com.akjava.gwt.three.client.gwt.renderers.WebGLRendererParameter;
 import com.akjava.gwt.three.client.java.LineBasicMaterialBuilder;
 import com.akjava.gwt.three.client.java.MeshBasicMaterialBuilder;
 import com.akjava.gwt.three.client.java.MeshLambertMaterialBuilder;
@@ -159,6 +159,7 @@ import com.akjava.gwt.three.client.js.materials.PointCloudMaterial;
 import com.akjava.gwt.three.client.js.materials.ShaderMaterial;
 import com.akjava.gwt.three.client.js.materials.SpriteCanvasMaterial;
 import com.akjava.gwt.three.client.js.materials.SpriteMaterial;
+import com.akjava.gwt.three.client.js.math.ThreeMath;
 import com.akjava.gwt.three.client.js.math.Box2;
 import com.akjava.gwt.three.client.js.math.Box3;
 import com.akjava.gwt.three.client.js.math.Color;
@@ -619,6 +620,10 @@ return new $wnd.THREE.ArrowHelper(size);
 	return  new $wnd.THREE.Clock(autostart);
 	}-*/;
 	
+	public static  native final Clock Clock()/*-{
+	return  new $wnd.THREE.Clock();
+	}-*/;
+	
 	public static  native final Ray Ray(Vector3 camera,Vector3 vector)/*-{
 	return  new $wnd.THREE.Ray(camera,vector);
 	}-*/;
@@ -656,6 +661,7 @@ return new $wnd.THREE.ArrowHelper(size);
 	}-*/;
 	
 	public static native final PerspectiveCamera PerspectiveCamera(int fieldOfView,double ratio,double near,double far)/*-{
+		console.log(ratio);
 	return new $wnd.THREE.PerspectiveCamera( fieldOfView, ratio, near, far ); 
 	}-*/;
 	
@@ -671,11 +677,23 @@ return new $wnd.THREE.ArrowHelper(size);
 	return new $wnd.THREE.CubeCamera( near, far, cubeResolution ); 
 	}-*/;
 	
+	/**
+	 * @deprecated
+	 */
 	public static native final Animation Animation(SkinnedMesh root,String name)/*-{
 	return new $wnd.THREE.Animation(root,name);
 	}-*/;
+	/**
+	 * @deprecated
+	 */
 	public static native final Animation Animation(Object3D root,String name)/*-{
 	return new $wnd.THREE.Animation(root,name);
+	}-*/;
+	
+
+	//SkinnedMesh or Bone?
+	public static native final Animation Animation(Object3D root,AnimationData data)/*-{
+	return new $wnd.THREE.Animation(root,data);
 	}-*/;
 	
 	/**
@@ -906,7 +924,7 @@ return new $wnd.THREE.ArrowHelper(size);
 	return new $wnd.THREE.CanvasRenderer();
 	}-*/;
 	
-	public static native final WebGLRenderer WebGLRenderer(GWTRenderObject object)/*-{
+	public static native final WebGLRenderer WebGLRenderer(WebGLRendererParameter object)/*-{
 	return new $wnd.THREE.WebGLRenderer(object);
 	}-*/;
 	
@@ -916,18 +934,17 @@ return new $wnd.THREE.ArrowHelper(size);
 	public static native final Light SpotLight(int color)/*-{
 	return new $wnd.THREE.SpotLight(color);
 	}-*/;
-	public static native final DirectionalLight DirectionalLight(int color,int intensity)/*-{
-	return new $wnd.THREE.DirectionalLight(color,intensity);
-	}-*/;
-	public static native final DirectionalLight DirectionalLight(int color)/*-{
+
+	public static native final DirectionalLight DirectionalLight(double color)/*-{
 	return new $wnd.THREE.DirectionalLight(color);
 	}-*/;
-	public static  final DirectionalLight DirectionalLight(double color,int intensity){
-		return DirectionalLight(color,intensity);
-	}
-	public static  final DirectionalLight DirectionalLight(double color){
-		return DirectionalLight((int)color);
-	}
+	
+	public static native final DirectionalLight DirectionalLight(double color,double intensity)/*-{
+	return new $wnd.THREE.DirectionalLight(color,intensity);
+	}-*/;
+	
+
+
 
 	
 	
@@ -1186,4 +1203,6 @@ return new $wnd.THREE.ArrowHelper(size);
 	public static final native PlaneBufferGeometry PlaneBufferGeometry(double width,double height)/*-{
 	return new $wnd.THREE.PlaneBufferGeometry(width, height);
 	}-*/;
+	
+
 }

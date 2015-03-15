@@ -3,7 +3,9 @@
 <module rename-to="threedemos">
 	<inherits name="com.google.gwt.user.User" />
 	<inherits name="com.akjava.gwt.lib.Commons"/>
-	
+	<inherits name="com.akjava.gwt.three.Three"/>
+	<inherits name="com.akjava.gwt.stats.Stats"/>
+	<inherits name="com.google.gwt.json.JSON" /> 
 	<source path="client" />
 	<entry-point class="com.akjava.gwt.threedemos.client.ThreeDemo" />
 	

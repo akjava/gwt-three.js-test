@@ -312,10 +312,30 @@ public final native void enableScissorTest(boolean enable)/*-{
 this.enableScissorTest(enable);
 }-*/;
 
+
+
+public final native void setClearColor(int color)/*-{
+this.setClearColor(color);
+}-*/;
+
+public final native void setClearColor(String color)/*-{
+this.setClearColor(color);
+}-*/;
+
+public final native void setClearColor(Color color)/*-{
+this.setClearColor(color);
+}-*/;
 public final native void setClearColor(int color,double alpha)/*-{
 this.setClearColor(color,alpha);
 }-*/;
 
+public final native void setClearColor(String color,double alpha)/*-{
+this.setClearColor(color,alpha);
+}-*/;
+
+public final native void setClearColor(Color color,double alpha)/*-{
+this.setClearColor(color,alpha);
+}-*/;
 /**
  * @deprecated
  * @param hex

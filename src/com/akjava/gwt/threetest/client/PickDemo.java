@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.akjava.gwt.three.client.gwt.GWTParamUtils;
 import com.akjava.gwt.three.client.gwt.core.Intersect;
 import com.akjava.gwt.three.client.gwt.materials.MeshLambertMaterialParameter;
 import com.akjava.gwt.three.client.java.GWTDragObjectControler;
@@ -59,7 +60,7 @@ public class PickDemo extends AbstractDemo{
 		
 		
 		final Material material=THREE.MeshLambertMaterial(
-				GWTMaterialParamUtils.MeshLambertMaterial()
+				GWTParamUtils.MeshLambertMaterial()
 				.color(0xff00ff)
 				);
 		
@@ -69,7 +70,7 @@ public class PickDemo extends AbstractDemo{
 		
 		final Mesh mesh2=THREE.Mesh(THREE.CylinderGeometry(5, 5, 5,15),
 				THREE.MeshLambertMaterial(
-						GWTMaterialParamUtils.MeshLambertMaterial()
+						GWTParamUtils.MeshLambertMaterial()
 						.color(0x00ff00)
 						)
 						);
@@ -78,13 +79,13 @@ public class PickDemo extends AbstractDemo{
 		scene.add(mesh2);
 		
 		final Mesh mesh3=THREE.Mesh(THREE.CylinderGeometry(5, 1, 5,15), 
-				THREE.MeshLambertMaterial(GWTMaterialParamUtils.MeshLambertMaterial()
+				THREE.MeshLambertMaterial(GWTParamUtils.MeshLambertMaterial()
 						.color(0x0000ff)));
 		mesh3.setPosition(0, -10, 0);
 		scene.add(mesh3);
 		
 		final Mesh mesh4=THREE.Mesh(THREE.CylinderGeometry(5, 4.5, 5,5), 
-				THREE.MeshLambertMaterial(GWTMaterialParamUtils.MeshLambertMaterial()
+				THREE.MeshLambertMaterial(GWTParamUtils.MeshLambertMaterial()
 						.color(0xffff00)));
 		mesh4.setPosition(-10,0, 0);
 		scene.add(mesh4);

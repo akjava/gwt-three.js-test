@@ -16,6 +16,22 @@ public class AnimationKey extends JavaScriptObject {
 	}-*/;
 	
 	
+	/*
+	 * i guess sometime it's vector3,sometime arraynumber on past
+	 */
+	public native final void setPos(JavaScriptObject pos)/*-{
+	this['pos']=pos;
+	}-*/;
+	
+	public native final void setRot(JavaScriptObject rot)/*-{
+	this['rot']=rot;
+	}-*/;
+	
+	public native final void setScl(JavaScriptObject scl)/*-{
+	this['scl']=scl;
+	}-*/;
+	
+	
 	public final void setPos(Vector3 vec){
 		setPos(vec.getX(),vec.getY(),vec.getZ());
 	}

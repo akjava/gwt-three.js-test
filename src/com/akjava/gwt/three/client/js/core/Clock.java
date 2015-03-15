@@ -98,7 +98,7 @@ this.stop();
 
 
 
-public final native Object getDelta()/*-{
+public final native double getDelta()/*-{
 return this.getDelta();
 }-*/;
 

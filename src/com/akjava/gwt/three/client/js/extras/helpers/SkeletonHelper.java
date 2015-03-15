@@ -38,6 +38,7 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client.js.extras.helpers;
 
 import com.akjava.gwt.three.client.js.core.Object3D;
+import com.akjava.gwt.three.client.js.materials.LineBasicMaterial;
 import com.akjava.gwt.three.client.js.objects.Line;
 import com.akjava.gwt.three.client.js.objects.Skeleton;
 
@@ -64,6 +65,8 @@ this.update();
 }-*/;
 
 
-
+public final native LineBasicMaterial gwtGetMaterial()/*-{
+return this.material;
+}-*/;
 
 }

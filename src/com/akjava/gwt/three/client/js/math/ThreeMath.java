@@ -40,8 +40,12 @@ package com.akjava.gwt.three.client.js.math;
 import com.google.gwt.core.client.JavaScriptObject;
 
 
-public class Math extends JavaScriptObject{
-	protected Math() {
+//THREE.MATH
+/*
+ * renamed because too much conflict Math.java
+ */
+public class ThreeMath extends JavaScriptObject{
+	protected ThreeMath() {
 	}
 
 	public static final native double PI2()/*-{
@@ -49,59 +53,59 @@ public class Math extends JavaScriptObject{
 	}-*/;
 	
 public static final native String generateUUID()/*-{
-return this.generateUUID();
+return  $wnd.THREE.Math.generateUUID();
 }-*/;
 
 public static final native double clamp(double x,double a,double b)/*-{
-return this.clamp(x,a,b);
+return $wnd.THREE.Math.clamp(x,a,b);
 }-*/;
 
 public static final native double clampBottom(double x,double a)/*-{
-return this.clampBottom(x,a);
+return  $wnd.THREE.Math.clampBottom(x,a);
 }-*/;
 
 public static final native double mapLinear(double x,double a1,double a2,double b1,double b2)/*-{
-return this.mapLinear(x,a1,a2,b1,b2);
+return  $wnd.THREE.Math.mapLinear(x,a1,a2,b1,b2);
 }-*/;
 
 public static final native double smoothstep(double x,double min,double max)/*-{
-return this.smoothstep(x,min,max);
+return  $wnd.THREE.Math.smoothstep(x,min,max);
 }-*/;
 
 public static final native double smootherstep(double x,double min,double max)/*-{
-return this.smootherstep(x,min,max);
+return  $wnd.THREE.Math.smootherstep(x,min,max);
 }-*/;
 
 public static final native double random16()/*-{
-return this.random16();
+return  $wnd.THREE.Math.random16();
 }-*/;
 
 public static final native int randInt(int low,int high)/*-{
-return this.randInt(low,high);
+return  $wnd.THREE.Math.randInt(low,high);
 }-*/;
 
 public static final native double randFloat(double low,double high)/*-{
-return this.randFloat(low,high);
+return  $wnd.THREE.Math.randFloat(low,high);
 }-*/;
 
 public static final native double randFloatSpread(double range)/*-{
-return this.randFloatSpread(range);
+return  $wnd.THREE.Math.randFloatSpread(range);
 }-*/;
 
 public static final native double sign(double x)/*-{
-return this.sign(x);
+return  $wnd.THREE.Math.sign(x);
 }-*/;
 
 public static final native double degToRad(double degrees)/*-{
-return this.degToRad(degrees);
+return  $wnd.THREE.Math.degToRad(degrees);
 }-*/;
 
 public static final native double radToDeg(double radians)/*-{
-return this.radToDeg(radians);
+return  $wnd.THREE.Math.radToDeg(radians);
 }-*/;
 
 public static final native boolean isPowerOfTwo(double value)/*-{
-return this.isPowerOfTwo(value);
+return  $wnd.THREE.Math.isPowerOfTwo(value);
 }-*/;
 
 }

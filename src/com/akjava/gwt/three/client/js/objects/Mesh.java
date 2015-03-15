@@ -37,13 +37,15 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.objects;
 
-import com.akjava.gwt.three.client.gwt.core.BoundingBox;
 import com.akjava.gwt.three.client.gwt.core.Intersect;
 import com.akjava.gwt.three.client.js.core.Geometry;
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.akjava.gwt.three.client.js.core.Raycaster;
 import com.akjava.gwt.three.client.js.materials.Material;
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
+import com.google.gwt.core.client.JsArrayInteger;
+import com.google.gwt.core.client.JsArrayNumber;
 
 public class Mesh extends Object3D{
 protected Mesh(){}
@@ -173,6 +175,42 @@ this.flipSided=sided;
 public final native void raycast(Raycaster raycaster,JsArray<Intersect> intersects)/*-{
 this.raycast(raycaster,intersects);
 }-*/;
+
+
+
+
+
+public final  native int getMorphTargetBase()/*-{
+return this.morphTargetBase;
+}-*/;
+public final  native void setMorphTargetBase(int  param)/*-{
+this.morphTargetBase=param;
+}-*/;
+
+
+public final  native JsArrayInteger getMorphTargetForcedOrder()/*-{
+return this.morphTargetForcedOrder;
+}-*/;
+public final  native void setMorphTargetForcedOrder(JsArrayInteger  param)/*-{
+this.morphTargetForcedOrder=param;
+}-*/;
+
+
+public final  native JsArrayNumber getMorphTargetInfluences()/*-{
+return this.morphTargetInfluences;
+}-*/;
+public final  native void setMorphTargetInfluences(JsArrayNumber  param)/*-{
+this.morphTargetInfluences=param;
+}-*/;
+
+
+public final  native JavaScriptObject getMorphTargetDictionary()/*-{
+return this.morphTargetDictionary;
+}-*/;
+public final  native void setMorphTargetDictionary(JavaScriptObject  param)/*-{
+this.morphTargetDictionary=param;
+}-*/;
+
 
 
 }
