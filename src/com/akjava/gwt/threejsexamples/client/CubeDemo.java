@@ -1,4 +1,4 @@
-package com.akjava.gwt.threedemos.client;
+package com.akjava.gwt.threejsexamples.client;
 
 import com.akjava.gwt.three.client.gwt.materials.MeshLambertMaterialParameter;
 import com.akjava.gwt.three.client.js.THREE;
@@ -14,7 +14,7 @@ import com.google.gwt.user.client.ui.FocusPanel;
  * @author aki
  *
  */
-public class CubeDemo extends AbstractDemo {
+public class CubeDemo extends AbstractExample {
 
 	private WebGLRenderer renderer;
 	private Scene scene;

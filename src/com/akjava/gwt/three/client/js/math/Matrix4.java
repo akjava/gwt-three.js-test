@@ -2,6 +2,7 @@ package com.akjava.gwt.three.client.js.math;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayNumber;
+import com.google.gwt.typedarrays.shared.Float32Array;
 
 public class Matrix4 extends JavaScriptObject {
 protected Matrix4(){}
@@ -299,4 +300,9 @@ return this.applyToVector3Array(a,offset,length);
 public native final Matrix4 extractBasis(Vector3 x,Vector3 y,Vector3 z)/*-{
 return this.extractBasis(x,y,z);
 }-*/;
+
+public final native Float32Array getElements()/*-{
+return this.elements;
+}-*/;
+
 }

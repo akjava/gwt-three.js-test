@@ -232,4 +232,19 @@ public final native Color gwtGetColor()/*-{
 return this.color;
 }-*/;
 
+public final native void gwtSet(String name,double value)/*-{
+this[name]=value;
+}-*/;
+public final native void gwtSet(String name,String value)/*-{
+this[name]=value;
+}-*/;
+public final native void gwtSet(String name,boolean value)/*-{
+this[name]=value;
+}-*/;
+public final native void gwtSet(String name,JavaScriptObject value)/*-{
+this[name]=value;
+}-*/;
+public final native void gwtSet(String name,Color value)/*-{
+this[name]=value;
+}-*/;
 }

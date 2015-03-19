@@ -1,9 +1,9 @@
-package com.akjava.gwt.threedemos.client;
+package com.akjava.gwt.threejsexamples.client;
 
 import com.akjava.gwt.lib.client.LogUtils;
 import com.google.gwt.user.client.ui.Label;
 
-public class TestDemo extends AbstractDemo{
+public class TestDemo extends AbstractExample{
 private String name;
 
 public TestDemo(String name) {

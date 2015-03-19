@@ -1,16 +1,20 @@
-package com.akjava.gwt.threedemos.client;
+package com.akjava.gwt.threejsexamples.client;
 
 import com.google.gwt.animation.client.AnimationScheduler;
 import com.google.gwt.animation.client.AnimationScheduler.AnimationHandle;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.logical.shared.ResizeEvent;
 import com.google.gwt.event.logical.shared.ResizeHandler;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.FocusPanel;
 import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.PopupPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
-public abstract class AbstractDemo implements Demo{
+public abstract class AbstractExample implements Example{
 	private AnimationHandle handler;
 	protected Panel parent;
 	public Panel getParent() {
@@ -53,21 +57,44 @@ public abstract class AbstractDemo implements Demo{
 	public abstract void init();
 	public abstract void onWindowResize();
 	
-	private PopupPanel popup;
+	protected PopupPanel popup;
 	private HandlerRegistration resizeHandler;
 	//alternative to dat.GUI
 	
 	/*
 	 * 
+	 * it's better to keep Verticalpanel ,it's hard to use Layout*Panel
 	 * possible problem,if container size changed after showed,usually problem
 	 */
 	protected VerticalPanel createGUIPanel(){
 		popup=new PopupPanel();	//do sync with demo
-		VerticalPanel controler=new VerticalPanel();
-		controler.setWidth("200px");//some widget broke,like checkbox without parent size
 		
+		VerticalPanel root=new VerticalPanel();
+		popup.add(root);
+		
+		final VerticalPanel controler=new VerticalPanel();
+		controler.setWidth("320px");//some widget broke,like checkbox without parent size
 		controler.setSpacing(2);
-		popup.add(controler);
+		
+		root.add(controler);
+		
+		final Button bt=new Button("Close Controls");
+		bt.setWidth("320px");
+		bt.addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				controler.setVisible(!controler.isVisible());
+				if(controler.isVisible()){
+					bt.setText("Close Controls");
+				}else{
+					bt.setText("Open Controls");
+				}
+				updateGUI();
+			}
+		});
+		
+		root.add(bt);
 		
 		//popup.show();
 		//moveToAroundRightTop(popup);
@@ -93,6 +120,25 @@ public abstract class AbstractDemo implements Demo{
 		
 	}
 	
+	/**
+	 * 
+	 * @return double.this value used for calculate ratio,if return Int it's make problem without cast.
+	 * THREE.PerspectiveCamera( 30, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000 );
+	 */
+	public double getWindowInnerWidth(){
+		return getParent().getOffsetWidth();
+	}
+	
+	public double getWindowInnerHeight(){
+		return getParent().getOffsetHeight();
+	}
+	
+	//for attach event,must be focus panel
+	protected FocusPanel createContainerPanel(){
+		FocusPanel panel=new FocusPanel();
+		getParent().add(panel);
+		return panel;
+	}
 	
 	
 	//TODO move up

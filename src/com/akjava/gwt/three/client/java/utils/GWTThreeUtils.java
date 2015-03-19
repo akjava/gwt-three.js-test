@@ -252,7 +252,6 @@ public class GWTThreeUtils {
 	}
 	
 	public static final native double getWindowDevicePixelRatio()/*-{
-	console.log($wnd.devicePixelRatio);
 	return $wnd.devicePixelRatio;
 	}-*/;
 	

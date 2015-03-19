@@ -44,6 +44,7 @@ import com.akjava.gwt.three.client.gwt.core.BoundingBox;
 import com.akjava.gwt.three.client.gwt.core.MorphTarget;
 import com.akjava.gwt.three.client.js.math.Color;
 import com.akjava.gwt.three.client.js.math.Matrix4;
+import com.akjava.gwt.three.client.js.math.Sphere;
 import com.akjava.gwt.three.client.js.math.Vector2;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.math.Vector4;
@@ -158,7 +159,7 @@ return this.tangentsNeedUpdate ;
 
  
 
-public final native boolean getDynamic()/*-{
+public final native boolean isDynamic()/*-{
 return this.dynamic;
 }-*/;
 
@@ -185,6 +186,9 @@ return this.animations;
 }-*/;
 /*
  * I'm not sure maybe this is for compatible,should youse 
+ */
+/**
+ * @deprecated maybe better to avoid
  */
 public final native AnimationData getAnimation()/*-{
 return this.animation;
@@ -331,11 +335,11 @@ this.boundingBox = boundingBox;
 }-*/;
 
 
-public final native Object getBoundingSphere()/*-{
+public final native Sphere getBoundingSphere()/*-{
 return this.boundingSphere;
 }-*/;
 
-public final native void setBoundingSphere(Object boundingSphere)/*-{
+public final native void setBoundingSphere(Sphere boundingSphere)/*-{
 this.boundingSphere = boundingSphere;
 }-*/;
 
@@ -350,10 +354,6 @@ this.hasTangents = hasTangents;
 
 
 
-
-public final native void setDynamic(Object dynamic)/*-{
-this.dynamic = dynamic;
-}-*/;
 
 
 

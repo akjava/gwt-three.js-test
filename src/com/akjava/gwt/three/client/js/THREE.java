@@ -661,7 +661,6 @@ return new $wnd.THREE.ArrowHelper(size);
 	}-*/;
 	
 	public static native final PerspectiveCamera PerspectiveCamera(int fieldOfView,double ratio,double near,double far)/*-{
-		console.log(ratio);
 	return new $wnd.THREE.PerspectiveCamera( fieldOfView, ratio, near, far ); 
 	}-*/;
 	

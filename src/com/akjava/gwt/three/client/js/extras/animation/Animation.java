@@ -165,5 +165,12 @@ public native final void resetBlendWeights()/*-{
 this.resetBlendWeights();
 }-*/;
 
+public final native double getWeight()/*-{
+return this.weight;
+}-*/;
+
+public final native void setWeight(double weight)/*-{
+this.weight = weight;
+}-*/;
 
 }

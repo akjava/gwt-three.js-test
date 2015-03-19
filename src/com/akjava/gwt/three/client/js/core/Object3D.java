@@ -46,6 +46,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.json.client.JSONObject;
 
+//TODO fix using Object method
 public class Object3D extends EventDispatcher{
 protected Object3D(){}
 	public final native Vector3 getPosition()/*-{
@@ -424,13 +425,7 @@ public final native Object lookAt()/*-{
 return this.lookAt();
 }-*/;
 
-public final native Object add(Object object)/*-{
-return this.add(object);
-}-*/;
 
-public final native void remove(Object object)/*-{
-this.remove(object);
-}-*/;
 
 public final native void traverse(Object callback)/*-{
 this.traverse(callback);

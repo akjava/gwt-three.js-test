@@ -1,9 +1,8 @@
-package com.akjava.gwt.threedemos.client;
+package com.akjava.gwt.threejsexamples.client;
 
 
-import com.akjava.gwt.lib.client.GWTHTMLUtils;
-import com.akjava.gwt.threedemos.client.examples.animation.skinning.Morph;
-import com.akjava.lib.common.utils.HTMLUtils;
+import com.akjava.gwt.threejsexamples.client.examples.animation.skinning.BlendingExample;
+import com.akjava.gwt.threejsexamples.client.examples.animation.skinning.MorphExample;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -15,7 +14,7 @@ import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
-public class ThreeDemo implements EntryPoint,DemoOwner {
+public class ThreejsExamples implements EntryPoint,ExampleOwner {
 	private DockLayoutPanel center;
 
 	/**
@@ -45,12 +44,12 @@ public class ThreeDemo implements EntryPoint,DemoOwner {
 		side.setSpacing(4);
 		
 		Label title=new Label("GWT-three.js Examples");
-		title.setStylePrimaryName("title");
+		title.setStylePrimaryName("header");
 		
 		side.add(title);
 		
 		Label webgl=new Label("webgl");
-		webgl.setStylePrimaryName("subtitle");
+		webgl.setStylePrimaryName("subheader");
 		webgl.setWidth("100%");
 		side.add(webgl);
 		root.addWest(side, 300);
@@ -58,18 +57,17 @@ public class ThreeDemo implements EntryPoint,DemoOwner {
 		
 		//TODO add scroll
 		
-		side.add(new DemoAnchor(this,new TestDemo("demo1")));
-		side.add(new DemoAnchor(this,new Morph()));
-		side.add(new DemoAnchor(this,new CubeDemo()));
+		side.add(new DemoAnchor(this,new MorphExample()));
+		side.add(new DemoAnchor(this,new BlendingExample()));
 	}
 
 	public class DemoAnchor extends Anchor{
-		public DemoAnchor(final DemoOwner owner,final Demo demo){
+		public DemoAnchor(final ExampleOwner owner,final Example demo){
 			super(demo.getName());
 			this.addClickHandler(new ClickHandler() {
 				@Override
 				public void onClick(ClickEvent event) {
-					owner.selectNewDemo(demo);
+					owner.selectNewExample(demo);
 				}
 			});
 		}
@@ -80,9 +78,9 @@ public class ThreeDemo implements EntryPoint,DemoOwner {
 		return center;
 	}
 
-	private Demo lastDemo;
+	private Example lastDemo;
 	@Override
-	public void selectNewDemo(Demo demo) {
+	public void selectNewExample(Example demo) {
 		if(lastDemo!=null){
 			lastDemo.stop();
 		}

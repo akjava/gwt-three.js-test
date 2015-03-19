@@ -1,4 +1,4 @@
-package com.akjava.gwt.threedemos.client.examples.animation.skinning;
+package com.akjava.gwt.threejsexamples.client.examples.animation.skinning;
 
 import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.stats.client.Stats;
@@ -26,25 +26,21 @@ import com.akjava.gwt.three.client.js.math.ThreeMath;
 import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
-import com.akjava.gwt.threedemos.client.AbstractDemo;
+import com.akjava.gwt.threejsexamples.client.AbstractExample;
 import com.google.gwt.core.client.JsArray;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.dom.client.Style.Position;
 import com.google.gwt.event.dom.client.MouseMoveEvent;
 import com.google.gwt.event.dom.client.MouseMoveHandler;
-import com.google.gwt.event.logical.shared.ResizeEvent;
-import com.google.gwt.event.logical.shared.ResizeHandler;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
-import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
+import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.FocusPanel;
-import com.google.gwt.user.client.ui.PopupPanel;
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 
-public class Morph extends AbstractDemo{
+public class MorphExample extends AbstractExample{
 
 	@Override
 	public String getName() {
@@ -72,18 +68,19 @@ public class Morph extends AbstractDemo{
 	@Override
 	public void init() {
 		
-		int SCREEN_WIDTH=getWindowInnerWidth();
-		int SCREEN_HEIGHT=getWindowInnerHeight();
+		double SCREEN_WIDTH=getWindowInnerWidth();
+		double SCREEN_HEIGHT=getWindowInnerHeight();
 		
-		windowHalfX=SCREEN_WIDTH/2;
-		windowHalfY=SCREEN_HEIGHT/2;
+		windowHalfX=(int) (SCREEN_WIDTH/2);
+		windowHalfY=(int) (SCREEN_HEIGHT/2);
 		
 		
 		
 		final int FLOOR = -250;
 		
-		FocusPanel container = new FocusPanel();//TODO method?
-		getParent().add(container);
+		FocusPanel container = createContainerPanel();
+		
+		
 		
 		container.addMouseMoveHandler(new MouseMoveHandler() {
 			@Override
@@ -97,10 +94,9 @@ public class Morph extends AbstractDemo{
 		div.getElement().appendChild(renderer.getDomElement());
 		focusPanel.add(div);
 		*/
-		LogUtils.log(SCREEN_WIDTH+","+SCREEN_HEIGHT);
 		
 		//critical problem without cast value is Integer!!!
-		camera = THREE.PerspectiveCamera( 30, (double)SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000 );
+		camera = THREE.PerspectiveCamera( 30, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000 );
 		camera.getPosition().setZ(2200);
 		
 		
@@ -154,11 +150,12 @@ public class Morph extends AbstractDemo{
 		renderer = THREE.WebGLRenderer(GWTParamUtils.WebGLRenderer().antialias(true));
 		renderer.setClearColor( scene.getFog().getColor());
 		renderer.setPixelRatio( GWTThreeUtils.getWindowDevicePixelRatio());
-		renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
+		renderer.setSize( (int)SCREEN_WIDTH, (int)SCREEN_HEIGHT );
 		container.getElement().appendChild(renderer.getDomElement());
 
 		renderer.setGammaInput(true);
 		renderer.setGammaOutput(true);
+		//renderer.getDomElement().getStyle().setPosition(Position.RELATIVE);
 
 		renderer.setShadowMapEnabled(true);
 		
@@ -170,39 +167,25 @@ public class Morph extends AbstractDemo{
 			}
 		});
 		
-		
-		
 		stats = Stats.create();
+		stats.setPosition(0, 0);
 		container.getElement().appendChild(stats.domElement());
 		
 		
 		initGUI();
 		
-		/*
-
-				// STATS
-
-				stats = new Stats();
-				container.appendChild( stats.domElement );
-
-				//
-
-				// GUI
-
-				
-
-				//
-
-				window.addEventListener( 'resize', onWindowResize, false );
-		 */
-		
-		//resize event catch super class ,just implement onWindowResize method
-		
 	}
 	
 
+	
+
 	private void initGUI() {
+		
+		
 		VerticalPanel gui=createGUIPanel();
+		
+		gui.setWidth("200px");//some widget broke,like checkbox without parent size
+		gui.setSpacing(2);
 		
 		CheckBox model=new CheckBox("show model");
 		model.setValue(true);
@@ -235,25 +218,18 @@ public class Morph extends AbstractDemo{
 		mouseY = ( event.getClientY() - windowHalfY );
 	}
 
-	public int getWindowInnerWidth(){
-		return getParent().getOffsetWidth();
-	}
-	
-	public int getWindowInnerHeight(){
-		return getParent().getOffsetHeight();
-	}
+
 	
 	
 	
 	public void onWindowResize() {
-		//LogUtils.log(getWindowInnerWidth()+"x"+getWindowInnerHeight());//right?
-		windowHalfX = getWindowInnerWidth() / 2;
-		windowHalfY = getWindowInnerHeight() / 2;
+		windowHalfX =(int) getWindowInnerWidth() / 2;
+		windowHalfY = (int)getWindowInnerHeight() / 2;
 
 		camera.setAspect(getWindowInnerWidth() / getWindowInnerHeight());
 		camera.updateProjectionMatrix();
 
-		renderer.setSize( getWindowInnerWidth() , getWindowInnerHeight() );
+		renderer.setSize( (int)getWindowInnerWidth() , (int)getWindowInnerHeight() );
 	}
 	
 	
@@ -279,6 +255,9 @@ public class Morph extends AbstractDemo{
 
 		geometry.computeBoundingBox();
 		BoundingBox bb = geometry.getBoundingBox();
+		
+		/* useless comment out
+		
 
 		String path = "textures/cube/Park2/";
 		String format = ".jpg";
@@ -287,7 +266,7 @@ public class Morph extends AbstractDemo{
 				path + "posy" + format, path + "negy" + format,
 				path + "posz" + format, path + "negz" + format
 		};
-
+	  */
 
 		//var envMap = THREE.ImageUtils.loadTextureCube( urls );
 
@@ -334,6 +313,8 @@ public class Morph extends AbstractDemo{
 
 		Animation animation = THREE.Animation( mesh, geometry.getAnimation() );
 		animation.play();
+		
+		LogUtils.log(mesh);
 	}
 	
 	Mesh mesh;
@@ -354,15 +335,14 @@ public class Morph extends AbstractDemo{
 
 			double time = now * 0.001;
 
-			// mouth
-
-			//TODO
 			
-			mesh.getMorphTargetInfluences().set(1, ( 1 + Math.sin( 4 * time ) ) / 2);
+			// mouth
+			
+			//mesh.getMorphTargetInfluences().set(1, ( 1 + Math.sin( 4 * time ) ) / 2);
 
 			// frown ?
 
-			mesh.getMorphTargetInfluences().set( 2 ,( 1 + Math.sin( 2 * time ) ) / 2);
+			//mesh.getMorphTargetInfluences().set( 2 ,( 1 + Math.sin( 2 * time ) ) / 2);
 
 			// eyes
 
