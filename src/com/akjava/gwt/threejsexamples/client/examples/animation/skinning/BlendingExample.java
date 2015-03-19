@@ -109,6 +109,7 @@ public class BlendingExample extends AbstractExample{
 		
 		 blendMesh.getRotation().setY(Math.PI * -135 / 180);
 				scene.add( blendMesh.getSkinnedMesh() );
+				scene.add(blendMesh.getSkeletonHelper());
 
 				double aspect = getWindowInnerWidth() / getWindowInnerHeight();
 				double radius = blendMesh.getGeometry().getBoundingSphere().getRadius();

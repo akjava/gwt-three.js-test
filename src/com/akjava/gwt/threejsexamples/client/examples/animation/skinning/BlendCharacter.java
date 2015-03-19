@@ -27,6 +27,10 @@ public class BlendCharacter {
 	}
 
 	private SkeletonHelper skeletonHelper;
+	public SkeletonHelper getSkeletonHelper() {
+		return skeletonHelper;
+	}
+
 	private Map<String,Animation> animations=new HashMap<String,Animation>();
 	
 	public Map<String, Animation> getAnimations() {
@@ -56,7 +60,7 @@ public class BlendCharacter {
 				skeletonHelper=THREE.SkeletonHelper(skinnedMesh);
 				skeletonHelper.gwtGetMaterial().setLinewidth(3);
 				
-				skinnedMesh.add(skeletonHelper);
+				//skinnedMesh.add(skeletonHelper);
 				
 				showSkeleton(false);
 				
