@@ -259,6 +259,10 @@ public class BlendCharacter {
 		//TODO get current time for unpause
 	};
 
+	/**
+	 * @deprecated
+	 * animation pause not support any more
+	 */
 	public void unPauseAll(){
 		//TODO implement other way
 	}

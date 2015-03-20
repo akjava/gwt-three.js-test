@@ -3,7 +3,6 @@ package com.akjava.gwt.threejsexamples.client.examples.animation.skinning;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.js.extras.animation.Animation;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayNumber;
@@ -13,7 +12,6 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.HorizontalPanel;
@@ -67,13 +65,16 @@ public class BlendCharacterGui extends VerticalPanel{
 		
 		timeScaleRange = new LabeledInputRangeWidget("Time Scale",0,1,0.01);
 		settings.add(timeScaleRange);
+		timeScaleRange.setValue(1);
+		
 		
 		stepSizeRange = new LabeledInputRangeWidget("Step Size",0.01, 0.1, 0.01 );
 		settings.add(stepSizeRange);
+		stepSizeRange.setValue(0.016);
 		
 		crossfadeTimeRange = new LabeledInputRangeWidget("Crossfade Time",0.1, 6.0, 0.05 );
 		settings.add(crossfadeTimeRange);
-		
+		crossfadeTimeRange.setValue(3.5);
 		
 		
 		LabeledInputRangeWidget test=new LabeledInputRangeWidget("Time scale",0,1,0.01);
