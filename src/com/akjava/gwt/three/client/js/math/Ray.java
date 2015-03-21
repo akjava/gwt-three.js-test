@@ -109,7 +109,7 @@ public final native Vector3 intersectBox(Box3 box,Vector3 optionalTarget)/*-{
 return this.intersectBox(box,optionalTarget);
 }-*/;
 
-public final native Object intersectTriangle(Vector3 a,Vector3 b,Vector3 c,boolean backfaceCulling,Vector3 optionalTarget)/*-{
+public final native Vector3 intersectTriangle(Vector3 a,Vector3 b,Vector3 c,boolean backfaceCulling,Vector3 optionalTarget)/*-{
 return this.intersectTriangle();
 }-*/;
 

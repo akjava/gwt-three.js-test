@@ -93,11 +93,11 @@ public final native Vector3 distanceToSphere(Sphere sphere)/*-{
 return this.distanceToSphere(sphere);
 }-*/;
 
-public final native Object projectPoint(Vector3 point,Vector3 optionalTarget)/*-{
+public final native Vector3 projectPoint(Vector3 point,Vector3 optionalTarget)/*-{
 return this.projectPoint(point,optionalTarget);
 }-*/;
 
-public final native Object orthoPoint(Vector3 point,Vector3 optionalTarget)/*-{
+public final native Vector3 orthoPoint(Vector3 point,Vector3 optionalTarget)/*-{
 return this.orthoPoint(point,optionalTarget);
 }-*/;
 

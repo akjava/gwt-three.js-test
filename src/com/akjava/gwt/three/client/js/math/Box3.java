@@ -113,7 +113,7 @@ public final native Box3 expandByVector(Vector3 vector)/*-{
 return this.expandByVector(vector);
 }-*/;
 
-public final native Object expandByScalar(double scalar)/*-{
+public final native Box2 expandByScalar(double scalar)/*-{
 return this.expandByScalar(scalar);
 }-*/;
 

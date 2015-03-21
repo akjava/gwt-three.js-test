@@ -58,14 +58,14 @@ return this.segments;
 
 
 
-public final native Object getThetaStart()/*-{
+public final native double getThetaStart()/*-{
 return this.thetaStart;
 }-*/;
 
 
 
 
-public final native Object getThetaLength()/*-{
+public final native double getThetaLength()/*-{
 return this.thetaLength;
 }-*/;
 

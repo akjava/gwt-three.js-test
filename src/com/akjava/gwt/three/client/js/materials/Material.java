@@ -86,12 +86,16 @@ public final native void setTransparent(boolean transparent)/*-{
 this.transparent = transparent;
 }-*/;
 
-
-public final native Object getBlending()/*-{
+/**
+ * THREE.BLENDING
+ */
+public final native int getBlending()/*-{
 return this.blending;
 }-*/;
-
-public final native void setBlending(Object blending)/*-{
+/**
+ * THREE.BLENDING
+ */
+public final native void setBlending(int blending)/*-{
 this.blending = blending;
 }-*/;
 

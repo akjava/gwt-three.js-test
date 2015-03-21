@@ -31,33 +31,33 @@ if(this instanceof $wnd.THREE.Face4){
 }-*/;
 
 
-public native final double getA()/*-{
+public native final int getA()/*-{
 return this.a;
 }-*/;
-public native final double getB()/*-{
+public native final int getB()/*-{
 return this.b;
 }-*/;
-public native final double getC()/*-{
+public native final int getC()/*-{
 return this.c;
 }-*/;
-public native final double getD()/*-{
+public native final int getD()/*-{
 return this.d;
 }-*/;
 
-public native final void setA(double a)/*-{
+public native final void setA(int a)/*-{
 this.a=a;
 }-*/;
-public native final void setB(double b)/*-{
+public native final void setB(int b)/*-{
 this.b=b;
 }-*/;
-public native final void setC(double c)/*-{
+public native final void setC(int c)/*-{
 this.c=c;
 }-*/;
 /**
  * @deprecated
  * @param d
  */
-public native final void setD(double d)/*-{
+public native final void setD(int d)/*-{
 this.d=d;
 }-*/;
 
@@ -69,20 +69,20 @@ this.d=d;
 
 
 
-public final native Object getNormal()/*-{
+public final native Vector3 getNormal()/*-{
 return this.normal;
 }-*/;
 
-public final native void setNormal(Object normal)/*-{
+public final native void setNormal(Vector3 normal)/*-{
 this.normal = normal;
 }-*/;
 
 
-public final native Object getVertexNormals()/*-{
+public final native JsArray<Vector3> getVertexNormals()/*-{
 return this.vertexNormals;
 }-*/;
 
-public final native void setVertexNormals(Object vertexNormals)/*-{
+public final native void setVertexNormals(JsArray<Vector3> vertexNormals)/*-{
 this.vertexNormals = vertexNormals;
 }-*/;
 
@@ -94,11 +94,11 @@ this.color = color;
 }-*/;
 
 
-public final native Object getVertexColors()/*-{
+public final native JsArray<Color> getVertexColors()/*-{
 return this.vertexColors;
 }-*/;
 
-public final native void setVertexColors(Object vertexColors)/*-{
+public final native void setVertexColors(JsArray<Color> vertexColors)/*-{
 this.vertexColors = vertexColors;
 }-*/;
 
@@ -120,7 +120,7 @@ this.vertexTangents = vertexTangents;
 }-*/;
 
 
-public final native Object getMaterialIndex()/*-{
+public final native int getMaterialIndex()/*-{
 return this.materialIndex;
 }-*/;
 

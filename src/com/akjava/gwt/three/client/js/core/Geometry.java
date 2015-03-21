@@ -396,7 +396,7 @@ this.computeMorphNormals();
 
 
 
-public final native Object mergeVertices()/*-{
+public final native int mergeVertices()/*-{
 return this.mergeVertices();
 }-*/;
 

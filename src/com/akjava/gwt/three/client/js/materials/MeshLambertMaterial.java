@@ -162,12 +162,17 @@ public final native void setFog(boolean fog)/*-{
 this.fog = fog;
 }-*/;
 
-
-public final native Object getShading()/*-{
+/**
+ * THREE.shading
+ */
+public final native int getShading()/*-{
 return this.shading;
 }-*/;
 
-public final native void setShading(Object shading)/*-{
+/**
+ * THREE.shading
+ */
+public final native void setShading(int shading)/*-{
 this.shading = shading;
 }-*/;
 

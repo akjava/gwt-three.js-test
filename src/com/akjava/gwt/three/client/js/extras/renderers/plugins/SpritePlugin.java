@@ -50,8 +50,8 @@ public final native void init(JavaScriptObject renderer)/*-{
 this.init(renderer);
 }-*/;
 
-public final native Object render(Scene scene,Camera camera,double viewportWidth,double viewportHeight)/*-{
-return this.render(scene,camera,viewportWidth,viewportHeight);
+public final native void render(Scene scene,Camera camera,double viewportWidth,double viewportHeight)/*-{
+this.render(scene,camera,viewportWidth,viewportHeight);
 }-*/;
 
 

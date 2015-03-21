@@ -65,8 +65,8 @@ return this.pointMap;
 
 
 
-public final native Object update()/*-{
-return this.update();
+public final native void update()/*-{
+this.update();
 }-*/;
 
 

@@ -61,8 +61,8 @@ return this.cone;
 }-*/;
 
 
-public final native Object setDirection(Vector3 vec)/*-{
-return this.setDirection(vec);
+public final native void setDirection(Vector3 vec)/*-{
+this.setDirection(vec);
 }-*/;
 
 public final native void setLength(double length)/*-{

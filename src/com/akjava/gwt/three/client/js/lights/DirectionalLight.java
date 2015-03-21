@@ -1,6 +1,8 @@
 package com.akjava.gwt.three.client.js.lights;
 
+import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Object3D;
+import com.akjava.gwt.three.client.js.math.Matrix4;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
@@ -19,11 +21,11 @@ this.target = target;
 }-*/;
 
 
-public final native Object getIntensity()/*-{
+public final native double getIntensity()/*-{
 return this.intensity;
 }-*/;
 
-public final native void setIntensity(Object intensity)/*-{
+public final native void setIntensity(double intensity)/*-{
 this.intensity = intensity;
 }-*/;
 
@@ -219,39 +221,43 @@ public final native void setShadowCascadeArray(JsArray<JavaScriptObject> shadowC
 this.shadowCascadeArray = shadowCascadeArray;
 }-*/;
 
-
-public final native Object getShadowMap()/*-{
+/*
+ * official document
+ * The depth map generated using the shadowCamera; a location beyond a pixel's depth is in shadow. Computed internally during rendering.
+ */
+public final native JavaScriptObject getShadowMap()/*-{
 return this.shadowMap;
 }-*/;
 
-public final native void setShadowMap(Object shadowMap)/*-{
-this.shadowMap = shadowMap;
-}-*/;
+//maybe never set by manual
+//public final native void setShadowMap(Object shadowMap)/*-{
+//this.shadowMap = shadowMap;
+//}-*/;
 
 
-public final native Object getShadowMapSize()/*-{
+public final native double getShadowMapSize()/*-{
 return this.shadowMapSize;
 }-*/;
 
-public final native void setShadowMapSize(Object shadowMapSize)/*-{
+public final native void setShadowMapSize(double shadowMapSize)/*-{
 this.shadowMapSize = shadowMapSize;
 }-*/;
 
 
-public final native Object getShadowCamera()/*-{
+public final native Camera getShadowCamera()/*-{
 return this.shadowCamera;
 }-*/;
 
-public final native void setShadowCamera(Object shadowCamera)/*-{
+public final native void setShadowCamera(Camera shadowCamera)/*-{
 this.shadowCamera = shadowCamera;
 }-*/;
 
 
-public final native Object getShadowMatrix()/*-{
+public final native Matrix4 getShadowMatrix()/*-{
 return this.shadowMatrix;
 }-*/;
 
-public final native void setShadowMatrix(Object shadowMatrix)/*-{
+public final native void setShadowMatrix(Matrix4 shadowMatrix)/*-{
 this.shadowMatrix = shadowMatrix;
 }-*/;
 

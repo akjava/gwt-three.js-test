@@ -38,9 +38,10 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client.js.core;
 
 import com.akjava.gwt.three.client.gwt.core.Offsets;
+import com.akjava.gwt.three.client.js.math.Box3;
+import com.akjava.gwt.three.client.js.math.Sphere;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
-import com.google.gwt.core.client.JsArrayNumber;
 import com.google.gwt.typedarrays.shared.ArrayBuffer;
 
 
@@ -87,20 +88,20 @@ this.offsets = offsets;
 }-*/;
 
 
-public final native Object getBoundingBox()/*-{
+public final native Box3 getBoundingBox()/*-{
 return this.boundingBox;
 }-*/;
 
-public final native void setBoundingBox(Object boundingBox)/*-{
+public final native void setBoundingBox(Box3 boundingBox)/*-{
 this.boundingBox = boundingBox;
 }-*/;
 
 
-public final native Object getBoundingSphere()/*-{
+public final native Sphere getBoundingSphere()/*-{
 return this.boundingSphere;
 }-*/;
 
-public final native void setBoundingSphere(Object boundingSphere)/*-{
+public final native void setBoundingSphere(Sphere boundingSphere)/*-{
 this.boundingSphere = boundingSphere;
 }-*/;
 
@@ -157,7 +158,7 @@ public final native void computeBoundingBox()/*-{
 this.computeBoundingBox();
 }-*/;
 
-public final native Object computeBoundingSphere()/*-{
+public final native Sphere computeBoundingSphere()/*-{
 return this.computeBoundingSphere();
 }-*/;
 
@@ -169,11 +170,11 @@ public final native void normalizeNormals()/*-{
 this.normalizeNormals();
 }-*/;
 
-public final native Object computeTangents()/*-{
-return this.computeTangents();
+public final native void computeTangents()/*-{
+ this.computeTangents();
 }-*/;
 
-public final native Object clone()/*-{
+public final native BufferGeometry clone()/*-{
 return this.clone();
 }-*/;
 

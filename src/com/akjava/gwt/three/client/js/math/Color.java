@@ -81,7 +81,7 @@ public final native void setHSV(double h,double s,double v)/*-{
 return this.setHSV(h,s,v);
 }-*/;
 
-public final native Object setHSL(double h,double s,double l)/*-{
+public final native Color setHSL(double h,double s,double l)/*-{
 return this.setHSL(h,s,l);
 }-*/;
 
@@ -134,7 +134,7 @@ public final native Color add(Color color)/*-{
 return this.add(color);
 }-*/;
 
-public final native Object addColors(Color color1,Color color2)/*-{
+public final native Color addColors(Color color1,Color color2)/*-{
 return this.addColors(color1,color2);
 }-*/;
 
@@ -146,7 +146,7 @@ public final native Color multiply(Color color)/*-{
 return this.multiply(color);
 }-*/;
 
-public final native Object multiplyScalar(double s)/*-{
+public final native Color multiplyScalar(double s)/*-{
 return this.multiplyScalar(s);
 }-*/;
 

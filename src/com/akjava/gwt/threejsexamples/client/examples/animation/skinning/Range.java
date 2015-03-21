@@ -187,7 +187,7 @@ public class Range extends Widget implements HasName,HasValue<Number>, IsEditor<
    * @param defaultValue default value to set
    */
   public void setDefaultValue(Integer defaultValue) {
-    //getInputElement().setDefaultValue(String.valueOf(defaultValue));
+    getInputElement().setDefaultValue(String.valueOf(defaultValue));
   }
 
   /**

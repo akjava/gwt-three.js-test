@@ -54,16 +54,16 @@ public final native void addEventListener(String type,ThreeEventListener listene
 this.addEventListener(type,listener);
 }-*/;
 
-public final native Object hasEventListener(String type,ThreeEventListener listener)/*-{
+public final native boolean hasEventListener(String type,ThreeEventListener listener)/*-{
 return this.hasEventListener(type,listener);
 }-*/;
 
-public final native Object removeEventListener(String type,ThreeEventListener listener)/*-{
-return this.removeEventListener(type,listener);
+public final native void removeEventListener(String type,ThreeEventListener listener)/*-{
+this.removeEventListener(type,listener);
 }-*/;
 
-public final native Object dispatchEvent(ThreeEvent event)/*-{
-return this.dispatchEvent(event);
+public final native void dispatchEvent(ThreeEvent event)/*-{
+this.dispatchEvent(event);
 }-*/;
 
 

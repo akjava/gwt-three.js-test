@@ -202,7 +202,7 @@ public final boolean equals(Object3D object){
 public final native void setVisible(boolean bool)/*-{
 this.visible=bool;
 }-*/;
-public final native boolean getVisible()/*-{
+public final native boolean isVisible()/*-{
 return this.visible;
 }-*/;
 
@@ -348,7 +348,7 @@ public final native void setFrustumCulled(boolean frustumCulled)/*-{
 this.frustumCulled = frustumCulled;
 }-*/;
 
-
+//maybe any
 public final native Object getUserData()/*-{
 return this.userData;
 }-*/;
@@ -357,8 +357,8 @@ public final native void setUserData(Object userData)/*-{
 this.userData = userData;
 }-*/;
 
-public final native Object applyMatrix()/*-{
-return this.applyMatrix();
+public final native void applyMatrix()/*-{
+ this.applyMatrix();
 }-*/;
 
 public final native void setRotationFromAxisAngle(Object axis,Object angle)/*-{
@@ -377,51 +377,51 @@ public final native void setRotationFromQuaternion(Object q)/*-{
 this.setRotationFromQuaternion(q);
 }-*/;
 
-public final native Object rotateOnAxis()/*-{
+public final native Object3D rotateOnAxis()/*-{
 return this.rotateOnAxis();
 }-*/;
 
-public final native Object rotateX()/*-{
+public final native Object3D rotateX()/*-{
 return this.rotateX();
 }-*/;
 
-public final native Object rotateY()/*-{
+public final native Object3D rotateY()/*-{
 return this.rotateY();
 }-*/;
 
-public final native Object rotateZ()/*-{
+public final native Object3D rotateZ()/*-{
 return this.rotateZ();
 }-*/;
 
-public final native Object translateOnAxis()/*-{
+public final native Object3D translateOnAxis()/*-{
 return this.translateOnAxis();
 }-*/;
 
-public final native Object translate(Object distance,Object axis)/*-{
+public final native Object3D translate(double distance,Vector3 axis)/*-{
 return this.translate(distance,axis);
 }-*/;
 
-public final native Object translateX()/*-{
+public final native Object3D translateX()/*-{
 return this.translateX();
 }-*/;
 
-public final native Object translateY()/*-{
+public final native Object3D translateY()/*-{
 return this.translateY();
 }-*/;
 
-public final native Object translateZ()/*-{
+public final native Object3D translateZ()/*-{
 return this.translateZ();
 }-*/;
 
-public final native Object localToWorld(Object vector)/*-{
+public final native Vector3 localToWorld(Vector3 vector)/*-{
 return this.localToWorld(vector);
 }-*/;
 
-public final native Object worldToLocal()/*-{
-return this.worldToLocal();
+public final native Vector3 worldToLocal(Vector3 vector)/*-{
+return this.worldToLocal(vector);
 }-*/;
 
-public final native Object lookAt()/*-{
+public final native Vector3 lookAt()/*-{
 return this.lookAt();
 }-*/;
 
