@@ -37,10 +37,10 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.extras.geometries;
 
-import com.google.gwt.core.client.JavaScriptObject;
+import com.akjava.gwt.three.client.js.core.Geometry;
 
 
-public class CylinderGeometry extends JavaScriptObject{
+public class CylinderGeometry extends Geometry{
 	protected CylinderGeometry() {
 	}
 

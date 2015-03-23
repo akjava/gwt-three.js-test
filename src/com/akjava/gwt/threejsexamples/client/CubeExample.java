@@ -14,7 +14,7 @@ import com.google.gwt.user.client.ui.FocusPanel;
  * @author aki
  *
  */
-public class CubeDemo extends AbstractExample {
+public class CubeExample extends AbstractExample {
 
 	private WebGLRenderer renderer;
 	private Scene scene;

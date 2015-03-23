@@ -3,10 +3,13 @@ package com.akjava.gwt.threejsexamples.client;
 import com.akjava.gwt.lib.client.LogUtils;
 import com.google.gwt.user.client.ui.Label;
 
-public class TestDemo extends AbstractExample{
+/*
+ * just for test example
+ */
+public class TestExample extends AbstractExample{
 private String name;
 
-public TestDemo(String name) {
+public TestExample(String name) {
 	super();
 	this.name = name;
 }

@@ -182,7 +182,7 @@ public class MorphExample extends AbstractExample{
 	private void initGUI() {
 		
 		
-		VerticalPanel gui=createGUIPanel();
+		VerticalPanel gui=addResizeHandlerAndcreateGUIPanel();
 		
 		gui.setWidth("200px");//some widget broke,like checkbox without parent size
 		gui.setSpacing(2);

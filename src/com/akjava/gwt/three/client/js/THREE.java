@@ -812,16 +812,16 @@ return new $wnd.THREE.ArrowHelper(size);
 	return new $wnd.THREE.BoxGeometry( x, y, z );
 	}-*/;
 	
-	public static native final Geometry PlaneGeometry(double x,double y)/*-{
+	public static native final PlaneGeometry PlaneGeometry(double x,double y)/*-{
 	return new $wnd.THREE.PlaneGeometry( x, y );
 	}-*/;
 
 	
-	public static native final Geometry SphereGeometry(double radius ,int segments,int rings)/*-{
+	public static native final SphereGeometry SphereGeometry(double radius ,int segments,int rings)/*-{
 	return new $wnd.THREE.SphereGeometry( radius, segments, rings );
 	}-*/;
 	
-	public static native final Geometry CylinderGeometry(double topRad,double botRad,double height,int radSegs)/*-{
+	public static native final CylinderGeometry CylinderGeometry(double topRad,double botRad,double height,int radSegs)/*-{
 	return new $wnd.THREE.CylinderGeometry( topRad,botRad,height,radSegs );
 	}-*/;
 	

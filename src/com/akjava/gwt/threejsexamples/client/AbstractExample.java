@@ -17,6 +17,16 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 public abstract class AbstractExample implements Example{
 	private AnimationHandle handler;
 	protected Panel parent;
+	
+	private boolean debugAnimateOneTime;
+	public boolean isDebugAnimateOneTime() {
+		return debugAnimateOneTime;
+	}
+
+	public void setDebugAnimateOneTimeOnly(boolean debugAnimateOneTime) {
+		this.debugAnimateOneTime = debugAnimateOneTime;
+	}
+
 	public Panel getParent() {
 		return parent;
 	}
@@ -50,7 +60,9 @@ public abstract class AbstractExample implements Example{
 
 	@Override
 	public void execute(double timestamp) {
+		if(!debugAnimateOneTime){//for debug,if error happen on animate
 		handler=AnimationScheduler.get().requestAnimationFrame(this);
+		}
 		animate(timestamp);
 	}
 	public abstract void animate(double timestamp);
@@ -66,7 +78,7 @@ public abstract class AbstractExample implements Example{
 	 * it's better to keep Verticalpanel ,it's hard to use Layout*Panel
 	 * possible problem,if container size changed after showed,usually problem
 	 */
-	protected VerticalPanel createGUIPanel(){
+	protected VerticalPanel addResizeHandlerAndcreateGUIPanel(){
 		popup=new PopupPanel();	//do sync with demo
 		
 		VerticalPanel root=new VerticalPanel();

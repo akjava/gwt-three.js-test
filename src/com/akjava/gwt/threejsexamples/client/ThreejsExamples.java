@@ -1,6 +1,7 @@
 package com.akjava.gwt.threejsexamples.client;
 
 
+import com.akjava.gwt.threejsexamples.client.examples.animation.cloth.ClothExample;
 import com.akjava.gwt.threejsexamples.client.examples.animation.skinning.BlendingExample;
 import com.akjava.gwt.threejsexamples.client.examples.animation.skinning.MorphExample;
 import com.google.gwt.core.client.EntryPoint;
@@ -57,6 +58,7 @@ public class ThreejsExamples implements EntryPoint,ExampleOwner {
 		
 		//TODO add scroll
 		
+		side.add(new DemoAnchor(this,new ClothExample()));
 		side.add(new DemoAnchor(this,new MorphExample()));
 		side.add(new DemoAnchor(this,new BlendingExample()));
 	}

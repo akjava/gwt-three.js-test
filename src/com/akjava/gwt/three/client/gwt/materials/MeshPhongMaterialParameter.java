@@ -90,7 +90,11 @@ public final class MeshPhongMaterialParameter extends JSParameter{
 	this.specular=specular;
 	return this;
 	}-*/;
-	/*
+	
+	public final native MeshPhongMaterialParameter shiness(double shiness)/*-{
+	this.shiness=shiness;
+	return this;
+	}-*/;
 
 
 
@@ -98,6 +102,7 @@ public final class MeshPhongMaterialParameter extends JSParameter{
 	this.shininess=shininess;
 	return this;
 	}-*/;
+	
 	public final native MeshPhongMaterialParameter map(Texture map)/*-{
 	this.map=map;
 	return this;
