@@ -211,6 +211,9 @@ public final  native void setMorphTargetDictionary(JavaScriptObject  param)/*-{
 this.morphTargetDictionary=param;
 }-*/;
 
-
+//I'm not i see 'customDepthMaterial' only in ShadowMapPlugin.js,Cloth example
+public final native void setCustomDepthMaterial(Material customDepthMaterial)/*-{
+this.customDepthMaterial = customDepthMaterial;
+}-*/;
 
 }

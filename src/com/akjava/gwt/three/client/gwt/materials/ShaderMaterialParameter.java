@@ -63,7 +63,7 @@ public final class ShaderMaterialParameter extends JSParameter{
 	return this;
 	}-*/;
 	public final native ShaderMaterialParameter vertexShader(Uniforms uniforms)/*-{
-	this.uniforms=uniforms;
+	this.vertexShader=vertexShader;
 	return this;
 	}-*/;
 	public final native ShaderMaterialParameter defines(Defines defines)/*-{

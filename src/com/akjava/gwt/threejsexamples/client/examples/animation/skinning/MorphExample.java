@@ -29,14 +29,15 @@ import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.threejsexamples.client.AbstractExample;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.dom.client.Style.Position;
+import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.MouseMoveEvent;
 import com.google.gwt.event.dom.client.MouseMoveHandler;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.user.client.ui.CheckBox;
-import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.FocusPanel;
 import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 
@@ -171,6 +172,14 @@ public class MorphExample extends AbstractExample{
 		stats.setPosition(0, 0);
 		container.getElement().appendChild(stats.domElement());
 		
+		//TODO HTML method
+		HTML test=new HTML("hello <a href='yahoo.co.jp'>yahoo</a>");
+		test.getElement().getStyle().setPosition(Position.ABSOLUTE);
+		test.getElement().getStyle().setLeft(100, Unit.PX);
+		test.getElement().getStyle().setTop(0, Unit.PX);
+		
+		//container.getElement().appendChild(test.getElement());
+		container.add(test);
 		
 		initGUI();
 		

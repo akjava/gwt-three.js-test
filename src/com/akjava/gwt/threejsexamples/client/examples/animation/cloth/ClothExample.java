@@ -5,6 +5,8 @@ import java.util.List;
 import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.stats.client.Stats;
 import com.akjava.gwt.three.client.gwt.GWTParamUtils;
+import com.akjava.gwt.three.client.gwt.extras.Uniforms;
+import com.akjava.gwt.three.client.gwt.materials.ShaderMaterialParameter;
 import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.PerspectiveCamera;
@@ -21,6 +23,7 @@ import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.three.client.js.textures.Texture;
 import com.akjava.gwt.threejsexamples.client.AbstractExample;
 import com.akjava.gwt.threejsexamples.client.examples.animation.cloth.Cloth.Particle;
+import com.akjava.gwt.threejsexamples.client.resources.Bundles;
 import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
@@ -119,13 +122,10 @@ public class ClothExample extends AbstractExample {
 		clothGeometry.setDynamic(true);
 		clothGeometry.computeFaceNormals();
 
-		//TODO load
-		/*
-		var uniforms = { texture:  { type: "t", value: clothTexture } };
-		var vertexShader = document.getElementById( 'vertexShaderDepth' ).textContent;
-		var fragmentShader = document.getElementById( 'fragmentShaderDepth' ).textContent;
-		*/
-
+		//shadow
+		Uniforms uniforms=Uniforms.create().setTexture("texture", clothTexture);
+		String vertexShader=Bundles.INSTANCE.vertexShaderDepth().getText();
+		String fragmentShader=Bundles.INSTANCE.fragmentShaderDepth().getText();
 		// cloth mesh
 
 		Mesh object = THREE.Mesh( clothGeometry, clothMaterial );
@@ -134,8 +134,9 @@ public class ClothExample extends AbstractExample {
 		object.setReceiveShadow(true);
 		scene.add( object );
 
-		//TODO research
-		//object.setCustomDepthMaterial(THREE.ShaderMaterial( { uniforms: uniforms, vertexShader: vertexShader, fragmentShader: fragmentShader } ));
+		
+		object.setCustomDepthMaterial(THREE.ShaderMaterial(GWTParamUtils.ShaderMaterial().uniforms(uniforms).vertexShader(vertexShader).fragmentShader(fragmentShader)));
+		
 
 		// sphere
 
