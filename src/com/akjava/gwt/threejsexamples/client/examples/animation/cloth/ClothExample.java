@@ -21,7 +21,13 @@ import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.three.client.js.textures.Texture;
 import com.akjava.gwt.threejsexamples.client.AbstractExample;
 import com.akjava.gwt.threejsexamples.client.examples.animation.cloth.Cloth.Particle;
+import com.google.gwt.event.dom.client.ChangeEvent;
+import com.google.gwt.event.dom.client.ChangeHandler;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.FocusPanel;
+import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 /*
@@ -234,9 +240,65 @@ public class ClothExample extends AbstractExample {
 		
 		//setDebugAnimateOneTimeOnly(false);
 		
-		VerticalPanel gui=addResizeHandlerAndcreateGUIPanel();//need for window-resize
+		createGUI();
 		
 	}
+	
+	public void createGUI(){
+		VerticalPanel gui=addResizeHandlerAndcreateGUIPanel();//need for window-resize
+		
+		CheckBox lockCamera=new CheckBox("Lock Camera");
+		gui.add(lockCamera);
+		lockCamera.addValueChangeHandler(new ValueChangeHandler<Boolean>() {
+			
+			@Override
+			public void onValueChange(ValueChangeEvent<Boolean> event) {
+				rotate=!event.getValue();
+			}
+		});
+		
+		CheckBox wind=new CheckBox("Wind");
+		gui.add(wind);
+		wind.addValueChangeHandler(new ValueChangeHandler<Boolean>() {
+			
+			@Override
+			public void onValueChange(ValueChangeEvent<Boolean> event) {
+				cloth.wind=event.getValue();
+			}
+		});
+		wind.setValue(true);
+		
+		CheckBox showSphere=new CheckBox("Show Ball");
+		gui.add(showSphere);
+		showSphere.addValueChangeHandler(new ValueChangeHandler<Boolean>() {
+			
+			@Override
+			public void onValueChange(ValueChangeEvent<Boolean> event) {
+				sphere.setVisible(event.getValue());
+			}
+		});
+		
+		final ListBox pinsBox=new ListBox();
+		pinsBox.addItem("Center only pin");
+		pinsBox.addItem("Top all pins");
+		pinsBox.addItem("First only pin");
+		pinsBox.addItem("No pin");
+		pinsBox.addItem("2 pins");
+		
+		pinsBox.setSelectedIndex(1);//default
+		
+		pinsBox.addChangeHandler(new ChangeHandler() {
+			
+			@Override
+			public void onChange(ChangeEvent event) {
+				int selection=pinsBox.getSelectedIndex();
+				cloth.pins=cloth.pinsFormation.get(selection);
+			}
+		});
+		gui.add(pinsBox);
+		
+	}
+	
 	public void render(double time){
 		
 		double timer = time * 0.0002;
