@@ -1,0 +1,14 @@
+.side {
+  background: #fafafa;
+}
+.subheader{
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.header{
+	font-weight: bold;
+	font-size: 24px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
