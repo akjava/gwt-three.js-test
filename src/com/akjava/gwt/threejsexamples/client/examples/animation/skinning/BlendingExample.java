@@ -90,6 +90,11 @@ public class BlendingExample extends AbstractExample{
 		stats.setPosition(0, 0);
 		container.getElement().appendChild(stats.domElement());
 	
+		container.add(createAbsoluteHTML("<a href='http://threejs.org' target='_blank'>three.js</a> - Skeletal Animation Blending" +
+				"<br><br> Adjust blend weights to affect the animations that are currently playing." +
+				"<br> Cross fades (and warping) blend between 2 animations and end with a single animation."
+				,100,10));
+
 		
 		//resize-handler generate on super-class,take care of gui
 		

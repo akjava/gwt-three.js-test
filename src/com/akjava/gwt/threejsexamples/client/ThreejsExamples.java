@@ -61,6 +61,16 @@ public class ThreejsExamples implements EntryPoint,ExampleOwner {
 		side.add(new DemoAnchor(this,new ClothExample()));
 		side.add(new DemoAnchor(this,new MorphExample()));
 		side.add(new DemoAnchor(this,new BlendingExample()));
+		
+		
+		Label links=new Label("Links");
+		links.setStylePrimaryName("subheader");
+		side.add(links);
+		side.add(new Anchor("Three.js(github)", "https://github.com/mrdoob/three.js/"));
+		side.add(new Anchor("Three.js origin examples", "http://threejs.org/examples/"));
+		side.add(new Anchor("GWT-Three.js(github)", "https://github.com/akjava/gwt-three.js-test"));
+		side.add(new Anchor("GWT-Three.js old examples", "http://akjava.github.io/gwt-three.js-test/ThreeTest.html"));
+		side.add(new Anchor("GWT", "http://www.gwtproject.org/"));
 	}
 
 	public class DemoAnchor extends Anchor{

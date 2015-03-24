@@ -28,15 +28,12 @@ import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.threejsexamples.client.AbstractExample;
 import com.google.gwt.core.client.JsArray;
-import com.google.gwt.dom.client.Style.Position;
-import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.MouseMoveEvent;
 import com.google.gwt.event.dom.client.MouseMoveHandler;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.FocusPanel;
-import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
@@ -173,21 +170,16 @@ public class MorphExample extends AbstractExample{
 		container.getElement().appendChild(stats.domElement());
 		
 		//TODO HTML method
-		HTML test=new HTML("hello <a href='yahoo.co.jp'>yahoo</a>");
-		test.getElement().getStyle().setPosition(Position.ABSOLUTE);
-		test.getElement().getStyle().setLeft(100, Unit.PX);
-		test.getElement().getStyle().setTop(0, Unit.PX);
+		
 		
 		//container.getElement().appendChild(test.getElement());
-		container.add(test);
+		container.add(createAbsoluteHTML("<a href='http://threejs.org' target='_blank'>three.js</a> webgl - skinning + morphing- knight by <a href='http://vimeo.com/36113323'>apendua</a>"
+				,100,10));
 		
 		initGUI();
 		
 	}
 	
-
-	
-
 	private void initGUI() {
 		
 		
@@ -207,7 +199,7 @@ public class MorphExample extends AbstractExample{
 		gui.add(model);
 		
 		
-		CheckBox bone=new CheckBox("how skeleton");
+		CheckBox bone=new CheckBox("show skeleton");
 		bone.setValue(false);
 		bone.addValueChangeHandler(new ValueChangeHandler<Boolean>() {
 			@Override
@@ -323,7 +315,6 @@ public class MorphExample extends AbstractExample{
 		Animation animation = THREE.Animation( mesh, geometry.getAnimation() );
 		animation.play();
 		
-		LogUtils.log(mesh);
 	}
 	
 	Mesh mesh;

@@ -2,6 +2,8 @@ package com.akjava.gwt.threejsexamples.client;
 
 import com.google.gwt.animation.client.AnimationScheduler;
 import com.google.gwt.animation.client.AnimationScheduler.AnimationHandle;
+import com.google.gwt.dom.client.Style.Position;
+import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.logical.shared.ResizeEvent;
@@ -10,6 +12,7 @@ import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FocusPanel;
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.PopupPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -166,5 +169,13 @@ public abstract class AbstractExample implements Example{
 		
 		dialog.setPopupPosition(clientWidth-dw, scrollTopPos+0);
 		
+	}
+
+	protected HTML createAbsoluteHTML(String html, int x, int y) {
+		HTML htmlWidget=new HTML(html);
+		htmlWidget.getElement().getStyle().setPosition(Position.ABSOLUTE);
+		htmlWidget.getElement().getStyle().setLeft(x, Unit.PX);
+		htmlWidget.getElement().getStyle().setTop(y, Unit.PX);
+		return htmlWidget;
 	}
 }

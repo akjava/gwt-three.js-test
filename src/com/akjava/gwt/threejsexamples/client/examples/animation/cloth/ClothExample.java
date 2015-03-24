@@ -231,7 +231,8 @@ public class ClothExample extends AbstractExample {
 		stats.setPosition(0, 0);
 		container.getElement().appendChild(stats.domElement());
 
-		//
+		container.add(createAbsoluteHTML("Simple Cloth Simulation<br>Verlet integration with Constrains relaxation"
+				,100,10));
 
 		//window.addEventListener( 'resize', onWindowResize, false );
 
