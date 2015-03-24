@@ -37,6 +37,7 @@ public class Cloth {
 	private static int xSegs = 10; //
 	private static int ySegs = 10; //
 
+	//must be javascript function ParametricGeometry use this function
 	JavaScriptObject clothFunction = plane(restDistance * xSegs, restDistance * ySegs);
 
 	//var cloth = new Cloth(xSegs, ySegs);
@@ -61,7 +62,8 @@ public class Cloth {
 	Vector3 tmpForce = THREE.Vector3();
 
 	Double lastTime;
-	//TODO change interface & implement native
+	
+	//for ParametricGeometry
 	public native final JavaScriptObject plane(double width,double height)/*-{
 	return function(u, v) {
 			var x = (u-0.5) * width;
