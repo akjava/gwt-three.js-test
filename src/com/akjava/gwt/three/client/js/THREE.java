@@ -949,28 +949,13 @@ return new $wnd.THREE.ArrowHelper(size);
 
 
 	
-	
-	/*
-	public static final int FrontSide = 0;
-	public static final int BackSide = 1;
-	public static final int DoubleSide = 2;
-	
-	public static final int NoShading = 0;
-	public static final int FlatShading = 1;
-	public static final int SmoothShading = 2;
 
-	public static final int NoColors = 0;
-	public static final int FaceColors = 1;
-	public static final int VertexColors = 2;
 	
-	public static final int UVMapping =0;
-	public static final int LatitudeReflectionMapping =1;
-	public static final int CubeReflectionMapping =2;
-	public static final int SphericalReflectionMapping =3;
-	*/
-	/*
-
-	*/
+	/**
+	 * @deprecated use direct
+	 * @author aki
+	 *
+	 */
 	public static final class Side{
 		public static native final int FrontSide()/*-{
 		return $wnd.THREE.FrontSide;
@@ -984,6 +969,11 @@ return new $wnd.THREE.ArrowHelper(size);
 		}-*/;
 		
 	}
+	/**
+	 * @deprecated use direct
+	 * @author aki
+	 *
+	 */
 	public static final class Shading{
 		public static native final int NoShading()/*-{
 		return $wnd.THREE.NoShading;
@@ -997,6 +987,11 @@ return new $wnd.THREE.ArrowHelper(size);
 		}-*/;
 		
 	}
+	/**
+	 * @deprecated use direct
+	 * @author aki
+	 *
+	 */
 	public static final class Blending{
 		public static native final int NoBlending()/*-{
 		return $wnd.THREE.NoBlending;
@@ -1018,7 +1013,11 @@ return new $wnd.THREE.ArrowHelper(size);
 		}-*/;
 	}
 	
-
+	/**
+	 * @deprecated use direct
+	 * @author aki
+	 *
+	 */
 	public static final class TextureConstants{
 		public static native final int MultiplyOperation()/*-{
 		return new $wnd.THREE.MultiplyOperation;
@@ -1030,6 +1029,12 @@ return new $wnd.THREE.ArrowHelper(size);
 		return  $wnd.THREE.AddOperation;
 		}-*/;
 	}
+	
+	/**
+	 * @deprecated use direct
+	 * @author aki
+	 *
+	 */
 	public static final class Colors{
 		public static native final int NoColors()/*-{
 		return $wnd.THREE.NoColors;
@@ -1042,6 +1047,11 @@ return new $wnd.THREE.ArrowHelper(size);
 		}-*/;
 	}
 
+	/**
+	 * @deprecated use direct
+	 * @author aki
+	 *
+	 */
 	public static final class MappingModes{
 		public static native final int UVMapping()/*-{
 		return $wnd.THREE.UVMapping;
@@ -1067,6 +1077,11 @@ return new $wnd.THREE.ArrowHelper(size);
 		
 		
 	}
+	/**
+	 * @deprecated use direct
+	 * @author aki
+	 *
+	 */
 	public static final class WrappingModes{
 		public static native final int RepeatWrapping()/*-{
 		return $wnd.THREE.RepeatWrapping;
@@ -1079,6 +1094,11 @@ return new $wnd.THREE.ArrowHelper(size);
 		}-*/;
 	}
 	
+	/**
+	 * @deprecated use direct
+	 * @author aki
+	 *
+	 */
 	public static final class Filters{
 		public static native final int NearestFilter()/*-{
 		return $wnd.THREE.NearestFilter;
@@ -1100,8 +1120,168 @@ return new $wnd.THREE.ArrowHelper(size);
 		}-*/;
 	}
 	
+
+	// GL STATE CONSTANTS
+
+	public static final int CullFaceNone = 0;
+	public static final int CullFaceBack = 1;
+	public static final int CullFaceFront = 2;
+	public static final int CullFaceFrontBack = 3;
+
+	public static final int FrontFaceDirectionCW = 0;
+	public static final int FrontFaceDirectionCCW = 1;
+
+	// SHADOWING TYPES
+
+	public static final int BasicShadowMap = 0;
+	public static final int PCFShadowMap = 1;
+	public static final int PCFSoftShadowMap = 2;
+
+	// MATERIAL CONSTANTS
+
+	// side
+
+	public static final int FrontSide = 0;
+	public static final int BackSide = 1;
+	public static final int DoubleSide = 2;
+
+	// shading
+
+	public static final int NoShading = 0;
+	public static final int FlatShading = 1;
+	public static final int SmoothShading = 2;
+
+	// colors
+
+	public static final int NoColors = 0;
+	public static final int FaceColors = 1;
+	public static final int VertexColors = 2;
+
+	// blending modes
+
+	public static final int NoBlending = 0;
+	public static final int NormalBlending = 1;
+	public static final int AdditiveBlending = 2;
+	public static final int SubtractiveBlending = 3;
+	public static final int MultiplyBlending = 4;
+	public static final int CustomBlending = 5;
+
+	// custom blending equations
+	// (numbers start from 100 not to clash with other
+	//  mappings to OpenGL constants defined in Texture.js)
+
+	public static final int AddEquation = 100;
+	public static final int SubtractEquation = 101;
+	public static final int ReverseSubtractEquation = 102;
+	public static final int MinEquation = 103;
+	public static final int MaxEquation = 104;
+
+	// custom blending destination factors
+
+	public static final int ZeroFactor = 200;
+	public static final int OneFactor = 201;
+	public static final int SrcColorFactor = 202;
+	public static final int OneMinusSrcColorFactor = 203;
+	public static final int SrcAlphaFactor = 204;
+	public static final int OneMinusSrcAlphaFactor = 205;
+	public static final int DstAlphaFactor = 206;
+	public static final int OneMinusDstAlphaFactor = 207;
+
+	// custom blending source factors
+
+	//public static final int ZeroFactor = 200;
+	//public static final int OneFactor = 201;
+	//public static final int SrcAlphaFactor = 204;
+	//public static final int OneMinusSrcAlphaFactor = 205;
+	//public static final int DstAlphaFactor = 206;
+	//public static final int OneMinusDstAlphaFactor = 207;
+	public static final int DstColorFactor = 208;
+	public static final int OneMinusDstColorFactor = 209;
+	public static final int SrcAlphaSaturateFactor = 210;
+
+
+	// TEXTURE CONSTANTS
+
+	public static final int MultiplyOperation = 0;
+	public static final int MixOperation = 1;
+	public static final int AddOperation = 2;
+
+	// Mapping modes
+
+	public static final int UVMapping = 300;
+
+	public static final int CubeReflectionMapping = 301;
+	public static final int CubeRefractionMapping = 302;
+
+	public static final int EquirectangularReflectionMapping = 303;
+	public static final int EquirectangularRefractionMapping = 304;
+
+	public static final int SphericalReflectionMapping = 305;
+
+	// Wrapping modes
+
+	public static final int RepeatWrapping = 1000;
+	public static final int ClampToEdgeWrapping = 1001;
+	public static final int MirroredRepeatWrapping = 1002;
+
+	// Filters
+
+	public static final int NearestFilter = 1003;
+	public static final int NearestMipMapNearestFilter = 1004;
+	public static final int NearestMipMapLinearFilter = 1005;
+	public static final int LinearFilter = 1006;
+	public static final int LinearMipMapNearestFilter = 1007;
+	public static final int LinearMipMapLinearFilter = 1008;
+
+	// Data types
+
+	public static final int UnsignedByteType = 1009;
+	public static final int ByteType = 1010;
+	public static final int ShortType = 1011;
+	public static final int UnsignedShortType = 1012;
+	public static final int IntType = 1013;
+	public static final int UnsignedIntType = 1014;
+	public static final int FloatType = 1015;
+
+	// Pixel types
+
+	//public static final int UnsignedByteType = 1009;
+	public static final int UnsignedShort4444Type = 1016;
+	public static final int UnsignedShort5551Type = 1017;
+	public static final int UnsignedShort565Type = 1018;
+
+	// Pixel formats
+
+	public static final int AlphaFormat = 1019;
+	public static final int RGBFormat = 1020;
+	public static final int RGBAFormat = 1021;
+	public static final int LuminanceFormat = 1022;
+	public static final int LuminanceAlphaFormat = 1023;
+	// public static final int RGBEFormat handled as public static final int RGBAFormat in shaders
+	public static final int RGBEFormat = RGBAFormat; //1024;
+
+	// DDS / ST3C Compressed texture formats
+
+	public static final int RGB_S3TC_DXT1_Format = 2001;
+	public static final int RGBA_S3TC_DXT1_Format = 2002;
+	public static final int RGBA_S3TC_DXT3_Format = 2003;
+	public static final int RGBA_S3TC_DXT5_Format = 2004;
+
+
+	// PVRTC compressed texture formats
+
+	public static final int RGB_PVRTC_4BPPV1_Format = 2100;
+	public static final int RGB_PVRTC_2BPPV1_Format = 2101;
+	public static final int RGBA_PVRTC_4BPPV1_Format = 2102;
+	public static final int RGBA_PVRTC_2BPPV1_Format = 2103;
 	
+	
+
+	public static final MOUSE MOUSE=new MOUSE();
 	public static final class MOUSE{
+		public static final int LEFT=0;
+		public static final int MIDDLE=1;
+		public static final int RIGHT=0;
 		public static native final int LEFT()/*-{
 		return $wnd.THREE.MOUSE.LEFT;
 		}-*/;
