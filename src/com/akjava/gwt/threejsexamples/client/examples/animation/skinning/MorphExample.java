@@ -183,7 +183,7 @@ public class MorphExample extends AbstractExample{
 	private void initGUI() {
 		
 		
-		VerticalPanel gui=addResizeHandlerAndcreateGUIPanel();
+		VerticalPanel gui=addResizeHandlerAndCreateGUIPanel();
 		
 		gui.setWidth("200px");//some widget broke,like checkbox without parent size
 		gui.setSpacing(2);
@@ -353,4 +353,8 @@ public class MorphExample extends AbstractExample{
 		renderer.render( scene, camera );
 	}
 
+	@Override
+	public String getTokenKey() {
+		return "morph";
+	}
 }

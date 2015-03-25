@@ -37,5 +37,9 @@ public void onWindowResize() {
 }
 
 
+@Override
+public String getTokenKey() {
+	return "test";
+}
 
 }

@@ -22,6 +22,9 @@ public abstract class AbstractExample implements Example{
 	protected Panel parent;
 	
 	private boolean debugAnimateOneTime;
+	
+	
+	
 	public boolean isDebugAnimateOneTime() {
 		return debugAnimateOneTime;
 	}
@@ -81,7 +84,7 @@ public abstract class AbstractExample implements Example{
 	 * it's better to keep Verticalpanel ,it's hard to use Layout*Panel
 	 * possible problem,if container size changed after showed,usually problem
 	 */
-	protected VerticalPanel addResizeHandlerAndcreateGUIPanel(){
+	protected VerticalPanel addResizeHandlerAndCreateGUIPanel(){
 		popup=new PopupPanel();	//do sync with demo
 		
 		VerticalPanel root=new VerticalPanel();

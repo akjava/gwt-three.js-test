@@ -247,7 +247,7 @@ public class ClothExample extends AbstractExample {
 	}
 	
 	public void createGUI(){
-		VerticalPanel gui=addResizeHandlerAndcreateGUIPanel();//need for window-resize
+		VerticalPanel gui=addResizeHandlerAndCreateGUIPanel();//need for window-resize
 		
 		CheckBox lockCamera=new CheckBox("Lock Camera");
 		gui.add(lockCamera);
@@ -357,5 +357,10 @@ public class ClothExample extends AbstractExample {
 		camera.updateProjectionMatrix();
 
 		renderer.setSize( (int)getWindowInnerWidth() , (int)getWindowInnerHeight() );
+	}
+	
+	@Override
+	public String getTokenKey() {
+		return "cloth";
 	}
 }

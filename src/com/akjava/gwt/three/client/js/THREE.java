@@ -348,6 +348,9 @@ return new $wnd.THREE.ArrowHelper(size);
 	public static final native CylinderGeometry CylinderGeometry(double radiusTop,double  radiusBottom,double  height,int radialSegments,int heightSegments,boolean openEnded)/*-{
 	return new $wnd.THREE.CylinderGeometry(radiusTop, radiusBottom, height, radialSegments, heightSegments, openEnded);
 	}-*/;
+	public static final native CylinderGeometry CylinderGeometry(double radiusTop,double  radiusBottom,double  height,int radialSegments,int heightSegments)/*-{
+	return new $wnd.THREE.CylinderGeometry(radiusTop, radiusBottom, height, radialSegments, heightSegments);
+	}-*/;
 	public static final native BoxGeometry BoxGeometry(double width,double height,double depth,int widthSegments,int heightSegments,int depthSegments )/*-{
 	return new $wnd.THREE.BoxGeometry( width, height, depth, widthSegments, heightSegments, depthSegments );
 	}-*/;

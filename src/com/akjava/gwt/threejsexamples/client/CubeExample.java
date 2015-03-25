@@ -82,4 +82,9 @@ public class CubeExample extends AbstractExample {
 		
 	}
 
+	@Override
+	public String getTokenKey() {
+		return "cube";
+	}
+
 }

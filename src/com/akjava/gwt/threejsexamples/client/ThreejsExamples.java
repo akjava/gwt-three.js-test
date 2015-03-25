@@ -1,13 +1,22 @@
 package com.akjava.gwt.threejsexamples.client;
 
 
+import java.util.List;
+import java.util.Map;
+
+import com.akjava.gwt.lib.client.URLUtils;
 import com.akjava.gwt.threejsexamples.client.examples.animation.cloth.ClothExample;
 import com.akjava.gwt.threejsexamples.client.examples.animation.skinning.BlendingExample;
 import com.akjava.gwt.threejsexamples.client.examples.animation.skinning.MorphExample;
+import com.akjava.gwt.threejsexamples.client.examples.misc.controls.OrbitExample;
+import com.google.common.collect.Lists;
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.core.client.Scheduler;
+import com.google.gwt.core.client.Scheduler.ScheduledCommand;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.Label;
@@ -56,12 +65,18 @@ public class ThreejsExamples implements EntryPoint,ExampleOwner {
 		root.addWest(side, 300);
 		root.add(center);
 		
+		
+		List<Example> examples=Lists.newArrayList();
+		examples.add(new ClothExample());
+		examples.add(new MorphExample());
+		examples.add(new BlendingExample());
+		examples.add(new OrbitExample());
+		
+		
 		//TODO add scroll
-		
-		side.add(new DemoAnchor(this,new ClothExample()));
-		side.add(new DemoAnchor(this,new MorphExample()));
-		side.add(new DemoAnchor(this,new BlendingExample()));
-		
+		for(Example exp:examples){
+		side.add(new DemoAnchor(this,exp));
+		}
 		
 		Label links=new Label("Links");
 		links.setStylePrimaryName("subheader");
@@ -71,6 +86,25 @@ public class ThreejsExamples implements EntryPoint,ExampleOwner {
 		side.add(new Anchor("GWT-Three.js(github)", "https://github.com/akjava/gwt-three.js-test"));
 		side.add(new Anchor("GWT-Three.js old examples", "http://akjava.github.io/gwt-three.js-test/ThreeTest.html"));
 		side.add(new Anchor("GWT", "http://www.gwtproject.org/"));
+		
+		Map<String,List<String>> tokens=URLUtils.parseToken(History.getToken(), false);
+		
+		for(String key:tokens.keySet()){
+			for(final Example exp: examples){
+				if(key.equals(exp.getTokenKey())){
+					Scheduler.get().scheduleDeferred(new ScheduledCommand() {
+						
+						@Override
+						public void execute() {
+							selectNewExample(exp);//wait complete initialize
+						}
+					});
+					
+					break;
+				}
+			}
+		}
+		
 	}
 
 	public class DemoAnchor extends Anchor{
@@ -98,5 +132,6 @@ public class ThreejsExamples implements EntryPoint,ExampleOwner {
 		}
 		demo.start(getPanel());
 		lastDemo=demo;
+		History.newItem(demo.getTokenKey());
 	}
 }

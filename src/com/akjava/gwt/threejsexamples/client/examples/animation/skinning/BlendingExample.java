@@ -135,7 +135,7 @@ public class BlendingExample extends AbstractExample{
 				
 				gui = new BlendCharacterGui(blendMesh.getAnimations(),this);
 				
-				VerticalPanel controlPanel=addResizeHandlerAndcreateGUIPanel();
+				VerticalPanel controlPanel=addResizeHandlerAndCreateGUIPanel();
 				controlPanel.add(gui);
 				updateGUI();//for show
 				
@@ -248,7 +248,10 @@ public class BlendingExample extends AbstractExample{
 		blendMesh.showSkeleton( value );
 	}
 
-
+	@Override
+	public String getTokenKey() {
+		return "blending";
+	}
 	
 
 }

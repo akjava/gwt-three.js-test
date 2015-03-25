@@ -7,4 +7,5 @@ public interface Example extends AnimationCallback{
 public void start(Panel parent);
 public void stop();
 public String getName();
+public String getTokenKey();
 }
