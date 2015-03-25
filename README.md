@@ -12,7 +12,6 @@ My java script knowledge is really poor,especially scope and constructing class.
 
 That's why I'm still use Java/GWT.
 
-
 If you are not familiar with GWT or GoogleAppEngine/Java,you should choice <a href="https://github.com/threeDart/three.dart">dart</a> or <a href="https://github.com/borisyankov/DefinitelyTyped/tree/master/threejs">typescript</a>.  
 many people use that.
 

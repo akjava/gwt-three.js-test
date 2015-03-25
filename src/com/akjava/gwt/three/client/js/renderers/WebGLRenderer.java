@@ -291,10 +291,10 @@ public final native String getPrecision()/*-{
 return this.getPrecision;
 }-*/;
 	
-	public native final void setSize(int w,int h)/*-{
+	public native final void setSize(double w,double h)/*-{
 	this.setSize(w,h);
 	}-*/;
-	public native final void setSize(int w,int h,boolean updateStyle)/*-{
+	public native final void setSize(double w,double h,boolean updateStyle)/*-{
 	this.setSize(w,h,updateStyle);
 	}-*/;
 	

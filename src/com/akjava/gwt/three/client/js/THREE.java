@@ -1348,6 +1348,10 @@ return new $wnd.THREE.ArrowHelper(size);
 	return new $wnd.THREE.MorphAnimation(mesh);
 	}-*/;
 	
+	public static native final MorphAnimation MorphAnimation(Mesh mesh)/*-{
+	return new $wnd.THREE.MorphAnimation(mesh);
+	}-*/;
+	
 	public static final native CylinderGeometry CylinderGeometry(double radiusTop,double  radiusBottom,double  height,int radialSegments,int heightSegments,boolean openEnded,double thetaStart,double thetaLength)/*-{
 	return new $wnd.THREE.CylinderGeometry(radiusTop, radiusBottom, height, radialSegments, heightSegments, openEnded,thetaStart, thetaLength);
 	}-*/;

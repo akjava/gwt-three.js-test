@@ -9,6 +9,7 @@ import com.akjava.gwt.threejsexamples.client.examples.animation.cloth.ClothExamp
 import com.akjava.gwt.threejsexamples.client.examples.animation.skinning.BlendingExample;
 import com.akjava.gwt.threejsexamples.client.examples.animation.skinning.MorphExample;
 import com.akjava.gwt.threejsexamples.client.examples.misc.controls.OrbitExample;
+import com.akjava.gwt.threejsexamples.client.examples.morphtargets.HorseExample;
 import com.google.common.collect.Lists;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.Scheduler;
@@ -70,6 +71,7 @@ public class ThreejsExamples implements EntryPoint,ExampleOwner {
 		examples.add(new ClothExample());
 		examples.add(new MorphExample());
 		examples.add(new BlendingExample());
+		examples.add(new HorseExample());
 		examples.add(new OrbitExample());
 		
 		

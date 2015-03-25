@@ -122,7 +122,8 @@ public final native void pause()/*-{
 this.pause();
 }-*/;
 
-public final native void update(int delta)/*-{
+//possible set large value
+public final native void update(double delta)/*-{
 this.update(delta);
 }-*/;
 
