@@ -7,11 +7,9 @@ import com.akjava.gwt.three.client.gwt.GWTParamUtils;
 import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.PerspectiveCamera;
-import com.akjava.gwt.three.client.js.extras.animation.AnimationHandler;
 import com.akjava.gwt.three.client.js.extras.geometries.CylinderGeometry;
 import com.akjava.gwt.three.client.js.lights.Light;
 import com.akjava.gwt.three.client.js.materials.MeshLambertMaterial;
-import com.akjava.gwt.three.client.js.math.ThreeMath;
 import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
@@ -58,7 +56,7 @@ public class OrbitExample extends AbstractExample{
 		// world
 
 		CylinderGeometry geometry = THREE.CylinderGeometry( 0, 10, 30, 4, 1 );//var geometry = new THREE.CylinderGeometry( 0, 10, 30, 4, 1 );
-		MeshLambertMaterial material =  THREE.MeshLambertMaterial( GWTParamUtils.MeshLambertMaterial().color(0xffffff).shading(THREE.Shading.FlatShading()) );//var material =  new THREE.MeshLambertMaterial( { color:0xffffff, shading: THREE.FlatShading } );
+		MeshLambertMaterial material =  THREE.MeshLambertMaterial( GWTParamUtils.MeshLambertMaterial().color(0xffffff).shading(THREE.FlatShading) );//var material =  new THREE.MeshLambertMaterial( { color:0xffffff, shading: THREE.FlatShading } );
 
 		for ( int i = 0; i < 500; i ++ ) {
 
