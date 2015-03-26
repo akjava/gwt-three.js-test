@@ -4,14 +4,14 @@ var $gwt_version = "2.5.1";
 var $wnd = parent;
 var $doc = $wnd.document;
 var $moduleName, $moduleBase;
-var $strongName = 'C3C90D580536DF123F727494AD16FAEF';
+var $strongName = '9313F5B17B62FC52041A93A112371C56';
 var $stats = $wnd.__gwtStatsEvent ? function(a) {return $wnd.__gwtStatsEvent(a);} : null,
 $sessionId = $wnd.__gwtStatsSessionId ? $wnd.__gwtStatsSessionId : null;
 $stats && $stats({moduleName:'threejsexamples',sessionId:$sessionId,subSystem:'startup',evtGroup:'moduleStartup',millis:(new Date()).getTime(),type:'moduleEvalStart'});
 </script></head>
 <body>
 <script><!--
-var _, seedTable = {}, Q$Object = 0, Q$String = 1, Q$Example = 2, Q$Cloth$Constrain = 3, Q$Cloth$Particle = 4, Q$BlendCharacter$WrapSchedule = 5, Q$Range = 6, Q$AnimationScheduler$AnimationHandle = 7, Q$AnimationSchedulerImplTimer$AnimationHandleImpl = 8, Q$AnimationSchedulerImplTimer$AnimationHandleImpl_$1 = 9, Q$Style$Display = 10, Q$Style$HasCssName = 11, Q$Style$Overflow = 12, Q$Style$Position = 13, Q$Style$TextAlign = 14, Q$Style$Unit = 15, Q$Style$Visibility = 16, Q$ChangeHandler = 17, Q$ClickHandler = 18, Q$DomEvent$Type = 19, Q$MouseMoveHandler = 20, Q$CloseHandler = 21, Q$HasAttachHandlers = 22, Q$ResizeHandler = 23, Q$ValueChangeHandler = 24, Q$EventHandler = 25, Q$HasHandlers = 26, Q$HasDirection$Direction = 27, Q$LongLibBase$LongEmul = 28, Q$Layout$Layer = 29, Q$Event$NativePreviewHandler = 30, Q$EventListener = 31, Q$Timer = 32, Q$DockLayoutPanel$Direction = 33, Q$DockLayoutPanel$LayoutData = 34, Q$HasVisibility = 35, Q$IsWidget = 36, Q$RequiresResize = 37, Q$RootPanel = 38, Q$UIObject = 39, Q$ValueBoxBase$TextAlignment = 40, Q$Widget = 41, Q$SimpleEventBus$Command = 42, Q$UmbrellaException = 43, Q$int_$1 = 44, Q$Serializable = 45, Q$Boolean = 46, Q$CharSequence = 47, Q$Comparable = 48, Q$Double = 49, Q$Enum = 50, Q$Integer = 51, Q$Number = 52, Q$StackTraceElement = 53, Q$Throwable = 54, Q$List = 55, Q$Map = 56, Q$Map$Entry = 57, Q$Set = 58, CM$ = {};
+var _, seedTable = {}, Q$Object = 0, Q$String = 1, Q$Example = 2, Q$Range = 3, Q$Cloth$Constrain = 4, Q$Cloth$Particle = 5, Q$BlendCharacter$WrapSchedule = 6, Q$AnimationScheduler$AnimationHandle = 7, Q$AnimationSchedulerImplTimer$AnimationHandleImpl = 8, Q$AnimationSchedulerImplTimer$AnimationHandleImpl_$1 = 9, Q$Style$Display = 10, Q$Style$HasCssName = 11, Q$Style$Overflow = 12, Q$Style$Position = 13, Q$Style$TextAlign = 14, Q$Style$Unit = 15, Q$Style$Visibility = 16, Q$ChangeHandler = 17, Q$ClickHandler = 18, Q$DomEvent$Type = 19, Q$MouseMoveHandler = 20, Q$CloseHandler = 21, Q$HasAttachHandlers = 22, Q$ResizeHandler = 23, Q$ValueChangeHandler = 24, Q$EventHandler = 25, Q$HasHandlers = 26, Q$HasDirection$Direction = 27, Q$LongLibBase$LongEmul = 28, Q$Layout$Layer = 29, Q$Event$NativePreviewHandler = 30, Q$EventListener = 31, Q$Timer = 32, Q$DockLayoutPanel$Direction = 33, Q$DockLayoutPanel$LayoutData = 34, Q$HasVisibility = 35, Q$IsWidget = 36, Q$RequiresResize = 37, Q$RootPanel = 38, Q$UIObject = 39, Q$ValueBoxBase$TextAlignment = 40, Q$Widget = 41, Q$SimpleEventBus$Command = 42, Q$UmbrellaException = 43, Q$int_$1 = 44, Q$Serializable = 45, Q$Boolean = 46, Q$CharSequence = 47, Q$Comparable = 48, Q$Double = 49, Q$Enum = 50, Q$Integer = 51, Q$Number = 52, Q$StackTraceElement = 53, Q$Throwable = 54, Q$List = 55, Q$Map = 56, Q$Map$Entry = 57, Q$Set = 58, CM$ = {};
 function newSeed(id){
   return new seedTable[id];
 }
@@ -138,6 +138,16 @@ function $set_0(this$static, key, value){
 
 function $set_1(this$static, key, value){
   this$static[key] = value;
+  return this$static;
+}
+
+function $name(this$static, name_0){
+  this$static.name = name_0;
+  return this$static;
+}
+
+function $vertices(this$static, vertices){
+  this$static.vertices = vertices;
   return this$static;
 }
 
@@ -371,6 +381,10 @@ function $gwtIncrementX(this$static, x){
   this$static.x += x;
 }
 
+function $gwtIncrementY(this$static, y){
+  this$static.y += y;
+}
+
 function $multiplyScalar(this$static, scalar){
   return this$static.multiplyScalar(scalar);
 }
@@ -439,11 +453,11 @@ function $addResizeHandlerAndCreateGUIPanel(this$static){
   controler = new VerticalPanel_0;
   controler.element.style['width'] = '320px';
   controler.table['cellSpacing'] = 2;
-  $add_2(root, controler);
+  $add_3(root, controler);
   bt = new Button_0('Close Controls');
   bt.element.style['width'] = '320px';
   $addDomHandler(bt, new AbstractExample$1_0(this$static, controler, bt), ($clinit_ClickEvent() , $clinit_ClickEvent() , TYPE_0));
-  $add_2(root, bt);
+  $add_3(root, bt);
   this$static.resizeHandler = addResizeHandler(new AbstractExample$2_0(this$static));
   return controler;
 }
@@ -465,7 +479,7 @@ function $createContainerPanel(this$static){
 }
 
 function $execute(this$static, timestamp){
-  this$static.debugAnimateOneTime || (this$static.handler = $requestAnimationFrame(($clinit_AnimationSchedulerImpl() , INSTANCE), this$static));
+  this$static.debugAnimateOneTime?log('debugAnimateOneTime:true only render called one time for debug'):(this$static.handler = $requestAnimationFrame(($clinit_AnimationSchedulerImpl() , INSTANCE), this$static));
   this$static.animate(timestamp);
 }
 
@@ -485,7 +499,7 @@ function $updateGUI(this$static){
   $moveToAroundRightTop(this$static.popup);
 }
 
-defineSeed(69, 1, makeCastMap([Q$Example]));
+defineSeed(71, 1, makeCastMap([Q$Example]));
 _.execute = function execute(timestamp){
   $execute(this, timestamp);
 }
@@ -515,7 +529,7 @@ function AbstractExample$1_0(this$0, val$controler, val$bt){
   this.val$bt = val$bt;
 }
 
-defineSeed(70, 1, makeCastMap([Q$ClickHandler, Q$EventHandler]), AbstractExample$1_0);
+defineSeed(72, 1, makeCastMap([Q$ClickHandler, Q$EventHandler]), AbstractExample$1_0);
 _.onClick = function onClick(event_0){
   $setVisible_0(this.val$controler, !(this.val$controler.element.style.display != 'none'));
   this.val$controler.element.style.display != 'none'?$setText(this.val$bt, 'Close Controls'):$setText(this.val$bt, 'Open Controls');
@@ -529,88 +543,13 @@ function AbstractExample$2_0(this$0){
   this.this$0 = this$0;
 }
 
-defineSeed(71, 1, makeCastMap([Q$ResizeHandler, Q$EventHandler]), AbstractExample$2_0);
+defineSeed(73, 1, makeCastMap([Q$ResizeHandler, Q$EventHandler]), AbstractExample$2_0);
 _.onResize = function onResize(event_0){
   this.this$0.onWindowResize();
   $updateGUI(this.this$0);
 }
 ;
 _.this$0 = null;
-function $onModuleLoad(this$static){
-  var examples, exp, exp$iterator, key, key$iterator, links, root, side, title, tokens, webgl;
-  root = new DockLayoutPanel_0(($clinit_Style$Unit() , PX));
-  $add_6(get(), root);
-  this$static.center = new DockLayoutPanel_0(PX);
-  side = new VerticalPanel_0;
-  side.element.style['width'] = '100%';
-  setStylePrimaryName(side.element, 'side');
-  side.table['cellSpacing'] = 4;
-  title = new Label_1('GWT-three.js Examples');
-  setStylePrimaryName(title.element, 'header');
-  $add_2(side, title);
-  webgl = new Label_1('webgl');
-  setStylePrimaryName(webgl.element, 'subheader');
-  webgl.element.style['width'] = '100%';
-  $add_2(side, webgl);
-  $insert(root, side, ($clinit_DockLayoutPanel$Direction() , WEST), 300);
-  $insert(root, this$static.center, CENTER_0, 0);
-  examples = new ArrayList_0;
-  $add_8(examples, new ClothExample_0);
-  $add_8(examples, new MorphExample_0);
-  $add_8(examples, new BlendingExample_0);
-  $add_8(examples, new HorseExample_0);
-  $add_8(examples, new OrbitExample_0);
-  for (exp$iterator = new AbstractList$IteratorImpl_0(examples); exp$iterator.i < exp$iterator.this$0_0.size_0();) {
-    exp = dynamicCast($next_2(exp$iterator), Q$Example);
-    $add_2(side, new ThreejsExamples$DemoAnchor_0(this$static, exp));
-  }
-  links = new Label_1('Links');
-  setStylePrimaryName(links.element, 'subheader');
-  $add_2(side, links);
-  $add_2(side, new Anchor_2('Three.js(github)', 'https://github.com/mrdoob/three.js/'));
-  $add_2(side, new Anchor_2('Three.js origin examples', 'http://threejs.org/examples/'));
-  $add_2(side, new Anchor_2('GWT-Three.js(github)', 'https://github.com/akjava/gwt-three.js-test'));
-  $add_2(side, new Anchor_2('GWT-Three.js old examples', 'http://akjava.github.io/gwt-three.js-test/ThreeTest.html'));
-  $add_2(side, new Anchor_2('GWT', 'http://www.gwtproject.org/'));
-  tokens = parseToken(($clinit_History() , impl_0?token_1 == null?'':token_1:''), false);
-  for (key$iterator = $iterator($keySet(tokens)); $hasNext(key$iterator.val$outerIter.iter);) {
-    key = dynamicCast($next_3(key$iterator), Q$String);
-    for (exp$iterator = new AbstractList$IteratorImpl_0(examples); exp$iterator.i < exp$iterator.this$0_0.size_0();) {
-      exp = dynamicCast($next_2(exp$iterator), Q$Example);
-      if ($equals(key, exp.getTokenKey())) {
-        $scheduleDeferred(($clinit_SchedulerImpl() , INSTANCE_0), new ThreejsExamples$1_0(this$static, exp));
-        break;
-      }
-    }
-  }
-}
-
-function $selectNewExample(this$static, demo){
-  !!this$static.lastDemo && this$static.lastDemo.stop_0();
-  demo.start_0(this$static.center);
-  this$static.lastDemo = demo;
-  $clinit_History();
-  newItem(demo.getTokenKey());
-}
-
-function ThreejsExamples_0(){
-}
-
-defineSeed(72, 1, {}, ThreejsExamples_0);
-_.center = null;
-_.lastDemo = null;
-function ThreejsExamples$1_0(this$0, val$exp){
-  this.this$0 = this$0;
-  this.val$exp = val$exp;
-}
-
-defineSeed(73, 1, {}, ThreejsExamples$1_0);
-_.execute_0 = function execute_0(){
-  $selectNewExample(this.this$0, this.val$exp);
-}
-;
-_.this$0 = null;
-_.val$exp = null;
 function $setElement(this$static, elem){
   this$static.element = elem;
 }
@@ -658,7 +597,7 @@ function updatePrimaryAndDependentStyleNames(elem, newPrimaryStyle){
   elem.className = classes.join(' ');
 }
 
-defineSeed(78, 1, makeCastMap([Q$HasVisibility, Q$UIObject]));
+defineSeed(80, 1, makeCastMap([Q$HasVisibility, Q$UIObject]));
 _.setHeight_0 = function setHeight(height){
   setStyleAttribute(this.element, 'height', height);
 }
@@ -769,7 +708,7 @@ function $setParent(this$static, parent_0){
   }
 }
 
-defineSeed(77, 78, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]));
+defineSeed(79, 80, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]));
 _.doAttachChildren = function doAttachChildren(){
 }
 ;
@@ -807,11 +746,283 @@ _.eventsToSink = 0;
 _.handlerManager = null;
 _.layoutData = null;
 _.parent_0 = null;
+function $clear(this$static){
+  var it;
+  it = new WidgetCollection$WidgetIterator_0(this$static.children);
+  while (it.index_0 < it.this$0.size - 1) {
+    $next_0(it);
+    $remove_4(it);
+  }
+}
+
+defineSeed(78, 79, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]));
+_.doAttachChildren = function doAttachChildren_0(){
+  tryCommand(this, ($clinit_AttachDetachException() , attachCommand));
+}
+;
+_.doDetachChildren = function doDetachChildren_0(){
+  tryCommand(this, ($clinit_AttachDetachException() , detachCommand));
+}
+;
+function $add_1(this$static, child, container){
+  $removeFromParent(child);
+  $add_7(this$static.children, child);
+  $appendChild(container, ($clinit_PotentialElement() , $resolve(child.element)));
+  $setParent(child, this$static);
+}
+
+function $remove(this$static, w){
+  var elem;
+  if (w.parent_0 != this$static) {
+    return false;
+  }
+  try {
+    $setParent(w, null);
+  }
+   finally {
+    elem = w.element;
+    $removeChild($getParentElement(elem), elem);
+    $remove_3(this$static.children, w);
+  }
+  return true;
+}
+
+function ComplexPanel_0(){
+  this.children = new WidgetCollection_0(this);
+}
+
+defineSeed(77, 78, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]));
+_.iterator = function iterator_0(){
+  return new WidgetCollection$WidgetIterator_0(this.children);
+}
+;
+_.remove = function remove(w){
+  return $remove(this, w);
+}
+;
+function CellPanel_0(){
+  ComplexPanel_0.call(this);
+  this.table = $doc.createElement('table');
+  this.body_0 = $doc.createElement('tbody');
+  $appendChild(this.table, ($clinit_PotentialElement() , $resolve(this.body_0)));
+  $setElement(this, this.table);
+}
+
+defineSeed(76, 77, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]));
+_.body_0 = null;
+_.table = null;
+function $add_2(this$static, w){
+  var td, td_0;
+  td = (td_0 = $doc.createElement('td') , td_0['align'] = this$static.horzAlign.textAlignString , setStyleAttribute(td_0, 'verticalAlign', this$static.vertAlign.verticalAlignString) , td_0);
+  appendChild(this$static.tableRow, td);
+  $add_1(this$static, w, td);
+}
+
+function $setVerticalAlignment(this$static, align){
+  this$static.vertAlign = align;
+}
+
+defineSeed(75, 76, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]));
+_.remove = function remove_0(w){
+  var removed, td;
+  td = $getParentElement(w.element);
+  removed = $remove(this, w);
+  removed && $removeChild(this.tableRow, td);
+  return removed;
+}
+;
+_.tableRow = null;
+function $addtRangeListener(this$static, handler){
+  var regist;
+  regist = $addValueChangeHandler(this$static.range, handler);
+  $put(this$static.registMap, handler, regist);
+}
+
+function $setTextBoxText(this$static, value){
+  value = $substring(value, 0, min_0(value.length));
+  $setValue_4(this$static.textBox, value);
+}
+
+function $setValue(this$static, value){
+  $setTextBoxText(this$static, '' + value);
+  $setValue_1(this$static.range, new Double_0(value));
+}
+
+function LabeledInputRangeWidget_0(name_0, min, max, step){
+  var label;
+  CellPanel_0.call(this);
+  this.horzAlign = ($clinit_HasHorizontalAlignment() , ALIGN_DEFAULT);
+  this.vertAlign = ($clinit_HasVerticalAlignment() , ALIGN_TOP);
+  this.tableRow = $doc.createElement('tr');
+  appendChild(this.body_0, this.tableRow);
+  this.table['cellSpacing'] = '0';
+  this.table['cellPadding'] = '0';
+  this.registMap = new HashMap_0;
+  $setVerticalAlignment(this, ALIGN_MIDDLE);
+  label = new Label_1(name_0);
+  $setAutoHorizontalAlignment(label, ALIGN_CENTER);
+  label.element.style['width'] = '120px';
+  $add_2(this, label);
+  this.range = new Range_1(name_0, min, max, step);
+  $setWidth(this.range, '140px');
+  $add_2(this, this.range);
+  this.textBox = new TextBox_0;
+  this.textBox.element['disabled'] = !true;
+  $setWidth(this.textBox, '40px');
+  $add_2(this, this.textBox);
+  $setValue_4(this.textBox, '' + $getValue(this.range));
+  $addValueChangeHandler(this.range, new LabeledInputRangeWidget$1_0(this));
+}
+
+defineSeed(74, 75, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]), LabeledInputRangeWidget_0);
+_.range = null;
+_.textBox = null;
+function LabeledInputRangeWidget$1_0(this$0){
+  this.this$0 = this$0;
+}
+
+defineSeed(81, 1, makeCastMap([Q$ValueChangeHandler, Q$EventHandler]), LabeledInputRangeWidget$1_0);
+_.onValueChange = function onValueChange(event_0){
+  $setTextBoxText(this.this$0, '' + event_0.value_0);
+}
+;
+_.this$0 = null;
+function $addValueChangeHandler(this$static, handler){
+  if (!this$static.valueChangeHandlerInitialized) {
+    $addDomHandler(this$static, new Range$1_0(this$static), ($clinit_ChangeEvent() , $clinit_ChangeEvent() , TYPE));
+    this$static.valueChangeHandlerInitialized = true;
+  }
+  return $addHandler(this$static, handler, (!TYPE_4 && (TYPE_4 = new GwtEvent$Type_0) , TYPE_4));
+}
+
+function $getValue(this$static){
+  var value;
+  value = this$static.element.value;
+  return new Double_0(__parseAndValidateDouble(value));
+}
+
+function $setName(this$static, name_0){
+  if (name_0 == null) {
+    throw new NullPointerException_1('Name cannot be null');
+  }
+   else if ($equals(name_0, '')) {
+    throw new IllegalArgumentException_0('Name cannot be an empty string.');
+  }
+  $setName_0(this$static.element, name_0);
+}
+
+function $setValue_0(element, value){
+  element.value = value;
+}
+
+function $setValue_1(this$static, value){
+  $setValue_0(this$static.element, value);
+}
+
+function Range_1(name_0, min, max, step){
+  var input;
+  input = $createInputElement($doc, 'hidden');
+  input.setAttribute('type', 'range');
+  this.element = input;
+  $setName(this, name_0);
+  $setAttribute(this.element, 'min', '' + min);
+  $setAttribute(this.element, 'max', '' + max);
+  $setAttribute(this.element, 'step', '' + step);
+}
+
+defineSeed(82, 79, makeCastMap([Q$Range, Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]), Range_1);
+_.valueChangeHandlerInitialized = false;
+function Range$1_0(this$0){
+  this.this$0 = this$0;
+}
+
+defineSeed(83, 1, makeCastMap([Q$ChangeHandler, Q$EventHandler]), Range$1_0);
+_.onChange = function onChange(event_0){
+  fire_2(this.this$0, $getValue(this.this$0));
+}
+;
+_.this$0 = null;
+function $onModuleLoad(this$static){
+  var examples, exp, exp$iterator, key, key$iterator, links, root, side, title, tokens, webgl;
+  root = new DockLayoutPanel_0(($clinit_Style$Unit() , PX));
+  $add_6(get(), root);
+  this$static.center = new DockLayoutPanel_0(PX);
+  side = new VerticalPanel_0;
+  side.element.style['width'] = '100%';
+  setStylePrimaryName(side.element, 'side');
+  side.table['cellSpacing'] = 4;
+  title = new Label_1('GWT-three.js Examples');
+  setStylePrimaryName(title.element, 'header');
+  $add_3(side, title);
+  webgl = new Label_1('webgl');
+  setStylePrimaryName(webgl.element, 'subheader');
+  webgl.element.style['width'] = '100%';
+  $add_3(side, webgl);
+  $insert(root, side, ($clinit_DockLayoutPanel$Direction() , WEST), 300);
+  $insert(root, this$static.center, CENTER_0, 0);
+  examples = new ArrayList_0;
+  $add_8(examples, new ClothExample_0);
+  $add_8(examples, new MorphExample_0);
+  $add_8(examples, new BlendingExample_0);
+  $add_8(examples, new MorphTargetsExample_0);
+  $add_8(examples, new HorseExample_0);
+  $add_8(examples, new OrbitExample_0);
+  for (exp$iterator = new AbstractList$IteratorImpl_0(examples); exp$iterator.i < exp$iterator.this$0_0.size_0();) {
+    exp = dynamicCast($next_2(exp$iterator), Q$Example);
+    $add_3(side, new ThreejsExamples$DemoAnchor_0(this$static, exp));
+  }
+  links = new Label_1('Links');
+  setStylePrimaryName(links.element, 'subheader');
+  $add_3(side, links);
+  $add_3(side, new Anchor_2('Three.js(github)', 'https://github.com/mrdoob/three.js/'));
+  $add_3(side, new Anchor_2('Three.js origin examples', 'http://threejs.org/examples/'));
+  $add_3(side, new Anchor_2('GWT-Three.js(github)', 'https://github.com/akjava/gwt-three.js-test'));
+  $add_3(side, new Anchor_2('GWT-Three.js old examples', 'http://akjava.github.io/gwt-three.js-test/ThreeTest.html'));
+  $add_3(side, new Anchor_2('GWT', 'http://www.gwtproject.org/'));
+  tokens = parseToken(($clinit_History() , impl_0?token_1 == null?'':token_1:''), false);
+  for (key$iterator = $iterator($keySet(tokens)); $hasNext(key$iterator.val$outerIter.iter);) {
+    key = dynamicCast($next_3(key$iterator), Q$String);
+    for (exp$iterator = new AbstractList$IteratorImpl_0(examples); exp$iterator.i < exp$iterator.this$0_0.size_0();) {
+      exp = dynamicCast($next_2(exp$iterator), Q$Example);
+      if ($equals(key, exp.getTokenKey())) {
+        $scheduleDeferred(($clinit_SchedulerImpl() , INSTANCE_0), new ThreejsExamples$1_0(this$static, exp));
+        break;
+      }
+    }
+  }
+}
+
+function $selectNewExample(this$static, demo){
+  !!this$static.lastDemo && this$static.lastDemo.stop_0();
+  demo.start_0(this$static.center);
+  this$static.lastDemo = demo;
+  $clinit_History();
+  newItem(demo.getTokenKey());
+}
+
+function ThreejsExamples_0(){
+}
+
+defineSeed(84, 1, {}, ThreejsExamples_0);
+_.center = null;
+_.lastDemo = null;
+function ThreejsExamples$1_0(this$0, val$exp){
+  this.this$0 = this$0;
+  this.val$exp = val$exp;
+}
+
+defineSeed(85, 1, {}, ThreejsExamples$1_0);
+_.execute_0 = function execute_0(){
+  $selectNewExample(this.this$0, this.val$exp);
+}
+;
+_.this$0 = null;
+_.val$exp = null;
 function FocusWidget_0(elem){
   this.element = elem;
 }
 
-defineSeed(76, 77, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]));
+defineSeed(88, 79, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]));
 _.getTabIndex = function getTabIndex(){
   return $getTabIndex(this.element);
 }
@@ -831,6 +1042,8 @@ function Anchor_1(text){
   Anchor_3.call(this, text, 'javascript:;');
 }
 
+--></script>
+<script><!--
 function Anchor_2(text, href){
   Anchor_3.call(this, text, href);
 }
@@ -843,7 +1056,7 @@ function Anchor_3(text, href){
   $setHref(this.element, href);
 }
 
-defineSeed(75, 76, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]), Anchor_2);
+defineSeed(87, 88, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]), Anchor_2);
 _.getTabIndex = function getTabIndex_0(){
   return $getTabIndex(this.element);
 }
@@ -858,13 +1071,13 @@ function ThreejsExamples$DemoAnchor_0(owner, demo){
   $addDomHandler(this, new ThreejsExamples$DemoAnchor$1_0(owner, demo), ($clinit_ClickEvent() , $clinit_ClickEvent() , TYPE_0));
 }
 
-defineSeed(74, 75, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]), ThreejsExamples$DemoAnchor_0);
+defineSeed(86, 87, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]), ThreejsExamples$DemoAnchor_0);
 function ThreejsExamples$DemoAnchor$1_0(val$owner, val$demo){
   this.val$owner = val$owner;
   this.val$demo = val$demo;
 }
 
-defineSeed(79, 1, makeCastMap([Q$ClickHandler, Q$EventHandler]), ThreejsExamples$DemoAnchor$1_0);
+defineSeed(89, 1, makeCastMap([Q$ClickHandler, Q$EventHandler]), ThreejsExamples$DemoAnchor$1_0);
 _.onClick = function onClick_0(event_0){
   $selectNewExample(this.val$owner, this.val$demo);
 }
@@ -955,8 +1168,6 @@ function Cloth_0(){
   Cloth_1.call(this);
 }
 
---></script>
-<script><!--
 function Cloth_1(){
   var u, v;
   this.clothFunction = $plane(250, 250);
@@ -1000,7 +1211,7 @@ function Cloth_1(){
   }
 }
 
-defineSeed(80, 1, {}, Cloth_0);
+defineSeed(90, 1, {}, Cloth_0);
 _.h_0 = 0;
 _.lastTime = null;
 _.pins = null;
@@ -1013,7 +1224,7 @@ function Cloth$Constrain_0(p1, p2){
   this.distance = 25;
 }
 
-defineSeed(81, 1, makeCastMap([Q$Cloth$Constrain]), Cloth$Constrain_0);
+defineSeed(91, 1, makeCastMap([Q$Cloth$Constrain]), Cloth$Constrain_0);
 _.distance = 0;
 _.p1 = null;
 _.p2 = null;
@@ -1031,7 +1242,7 @@ function Cloth$Particle_0(this$0, x, y){
   this.tmp2 = new $wnd.THREE.Vector3(0, 0, 0);
 }
 
-defineSeed(82, 1, makeCastMap([Q$Cloth$Particle]), Cloth$Particle_0);
+defineSeed(92, 1, makeCastMap([Q$Cloth$Particle]), Cloth$Particle_0);
 _.a_0 = null;
 _.invMass = 0;
 _.original = null;
@@ -1062,7 +1273,7 @@ function $render_0(this$static, time){
 function ClothExample_0(){
 }
 
-defineSeed(83, 69, makeCastMap([Q$Example]), ClothExample_0);
+defineSeed(93, 71, makeCastMap([Q$Example]), ClothExample_0);
 _.animate = function animate(time){
   this.cloth.windStrength = Math.cos(time / 7000) * 20 + 40;
   $multiplyScalar($set_2(this.cloth.windForce, Math.sin(time / 2000), Math.cos(time / 3000), Math.sin(time / 1000)).normalize(), this.cloth.windStrength);
@@ -1187,14 +1398,14 @@ _.init = function init(){
   this.sphere.visible = false;
   gui = $addResizeHandlerAndCreateGUIPanel(this);
   lockCamera = new CheckBox_1('Lock Camera');
-  $add_2(gui, lockCamera);
+  $add_3(gui, lockCamera);
   $addValueChangeHandler_1(lockCamera, new ClothExample$1_0(this));
   wind = new CheckBox_1('Wind');
-  $add_2(gui, wind);
+  $add_3(gui, wind);
   $addValueChangeHandler_1(wind, new ClothExample$2_0(this));
   $setValue_3(wind, ($clinit_Boolean() , $clinit_Boolean() , TRUE));
   showSphere = new CheckBox_1('Show Ball');
-  $add_2(gui, showSphere);
+  $add_3(gui, showSphere);
   $addValueChangeHandler_1(showSphere, new ClothExample$3_0(this));
   pinsBox = new ListBox_0;
   $insertItem(pinsBox, 'Center only pin', 'Center only pin', -1);
@@ -1204,7 +1415,7 @@ _.init = function init(){
   $insertItem(pinsBox, '2 pins', '2 pins', -1);
   pinsBox.element.selectedIndex = 1;
   $addDomHandler(pinsBox, new ClothExample$4_0(this, pinsBox), ($clinit_ChangeEvent() , $clinit_ChangeEvent() , TYPE));
-  $add_2(gui, pinsBox);
+  $add_3(gui, pinsBox);
 }
 ;
 _.onWindowResize = function onWindowResize(){
@@ -1228,8 +1439,8 @@ function ClothExample$1_0(this$0){
   this.this$0 = this$0;
 }
 
-defineSeed(84, 1, makeCastMap([Q$ValueChangeHandler, Q$EventHandler]), ClothExample$1_0);
-_.onValueChange = function onValueChange(event_0){
+defineSeed(94, 1, makeCastMap([Q$ValueChangeHandler, Q$EventHandler]), ClothExample$1_0);
+_.onValueChange = function onValueChange_0(event_0){
   this.this$0.rotate = !dynamicCast(event_0.value_0, Q$Boolean).value_0;
 }
 ;
@@ -1238,8 +1449,8 @@ function ClothExample$2_0(this$0){
   this.this$0 = this$0;
 }
 
-defineSeed(85, 1, makeCastMap([Q$ValueChangeHandler, Q$EventHandler]), ClothExample$2_0);
-_.onValueChange = function onValueChange_0(event_0){
+defineSeed(95, 1, makeCastMap([Q$ValueChangeHandler, Q$EventHandler]), ClothExample$2_0);
+_.onValueChange = function onValueChange_1(event_0){
   this.this$0.cloth.wind = dynamicCast(event_0.value_0, Q$Boolean).value_0;
 }
 ;
@@ -1248,8 +1459,8 @@ function ClothExample$3_0(this$0){
   this.this$0 = this$0;
 }
 
-defineSeed(86, 1, makeCastMap([Q$ValueChangeHandler, Q$EventHandler]), ClothExample$3_0);
-_.onValueChange = function onValueChange_1(event_0){
+defineSeed(96, 1, makeCastMap([Q$ValueChangeHandler, Q$EventHandler]), ClothExample$3_0);
+_.onValueChange = function onValueChange_2(event_0){
   $setVisible(this.this$0.sphere, dynamicCast(event_0.value_0, Q$Boolean).value_0);
 }
 ;
@@ -1259,8 +1470,8 @@ function ClothExample$4_0(this$0, val$pinsBox){
   this.val$pinsBox = val$pinsBox;
 }
 
-defineSeed(87, 1, makeCastMap([Q$ChangeHandler, Q$EventHandler]), ClothExample$4_0);
-_.onChange = function onChange(event_0){
+defineSeed(97, 1, makeCastMap([Q$ChangeHandler, Q$EventHandler]), ClothExample$4_0);
+_.onChange = function onChange_0(event_0){
   var selection;
   selection = this.val$pinsBox.element.selectedIndex;
   this.this$0.cloth.pins = dynamicCast($get_0(this.this$0.cloth.pinsFormation, selection), Q$int_$1);
@@ -1388,7 +1599,7 @@ function BlendCharacter_0(){
   Vector3();
 }
 
-defineSeed(88, 1, {}, BlendCharacter_0);
+defineSeed(98, 1, {}, BlendCharacter_0);
 _.needSyncWeight = false;
 _.skeletonHelper = null;
 _.skinnedMesh = null;
@@ -1397,7 +1608,7 @@ function BlendCharacter$1_0(this$0, val$callback){
   this.val$callback = val$callback;
 }
 
-defineSeed(89, 1, {}, BlendCharacter$1_0);
+defineSeed(99, 1, {}, BlendCharacter$1_0);
 _.loaded = function loaded(geometry, materials){
   var animName, i, originalMaterial;
   originalMaterial = materials[0];
@@ -1422,77 +1633,12 @@ function BlendCharacter$WrapSchedule_0(from, to, duration){
   this.duration = duration;
 }
 
-defineSeed(90, 1, makeCastMap([Q$BlendCharacter$WrapSchedule]), BlendCharacter$WrapSchedule_0);
+defineSeed(100, 1, makeCastMap([Q$BlendCharacter$WrapSchedule]), BlendCharacter$WrapSchedule_0);
 _.duration = 0;
 _.from_0 = null;
 _.timeElapsed = 0;
 _.to_0 = null;
-function $clear(this$static){
-  var it;
-  it = new WidgetCollection$WidgetIterator_0(this$static.children);
-  while (it.index_0 < it.this$0.size - 1) {
-    $next_0(it);
-    $remove_4(it);
-  }
-}
-
-defineSeed(95, 77, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]));
-_.doAttachChildren = function doAttachChildren_0(){
-  tryCommand(this, ($clinit_AttachDetachException() , attachCommand));
-}
-;
-_.doDetachChildren = function doDetachChildren_0(){
-  tryCommand(this, ($clinit_AttachDetachException() , detachCommand));
-}
-;
-function $add_1(this$static, child, container){
-  $removeFromParent(child);
-  $add_7(this$static.children, child);
-  $appendChild(container, ($clinit_PotentialElement() , $resolve(child.element)));
-  $setParent(child, this$static);
-}
-
-function $remove(this$static, w){
-  var elem;
-  if (w.parent_0 != this$static) {
-    return false;
-  }
-  try {
-    $setParent(w, null);
-  }
-   finally {
-    elem = w.element;
-    $removeChild($getParentElement(elem), elem);
-    $remove_3(this$static.children, w);
-  }
-  return true;
-}
-
-function ComplexPanel_0(){
-  this.children = new WidgetCollection_0(this);
-}
-
-defineSeed(94, 95, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]));
-_.iterator = function iterator_0(){
-  return new WidgetCollection$WidgetIterator_0(this.children);
-}
-;
-_.remove = function remove(w){
-  return $remove(this, w);
-}
-;
-function CellPanel_0(){
-  ComplexPanel_0.call(this);
-  this.table = $doc.createElement('table');
-  this.body_0 = $doc.createElement('tbody');
-  $appendChild(this.table, ($clinit_PotentialElement() , $resolve(this.body_0)));
-  $setElement(this, this.table);
-}
-
-defineSeed(93, 94, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]));
-_.body_0 = null;
-_.table = null;
-function $add_2(this$static, w){
+function $add_3(this$static, w){
   var td, tr, td_0;
   tr = $doc.createElement('tr');
   td = (td_0 = $doc.createElement('td') , td_0['align'] = this$static.horzAlign.textAlignString , setStyleAttribute(td_0, 'verticalAlign', this$static.vertAlign.verticalAlignString) , td_0);
@@ -1509,8 +1655,8 @@ function VerticalPanel_0(){
   this.table['cellPadding'] = '0';
 }
 
-defineSeed(92, 93, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]), VerticalPanel_0);
-_.remove = function remove_0(w){
+defineSeed(102, 76, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]), VerticalPanel_0);
+_.remove = function remove_1(w){
   var removed, td;
   td = $getParentElement(w.element);
   removed = $remove(this, w);
@@ -1572,67 +1718,69 @@ function $wrap(this$static){
   $wrap_0(this$static.blendingExample, data);
 }
 
+--></script>
+<script><!--
 function BlendCharacterGui_0(animations, blendingExample){
   var blendTurning, blendTurningLabel, idletowalkBt, lockCamera, onBlendChanged, pauseBt, playback, playbackLabel, settings, settingsLabel, showModel, showSkeleton, startBt, stepBt, test, walktorunBt, warpwalktorunBt;
   VerticalPanel_0.call(this);
   this.blendingExample = blendingExample;
   this.animations_0 = animations;
   settings = new VerticalPanel_0;
-  $add_2(this, settings);
+  $add_3(this, settings);
   settingsLabel = new Label_1('Settings');
-  $add_2(settings, settingsLabel);
+  $add_3(settings, settingsLabel);
   lockCamera = new CheckBox_1('Lock Camera');
   $setValue_3(lockCamera, ($clinit_Boolean() , $clinit_Boolean() , FALSE));
-  $add_2(settings, lockCamera);
+  $add_3(settings, lockCamera);
   showModel = new CheckBox_1('Show Model');
   $setValue_3(showModel, TRUE);
-  $add_2(settings, showModel);
+  $add_3(settings, showModel);
   showSkeleton = new CheckBox_1('Show Skeleton');
   $setValue_3(showSkeleton, FALSE);
-  $add_2(settings, showSkeleton);
-  this.timeScaleRange = new BlendCharacterGui$LabeledInputRangeWidget_0('Time Scale', valueOf(0), valueOf(1), new Double_0(0.01));
-  $add_2(settings, this.timeScaleRange);
+  $add_3(settings, showSkeleton);
+  this.timeScaleRange = new LabeledInputRangeWidget_0('Time Scale', valueOf(0), valueOf(1), new Double_0(0.01));
+  $add_3(settings, this.timeScaleRange);
   $setValue(this.timeScaleRange, 1);
-  this.stepSizeRange = new BlendCharacterGui$LabeledInputRangeWidget_0('Step Size', new Double_0(0.01), new Double_0(0.1), new Double_0(0.01));
-  $add_2(settings, this.stepSizeRange);
+  this.stepSizeRange = new LabeledInputRangeWidget_0('Step Size', new Double_0(0.01), new Double_0(0.1), new Double_0(0.01));
+  $add_3(settings, this.stepSizeRange);
   $setValue(this.stepSizeRange, 0.016);
-  this.crossfadeTimeRange = new BlendCharacterGui$LabeledInputRangeWidget_0('Crossfade Time', new Double_0(0.1), new Double_0(6), new Double_0(0.05));
-  $add_2(settings, this.crossfadeTimeRange);
+  this.crossfadeTimeRange = new LabeledInputRangeWidget_0('Crossfade Time', new Double_0(0.1), new Double_0(6), new Double_0(0.05));
+  $add_3(settings, this.crossfadeTimeRange);
   $setValue(this.crossfadeTimeRange, 3.5);
-  test = new BlendCharacterGui$LabeledInputRangeWidget_0('Time scale', valueOf(0), valueOf(1), new Double_0(0.01));
-  $add_2(settings, test);
+  test = new LabeledInputRangeWidget_0('Time scale', valueOf(0), valueOf(1), new Double_0(0.01));
+  $add_3(settings, test);
   playback = new VerticalPanel_0;
-  $add_2(this, playback);
+  $add_3(this, playback);
   playbackLabel = new Label_1('Playback');
-  $add_2(playback, playbackLabel);
+  $add_3(playback, playbackLabel);
   startBt = new Button_0('start');
   startBt.element.style['width'] = '200px';
-  $add_2(playback, startBt);
+  $add_3(playback, startBt);
   pauseBt = new Button_0('pause');
   pauseBt.element.style['width'] = '200px';
-  $add_2(playback, pauseBt);
+  $add_3(playback, pauseBt);
   stepBt = new Button_0('step');
   stepBt.element.style['width'] = '200px';
-  $add_2(playback, stepBt);
+  $add_3(playback, stepBt);
   idletowalkBt = new Button_0('idle to walk');
   idletowalkBt.element.style['width'] = '200px';
-  $add_2(playback, idletowalkBt);
+  $add_3(playback, idletowalkBt);
   walktorunBt = new Button_0('walk to run');
   walktorunBt.element.style['width'] = '200px';
-  $add_2(playback, walktorunBt);
+  $add_3(playback, walktorunBt);
   warpwalktorunBt = new Button_0('warp walk to run');
   warpwalktorunBt.element.style['width'] = '200px';
-  $add_2(playback, warpwalktorunBt);
+  $add_3(playback, warpwalktorunBt);
   blendTurning = new VerticalPanel_0;
-  $add_2(this, blendTurning);
+  $add_3(this, blendTurning);
   blendTurningLabel = new Label_1('Blend Tuning');
-  $add_2(blendTurning, blendTurningLabel);
-  this.idleRange = new BlendCharacterGui$LabeledInputRangeWidget_0('idle', valueOf(0), valueOf(1), new Double_0(0.01));
-  $add_2(blendTurning, this.idleRange);
-  this.walkRange = new BlendCharacterGui$LabeledInputRangeWidget_0('walk', valueOf(0), valueOf(1), new Double_0(0.01));
-  $add_2(blendTurning, this.walkRange);
-  this.runRange = new BlendCharacterGui$LabeledInputRangeWidget_0('run', valueOf(0), valueOf(1), new Double_0(0.01));
-  $add_2(blendTurning, this.runRange);
+  $add_3(blendTurning, blendTurningLabel);
+  this.idleRange = new LabeledInputRangeWidget_0('idle', valueOf(0), valueOf(1), new Double_0(0.01));
+  $add_3(blendTurning, this.idleRange);
+  this.walkRange = new LabeledInputRangeWidget_0('walk', valueOf(0), valueOf(1), new Double_0(0.01));
+  $add_3(blendTurning, this.walkRange);
+  this.runRange = new LabeledInputRangeWidget_0('run', valueOf(0), valueOf(1), new Double_0(0.01));
+  $add_3(blendTurning, this.runRange);
   $setValue(this.idleRange, 0.33);
   $setValue(this.walkRange, 0.33);
   $setValue(this.runRange, 0.33);
@@ -1651,7 +1799,7 @@ function BlendCharacterGui_0(animations, blendingExample){
   $addtRangeListener(this.runRange, onBlendChanged);
 }
 
-defineSeed(91, 92, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]), BlendCharacterGui_0);
+defineSeed(101, 102, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]), BlendCharacterGui_0);
 _.animations_0 = null;
 _.blendingExample = null;
 _.crossfadeTimeRange = null;
@@ -1665,9 +1813,7 @@ function BlendCharacterGui$1_0(this$0, val$blendingExample){
   this.val$blendingExample = val$blendingExample;
 }
 
-defineSeed(96, 1, makeCastMap([Q$ClickHandler, Q$EventHandler]), BlendCharacterGui$1_0);
---></script>
-<script><!--
+defineSeed(103, 1, makeCastMap([Q$ClickHandler, Q$EventHandler]), BlendCharacterGui$1_0);
 _.onClick = function onClick_1(event_0){
   $startAnimation(this.val$blendingExample, $getAnimationData(this.this$0));
 }
@@ -1678,8 +1824,8 @@ function BlendCharacterGui$10_0(this$0){
   this.this$0 = this$0;
 }
 
-defineSeed(97, 1, makeCastMap([Q$ValueChangeHandler, Q$EventHandler]), BlendCharacterGui$10_0);
-_.onValueChange = function onValueChange_2(event_0){
+defineSeed(104, 1, makeCastMap([Q$ValueChangeHandler, Q$EventHandler]), BlendCharacterGui$10_0);
+_.onValueChange = function onValueChange_3(event_0){
   $weight(this.this$0, dynamicCast(event_0.source, Q$Range).element.name);
 }
 ;
@@ -1689,7 +1835,7 @@ function BlendCharacterGui$2_0(this$0, val$blendingExample){
   this.val$blendingExample = val$blendingExample;
 }
 
-defineSeed(98, 1, makeCastMap([Q$ClickHandler, Q$EventHandler]), BlendCharacterGui$2_0);
+defineSeed(105, 1, makeCastMap([Q$ClickHandler, Q$EventHandler]), BlendCharacterGui$2_0);
 _.onClick = function onClick_2(event_0){
   $stepAnimation(this.val$blendingExample, $getValue(this.this$0.stepSizeRange.range).value_0);
 }
@@ -1700,7 +1846,7 @@ function BlendCharacterGui$3_0(val$blendingExample){
   this.val$blendingExample = val$blendingExample;
 }
 
-defineSeed(99, 1, makeCastMap([Q$ClickHandler, Q$EventHandler]), BlendCharacterGui$3_0);
+defineSeed(106, 1, makeCastMap([Q$ClickHandler, Q$EventHandler]), BlendCharacterGui$3_0);
 _.onClick = function onClick_3(event_0){
   $pauseAnimation(this.val$blendingExample);
 }
@@ -1710,7 +1856,7 @@ function BlendCharacterGui$4_0(this$0){
   this.this$0 = this$0;
 }
 
-defineSeed(100, 1, makeCastMap([Q$ClickHandler, Q$EventHandler]), BlendCharacterGui$4_0);
+defineSeed(107, 1, makeCastMap([Q$ClickHandler, Q$EventHandler]), BlendCharacterGui$4_0);
 _.onClick = function onClick_4(event_0){
   $crossfade_0(this.this$0, 'idle', 'walk');
 }
@@ -1720,7 +1866,7 @@ function BlendCharacterGui$5_0(this$0){
   this.this$0 = this$0;
 }
 
-defineSeed(101, 1, makeCastMap([Q$ClickHandler, Q$EventHandler]), BlendCharacterGui$5_0);
+defineSeed(108, 1, makeCastMap([Q$ClickHandler, Q$EventHandler]), BlendCharacterGui$5_0);
 _.onClick = function onClick_5(event_0){
   $crossfade_0(this.this$0, 'walk', 'run');
 }
@@ -1730,7 +1876,7 @@ function BlendCharacterGui$6_0(this$0){
   this.this$0 = this$0;
 }
 
-defineSeed(102, 1, makeCastMap([Q$ClickHandler, Q$EventHandler]), BlendCharacterGui$6_0);
+defineSeed(109, 1, makeCastMap([Q$ClickHandler, Q$EventHandler]), BlendCharacterGui$6_0);
 _.onClick = function onClick_6(event_0){
   $wrap(this.this$0);
 }
@@ -1740,8 +1886,8 @@ function BlendCharacterGui$7_0(val$blendingExample){
   this.val$blendingExample = val$blendingExample;
 }
 
-defineSeed(103, 1, makeCastMap([Q$ValueChangeHandler, Q$EventHandler]), BlendCharacterGui$7_0);
-_.onValueChange = function onValueChange_3(event_0){
+defineSeed(110, 1, makeCastMap([Q$ValueChangeHandler, Q$EventHandler]), BlendCharacterGui$7_0);
+_.onValueChange = function onValueChange_4(event_0){
   $lockCameraChanged(this.val$blendingExample, dynamicCast(event_0.value_0, Q$Boolean));
 }
 ;
@@ -1750,8 +1896,8 @@ function BlendCharacterGui$8_0(val$blendingExample){
   this.val$blendingExample = val$blendingExample;
 }
 
-defineSeed(104, 1, makeCastMap([Q$ValueChangeHandler, Q$EventHandler]), BlendCharacterGui$8_0);
-_.onValueChange = function onValueChange_4(event_0){
+defineSeed(111, 1, makeCastMap([Q$ValueChangeHandler, Q$EventHandler]), BlendCharacterGui$8_0);
+_.onValueChange = function onValueChange_5(event_0){
   $showModelChanged(this.val$blendingExample, dynamicCast(event_0.value_0, Q$Boolean));
 }
 ;
@@ -1760,88 +1906,12 @@ function BlendCharacterGui$9_0(val$blendingExample){
   this.val$blendingExample = val$blendingExample;
 }
 
-defineSeed(105, 1, makeCastMap([Q$ValueChangeHandler, Q$EventHandler]), BlendCharacterGui$9_0);
-_.onValueChange = function onValueChange_5(event_0){
+defineSeed(112, 1, makeCastMap([Q$ValueChangeHandler, Q$EventHandler]), BlendCharacterGui$9_0);
+_.onValueChange = function onValueChange_6(event_0){
   $showSkeletonChanged(this.val$blendingExample, dynamicCast(event_0.value_0, Q$Boolean));
 }
 ;
 _.val$blendingExample = null;
-function $add_3(this$static, w){
-  var td, td_0;
-  td = (td_0 = $doc.createElement('td') , td_0['align'] = this$static.horzAlign.textAlignString , setStyleAttribute(td_0, 'verticalAlign', this$static.vertAlign.verticalAlignString) , td_0);
-  appendChild(this$static.tableRow, td);
-  $add_1(this$static, w, td);
-}
-
-function $setVerticalAlignment(this$static, align){
-  this$static.vertAlign = align;
-}
-
-defineSeed(108, 93, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]));
-_.remove = function remove_1(w){
-  var removed, td;
-  td = $getParentElement(w.element);
-  removed = $remove(this, w);
-  removed && $removeChild(this.tableRow, td);
-  return removed;
-}
-;
-_.tableRow = null;
-function $addtRangeListener(this$static, handler){
-  var regist;
-  regist = $addValueChangeHandler(this$static.range, handler);
-  $put(this$static.registMap, handler, regist);
-}
-
-function $setTextBoxText(this$static, value){
-  value = $substring(value, 0, min_0(value.length));
-  $setValue_4(this$static.textBox, value);
-}
-
-function $setValue(this$static, value){
-  $setTextBoxText(this$static, '' + value);
-  $setValue_1(this$static.range, new Double_0(value));
-}
-
-function BlendCharacterGui$LabeledInputRangeWidget_0(name_0, min, max, step){
-  var label;
-  CellPanel_0.call(this);
-  this.horzAlign = ($clinit_HasHorizontalAlignment() , ALIGN_DEFAULT);
-  this.vertAlign = ($clinit_HasVerticalAlignment() , ALIGN_TOP);
-  this.tableRow = $doc.createElement('tr');
-  appendChild(this.body_0, this.tableRow);
-  this.table['cellSpacing'] = '0';
-  this.table['cellPadding'] = '0';
-  this.registMap = new HashMap_0;
-  $setVerticalAlignment(this, ALIGN_MIDDLE);
-  label = new Label_1(name_0);
-  $setAutoHorizontalAlignment(label, ALIGN_CENTER);
-  label.element.style['width'] = '120px';
-  $add_3(this, label);
-  this.range = new Range_1(name_0, min, max, step);
-  $setWidth(this.range, '140px');
-  $add_3(this, this.range);
-  this.textBox = new TextBox_0;
-  this.textBox.element['disabled'] = !true;
-  $setWidth(this.textBox, '40px');
-  $add_3(this, this.textBox);
-  $setValue_4(this.textBox, '' + $getValue(this.range));
-  $addValueChangeHandler(this.range, new BlendCharacterGui$LabeledInputRangeWidget$1_0(this));
-}
-
-defineSeed(107, 108, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]), BlendCharacterGui$LabeledInputRangeWidget_0);
-_.range = null;
-_.textBox = null;
-function BlendCharacterGui$LabeledInputRangeWidget$1_0(this$1){
-  this.this$1 = this$1;
-}
-
-defineSeed(109, 1, makeCastMap([Q$ValueChangeHandler, Q$EventHandler]), BlendCharacterGui$LabeledInputRangeWidget$1_0);
-_.onValueChange = function onValueChange_6(event_0){
-  $setTextBoxText(this.this$1, '' + event_0.value_0);
-}
-;
-_.this$1 = null;
 function $crossfade_1(this$static, data){
   $stopAll(this$static.blendMesh);
   $crossfade(this$static.blendMesh, data.detail.from, data.detail.to, data.detail.time);
@@ -1898,7 +1968,7 @@ function $start(this$static){
   dynamicCastJso($get(this$static.blendMesh.animations_0, 'run')).weight = 0.3333333333333333;
   this$static.gui = new BlendCharacterGui_0(this$static.blendMesh.animations_0, this$static);
   controlPanel = $addResizeHandlerAndCreateGUIPanel(this$static);
-  $add_2(controlPanel, this$static.gui);
+  $add_3(controlPanel, this$static.gui);
   $updateGUI(this$static);
 }
 
@@ -1933,7 +2003,7 @@ function BlendingExample_0(){
   this.clock = Clock();
 }
 
-defineSeed(110, 69, makeCastMap([Q$Example]), BlendingExample_0);
+defineSeed(114, 71, makeCastMap([Q$Example]), BlendingExample_0);
 _.animate = function animate_0(timestamp){
   $render_1(this);
   this.stats.update();
@@ -1993,7 +2063,7 @@ function BlendingExample$1_0(this$0){
   this.this$0 = this$0;
 }
 
-defineSeed(111, 1, {}, BlendingExample$1_0);
+defineSeed(115, 1, {}, BlendingExample$1_0);
 _.loaded = function loaded_0(geometry, materials){
   $loaded(this);
 }
@@ -2063,7 +2133,7 @@ function MorphExample_0(){
   this.clock = Clock();
 }
 
-defineSeed(112, 69, makeCastMap([Q$Example]), MorphExample_0);
+defineSeed(116, 71, makeCastMap([Q$Example]), MorphExample_0);
 _.animate = function animate_1(timestamp){
   $render_2(this, timestamp);
   this.stats.update();
@@ -2133,11 +2203,11 @@ _.init = function init_1(){
   model = new CheckBox_1('show model');
   $setValue_3(model, ($clinit_Boolean() , $clinit_Boolean() , TRUE));
   $addValueChangeHandler_1(model, new MorphExample$3_0(this));
-  $add_2(gui, model);
+  $add_3(gui, model);
   bone = new CheckBox_1('show skeleton');
   $setValue_3(bone, FALSE);
   $addValueChangeHandler_1(bone, new MorphExample$4_0(this));
-  $add_2(gui, bone);
+  $add_3(gui, bone);
 }
 ;
 _.onWindowResize = function onWindowResize_1(){
@@ -2162,13 +2232,17 @@ function MorphExample$1_0(this$0){
   this.this$0 = this$0;
 }
 
-defineSeed(113, 1, makeCastMap([Q$MouseMoveHandler, Q$EventHandler]), MorphExample$1_0);
+defineSeed(117, 1, makeCastMap([Q$MouseMoveHandler, Q$EventHandler]), MorphExample$1_0);
+_.onMouseMove = function onMouseMove(event_0){
+  $onDocumentMouseMove(this.this$0, event_0);
+}
+;
 _.this$0 = null;
 function MorphExample$2_0(this$0){
   this.this$0 = this$0;
 }
 
-defineSeed(114, 1, {}, MorphExample$2_0);
+defineSeed(118, 1, {}, MorphExample$2_0);
 _.loaded = function loaded_1(geometry, materials){
   $createScene(this.this$0, geometry, materials);
 }
@@ -2178,7 +2252,7 @@ function MorphExample$3_0(this$0){
   this.this$0 = this$0;
 }
 
-defineSeed(115, 1, makeCastMap([Q$ValueChangeHandler, Q$EventHandler]), MorphExample$3_0);
+defineSeed(119, 1, makeCastMap([Q$ValueChangeHandler, Q$EventHandler]), MorphExample$3_0);
 _.onValueChange = function onValueChange_7(event_0){
   $setVisible(this.this$0.mesh, dynamicCast(event_0.value_0, Q$Boolean).value_0);
 }
@@ -2188,71 +2262,16 @@ function MorphExample$4_0(this$0){
   this.this$0 = this$0;
 }
 
-defineSeed(116, 1, makeCastMap([Q$ValueChangeHandler, Q$EventHandler]), MorphExample$4_0);
+defineSeed(120, 1, makeCastMap([Q$ValueChangeHandler, Q$EventHandler]), MorphExample$4_0);
 _.onValueChange = function onValueChange_8(event_0){
   $setVisible(this.this$0.helper, dynamicCast(event_0.value_0, Q$Boolean).value_0);
-}
-;
-_.this$0 = null;
-function $addValueChangeHandler(this$static, handler){
-  if (!this$static.valueChangeHandlerInitialized) {
-    $addDomHandler(this$static, new Range$1_0(this$static), ($clinit_ChangeEvent() , $clinit_ChangeEvent() , TYPE));
-    this$static.valueChangeHandlerInitialized = true;
-  }
-  return $addHandler(this$static, handler, (!TYPE_4 && (TYPE_4 = new GwtEvent$Type_0) , TYPE_4));
-}
-
-function $getValue(this$static){
-  var value;
-  value = this$static.element.value;
-  return new Double_0(__parseAndValidateDouble(value));
-}
-
-function $setName(this$static, name_0){
-  if (name_0 == null) {
-    throw new NullPointerException_1('Name cannot be null');
-  }
-   else if ($equals(name_0, '')) {
-    throw new IllegalArgumentException_0('Name cannot be an empty string.');
-  }
-  $setName_0(this$static.element, name_0);
-}
-
-function $setValue_0(element, value){
-  element.value = value;
-}
-
-function $setValue_1(this$static, value){
-  $setValue_0(this$static.element, value);
-}
-
-function Range_1(name_0, min, max, step){
-  var input;
-  input = $createInputElement($doc, 'hidden');
-  input.setAttribute('type', 'range');
-  this.element = input;
-  $setName(this, name_0);
-  $setAttribute(this.element, 'min', '' + min);
-  $setAttribute(this.element, 'max', '' + max);
-  $setAttribute(this.element, 'step', '' + step);
-}
-
-defineSeed(117, 77, makeCastMap([Q$Range, Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]), Range_1);
-_.valueChangeHandlerInitialized = false;
-function Range$1_0(this$0){
-  this.this$0 = this$0;
-}
-
-defineSeed(118, 1, makeCastMap([Q$ChangeHandler, Q$EventHandler]), Range$1_0);
-_.onChange = function onChange_0(event_0){
-  fire_2(this.this$0, $getValue(this.this$0));
 }
 ;
 _.this$0 = null;
 function OrbitExample_0(){
 }
 
-defineSeed(119, 69, makeCastMap([Q$Example]), OrbitExample_0);
+defineSeed(121, 71, makeCastMap([Q$Example]), OrbitExample_0);
 _.animate = function animate_2(timestamp){
   $render(this.renderer, this.scene, this.camera);
   this.stats.update();
@@ -2335,7 +2354,7 @@ function HorseExample_0(){
   this.prevTime = toDouble(fromDouble(currentTimeMillis0()));
 }
 
-defineSeed(120, 69, makeCastMap([Q$Example]), HorseExample_0);
+defineSeed(122, 71, makeCastMap([Q$Example]), HorseExample_0);
 _.animate = function animate_3(timestamp){
   $render_3(this, timestamp);
   this.stats.update();
@@ -2396,7 +2415,7 @@ function HorseExample$1_0(this$0){
   this.this$0 = this$0;
 }
 
-defineSeed(121, 1, {}, HorseExample$1_0);
+defineSeed(123, 1, {}, HorseExample$1_0);
 _.loaded = function loaded_2(geometry, materials){
   var mesh;
   mesh = Mesh_0(geometry, MeshLambertMaterial($morphTargets($color({}, 6316128), true)));
@@ -2407,6 +2426,126 @@ _.loaded = function loaded_2(geometry, materials){
 }
 ;
 _.this$0 = null;
+function $initResizeHandlerAndGUI(this$static){
+  var gui, i, slider;
+  gui = $addResizeHandlerAndCreateGUIPanel(this$static);
+  gui.element.style['width'] = '200px';
+  gui.table['cellSpacing'] = 2;
+  $add_3(gui, new Label_1('Target morph influence'));
+  for (i = 0; i < 8; ++i) {
+    slider = new LabeledInputRangeWidget_0('vertex ' + i, valueOf(0), new Double_0(1), new Double_0(0.01));
+    $add_3(gui, slider);
+    $setTextBoxText(slider, '0.0');
+    $setValue_1(slider.range, new Double_0(0));
+    $addtRangeListener(slider, new MorphTargetsExample$2_0(this$static, i));
+  }
+}
+
+function $onDocumentMouseMove_0(this$static, event_0){
+  (event_0.nativeEvent.clientX || 0) - this$static.windowHalfX;
+  this$static.mouseY = ((event_0.nativeEvent.clientY || 0) - this$static.windowHalfY) * 2;
+}
+
+function MorphTargetsExample_0(){
+}
+
+defineSeed(124, 71, makeCastMap([Q$Example]), MorphTargetsExample_0);
+_.animate = function animate_4(timestamp){
+  this.mesh.rotation.y += 0.01;
+  $gwtIncrementY(this.camera.position, (-this.mouseY - this.camera.position.y) * 0.01);
+  $lookAt(this.camera, this.scene.position);
+  $render(this.renderer, this.scene, this.camera);
+  this.stats.update();
+}
+;
+_.getName = function getName_4(){
+  return 'morphtargets';
+}
+;
+_.getTokenKey = function getTokenKey_4(){
+  return 'morphtargets';
+}
+;
+--></script>
+<script><!--
+_.init = function init_4(){
+  var container, geometry, i, light, material, v, vertices;
+  container = $createContainerPanel(this);
+  this.windowHalfX = round_int($getPropertyInt(this.parent_0.element, 'offsetWidth') / 2);
+  this.windowHalfY = round_int($getPropertyInt(this.parent_0.element, 'offsetHeight') / 2);
+  $addDomHandler(container, new MorphTargetsExample$1_0(this), ($clinit_MouseMoveEvent() , $clinit_MouseMoveEvent() , TYPE_1));
+  this.camera = PerspectiveCamera(45, $getPropertyInt(this.parent_0.element, 'offsetWidth') / $getPropertyInt(this.parent_0.element, 'offsetHeight'), 1, 15000);
+  this.camera.position.setZ(500);
+  this.scene = Scene();
+  $setFog(this.scene, new $wnd.THREE.Fog(0, 1, 15000));
+  light = new $wnd.THREE.PointLight(16720384);
+  light.position.set(100, 100, 100);
+  $add(this.scene, light);
+  light = new $wnd.THREE.AmbientLight(1118481);
+  $add(this.scene, light);
+  geometry = new $wnd.THREE.BoxGeometry(100, 100, 100);
+  material = MeshLambertMaterial($morphTargets($color({}, 16777215), true));
+  for (i = 0; i < geometry.vertices.length; ++i) {
+    vertices = $wnd.eval('new Array()');
+    for (v = 0; v < geometry.vertices.length; ++v) {
+      $push(vertices, geometry.vertices[v].clone());
+      v == i && vertices[v].multiplyScalar(2);
+    }
+    $push(geometry.morphTargets, $vertices($name({}, 'target' + i), vertices));
+  }
+  this.mesh = new $wnd.THREE.Mesh(geometry, material);
+  $add(this.scene, this.mesh);
+  this.renderer = WebGLRenderer($antialias({}, false));
+  this.renderer.setClearColor(2236962);
+  $setPixelRatio(this.renderer, $wnd.devicePixelRatio);
+  $setSize(this.renderer, $getPropertyInt(this.parent_0.element, 'offsetWidth'), $getPropertyInt(this.parent_0.element, 'offsetHeight'));
+  $appendChild(container.element, this.renderer.domElement);
+  this.renderer.sortObjects = true;
+  this.stats = new $wnd.Stats;
+  $setPosition(this.stats, 0, 0);
+  $appendChild(container.element, this.stats.domElement);
+  $add_5(container, $createAbsoluteHTML("<div style='color:white'><a href='http://threejs.org' target='_blank'>three.js<\/a> - WebGL morph target example<\/div>"));
+  $initResizeHandlerAndGUI(this);
+}
+;
+_.onWindowResize = function onWindowResize_4(){
+  this.windowHalfX = round_int($getPropertyInt(this.parent_0.element, 'offsetWidth') / 2);
+  this.windowHalfY = round_int($getPropertyInt(this.parent_0.element, 'offsetHeight') / 2);
+  $setAspect(this.camera, $getPropertyInt(this.parent_0.element, 'offsetWidth') / $getPropertyInt(this.parent_0.element, 'offsetHeight'));
+  this.camera.updateProjectionMatrix();
+  $setSize(this.renderer, $getPropertyInt(this.parent_0.element, 'offsetWidth'), $getPropertyInt(this.parent_0.element, 'offsetHeight'));
+}
+;
+_.camera = null;
+_.mesh = null;
+_.mouseY = 0;
+_.renderer = null;
+_.scene = null;
+_.stats = null;
+_.windowHalfX = 0;
+_.windowHalfY = 0;
+function MorphTargetsExample$1_0(this$0){
+  this.this$0 = this$0;
+}
+
+defineSeed(125, 1, makeCastMap([Q$MouseMoveHandler, Q$EventHandler]), MorphTargetsExample$1_0);
+_.onMouseMove = function onMouseMove_0(event_0){
+  $onDocumentMouseMove_0(this.this$0, event_0);
+}
+;
+_.this$0 = null;
+function MorphTargetsExample$2_0(this$0, val$index){
+  this.this$0 = this$0;
+  this.val$index = val$index;
+}
+
+defineSeed(126, 1, makeCastMap([Q$ValueChangeHandler, Q$EventHandler]), MorphTargetsExample$2_0);
+_.onValueChange = function onValueChange_9(event_0){
+  this.this$0.mesh.morphTargetInfluences[this.val$index] = dynamicCast(event_0.value_0, Q$Number).doubleValue();
+}
+;
+_.this$0 = null;
+_.val$index = 0;
 function $cancel(this$static){
   if (!this$static.isRunning) {
     return;
@@ -2465,7 +2604,7 @@ function Animation_2(scheduler){
   this.scheduler = scheduler;
 }
 
-defineSeed(122, 1, {});
+defineSeed(127, 1, {});
 _.onCancel = function onCancel(){
   this.wasStarted && this.onComplete();
 }
@@ -2494,14 +2633,14 @@ function Animation$1_0(this$0){
   this.this$0 = this$0;
 }
 
-defineSeed(123, 1, {}, Animation$1_0);
+defineSeed(128, 1, {}, Animation$1_0);
 _.execute = function execute_1(timestamp){
   $execute_0(this, timestamp);
 }
 ;
 _.this$0 = null;
-defineSeed(124, 1, {});
-defineSeed(125, 1, makeCastMap([Q$AnimationScheduler$AnimationHandle]));
+defineSeed(129, 1, {});
+defineSeed(130, 1, makeCastMap([Q$AnimationScheduler$AnimationHandle]));
 function $clinit_AnimationSchedulerImpl(){
   $clinit_AnimationSchedulerImpl = nullMethod;
   var impl;
@@ -2509,9 +2648,7 @@ function $clinit_AnimationSchedulerImpl(){
   INSTANCE = impl;
 }
 
-defineSeed(126, 124, {});
---></script>
-<script><!--
+defineSeed(131, 129, {});
 var INSTANCE = null;
 function $cancelAnimationFrame(this$static, requestId){
   $remove_9(this$static.animationRequests, requestId);
@@ -2544,7 +2681,7 @@ function AnimationSchedulerImplTimer_0(){
   this.timer = new AnimationSchedulerImplTimer$1_0(this);
 }
 
-defineSeed(127, 126, {}, AnimationSchedulerImplTimer_0);
+defineSeed(132, 131, {}, AnimationSchedulerImplTimer_0);
 function $clinit_Timer(){
   $clinit_Timer = nullMethod;
   timers = new ArrayList_0;
@@ -2582,7 +2719,7 @@ function createTimeout(timer, delay){
   ), delay);
 }
 
-defineSeed(129, 1, makeCastMap([Q$Timer]));
+defineSeed(134, 1, makeCastMap([Q$Timer]));
 _.fire = function fire(){
   this.isRepeating || $remove_9(timers, this);
   $updateAnimations(this.this$0);
@@ -2596,7 +2733,7 @@ function AnimationSchedulerImplTimer$1_0(this$0){
   this.this$0 = this$0;
 }
 
-defineSeed(128, 129, makeCastMap([Q$Timer]), AnimationSchedulerImplTimer$1_0);
+defineSeed(133, 134, makeCastMap([Q$Timer]), AnimationSchedulerImplTimer$1_0);
 _.this$0 = null;
 function $cancel_1(this$static){
   $cancelAnimationFrame(this$static.this$0, this$static);
@@ -2607,7 +2744,7 @@ function AnimationSchedulerImplTimer$AnimationHandleImpl_0(this$0, callback){
   this.callback = callback;
 }
 
-defineSeed(130, 125, makeCastMap([Q$AnimationScheduler$AnimationHandle, Q$AnimationSchedulerImplTimer$AnimationHandleImpl]), AnimationSchedulerImplTimer$AnimationHandleImpl_0);
+defineSeed(135, 130, makeCastMap([Q$AnimationScheduler$AnimationHandle, Q$AnimationSchedulerImplTimer$AnimationHandleImpl]), AnimationSchedulerImplTimer$AnimationHandleImpl_0);
 _.callback = null;
 _.this$0 = null;
 function $getAriaValue(value){
@@ -2624,18 +2761,18 @@ function $set_3(this$static, element, values){
   $setAttribute(element, this$static.name_0, $getAriaValue(values));
 }
 
-defineSeed(132, 1, {});
+defineSeed(137, 1, {});
 _.name_0 = null;
 function AriaValueAttribute_0(name_0){
   this.name_0 = name_0;
 }
 
-defineSeed(131, 132, {}, AriaValueAttribute_0);
+defineSeed(136, 137, {}, AriaValueAttribute_0);
 function PrimitiveValueAttribute_0(name_0){
   this.name_0 = name_0;
 }
 
-defineSeed(133, 132, {}, PrimitiveValueAttribute_0);
+defineSeed(138, 137, {}, PrimitiveValueAttribute_0);
 function $clinit_State(){
   $clinit_State = nullMethod;
   new PrimitiveValueAttribute_0('aria-busy');
@@ -2658,7 +2795,7 @@ function currentTimeMillis(){
   return (new Date).getTime();
 }
 
-defineSeed(135, 1, {}, Duration_0);
+defineSeed(140, 1, {}, Duration_0);
 function $setStackTrace(stackTrace){
   var c, copy, i;
   copy = initDim(_3Ljava_lang_StackTraceElement_2_classLit, makeCastMap([Q$Serializable]), Q$StackTraceElement, stackTrace.length, 0);
@@ -2670,7 +2807,7 @@ function $setStackTrace(stackTrace){
   }
 }
 
-defineSeed(140, 1, makeCastMap([Q$Serializable, Q$Throwable]));
+defineSeed(145, 1, makeCastMap([Q$Serializable, Q$Throwable]));
 _.getMessage = function getMessage(){
   return this.detailMessage;
 }
@@ -2683,7 +2820,7 @@ _.toString$ = function toString_2(){
 }
 ;
 _.detailMessage = null;
-defineSeed(139, 140, makeCastMap([Q$Serializable, Q$Throwable]));
+defineSeed(144, 145, makeCastMap([Q$Serializable, Q$Throwable]));
 function RuntimeException_0(message){
   $fillInStackTrace();
   this.detailMessage = message;
@@ -2694,7 +2831,7 @@ function RuntimeException_1(message){
   this.detailMessage = message;
 }
 
-defineSeed(138, 139, makeCastMap([Q$Serializable, Q$Throwable]), RuntimeException_0);
+defineSeed(143, 144, makeCastMap([Q$Serializable, Q$Throwable]), RuntimeException_0);
 function JavaScriptException_0(e){
   $fillInStackTrace();
   this.e = e;
@@ -2723,7 +2860,7 @@ function getExceptionProperties(e){
   return instanceOfJso(e)?$getProperties(dynamicCastJso(e)):'';
 }
 
-defineSeed(137, 138, makeCastMap([Q$Serializable, Q$Throwable]), JavaScriptException_0);
+defineSeed(142, 143, makeCastMap([Q$Serializable, Q$Throwable]), JavaScriptException_0);
 _.getMessage = function getMessage_0(){
   this.message_0 == null && (this.name_0 = getExceptionName(this.e) , this.description = this.description + ': ' + getExceptionDescription(this.e) , this.message_0 = '(' + this.name_0 + ') ' + getExceptionProperties(this.e) + this.description , undefined);
   return this.message_0;
@@ -2733,7 +2870,11 @@ _.description = '';
 _.e = null;
 _.message_0 = null;
 _.name_0 = null;
-defineSeed(144, 1, {});
+function $push(this$static, value){
+  this$static[this$static.length] = value;
+}
+
+defineSeed(149, 1, {});
 function apply(jsFunction, thisObj, args){
   return jsFunction.apply(thisObj, args);
   var __0;
@@ -2919,7 +3060,7 @@ function execute_2(cmd){
 
 function push(queue, task){
   !queue && (queue = []);
-  queue[queue.length] = task;
+  $push(queue, task);
   return queue;
 }
 
@@ -2948,7 +3089,7 @@ function scheduleFixedDelayImpl(cmd, delayMs){
   , delayMs);
 }
 
-defineSeed(146, 144, {}, SchedulerImpl_0);
+defineSeed(151, 149, {}, SchedulerImpl_0);
 _.deferredCommands = null;
 _.entryCommands = null;
 _.finallyCommands = null;
@@ -2962,7 +3103,7 @@ function SchedulerImpl$Flusher_0(this$0){
   this.this$0 = this$0;
 }
 
-defineSeed(147, 1, {}, SchedulerImpl$Flusher_0);
+defineSeed(152, 1, {}, SchedulerImpl$Flusher_0);
 _.execute_1 = function execute_3(){
   this.this$0.flushRunning = true;
   $flushPostEventPumpCommands(this.this$0);
@@ -2975,7 +3116,7 @@ function SchedulerImpl$Rescuer_0(this$0){
   this.this$0 = this$0;
 }
 
-defineSeed(148, 1, {}, SchedulerImpl$Rescuer_0);
+defineSeed(153, 1, {}, SchedulerImpl$Rescuer_0);
 _.execute_1 = function execute_4(){
   this.this$0.flushRunning && scheduleFixedDelayImpl(this.this$0.flusher, 1);
   return this.this$0.shouldBeRunning;
@@ -3060,7 +3201,7 @@ function $getProperties(e){
 function StackTraceCreator$Collector_0(){
 }
 
-defineSeed(151, 1, {}, StackTraceCreator$Collector_0);
+defineSeed(156, 1, {}, StackTraceCreator$Collector_0);
 _.extractName = function extractName(fnToString){
   return extractNameFromToString(fnToString);
 }
@@ -3230,7 +3371,7 @@ function Enum_0(name_0, ordinal){
   this.ordinal = ordinal;
 }
 
-defineSeed(174, 1, makeCastMap([Q$Serializable, Q$Comparable, Q$Enum]));
+defineSeed(179, 1, makeCastMap([Q$Serializable, Q$Comparable, Q$Enum]));
 _.equals$ = function equals_0(other){
   return this === other;
 }
@@ -3259,28 +3400,28 @@ function values_0(){
   return $VALUES;
 }
 
-defineSeed(173, 174, makeCastMap([Q$Style$Display, Q$Style$HasCssName, Q$Serializable, Q$Comparable, Q$Enum]));
+defineSeed(178, 179, makeCastMap([Q$Style$Display, Q$Style$HasCssName, Q$Serializable, Q$Comparable, Q$Enum]));
 var $VALUES, BLOCK, INLINE, INLINE_BLOCK, NONE;
 function Style$Display$1_0(){
   Enum_0.call(this, 'NONE', 0);
 }
 
-defineSeed(175, 173, makeCastMap([Q$Style$Display, Q$Style$HasCssName, Q$Serializable, Q$Comparable, Q$Enum]), Style$Display$1_0);
+defineSeed(180, 178, makeCastMap([Q$Style$Display, Q$Style$HasCssName, Q$Serializable, Q$Comparable, Q$Enum]), Style$Display$1_0);
 function Style$Display$2_0(){
   Enum_0.call(this, 'BLOCK', 1);
 }
 
-defineSeed(176, 173, makeCastMap([Q$Style$Display, Q$Style$HasCssName, Q$Serializable, Q$Comparable, Q$Enum]), Style$Display$2_0);
+defineSeed(181, 178, makeCastMap([Q$Style$Display, Q$Style$HasCssName, Q$Serializable, Q$Comparable, Q$Enum]), Style$Display$2_0);
 function Style$Display$3_0(){
   Enum_0.call(this, 'INLINE', 2);
 }
 
-defineSeed(177, 173, makeCastMap([Q$Style$Display, Q$Style$HasCssName, Q$Serializable, Q$Comparable, Q$Enum]), Style$Display$3_0);
+defineSeed(182, 178, makeCastMap([Q$Style$Display, Q$Style$HasCssName, Q$Serializable, Q$Comparable, Q$Enum]), Style$Display$3_0);
 function Style$Display$4_0(){
   Enum_0.call(this, 'INLINE_BLOCK', 3);
 }
 
-defineSeed(178, 173, makeCastMap([Q$Style$Display, Q$Style$HasCssName, Q$Serializable, Q$Comparable, Q$Enum]), Style$Display$4_0);
+defineSeed(183, 178, makeCastMap([Q$Style$Display, Q$Style$HasCssName, Q$Serializable, Q$Comparable, Q$Enum]), Style$Display$4_0);
 function $clinit_Style$Overflow(){
   $clinit_Style$Overflow = nullMethod;
   VISIBLE = new Style$Overflow$1_0;
@@ -3295,28 +3436,28 @@ function values_1(){
   return $VALUES_0;
 }
 
-defineSeed(179, 174, makeCastMap([Q$Style$HasCssName, Q$Style$Overflow, Q$Serializable, Q$Comparable, Q$Enum]));
+defineSeed(184, 179, makeCastMap([Q$Style$HasCssName, Q$Style$Overflow, Q$Serializable, Q$Comparable, Q$Enum]));
 var $VALUES_0, AUTO, HIDDEN_0, SCROLL, VISIBLE;
 function Style$Overflow$1_0(){
   Enum_0.call(this, 'VISIBLE', 0);
 }
 
-defineSeed(180, 179, makeCastMap([Q$Style$HasCssName, Q$Style$Overflow, Q$Serializable, Q$Comparable, Q$Enum]), Style$Overflow$1_0);
+defineSeed(185, 184, makeCastMap([Q$Style$HasCssName, Q$Style$Overflow, Q$Serializable, Q$Comparable, Q$Enum]), Style$Overflow$1_0);
 function Style$Overflow$2_0(){
   Enum_0.call(this, 'HIDDEN', 1);
 }
 
-defineSeed(181, 179, makeCastMap([Q$Style$HasCssName, Q$Style$Overflow, Q$Serializable, Q$Comparable, Q$Enum]), Style$Overflow$2_0);
+defineSeed(186, 184, makeCastMap([Q$Style$HasCssName, Q$Style$Overflow, Q$Serializable, Q$Comparable, Q$Enum]), Style$Overflow$2_0);
 function Style$Overflow$3_0(){
   Enum_0.call(this, 'SCROLL', 2);
 }
 
-defineSeed(182, 179, makeCastMap([Q$Style$HasCssName, Q$Style$Overflow, Q$Serializable, Q$Comparable, Q$Enum]), Style$Overflow$3_0);
+defineSeed(187, 184, makeCastMap([Q$Style$HasCssName, Q$Style$Overflow, Q$Serializable, Q$Comparable, Q$Enum]), Style$Overflow$3_0);
 function Style$Overflow$4_0(){
   Enum_0.call(this, 'AUTO', 3);
 }
 
-defineSeed(183, 179, makeCastMap([Q$Style$HasCssName, Q$Style$Overflow, Q$Serializable, Q$Comparable, Q$Enum]), Style$Overflow$4_0);
+defineSeed(188, 184, makeCastMap([Q$Style$HasCssName, Q$Style$Overflow, Q$Serializable, Q$Comparable, Q$Enum]), Style$Overflow$4_0);
 function $clinit_Style$Position(){
   $clinit_Style$Position = nullMethod;
   STATIC = new Style$Position$1_0;
@@ -3331,28 +3472,30 @@ function values_2(){
   return $VALUES_1;
 }
 
-defineSeed(184, 174, makeCastMap([Q$Style$HasCssName, Q$Style$Position, Q$Serializable, Q$Comparable, Q$Enum]));
+defineSeed(189, 179, makeCastMap([Q$Style$HasCssName, Q$Style$Position, Q$Serializable, Q$Comparable, Q$Enum]));
+--></script>
+<script><!--
 var $VALUES_1, ABSOLUTE, FIXED, RELATIVE, STATIC;
 function Style$Position$1_0(){
   Enum_0.call(this, 'STATIC', 0);
 }
 
-defineSeed(185, 184, makeCastMap([Q$Style$HasCssName, Q$Style$Position, Q$Serializable, Q$Comparable, Q$Enum]), Style$Position$1_0);
+defineSeed(190, 189, makeCastMap([Q$Style$HasCssName, Q$Style$Position, Q$Serializable, Q$Comparable, Q$Enum]), Style$Position$1_0);
 function Style$Position$2_0(){
   Enum_0.call(this, 'RELATIVE', 1);
 }
 
-defineSeed(186, 184, makeCastMap([Q$Style$HasCssName, Q$Style$Position, Q$Serializable, Q$Comparable, Q$Enum]), Style$Position$2_0);
+defineSeed(191, 189, makeCastMap([Q$Style$HasCssName, Q$Style$Position, Q$Serializable, Q$Comparable, Q$Enum]), Style$Position$2_0);
 function Style$Position$3_0(){
   Enum_0.call(this, 'ABSOLUTE', 2);
 }
 
-defineSeed(187, 184, makeCastMap([Q$Style$HasCssName, Q$Style$Position, Q$Serializable, Q$Comparable, Q$Enum]), Style$Position$3_0);
+defineSeed(192, 189, makeCastMap([Q$Style$HasCssName, Q$Style$Position, Q$Serializable, Q$Comparable, Q$Enum]), Style$Position$3_0);
 function Style$Position$4_0(){
   Enum_0.call(this, 'FIXED', 3);
 }
 
-defineSeed(188, 184, makeCastMap([Q$Style$HasCssName, Q$Style$Position, Q$Serializable, Q$Comparable, Q$Enum]), Style$Position$4_0);
+defineSeed(193, 189, makeCastMap([Q$Style$HasCssName, Q$Style$Position, Q$Serializable, Q$Comparable, Q$Enum]), Style$Position$4_0);
 function $clinit_Style$TextAlign(){
   $clinit_Style$TextAlign = nullMethod;
   CENTER = new Style$TextAlign$1_0;
@@ -3367,28 +3510,28 @@ function values_3(){
   return $VALUES_2;
 }
 
-defineSeed(189, 174, makeCastMap([Q$Style$HasCssName, Q$Style$TextAlign, Q$Serializable, Q$Comparable, Q$Enum]));
+defineSeed(194, 179, makeCastMap([Q$Style$HasCssName, Q$Style$TextAlign, Q$Serializable, Q$Comparable, Q$Enum]));
 var $VALUES_2, CENTER, JUSTIFY, LEFT, RIGHT;
 function Style$TextAlign$1_0(){
   Enum_0.call(this, 'CENTER', 0);
 }
 
-defineSeed(190, 189, makeCastMap([Q$Style$HasCssName, Q$Style$TextAlign, Q$Serializable, Q$Comparable, Q$Enum]), Style$TextAlign$1_0);
+defineSeed(195, 194, makeCastMap([Q$Style$HasCssName, Q$Style$TextAlign, Q$Serializable, Q$Comparable, Q$Enum]), Style$TextAlign$1_0);
 function Style$TextAlign$2_0(){
   Enum_0.call(this, 'JUSTIFY', 1);
 }
 
-defineSeed(191, 189, makeCastMap([Q$Style$HasCssName, Q$Style$TextAlign, Q$Serializable, Q$Comparable, Q$Enum]), Style$TextAlign$2_0);
+defineSeed(196, 194, makeCastMap([Q$Style$HasCssName, Q$Style$TextAlign, Q$Serializable, Q$Comparable, Q$Enum]), Style$TextAlign$2_0);
 function Style$TextAlign$3_0(){
   Enum_0.call(this, 'LEFT', 2);
 }
 
-defineSeed(192, 189, makeCastMap([Q$Style$HasCssName, Q$Style$TextAlign, Q$Serializable, Q$Comparable, Q$Enum]), Style$TextAlign$3_0);
+defineSeed(197, 194, makeCastMap([Q$Style$HasCssName, Q$Style$TextAlign, Q$Serializable, Q$Comparable, Q$Enum]), Style$TextAlign$3_0);
 function Style$TextAlign$4_0(){
   Enum_0.call(this, 'RIGHT', 3);
 }
 
-defineSeed(193, 189, makeCastMap([Q$Style$HasCssName, Q$Style$TextAlign, Q$Serializable, Q$Comparable, Q$Enum]), Style$TextAlign$4_0);
+defineSeed(198, 194, makeCastMap([Q$Style$HasCssName, Q$Style$TextAlign, Q$Serializable, Q$Comparable, Q$Enum]), Style$TextAlign$4_0);
 function $clinit_Style$Unit(){
   $clinit_Style$Unit = nullMethod;
   PX = new Style$Unit$1_0;
@@ -3408,13 +3551,13 @@ function values_4(){
   return $VALUES_3;
 }
 
-defineSeed(194, 174, makeCastMap([Q$Style$Unit, Q$Serializable, Q$Comparable, Q$Enum]));
+defineSeed(199, 179, makeCastMap([Q$Style$Unit, Q$Serializable, Q$Comparable, Q$Enum]));
 var $VALUES_3, CM, EM, EX, IN, MM, PC, PCT, PT, PX;
 function Style$Unit$1_0(){
   Enum_0.call(this, 'PX', 0);
 }
 
-defineSeed(195, 194, makeCastMap([Q$Style$Unit, Q$Serializable, Q$Comparable, Q$Enum]), Style$Unit$1_0);
+defineSeed(200, 199, makeCastMap([Q$Style$Unit, Q$Serializable, Q$Comparable, Q$Enum]), Style$Unit$1_0);
 _.getType = function getType(){
   return 'px';
 }
@@ -3423,7 +3566,7 @@ function Style$Unit$2_0(){
   Enum_0.call(this, 'PCT', 1);
 }
 
-defineSeed(196, 194, makeCastMap([Q$Style$Unit, Q$Serializable, Q$Comparable, Q$Enum]), Style$Unit$2_0);
+defineSeed(201, 199, makeCastMap([Q$Style$Unit, Q$Serializable, Q$Comparable, Q$Enum]), Style$Unit$2_0);
 _.getType = function getType_0(){
   return '%';
 }
@@ -3432,7 +3575,7 @@ function Style$Unit$3_0(){
   Enum_0.call(this, 'EM', 2);
 }
 
-defineSeed(197, 194, makeCastMap([Q$Style$Unit, Q$Serializable, Q$Comparable, Q$Enum]), Style$Unit$3_0);
+defineSeed(202, 199, makeCastMap([Q$Style$Unit, Q$Serializable, Q$Comparable, Q$Enum]), Style$Unit$3_0);
 _.getType = function getType_1(){
   return 'em';
 }
@@ -3441,7 +3584,7 @@ function Style$Unit$4_0(){
   Enum_0.call(this, 'EX', 3);
 }
 
-defineSeed(198, 194, makeCastMap([Q$Style$Unit, Q$Serializable, Q$Comparable, Q$Enum]), Style$Unit$4_0);
+defineSeed(203, 199, makeCastMap([Q$Style$Unit, Q$Serializable, Q$Comparable, Q$Enum]), Style$Unit$4_0);
 _.getType = function getType_2(){
   return 'ex';
 }
@@ -3450,7 +3593,7 @@ function Style$Unit$5_0(){
   Enum_0.call(this, 'PT', 4);
 }
 
-defineSeed(199, 194, makeCastMap([Q$Style$Unit, Q$Serializable, Q$Comparable, Q$Enum]), Style$Unit$5_0);
+defineSeed(204, 199, makeCastMap([Q$Style$Unit, Q$Serializable, Q$Comparable, Q$Enum]), Style$Unit$5_0);
 _.getType = function getType_3(){
   return 'pt';
 }
@@ -3459,7 +3602,7 @@ function Style$Unit$6_0(){
   Enum_0.call(this, 'PC', 5);
 }
 
-defineSeed(200, 194, makeCastMap([Q$Style$Unit, Q$Serializable, Q$Comparable, Q$Enum]), Style$Unit$6_0);
+defineSeed(205, 199, makeCastMap([Q$Style$Unit, Q$Serializable, Q$Comparable, Q$Enum]), Style$Unit$6_0);
 _.getType = function getType_4(){
   return 'pc';
 }
@@ -3468,7 +3611,7 @@ function Style$Unit$7_0(){
   Enum_0.call(this, 'IN', 6);
 }
 
-defineSeed(201, 194, makeCastMap([Q$Style$Unit, Q$Serializable, Q$Comparable, Q$Enum]), Style$Unit$7_0);
+defineSeed(206, 199, makeCastMap([Q$Style$Unit, Q$Serializable, Q$Comparable, Q$Enum]), Style$Unit$7_0);
 _.getType = function getType_5(){
   return 'in';
 }
@@ -3477,7 +3620,7 @@ function Style$Unit$8_0(){
   Enum_0.call(this, 'CM', 7);
 }
 
-defineSeed(202, 194, makeCastMap([Q$Style$Unit, Q$Serializable, Q$Comparable, Q$Enum]), Style$Unit$8_0);
+defineSeed(207, 199, makeCastMap([Q$Style$Unit, Q$Serializable, Q$Comparable, Q$Enum]), Style$Unit$8_0);
 _.getType = function getType_6(){
   return 'cm';
 }
@@ -3486,7 +3629,7 @@ function Style$Unit$9_0(){
   Enum_0.call(this, 'MM', 8);
 }
 
-defineSeed(203, 194, makeCastMap([Q$Style$Unit, Q$Serializable, Q$Comparable, Q$Enum]), Style$Unit$9_0);
+defineSeed(208, 199, makeCastMap([Q$Style$Unit, Q$Serializable, Q$Comparable, Q$Enum]), Style$Unit$9_0);
 _.getType = function getType_7(){
   return 'mm';
 }
@@ -3503,19 +3646,19 @@ function values_5(){
   return $VALUES_4;
 }
 
-defineSeed(204, 174, makeCastMap([Q$Style$HasCssName, Q$Style$Visibility, Q$Serializable, Q$Comparable, Q$Enum]));
+defineSeed(209, 179, makeCastMap([Q$Style$HasCssName, Q$Style$Visibility, Q$Serializable, Q$Comparable, Q$Enum]));
 var $VALUES_4, HIDDEN_1, VISIBLE_0;
 function Style$Visibility$1_0(){
   Enum_0.call(this, 'VISIBLE', 0);
 }
 
-defineSeed(205, 204, makeCastMap([Q$Style$HasCssName, Q$Style$Visibility, Q$Serializable, Q$Comparable, Q$Enum]), Style$Visibility$1_0);
+defineSeed(210, 209, makeCastMap([Q$Style$HasCssName, Q$Style$Visibility, Q$Serializable, Q$Comparable, Q$Enum]), Style$Visibility$1_0);
 function Style$Visibility$2_0(){
   Enum_0.call(this, 'HIDDEN', 1);
 }
 
-defineSeed(206, 204, makeCastMap([Q$Style$HasCssName, Q$Style$Visibility, Q$Serializable, Q$Comparable, Q$Enum]), Style$Visibility$2_0);
-defineSeed(210, 1, {});
+defineSeed(211, 209, makeCastMap([Q$Style$HasCssName, Q$Style$Visibility, Q$Serializable, Q$Comparable, Q$Enum]), Style$Visibility$2_0);
+defineSeed(215, 1, {});
 _.toString$ = function toString_4(){
   return 'An event type';
 }
@@ -3525,7 +3668,7 @@ function $overrideSource(this$static, source){
   this$static.source = source;
 }
 
-defineSeed(209, 210, {});
+defineSeed(214, 215, {});
 _.revive = function revive(){
   this.dead = false;
   this.source = null;
@@ -3540,8 +3683,6 @@ function $setRelativeElement(this$static, relativeElem){
   this$static.relativeElem = relativeElem;
 }
 
---></script>
-<script><!--
 function fireNativeEvent(nativeEvent, handlerSource, relativeElem){
   var currentNative, currentRelativeElem, typeKey;
   if (registered) {
@@ -3558,7 +3699,7 @@ function fireNativeEvent(nativeEvent, handlerSource, relativeElem){
   }
 }
 
-defineSeed(208, 209, {});
+defineSeed(213, 214, {});
 _.getAssociatedType = function getAssociatedType(){
   return this.getAssociatedType_0();
 }
@@ -3574,7 +3715,7 @@ function $clinit_ChangeEvent(){
 function ChangeEvent_0(){
 }
 
-defineSeed(207, 208, {}, ChangeEvent_0);
+defineSeed(212, 213, {}, ChangeEvent_0);
 _.dispatch = function dispatch(handler){
   dynamicCast(handler, Q$ChangeHandler).onChange(this);
 }
@@ -3584,8 +3725,8 @@ _.getAssociatedType_0 = function getAssociatedType_0(){
 }
 ;
 var TYPE;
-defineSeed(213, 208, {});
-defineSeed(212, 213, {});
+defineSeed(218, 213, {});
+defineSeed(217, 218, {});
 function $clinit_ClickEvent(){
   $clinit_ClickEvent = nullMethod;
   TYPE_0 = new DomEvent$Type_0('click', new ClickEvent_0);
@@ -3594,7 +3735,7 @@ function $clinit_ClickEvent(){
 function ClickEvent_0(){
 }
 
-defineSeed(211, 212, {}, ClickEvent_0);
+defineSeed(216, 217, {}, ClickEvent_0);
 _.dispatch = function dispatch_0(handler){
   dynamicCast(handler, Q$ClickHandler).onClick(this);
 }
@@ -3604,7 +3745,7 @@ _.getAssociatedType_0 = function getAssociatedType_1(){
 }
 ;
 var TYPE_0;
-defineSeed(216, 1, {});
+defineSeed(221, 1, {});
 _.hashCode$ = function hashCode_2(){
   return this.index_0;
 }
@@ -3619,7 +3760,7 @@ function GwtEvent$Type_0(){
   this.index_0 = ++nextHashCode;
 }
 
-defineSeed(215, 216, {}, GwtEvent$Type_0);
+defineSeed(220, 221, {}, GwtEvent$Type_0);
 function DomEvent$Type_0(eventName, flyweight){
   GwtEvent$Type_0.call(this);
   this.flyweight = flyweight;
@@ -3628,7 +3769,7 @@ function DomEvent$Type_0(eventName, flyweight){
   this.name_0 = eventName;
 }
 
-defineSeed(214, 215, makeCastMap([Q$DomEvent$Type]), DomEvent$Type_0);
+defineSeed(219, 220, makeCastMap([Q$DomEvent$Type]), DomEvent$Type_0);
 _.flyweight = null;
 _.name_0 = null;
 function $clinit_MouseMoveEvent(){
@@ -3636,16 +3777,12 @@ function $clinit_MouseMoveEvent(){
   TYPE_1 = new DomEvent$Type_0('mousemove', new MouseMoveEvent_0);
 }
 
-function $dispatch(this$static, handler){
-  $onDocumentMouseMove(handler.this$0, this$static);
-}
-
 function MouseMoveEvent_0(){
 }
 
-defineSeed(217, 212, {}, MouseMoveEvent_0);
+defineSeed(222, 217, {}, MouseMoveEvent_0);
 _.dispatch = function dispatch_1(handler){
-  $dispatch(this, dynamicCast(handler, Q$MouseMoveHandler));
+  dynamicCast(handler, Q$MouseMoveHandler).onMouseMove(this);
 }
 ;
 _.getAssociatedType_0 = function getAssociatedType_2(){
@@ -3665,7 +3802,7 @@ function PrivateMap_0(){
   this.map_0 = {};
 }
 
-defineSeed(218, 1, {}, PrivateMap_0);
+defineSeed(223, 1, {}, PrivateMap_0);
 _.map_0 = null;
 function CloseEvent_0(){
 }
@@ -3678,7 +3815,7 @@ function fire_0(source){
   }
 }
 
-defineSeed(220, 209, {}, CloseEvent_0);
+defineSeed(225, 214, {}, CloseEvent_0);
 _.dispatch = function dispatch_2(handler){
   dynamicCast(handler, Q$CloseHandler).onClose(this);
 }
@@ -3699,7 +3836,7 @@ function fire_1(source){
   }
 }
 
-defineSeed(221, 209, {}, ResizeEvent_0);
+defineSeed(226, 214, {}, ResizeEvent_0);
 _.dispatch = function dispatch_3(handler){
   dynamicCast(handler, Q$ResizeHandler).onResize(this);
 }
@@ -3721,7 +3858,7 @@ function fire_2(source, value){
   }
 }
 
-defineSeed(222, 209, {}, ValueChangeEvent_0);
+defineSeed(227, 214, {}, ValueChangeEvent_0);
 _.dispatch = function dispatch_4(handler){
   dynamicCast(handler, Q$ValueChangeHandler).onValueChange(this);
 }
@@ -3771,14 +3908,14 @@ function HandlerManager_1(source, fireInReverseOrder){
   this.source = source;
 }
 
-defineSeed(223, 1, makeCastMap([Q$HasHandlers]), HandlerManager_0, HandlerManager_1);
+defineSeed(228, 1, makeCastMap([Q$HasHandlers]), HandlerManager_0, HandlerManager_1);
 _.fireEvent = function fireEvent_0(event_0){
   $fireEvent_0(this, event_0);
 }
 ;
 _.eventBus = null;
 _.source = null;
-defineSeed(226, 1, {});
+defineSeed(231, 1, {});
 function $defer(this$static, command){
   !this$static.deferredDeltas && (this$static.deferredDeltas = new ArrayList_0);
   $add_8(this$static.deferredDeltas, command);
@@ -3897,7 +4034,7 @@ function $isEventHandled_0(this$static, eventKey){
   return $containsKey(this$static.map_0, eventKey);
 }
 
-defineSeed(225, 226, {});
+defineSeed(230, 231, {});
 _.deferredDeltas = null;
 _.firingDepth = 0;
 _.isReverseOrder = false;
@@ -3910,12 +4047,12 @@ function HandlerManager$Bus_0(fireInReverseOrder){
   this.isReverseOrder = fireInReverseOrder;
 }
 
-defineSeed(224, 225, {}, HandlerManager$Bus_0);
+defineSeed(229, 230, {}, HandlerManager$Bus_0);
 function LegacyHandlerWrapper_0(real){
   this.real = real;
 }
 
-defineSeed(227, 1, {}, LegacyHandlerWrapper_0);
+defineSeed(232, 1, {}, LegacyHandlerWrapper_0);
 _.real = null;
 function UmbrellaException_1(causes){
   RuntimeException_1.call(this, makeMessage(causes), makeCause(causes));
@@ -3947,17 +4084,17 @@ function makeMessage(causes){
   return $toString(b.data_0);
 }
 
-defineSeed(229, 138, makeCastMap([Q$UmbrellaException, Q$Serializable, Q$Throwable]), UmbrellaException_1);
+defineSeed(234, 143, makeCastMap([Q$UmbrellaException, Q$Serializable, Q$Throwable]), UmbrellaException_1);
 _.causes = null;
 function UmbrellaException_2(causes){
   UmbrellaException_1.call(this, causes);
 }
 
-defineSeed(228, 229, makeCastMap([Q$UmbrellaException, Q$Serializable, Q$Throwable]), UmbrellaException_2);
+defineSeed(233, 234, makeCastMap([Q$UmbrellaException, Q$Serializable, Q$Throwable]), UmbrellaException_2);
 function AutoDirectionHandler_0(){
 }
 
-defineSeed(230, 1, makeCastMap([Q$EventHandler]), AutoDirectionHandler_0);
+defineSeed(235, 1, makeCastMap([Q$EventHandler]), AutoDirectionHandler_0);
 function getDirectionOnElement(elem){
   var dirPropertyValue;
   dirPropertyValue = $getPropertyString(elem, 'dir');
@@ -4010,7 +4147,7 @@ function values_6(){
   return $VALUES_5;
 }
 
-defineSeed(232, 174, makeCastMap([Q$HasDirection$Direction, Q$Serializable, Q$Comparable, Q$Enum]), HasDirection$Direction_0);
+defineSeed(237, 179, makeCastMap([Q$HasDirection$Direction, Q$Serializable, Q$Comparable, Q$Enum]), HasDirection$Direction_0);
 var $VALUES_5, DEFAULT, LTR, RTL;
 function Array_0(){
 }
@@ -4072,7 +4209,7 @@ function setCheck(array, index, value){
   return array[index] = value;
 }
 
-defineSeed(233, 1, {}, Array_0);
+defineSeed(238, 1, {}, Array_0);
 _.queryId$ = 0;
 function $clinit_Array$ExpandoWrapper(){
   $clinit_Array$ExpandoWrapper = nullMethod;
@@ -4149,7 +4286,7 @@ function throwClassCastExceptionUnlessNull(o){
   return null;
 }
 
-function init_4(){
+function init_5(){
   var runtimeValue;
   !!$stats && onModuleStart('com.google.gwt.useragent.client.UserAgentAsserter');
   runtimeValue = $getRuntimeValue();
@@ -4263,7 +4400,7 @@ var MAX_VALUE, MIN_VALUE, ZERO;
 function LongLibBase$LongEmul_0(){
 }
 
-defineSeed(242, 1, makeCastMap([Q$LongLibBase$LongEmul]), LongLibBase$LongEmul_0);
+defineSeed(247, 1, makeCastMap([Q$LongLibBase$LongEmul]), LongLibBase$LongEmul_0);
 function onModuleStart(mainClassName){
   return $stats({moduleName:$moduleName, sessionId:$sessionId, subSystem:'startup', evtGroup:'moduleStartup', millis:(new Date).getTime(), type:'onModuleLoadStart', className:mainClassName});
 }
@@ -4368,6 +4505,8 @@ function $attachChild(this$static, child, userObject){
   return layer;
 }
 
+--></script>
+<script><!--
 function $getUnitSize(this$static, unit, vertical){
   return $getUnitSizeInPixels(this$static.impl, this$static.parentElem, unit, vertical);
 }
@@ -4423,7 +4562,7 @@ function Layout_0(parent_0){
   $initParent(this.impl, parent_0);
 }
 
-defineSeed(246, 1, {}, Layout_0);
+defineSeed(251, 1, {}, Layout_0);
 _.animation_0 = null;
 _.parentElem = null;
 function Layout$1_0(this$0, val$callback){
@@ -4432,7 +4571,7 @@ function Layout$1_0(this$0, val$callback){
   Animation_1.call(this);
 }
 
-defineSeed(247, 122, {}, Layout$1_0);
+defineSeed(252, 127, {}, Layout$1_0);
 _.onCancel = function onCancel_0(){
   this.this$0.animation_0 = null;
   $layout(this.this$0, 0, null);
@@ -4524,7 +4663,7 @@ function Layout$Layer_0(container, child, userObject){
   this.userObject = userObject;
 }
 
-defineSeed(248, 1, makeCastMap([Q$Layout$Layer]), Layout$Layer_0);
+defineSeed(253, 1, makeCastMap([Q$Layout$Layer]), Layout$Layer_0);
 _.bottom = 0;
 _.bottomUnit = null;
 _.child = null;
@@ -4540,8 +4679,6 @@ _.setHeight = false;
 _.setLeft = false;
 _.setRight = false;
 _.setTargetBottom = true;
---></script>
-<script><!--
 _.setTargetHeight = false;
 _.setTargetLeft = true;
 _.setTargetRight = true;
@@ -4654,7 +4791,7 @@ function createRuler(widthUnit, heightUnit){
   return ruler;
 }
 
-defineSeed(249, 1, {});
+defineSeed(254, 1, {});
 _.relativeRuler = null;
 var fixedRuler = null;
 function $layout_0(this$static, layer){
@@ -4731,17 +4868,17 @@ function setLayer(container, layer){
   container.__layer = layer;
 }
 
-defineSeed(250, 249, {}, LayoutImplIE8_0);
-defineSeed(251, 1, {});
+defineSeed(255, 254, {}, LayoutImplIE8_0);
+defineSeed(256, 1, {});
 function PassthroughParser_0(){
 }
 
-defineSeed(252, 1, {}, PassthroughParser_0);
+defineSeed(257, 1, {}, PassthroughParser_0);
 var INSTANCE_1 = null;
 function PassthroughRenderer_0(){
 }
 
-defineSeed(253, 251, {}, PassthroughRenderer_0);
+defineSeed(258, 256, {}, PassthroughRenderer_0);
 var INSTANCE_2 = null;
 function appendChild(parent_0, child){
   $appendChild(parent_0, ($clinit_PotentialElement() , $resolve(child)));
@@ -4803,7 +4940,7 @@ function sinkEvents_1(elem, eventBits){
 }
 
 var handlers_0 = null;
-function $dispatch_0(this$static, handler){
+function $dispatch(this$static, handler){
   $previewNativeEvent(handler.this$0, this$static);
   singleton.isFirstHandler = false;
 }
@@ -4844,9 +4981,9 @@ function fire_3(handlers, nativeEvent){
   return true;
 }
 
-defineSeed(258, 209, {}, Event$NativePreviewEvent_0);
+defineSeed(263, 214, {}, Event$NativePreviewEvent_0);
 _.dispatch = function dispatch_5(handler){
-  $dispatch_0(this, dynamicCast(handler, Q$Event$NativePreviewHandler));
+  $dispatch(this, dynamicCast(handler, Q$Event$NativePreviewHandler));
 }
 ;
 _.getAssociatedType = function getAssociatedType_6(){
@@ -4882,7 +5019,7 @@ var impl_0 = null;
 function Timer$1_0(){
 }
 
-defineSeed(260, 1, makeCastMap([Q$CloseHandler, Q$EventHandler]), Timer$1_0);
+defineSeed(265, 1, makeCastMap([Q$CloseHandler, Q$EventHandler]), Timer$1_0);
 _.onClose = function onClose(event_0){
   while (($clinit_Timer() , timers).size > 0) {
     $cancel_0(dynamicCast($get_0(timers, 0), Q$Timer));
@@ -4955,7 +5092,7 @@ function Window$ClosingEvent_0(){
   $clinit_Window$ClosingEvent();
 }
 
-defineSeed(262, 209, {}, Window$ClosingEvent_0);
+defineSeed(267, 214, {}, Window$ClosingEvent_0);
 _.dispatch = function dispatch_6(handler){
   throwClassCastExceptionUnlessNull(handler);
   null.nullMethod();
@@ -4970,7 +5107,7 @@ function Window$WindowHandlers_0(){
   HandlerManager_0.call(this, null);
 }
 
-defineSeed(263, 223, makeCastMap([Q$HasHandlers]), Window$WindowHandlers_0);
+defineSeed(268, 228, makeCastMap([Q$HasHandlers]), Window$WindowHandlers_0);
 function $eventGetTypeInt(eventType){
   switch (eventType) {
     case 'blur':
@@ -5236,11 +5373,13 @@ function setToken(token){
   token_1 = token;
 }
 
-defineSeed(268, 1, makeCastMap([Q$HasHandlers]), HistoryImpl_0);
+defineSeed(273, 1, makeCastMap([Q$HasHandlers]), HistoryImpl_0);
 _.decodeFragment = function decodeFragment(encodedFragment){
   return decodeURI(encodedFragment.replace('%23', '#'));
 }
 ;
+--></script>
+<script><!--
 _.encodeFragment = function encodeFragment(fragment){
   return encodeURI(fragment).replace('#', '%23');
 }
@@ -5269,7 +5408,7 @@ function $initHandler(initFunc, cmd){
 function WindowImplIE$1_0(){
 }
 
-defineSeed(271, 1, {}, WindowImplIE$1_0);
+defineSeed(276, 1, {}, WindowImplIE$1_0);
 _.execute_0 = function execute_5(){
   $wnd.__gwt_initWindowCloseHandler($entry(onClosing), $entry(onClosed));
 }
@@ -5277,7 +5416,7 @@ _.execute_0 = function execute_5(){
 function WindowImplIE$2_0(){
 }
 
-defineSeed(272, 1, {}, WindowImplIE$2_0);
+defineSeed(277, 1, {}, WindowImplIE$2_0);
 _.execute_0 = function execute_6(){
   $wnd.__gwt_initWindowResizeHandler($entry(onResize_0));
 }
@@ -5299,7 +5438,7 @@ function changeToStaticPositioning(elem){
   elem.style['position'] = '';
 }
 
-defineSeed(273, 94, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]));
+defineSeed(278, 77, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]));
 _.remove = function remove_2(w){
   return $remove_0(this, w);
 }
@@ -5339,12 +5478,12 @@ function tryCommand(hasWidgets, c){
   }
 }
 
-defineSeed(274, 228, makeCastMap([Q$UmbrellaException, Q$Serializable, Q$Throwable]), AttachDetachException_0);
+defineSeed(279, 233, makeCastMap([Q$UmbrellaException, Q$Serializable, Q$Throwable]), AttachDetachException_0);
 var attachCommand, detachCommand;
 function AttachDetachException$1_0(){
 }
 
-defineSeed(275, 1, {}, AttachDetachException$1_0);
+defineSeed(280, 1, {}, AttachDetachException$1_0);
 _.execute_2 = function execute_7(w){
   w.onAttach();
 }
@@ -5352,7 +5491,7 @@ _.execute_2 = function execute_7(w){
 function AttachDetachException$2_0(){
 }
 
-defineSeed(276, 1, {}, AttachDetachException$2_0);
+defineSeed(281, 1, {}, AttachDetachException$2_0);
 _.execute_2 = function execute_8(w){
   w.onDetach();
 }
@@ -5365,7 +5504,7 @@ function ButtonBase_0(elem){
   this.element = elem;
 }
 
-defineSeed(278, 76, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]));
+defineSeed(283, 88, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]));
 function Button_0(html){
   var e;
   ButtonBase_0.call(this, (e = $doc.createElement('BUTTON') , e.setAttribute('type', 'button') , e));
@@ -5373,7 +5512,7 @@ function Button_0(html){
   $setInnerHTML(this.element, html);
 }
 
-defineSeed(277, 278, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]), Button_0);
+defineSeed(282, 283, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]), Button_0);
 function $addValueChangeHandler_1(this$static, handler){
   if (!this$static.valueChangeHandlerInitialized) {
     $addDomHandler(this$static, new CheckBox$1_0(this$static), ($clinit_ClickEvent() , $clinit_ClickEvent() , TYPE_0));
@@ -5418,7 +5557,7 @@ function CheckBox_1(label){
   $setTextOrHtml(this.directionalTextHelper, label, false);
 }
 
-defineSeed(279, 278, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]), CheckBox_1);
+defineSeed(284, 283, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]), CheckBox_1);
 _.getTabIndex = function getTabIndex_1(){
   return $getTabIndex(this.inputElem);
 }
@@ -5444,13 +5583,11 @@ _.directionalTextHelper = null;
 _.inputElem = null;
 _.labelElem = null;
 _.valueChangeHandlerInitialized = false;
---></script>
-<script><!--
 function CheckBox$1_0(this$0){
   this.this$0 = this$0;
 }
 
-defineSeed(280, 1, makeCastMap([Q$ClickHandler, Q$EventHandler]), CheckBox$1_0);
+defineSeed(285, 1, makeCastMap([Q$ClickHandler, Q$EventHandler]), CheckBox$1_0);
 _.onClick = function onClick_7(event_0){
   fire_2(this.this$0, $getValue_0(this.this$0));
 }
@@ -5470,7 +5607,7 @@ function DirectionalTextHelper_0(element){
   this.textDir = this.initialElementDir;
 }
 
-defineSeed(281, 1, {}, DirectionalTextHelper_0);
+defineSeed(286, 1, {}, DirectionalTextHelper_0);
 _.element = null;
 _.initialElementDir = null;
 _.textDir = null;
@@ -5548,7 +5685,7 @@ function DockLayoutPanel_0(unit){
   this.layoutCmd = new DockLayoutPanel$DockAnimateCommand_0(this, this.layout);
 }
 
-defineSeed(282, 94, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$RequiresResize, Q$UIObject, Q$Widget]), DockLayoutPanel_0);
+defineSeed(287, 77, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$RequiresResize, Q$UIObject, Q$Widget]), DockLayoutPanel_0);
 _.onAttach = function onAttach_1(){
   $onAttach(this);
 }
@@ -5602,7 +5739,7 @@ function values_7(){
   return $VALUES_6;
 }
 
-defineSeed(283, 174, makeCastMap([Q$DockLayoutPanel$Direction, Q$Serializable, Q$Comparable, Q$Enum]), DockLayoutPanel$Direction_0);
+defineSeed(288, 179, makeCastMap([Q$DockLayoutPanel$Direction, Q$Serializable, Q$Comparable, Q$Enum]), DockLayoutPanel$Direction_0);
 var $VALUES_6, CENTER_0, EAST, LINE_END, LINE_START, NORTH, SOUTH, WEST;
 function $schedule_0(this$static){
   this$static.duration = 0;
@@ -5617,7 +5754,7 @@ function LayoutCommand_0(layout){
   this.layout = layout;
 }
 
-defineSeed(285, 1, {}, LayoutCommand_0);
+defineSeed(290, 1, {}, LayoutCommand_0);
 _.doBeforeLayout = function doBeforeLayout(){
 }
 ;
@@ -5639,7 +5776,7 @@ function DockLayoutPanel$DockAnimateCommand_0(this$0, layout){
   this.layout = layout;
 }
 
-defineSeed(284, 285, {}, DockLayoutPanel$DockAnimateCommand_0);
+defineSeed(289, 290, {}, DockLayoutPanel$DockAnimateCommand_0);
 _.doBeforeLayout = function doBeforeLayout_0(){
   $doLayout(this.this$0);
 }
@@ -5651,7 +5788,7 @@ function DockLayoutPanel$LayoutData_0(direction, size, layer){
   this.layer = layer;
 }
 
-defineSeed(286, 1, makeCastMap([Q$DockLayoutPanel$LayoutData]), DockLayoutPanel$LayoutData_0);
+defineSeed(291, 1, makeCastMap([Q$DockLayoutPanel$LayoutData]), DockLayoutPanel$LayoutData_0);
 _.direction = null;
 _.hidden = false;
 _.layer = null;
@@ -5694,7 +5831,7 @@ function SimplePanel_0(elem){
   this.element = elem;
 }
 
-defineSeed(288, 95, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]));
+defineSeed(293, 78, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]));
 _.getContainerElement = function getContainerElement(){
   return this.element;
 }
@@ -5717,7 +5854,7 @@ function FocusPanel_0(){
   SimplePanel_0.call(this, (e = $doc.createElement('div') , e.tabIndex = 0 , e));
 }
 
-defineSeed(287, 288, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]), FocusPanel_0);
+defineSeed(292, 293, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]), FocusPanel_0);
 function $setAutoHorizontalAlignment(this$static, autoAlignment){
   this$static.autoHorizontalAlignment = autoAlignment;
   $updateHorizontalAlignment(this$static);
@@ -5737,7 +5874,7 @@ function LabelBase_0(element){
   this.directionalTextHelper = new DirectionalTextHelper_0(this.element);
 }
 
-defineSeed(291, 77, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]));
+defineSeed(296, 79, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]));
 _.autoHorizontalAlignment = null;
 _.directionalTextHelper = null;
 _.horzAlign = null;
@@ -5752,7 +5889,7 @@ function Label_1(text){
   $updateHorizontalAlignment(this);
 }
 
-defineSeed(290, 291, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]), Label_1);
+defineSeed(295, 296, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]), Label_1);
 function HTML_0(html){
   Label_0.call(this, $doc.createElement('div'));
   this.element['className'] = 'gwt-HTML';
@@ -5760,7 +5897,7 @@ function HTML_0(html){
   $updateHorizontalAlignment(this);
 }
 
-defineSeed(289, 290, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]), HTML_0);
+defineSeed(294, 295, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]), HTML_0);
 function $clinit_HasAutoHorizontalAlignment(){
   $clinit_HasAutoHorizontalAlignment = nullMethod;
   ALIGN_CONTENT_START = new HasHorizontalAlignment$AutoHorizontalAlignmentConstant_0;
@@ -5782,7 +5919,7 @@ var ALIGN_CENTER, ALIGN_DEFAULT, ALIGN_LEFT, ALIGN_LOCALE_END, ALIGN_LOCALE_STAR
 function HasHorizontalAlignment$AutoHorizontalAlignmentConstant_0(){
 }
 
-defineSeed(292, 1, {}, HasHorizontalAlignment$AutoHorizontalAlignmentConstant_0);
+defineSeed(297, 1, {}, HasHorizontalAlignment$AutoHorizontalAlignmentConstant_0);
 function HasHorizontalAlignment$HorizontalAlignmentConstant_0(textAlignString){
   this.textAlignString = textAlignString;
 }
@@ -5795,7 +5932,7 @@ function startOf(direction){
   return direction == ($clinit_HasDirection$Direction() , LTR)?($clinit_HasHorizontalAlignment() , ALIGN_LEFT):direction == RTL?($clinit_HasHorizontalAlignment() , ALIGN_RIGHT):($clinit_HasHorizontalAlignment() , ALIGN_LOCALE_START);
 }
 
-defineSeed(293, 292, {}, HasHorizontalAlignment$HorizontalAlignmentConstant_0);
+defineSeed(298, 297, {}, HasHorizontalAlignment$HorizontalAlignmentConstant_0);
 _.textAlignString = null;
 function $clinit_HasVerticalAlignment(){
   $clinit_HasVerticalAlignment = nullMethod;
@@ -5809,12 +5946,12 @@ function HasVerticalAlignment$VerticalAlignmentConstant_0(verticalAlignString){
   this.verticalAlignString = verticalAlignString;
 }
 
-defineSeed(294, 1, {}, HasVerticalAlignment$VerticalAlignmentConstant_0);
+defineSeed(299, 1, {}, HasVerticalAlignment$VerticalAlignmentConstant_0);
 _.verticalAlignString = null;
 function LayoutCommand$1_0(){
 }
 
-defineSeed(295, 1, {}, LayoutCommand$1_0);
+defineSeed(300, 1, {}, LayoutCommand$1_0);
 function $add_6(this$static, widget){
   $insert_0(this$static, widget, this$static.children.size);
 }
@@ -5837,7 +5974,7 @@ function $onResize(this$static){
   }
 }
 
-defineSeed(296, 94, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$RequiresResize, Q$UIObject, Q$Widget]));
+defineSeed(301, 77, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$RequiresResize, Q$UIObject, Q$Widget]));
 _.onAttach = function onAttach_2(){
   $onAttach(this);
 }
@@ -5883,7 +6020,7 @@ function ListBox_0(){
   this.element['className'] = 'gwt-ListBox';
 }
 
-defineSeed(297, 76, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]), ListBox_0);
+defineSeed(302, 88, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]), ListBox_0);
 function $eventTargetsPopup(this$static, event_0){
   var target;
   target = event_0.target;
@@ -6002,7 +6139,7 @@ function PopupPanel_0(){
   $getFirstChildElement(this.element)['className'] = 'popupContent';
 }
 
-defineSeed(298, 288, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]), PopupPanel_0);
+defineSeed(303, 293, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]), PopupPanel_0);
 _.getContainerElement = function getContainerElement_0(){
   return $getFirstChildElement(this.element);
 }
@@ -6059,7 +6196,7 @@ function $onResize_0(){
 function PopupPanel$1_0(){
 }
 
-defineSeed(299, 1, makeCastMap([Q$ResizeHandler, Q$EventHandler]), PopupPanel$1_0);
+defineSeed(304, 1, makeCastMap([Q$ResizeHandler, Q$EventHandler]), PopupPanel$1_0);
 _.onResize = function onResize_3(event_0){
   $onResize_0();
 }
@@ -6068,14 +6205,14 @@ function PopupPanel$3_0(this$0){
   this.this$0 = this$0;
 }
 
-defineSeed(300, 1, makeCastMap([Q$EventHandler, Q$Event$NativePreviewHandler]), PopupPanel$3_0);
+defineSeed(305, 1, makeCastMap([Q$EventHandler, Q$Event$NativePreviewHandler]), PopupPanel$3_0);
 _.this$0 = null;
 function PopupPanel$4_0(this$0){
   this.this$0 = this$0;
 }
 
-defineSeed(301, 1, makeCastMap([Q$ValueChangeHandler, Q$EventHandler]), PopupPanel$4_0);
-_.onValueChange = function onValueChange_9(event_0){
+defineSeed(306, 1, makeCastMap([Q$ValueChangeHandler, Q$EventHandler]), PopupPanel$4_0);
+_.onValueChange = function onValueChange_10(event_0){
   this.this$0.autoHideOnHistoryEvents && $hide(this.this$0);
 }
 ;
@@ -6153,11 +6290,13 @@ function PopupPanel$ResizeAnimation_0(panel){
   this.curPanel = panel;
 }
 
-defineSeed(302, 122, {}, PopupPanel$ResizeAnimation_0);
+defineSeed(307, 127, {}, PopupPanel$ResizeAnimation_0);
 _.onComplete = function onComplete_1(){
   $onComplete(this);
 }
 ;
+--></script>
+<script><!--
 _.onStart = function onStart_0(){
   this.offsetHeight_0 = $getPropertyInt(this.curPanel.element, 'offsetHeight');
   this.offsetWidth_0 = $getPropertyInt(this.curPanel.element, 'offsetWidth');
@@ -6218,7 +6357,7 @@ function get(){
   return singleton_0;
 }
 
-defineSeed(304, 296, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$RequiresResize, Q$UIObject, Q$Widget]), RootLayoutPanel_0);
+defineSeed(309, 301, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$RequiresResize, Q$UIObject, Q$Widget]), RootLayoutPanel_0);
 _.onLoad = function onLoad_1(){
   $fillParent(this.layout.parentElem);
 }
@@ -6228,7 +6367,7 @@ function RootLayoutPanel$1_0(this$0){
   this.this$0 = this$0;
 }
 
-defineSeed(305, 1, makeCastMap([Q$ResizeHandler, Q$EventHandler]), RootLayoutPanel$1_0);
+defineSeed(310, 1, makeCastMap([Q$ResizeHandler, Q$EventHandler]), RootLayoutPanel$1_0);
 _.onResize = function onResize_4(event_0){
   $onResize(this.this$0);
 }
@@ -6282,12 +6421,12 @@ function get_0(){
   return rp;
 }
 
-defineSeed(306, 273, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$RootPanel, Q$UIObject, Q$Widget]));
+defineSeed(311, 278, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$RootPanel, Q$UIObject, Q$Widget]));
 var maybeDetachCommand, rootPanels, widgetsToDetach;
 function RootPanel$1_0(){
 }
 
-defineSeed(307, 1, {}, RootPanel$1_0);
+defineSeed(312, 1, {}, RootPanel$1_0);
 _.execute_2 = function execute_10(w){
   w.attached && w.onDetach();
 }
@@ -6295,7 +6434,7 @@ _.execute_2 = function execute_10(w){
 function RootPanel$2_0(){
 }
 
-defineSeed(308, 1, makeCastMap([Q$CloseHandler, Q$EventHandler]), RootPanel$2_0);
+defineSeed(313, 1, makeCastMap([Q$CloseHandler, Q$EventHandler]), RootPanel$2_0);
 _.onClose = function onClose_0(closeEvent){
   detachWidgets();
 }
@@ -6304,7 +6443,7 @@ function RootPanel$DefaultRootPanel_0(){
   RootPanel_0.call(this, $doc.body);
 }
 
-defineSeed(309, 306, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$RootPanel, Q$UIObject, Q$Widget]), RootPanel$DefaultRootPanel_0);
+defineSeed(314, 311, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$RootPanel, Q$UIObject, Q$Widget]), RootPanel$DefaultRootPanel_0);
 function $next(this$static){
   if (!this$static.hasElement || !this$static.this$0.widget) {
     throw new NoSuchElementException_0;
@@ -6318,7 +6457,7 @@ function SimplePanel$1_0(this$0){
   this.hasElement = !!this.this$0.widget;
 }
 
-defineSeed(310, 1, {}, SimplePanel$1_0);
+defineSeed(315, 1, {}, SimplePanel$1_0);
 _.hasNext = function hasNext(){
   return this.hasElement;
 }
@@ -6353,7 +6492,7 @@ function ValueBoxBase_0(elem){
   new AutoDirectionHandler_0;
 }
 
-defineSeed(313, 76, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]));
+defineSeed(318, 88, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]));
 _.onBrowserEvent = function onBrowserEvent_0(event_0){
   var type;
   type = $eventGetTypeInt(event_0.type);
@@ -6368,7 +6507,7 @@ function $clinit_TextBoxBase(){
   $clinit_ValueBoxBase$TextAlignment();
 }
 
-defineSeed(312, 313, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]));
+defineSeed(317, 318, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]));
 function TextBox_0(){
   $clinit_TextBoxBase();
   TextBox_1.call(this, $createInputElement($doc, 'text'));
@@ -6379,9 +6518,7 @@ function TextBox_1(element){
   this.element['className'] = 'gwt-TextBox';
 }
 
-defineSeed(311, 312, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]), TextBox_0);
---></script>
-<script><!--
+defineSeed(316, 317, makeCastMap([Q$HasAttachHandlers, Q$HasHandlers, Q$EventListener, Q$HasVisibility, Q$IsWidget, Q$UIObject, Q$Widget]), TextBox_0);
 function $clinit_ValueBoxBase$TextAlignment(){
   $clinit_ValueBoxBase$TextAlignment = nullMethod;
   CENTER_1 = new ValueBoxBase$TextAlignment$1_0;
@@ -6396,28 +6533,28 @@ function values_8(){
   return $VALUES_7;
 }
 
-defineSeed(314, 174, makeCastMap([Q$ValueBoxBase$TextAlignment, Q$Serializable, Q$Comparable, Q$Enum]));
+defineSeed(319, 179, makeCastMap([Q$ValueBoxBase$TextAlignment, Q$Serializable, Q$Comparable, Q$Enum]));
 var $VALUES_7, CENTER_1, JUSTIFY_0, LEFT_0, RIGHT_0;
 function ValueBoxBase$TextAlignment$1_0(){
   Enum_0.call(this, 'CENTER', 0);
 }
 
-defineSeed(315, 314, makeCastMap([Q$ValueBoxBase$TextAlignment, Q$Serializable, Q$Comparable, Q$Enum]), ValueBoxBase$TextAlignment$1_0);
+defineSeed(320, 319, makeCastMap([Q$ValueBoxBase$TextAlignment, Q$Serializable, Q$Comparable, Q$Enum]), ValueBoxBase$TextAlignment$1_0);
 function ValueBoxBase$TextAlignment$2_0(){
   Enum_0.call(this, 'JUSTIFY', 1);
 }
 
-defineSeed(316, 314, makeCastMap([Q$ValueBoxBase$TextAlignment, Q$Serializable, Q$Comparable, Q$Enum]), ValueBoxBase$TextAlignment$2_0);
+defineSeed(321, 319, makeCastMap([Q$ValueBoxBase$TextAlignment, Q$Serializable, Q$Comparable, Q$Enum]), ValueBoxBase$TextAlignment$2_0);
 function ValueBoxBase$TextAlignment$3_0(){
   Enum_0.call(this, 'LEFT', 2);
 }
 
-defineSeed(317, 314, makeCastMap([Q$ValueBoxBase$TextAlignment, Q$Serializable, Q$Comparable, Q$Enum]), ValueBoxBase$TextAlignment$3_0);
+defineSeed(322, 319, makeCastMap([Q$ValueBoxBase$TextAlignment, Q$Serializable, Q$Comparable, Q$Enum]), ValueBoxBase$TextAlignment$3_0);
 function ValueBoxBase$TextAlignment$4_0(){
   Enum_0.call(this, 'RIGHT', 3);
 }
 
-defineSeed(318, 314, makeCastMap([Q$ValueBoxBase$TextAlignment, Q$Serializable, Q$Comparable, Q$Enum]), ValueBoxBase$TextAlignment$4_0);
+defineSeed(323, 319, makeCastMap([Q$ValueBoxBase$TextAlignment, Q$Serializable, Q$Comparable, Q$Enum]), ValueBoxBase$TextAlignment$4_0);
 function $add_7(this$static, w){
   $insert_1(this$static, w, this$static.size);
 }
@@ -6477,7 +6614,7 @@ function WidgetCollection_0(parent_0){
   this.array = initDim(_3Lcom_google_gwt_user_client_ui_Widget_2_classLit, makeCastMap([Q$Serializable]), Q$Widget, 4, 0);
 }
 
-defineSeed(319, 1, {}, WidgetCollection_0);
+defineSeed(324, 1, {}, WidgetCollection_0);
 _.iterator = function iterator_2(){
   return new WidgetCollection$WidgetIterator_0(this);
 }
@@ -6503,7 +6640,7 @@ function WidgetCollection$WidgetIterator_0(this$0){
   this.this$0 = this$0;
 }
 
-defineSeed(320, 1, {}, WidgetCollection$WidgetIterator_0);
+defineSeed(325, 1, {}, WidgetCollection$WidgetIterator_0);
 _.hasNext = function hasNext_0(){
   return this.index_0 < this.this$0.size - 1;
 }
@@ -6573,7 +6710,7 @@ function SimpleEventBus$1_0(this$0, val$type, val$handler){
   this.val$handler = val$handler;
 }
 
-defineSeed(325, 1, {}, SimpleEventBus$1_0);
+defineSeed(330, 1, {}, SimpleEventBus$1_0);
 _.this$0 = null;
 _.val$handler = null;
 _.val$type = null;
@@ -6583,7 +6720,7 @@ function SimpleEventBus$2_0(this$0, val$type, val$handler){
   this.val$handler = val$handler;
 }
 
-defineSeed(326, 1, makeCastMap([Q$SimpleEventBus$Command]), SimpleEventBus$2_0);
+defineSeed(331, 1, makeCastMap([Q$SimpleEventBus$Command]), SimpleEventBus$2_0);
 _.execute_0 = function execute_11(){
   $doAddNow(this.this$0, this.val$type, this.val$handler);
 }
@@ -6597,7 +6734,7 @@ function SimpleEventBus$3_0(this$0, val$type, val$handler){
   this.val$handler = val$handler;
 }
 
-defineSeed(327, 1, makeCastMap([Q$SimpleEventBus$Command]), SimpleEventBus$3_0);
+defineSeed(332, 1, makeCastMap([Q$SimpleEventBus$Command]), SimpleEventBus$3_0);
 _.execute_0 = function execute_12(){
   $doRemoveNow(this.this$0, this.val$type, this.val$handler);
 }
@@ -6609,7 +6746,7 @@ function ArrayStoreException_0(){
   $fillInStackTrace();
 }
 
-defineSeed(328, 138, makeCastMap([Q$Serializable, Q$Throwable]), ArrayStoreException_0);
+defineSeed(333, 143, makeCastMap([Q$Serializable, Q$Throwable]), ArrayStoreException_0);
 function $clinit_Boolean(){
   $clinit_Boolean = nullMethod;
   FALSE = new Boolean_1(false);
@@ -6620,7 +6757,7 @@ function Boolean_1(value){
   this.value_0 = value;
 }
 
-defineSeed(329, 1, makeCastMap([Q$Serializable, Q$Boolean, Q$Comparable]), Boolean_1);
+defineSeed(334, 1, makeCastMap([Q$Serializable, Q$Boolean, Q$Comparable]), Boolean_1);
 _.equals$ = function equals_1(o){
   return instanceOf(o, Q$Boolean) && dynamicCast(o, Q$Boolean).value_0 == this.value_0;
 }
@@ -6701,7 +6838,7 @@ function setClassLiteral(seedId, clazz){
   proto.___clazz$ = clazz;
 }
 
-defineSeed(330, 1, {}, Class_0);
+defineSeed(335, 1, {}, Class_0);
 _.toString$ = function toString_7(){
   return ((this.modifiers & 2) != 0?'interface ':(this.modifiers & 1) != 0?'':'class ') + this.typeName;
 }
@@ -6713,7 +6850,7 @@ function ClassCastException_0(){
   $fillInStackTrace();
 }
 
-defineSeed(331, 138, makeCastMap([Q$Serializable, Q$Throwable]), ClassCastException_0);
+defineSeed(336, 143, makeCastMap([Q$Serializable, Q$Throwable]), ClassCastException_0);
 function __parseAndValidateDouble(s){
   var floatRegex;
   if (!(floatRegex = floatRegex_0 , !floatRegex && (floatRegex = floatRegex_0 = /^\s*[+-]?(NaN|Infinity|((\d+\.?\d*)|(\.\d+))([eE][+-]?\d+)?[dDfF]?)\s*$/) , floatRegex.test(s))) {
@@ -6722,13 +6859,17 @@ function __parseAndValidateDouble(s){
   return parseFloat(s);
 }
 
-defineSeed(333, 1, makeCastMap([Q$Serializable, Q$Number]));
+defineSeed(338, 1, makeCastMap([Q$Serializable, Q$Number]));
 var floatRegex_0 = null;
 function Double_0(value){
   this.value_0 = value;
 }
 
-defineSeed(332, 333, makeCastMap([Q$Serializable, Q$Comparable, Q$Double, Q$Number]), Double_0);
+defineSeed(337, 338, makeCastMap([Q$Serializable, Q$Comparable, Q$Double, Q$Number]), Double_0);
+_.doubleValue = function doubleValue(){
+  return this.value_0;
+}
+;
 _.equals$ = function equals_2(o){
   return instanceOf(o, Q$Double) && dynamicCast(o, Q$Double).value_0 == this.value_0;
 }
@@ -6746,7 +6887,7 @@ function IllegalArgumentException_0(message){
   RuntimeException_0.call(this, message);
 }
 
-defineSeed(334, 138, makeCastMap([Q$Serializable, Q$Throwable]), IllegalArgumentException_0);
+defineSeed(339, 143, makeCastMap([Q$Serializable, Q$Throwable]), IllegalArgumentException_0);
 function IllegalStateException_0(){
   $fillInStackTrace();
 }
@@ -6755,7 +6896,7 @@ function IllegalStateException_1(s){
   RuntimeException_0.call(this, s);
 }
 
-defineSeed(335, 138, makeCastMap([Q$Serializable, Q$Throwable]), IllegalStateException_0, IllegalStateException_1);
+defineSeed(340, 143, makeCastMap([Q$Serializable, Q$Throwable]), IllegalStateException_0, IllegalStateException_1);
 function IndexOutOfBoundsException_0(){
   $fillInStackTrace();
 }
@@ -6764,7 +6905,7 @@ function IndexOutOfBoundsException_1(message){
   RuntimeException_0.call(this, message);
 }
 
-defineSeed(336, 138, makeCastMap([Q$Serializable, Q$Throwable]), IndexOutOfBoundsException_0, IndexOutOfBoundsException_1);
+defineSeed(341, 143, makeCastMap([Q$Serializable, Q$Throwable]), IndexOutOfBoundsException_0, IndexOutOfBoundsException_1);
 function Integer_0(value){
   this.value_0 = value;
 }
@@ -6801,7 +6942,11 @@ function valueOf(i){
   return new Integer_0(i);
 }
 
-defineSeed(337, 333, makeCastMap([Q$Serializable, Q$Comparable, Q$Integer, Q$Number]), Integer_0);
+defineSeed(342, 338, makeCastMap([Q$Serializable, Q$Comparable, Q$Integer, Q$Number]), Integer_0);
+_.doubleValue = function doubleValue_0(){
+  return this.value_0;
+}
+;
 _.equals$ = function equals_3(o){
   return instanceOf(o, Q$Integer) && dynamicCast(o, Q$Integer).value_0 == this.value_0;
 }
@@ -6845,7 +6990,7 @@ function NullPointerException_1(message){
   RuntimeException_0.call(this, message);
 }
 
-defineSeed(340, 138, makeCastMap([Q$Serializable, Q$Throwable]), NullPointerException_0, NullPointerException_1);
+defineSeed(345, 143, makeCastMap([Q$Serializable, Q$Throwable]), NullPointerException_0, NullPointerException_1);
 function $clinit_Number$__Digits(){
   $clinit_Number$__Digits = nullMethod;
   digits_0 = initValues(_3C_classLit, makeCastMap([Q$Serializable]), -1, [48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122]);
@@ -6856,14 +7001,14 @@ function NumberFormatException_0(message){
   IllegalArgumentException_0.call(this, message);
 }
 
-defineSeed(342, 334, makeCastMap([Q$Serializable, Q$Throwable]), NumberFormatException_0);
+defineSeed(347, 339, makeCastMap([Q$Serializable, Q$Throwable]), NumberFormatException_0);
 function StackTraceElement_0(methodName){
   this.className_0 = 'Unknown';
   this.methodName = methodName;
   this.lineNumber = -1;
 }
 
-defineSeed(343, 1, makeCastMap([Q$Serializable, Q$StackTraceElement]), StackTraceElement_0);
+defineSeed(348, 1, makeCastMap([Q$Serializable, Q$StackTraceElement]), StackTraceElement_0);
 _.toString$ = function toString_10(){
   return this.className_0 + '.' + this.methodName + '(Unknown Source' + (this.lineNumber >= 0?':' + this.lineNumber:'') + ')';
 }
@@ -7012,7 +7157,7 @@ function StringBuffer_0(){
   this.data_0 = $createData();
 }
 
-defineSeed(345, 1, makeCastMap([Q$CharSequence]), StringBuffer_0);
+defineSeed(350, 1, makeCastMap([Q$CharSequence]), StringBuffer_0);
 _.toString$ = function toString_11(){
   return $toString(this.data_0);
 }
@@ -7027,7 +7172,7 @@ function StringBuilder_0(s){
   $append(this.data_0, s);
 }
 
-defineSeed(346, 1, makeCastMap([Q$CharSequence]), StringBuilder_0);
+defineSeed(351, 1, makeCastMap([Q$CharSequence]), StringBuilder_0);
 _.toString$ = function toString_12(){
   return $toString(this.data_0);
 }
@@ -7040,7 +7185,7 @@ function UnsupportedOperationException_0(message){
   RuntimeException_0.call(this, message);
 }
 
-defineSeed(348, 138, makeCastMap([Q$Serializable, Q$Throwable]), UnsupportedOperationException_0);
+defineSeed(353, 143, makeCastMap([Q$Serializable, Q$Throwable]), UnsupportedOperationException_0);
 function $advanceToFind(iter, o){
   var t;
   while (iter.hasNext()) {
@@ -7067,7 +7212,7 @@ function $toString_0(this$static){
   return $toString(sb.data_0);
 }
 
-defineSeed(349, 1, {});
+defineSeed(354, 1, {});
 _.add_0 = function add(o){
   throw new UnsupportedOperationException_0('Add not supported on this collection');
 }
@@ -7104,7 +7249,7 @@ function $keySet(this$static){
   return new AbstractMap$1_0(this$static, entrySet);
 }
 
-defineSeed(351, 1, makeCastMap([Q$Map]));
+defineSeed(356, 1, makeCastMap([Q$Map]));
 _.equals$ = function equals_5(obj){
   var entry, entry$iterator, otherKey, otherMap, otherValue;
   if (obj === this) {
@@ -7235,6 +7380,8 @@ function $put(this$static, key, value){
   return key == null?$putNullSlot(this$static, value):instanceOf(key, Q$String)?$putStringValue(this$static, dynamicCast(key, Q$String), value):$putHashValue(this$static, key, value, ~~hashCode__devirtual$(key));
 }
 
+--></script>
+<script><!--
 function $putHashValue(this$static, key, value, hashCode){
   var array = this$static.hashCodeMap[hashCode];
   if (array) {
@@ -7318,7 +7465,7 @@ function $removeStringValue(this$static, key){
   return result;
 }
 
-defineSeed(350, 351, makeCastMap([Q$Map]));
+defineSeed(355, 356, makeCastMap([Q$Map]));
 _.equalsBridge = function equalsBridge(value1, value2){
   return maskUndefined(value1) === maskUndefined(value2) || value1 != null && equals__devirtual$(value1, value2);
 }
@@ -7328,7 +7475,7 @@ _.nullSlot = null;
 _.nullSlotLive = false;
 _.size = 0;
 _.stringMap = null;
-defineSeed(353, 349, makeCastMap([Q$Set]));
+defineSeed(358, 354, makeCastMap([Q$Set]));
 _.equals$ = function equals_6(o){
   var iter, other, otherItem;
   if (o === this) {
@@ -7380,7 +7527,7 @@ function AbstractHashMap$EntrySet_0(this$0){
   this.this$0 = this$0;
 }
 
-defineSeed(352, 353, makeCastMap([Q$Set]), AbstractHashMap$EntrySet_0);
+defineSeed(357, 358, makeCastMap([Q$Set]), AbstractHashMap$EntrySet_0);
 _.contains_0 = function contains_0(o){
   return $contains(this, o);
 }
@@ -7429,7 +7576,7 @@ function AbstractHashMap$EntrySetIterator_0(this$0){
   this.iter = new AbstractList$IteratorImpl_0(list);
 }
 
-defineSeed(354, 1, {}, AbstractHashMap$EntrySetIterator_0);
+defineSeed(359, 1, {}, AbstractHashMap$EntrySetIterator_0);
 _.hasNext = function hasNext_1(){
   return $hasNext(this.iter);
 }
@@ -7445,7 +7592,7 @@ _.remove_0 = function remove_10(){
 _.iter = null;
 _.last = null;
 _.this$0 = null;
-defineSeed(356, 1, makeCastMap([Q$Map$Entry]));
+defineSeed(361, 1, makeCastMap([Q$Map$Entry]));
 _.equals$ = function equals_7(other){
   var entry;
   if (instanceOf(other, Q$Map$Entry)) {
@@ -7474,7 +7621,7 @@ function AbstractHashMap$MapEntryNull_0(this$0){
   this.this$0 = this$0;
 }
 
-defineSeed(355, 356, makeCastMap([Q$Map$Entry]), AbstractHashMap$MapEntryNull_0);
+defineSeed(360, 361, makeCastMap([Q$Map$Entry]), AbstractHashMap$MapEntryNull_0);
 _.getKey = function getKey(){
   return null;
 }
@@ -7493,7 +7640,7 @@ function AbstractHashMap$MapEntryString_0(this$0, key){
   this.key = key;
 }
 
-defineSeed(357, 356, makeCastMap([Q$Map$Entry]), AbstractHashMap$MapEntryString_0);
+defineSeed(362, 361, makeCastMap([Q$Map$Entry]), AbstractHashMap$MapEntryString_0);
 _.getKey = function getKey_0(){
   return this.key;
 }
@@ -7502,8 +7649,6 @@ _.getValue = function getValue_0(){
   return $getStringValue(this.this$0, this.key);
 }
 ;
---></script>
-<script><!--
 _.setValue = function setValue_0(object){
   return $putStringValue(this.this$0, this.key, object);
 }
@@ -7518,7 +7663,7 @@ function indexOutOfBounds(index, size){
   throw new IndexOutOfBoundsException_1('Index: ' + index + ', Size: ' + size);
 }
 
-defineSeed(358, 349, makeCastMap([Q$List]));
+defineSeed(363, 354, makeCastMap([Q$List]));
 _.add_1 = function add_0(index, element){
   throw new UnsupportedOperationException_0('Add not supported on this list');
 }
@@ -7604,7 +7749,7 @@ function AbstractList$IteratorImpl_0(this$0){
   this.this$0_0 = this$0;
 }
 
-defineSeed(359, 1, {}, AbstractList$IteratorImpl_0);
+defineSeed(364, 1, {}, AbstractList$IteratorImpl_0);
 _.hasNext = function hasNext_2(){
   return $hasNext(this);
 }
@@ -7636,7 +7781,7 @@ function AbstractList$ListIteratorImpl_0(this$0, start){
   this.i = start;
 }
 
-defineSeed(360, 359, {}, AbstractList$ListIteratorImpl_0);
+defineSeed(365, 364, {}, AbstractList$ListIteratorImpl_0);
 _.this$0 = null;
 function $iterator(this$static){
   var outerIter;
@@ -7649,7 +7794,7 @@ function AbstractMap$1_0(this$0, val$entrySet){
   this.val$entrySet = val$entrySet;
 }
 
-defineSeed(361, 353, makeCastMap([Q$Set]), AbstractMap$1_0);
+defineSeed(366, 358, makeCastMap([Q$Set]), AbstractMap$1_0);
 _.contains_0 = function contains_1(key){
   return $containsKey(this.this$0, key);
 }
@@ -7674,7 +7819,7 @@ function AbstractMap$1$1_0(val$outerIter){
   this.val$outerIter = val$outerIter;
 }
 
-defineSeed(362, 1, {}, AbstractMap$1$1_0);
+defineSeed(367, 1, {}, AbstractMap$1$1_0);
 _.hasNext = function hasNext_3(){
   return $hasNext(this.val$outerIter.iter);
 }
@@ -7752,7 +7897,7 @@ function splice_0(array, index, deleteCount, value){
   array.splice(index, deleteCount, value);
 }
 
-defineSeed(363, 358, makeCastMap([Q$Serializable, Q$List]), ArrayList_0);
+defineSeed(368, 363, makeCastMap([Q$Serializable, Q$List]), ArrayList_0);
 _.add_1 = function add_2(index, o){
   (index < 0 || index > this.size) && indexOutOfBounds(index, this.size);
   splice_0(this.array, index, 0, o);
@@ -7797,7 +7942,7 @@ var EMPTY_LIST;
 function Collections$EmptyList_0(){
 }
 
-defineSeed(365, 358, makeCastMap([Q$Serializable, Q$List]), Collections$EmptyList_0);
+defineSeed(370, 363, makeCastMap([Q$Serializable, Q$List]), Collections$EmptyList_0);
 _.contains_0 = function contains_3(object){
   return false;
 }
@@ -7818,7 +7963,7 @@ function HashMap_0(){
   $clearImpl(this);
 }
 
-defineSeed(366, 350, makeCastMap([Q$Serializable, Q$Map]), HashMap_0);
+defineSeed(371, 355, makeCastMap([Q$Serializable, Q$Map]), HashMap_0);
 function $add_9(this$static, o){
   var old;
   old = $put(this$static.map_0, o, this$static);
@@ -7837,7 +7982,7 @@ function HashSet_0(){
   this.map_0 = new HashMap_0;
 }
 
-defineSeed(367, 353, makeCastMap([Q$Serializable, Q$Set]), HashSet_0);
+defineSeed(372, 358, makeCastMap([Q$Serializable, Q$Set]), HashSet_0);
 _.add_0 = function add_4(o){
   return $add_9(this, o);
 }
@@ -7872,7 +8017,7 @@ function MapEntryImpl_0(key, value){
   this.value_0 = value;
 }
 
-defineSeed(368, 356, makeCastMap([Q$Map$Entry]), MapEntryImpl_0);
+defineSeed(373, 361, makeCastMap([Q$Map$Entry]), MapEntryImpl_0);
 _.getKey = function getKey_1(){
   return this.key;
 }
@@ -7894,7 +8039,7 @@ function NoSuchElementException_0(){
   $fillInStackTrace();
 }
 
-defineSeed(369, 138, makeCastMap([Q$Serializable, Q$Throwable]), NoSuchElementException_0);
+defineSeed(374, 143, makeCastMap([Q$Serializable, Q$Throwable]), NoSuchElementException_0);
 function equalsWithNullCheck(a, b){
   return maskUndefined(a) === maskUndefined(b) || a != null && equals__devirtual$(a, b);
 }
@@ -7905,19 +8050,19 @@ function gwtOnLoad(errFn, modName, modBase, softPermutationId){
   $moduleBase = modBase;
   if (errFn)
     try {
-      $entry(init_4)();
+      $entry(init_5)();
     }
      catch (e) {
       errFn(modName);
     }
    else {
-    $entry(init_4)();
+    $entry(init_5)();
   }
 }
 
 --></script>
 <script><!--
-var Ljava_lang_Object_2_classLit = createForClass('java.lang.', 'Object', 1), Lcom_akjava_gwt_threejsexamples_client_ThreejsExamples_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.', 'ThreejsExamples', 72), Lcom_google_gwt_user_client_ui_UIObject_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'UIObject', 78), Lcom_google_gwt_user_client_ui_Widget_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'Widget', 77), Lcom_google_gwt_user_client_ui_FocusWidget_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'FocusWidget', 76), Lcom_google_gwt_user_client_ui_Anchor_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'Anchor', 75), Lcom_akjava_gwt_threejsexamples_client_ThreejsExamples$DemoAnchor_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.', 'ThreejsExamples$DemoAnchor', 74), Lcom_akjava_gwt_threejsexamples_client_ThreejsExamples$DemoAnchor$1_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.', 'ThreejsExamples$DemoAnchor$1', 79), Lcom_akjava_gwt_threejsexamples_client_ThreejsExamples$1_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.', 'ThreejsExamples$1', 73), Lcom_google_gwt_user_client_ui_HasHorizontalAlignment$AutoHorizontalAlignmentConstant_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'HasHorizontalAlignment$AutoHorizontalAlignmentConstant', 292), Lcom_google_gwt_user_client_ui_HasHorizontalAlignment$HorizontalAlignmentConstant_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'HasHorizontalAlignment$HorizontalAlignmentConstant', 293), Ljava_lang_Enum_2_classLit = createForClass('java.lang.', 'Enum', 174), Lcom_google_gwt_i18n_client_HasDirection$Direction_2_classLit = createForEnum('com.google.gwt.i18n.client.', 'HasDirection$Direction', 232, values_6), _3Lcom_google_gwt_i18n_client_HasDirection$Direction_2_classLit = createForArray('[Lcom.google.gwt.i18n.client.', 'HasDirection$Direction;', 376), Lcom_google_gwt_core_client_Scheduler_2_classLit = createForClass('com.google.gwt.core.client.', 'Scheduler', 144), Lcom_google_gwt_core_client_JavaScriptObject_2_classLit = createForClass('com.google.gwt.core.client.', 'JavaScriptObject$', 6), _3I_classLit = createForArray('', '[I', 377), _3Ljava_lang_Object_2_classLit = createForArray('[Ljava.lang.', 'Object;', 374), Ljava_lang_Throwable_2_classLit = createForClass('java.lang.', 'Throwable', 140), Ljava_lang_Exception_2_classLit = createForClass('java.lang.', 'Exception', 139), Ljava_lang_RuntimeException_2_classLit = createForClass('java.lang.', 'RuntimeException', 138), Ljava_lang_StackTraceElement_2_classLit = createForClass('java.lang.', 'StackTraceElement', 343), _3Ljava_lang_StackTraceElement_2_classLit = createForArray('[Ljava.lang.', 'StackTraceElement;', 378), Lcom_google_gwt_lang_LongLibBase$LongEmul_2_classLit = createForClass('com.google.gwt.lang.', 'LongLibBase$LongEmul', 242), _3Lcom_google_gwt_lang_LongLibBase$LongEmul_2_classLit = createForArray('[Lcom.google.gwt.lang.', 'LongLibBase$LongEmul;', 379), Lcom_google_gwt_lang_SeedUtil_2_classLit = createForClass('com.google.gwt.lang.', 'SeedUtil', 243), Ljava_lang_Boolean_2_classLit = createForClass('java.lang.', 'Boolean', 329), Ljava_lang_Number_2_classLit = createForClass('java.lang.', 'Number', 333), _3C_classLit = createForArray('', '[C', 380), Ljava_lang_Class_2_classLit = createForClass('java.lang.', 'Class', 330), Ljava_lang_Double_2_classLit = createForClass('java.lang.', 'Double', 332), Ljava_lang_Integer_2_classLit = createForClass('java.lang.', 'Integer', 337), _3Ljava_lang_Integer_2_classLit = createForArray('[Ljava.lang.', 'Integer;', 381), Ljava_lang_String_2_classLit = createForClass('java.lang.', 'String', 2), _3Ljava_lang_String_2_classLit = createForArray('[Ljava.lang.', 'String;', 375), Ljava_lang_ClassCastException_2_classLit = createForClass('java.lang.', 'ClassCastException', 331), Ljava_lang_StringBuilder_2_classLit = createForClass('java.lang.', 'StringBuilder', 346), Ljava_lang_ArrayStoreException_2_classLit = createForClass('java.lang.', 'ArrayStoreException', 328), Lcom_google_gwt_core_client_JavaScriptException_2_classLit = createForClass('com.google.gwt.core.client.', 'JavaScriptException', 137), Lcom_google_gwt_user_client_ui_Panel_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'Panel', 95), Lcom_google_gwt_user_client_ui_ComplexPanel_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'ComplexPanel', 94), Lcom_google_gwt_user_client_ui_DockLayoutPanel_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'DockLayoutPanel', 282), Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2_classLit = createForEnum('com.google.gwt.user.client.ui.', 'DockLayoutPanel$Direction', 283, values_7), _3Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2_classLit = createForArray('[Lcom.google.gwt.user.client.ui.', 'DockLayoutPanel$Direction;', 382), Lcom_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'DockLayoutPanel$LayoutData', 286), Lcom_google_gwt_user_client_ui_LayoutCommand_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'LayoutCommand', 285), Lcom_google_gwt_user_client_ui_DockLayoutPanel$DockAnimateCommand_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'DockLayoutPanel$DockAnimateCommand', 284), Lcom_google_web_bindery_event_shared_UmbrellaException_2_classLit = createForClass('com.google.web.bindery.event.shared.', 'UmbrellaException', 229), Lcom_google_gwt_event_shared_UmbrellaException_2_classLit = createForClass('com.google.gwt.event.shared.', 'UmbrellaException', 228), Lcom_google_gwt_user_client_ui_AttachDetachException_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'AttachDetachException', 274), Lcom_google_gwt_user_client_ui_AttachDetachException$1_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'AttachDetachException$1', 275), Lcom_google_gwt_user_client_ui_AttachDetachException$2_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'AttachDetachException$2', 276), Lcom_google_gwt_user_client_ui_LayoutCommand$1_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'LayoutCommand$1', 295), Lcom_google_gwt_layout_client_Layout_2_classLit = createForClass('com.google.gwt.layout.client.', 'Layout', 246), Lcom_google_gwt_layout_client_Layout$Layer_2_classLit = createForClass('com.google.gwt.layout.client.', 'Layout$Layer', 248), Lcom_google_gwt_animation_client_Animation_2_classLit = createForClass('com.google.gwt.animation.client.', 'Animation', 122), Lcom_google_gwt_layout_client_Layout$1_2_classLit = createForClass('com.google.gwt.layout.client.', 'Layout$1', 247), Lcom_google_gwt_animation_client_Animation$1_2_classLit = createForClass('com.google.gwt.animation.client.', 'Animation$1', 123), Lcom_google_gwt_animation_client_AnimationScheduler_2_classLit = createForClass('com.google.gwt.animation.client.', 'AnimationScheduler', 124), Lcom_google_gwt_animation_client_AnimationScheduler$AnimationHandle_2_classLit = createForClass('com.google.gwt.animation.client.', 'AnimationScheduler$AnimationHandle', 125), Lcom_google_gwt_user_client_ui_CellPanel_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'CellPanel', 93), Lcom_google_gwt_user_client_ui_VerticalPanel_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'VerticalPanel', 92), Lcom_google_gwt_user_client_ui_HasVerticalAlignment$VerticalAlignmentConstant_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'HasVerticalAlignment$VerticalAlignmentConstant', 294), Lcom_google_gwt_user_client_ui_LabelBase_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'LabelBase', 291), Lcom_google_gwt_user_client_ui_Label_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'Label', 290), Lcom_google_gwt_dom_client_Style$Unit_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Unit', 194, values_4), _3Lcom_google_gwt_dom_client_Style$Unit_2_classLit = createForArray('[Lcom.google.gwt.dom.client.', 'Style$Unit;', 383), Lcom_google_gwt_dom_client_Style$Display_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Display', 173, values_0), _3Lcom_google_gwt_dom_client_Style$Display_2_classLit = createForArray('[Lcom.google.gwt.dom.client.', 'Style$Display;', 384), Lcom_google_gwt_dom_client_Style$Overflow_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Overflow', 179, values_1), _3Lcom_google_gwt_dom_client_Style$Overflow_2_classLit = createForArray('[Lcom.google.gwt.dom.client.', 'Style$Overflow;', 385), Lcom_google_gwt_dom_client_Style$Position_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Position', 184, values_2), _3Lcom_google_gwt_dom_client_Style$Position_2_classLit = createForArray('[Lcom.google.gwt.dom.client.', 'Style$Position;', 386), Lcom_google_gwt_dom_client_Style$TextAlign_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$TextAlign', 189, values_3), _3Lcom_google_gwt_dom_client_Style$TextAlign_2_classLit = createForArray('[Lcom.google.gwt.dom.client.', 'Style$TextAlign;', 387), Lcom_google_gwt_dom_client_Style$Visibility_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Visibility', 204, values_5), _3Lcom_google_gwt_dom_client_Style$Visibility_2_classLit = createForArray('[Lcom.google.gwt.dom.client.', 'Style$Visibility;', 388), Lcom_google_gwt_dom_client_Style$Unit$1_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Unit$1', 195, null), Lcom_google_gwt_dom_client_Style$Unit$2_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Unit$2', 196, null), Lcom_google_gwt_dom_client_Style$Unit$3_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Unit$3', 197, null), Lcom_google_gwt_dom_client_Style$Unit$4_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Unit$4', 198, null), Lcom_google_gwt_dom_client_Style$Unit$5_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Unit$5', 199, null), Lcom_google_gwt_dom_client_Style$Unit$6_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Unit$6', 200, null), Lcom_google_gwt_dom_client_Style$Unit$7_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Unit$7', 201, null), Lcom_google_gwt_dom_client_Style$Unit$8_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Unit$8', 202, null), Lcom_google_gwt_dom_client_Style$Unit$9_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Unit$9', 203, null), Lcom_google_gwt_dom_client_Style$Display$1_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Display$1', 175, null), Lcom_google_gwt_dom_client_Style$Display$2_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Display$2', 176, null), Lcom_google_gwt_dom_client_Style$Display$3_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Display$3', 177, null), Lcom_google_gwt_dom_client_Style$Display$4_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Display$4', 178, null), Lcom_google_gwt_dom_client_Style$Overflow$1_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Overflow$1', 180, null), Lcom_google_gwt_dom_client_Style$Overflow$2_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Overflow$2', 181, null), Lcom_google_gwt_dom_client_Style$Overflow$3_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Overflow$3', 182, null), Lcom_google_gwt_dom_client_Style$Overflow$4_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Overflow$4', 183, null), Lcom_google_gwt_dom_client_Style$Position$1_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Position$1', 185, null), Lcom_google_gwt_dom_client_Style$Position$2_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Position$2', 186, null), Lcom_google_gwt_dom_client_Style$Position$3_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Position$3', 187, null), Lcom_google_gwt_dom_client_Style$Position$4_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Position$4', 188, null), Lcom_google_gwt_dom_client_Style$TextAlign$1_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$TextAlign$1', 190, null), Lcom_google_gwt_dom_client_Style$TextAlign$2_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$TextAlign$2', 191, null), Lcom_google_gwt_dom_client_Style$TextAlign$3_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$TextAlign$3', 192, null), Lcom_google_gwt_dom_client_Style$TextAlign$4_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$TextAlign$4', 193, null), Lcom_google_gwt_dom_client_Style$Visibility$1_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Visibility$1', 205, null), Lcom_google_gwt_dom_client_Style$Visibility$2_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Visibility$2', 206, null), Lcom_google_gwt_user_client_ui_LayoutPanel_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'LayoutPanel', 296), Lcom_google_gwt_user_client_ui_RootLayoutPanel_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'RootLayoutPanel', 304), Lcom_google_gwt_user_client_ui_RootLayoutPanel$1_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'RootLayoutPanel$1', 305), Ljava_util_AbstractCollection_2_classLit = createForClass('java.util.', 'AbstractCollection', 349), Ljava_util_AbstractList_2_classLit = createForClass('java.util.', 'AbstractList', 358), Ljava_util_AbstractList$IteratorImpl_2_classLit = createForClass('java.util.', 'AbstractList$IteratorImpl', 359), Ljava_util_AbstractList$ListIteratorImpl_2_classLit = createForClass('java.util.', 'AbstractList$ListIteratorImpl', 360), Ljava_util_ArrayList_2_classLit = createForClass('java.util.', 'ArrayList', 363), Lcom_akjava_gwt_threejsexamples_client_AbstractExample_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.', 'AbstractExample', 69), Lcom_akjava_gwt_threejsexamples_client_examples_animation_cloth_ClothExample_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.cloth.', 'ClothExample', 83), Lcom_akjava_gwt_threejsexamples_client_examples_animation_cloth_ClothExample$1_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.cloth.', 'ClothExample$1', 84), Lcom_akjava_gwt_threejsexamples_client_examples_animation_cloth_ClothExample$2_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.cloth.', 'ClothExample$2', 85), Lcom_akjava_gwt_threejsexamples_client_examples_animation_cloth_ClothExample$3_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.cloth.', 'ClothExample$3', 86), Lcom_akjava_gwt_threejsexamples_client_examples_animation_cloth_ClothExample$4_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.cloth.', 'ClothExample$4', 87), Lcom_akjava_gwt_threejsexamples_client_AbstractExample$1_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.', 'AbstractExample$1', 70), Lcom_akjava_gwt_threejsexamples_client_AbstractExample$2_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.', 'AbstractExample$2', 71), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_MorphExample_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'MorphExample', 112), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_MorphExample$1_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'MorphExample$1', 113), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_MorphExample$2_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'MorphExample$2', 114), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_MorphExample$3_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'MorphExample$3', 115), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_MorphExample$4_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'MorphExample$4', 116), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendingExample_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendingExample', 110), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendingExample$1_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendingExample$1', 111), Lcom_akjava_gwt_threejsexamples_client_examples_morphtargets_HorseExample_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.morphtargets.', 'HorseExample', 120), Lcom_akjava_gwt_threejsexamples_client_examples_morphtargets_HorseExample$1_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.morphtargets.', 'HorseExample$1', 121), Lcom_akjava_gwt_threejsexamples_client_examples_misc_controls_OrbitExample_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.misc.controls.', 'OrbitExample', 119), Lcom_google_gwt_user_client_ui_AbsolutePanel_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'AbsolutePanel', 273), Lcom_google_gwt_user_client_ui_RootPanel_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'RootPanel', 306), Lcom_google_gwt_user_client_ui_RootPanel$DefaultRootPanel_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'RootPanel$DefaultRootPanel', 309), Lcom_google_gwt_user_client_ui_RootPanel$1_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'RootPanel$1', 307), Lcom_google_gwt_user_client_ui_RootPanel$2_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'RootPanel$2', 308), Lcom_google_gwt_user_client_impl_HistoryImpl_2_classLit = createForClass('com.google.gwt.user.client.impl.', 'HistoryImpl', 268), Ljava_util_AbstractMap_2_classLit = createForClass('java.util.', 'AbstractMap', 351), Ljava_util_AbstractHashMap_2_classLit = createForClass('java.util.', 'AbstractHashMap', 350), Ljava_util_HashMap_2_classLit = createForClass('java.util.', 'HashMap', 366), Ljava_util_AbstractSet_2_classLit = createForClass('java.util.', 'AbstractSet', 353), Ljava_util_AbstractHashMap$EntrySet_2_classLit = createForClass('java.util.', 'AbstractHashMap$EntrySet', 352), Ljava_util_AbstractHashMap$EntrySetIterator_2_classLit = createForClass('java.util.', 'AbstractHashMap$EntrySetIterator', 354), Ljava_util_AbstractMapEntry_2_classLit = createForClass('java.util.', 'AbstractMapEntry', 356), Ljava_util_AbstractHashMap$MapEntryNull_2_classLit = createForClass('java.util.', 'AbstractHashMap$MapEntryNull', 355), Ljava_util_AbstractHashMap$MapEntryString_2_classLit = createForClass('java.util.', 'AbstractHashMap$MapEntryString', 357), Ljava_util_AbstractMap$1_2_classLit = createForClass('java.util.', 'AbstractMap$1', 361), Ljava_util_AbstractMap$1$1_2_classLit = createForClass('java.util.', 'AbstractMap$1$1', 362), Lcom_google_gwt_core_client_impl_SchedulerImpl_2_classLit = createForClass('com.google.gwt.core.client.impl.', 'SchedulerImpl', 146), Lcom_google_gwt_core_client_impl_SchedulerImpl$Flusher_2_classLit = createForClass('com.google.gwt.core.client.impl.', 'SchedulerImpl$Flusher', 147), Lcom_google_gwt_core_client_impl_SchedulerImpl$Rescuer_2_classLit = createForClass('com.google.gwt.core.client.impl.', 'SchedulerImpl$Rescuer', 148), Lcom_google_gwt_core_client_impl_StackTraceCreator$Collector_2_classLit = createForClass('com.google.gwt.core.client.impl.', 'StackTraceCreator$Collector', 151), Lcom_google_gwt_core_client_Duration_2_classLit = createForClass('com.google.gwt.core.client.', 'Duration', 135), Lcom_google_gwt_layout_client_LayoutImpl_2_classLit = createForClass('com.google.gwt.layout.client.', 'LayoutImpl', 249), _3Ljava_lang_Boolean_2_classLit = createForArray('[Ljava.lang.', 'Boolean;', 389), Ljava_lang_UnsupportedOperationException_2_classLit = createForClass('java.lang.', 'UnsupportedOperationException', 348), Lcom_google_gwt_user_client_ui_WidgetCollection_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'WidgetCollection', 319), _3Lcom_google_gwt_user_client_ui_Widget_2_classLit = createForArray('[Lcom.google.gwt.user.client.ui.', 'Widget;', 390), Lcom_google_gwt_user_client_ui_WidgetCollection$WidgetIterator_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'WidgetCollection$WidgetIterator', 320), Lcom_google_web_bindery_event_shared_Event_2_classLit = createForClass('com.google.web.bindery.event.shared.', 'Event', 210), Lcom_google_gwt_event_shared_GwtEvent_2_classLit = createForClass('com.google.gwt.event.shared.', 'GwtEvent', 209), Lcom_google_gwt_user_client_Window$ClosingEvent_2_classLit = createForClass('com.google.gwt.user.client.', 'Window$ClosingEvent', 262), Lcom_google_gwt_event_shared_HandlerManager_2_classLit = createForClass('com.google.gwt.event.shared.', 'HandlerManager', 223), Lcom_google_gwt_user_client_Window$WindowHandlers_2_classLit = createForClass('com.google.gwt.user.client.', 'Window$WindowHandlers', 263), Lcom_google_web_bindery_event_shared_Event$Type_2_classLit = createForClass('com.google.web.bindery.event.shared.', 'Event$Type', 216), Lcom_google_gwt_event_shared_GwtEvent$Type_2_classLit = createForClass('com.google.gwt.event.shared.', 'GwtEvent$Type', 215), Lcom_google_web_bindery_event_shared_EventBus_2_classLit = createForClass('com.google.web.bindery.event.shared.', 'EventBus', 226), Lcom_google_web_bindery_event_shared_SimpleEventBus_2_classLit = createForClass('com.google.web.bindery.event.shared.', 'SimpleEventBus', 225), Lcom_google_gwt_event_shared_HandlerManager$Bus_2_classLit = createForClass('com.google.gwt.event.shared.', 'HandlerManager$Bus', 224), Lcom_google_web_bindery_event_shared_SimpleEventBus$1_2_classLit = createForClass('com.google.web.bindery.event.shared.', 'SimpleEventBus$1', 325), Lcom_google_web_bindery_event_shared_SimpleEventBus$2_2_classLit = createForClass('com.google.web.bindery.event.shared.', 'SimpleEventBus$2', 326), Lcom_google_web_bindery_event_shared_SimpleEventBus$3_2_classLit = createForClass('com.google.web.bindery.event.shared.', 'SimpleEventBus$3', 327), Ljava_util_HashSet_2_classLit = createForClass('java.util.', 'HashSet', 367), Lcom_google_gwt_user_client_Event$NativePreviewEvent_2_classLit = createForClass('com.google.gwt.user.client.', 'Event$NativePreviewEvent', 258), Ljava_lang_IllegalArgumentException_2_classLit = createForClass('java.lang.', 'IllegalArgumentException', 334), Lcom_google_gwt_user_client_ui_DirectionalTextHelper_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'DirectionalTextHelper', 281), Lcom_google_gwt_event_dom_client_DomEvent_2_classLit = createForClass('com.google.gwt.event.dom.client.', 'DomEvent', 208), Lcom_google_gwt_event_dom_client_HumanInputEvent_2_classLit = createForClass('com.google.gwt.event.dom.client.', 'HumanInputEvent', 213), Lcom_google_gwt_event_dom_client_MouseEvent_2_classLit = createForClass('com.google.gwt.event.dom.client.', 'MouseEvent', 212), Lcom_google_gwt_event_dom_client_ClickEvent_2_classLit = createForClass('com.google.gwt.event.dom.client.', 'ClickEvent', 211), Lcom_google_gwt_event_dom_client_DomEvent$Type_2_classLit = createForClass('com.google.gwt.event.dom.client.', 'DomEvent$Type', 214), Ljava_lang_NullPointerException_2_classLit = createForClass('java.lang.', 'NullPointerException', 340), Lcom_google_gwt_layout_client_LayoutImplIE8_2_classLit = createForClass('com.google.gwt.layout.client.', 'LayoutImplIE8', 250), Lcom_google_gwt_user_client_impl_WindowImplIE$1_2_classLit = createForClass('com.google.gwt.user.client.impl.', 'WindowImplIE$1', 271), Lcom_google_gwt_user_client_impl_WindowImplIE$2_2_classLit = createForClass('com.google.gwt.user.client.impl.', 'WindowImplIE$2', 272), Lcom_google_gwt_event_logical_shared_ResizeEvent_2_classLit = createForClass('com.google.gwt.event.logical.shared.', 'ResizeEvent', 221), Ljava_lang_IllegalStateException_2_classLit = createForClass('java.lang.', 'IllegalStateException', 335), Ljava_lang_IndexOutOfBoundsException_2_classLit = createForClass('java.lang.', 'IndexOutOfBoundsException', 336), Ljava_lang_StringBuffer_2_classLit = createForClass('java.lang.', 'StringBuffer', 345), Lcom_google_gwt_aria_client_Attribute_2_classLit = createForClass('com.google.gwt.aria.client.', 'Attribute', 132), Lcom_google_gwt_event_dom_client_PrivateMap_2_classLit = createForClass('com.google.gwt.event.dom.client.', 'PrivateMap', 218), Lcom_google_gwt_event_shared_LegacyHandlerWrapper_2_classLit = createForClass('com.google.gwt.event.shared.', 'LegacyHandlerWrapper', 227), Lcom_google_gwt_event_logical_shared_ValueChangeEvent_2_classLit = createForClass('com.google.gwt.event.logical.shared.', 'ValueChangeEvent', 222), Ljava_util_MapEntryImpl_2_classLit = createForClass('java.util.', 'MapEntryImpl', 368), Lcom_google_gwt_aria_client_PrimitiveValueAttribute_2_classLit = createForClass('com.google.gwt.aria.client.', 'PrimitiveValueAttribute', 133), Lcom_google_gwt_aria_client_AriaValueAttribute_2_classLit = createForClass('com.google.gwt.aria.client.', 'AriaValueAttribute', 131), Lcom_google_gwt_event_logical_shared_CloseEvent_2_classLit = createForClass('com.google.gwt.event.logical.shared.', 'CloseEvent', 220), Ljava_util_NoSuchElementException_2_classLit = createForClass('java.util.', 'NoSuchElementException', 369), Lcom_google_gwt_user_client_ui_SimplePanel_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'SimplePanel', 288), Lcom_google_gwt_user_client_ui_PopupPanel_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'PopupPanel', 298), Lcom_google_gwt_user_client_ui_PopupPanel$ResizeAnimation_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'PopupPanel$ResizeAnimation', 302), Lcom_google_gwt_user_client_Timer_2_classLit = createForClass('com.google.gwt.user.client.', 'Timer', 129), Lcom_google_gwt_user_client_ui_PopupPanel$1_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'PopupPanel$1', 299), Lcom_google_gwt_user_client_ui_PopupPanel$3_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'PopupPanel$3', 300), Lcom_google_gwt_user_client_ui_PopupPanel$4_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'PopupPanel$4', 301), Lcom_google_gwt_user_client_ui_SimplePanel$1_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'SimplePanel$1', 310), Lcom_google_gwt_user_client_Timer$1_2_classLit = createForClass('com.google.gwt.user.client.', 'Timer$1', 260), Lcom_akjava_gwt_threejsexamples_client_examples_animation_cloth_Cloth_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.cloth.', 'Cloth', 80), Lcom_akjava_gwt_threejsexamples_client_examples_animation_cloth_Cloth$Constrain_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.cloth.', 'Cloth$Constrain', 81), Lcom_akjava_gwt_threejsexamples_client_examples_animation_cloth_Cloth$Particle_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.cloth.', 'Cloth$Particle', 82), Lcom_google_gwt_user_client_ui_FocusPanel_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'FocusPanel', 287), Lcom_google_gwt_user_client_ui_HTML_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'HTML', 289), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacter_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacter', 88), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacter$WrapSchedule_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacter$WrapSchedule', 90), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacter$1_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacter$1', 89), Lcom_google_gwt_user_client_ui_ButtonBase_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'ButtonBase', 278), Lcom_google_gwt_user_client_ui_CheckBox_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'CheckBox', 279), Lcom_google_gwt_user_client_ui_CheckBox$1_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'CheckBox$1', 280), Lcom_google_gwt_user_client_ui_ListBox_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'ListBox', 297), Lcom_google_gwt_event_dom_client_MouseMoveEvent_2_classLit = createForClass('com.google.gwt.event.dom.client.', 'MouseMoveEvent', 217), Lcom_google_gwt_animation_client_AnimationSchedulerImpl_2_classLit = createForClass('com.google.gwt.animation.client.', 'AnimationSchedulerImpl', 126), Ljava_util_Collections$EmptyList_2_classLit = createForClass('java.util.', 'Collections$EmptyList', 365), Lcom_google_gwt_user_client_ui_Button_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'Button', 277), Lcom_google_gwt_event_dom_client_ChangeEvent_2_classLit = createForClass('com.google.gwt.event.dom.client.', 'ChangeEvent', 207), Lcom_google_gwt_animation_client_AnimationSchedulerImplTimer_2_classLit = createForClass('com.google.gwt.animation.client.', 'AnimationSchedulerImplTimer', 127), Lcom_google_gwt_animation_client_AnimationSchedulerImplTimer$AnimationHandleImpl_2_classLit = createForClass('com.google.gwt.animation.client.', 'AnimationSchedulerImplTimer$AnimationHandleImpl', 130), _3Lcom_google_gwt_animation_client_AnimationSchedulerImplTimer$AnimationHandleImpl_2_classLit = createForArray('[Lcom.google.gwt.animation.client.', 'AnimationSchedulerImplTimer$AnimationHandleImpl;', 391), Lcom_google_gwt_animation_client_AnimationSchedulerImplTimer$1_2_classLit = createForClass('com.google.gwt.animation.client.', 'AnimationSchedulerImplTimer$1', 128), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacterGui_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacterGui', 91), Lcom_google_gwt_user_client_ui_HorizontalPanel_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'HorizontalPanel', 108), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacterGui$LabeledInputRangeWidget_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacterGui$LabeledInputRangeWidget', 107), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacterGui$LabeledInputRangeWidget$1_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacterGui$LabeledInputRangeWidget$1', 109), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacterGui$1_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacterGui$1', 96), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacterGui$2_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacterGui$2', 98), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacterGui$3_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacterGui$3', 99), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacterGui$4_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacterGui$4', 100), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacterGui$5_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacterGui$5', 101), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacterGui$6_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacterGui$6', 102), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacterGui$7_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacterGui$7', 103), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacterGui$8_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacterGui$8', 104), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacterGui$9_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacterGui$9', 105), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacterGui$10_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacterGui$10', 97), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_Range_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'Range', 117), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_Range$1_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'Range$1', 118), Ljava_lang_NumberFormatException_2_classLit = createForClass('java.lang.', 'NumberFormatException', 342), Lcom_google_gwt_user_client_ui_ValueBoxBase_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'ValueBoxBase', 313), Lcom_google_gwt_user_client_ui_ValueBoxBase$TextAlignment_2_classLit = createForEnum('com.google.gwt.user.client.ui.', 'ValueBoxBase$TextAlignment', 314, values_8), _3Lcom_google_gwt_user_client_ui_ValueBoxBase$TextAlignment_2_classLit = createForArray('[Lcom.google.gwt.user.client.ui.', 'ValueBoxBase$TextAlignment;', 392), Lcom_google_gwt_user_client_ui_ValueBoxBase$TextAlignment$1_2_classLit = createForEnum('com.google.gwt.user.client.ui.', 'ValueBoxBase$TextAlignment$1', 315, null), Lcom_google_gwt_user_client_ui_ValueBoxBase$TextAlignment$2_2_classLit = createForEnum('com.google.gwt.user.client.ui.', 'ValueBoxBase$TextAlignment$2', 316, null), Lcom_google_gwt_user_client_ui_ValueBoxBase$TextAlignment$3_2_classLit = createForEnum('com.google.gwt.user.client.ui.', 'ValueBoxBase$TextAlignment$3', 317, null), Lcom_google_gwt_user_client_ui_ValueBoxBase$TextAlignment$4_2_classLit = createForEnum('com.google.gwt.user.client.ui.', 'ValueBoxBase$TextAlignment$4', 318, null), Lcom_google_gwt_i18n_client_AutoDirectionHandler_2_classLit = createForClass('com.google.gwt.i18n.client.', 'AutoDirectionHandler', 230), Lcom_google_gwt_user_client_ui_TextBoxBase_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'TextBoxBase', 312), Lcom_google_gwt_user_client_ui_TextBox_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'TextBox', 311), Lcom_google_gwt_text_shared_AbstractRenderer_2_classLit = createForClass('com.google.gwt.text.shared.', 'AbstractRenderer', 251), Lcom_google_gwt_text_shared_testing_PassthroughRenderer_2_classLit = createForClass('com.google.gwt.text.shared.testing.', 'PassthroughRenderer', 253), Lcom_google_gwt_text_shared_testing_PassthroughParser_2_classLit = createForClass('com.google.gwt.text.shared.testing.', 'PassthroughParser', 252);
+var Ljava_lang_Object_2_classLit = createForClass('java.lang.', 'Object', 1), Lcom_akjava_gwt_threejsexamples_client_ThreejsExamples_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.', 'ThreejsExamples', 84), Lcom_google_gwt_user_client_ui_UIObject_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'UIObject', 80), Lcom_google_gwt_user_client_ui_Widget_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'Widget', 79), Lcom_google_gwt_user_client_ui_FocusWidget_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'FocusWidget', 88), Lcom_google_gwt_user_client_ui_Anchor_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'Anchor', 87), Lcom_akjava_gwt_threejsexamples_client_ThreejsExamples$DemoAnchor_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.', 'ThreejsExamples$DemoAnchor', 86), Lcom_akjava_gwt_threejsexamples_client_ThreejsExamples$DemoAnchor$1_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.', 'ThreejsExamples$DemoAnchor$1', 89), Lcom_akjava_gwt_threejsexamples_client_ThreejsExamples$1_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.', 'ThreejsExamples$1', 85), Lcom_google_gwt_user_client_ui_HasHorizontalAlignment$AutoHorizontalAlignmentConstant_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'HasHorizontalAlignment$AutoHorizontalAlignmentConstant', 297), Lcom_google_gwt_user_client_ui_HasHorizontalAlignment$HorizontalAlignmentConstant_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'HasHorizontalAlignment$HorizontalAlignmentConstant', 298), Ljava_lang_Enum_2_classLit = createForClass('java.lang.', 'Enum', 179), Lcom_google_gwt_i18n_client_HasDirection$Direction_2_classLit = createForEnum('com.google.gwt.i18n.client.', 'HasDirection$Direction', 237, values_6), _3Lcom_google_gwt_i18n_client_HasDirection$Direction_2_classLit = createForArray('[Lcom.google.gwt.i18n.client.', 'HasDirection$Direction;', 381), Lcom_google_gwt_core_client_Scheduler_2_classLit = createForClass('com.google.gwt.core.client.', 'Scheduler', 149), Lcom_google_gwt_core_client_JavaScriptObject_2_classLit = createForClass('com.google.gwt.core.client.', 'JavaScriptObject$', 7), _3I_classLit = createForArray('', '[I', 382), _3Ljava_lang_Object_2_classLit = createForArray('[Ljava.lang.', 'Object;', 379), Ljava_lang_Throwable_2_classLit = createForClass('java.lang.', 'Throwable', 145), Ljava_lang_Exception_2_classLit = createForClass('java.lang.', 'Exception', 144), Ljava_lang_RuntimeException_2_classLit = createForClass('java.lang.', 'RuntimeException', 143), Ljava_lang_StackTraceElement_2_classLit = createForClass('java.lang.', 'StackTraceElement', 348), _3Ljava_lang_StackTraceElement_2_classLit = createForArray('[Ljava.lang.', 'StackTraceElement;', 383), Lcom_google_gwt_lang_LongLibBase$LongEmul_2_classLit = createForClass('com.google.gwt.lang.', 'LongLibBase$LongEmul', 247), _3Lcom_google_gwt_lang_LongLibBase$LongEmul_2_classLit = createForArray('[Lcom.google.gwt.lang.', 'LongLibBase$LongEmul;', 384), Lcom_google_gwt_lang_SeedUtil_2_classLit = createForClass('com.google.gwt.lang.', 'SeedUtil', 248), Ljava_lang_Boolean_2_classLit = createForClass('java.lang.', 'Boolean', 334), Ljava_lang_Number_2_classLit = createForClass('java.lang.', 'Number', 338), _3C_classLit = createForArray('', '[C', 385), Ljava_lang_Class_2_classLit = createForClass('java.lang.', 'Class', 335), Ljava_lang_Double_2_classLit = createForClass('java.lang.', 'Double', 337), Ljava_lang_Integer_2_classLit = createForClass('java.lang.', 'Integer', 342), _3Ljava_lang_Integer_2_classLit = createForArray('[Ljava.lang.', 'Integer;', 386), Ljava_lang_String_2_classLit = createForClass('java.lang.', 'String', 2), _3Ljava_lang_String_2_classLit = createForArray('[Ljava.lang.', 'String;', 380), Ljava_lang_ClassCastException_2_classLit = createForClass('java.lang.', 'ClassCastException', 336), Ljava_lang_StringBuilder_2_classLit = createForClass('java.lang.', 'StringBuilder', 351), Ljava_lang_ArrayStoreException_2_classLit = createForClass('java.lang.', 'ArrayStoreException', 333), Lcom_google_gwt_core_client_JavaScriptException_2_classLit = createForClass('com.google.gwt.core.client.', 'JavaScriptException', 142), Lcom_google_gwt_user_client_ui_Panel_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'Panel', 78), Lcom_google_gwt_user_client_ui_ComplexPanel_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'ComplexPanel', 77), Lcom_google_gwt_user_client_ui_DockLayoutPanel_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'DockLayoutPanel', 287), Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2_classLit = createForEnum('com.google.gwt.user.client.ui.', 'DockLayoutPanel$Direction', 288, values_7), _3Lcom_google_gwt_user_client_ui_DockLayoutPanel$Direction_2_classLit = createForArray('[Lcom.google.gwt.user.client.ui.', 'DockLayoutPanel$Direction;', 387), Lcom_google_gwt_user_client_ui_DockLayoutPanel$LayoutData_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'DockLayoutPanel$LayoutData', 291), Lcom_google_gwt_user_client_ui_LayoutCommand_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'LayoutCommand', 290), Lcom_google_gwt_user_client_ui_DockLayoutPanel$DockAnimateCommand_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'DockLayoutPanel$DockAnimateCommand', 289), Lcom_google_web_bindery_event_shared_UmbrellaException_2_classLit = createForClass('com.google.web.bindery.event.shared.', 'UmbrellaException', 234), Lcom_google_gwt_event_shared_UmbrellaException_2_classLit = createForClass('com.google.gwt.event.shared.', 'UmbrellaException', 233), Lcom_google_gwt_user_client_ui_AttachDetachException_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'AttachDetachException', 279), Lcom_google_gwt_user_client_ui_AttachDetachException$1_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'AttachDetachException$1', 280), Lcom_google_gwt_user_client_ui_AttachDetachException$2_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'AttachDetachException$2', 281), Lcom_google_gwt_user_client_ui_LayoutCommand$1_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'LayoutCommand$1', 300), Lcom_google_gwt_layout_client_Layout_2_classLit = createForClass('com.google.gwt.layout.client.', 'Layout', 251), Lcom_google_gwt_layout_client_Layout$Layer_2_classLit = createForClass('com.google.gwt.layout.client.', 'Layout$Layer', 253), Lcom_google_gwt_animation_client_Animation_2_classLit = createForClass('com.google.gwt.animation.client.', 'Animation', 127), Lcom_google_gwt_layout_client_Layout$1_2_classLit = createForClass('com.google.gwt.layout.client.', 'Layout$1', 252), Lcom_google_gwt_animation_client_Animation$1_2_classLit = createForClass('com.google.gwt.animation.client.', 'Animation$1', 128), Lcom_google_gwt_animation_client_AnimationScheduler_2_classLit = createForClass('com.google.gwt.animation.client.', 'AnimationScheduler', 129), Lcom_google_gwt_animation_client_AnimationScheduler$AnimationHandle_2_classLit = createForClass('com.google.gwt.animation.client.', 'AnimationScheduler$AnimationHandle', 130), Lcom_google_gwt_user_client_ui_CellPanel_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'CellPanel', 76), Lcom_google_gwt_user_client_ui_VerticalPanel_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'VerticalPanel', 102), Lcom_google_gwt_user_client_ui_HasVerticalAlignment$VerticalAlignmentConstant_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'HasVerticalAlignment$VerticalAlignmentConstant', 299), Lcom_google_gwt_user_client_ui_LabelBase_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'LabelBase', 296), Lcom_google_gwt_user_client_ui_Label_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'Label', 295), Lcom_google_gwt_dom_client_Style$Unit_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Unit', 199, values_4), _3Lcom_google_gwt_dom_client_Style$Unit_2_classLit = createForArray('[Lcom.google.gwt.dom.client.', 'Style$Unit;', 388), Lcom_google_gwt_dom_client_Style$Display_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Display', 178, values_0), _3Lcom_google_gwt_dom_client_Style$Display_2_classLit = createForArray('[Lcom.google.gwt.dom.client.', 'Style$Display;', 389), Lcom_google_gwt_dom_client_Style$Overflow_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Overflow', 184, values_1), _3Lcom_google_gwt_dom_client_Style$Overflow_2_classLit = createForArray('[Lcom.google.gwt.dom.client.', 'Style$Overflow;', 390), Lcom_google_gwt_dom_client_Style$Position_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Position', 189, values_2), _3Lcom_google_gwt_dom_client_Style$Position_2_classLit = createForArray('[Lcom.google.gwt.dom.client.', 'Style$Position;', 391), Lcom_google_gwt_dom_client_Style$TextAlign_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$TextAlign', 194, values_3), _3Lcom_google_gwt_dom_client_Style$TextAlign_2_classLit = createForArray('[Lcom.google.gwt.dom.client.', 'Style$TextAlign;', 392), Lcom_google_gwt_dom_client_Style$Visibility_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Visibility', 209, values_5), _3Lcom_google_gwt_dom_client_Style$Visibility_2_classLit = createForArray('[Lcom.google.gwt.dom.client.', 'Style$Visibility;', 393), Lcom_google_gwt_dom_client_Style$Unit$1_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Unit$1', 200, null), Lcom_google_gwt_dom_client_Style$Unit$2_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Unit$2', 201, null), Lcom_google_gwt_dom_client_Style$Unit$3_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Unit$3', 202, null), Lcom_google_gwt_dom_client_Style$Unit$4_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Unit$4', 203, null), Lcom_google_gwt_dom_client_Style$Unit$5_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Unit$5', 204, null), Lcom_google_gwt_dom_client_Style$Unit$6_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Unit$6', 205, null), Lcom_google_gwt_dom_client_Style$Unit$7_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Unit$7', 206, null), Lcom_google_gwt_dom_client_Style$Unit$8_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Unit$8', 207, null), Lcom_google_gwt_dom_client_Style$Unit$9_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Unit$9', 208, null), Lcom_google_gwt_dom_client_Style$Display$1_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Display$1', 180, null), Lcom_google_gwt_dom_client_Style$Display$2_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Display$2', 181, null), Lcom_google_gwt_dom_client_Style$Display$3_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Display$3', 182, null), Lcom_google_gwt_dom_client_Style$Display$4_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Display$4', 183, null), Lcom_google_gwt_dom_client_Style$Overflow$1_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Overflow$1', 185, null), Lcom_google_gwt_dom_client_Style$Overflow$2_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Overflow$2', 186, null), Lcom_google_gwt_dom_client_Style$Overflow$3_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Overflow$3', 187, null), Lcom_google_gwt_dom_client_Style$Overflow$4_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Overflow$4', 188, null), Lcom_google_gwt_dom_client_Style$Position$1_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Position$1', 190, null), Lcom_google_gwt_dom_client_Style$Position$2_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Position$2', 191, null), Lcom_google_gwt_dom_client_Style$Position$3_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Position$3', 192, null), Lcom_google_gwt_dom_client_Style$Position$4_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Position$4', 193, null), Lcom_google_gwt_dom_client_Style$TextAlign$1_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$TextAlign$1', 195, null), Lcom_google_gwt_dom_client_Style$TextAlign$2_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$TextAlign$2', 196, null), Lcom_google_gwt_dom_client_Style$TextAlign$3_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$TextAlign$3', 197, null), Lcom_google_gwt_dom_client_Style$TextAlign$4_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$TextAlign$4', 198, null), Lcom_google_gwt_dom_client_Style$Visibility$1_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Visibility$1', 210, null), Lcom_google_gwt_dom_client_Style$Visibility$2_2_classLit = createForEnum('com.google.gwt.dom.client.', 'Style$Visibility$2', 211, null), Lcom_google_gwt_user_client_ui_LayoutPanel_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'LayoutPanel', 301), Lcom_google_gwt_user_client_ui_RootLayoutPanel_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'RootLayoutPanel', 309), Lcom_google_gwt_user_client_ui_RootLayoutPanel$1_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'RootLayoutPanel$1', 310), Ljava_util_AbstractCollection_2_classLit = createForClass('java.util.', 'AbstractCollection', 354), Ljava_util_AbstractList_2_classLit = createForClass('java.util.', 'AbstractList', 363), Ljava_util_AbstractList$IteratorImpl_2_classLit = createForClass('java.util.', 'AbstractList$IteratorImpl', 364), Ljava_util_AbstractList$ListIteratorImpl_2_classLit = createForClass('java.util.', 'AbstractList$ListIteratorImpl', 365), Ljava_util_ArrayList_2_classLit = createForClass('java.util.', 'ArrayList', 368), Lcom_akjava_gwt_threejsexamples_client_AbstractExample_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.', 'AbstractExample', 71), Lcom_akjava_gwt_threejsexamples_client_examples_animation_cloth_ClothExample_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.cloth.', 'ClothExample', 93), Lcom_akjava_gwt_threejsexamples_client_examples_animation_cloth_ClothExample$1_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.cloth.', 'ClothExample$1', 94), Lcom_akjava_gwt_threejsexamples_client_examples_animation_cloth_ClothExample$2_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.cloth.', 'ClothExample$2', 95), Lcom_akjava_gwt_threejsexamples_client_examples_animation_cloth_ClothExample$3_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.cloth.', 'ClothExample$3', 96), Lcom_akjava_gwt_threejsexamples_client_examples_animation_cloth_ClothExample$4_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.cloth.', 'ClothExample$4', 97), Lcom_akjava_gwt_threejsexamples_client_AbstractExample$1_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.', 'AbstractExample$1', 72), Lcom_akjava_gwt_threejsexamples_client_AbstractExample$2_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.', 'AbstractExample$2', 73), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_MorphExample_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'MorphExample', 116), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_MorphExample$1_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'MorphExample$1', 117), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_MorphExample$2_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'MorphExample$2', 118), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_MorphExample$3_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'MorphExample$3', 119), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_MorphExample$4_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'MorphExample$4', 120), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendingExample_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendingExample', 114), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendingExample$1_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendingExample$1', 115), Lcom_akjava_gwt_threejsexamples_client_examples_morphtargets_MorphTargetsExample_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.morphtargets.', 'MorphTargetsExample', 124), Lcom_akjava_gwt_threejsexamples_client_examples_morphtargets_MorphTargetsExample$1_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.morphtargets.', 'MorphTargetsExample$1', 125), Lcom_akjava_gwt_threejsexamples_client_examples_morphtargets_MorphTargetsExample$2_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.morphtargets.', 'MorphTargetsExample$2', 126), Lcom_akjava_gwt_threejsexamples_client_examples_morphtargets_HorseExample_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.morphtargets.', 'HorseExample', 122), Lcom_akjava_gwt_threejsexamples_client_examples_morphtargets_HorseExample$1_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.morphtargets.', 'HorseExample$1', 123), Lcom_akjava_gwt_threejsexamples_client_examples_misc_controls_OrbitExample_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.misc.controls.', 'OrbitExample', 121), Lcom_google_gwt_user_client_ui_AbsolutePanel_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'AbsolutePanel', 278), Lcom_google_gwt_user_client_ui_RootPanel_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'RootPanel', 311), Lcom_google_gwt_user_client_ui_RootPanel$DefaultRootPanel_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'RootPanel$DefaultRootPanel', 314), Lcom_google_gwt_user_client_ui_RootPanel$1_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'RootPanel$1', 312), Lcom_google_gwt_user_client_ui_RootPanel$2_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'RootPanel$2', 313), Lcom_google_gwt_user_client_impl_HistoryImpl_2_classLit = createForClass('com.google.gwt.user.client.impl.', 'HistoryImpl', 273), Ljava_util_AbstractMap_2_classLit = createForClass('java.util.', 'AbstractMap', 356), Ljava_util_AbstractHashMap_2_classLit = createForClass('java.util.', 'AbstractHashMap', 355), Ljava_util_HashMap_2_classLit = createForClass('java.util.', 'HashMap', 371), Ljava_util_AbstractSet_2_classLit = createForClass('java.util.', 'AbstractSet', 358), Ljava_util_AbstractHashMap$EntrySet_2_classLit = createForClass('java.util.', 'AbstractHashMap$EntrySet', 357), Ljava_util_AbstractHashMap$EntrySetIterator_2_classLit = createForClass('java.util.', 'AbstractHashMap$EntrySetIterator', 359), Ljava_util_AbstractMapEntry_2_classLit = createForClass('java.util.', 'AbstractMapEntry', 361), Ljava_util_AbstractHashMap$MapEntryNull_2_classLit = createForClass('java.util.', 'AbstractHashMap$MapEntryNull', 360), Ljava_util_AbstractHashMap$MapEntryString_2_classLit = createForClass('java.util.', 'AbstractHashMap$MapEntryString', 362), Ljava_util_AbstractMap$1_2_classLit = createForClass('java.util.', 'AbstractMap$1', 366), Ljava_util_AbstractMap$1$1_2_classLit = createForClass('java.util.', 'AbstractMap$1$1', 367), Lcom_google_gwt_core_client_impl_SchedulerImpl_2_classLit = createForClass('com.google.gwt.core.client.impl.', 'SchedulerImpl', 151), Lcom_google_gwt_core_client_impl_SchedulerImpl$Flusher_2_classLit = createForClass('com.google.gwt.core.client.impl.', 'SchedulerImpl$Flusher', 152), Lcom_google_gwt_core_client_impl_SchedulerImpl$Rescuer_2_classLit = createForClass('com.google.gwt.core.client.impl.', 'SchedulerImpl$Rescuer', 153), Lcom_google_gwt_core_client_impl_StackTraceCreator$Collector_2_classLit = createForClass('com.google.gwt.core.client.impl.', 'StackTraceCreator$Collector', 156), Lcom_google_gwt_core_client_Duration_2_classLit = createForClass('com.google.gwt.core.client.', 'Duration', 140), Lcom_google_gwt_layout_client_LayoutImpl_2_classLit = createForClass('com.google.gwt.layout.client.', 'LayoutImpl', 254), _3Ljava_lang_Boolean_2_classLit = createForArray('[Ljava.lang.', 'Boolean;', 394), Ljava_lang_UnsupportedOperationException_2_classLit = createForClass('java.lang.', 'UnsupportedOperationException', 353), Lcom_google_gwt_user_client_ui_WidgetCollection_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'WidgetCollection', 324), _3Lcom_google_gwt_user_client_ui_Widget_2_classLit = createForArray('[Lcom.google.gwt.user.client.ui.', 'Widget;', 395), Lcom_google_gwt_user_client_ui_WidgetCollection$WidgetIterator_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'WidgetCollection$WidgetIterator', 325), Lcom_google_web_bindery_event_shared_Event_2_classLit = createForClass('com.google.web.bindery.event.shared.', 'Event', 215), Lcom_google_gwt_event_shared_GwtEvent_2_classLit = createForClass('com.google.gwt.event.shared.', 'GwtEvent', 214), Lcom_google_gwt_user_client_Window$ClosingEvent_2_classLit = createForClass('com.google.gwt.user.client.', 'Window$ClosingEvent', 267), Lcom_google_gwt_event_shared_HandlerManager_2_classLit = createForClass('com.google.gwt.event.shared.', 'HandlerManager', 228), Lcom_google_gwt_user_client_Window$WindowHandlers_2_classLit = createForClass('com.google.gwt.user.client.', 'Window$WindowHandlers', 268), Lcom_google_web_bindery_event_shared_Event$Type_2_classLit = createForClass('com.google.web.bindery.event.shared.', 'Event$Type', 221), Lcom_google_gwt_event_shared_GwtEvent$Type_2_classLit = createForClass('com.google.gwt.event.shared.', 'GwtEvent$Type', 220), Lcom_google_web_bindery_event_shared_EventBus_2_classLit = createForClass('com.google.web.bindery.event.shared.', 'EventBus', 231), Lcom_google_web_bindery_event_shared_SimpleEventBus_2_classLit = createForClass('com.google.web.bindery.event.shared.', 'SimpleEventBus', 230), Lcom_google_gwt_event_shared_HandlerManager$Bus_2_classLit = createForClass('com.google.gwt.event.shared.', 'HandlerManager$Bus', 229), Lcom_google_web_bindery_event_shared_SimpleEventBus$1_2_classLit = createForClass('com.google.web.bindery.event.shared.', 'SimpleEventBus$1', 330), Lcom_google_web_bindery_event_shared_SimpleEventBus$2_2_classLit = createForClass('com.google.web.bindery.event.shared.', 'SimpleEventBus$2', 331), Lcom_google_web_bindery_event_shared_SimpleEventBus$3_2_classLit = createForClass('com.google.web.bindery.event.shared.', 'SimpleEventBus$3', 332), Ljava_util_HashSet_2_classLit = createForClass('java.util.', 'HashSet', 372), Lcom_google_gwt_user_client_Event$NativePreviewEvent_2_classLit = createForClass('com.google.gwt.user.client.', 'Event$NativePreviewEvent', 263), Ljava_lang_IllegalArgumentException_2_classLit = createForClass('java.lang.', 'IllegalArgumentException', 339), Lcom_google_gwt_user_client_ui_DirectionalTextHelper_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'DirectionalTextHelper', 286), Lcom_google_gwt_event_dom_client_DomEvent_2_classLit = createForClass('com.google.gwt.event.dom.client.', 'DomEvent', 213), Lcom_google_gwt_event_dom_client_HumanInputEvent_2_classLit = createForClass('com.google.gwt.event.dom.client.', 'HumanInputEvent', 218), Lcom_google_gwt_event_dom_client_MouseEvent_2_classLit = createForClass('com.google.gwt.event.dom.client.', 'MouseEvent', 217), Lcom_google_gwt_event_dom_client_ClickEvent_2_classLit = createForClass('com.google.gwt.event.dom.client.', 'ClickEvent', 216), Lcom_google_gwt_event_dom_client_DomEvent$Type_2_classLit = createForClass('com.google.gwt.event.dom.client.', 'DomEvent$Type', 219), Ljava_lang_NullPointerException_2_classLit = createForClass('java.lang.', 'NullPointerException', 345), Lcom_google_gwt_layout_client_LayoutImplIE8_2_classLit = createForClass('com.google.gwt.layout.client.', 'LayoutImplIE8', 255), Lcom_google_gwt_user_client_impl_WindowImplIE$1_2_classLit = createForClass('com.google.gwt.user.client.impl.', 'WindowImplIE$1', 276), Lcom_google_gwt_user_client_impl_WindowImplIE$2_2_classLit = createForClass('com.google.gwt.user.client.impl.', 'WindowImplIE$2', 277), Lcom_google_gwt_event_logical_shared_ResizeEvent_2_classLit = createForClass('com.google.gwt.event.logical.shared.', 'ResizeEvent', 226), Ljava_lang_IllegalStateException_2_classLit = createForClass('java.lang.', 'IllegalStateException', 340), Ljava_lang_IndexOutOfBoundsException_2_classLit = createForClass('java.lang.', 'IndexOutOfBoundsException', 341), Ljava_lang_StringBuffer_2_classLit = createForClass('java.lang.', 'StringBuffer', 350), Lcom_google_gwt_aria_client_Attribute_2_classLit = createForClass('com.google.gwt.aria.client.', 'Attribute', 137), Lcom_google_gwt_event_dom_client_PrivateMap_2_classLit = createForClass('com.google.gwt.event.dom.client.', 'PrivateMap', 223), Lcom_google_gwt_event_shared_LegacyHandlerWrapper_2_classLit = createForClass('com.google.gwt.event.shared.', 'LegacyHandlerWrapper', 232), Lcom_google_gwt_event_logical_shared_ValueChangeEvent_2_classLit = createForClass('com.google.gwt.event.logical.shared.', 'ValueChangeEvent', 227), Ljava_util_MapEntryImpl_2_classLit = createForClass('java.util.', 'MapEntryImpl', 373), Lcom_google_gwt_aria_client_PrimitiveValueAttribute_2_classLit = createForClass('com.google.gwt.aria.client.', 'PrimitiveValueAttribute', 138), Lcom_google_gwt_aria_client_AriaValueAttribute_2_classLit = createForClass('com.google.gwt.aria.client.', 'AriaValueAttribute', 136), Lcom_google_gwt_event_logical_shared_CloseEvent_2_classLit = createForClass('com.google.gwt.event.logical.shared.', 'CloseEvent', 225), Ljava_util_NoSuchElementException_2_classLit = createForClass('java.util.', 'NoSuchElementException', 374), Lcom_google_gwt_user_client_ui_SimplePanel_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'SimplePanel', 293), Lcom_google_gwt_user_client_ui_PopupPanel_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'PopupPanel', 303), Lcom_google_gwt_user_client_ui_PopupPanel$ResizeAnimation_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'PopupPanel$ResizeAnimation', 307), Lcom_google_gwt_user_client_Timer_2_classLit = createForClass('com.google.gwt.user.client.', 'Timer', 134), Lcom_google_gwt_user_client_ui_PopupPanel$1_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'PopupPanel$1', 304), Lcom_google_gwt_user_client_ui_PopupPanel$3_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'PopupPanel$3', 305), Lcom_google_gwt_user_client_ui_PopupPanel$4_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'PopupPanel$4', 306), Lcom_google_gwt_user_client_ui_SimplePanel$1_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'SimplePanel$1', 315), Lcom_google_gwt_user_client_Timer$1_2_classLit = createForClass('com.google.gwt.user.client.', 'Timer$1', 265), Lcom_akjava_gwt_threejsexamples_client_examples_animation_cloth_Cloth_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.cloth.', 'Cloth', 90), Lcom_akjava_gwt_threejsexamples_client_examples_animation_cloth_Cloth$Constrain_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.cloth.', 'Cloth$Constrain', 91), Lcom_akjava_gwt_threejsexamples_client_examples_animation_cloth_Cloth$Particle_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.cloth.', 'Cloth$Particle', 92), Lcom_google_gwt_user_client_ui_FocusPanel_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'FocusPanel', 292), Lcom_google_gwt_user_client_ui_HTML_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'HTML', 294), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacter_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacter', 98), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacter$WrapSchedule_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacter$WrapSchedule', 100), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacter$1_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacter$1', 99), Lcom_google_gwt_user_client_ui_ButtonBase_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'ButtonBase', 283), Lcom_google_gwt_user_client_ui_CheckBox_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'CheckBox', 284), Lcom_google_gwt_user_client_ui_CheckBox$1_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'CheckBox$1', 285), Lcom_google_gwt_user_client_ui_ListBox_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'ListBox', 302), Lcom_google_gwt_event_dom_client_MouseMoveEvent_2_classLit = createForClass('com.google.gwt.event.dom.client.', 'MouseMoveEvent', 222), Lcom_google_gwt_user_client_ui_HorizontalPanel_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'HorizontalPanel', 75), Lcom_akjava_gwt_threejsexamples_client_LabeledInputRangeWidget_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.', 'LabeledInputRangeWidget', 74), Lcom_akjava_gwt_threejsexamples_client_LabeledInputRangeWidget$1_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.', 'LabeledInputRangeWidget$1', 81), Lcom_google_gwt_animation_client_AnimationSchedulerImpl_2_classLit = createForClass('com.google.gwt.animation.client.', 'AnimationSchedulerImpl', 131), Ljava_util_Collections$EmptyList_2_classLit = createForClass('java.util.', 'Collections$EmptyList', 370), Lcom_google_gwt_user_client_ui_Button_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'Button', 282), Lcom_google_gwt_event_dom_client_ChangeEvent_2_classLit = createForClass('com.google.gwt.event.dom.client.', 'ChangeEvent', 212), Lcom_akjava_gwt_threejsexamples_client_Range_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.', 'Range', 82), Lcom_akjava_gwt_threejsexamples_client_Range$1_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.', 'Range$1', 83), Lcom_google_gwt_user_client_ui_ValueBoxBase_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'ValueBoxBase', 318), Lcom_google_gwt_user_client_ui_TextBoxBase_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'TextBoxBase', 317), Lcom_google_gwt_user_client_ui_TextBox_2_classLit = createForClass('com.google.gwt.user.client.ui.', 'TextBox', 316), Lcom_google_gwt_user_client_ui_ValueBoxBase$TextAlignment_2_classLit = createForEnum('com.google.gwt.user.client.ui.', 'ValueBoxBase$TextAlignment', 319, values_8), _3Lcom_google_gwt_user_client_ui_ValueBoxBase$TextAlignment_2_classLit = createForArray('[Lcom.google.gwt.user.client.ui.', 'ValueBoxBase$TextAlignment;', 396), Lcom_google_gwt_user_client_ui_ValueBoxBase$TextAlignment$1_2_classLit = createForEnum('com.google.gwt.user.client.ui.', 'ValueBoxBase$TextAlignment$1', 320, null), Lcom_google_gwt_user_client_ui_ValueBoxBase$TextAlignment$2_2_classLit = createForEnum('com.google.gwt.user.client.ui.', 'ValueBoxBase$TextAlignment$2', 321, null), Lcom_google_gwt_user_client_ui_ValueBoxBase$TextAlignment$3_2_classLit = createForEnum('com.google.gwt.user.client.ui.', 'ValueBoxBase$TextAlignment$3', 322, null), Lcom_google_gwt_user_client_ui_ValueBoxBase$TextAlignment$4_2_classLit = createForEnum('com.google.gwt.user.client.ui.', 'ValueBoxBase$TextAlignment$4', 323, null), Lcom_google_gwt_i18n_client_AutoDirectionHandler_2_classLit = createForClass('com.google.gwt.i18n.client.', 'AutoDirectionHandler', 235), Lcom_google_gwt_animation_client_AnimationSchedulerImplTimer_2_classLit = createForClass('com.google.gwt.animation.client.', 'AnimationSchedulerImplTimer', 132), Lcom_google_gwt_animation_client_AnimationSchedulerImplTimer$AnimationHandleImpl_2_classLit = createForClass('com.google.gwt.animation.client.', 'AnimationSchedulerImplTimer$AnimationHandleImpl', 135), _3Lcom_google_gwt_animation_client_AnimationSchedulerImplTimer$AnimationHandleImpl_2_classLit = createForArray('[Lcom.google.gwt.animation.client.', 'AnimationSchedulerImplTimer$AnimationHandleImpl;', 397), Lcom_google_gwt_animation_client_AnimationSchedulerImplTimer$1_2_classLit = createForClass('com.google.gwt.animation.client.', 'AnimationSchedulerImplTimer$1', 133), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacterGui_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacterGui', 101), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacterGui$1_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacterGui$1', 103), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacterGui$2_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacterGui$2', 105), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacterGui$3_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacterGui$3', 106), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacterGui$4_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacterGui$4', 107), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacterGui$5_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacterGui$5', 108), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacterGui$6_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacterGui$6', 109), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacterGui$7_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacterGui$7', 110), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacterGui$8_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacterGui$8', 111), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacterGui$9_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacterGui$9', 112), Lcom_akjava_gwt_threejsexamples_client_examples_animation_skinning_BlendCharacterGui$10_2_classLit = createForClass('com.akjava.gwt.threejsexamples.client.examples.animation.skinning.', 'BlendCharacterGui$10', 104), Ljava_lang_NumberFormatException_2_classLit = createForClass('java.lang.', 'NumberFormatException', 347), Lcom_google_gwt_text_shared_AbstractRenderer_2_classLit = createForClass('com.google.gwt.text.shared.', 'AbstractRenderer', 256), Lcom_google_gwt_text_shared_testing_PassthroughRenderer_2_classLit = createForClass('com.google.gwt.text.shared.testing.', 'PassthroughRenderer', 258), Lcom_google_gwt_text_shared_testing_PassthroughParser_2_classLit = createForClass('com.google.gwt.text.shared.testing.', 'PassthroughParser', 257);
 $stats && $stats({moduleName:'threejsexamples',sessionId:$sessionId,subSystem:'startup',evtGroup:'moduleStartup',millis:(new Date()).getTime(),type:'moduleEvalEnd'});
 if ($wnd.threejsexamples) $wnd.threejsexamples.onScriptLoad();
 --></script></body></html>
