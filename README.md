@@ -2,6 +2,14 @@
 ##Demo
 [Three.js Example ports](http://akjava.github.io/gwt-three.js-test/threejsexamples.html) - same as original example,but not complete
 
+[![morphtargets](http://akjava.github.io/gwt-three.js-test/thumb/morphtargets.jpg)](http://akjava.github.io/gwt-three.js-test/threejsexamples.html#morphtargets)
+[![horse](http://akjava.github.io/gwt-three.js-test/thumb/horse.jpg)](http://akjava.github.io/gwt-three.js-test/threejsexamples.html#horse)
+[![orbit](http://akjava.github.io/gwt-three.js-test/thumb/orbit.jpg)](http://akjava.github.io/gwt-three.js-test/threejsexamples.html#orbit)
+[![cloth](http://akjava.github.io/gwt-three.js-test/thumb/cloth.jpg)](http://akjava.github.io/gwt-three.js-test/threejsexamples.html#cloth)
+[![blending](http://akjava.github.io/gwt-three.js-test/thumb/blending.jpg)](http://akjava.github.io/gwt-three.js-test/threejsexamples.html#blending)
+[![morph](http://akjava.github.io/gwt-three.js-test/thumb/morph.jpg)](http://akjava.github.io/gwt-three.js-test/threejsexamples.html#morph)
+
+
 [Old one](http://akjava.github.io/gwt-three.js-test/ThreeTest.html) - but some original demo include
 ##What is GWT.Why GWT?
 <a href="http://www.gwtproject.org/">GWT</a> is one of altJS language written with Java ,developed by Google(until version 2.5.1).  

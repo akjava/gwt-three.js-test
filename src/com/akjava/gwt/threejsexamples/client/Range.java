@@ -1,4 +1,4 @@
-package com.akjava.gwt.threejsexamples.client.examples.animation.skinning;
+package com.akjava.gwt.threejsexamples.client;
 
 /*
  * based on Hidden,Checkbox,ListBox
@@ -34,7 +34,7 @@ import com.google.gwt.user.client.ui.HasName;
 import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
-
+//TODO move html5-widget
 //not support oninput
 public class Range extends Widget implements HasName,HasValue<Number>, IsEditor<LeafValueEditor<Number>> {
 

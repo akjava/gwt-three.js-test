@@ -15,4 +15,20 @@ protected MorphTarget(){}
 public final native JsArray<Vector3> getVertices()/*-{
 return this.vertices;
 }-*/;
+
+public final native String getName()/*-{
+return this.name;
+}-*/;
+
+
+public final native MorphTarget name(String name)/*-{
+this.name=name;
+return this;
+}-*/;
+
+public final native MorphTarget vertices(JsArray<Vector3> vertices)/*-{
+this.vertices=vertices;
+return this;
+}-*/;
+
 }

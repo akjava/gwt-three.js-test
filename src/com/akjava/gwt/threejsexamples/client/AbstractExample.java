@@ -1,5 +1,6 @@
 package com.akjava.gwt.threejsexamples.client;
 
+import com.akjava.gwt.lib.client.LogUtils;
 import com.google.gwt.animation.client.AnimationScheduler;
 import com.google.gwt.animation.client.AnimationScheduler.AnimationHandle;
 import com.google.gwt.dom.client.Style.Position;
@@ -68,6 +69,8 @@ public abstract class AbstractExample implements Example{
 	public void execute(double timestamp) {
 		if(!debugAnimateOneTime){//for debug,if error happen on animate
 		handler=AnimationScheduler.get().requestAnimationFrame(this);
+		}else{
+			LogUtils.log("debugAnimateOneTime:true only render called one time for debug");
 		}
 		animate(timestamp);
 	}

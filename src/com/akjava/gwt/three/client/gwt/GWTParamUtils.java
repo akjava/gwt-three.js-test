@@ -1,5 +1,6 @@
 package com.akjava.gwt.three.client.gwt;
 
+import com.akjava.gwt.three.client.gwt.core.MorphTarget;
 import com.akjava.gwt.three.client.gwt.materials.MeshBasicMaterialParameter;
 import com.akjava.gwt.three.client.gwt.materials.MeshLambertMaterialParameter;
 import com.akjava.gwt.three.client.gwt.materials.MeshPhongMaterialParameter;
@@ -28,6 +29,10 @@ public static WebGLRendererParameter WebGLRenderer(){
 
 public static ShaderMaterialParameter ShaderMaterial(){
 	return ShaderMaterialParameter.create();
+}
+
+public static MorphTarget MorphTarget() {
+	return MorphTarget.createObject().cast();
 }
 
 
