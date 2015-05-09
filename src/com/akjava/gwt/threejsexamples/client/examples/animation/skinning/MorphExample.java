@@ -22,7 +22,7 @@ import com.akjava.gwt.three.client.js.loaders.JSONLoader;
 import com.akjava.gwt.three.client.js.loaders.JSONLoader.JSONLoadHandler;
 import com.akjava.gwt.three.client.js.materials.Material;
 import com.akjava.gwt.three.client.js.materials.MeshPhongMaterial;
-import com.akjava.gwt.three.client.js.math.ThreeMath;
+import com.akjava.gwt.three.client.js.math.THREEMath;
 import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
@@ -323,7 +323,7 @@ public class MorphExample extends AbstractExample{
 		double delta = 0.75 * clock.getDelta();
 		
 		camera.getPosition().gwtIncrementX( (mouseX - camera.getPosition().getX() ) * .05);
-		camera.getPosition().setY(ThreeMath.clamp( camera.getPosition().getY() + ( - mouseY - camera.getPosition().getY() ) * .05, 0, 1000 ));
+		camera.getPosition().setY(THREEMath.clamp( camera.getPosition().getY() + ( - mouseY - camera.getPosition().getY() ) * .05, 0, 1000 ));
 		camera.lookAt( scene.getPosition() );
 		AnimationHandler.update( delta );
 

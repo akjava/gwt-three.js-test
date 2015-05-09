@@ -11,7 +11,7 @@ import com.akjava.gwt.three.client.js.lights.DirectionalLight;
 import com.akjava.gwt.three.client.js.loaders.JSONLoader;
 import com.akjava.gwt.three.client.js.loaders.JSONLoader.JSONLoadHandler;
 import com.akjava.gwt.three.client.js.materials.Material;
-import com.akjava.gwt.three.client.js.math.ThreeMath;
+import com.akjava.gwt.three.client.js.math.THREEMath;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
@@ -147,8 +147,8 @@ public class HorseExample extends AbstractExample{
 	public void render(double time) {//GWT animateFrame has time
 		theta += 0.1;
 
-		camera.getPosition().setX(radius * Math.sin( ThreeMath.degToRad( theta ) ));//camera.position.x = radius * Math.sin( THREE.Math.degToRad( theta ) );
-		camera.getPosition().setZ(radius * Math.cos( ThreeMath.degToRad( theta ) ));//camera.position.z = radius * Math.cos( THREE.Math.degToRad( theta ) );
+		camera.getPosition().setX(radius * Math.sin( THREEMath.degToRad( theta ) ));//camera.position.x = radius * Math.sin( THREE.Math.degToRad( theta ) );
+		camera.getPosition().setZ(radius * Math.cos( THREEMath.degToRad( theta ) ));//camera.position.z = radius * Math.cos( THREE.Math.degToRad( theta ) );
 
 		camera.lookAt( target);//camera.lookAt( camera.target );
 

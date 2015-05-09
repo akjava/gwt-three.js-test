@@ -190,6 +190,10 @@ public final native void updateMatrixWorld(boolean force)/*-{
 this.updateMatrixWorld(force);
 }-*/;
 
+public final native void updateMatrixWorld()/*-{
+this.updateMatrixWorld();
+}-*/;
+
 
 public final native int getId()/*-{
 return this.id;

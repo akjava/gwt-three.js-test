@@ -159,7 +159,7 @@ import com.akjava.gwt.three.client.js.materials.PointCloudMaterial;
 import com.akjava.gwt.three.client.js.materials.ShaderMaterial;
 import com.akjava.gwt.three.client.js.materials.SpriteCanvasMaterial;
 import com.akjava.gwt.three.client.js.materials.SpriteMaterial;
-import com.akjava.gwt.three.client.js.math.ThreeMath;
+import com.akjava.gwt.three.client.js.math.THREEMath;
 import com.akjava.gwt.three.client.js.math.Box2;
 import com.akjava.gwt.three.client.js.math.Box3;
 import com.akjava.gwt.three.client.js.math.Color;
@@ -608,6 +608,10 @@ return new $wnd.THREE.ArrowHelper(size);
 	return  new $wnd.THREE.AreaLight(hex,intensity);
 	}-*/;
 	
+	public static  native final Raycaster Raycaster()/*-{
+	return  new $wnd.THREE.Raycaster();
+	}-*/;
+	
 	public static  native final Raycaster Raycaster(Vector3 origin,Vector3 direction,double near,double far)/*-{
 	return  new $wnd.THREE.Raycaster(origin,direction,near,far);
 	}-*/;
@@ -865,7 +869,12 @@ return new $wnd.THREE.ArrowHelper(size);
 	}
 	
 	
-	
+	public static native final Vector2 Vector2(double x,double y)/*-{
+	return new $wnd.THREE.Vector2( x,y);
+	}-*/;
+	public static native final Vector2 Vector2()/*-{
+	return new $wnd.THREE.Vector2();
+	}-*/;
 	
 	/**
 	 * @deprecated r49

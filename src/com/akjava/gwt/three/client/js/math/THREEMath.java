@@ -35,79 +35,77 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
   
  */
-package com.akjava.gwt.three.client.js.core;
+package com.akjava.gwt.three.client.js.math;
 
-import com.akjava.gwt.three.client.gwt.core.Intersect;
-import com.akjava.gwt.three.client.gwt.math.XY;
-import com.akjava.gwt.three.client.js.cameras.Camera;
-import com.akjava.gwt.three.client.js.math.Ray;
-import com.akjava.gwt.three.client.js.math.Vector3;
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.core.client.JsArray;
 
 
-public class Raycaster extends JavaScriptObject{
-	protected Raycaster() {
+//THREE.MATH
+/*
+ * renamed because too much conflict Math.java
+ */
+public class THREEMath extends JavaScriptObject{
+	protected THREEMath() {
 	}
 
-public final native Ray getRay()/*-{
-return this.ray;
+	public static final native double PI2()/*-{
+	return this.PI2;
+	}-*/;
+	
+public static final native String generateUUID()/*-{
+return  $wnd.THREE.Math.generateUUID();
 }-*/;
 
-public final native void setRay(Ray ray)/*-{
-this.ray = ray;
+public static final native double clamp(double x,double a,double b)/*-{
+return $wnd.THREE.Math.clamp(x,a,b);
 }-*/;
 
-
-public final native double getNear()/*-{
-return this.near;
+public static final native double clampBottom(double x,double a)/*-{
+return  $wnd.THREE.Math.clampBottom(x,a);
 }-*/;
 
-public final native void setNear(double near)/*-{
-this.near = near;
+public static final native double mapLinear(double x,double a1,double a2,double b1,double b2)/*-{
+return  $wnd.THREE.Math.mapLinear(x,a1,a2,b1,b2);
 }-*/;
 
-
-public final native double getFar()/*-{
-return this.far;
+public static final native double smoothstep(double x,double min,double max)/*-{
+return  $wnd.THREE.Math.smoothstep(x,min,max);
 }-*/;
 
-public final native void setFar(double far)/*-{
-this.far = far;
+public static final native double smootherstep(double x,double min,double max)/*-{
+return  $wnd.THREE.Math.smootherstep(x,min,max);
 }-*/;
 
-
-public final native void set(Vector3 origin,Vector3 direction)/*-{
-this.set(origin,direction);
+public static final native double random16()/*-{
+return  $wnd.THREE.Math.random16();
 }-*/;
 
-public  final native JsArray<Intersect> intersectObject(Object3D object,boolean recursive)/*-{
-return this.intersectObject(object,recursive);
+public static final native int randInt(int low,int high)/*-{
+return  $wnd.THREE.Math.randInt(low,high);
 }-*/;
 
-public  final native JsArray<Intersect> intersectObject(Object3D object)/*-{
-return this.intersectObject(object);
+public static final native double randFloat(double low,double high)/*-{
+return  $wnd.THREE.Math.randFloat(low,high);
 }-*/;
 
-/**
- * 
- * @param objects
- * possible warning:'THREE.Raycaster.intersectObjects: objects is not an Array.'  if array created by normal-way
- * must be create by javascript ,otherway use JavaScriptUtils
- * JsArray<Object3D> meshs=((JsArray<Object3D>) JavaScriptUtils.createJSArray().cast());
- * 
- * @param recursive
- * @return
- */
-public  final native JsArray<Intersect> intersectObjects(JsArray<Object3D> objects,boolean recursive)/*-{
-return this.intersectObjects(objects,recursive);
-}-*/;
-public  final native JsArray<Intersect> intersectObjects(JsArray<Object3D> objects)/*-{
-return this.intersectObjects(objects);
+public static final native double randFloatSpread(double range)/*-{
+return  $wnd.THREE.Math.randFloatSpread(range);
 }-*/;
 
-//both vector2 and vector3
-public final native void setFromCamera(XY coords,Camera camera)/*-{
-this.setFromCamera(coords,camera);
+public static final native double sign(double x)/*-{
+return  $wnd.THREE.Math.sign(x);
 }-*/;
+
+public static final native double degToRad(double degrees)/*-{
+return  $wnd.THREE.Math.degToRad(degrees);
+}-*/;
+
+public static final native double radToDeg(double radians)/*-{
+return  $wnd.THREE.Math.radToDeg(radians);
+}-*/;
+
+public static final native boolean isPowerOfTwo(double value)/*-{
+return  $wnd.THREE.Math.isPowerOfTwo(value);
+}-*/;
+
 }

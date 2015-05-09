@@ -11,6 +11,7 @@ import com.akjava.gwt.threejsexamples.client.examples.animation.skinning.MorphEx
 import com.akjava.gwt.threejsexamples.client.examples.misc.controls.OrbitExample;
 import com.akjava.gwt.threejsexamples.client.examples.morphtargets.HorseExample;
 import com.akjava.gwt.threejsexamples.client.examples.morphtargets.MorphTargetsExample;
+import com.akjava.gwt.threejsexamples.client.examples.vr.VrStereoExample;
 import com.google.common.collect.Lists;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.Scheduler;
@@ -75,7 +76,7 @@ public class ThreejsExamples implements EntryPoint,ExampleOwner {
 		examples.add(new MorphTargetsExample());
 		examples.add(new HorseExample());
 		examples.add(new OrbitExample());
-		
+		examples.add(new VrStereoExample());
 		
 		//TODO add scroll
 		for(Example exp:examples){
