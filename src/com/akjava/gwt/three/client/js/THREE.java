@@ -420,11 +420,11 @@ return new $wnd.THREE.ArrowHelper(size);
 	return new $wnd.THREE.FogExp2(hex,density);
 	}-*/;
 	
-	public static final native WebGLRenderTargetCube WebGLRenderTargetCube(double widht,double height,JavaScriptObject options)/*-{
+	public static final native WebGLRenderTargetCube WebGLRenderTargetCube(double width,double height,JavaScriptObject options)/*-{
 	return new $wnd.THREE.WebGLRenderTargetCube(width,height,options);
 	}-*/;
 	
-	public static final native WebGLRenderTarget WebGLRenderTarget(double widht,double height,JavaScriptObject options)/*-{
+	public static final native WebGLRenderTarget WebGLRenderTarget(double width,double height,JavaScriptObject options)/*-{
 	return new $wnd.THREE.WebGLRenderTarget(width,height,options);
 	}-*/;
 	public static final native LOD LOD()/*-{
