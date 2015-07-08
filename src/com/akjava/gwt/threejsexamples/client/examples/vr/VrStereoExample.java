@@ -65,7 +65,7 @@ public class VrStereoExample extends AbstractExample{
 	@Override
 	public void init() {
 		FocusPanel container = createContainerPanel();
-		LogUtils.log("1");
+
 		container.addMouseMoveHandler(new MouseMoveHandler() {
 			@Override
 			public void onMouseMove(MouseMoveEvent event) {
@@ -160,7 +160,7 @@ public class VrStereoExample extends AbstractExample{
 		container.getElement().appendChild(stats.domElement());
 		
 		//add html info
-		container.add(createAbsoluteHTML("<a href='http://threejs.org' target='_blank'>three.js</a> - orbit controls example<a href='http://threejs.org' target='_blank'>three.js</a> webgl - interactive cubes (StereoEffect version)"
+		container.add(createAbsoluteHTML("<a href='http://threejs.org' target='_blank'>three.js</a> webgl - interactive cubes (StereoEffect version)"
 				,100,10));
 		
 		

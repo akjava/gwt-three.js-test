@@ -57,6 +57,7 @@ import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.cameras.CubeCamera;
 import com.akjava.gwt.three.client.js.cameras.OrthographicCamera;
 import com.akjava.gwt.three.client.js.cameras.PerspectiveCamera;
+import com.akjava.gwt.three.client.js.core.BufferAttribute;
 import com.akjava.gwt.three.client.js.core.BufferGeometry;
 import com.akjava.gwt.three.client.js.core.Clock;
 import com.akjava.gwt.three.client.js.core.EventDispatcher;
@@ -159,7 +160,6 @@ import com.akjava.gwt.three.client.js.materials.PointCloudMaterial;
 import com.akjava.gwt.three.client.js.materials.ShaderMaterial;
 import com.akjava.gwt.three.client.js.materials.SpriteCanvasMaterial;
 import com.akjava.gwt.three.client.js.materials.SpriteMaterial;
-import com.akjava.gwt.three.client.js.math.THREEMath;
 import com.akjava.gwt.three.client.js.math.Box2;
 import com.akjava.gwt.three.client.js.math.Box3;
 import com.akjava.gwt.three.client.js.math.Color;
@@ -1397,6 +1397,11 @@ return new $wnd.THREE.ArrowHelper(size);
 	}-*/;
 	public static final native PlaneBufferGeometry PlaneBufferGeometry(double width,double height)/*-{
 	return new $wnd.THREE.PlaneBufferGeometry(width, height);
+	}-*/;
+	
+	
+	public static final native BufferAttribute BufferAttribute(JavaScriptObject array,int itemSize)/*-{
+	return new $wnd.THREE.BufferAttribute(array, itemSize);
 	}-*/;
 	
 

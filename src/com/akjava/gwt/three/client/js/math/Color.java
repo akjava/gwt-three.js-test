@@ -170,4 +170,16 @@ public final native Color clone()/*-{
 return this.clone();
 }-*/;
 
+public final native double getR()/*-{
+return this.r;
+}-*/;
+
+public final native double getG()/*-{
+return this.g;
+}-*/;
+
+public final native double getB()/*-{
+return this.b;
+}-*/;
+
 }

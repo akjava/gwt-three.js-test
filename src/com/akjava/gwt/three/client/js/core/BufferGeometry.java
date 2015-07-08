@@ -37,7 +37,7 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.core;
 
-import com.akjava.gwt.three.client.gwt.core.Offsets;
+import com.akjava.gwt.three.client.gwt.core.Offset;
 import com.akjava.gwt.three.client.js.math.Box3;
 import com.akjava.gwt.three.client.js.math.Sphere;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -79,11 +79,11 @@ return this.fromGeometry(geometry,settings);
 
 
 
-public final native JsArray<Offsets> getOffsets()/*-{
+public final native JsArray<Offset> getOffsets()/*-{
 return this.offsets;
 }-*/;
 
-public final native void setOffsets(JsArray<Offsets> offsets)/*-{
+public final native void setOffsets(JsArray<Offset> offsets)/*-{
 this.offsets = offsets;
 }-*/;
 

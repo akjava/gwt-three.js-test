@@ -1,6 +1,7 @@
 package com.akjava.gwt.three.client.gwt;
 
 import com.akjava.gwt.three.client.gwt.core.MorphTarget;
+import com.akjava.gwt.three.client.gwt.core.Offset;
 import com.akjava.gwt.three.client.gwt.materials.MeshBasicMaterialParameter;
 import com.akjava.gwt.three.client.gwt.materials.MeshLambertMaterialParameter;
 import com.akjava.gwt.three.client.gwt.materials.MeshPhongMaterialParameter;
@@ -34,6 +35,12 @@ public static ShaderMaterialParameter ShaderMaterial(){
 public static MorphTarget MorphTarget() {
 	return MorphTarget.createObject().cast();
 }
+
+public static Offset Offset() {
+	return Offset.createObject().cast();
+}
+
+
 
 
 }
