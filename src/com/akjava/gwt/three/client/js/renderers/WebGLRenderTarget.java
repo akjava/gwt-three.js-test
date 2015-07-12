@@ -163,4 +163,8 @@ public final native void dispose()/*-{
 this.dispose();
 }-*/;
 
+public final native JavaScriptObject getWebglTexture()/*-{
+return this.__webglTexture;
+}-*/;
+
 }

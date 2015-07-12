@@ -62,6 +62,7 @@ public class MainWidget extends Composite {
 			new SimpleCubeDemo(),new SphereDemo(),new SplineDemo(),new LoadObjDemo()
 	,new ParticleDemo(),new ParticleSmoke(),new GeometryCube(),new CameraOrthoGraphics(),new HelloCSS3DDemo(),new PlainDemo(),new PickDemo(),new TileDemo(),
 	new SkeletonHelperDemo()
+			//new RenderTargetDemo() not complete
 	
 	//new AngleDemo(), some of them for test,others now upgrading
 			/*
