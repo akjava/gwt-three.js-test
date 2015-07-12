@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.akjava.gwt.lib.client.URLUtils;
+import com.akjava.gwt.threejsexamples.client.examples.MirrorExample;
 import com.akjava.gwt.threejsexamples.client.examples.animation.cloth.ClothExample;
 import com.akjava.gwt.threejsexamples.client.examples.animation.skinning.BlendingExample;
 import com.akjava.gwt.threejsexamples.client.examples.animation.skinning.MorphExample;
@@ -79,6 +80,8 @@ public class ThreejsExamples implements EntryPoint,ExampleOwner {
 		examples.add(new HorseExample());
 		examples.add(new OrbitExample());
 		examples.add(new VrStereoExample());
+		
+		examples.add(new MirrorExample());
 		
 		//TODO add scroll
 		for(Example exp:examples){

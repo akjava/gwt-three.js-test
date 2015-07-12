@@ -55,28 +55,28 @@ public final class MeshLambertMaterialParameter extends JSParameter{
 		return (MeshLambertMaterialParameter) parameter;
 	}
 
-	public final MeshBasicMaterialParameter color(int r,int g,int b){
+	public final MeshLambertMaterialParameter color(int r,int g,int b){
 		int c=(0xff & r)<<16| (0xff & g)<<8|(0xff & b);
 		return color(c);
 	}
-	public final native MeshBasicMaterialParameter color(int color)/*-{
+	public final native MeshLambertMaterialParameter color(int color)/*-{
 	this.color=color;
 	return this;
 	}-*/;
 	
-	public final MeshBasicMaterialParameter ambient(int r,int g,int b){
+	public final MeshLambertMaterialParameter ambient(int r,int g,int b){
 		int c=(0xff & r)<<16| (0xff & g)<<8|(0xff & b);
 		return ambient(c);
 	}
-	public final native MeshBasicMaterialParameter ambient(int ambient)/*-{
+	public final native MeshLambertMaterialParameter ambient(int ambient)/*-{
 	this.ambient=ambient;
 	return this;
 	}-*/;
-	public final MeshBasicMaterialParameter emissive(int r,int g,int b){
+	public final MeshLambertMaterialParameter emissive(int r,int g,int b){
 		int c=(0xff & r)<<16| (0xff & g)<<8|(0xff & b);
 		return emissive(c);
 	}
-	public final native MeshBasicMaterialParameter emissive(int emissive)/*-{
+	public final native MeshLambertMaterialParameter emissive(int emissive)/*-{
 	this.emissive=emissive;
 	return this;
 	}-*/;
@@ -103,7 +103,7 @@ public final class MeshLambertMaterialParameter extends JSParameter{
 	return this;
 	}-*/;
 	
-	public final native MeshBasicMaterialParameter alphaMap(Texture alphaMap)/*-{
+	public final native MeshLambertMaterialParameter alphaMap(Texture alphaMap)/*-{
 	this.alphaMap=alphaMap;
 	return this;
 	}-*/;
@@ -241,7 +241,7 @@ public final class MeshLambertMaterialParameter extends JSParameter{
 	this.alphaTest=alphaTest;
 	return this;
 	}-*/;
-	public final native MeshLambertMaterialParameter overdraw(double overdraw)/*-{
+	public final native MeshLambertMaterialParameter overdraw(boolean overdraw)/*-{
 	this.overdraw=overdraw;
 	return this;
 	}-*/;

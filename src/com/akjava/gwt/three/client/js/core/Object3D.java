@@ -385,16 +385,16 @@ public final native Object3D rotateOnAxis()/*-{
 return this.rotateOnAxis();
 }-*/;
 
-public final native Object3D rotateX()/*-{
-return this.rotateX();
+public final native Object3D rotateX(double angle)/*-{
+return this.rotateX(angle);
 }-*/;
 
-public final native Object3D rotateY()/*-{
-return this.rotateY();
+public final native Object3D rotateY(double angle)/*-{
+return this.rotateY(angle);
 }-*/;
 
-public final native Object3D rotateZ()/*-{
-return this.rotateZ();
+public final native Object3D rotateZ(double angle)/*-{
+return this.rotateZ(angle);
 }-*/;
 
 public final native Object3D translateOnAxis()/*-{
@@ -405,16 +405,16 @@ public final native Object3D translate(double distance,Vector3 axis)/*-{
 return this.translate(distance,axis);
 }-*/;
 
-public final native Object3D translateX()/*-{
-return this.translateX();
+public final native Object3D translateX(double distance)/*-{
+return this.translateX(distance);
 }-*/;
 
-public final native Object3D translateY()/*-{
-return this.translateY();
+public final native Object3D translateY(double distance)/*-{
+return this.translateY(distance);
 }-*/;
 
-public final native Object3D translateZ()/*-{
-return this.translateZ();
+public final native Object3D translateZ(double distance)/*-{
+return this.translateZ(distance);
 }-*/;
 
 public final native Vector3 localToWorld(Vector3 vector)/*-{

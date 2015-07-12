@@ -5,8 +5,10 @@ import com.akjava.gwt.three.client.examples.js.controls.OrbitControls;
 import com.akjava.gwt.three.client.examples.js.controls.VRControls;
 import com.akjava.gwt.three.client.examples.js.controls.VRControls.VRControlCallbackHandler;
 import com.akjava.gwt.three.client.examples.js.effects.StereoEffect;
+import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Element;
 
 /*
@@ -39,6 +41,11 @@ public class THREEExp {
  */
 	public static final native StereoEffect StereoEffect(WebGLRenderer renderer)/*-{
 	return new $wnd.THREE.StereoEffect(renderer);
+	}-*/;
+	
+	//need Mirror.js
+	public static final native Mirror Mirror(WebGLRenderer renderer,Camera camera,JavaScriptObject options)/*-{
+	return new $wnd.THREE.Mirror(renderer,camera,options);
 	}-*/;
 	
 }

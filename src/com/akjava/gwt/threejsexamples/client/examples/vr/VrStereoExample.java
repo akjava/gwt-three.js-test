@@ -35,7 +35,7 @@ public class VrStereoExample extends AbstractExample{
 
 	@Override
 	public String getName() {
-		return "vr/stereo-cubes";
+		return "mirror";
 	}
 
 	@Override
