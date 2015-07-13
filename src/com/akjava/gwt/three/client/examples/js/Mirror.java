@@ -1,8 +1,7 @@
 package com.akjava.gwt.three.client.examples.js;
 
 import com.akjava.gwt.three.client.js.core.Object3D;
-import com.akjava.gwt.three.client.js.materials.Material;
-import com.google.gwt.core.client.JavaScriptObject;
+import com.akjava.gwt.three.client.js.materials.ShaderMaterial;
 
 
 /**
@@ -44,7 +43,8 @@ public class Mirror extends Object3D{
 	this.renderTemp();
 	}-*/;
 	
-	public  final native Material getMaterial()/*-{
+	//original material 
+	public  final native ShaderMaterial getMaterial()/*-{
 	return this.material;
 	}-*/;
 }

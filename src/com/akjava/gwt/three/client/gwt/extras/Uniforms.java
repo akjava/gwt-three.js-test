@@ -1,5 +1,6 @@
 package com.akjava.gwt.three.client.gwt.extras;
 
+import com.akjava.gwt.three.client.js.math.Color;
 import com.akjava.gwt.three.client.js.textures.Texture;
 import com.google.gwt.core.client.JavaScriptObject;
 
@@ -9,7 +10,7 @@ public  class Uniforms extends JavaScriptObject{
 	}
 	
 	protected Uniforms(){}
-	//TODO test and more
+	//TODO test and more,why need type?
 	public native final Uniforms setDouble(String key,double value)/*-{
 	this[key]={type:"f",value:value};
 	return this;
@@ -29,8 +30,14 @@ public  class Uniforms extends JavaScriptObject{
 	public native final void set(String key,Texture texture)/*-{
 	this[key].value=texture;
 	}-*/;
+	public native final void set(String key,Color value)/*-{
+	this[key].value=value;
+	}-*/;
 	public native final void set(String key,boolean bool)/*-{
 	this[key].value=bool;
+	}-*/;
+	public native final void set(String key,double value)/*-{
+	this[key].value=value;
 	}-*/;
 	public native final void setHex(String key,int hex)/*-{
 	this[key].value.setHex(hex);

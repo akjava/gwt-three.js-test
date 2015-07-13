@@ -55,11 +55,11 @@ public final native JsArray<ImageElement> getImages()/*-{
 return this.images;
 }-*/;
 
-public void gwtSetImageAt(int index,ImageElement element){
+public final void gwtSetImageAt(int index,ImageElement element){
 	getImages().set(index, element);
 }
 
-public void gwtSetImageAt(int index,CanvasElement element){
+public final void gwtSetImageAt(int index,CanvasElement element){
 	getImages().set(index, (ImageElement)element.cast());
 }
 

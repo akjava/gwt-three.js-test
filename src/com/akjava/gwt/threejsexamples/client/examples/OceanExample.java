@@ -1,6 +1,11 @@
 package com.akjava.gwt.threejsexamples.client.examples;
 
-import com.akjava.gwt.lib.client.LogUtils;
+import com.akjava.gwt.html5.client.file.File;
+import com.akjava.gwt.html5.client.file.FileUploadForm;
+import com.akjava.gwt.html5.client.file.FileUtils;
+import com.akjava.gwt.html5.client.file.FileUtils.DataURLListener;
+import com.akjava.gwt.lib.client.CanvasUtils;
+import com.akjava.gwt.lib.client.ImageElementUtils;
 import com.akjava.gwt.stats.client.Stats;
 import com.akjava.gwt.three.client.examples.js.GWTExampleParamUtils;
 import com.akjava.gwt.three.client.examples.js.THREEExp;
@@ -25,8 +30,18 @@ import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.three.client.js.textures.CubeTexture;
 import com.akjava.gwt.three.client.js.textures.Texture;
 import com.akjava.gwt.threejsexamples.client.AbstractExample;
+import com.akjava.gwt.threejsexamples.client.LabeledInputColorBoxWidget;
+import com.akjava.gwt.threejsexamples.client.LabeledInputRangeWidget;
+import com.akjava.lib.common.utils.ColorUtils;
+import com.google.gwt.canvas.client.Canvas;
 import com.google.gwt.dom.client.ImageElement;
 import com.google.gwt.dom.client.NativeEvent;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.FocusPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
@@ -121,11 +136,21 @@ public class OceanExample extends AbstractExample{
 		light.getPosition().set( - 1, 1, - 1 );//light.position.set( - 1, 1, - 1 );
 		scene.add( light );
 		
-
+//waternormals
 		waterNormals = ImageUtils.loadTexture( "textures/waternormals.jpg" );//waterNormals = new THREE.ImageUtils.loadTexture( 'textures/waternormals.jpg' );
 		waterNormals.setWrapS(THREE.RepeatWrapping);//waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping;
 		waterNormals.setWrapT(THREE.RepeatWrapping);
-		water = THREEExp.Water( renderer, camera, scene, GWTExampleParamUtils.Water().textureWidth(512).textureHeight(512).waterNormals(waterNormals).alpha(1.0).sunDirection(light.getPosition().clone().normalize()).sunColor(0xffffff).waterColor(0x001e0f).distortionScale(50.0) );
+		water = THREEExp.Water( renderer, camera, scene, GWTExampleParamUtils.Water().
+				textureWidth(512).
+				textureHeight(512).
+				waterNormals(waterNormals).
+				alpha(1.0).
+				sunDirection(light.getPosition().clone().normalize()).
+				sunColor(0xffffff).
+				waterColor(0x001e0f).
+				distortionScale(50.0) 
+				);
+		
 	
 		mirrorMesh = THREE.Mesh(//mirrorMesh = new THREE.Mesh(
 				THREE.PlaneBufferGeometry( parametersWidth * 500, parametersHeight * 500 ),//new THREE.PlaneBufferGeometry( parameters.width * 500, parameters.height * 500 ),
@@ -199,7 +224,7 @@ public class OceanExample extends AbstractExample{
 					
 	}
 
-	//forced convert
+	//forced convert canvas as imageelement
 	public   native final ImageElement getSide(ImageElement image,int x,int y)/*-{
 				var size = 1024;
 
@@ -220,6 +245,115 @@ public class OceanExample extends AbstractExample{
 		gui.setWidth("200px");//some widget broke,like checkbox without parent size
 		gui.setSpacing(2);
 		
+		CheckBox showSphere=new CheckBox("show sphere");
+		showSphere.setValue(true);
+		gui.add(showSphere);
+		showSphere.addValueChangeHandler(new ValueChangeHandler<Boolean>() {
+			
+			@Override
+			public void onValueChange(ValueChangeEvent<Boolean> event) {
+				sphere.setVisible(event.getValue());
+			}
+		});
+		
+		LabeledInputRangeWidget distortionScale=new LabeledInputRangeWidget("distortionScale", 10, 400, 10);
+		gui.add(distortionScale);
+		distortionScale.setValue(50);
+		distortionScale.addtRangeListener(new ValueChangeHandler<Number>() {
+
+			@Override
+			public void onValueChange(ValueChangeEvent<Number> event) {
+				water.getMaterial().getUniforms().set("distortionScale", event.getValue().doubleValue());
+			}
+			
+		});
+		
+		LabeledInputRangeWidget alpha=new LabeledInputRangeWidget("alpha", 0.05, 1, 0.05);
+		gui.add(alpha);
+		alpha.setValue(1);
+		alpha.addtRangeListener(new ValueChangeHandler<Number>() {
+
+			@Override
+			public void onValueChange(ValueChangeEvent<Number> event) {
+				water.getMaterial().getUniforms().set("alpha", event.getValue().doubleValue());
+			}
+			
+		});
+		
+		LabeledInputRangeWidget speed=new LabeledInputRangeWidget("speed", 1, 200,1);
+		gui.add(speed);
+		speed.setValue(60);
+		speed.addtRangeListener(new ValueChangeHandler<Number>() {
+
+			@Override
+			public void onValueChange(ValueChangeEvent<Number> event) {
+				//water.getMaterial().getUniforms().set("alpha", event.getValue().doubleValue());
+				timeSplit=event.getValue().doubleValue();
+			}
+			
+		});
+		
+		LabeledInputColorBoxWidget waterColor=new LabeledInputColorBoxWidget("waterColor");
+		waterColor.setValue("#001E0F");
+		waterColor.addListener(new ValueChangeHandler<String>() {
+			@Override
+			public void onValueChange(ValueChangeEvent<String> event) {
+				int value=ColorUtils.toColor(ColorUtils.toRGB(event.getValue()));
+				water.getMaterial().getUniforms().set("waterColor", THREE.Color(value));
+			}
+		});
+		gui.add(waterColor);
+		
+		LabeledInputColorBoxWidget sunColor=new LabeledInputColorBoxWidget("sunColor");
+		sunColor.setValue("#ffffff");
+		sunColor.addListener(new ValueChangeHandler<String>() {
+			@Override
+			public void onValueChange(ValueChangeEvent<String> event) {
+				int value=ColorUtils.toColor(ColorUtils.toRGB(event.getValue()));
+				water.getMaterial().getUniforms().set("sunColor", THREE.Color(value));
+			}
+		});
+		gui.add(sunColor);
+		
+		final FileUploadForm fileUpload=FileUtils.createSingleFileUploadForm(new DataURLListener() {
+			@Override
+			public void uploaded(File file, String text) {
+				ImageElement image=ImageElementUtils.create(text);
+				int w=image.getWidth();
+				int h=image.getHeight();
+				
+				//LogUtils.log(w+"x"+h);
+				Texture texture;
+				if(w!=1024 || h!=1024){
+					Canvas canvas=CanvasUtils.createCanvas(1024, 1024);
+					CanvasUtils.drawFitCenter(canvas, image);
+					
+					texture=ImageUtils.loadTexture(canvas.toDataUrl());
+				}else{
+					texture=ImageUtils.loadTexture(text);
+				}
+				
+				texture.setWrapS(THREE.RepeatWrapping);//waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping;
+				texture.setWrapT(THREE.RepeatWrapping);
+				
+				water.getMaterial().getUniforms().set("normalSampler", texture);//somehow normalSampler
+				//water.updateTextureMatrix();
+			}
+		},false);
+		fileUpload.setAccept(FileUploadForm.ACCEPT_IMAGE);
+	
+		gui.add(fileUpload);
+		
+		Button resetTexture=new Button("resetTexture",new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				fileUpload.reset();
+				water.getMaterial().getUniforms().set("normalSampler", waterNormals);
+				
+			}
+		});
+		gui.add(resetTexture);
 	}
 	
 
@@ -238,7 +372,7 @@ public class OceanExample extends AbstractExample{
 		
 	}
 	
-	
+	private double timeSplit=60;
 	public void render(double now) {//GWT animateFrame has time
 		double time = now * 0.001;
 	
@@ -246,7 +380,7 @@ public class OceanExample extends AbstractExample{
 		sphere.getRotation().setX(time * 0.5);//sphere.rotation.x = time * 0.5;
 		sphere.getRotation().setZ(time * 0.51);//sphere.rotation.z = time * 0.51;
 		
-		((ShaderMaterial)water.getMaterial().cast()).getUniforms().gwtIncrementValue("time",  1.0 / 60.0);//water.material.uniforms.time.value += 1.0 / 60.0;
+		((ShaderMaterial)water.getMaterial().cast()).getUniforms().gwtIncrementValue("time",  1.0 / timeSplit);//water.material.uniforms.time.value += 1.0 / 60.0;
 		controls.update();
 		
 		water.render();
