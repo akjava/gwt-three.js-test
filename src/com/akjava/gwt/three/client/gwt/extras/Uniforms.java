@@ -14,6 +14,14 @@ public  class Uniforms extends JavaScriptObject{
 	this[key]={type:"f",value:value};
 	return this;
 	}-*/;
+	
+	
+	public native final Uniforms gwtIncrementValue(String key,double value)/*-{
+	this[key].value+=value;
+	return this;
+	}-*/;
+	
+	
 	public native final Uniforms setTexture(String key,Texture texture)/*-{
 	this[key]={type:"t",value:texture};
 	return this;

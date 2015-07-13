@@ -38,6 +38,7 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client.js.textures;
 
 import com.google.gwt.core.client.JsArray;
+import com.google.gwt.dom.client.CanvasElement;
 import com.google.gwt.dom.client.ImageElement;
 
 
@@ -47,14 +48,20 @@ public class CubeTexture extends Texture{
 
 	
 /**
- * 	
+ * 	If you'd like to set Canvas Element
  * @return this.image = { data: data, width: width, height: height };
  */
 public final native JsArray<ImageElement> getImages()/*-{
 return this.images;
 }-*/;
 
+public void gwtSetImageAt(int index,ImageElement element){
+	getImages().set(index, element);
+}
 
+public void gwtSetImageAt(int index,CanvasElement element){
+	getImages().set(index, (ImageElement)element.cast());
+}
 
 public final native CubeTexture clone(CubeTexture texture)/*-{
 return this.clone(texture);

@@ -35,7 +35,7 @@ public class VrStereoExample extends AbstractExample{
 
 	@Override
 	public String getName() {
-		return "mirror";
+		return "vr/cubes";
 	}
 
 	@Override
@@ -102,8 +102,6 @@ public class VrStereoExample extends AbstractExample{
 		scene.add( object );
 
 		}
-
-		LogUtils.log("2");
 		raycaster = THREE.Raycaster();//raycaster = new THREE.Raycaster();
 
 		
@@ -124,7 +122,6 @@ public class VrStereoExample extends AbstractExample{
 		vrEffect.setFullScreen( true );
 		};
 		*/
-		LogUtils.log("3");
 		vrControls = THREEExp.VRControls(camera);//vrControls = new THREE.VRControls(camera);
 		mouseControls = THREEExp.MouseControls(camera);//mouseControls = new THREE.MouseControls(camera);
 		headControls = vrControls;
@@ -142,7 +139,6 @@ public class VrStereoExample extends AbstractExample{
 		}
 		}
 		*/
-		LogUtils.log("4");
 		vrEffect = THREEExp.StereoEffect(renderer);
 
 		

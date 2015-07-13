@@ -7,4 +7,8 @@ public class GWTExampleParamUtils {
 	public static MirrorParameter Mirror(){
 		return MirrorParameter.create();
 	}
+	
+	public static WaterParameter Water(){
+		return WaterParameter.create();
+	}
 }

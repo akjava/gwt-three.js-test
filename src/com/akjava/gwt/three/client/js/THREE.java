@@ -65,6 +65,7 @@ import com.akjava.gwt.three.client.js.core.Face3;
 import com.akjava.gwt.three.client.js.core.Geometry;
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.akjava.gwt.three.client.js.core.Raycaster;
+import com.akjava.gwt.three.client.js.extras.ImageUtils;
 import com.akjava.gwt.three.client.js.extras.animation.Animation;
 import com.akjava.gwt.three.client.js.extras.animation.AnimationMorphTarget;
 import com.akjava.gwt.three.client.js.extras.animation.KeyFrameAnimation;
@@ -551,6 +552,10 @@ return new $wnd.THREE.ArrowHelper(size);
 	
 	public static  native final GeometryLoader GeometryLoader(LoadingManager manager)/*-{
 	return  new $wnd.THREE.GeometryLoader(manager);
+	}-*/;
+	
+	public static  native final ImageLoader ImageLoader()/*-{
+	return  new $wnd.THREE.ImageLoader();
 	}-*/;
 	
 	public static  native final ImageLoader ImageLoader(LoadingManager manager)/*-{
@@ -1324,6 +1329,9 @@ return new $wnd.THREE.ArrowHelper(size);
 	return new $wnd.THREE.SkeletonHelper(object);
 	}-*/;
 	
+	public static  native final CubeTexture CubeTexture()/*-{
+	return  new $wnd.THREE.CubeTexture([]);
+	}-*/;
 	public static  native final CubeTexture CubeTexture(JsArray<ImageElement> images,JavaScriptObject mapping, int wrapS,int  wrapT, int magFilter,int minFilter,int format,int type,int anisotropy)/*-{
 	return  new $wnd.THREE.CubeTexture(images,mapping, wrapS, wrapT, magFilter, minFilter, format, type, anisotropy);
 	}-*/;

@@ -8,6 +8,7 @@ import com.akjava.gwt.three.client.examples.js.effects.StereoEffect;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
+import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Element;
 
@@ -34,6 +35,7 @@ public class THREEExp {
 		});
 	}-*/;
 	
+	
 /**
  * 
  * @param renderer only WebGLRenderer support on this lib
@@ -46,6 +48,11 @@ public class THREEExp {
 	//need Mirror.js
 	public static final native Mirror Mirror(WebGLRenderer renderer,Camera camera,JavaScriptObject options)/*-{
 	return new $wnd.THREE.Mirror(renderer,camera,options);
+	}-*/;
+	
+	//need WaterShader.js
+	public static final native Water Water(WebGLRenderer renderer,Camera camera,Scene scene,JavaScriptObject options)/*-{
+	return new $wnd.THREE.Water(renderer,camera,scene,options);
 	}-*/;
 	
 }

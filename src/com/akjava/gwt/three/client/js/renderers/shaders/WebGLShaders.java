@@ -35,7 +35,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
   
  */
-package com.akjava.gwt.three.client.js.renderers;
+package com.akjava.gwt.three.client.js.renderers.shaders;
 
 import com.akjava.gwt.three.client.gwt.extras.Shader;
 import com.akjava.gwt.three.client.gwt.extras.Uniforms;
@@ -283,27 +283,27 @@ private UniformsLib(){}
 		
 		
 		public static final native Shader dashed()/*-{
-		return THREE.ShaderLib.dashed;
+		return $wnd.THREE.ShaderLib.dashed;
 		}-*/;
 		
 		public static final native Shader depth()/*-{
-		return THREE.ShaderLib.depth;
+		return $wnd.THREE.ShaderLib.depth;
 		}-*/;
 		
 		public static final native Shader normal()/*-{
-		return THREE.ShaderLib.normal;
+		return $wnd.THREE.ShaderLib.normal;
 		}-*/;
 		
 		public static final native Shader normalmap()/*-{
-		return THREE.ShaderLib.normalmap;
+		return $wnd.THREE.ShaderLib.normalmap;
 		}-*/;
 		
 		public static final native Shader cube()/*-{
-		return THREE.ShaderLib.cube;
+		return $wnd.THREE.ShaderLib.cube;
 		}-*/;
 		
 		public static final native Shader depthRGBA()/*-{
-		return THREE.ShaderLib.depthRGBA;
+		return $wnd.THREE.ShaderLib.depthRGBA;
 		}-*/;
 		
 	}
