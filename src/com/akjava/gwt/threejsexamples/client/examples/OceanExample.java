@@ -6,6 +6,7 @@ import com.akjava.gwt.html5.client.file.FileUtils;
 import com.akjava.gwt.html5.client.file.FileUtils.DataURLListener;
 import com.akjava.gwt.lib.client.CanvasUtils;
 import com.akjava.gwt.lib.client.ImageElementUtils;
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.stats.client.Stats;
 import com.akjava.gwt.three.client.examples.js.GWTExampleParamUtils;
 import com.akjava.gwt.three.client.examples.js.THREEExp;
@@ -13,6 +14,7 @@ import com.akjava.gwt.three.client.examples.js.Water;
 import com.akjava.gwt.three.client.examples.js.controls.OrbitControls;
 import com.akjava.gwt.three.client.gwt.GWTParamUtils;
 import com.akjava.gwt.three.client.gwt.extras.Shader;
+import com.akjava.gwt.three.client.java.Skybox;
 import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.PerspectiveCamera;
@@ -40,9 +42,11 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.FocusPanel;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 
@@ -162,7 +166,7 @@ public class OceanExample extends AbstractExample{
 				scene.add( mirrorMesh );
 				
 				
-				final CubeTexture cubeMap = THREE.CubeTexture();//var cubeMap = new THREE.CubeTexture( [] );
+				cubeMap = THREE.CubeTexture();
 				cubeMap.setFormat(THREE.RGBFormat);//cubeMap.format = THREE.RGBFormat;
 				cubeMap.setFlipY(false);//cubeMap.flipY = false;
 
@@ -177,6 +181,10 @@ public class OceanExample extends AbstractExample{
 					
 					@Override
 					public void onLoad(ImageElement imageElement) {
+						Skybox skybox=new Skybox(imageElement);
+						skybox.setToCubeTexture(cubeMap);
+						LogUtils.log(cubeMap);
+						/*
 						cubeMap.getImages().set(0, getSide(imageElement,2,1));
 						cubeMap.getImages().set(1, getSide(imageElement,0,1));
 						cubeMap.getImages().set(2, getSide(imageElement,1,0));
@@ -184,6 +192,7 @@ public class OceanExample extends AbstractExample{
 						cubeMap.getImages().set(4, getSide(imageElement,1,1));
 						cubeMap.getImages().set(5, getSide(imageElement,3,1));
 						cubeMap.setNeedsUpdate(true);//cubeMap.needsUpdate = true;
+						*/
 					}
 					
 					@Override
@@ -192,6 +201,9 @@ public class OceanExample extends AbstractExample{
 						
 					}
 				});
+				
+				
+				
 			
 				Shader cubeShader = ShaderLib.cube();
 				cubeShader.uniforms().set("tCube",cubeMap);//cubeShader.uniforms['tCube'].value = cubeMap;
@@ -314,7 +326,7 @@ public class OceanExample extends AbstractExample{
 			}
 		});
 		gui.add(sunColor);
-		
+		gui.add(new Label("WaterNormals"));
 		final FileUploadForm fileUpload=FileUtils.createSingleFileUploadForm(new DataURLListener() {
 			@Override
 			public void uploaded(File file, String text) {
@@ -354,6 +366,27 @@ public class OceanExample extends AbstractExample{
 			}
 		});
 		gui.add(resetTexture);
+		
+		gui.add(new Label("Skybox"));
+		final FileUploadForm fileUpload2=FileUtils.createSingleFileUploadForm(new DataURLListener() {
+			@Override
+			public void uploaded(File file, String text) {
+				ImageElement image=ImageElementUtils.create(text);
+				
+				if(!Skybox.isValidImage(image)){
+					Window.alert("invalid skybox image-size");
+					return;
+				}
+				
+				Skybox skybox=new Skybox(image);
+				skybox.setToCubeTexture(cubeMap);
+				
+				//water.updateTextureMatrix();
+			}
+		},false);
+		fileUpload2.setAccept(FileUploadForm.ACCEPT_IMAGE);
+	
+		gui.add(fileUpload2);
 	}
 	
 
@@ -373,6 +406,7 @@ public class OceanExample extends AbstractExample{
 	}
 	
 	private double timeSplit=60;
+	private CubeTexture cubeMap;
 	public void render(double now) {//GWT animateFrame has time
 		double time = now * 0.001;
 	
