@@ -54,5 +54,9 @@ public class THREEExp {
 	public static final native Water Water(WebGLRenderer renderer,Camera camera,Scene scene,JavaScriptObject options)/*-{
 	return new $wnd.THREE.Water(renderer,camera,scene,options);
 	}-*/;
-	
+
+	//need Ocean.js
+		public static final native Ocean Ocean(WebGLRenderer renderer,Camera camera,Scene scene,JavaScriptObject options)/*-{
+		return new $wnd.THREE.Ocean(renderer,camera,scene,options);
+		}-*/;
 }

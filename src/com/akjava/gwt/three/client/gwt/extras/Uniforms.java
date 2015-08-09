@@ -4,6 +4,9 @@ import com.akjava.gwt.three.client.js.math.Color;
 import com.akjava.gwt.three.client.js.textures.Texture;
 import com.google.gwt.core.client.JavaScriptObject;
 
+/*
+ *  Cannot set property 'value' of undefined is usually TYPO
+ */
 public  class Uniforms extends JavaScriptObject{
 	public final static Uniforms create(){
 		return (Uniforms) Uniforms.createObject();
@@ -44,5 +47,9 @@ public  class Uniforms extends JavaScriptObject{
 	}-*/;
 	public native final void set(String key,double x,double y)/*-{
 	this[key].value.set(x,y);
+	}-*/;
+	
+	public native final void set(String key,double x,double y,double z)/*-{
+	this[key].value.set(x,y,z);
 	}-*/;
 }

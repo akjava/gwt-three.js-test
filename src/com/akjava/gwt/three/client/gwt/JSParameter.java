@@ -1,6 +1,7 @@
 package com.akjava.gwt.three.client.gwt;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArrayNumber;
 
 /*
  * i'm not sure 
@@ -52,4 +53,13 @@ public class JSParameter extends JavaScriptObject{
 	this[key]=value;
 	return this;
 	}-*/;
+	
+	//work?
+	public  final void setArray(String key,double... values){
+		JsArrayNumber arrays=JsArrayNumber.createArray().cast();
+		for(double v:values){
+			arrays.push(v);
+		}
+		set(key,arrays);
+	}
 }

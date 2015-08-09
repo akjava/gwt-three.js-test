@@ -38,6 +38,7 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client.js.renderers;
 
 import com.akjava.gwt.three.client.gwt.JSParameter;
+import com.akjava.gwt.three.client.gwt.renderers.WebGLContext;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Geometry;
 import com.akjava.gwt.three.client.js.materials.Material;
@@ -62,7 +63,7 @@ public class WebGLRenderer extends JavaScriptObject{
 	
 	
 	//i have no idea
-	public final native JavaScriptObject getContext()/*-{
+	public final native WebGLContext getContext()/*-{
 	return this.context;
 	}-*/;
 	
