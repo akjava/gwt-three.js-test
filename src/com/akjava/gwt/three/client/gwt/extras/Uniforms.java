@@ -1,6 +1,9 @@
 package com.akjava.gwt.three.client.gwt.extras;
 
 import com.akjava.gwt.three.client.js.math.Color;
+import com.akjava.gwt.three.client.js.math.Matrix4;
+import com.akjava.gwt.three.client.js.math.Vector3;
+import com.akjava.gwt.three.client.js.renderers.WebGLRenderTarget;
 import com.akjava.gwt.three.client.js.textures.Texture;
 import com.google.gwt.core.client.JavaScriptObject;
 
@@ -14,7 +17,7 @@ public  class Uniforms extends JavaScriptObject{
 	
 	protected Uniforms(){}
 	//TODO test and more,why need type?
-	public native final Uniforms setDouble(String key,double value)/*-{
+	public native final Uniforms setTypeAndValue(String key,double value)/*-{
 	this[key]={type:"f",value:value};
 	return this;
 	}-*/;
@@ -26,13 +29,17 @@ public  class Uniforms extends JavaScriptObject{
 	}-*/;
 	
 	
-	public native final Uniforms setTexture(String key,Texture texture)/*-{
+	public native final Uniforms setTypeAndValue(String key,Texture texture)/*-{
 	this[key]={type:"t",value:texture};
 	return this;
 	}-*/;
 	public native final void set(String key,Texture texture)/*-{
 	this[key].value=texture;
 	}-*/;
+	public native final void set(String key,WebGLRenderTarget texture)/*-{
+	this[key].value=texture;
+	}-*/;
+	
 	public native final void set(String key,Color value)/*-{
 	this[key].value=value;
 	}-*/;
@@ -51,5 +58,12 @@ public  class Uniforms extends JavaScriptObject{
 	
 	public native final void set(String key,double x,double y,double z)/*-{
 	this[key].value.set(x,y,z);
+	}-*/;
+	
+	public native final void set(String key,Matrix4 matrix)/*-{
+	this[key].value=matrix
+	}-*/;
+	public native final void set(String key,Vector3 vector)/*-{
+	this[key].value=vector
 	}-*/;
 }

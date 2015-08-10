@@ -123,7 +123,7 @@ public class ClothExample extends AbstractExample {
 		clothGeometry.computeFaceNormals();
 
 		//shadow
-		Uniforms uniforms=Uniforms.create().setTexture("texture", clothTexture);
+		Uniforms uniforms=Uniforms.create().setTypeAndValue("texture", clothTexture);
 		String vertexShader=Bundles.INSTANCE.vertexShaderDepth().getText();
 		String fragmentShader=Bundles.INSTANCE.fragmentShaderDepth().getText();
 		// cloth mesh

@@ -55,7 +55,7 @@ public class Ocean extends JavaScriptObject{
 	protected Ocean() {
 	}
 	
-	public final native void gwtSetUniforms(Camera camera)/*-{
+	public final native void gwtInitUniforms(Camera camera)/*-{
 	this.materialOcean.uniforms.u_projectionMatrix = { type: "m4", value: camera.projectionMatrix };
 	this.materialOcean.uniforms.u_viewMatrix = { type: "m4", value: camera.matrixWorldInverse };
 	this.materialOcean.uniforms.u_cameraPosition = { type: "v3", value: camera.position };
@@ -232,20 +232,20 @@ this.floatSize = floatSize;
 }-*/;
 
 
-public final native Object getWindX()/*-{
+public final native double getWindX()/*-{
 return this.windX;
 }-*/;
 
-public final native void setWindX(Object windX)/*-{
+public final native void setWindX(double windX)/*-{
 this.windX = windX;
 }-*/;
 
 
-public final native Object getWindY()/*-{
+public final native double getWindY()/*-{
 return this.windY;
 }-*/;
 
-public final native void setWindY(Object windY)/*-{
+public final native void setWindY(double windY)/*-{
 this.windY = windY;
 }-*/;
 
@@ -259,11 +259,11 @@ this.size = size;
 }-*/;
 
 
-public final native Object getChoppiness()/*-{
+public final native double getChoppiness()/*-{
 return this.choppiness;
 }-*/;
 
-public final native void setChoppiness(Object choppiness)/*-{
+public final native void setChoppiness(double choppiness)/*-{
 this.choppiness = choppiness;
 }-*/;
 

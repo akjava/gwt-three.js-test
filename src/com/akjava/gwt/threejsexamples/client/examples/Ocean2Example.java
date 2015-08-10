@@ -118,10 +118,10 @@ public class Ocean2Example extends AbstractExample{
 		controls.setMinDistance(0);//ms_Controls.minDistance = 0;
 		controls.setMaxDistance(2000.0);//ms_Controls.maxDistance = 2000.0;
 		controls.setMinPolarAngle(0);//ms_Controls.minPolarAngle = 0;
-		controls.setMaxPolarAngle(Math.PI * 0.495);//ms_Controls.maxPolarAngle = Math.PI * 0.495;
+		//controls.setMaxPolarAngle(Math.PI * 0.495);//ms_Controls.maxPolarAngle = Math.PI * 0.495;
 
-		double gsize = 512;//var gsize = 512;
-		double res = 1024;//var res = 1024;
+		double gsize = 128;//var gsize = 512; //512 is 30fps,256 is wrong,128 is better
+		double res = gsize*2;//var res = 1024;
 		double gres = res / 2;
 		double origx = -gsize / 2;
 		double origz = -gsize / 2;
@@ -159,7 +159,7 @@ public class Ocean2Example extends AbstractExample{
 		
 		//create ocean
 		ocean = THREEExp.Ocean(renderer, camera, scene,param);
-		ocean.gwtSetUniforms(camera);
+		ocean.gwtInitUniforms(camera);
 		
 		scene.add(ocean.getOceanMesh());
 		
@@ -202,7 +202,106 @@ public class Ocean2Example extends AbstractExample{
 		gui.setWidth("200px");//some widget broke,like checkbox without parent size
 		gui.setSpacing(2);
 		
-		//TODO implement GUI
+		LabeledInputRangeWidget size=new LabeledInputRangeWidget("size", 10, 1000,10);
+		gui.add(size);
+		size.setValue(ocean.getSize());
+		size.addtRangeListener(new ValueChangeHandler<Number>() {
+
+			@Override
+			public void onValueChange(ValueChangeEvent<Number> event) {
+				ocean.setSize(event.getValue().doubleValue());
+				ocean.setChanged(true);
+			}
+			
+		});
+		LabeledInputRangeWidget choppiness=new LabeledInputRangeWidget("choppiness", 0.1, 4,0.1);
+		gui.add(choppiness);
+		choppiness.setValue(ocean.getChoppiness());
+		choppiness.addtRangeListener(new ValueChangeHandler<Number>() {
+
+			@Override
+			public void onValueChange(ValueChangeEvent<Number> event) {
+				ocean.setChoppiness(event.getValue().doubleValue());
+				ocean.setChanged(true);
+			}
+			
+		});
+		
+		LabeledInputRangeWidget windX=new LabeledInputRangeWidget("windX",-15, 15,1);
+		gui.add(windX);
+		windX.setValue(ocean.getWindX());
+		windX.addtRangeListener(new ValueChangeHandler<Number>() {
+
+			@Override
+			public void onValueChange(ValueChangeEvent<Number> event) {
+				ocean.setWindX(event.getValue().doubleValue());
+				ocean.setChanged(true);
+			}
+			
+		});
+		
+		LabeledInputRangeWidget windY=new LabeledInputRangeWidget("windY",-15, 15,1);
+		gui.add(windY);
+		windY.setValue(ocean.getWindY());
+		windY.addtRangeListener(new ValueChangeHandler<Number>() {
+
+			@Override
+			public void onValueChange(ValueChangeEvent<Number> event) {
+				ocean.setWindY(event.getValue().doubleValue());
+				ocean.setChanged(true);
+			}
+			
+		});
+		LabeledInputRangeWidget sunDirectionX=new LabeledInputRangeWidget("sunDirectionX", -1.0, 1.0,0.1);
+		gui.add(sunDirectionX);
+		sunDirectionX.setValue(ocean.getSunDirectionX());
+		sunDirectionX.addtRangeListener(new ValueChangeHandler<Number>() {
+
+			@Override
+			public void onValueChange(ValueChangeEvent<Number> event) {
+				ocean.setSunDirectionX(event.getValue().doubleValue());
+				ocean.setChanged(true);
+			}
+			
+		});
+		LabeledInputRangeWidget sunDirectionY=new LabeledInputRangeWidget("sunDirectionY", -1.0, 1.0,0.1);
+		gui.add(sunDirectionY);
+		sunDirectionY.setValue(ocean.getSunDirectionY());
+		sunDirectionY.addtRangeListener(new ValueChangeHandler<Number>() {
+
+			@Override
+			public void onValueChange(ValueChangeEvent<Number> event) {
+				ocean.setSunDirectionY(event.getValue().doubleValue());
+				ocean.setChanged(true);
+			}
+			
+		});
+		LabeledInputRangeWidget sunDirectionZ=new LabeledInputRangeWidget("sunDirectionZ", -1.0, 1.0,0.1);
+		gui.add(sunDirectionZ);
+		sunDirectionZ.setValue(ocean.getSunDirectionZ());
+		sunDirectionZ.addtRangeListener(new ValueChangeHandler<Number>() {
+
+			@Override
+			public void onValueChange(ValueChangeEvent<Number> event) {
+				ocean.setSunDirectionZ(event.getValue().doubleValue());
+				ocean.setChanged(true);
+			}
+			
+		});
+		
+		LabeledInputRangeWidget exposure=new LabeledInputRangeWidget("exposure", 0, 0.5,0.01);
+		gui.add(exposure);
+		sunDirectionZ.setValue(ocean.getExposure());
+		sunDirectionZ.addtRangeListener(new ValueChangeHandler<Number>() {
+
+			@Override
+			public void onValueChange(ValueChangeEvent<Number> event) {
+				ocean.setExposure(event.getValue().doubleValue());
+				ocean.setChanged(true);
+			}
+			
+		});
+		
 	}
 	
 
@@ -230,13 +329,20 @@ public class Ocean2Example extends AbstractExample{
 		//TODO overwrite
 		ocean.setOverrideMaterial(ocean.getMaterialOcean());
 		
-		//must need and ocean is initialized changed
+		//must need and ocean is changed=false on initialized 
 		if(ocean.isChanged()){
 			ocean.getMaterialOcean().getUniforms().set("u_size", ocean.getSize());
 			ocean.getMaterialOcean().getUniforms().set("u_sunDirection",ocean.getSunDirectionX(),ocean.getSunDirectionY(),ocean.getSunDirectionZ());
 			ocean.getMaterialOcean().getUniforms().set("u_exposure", ocean.getExposure());
 			ocean.setChanged(false);
 		}
+		
+		ocean.getMaterialOcean().getUniforms().set("u_normalMap", ocean.getNormalMapFramebuffer());
+		ocean.getMaterialOcean().getUniforms().set("u_displacementMap", ocean.getDisplacementMapFramebuffer());
+		ocean.getMaterialOcean().getUniforms().set("u_projectionMatrix", camera.getProjectionMatrix());
+		ocean.getMaterialOcean().getUniforms().set("u_viewMatrix", camera.getMatrixWorldInverse());
+		ocean.getMaterialOcean().getUniforms().set("u_cameraPosition", camera.getPosition());
+		ocean.getMaterialOcean().setDepthTest(true);
 		
 		/*
 		if (this.ms_Ocean.changed) {
@@ -245,6 +351,15 @@ public class Ocean2Example extends AbstractExample{
 			this.ms_Ocean.materialOcean.uniforms.u_exposure.value = this.ms_Ocean.exposure;
 			this.ms_Ocean.changed = false;
 		}*/
+		
+		/*
+		 this.ms_Ocean.materialOcean.uniforms.u_normalMap.value = this.ms_Ocean.normalMapFramebuffer ;
+					this.ms_Ocean.materialOcean.uniforms.u_displacementMap.value = this.ms_Ocean.displacementMapFramebuffer ;
+					this.ms_Ocean.materialOcean.uniforms.u_projectionMatrix.value = this.ms_Camera.projectionMatrix ;
+					this.ms_Ocean.materialOcean.uniforms.u_viewMatrix.value = this.ms_Camera.matrixWorldInverse ;
+					this.ms_Ocean.materialOcean.uniforms.u_cameraPosition.value = this.ms_Camera.position;
+					this.ms_Ocean.materialOcean.depthTest = true;
+		 */
 		
 		//update value by UI
 		
