@@ -428,6 +428,10 @@ return new $wnd.THREE.ArrowHelper(size);
 	public static final native WebGLRenderTarget WebGLRenderTarget(double width,double height,JavaScriptObject options)/*-{
 	return new $wnd.THREE.WebGLRenderTarget(width,height,options);
 	}-*/;
+	
+	public static final native WebGLRenderTarget WebGLRenderTarget(double width,double height)/*-{
+	return new $wnd.THREE.WebGLRenderTarget(width,height);
+	}-*/;
 	public static final native LOD LOD()/*-{
 	return new $wnd.THREE.LOD();
 	}-*/;
@@ -482,6 +486,10 @@ return new $wnd.THREE.ArrowHelper(size);
 	
 	public static native final Box3 Box3(Vector3 min,Vector3 max)/*-{
 	return new $wnd.THREE. Box3(min,max);
+	}-*/;
+	
+	public static native final Box3 Box3()/*-{
+	return new $wnd.THREE. Box3();
 	}-*/;
 	
 	public static native final Box2 Box2(Vector2 min,Vector2 max)/*-{
@@ -640,6 +648,12 @@ return new $wnd.THREE.ArrowHelper(size);
 	return  new $wnd.THREE.Ray(camera,vector);
 	}-*/;
 	
+	/**
+	 * usually texture.setNeedsUpdate(true);
+	 * you can use ImageUtils.loadTexture("texture.jpg")
+	 * @param image
+	 * @return
+	 */
 	public static  native final Texture Texture(ImageElement image)/*-{
 	return  new $wnd.THREE.Texture(image);
 	}-*/;
@@ -678,6 +692,9 @@ return new $wnd.THREE.ArrowHelper(size);
 	
 	public static native final OrthographicCamera OrthographicCamera(double left,double right,double top,double bottom,double near,double far)/*-{
 	return new $wnd.THREE.OrthographicCamera( left, right,top,bottom, near, far ); 
+	}-*/;
+	public static native final OrthographicCamera OrthographicCamera()/*-{
+	return new $wnd.THREE.OrthographicCamera( ); 
 	}-*/;
 	
 	public static native final CombinedCamera CombinedCamera(double width, double height,double fov, double near, double far, double doubleorthoNear,double orthoFar )/*-{
@@ -907,12 +924,19 @@ return new $wnd.THREE.ArrowHelper(size);
 	public static native final PointCloud PointCloud(Geometry geometry,Material material )/*-{
 	return new $wnd.THREE.PointCloud( geometry, material );
 	}-*/;
+
+	public static native final Mesh Mesh(Geometry geometry )/*-{
+	return new $wnd.THREE.Mesh( geometry );
+	}-*/;
 	
 	public static native final Mesh Mesh(Geometry geometry,Material material )/*-{
 	return new $wnd.THREE.Mesh( geometry, material );
 	}-*/;
 	public static native final Mesh Mesh(BufferGeometry geometry,Material material )/*-{
 	return new $wnd.THREE.Mesh( geometry, material );
+	}-*/;
+	public static native final Mesh Mesh(BufferGeometry geometry)/*-{
+	return new $wnd.THREE.Mesh( geometry);
 	}-*/;
 	public static native final SkinnedMesh SkinnedMesh(Geometry geometry,Material material )/*-{
 	return new $wnd.THREE.SkinnedMesh( geometry, material );

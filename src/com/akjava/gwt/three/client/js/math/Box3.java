@@ -78,11 +78,11 @@ return this.setFromPoints(points);
 }-*/;
 
 public final native Box3 setFromCenterAndSize(Vector3 center,Vector3 size)/*-{
-return this.setFromCenterAndSize();
+return this.setFromCenterAndSize(center,size);
 }-*/;
-/** i have no idea*/
+
 public final native Box3 setFromObject(Object3D object)/*-{
-return this.setFromObject();
+return this.setFromObject(object);
 }-*/;
 
 public final native Box3 copy(Box3 box)/*-{
