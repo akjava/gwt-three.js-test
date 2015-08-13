@@ -8,4 +8,13 @@ private ExampleShaders(){}
 public static  native final Shader TriangleBlurShader()/*-{
 return $wnd.THREE.TriangleBlurShader;
 }-*/;
+
+public static  native final Shader DotScreenShader()/*-{
+return $wnd.THREE.DotScreenShader;
+}-*/;
+
+public static  native final Shader RGBShiftShader()/*-{
+return $wnd.THREE.RGBShiftShader;
+}-*/;
+//TODO implement all
 }

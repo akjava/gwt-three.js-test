@@ -16,6 +16,9 @@ import com.akjava.gwt.threejsexamples.client.examples.buffergeometry.BufferGeome
 import com.akjava.gwt.threejsexamples.client.examples.misc.controls.OrbitExample;
 import com.akjava.gwt.threejsexamples.client.examples.morphtargets.HorseExample;
 import com.akjava.gwt.threejsexamples.client.examples.morphtargets.MorphTargetsExample;
+import com.akjava.gwt.threejsexamples.client.examples.postprocessing.DofExample;
+import com.akjava.gwt.threejsexamples.client.examples.postprocessing.GlitchExample;
+import com.akjava.gwt.threejsexamples.client.examples.postprocessing.PostProcessingExample;
 import com.akjava.gwt.threejsexamples.client.examples.vr.VrStereoExample;
 import com.google.common.collect.Lists;
 import com.google.gwt.core.client.EntryPoint;
@@ -88,6 +91,10 @@ public class ThreejsExamples implements EntryPoint,ExampleOwner {
 		examples.add(new MirrorExample());
 		examples.add(new OceanExample());
 		examples.add(new Ocean2Example());
+		
+		examples.add(new PostProcessingExample());
+		examples.add(new GlitchExample());
+		examples.add(new DofExample());
 		
 		//TODO add scroll
 		for(Example exp:examples){

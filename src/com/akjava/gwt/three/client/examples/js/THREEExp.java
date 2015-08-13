@@ -5,8 +5,17 @@ import com.akjava.gwt.three.client.examples.js.controls.OrbitControls;
 import com.akjava.gwt.three.client.examples.js.controls.VRControls;
 import com.akjava.gwt.three.client.examples.js.controls.VRControls.VRControlCallbackHandler;
 import com.akjava.gwt.three.client.examples.js.effects.StereoEffect;
+import com.akjava.gwt.three.client.examples.js.postprocessing.BokehPass;
+import com.akjava.gwt.three.client.examples.js.postprocessing.EffectComposer;
+import com.akjava.gwt.three.client.examples.js.postprocessing.GlitchPass;
+import com.akjava.gwt.three.client.examples.js.postprocessing.RenderPass;
+import com.akjava.gwt.three.client.examples.js.postprocessing.ShaderPass;
+import com.akjava.gwt.three.client.gwt.extras.Shader;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Object3D;
+import com.akjava.gwt.three.client.js.materials.Material;
+import com.akjava.gwt.three.client.js.math.Color;
+import com.akjava.gwt.three.client.js.renderers.WebGLRenderTarget;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -58,5 +67,40 @@ public class THREEExp {
 	//need Ocean.js
 		public static final native Ocean Ocean(WebGLRenderer renderer,Camera camera,Scene scene,JavaScriptObject options)/*-{
 		return new $wnd.THREE.Ocean(renderer,camera,scene,options);
+		}-*/;
+		
+		public static final native ShaderPass ShaderPass(Shader shader)/*-{
+		return new $wnd.THREE.ShaderPass(shader);
+		}-*/;
+		public static final native ShaderPass ShaderPass(Shader shader,String textureID)/*-{
+		return new $wnd.THREE.ShaderPass(shader,textureID);
+		}-*/;
+		
+		public static final native RenderPass RenderPass(Scene scene,Camera camera)/*-{
+		return new $wnd.THREE.RenderPass(scene,camera);
+		}-*/;
+		
+		public static final native RenderPass RenderPass(Scene scene,Camera camera,Material overrideMaterial,Color clearColor,double clearAlpha )/*-{
+		return new $wnd.THREE.RenderPass(scene,camera,overrideMaterial, clearColor, clearAlpha );
+		}-*/;
+		
+		public static final native EffectComposer EffectComposer(WebGLRenderer renderer)/*-{
+		return new $wnd.THREE.EffectComposer(renderer);
+		}-*/;
+		
+		public static final native EffectComposer EffectComposer(WebGLRenderer renderer, WebGLRenderTarget renderTarget)/*-{
+		return new $wnd.THREE.EffectComposer(renderer,renderTarget);
+		}-*/;
+		
+		public static final native GlitchPass GlitchPass(int dt_size)/*-{
+		return new $wnd.THREE.GlitchPass(dt_size);
+		}-*/;
+		
+		public static final native GlitchPass GlitchPass()/*-{
+		return new $wnd.THREE.GlitchPass();
+		}-*/;
+		
+		public static final native BokehPass BokehPass(Scene scene,Camera camera,JavaScriptObject param)/*-{
+		return new $wnd.THREE.BokehPass(scene,camera,param);
 		}-*/;
 }

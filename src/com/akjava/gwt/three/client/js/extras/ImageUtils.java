@@ -38,6 +38,10 @@ if(handler){
 }-*/;
 
 
+public static final  Texture loadTextureCube(JsArrayString array){
+	return loadTextureCube(array,null,null);
+}
+
 public static final native Texture loadTextureCube(JsArrayString array,JavaScriptObject mapping,ImageUtilsLoadHandler handler)/*-{
 if(handler){
 return $wnd.THREE.ImageUtils.loadTextureCube(array,mapping,function ( texture ) {
