@@ -5,19 +5,27 @@ import com.akjava.gwt.three.client.examples.js.controls.OrbitControls;
 import com.akjava.gwt.three.client.examples.js.controls.VRControls;
 import com.akjava.gwt.three.client.examples.js.controls.VRControls.VRControlCallbackHandler;
 import com.akjava.gwt.three.client.examples.js.effects.StereoEffect;
+import com.akjava.gwt.three.client.examples.js.postprocessing.BloomPass;
 import com.akjava.gwt.three.client.examples.js.postprocessing.BokehPass;
+import com.akjava.gwt.three.client.examples.js.postprocessing.ClearMaskPass;
+import com.akjava.gwt.three.client.examples.js.postprocessing.DotScreenPass;
 import com.akjava.gwt.three.client.examples.js.postprocessing.EffectComposer;
+import com.akjava.gwt.three.client.examples.js.postprocessing.FilmPass;
 import com.akjava.gwt.three.client.examples.js.postprocessing.GlitchPass;
+import com.akjava.gwt.three.client.examples.js.postprocessing.MaskPass;
 import com.akjava.gwt.three.client.examples.js.postprocessing.RenderPass;
 import com.akjava.gwt.three.client.examples.js.postprocessing.ShaderPass;
+import com.akjava.gwt.three.client.examples.js.postprocessing.TexturePass;
 import com.akjava.gwt.three.client.gwt.extras.Shader;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.akjava.gwt.three.client.js.materials.Material;
 import com.akjava.gwt.three.client.js.math.Color;
+import com.akjava.gwt.three.client.js.math.Vector2;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderTarget;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
+import com.akjava.gwt.three.client.js.textures.Texture;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Element;
 
@@ -103,4 +111,41 @@ public class THREEExp {
 		public static final native BokehPass BokehPass(Scene scene,Camera camera,JavaScriptObject param)/*-{
 		return new $wnd.THREE.BokehPass(scene,camera,param);
 		}-*/;
+		
+		public static final native BloomPass BloomPass(double strength)/*-{
+		return new $wnd.THREE.BloomPass(strength);
+		}-*/;
+		public static final native BloomPass BloomPass(double strength,int kernelSize,double sigma,int resolution)/*-{
+		return new $wnd.THREE.BloomPass(strength, kernelSize, sigma, resolution);
+		}-*/;
+		public static final native FilmPass FilmPass(double noiseIntensity, double scanlinesIntensity,int scanlinesCount,boolean  grayscale )/*-{
+		return new $wnd.THREE.FilmPass(noiseIntensity, scanlinesIntensity, scanlinesCount, grayscale );
+		}-*/;
+		public static final native DotScreenPass DotScreenPass(Vector2 center,double angle,double scale)/*-{
+		return new $wnd.THREE.DotScreenPass(center, angle, scale);
+		}-*/;
+		public static final native ClearMaskPass ClearMaskPass()/*-{
+		return new $wnd.THREE.ClearMaskPass();
+		}-*/;
+		public static final native MaskPass MaskPass(Scene scene,Camera camera)/*-{
+		return new $wnd.THREE.MaskPass( scene, camera);
+		}-*/;
+		
+		public static final native TexturePass TexturePass(Texture texture, double opacity)/*-{
+		return new $wnd.THREE.TexturePass(texture, opacity);
+		}-*/;
+		
+		public static final native TexturePass TexturePass(Texture texture)/*-{
+		return new $wnd.THREE.TexturePass(texture);
+		}-*/;
+		
+		public static final native TexturePass TexturePass(WebGLRenderTarget texture, double opacity)/*-{
+		return new $wnd.THREE.TexturePass(texture, opacity);
+		}-*/;
+		
+		public static final native TexturePass TexturePass(WebGLRenderTarget texture)/*-{
+		return new $wnd.THREE.TexturePass(texture);
+		}-*/;
+		
+		
 }

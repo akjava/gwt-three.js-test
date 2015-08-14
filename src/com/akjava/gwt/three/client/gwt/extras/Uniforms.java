@@ -43,6 +43,9 @@ public  class Uniforms extends JavaScriptObject{
 	public native final void set(String key,Color value)/*-{
 	this[key].value=value;
 	}-*/;
+	public native final void setRGB(String key,double r,double g,double b)/*-{
+	this[key].value.setRGB(r,g,b);
+	}-*/;
 	public native final void set(String key,boolean bool)/*-{
 	this[key].value=bool;
 	}-*/;

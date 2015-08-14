@@ -38,35 +38,12 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.examples.js.postprocessing;
 
-import com.akjava.gwt.three.client.gwt.extras.Uniforms;
-import com.akjava.gwt.three.client.js.cameras.OrthographicCamera;
-import com.akjava.gwt.three.client.js.materials.ShaderMaterial;
-import com.akjava.gwt.three.client.js.objects.Mesh;
-import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.google.gwt.core.client.JavaScriptObject;
 
 
-public class GlitchPass extends JavaScriptObject{
-	protected GlitchPass() {
+public class ClearMaskPass extends JavaScriptObject{
+	protected ClearMaskPass() {
 	}
-
-public final native Uniforms getUniforms()/*-{
-return this.uniforms;
-}-*/;
-
-public final native void setUniforms(Uniforms uniforms)/*-{
-this.uniforms = uniforms;
-}-*/;
-
-
-public final native ShaderMaterial getMaterial()/*-{
-return this.material;
-}-*/;
-
-public final native void setMaterial(ShaderMaterial material)/*-{
-this.material = material;
-}-*/;
-
 
 public final native boolean isEnabled()/*-{
 return this.enabled;
@@ -76,80 +53,6 @@ public final native void setEnabled(boolean enabled)/*-{
 this.enabled = enabled;
 }-*/;
 
-
-public final native boolean isRenderToScreen()/*-{
-return this.renderToScreen;
-}-*/;
-
-public final native void setRenderToScreen(boolean renderToScreen)/*-{
-this.renderToScreen = renderToScreen;
-}-*/;
-
-
-public final native boolean isNeedsSwap()/*-{
-return this.needsSwap;
-}-*/;
-
-public final native void setNeedsSwap(boolean needsSwap)/*-{
-this.needsSwap = needsSwap;
-}-*/;
-
-
-public final native OrthographicCamera getCamera()/*-{
-return this.camera;
-}-*/;
-
-public final native void setCamera(OrthographicCamera camera)/*-{
-this.camera = camera;
-}-*/;
-
-
-public final native Scene getScene()/*-{
-return this.scene;
-}-*/;
-
-public final native void setScene(Scene scene)/*-{
-this.scene = scene;
-}-*/;
-
-
-public final native Mesh getQuad()/*-{
-return this.quad;
-}-*/;
-
-public final native void setQuad(Mesh quad)/*-{
-this.quad = quad;
-}-*/;
-
-
-public final native boolean isGoWild()/*-{
-return this.goWild;
-}-*/;
-
-public final native void setGoWild(boolean goWild)/*-{
-this.goWild = goWild;
-}-*/;
-
-
-public final native double getCurF()/*-{
-return this.curF;
-}-*/;
-
-public final native void setCurF(double curF)/*-{
-this.curF = curF;
-}-*/;
-
-public final native void render(Object renderer,Object writeBuffer,Object readBuffer,Object delta)/*-{
-this.render(renderer,writeBuffer,readBuffer,delta);
-}-*/;
-
-public final native void generateTrigger()/*-{
-this.generateTrigger();
-}-*/;
-
-public final native Object generateHeightmap(Object dt_size)/*-{
-return this.generateHeightmap(dt_size);
-}-*/;
 
 
 }

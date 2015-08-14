@@ -38,33 +38,105 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.examples.js.postprocessing;
 
-import com.akjava.gwt.three.client.gwt.extras.Uniforms;
 import com.akjava.gwt.three.client.js.cameras.OrthographicCamera;
 import com.akjava.gwt.three.client.js.materials.ShaderMaterial;
 import com.akjava.gwt.three.client.js.objects.Mesh;
+import com.akjava.gwt.three.client.js.renderers.WebGLRenderTarget;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.google.gwt.core.client.JavaScriptObject;
 
 
-public class GlitchPass extends JavaScriptObject{
-	protected GlitchPass() {
+public class BloomPass extends JavaScriptObject{
+	protected BloomPass() {
 	}
 
-public final native Uniforms getUniforms()/*-{
-return this.uniforms;
+public final native Object getStrength()/*-{
+return this.strength;
 }-*/;
 
-public final native void setUniforms(Uniforms uniforms)/*-{
-this.uniforms = uniforms;
+public final native void setStrength(Object strength)/*-{
+this.strength = strength;
 }-*/;
 
 
-public final native ShaderMaterial getMaterial()/*-{
-return this.material;
+public final native Object getKernelSize()/*-{
+return this.kernelSize;
 }-*/;
 
-public final native void setMaterial(ShaderMaterial material)/*-{
-this.material = material;
+public final native void setKernelSize(Object kernelSize)/*-{
+this.kernelSize = kernelSize;
+}-*/;
+
+
+public final native Object getSigma()/*-{
+return this.sigma;
+}-*/;
+
+public final native void setSigma(Object sigma)/*-{
+this.sigma = sigma;
+}-*/;
+
+
+public final native Object getResolution()/*-{
+return this.resolution;
+}-*/;
+
+public final native void setResolution(Object resolution)/*-{
+this.resolution = resolution;
+}-*/;
+
+
+public final native WebGLRenderTarget getRenderTargetX()/*-{
+return this.renderTargetX;
+}-*/;
+
+public final native void setRenderTargetX(WebGLRenderTarget renderTargetX)/*-{
+this.renderTargetX = renderTargetX;
+}-*/;
+
+
+public final native WebGLRenderTarget getRenderTargetY()/*-{
+return this.renderTargetY;
+}-*/;
+
+public final native void setRenderTargetY(WebGLRenderTarget renderTargetY)/*-{
+this.renderTargetY = renderTargetY;
+}-*/;
+
+
+public final native Object getCopyUniforms()/*-{
+return this.copyUniforms;
+}-*/;
+
+public final native void setCopyUniforms(Object copyUniforms)/*-{
+this.copyUniforms = copyUniforms;
+}-*/;
+
+
+public final native ShaderMaterial getMaterialCopy()/*-{
+return this.materialCopy;
+}-*/;
+
+public final native void setMaterialCopy(ShaderMaterial materialCopy)/*-{
+this.materialCopy = materialCopy;
+}-*/;
+
+
+public final native Object getConvolutionUniforms()/*-{
+return this.convolutionUniforms;
+}-*/;
+
+public final native void setConvolutionUniforms(Object convolutionUniforms)/*-{
+this.convolutionUniforms = convolutionUniforms;
+}-*/;
+
+
+public final native ShaderMaterial getMaterialConvolution()/*-{
+return this.materialConvolution;
+}-*/;
+
+public final native void setMaterialConvolution(ShaderMaterial materialConvolution)/*-{
+this.materialConvolution = materialConvolution;
 }-*/;
 
 
@@ -77,21 +149,21 @@ this.enabled = enabled;
 }-*/;
 
 
-public final native boolean isRenderToScreen()/*-{
-return this.renderToScreen;
-}-*/;
-
-public final native void setRenderToScreen(boolean renderToScreen)/*-{
-this.renderToScreen = renderToScreen;
-}-*/;
-
-
 public final native boolean isNeedsSwap()/*-{
 return this.needsSwap;
 }-*/;
 
 public final native void setNeedsSwap(boolean needsSwap)/*-{
 this.needsSwap = needsSwap;
+}-*/;
+
+
+public final native boolean isClear()/*-{
+return this.clear;
+}-*/;
+
+public final native void setClear(boolean clear)/*-{
+this.clear = clear;
 }-*/;
 
 
@@ -121,34 +193,8 @@ public final native void setQuad(Mesh quad)/*-{
 this.quad = quad;
 }-*/;
 
-
-public final native boolean isGoWild()/*-{
-return this.goWild;
-}-*/;
-
-public final native void setGoWild(boolean goWild)/*-{
-this.goWild = goWild;
-}-*/;
-
-
-public final native double getCurF()/*-{
-return this.curF;
-}-*/;
-
-public final native void setCurF(double curF)/*-{
-this.curF = curF;
-}-*/;
-
-public final native void render(Object renderer,Object writeBuffer,Object readBuffer,Object delta)/*-{
-this.render(renderer,writeBuffer,readBuffer,delta);
-}-*/;
-
-public final native void generateTrigger()/*-{
-this.generateTrigger();
-}-*/;
-
-public final native Object generateHeightmap(Object dt_size)/*-{
-return this.generateHeightmap(dt_size);
+public final native void render(Object renderer,Object writeBuffer,Object readBuffer,Object delta,Object maskActive)/*-{
+this.render(renderer,writeBuffer,readBuffer,delta,maskActive);
 }-*/;
 
 

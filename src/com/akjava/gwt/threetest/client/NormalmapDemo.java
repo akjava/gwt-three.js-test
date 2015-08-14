@@ -18,10 +18,10 @@ package com.akjava.gwt.threetest.client;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.akjava.gwt.three.client.java.utils.ShaderUtils;
-import com.akjava.gwt.three.client.java.utils.UniformUtils;
-import com.akjava.gwt.three.client.java.utils.ShaderUtils.Shader;
-import com.akjava.gwt.three.client.java.utils.ShaderUtils.Uniforms;
+import com.akjava.gwt.three.client.java.utils.DShaderUtils;
+import com.akjava.gwt.three.client.java.utils.DUniformUtils;
+import com.akjava.gwt.three.client.java.utils.DShaderUtils.DShader;
+import com.akjava.gwt.three.client.java.utils.DShaderUtils.DUniforms;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Geometry;
@@ -77,8 +77,8 @@ private AnimationModel model;
 			public void loaded(Geometry geometry, JsArray<Material> ms) {
 				log(geometry);
 				
-				Shader shader=ShaderUtils.lib("normal");
-				Uniforms uniforms=UniformUtils.clone(shader.uniforms());
+				DShader shader=DShaderUtils.lib("normal");
+				DUniforms uniforms=DUniformUtils.clone(shader.uniforms());
 				uniforms.set("tNormal", ImageUtils.loadTexture("img/normalmap.png"));
 				//uniforms.set("tNormal", ImageUtils.loadTexture("img/men2buv_n.png#10"));
 				

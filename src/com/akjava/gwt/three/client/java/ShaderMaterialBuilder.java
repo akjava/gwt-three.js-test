@@ -1,6 +1,6 @@
 package com.akjava.gwt.three.client.java;
 
-import com.akjava.gwt.three.client.java.utils.ShaderUtils.Uniforms;
+import com.akjava.gwt.three.client.java.utils.DShaderUtils.DUniforms;
 import com.akjava.gwt.three.client.js.materials.Material;
 import com.google.gwt.core.client.JavaScriptObject;
 
@@ -26,7 +26,7 @@ public class ShaderMaterialBuilder extends JavaScriptObject{
 		return this;
 		}-*/;
 		
-		public final native ShaderMaterialBuilder uniforms(Uniforms uniforms)/*-{
+		public final native ShaderMaterialBuilder uniforms(DUniforms uniforms)/*-{
 		this["uniforms"]=uniforms;
 		return this;
 		}-*/;

@@ -65,20 +65,20 @@ this.renderTarget = renderTarget;
 }-*/;
 
 
-public final native Object getRenderTarget1()/*-{
+public final native WebGLRenderTarget getRenderTarget1()/*-{
 return this.renderTarget1;
 }-*/;
 
-public final native void setRenderTarget1(Object renderTarget1)/*-{
+public final native void setRenderTarget1(WebGLRenderTarget renderTarget1)/*-{
 this.renderTarget1 = renderTarget1;
 }-*/;
 
 
-public final native Object getRenderTarget2()/*-{
+public final native WebGLRenderTarget getRenderTarget2()/*-{
 return this.renderTarget2;
 }-*/;
 
-public final native void setRenderTarget2(Object renderTarget2)/*-{
+public final native void setRenderTarget2(WebGLRenderTarget renderTarget2)/*-{
 this.renderTarget2 = renderTarget2;
 }-*/;
 
@@ -122,7 +122,7 @@ public final native void swapBuffers()/*-{
 this.swapBuffers();
 }-*/;
 
-public final native void addPass(Object pass)/*-{
+public final native void addPass(JavaScriptObject pass)/*-{
 this.addPass(pass);
 }-*/;
 
@@ -142,7 +142,7 @@ public final native void reset(Object renderTarget)/*-{
 this.reset(renderTarget);
 }-*/;
 
-public final native void setSize(Object width,Object height)/*-{
+public final native void setSize(int width,int height)/*-{
 this.setSize(width,height);
 }-*/;
 

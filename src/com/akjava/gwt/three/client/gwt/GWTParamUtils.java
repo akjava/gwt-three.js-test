@@ -6,6 +6,7 @@ import com.akjava.gwt.three.client.gwt.materials.MeshBasicMaterialParameter;
 import com.akjava.gwt.three.client.gwt.materials.MeshLambertMaterialParameter;
 import com.akjava.gwt.three.client.gwt.materials.MeshPhongMaterialParameter;
 import com.akjava.gwt.three.client.gwt.materials.ShaderMaterialParameter;
+import com.akjava.gwt.three.client.gwt.renderers.WebGLRenderTargetParameter;
 import com.akjava.gwt.three.client.gwt.renderers.WebGLRendererParameter;
 
 //TODO support more?
@@ -40,6 +41,9 @@ public static Offset Offset() {
 	return Offset.createObject().cast();
 }
 
+public static WebGLRenderTargetParameter WebGLRenderTarget(){
+	return WebGLRenderTargetParameter.create();
+}
 
 
 

@@ -46,15 +46,15 @@ import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.google.gwt.core.client.JavaScriptObject;
 
 
-public class GlitchPass extends JavaScriptObject{
-	protected GlitchPass() {
+public class TexturePass extends JavaScriptObject{
+	protected TexturePass() {
 	}
 
 public final native Uniforms getUniforms()/*-{
 return this.uniforms;
 }-*/;
 
-public final native void setUniforms(Uniforms uniforms)/*-{
+public final native void setUniforms(Object uniforms)/*-{
 this.uniforms = uniforms;
 }-*/;
 
@@ -74,15 +74,6 @@ return this.enabled;
 
 public final native void setEnabled(boolean enabled)/*-{
 this.enabled = enabled;
-}-*/;
-
-
-public final native boolean isRenderToScreen()/*-{
-return this.renderToScreen;
-}-*/;
-
-public final native void setRenderToScreen(boolean renderToScreen)/*-{
-this.renderToScreen = renderToScreen;
 }-*/;
 
 
@@ -121,34 +112,8 @@ public final native void setQuad(Mesh quad)/*-{
 this.quad = quad;
 }-*/;
 
-
-public final native boolean isGoWild()/*-{
-return this.goWild;
-}-*/;
-
-public final native void setGoWild(boolean goWild)/*-{
-this.goWild = goWild;
-}-*/;
-
-
-public final native double getCurF()/*-{
-return this.curF;
-}-*/;
-
-public final native void setCurF(double curF)/*-{
-this.curF = curF;
-}-*/;
-
 public final native void render(Object renderer,Object writeBuffer,Object readBuffer,Object delta)/*-{
 this.render(renderer,writeBuffer,readBuffer,delta);
-}-*/;
-
-public final native void generateTrigger()/*-{
-this.generateTrigger();
-}-*/;
-
-public final native Object generateHeightmap(Object dt_size)/*-{
-return this.generateHeightmap(dt_size);
 }-*/;
 
 

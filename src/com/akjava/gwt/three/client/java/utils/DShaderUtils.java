@@ -3,9 +3,9 @@ package com.akjava.gwt.three.client.java.utils;
 import com.akjava.gwt.three.client.js.textures.Texture;
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class ShaderUtils {
+public class DShaderUtils {
 
-	public static native final Shader lib(String name)/*-{
+	public static native final DShader lib(String name)/*-{
 	return $wnd.THREE.ShaderUtils.lib[ name ];
 	}-*/;
 
@@ -15,8 +15,8 @@ public class ShaderUtils {
  * @author aki
  *
  */
-public static  class Shader extends JavaScriptObject{
-	protected Shader(){}
+public static  class DShader extends JavaScriptObject{
+	protected DShader(){}
 	
 	public  native final String fragmentShader()/*-{
 	return this.fragmentShader;
@@ -28,7 +28,7 @@ public static  class Shader extends JavaScriptObject{
 	
 	
 	
-	public  native final Uniforms uniforms()/*-{
+	public  native final DUniforms uniforms()/*-{
 	return this.uniforms;
 	
 	}-*/;
@@ -39,8 +39,8 @@ public static  class Shader extends JavaScriptObject{
  * @author aki
  *
  */
-public static class Uniforms extends JavaScriptObject{
-	protected Uniforms(){}
+public static class DUniforms extends JavaScriptObject{
+	protected DUniforms(){}
 	
 	public native final void set(String key,double value)/*-{
 	this[key].value=value;

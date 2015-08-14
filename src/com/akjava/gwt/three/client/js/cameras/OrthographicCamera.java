@@ -43,56 +43,60 @@ public class OrthographicCamera extends Camera{
 	protected OrthographicCamera() {
 	}
 
-public final native Number getLeft()/*-{
+public final native double getLeft()/*-{
 return this.left;
 }-*/;
 
-public final native void setLeft(Number left)/*-{
+public final native void setLeft(double left)/*-{
 this.left = left;
+
 }-*/;
 
 
-public final native Number getRight()/*-{
+public final native double getRight()/*-{
 return this.right;
 }-*/;
 
-public final native void setRight(Number right)/*-{
+public final native void setRight(double right)/*-{
 this.right = right;
+
 }-*/;
 
 
-public final native Number getTop()/*-{
+public final native double getTop()/*-{
 return this.top;
 }-*/;
 
-public final native void setTop(Number top)/*-{
+public final native void setTop(double top)/*-{
 this.top = top;
+
 }-*/;
 
 
-public final native Number getBottom()/*-{
+public final native double getBottom()/*-{
 return this.bottom;
 }-*/;
 
-public final native void setBottom(Number bottom)/*-{
+public final native void setBottom(double bottom)/*-{
 this.bottom = bottom;
+
 }-*/;
 
 
-public final native Number getNear()/*-{
+public final native double getNear()/*-{
 return this.near;
 }-*/;
 
-public final native void setNear(Number near)/*-{
+public final native void setNear(double near)/*-{
 this.near = near;
 }-*/;
 
 
-public final native Number getFar()/*-{
+public final native double getFar()/*-{
 return this.far;
 }-*/;
 
-public final native void setFar(Object far)/*-{
+public final native void setFar(double far)/*-{
 this.far = far;
 }-*/;
 
