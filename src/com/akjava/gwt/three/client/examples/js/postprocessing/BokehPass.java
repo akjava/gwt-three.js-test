@@ -39,11 +39,13 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client.examples.js.postprocessing;
 
 import com.akjava.gwt.three.client.gwt.extras.Uniforms;
+import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.cameras.OrthographicCamera;
 import com.akjava.gwt.three.client.js.materials.MeshDepthMaterial;
 import com.akjava.gwt.three.client.js.materials.ShaderMaterial;
 import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderTarget;
+import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.google.gwt.core.client.JavaScriptObject;
 
@@ -52,58 +54,58 @@ public class BokehPass extends JavaScriptObject{
 	protected BokehPass() {
 	}
 
-public final native Object getScene()/*-{
+public final native Scene getScene()/*-{
 return this.scene;
 }-*/;
 
-public final native void setScene(Object scene)/*-{
-this.scene = scene;
-}-*/;
+//public final native void setScene(Object scene)/*-{
+//this.scene = scene;
+//}-*/;
 
 
-public final native Object getCamera()/*-{
+public final native Camera getCamera()/*-{
 return this.camera;
 }-*/;
 
-public final native void setCamera(Object camera)/*-{
-this.camera = camera;
-}-*/;
+//public final native void setCamera(Object camera)/*-{
+//this.camera = camera;
+//}-*/;
 
 
 public final native WebGLRenderTarget getRenderTargetColor()/*-{
 return this.renderTargetColor;
 }-*/;
 
-public final native void setRenderTargetColor(WebGLRenderTarget renderTargetColor)/*-{
-this.renderTargetColor = renderTargetColor;
-}-*/;
+//public final native void setRenderTargetColor(WebGLRenderTarget renderTargetColor)/*-{
+//this.renderTargetColor = renderTargetColor;
+//}-*/;
 
 
-public final native Object getRenderTargetDepth()/*-{
+public final native WebGLRenderTarget getRenderTargetDepth()/*-{
 return this.renderTargetDepth;
 }-*/;
 
-public final native void setRenderTargetDepth(Object renderTargetDepth)/*-{
-this.renderTargetDepth = renderTargetDepth;
-}-*/;
+//public final native void setRenderTargetDepth(Object renderTargetDepth)/*-{
+//this.renderTargetDepth = renderTargetDepth;
+//}-*/;
 
 
 public final native MeshDepthMaterial getMaterialDepth()/*-{
 return this.materialDepth;
 }-*/;
 
-public final native void setMaterialDepth(MeshDepthMaterial materialDepth)/*-{
-this.materialDepth = materialDepth;
-}-*/;
+//public final native void setMaterialDepth(MeshDepthMaterial materialDepth)/*-{
+//this.materialDepth = materialDepth;
+//}-*/;
 
 
 public final native ShaderMaterial getMaterialBokeh()/*-{
 return this.materialBokeh;
 }-*/;
 
-public final native void setMaterialBokeh(ShaderMaterial materialBokeh)/*-{
-this.materialBokeh = materialBokeh;
-}-*/;
+//public final native void setMaterialBokeh(ShaderMaterial materialBokeh)/*-{
+//this.materialBokeh = materialBokeh;
+//}-*/;
 
 
 public final native Uniforms getUniforms()/*-{
@@ -166,20 +168,20 @@ public final native Scene getScene2()/*-{
 return this.scene2;
 }-*/;
 
-public final native void setScene2(Scene scene2)/*-{
-this.scene2 = scene2;
-}-*/;
+//public final native void setScene2(Scene scene2)/*-{
+//this.scene2 = scene2;
+//}-*/;
 
 
 public final native Mesh getQuad2()/*-{
 return this.quad2;
 }-*/;
 
-public final native void setQuad2(Mesh quad2)/*-{
-this.quad2 = quad2;
-}-*/;
+//public final native void setQuad2(Mesh quad2)/*-{
+//this.quad2 = quad2;
+//}-*/;
 
-public final native void render(Object renderer,Object writeBuffer,Object readBuffer,Object delta,Object maskActive)/*-{
+public final native void render(WebGLRenderer renderer,WebGLRenderTarget writeBuffer,WebGLRenderTarget readBuffer,double delta,boolean maskActive)/*-{
 this.render(renderer,writeBuffer,readBuffer,delta,maskActive);
 }-*/;
 

@@ -14,6 +14,7 @@ import com.akjava.gwt.three.client.examples.js.postprocessing.FilmPass;
 import com.akjava.gwt.three.client.examples.js.postprocessing.GlitchPass;
 import com.akjava.gwt.three.client.examples.js.postprocessing.MaskPass;
 import com.akjava.gwt.three.client.examples.js.postprocessing.RenderPass;
+import com.akjava.gwt.three.client.examples.js.postprocessing.SavePass;
 import com.akjava.gwt.three.client.examples.js.postprocessing.ShaderPass;
 import com.akjava.gwt.three.client.examples.js.postprocessing.TexturePass;
 import com.akjava.gwt.three.client.gwt.extras.Shader;
@@ -145,6 +146,14 @@ public class THREEExp {
 		
 		public static final native TexturePass TexturePass(WebGLRenderTarget texture)/*-{
 		return new $wnd.THREE.TexturePass(texture);
+		}-*/;
+		
+		public static final native SavePass SavePass(WebGLRenderTarget target)/*-{
+		return new $wnd.THREE.SavePass(target);
+		}-*/;
+		
+		public static final native SavePass SavePass()/*-{
+		return new $wnd.THREE.SavePass();
 		}-*/;
 		
 		

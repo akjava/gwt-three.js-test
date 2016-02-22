@@ -9,20 +9,20 @@ public class WebGLRenderTarget extends EventDispatcher{
 	protected WebGLRenderTarget(){}
 	
 
-public final native double getWidth()/*-{
+public final native int getWidth()/*-{
 return this.width;
 }-*/;
 
-public final native void setWidth(double width)/*-{
+public final native void setWidth(int width)/*-{
 this.width = width;
 }-*/;
 
 
-public final native double getHeight()/*-{
+public final native int getHeight()/*-{
 return this.height;
 }-*/;
 
-public final native void setHeight(double height)/*-{
+public final native void setHeight(int height)/*-{
 this.height = height;
 }-*/;
 

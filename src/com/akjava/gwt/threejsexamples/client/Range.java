@@ -34,8 +34,9 @@ import com.google.gwt.user.client.ui.HasName;
 import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
-//TODO move html5-widget
-//not support oninput
+/*
+ * @deprecated original is in html5 range
+ */
 public class Range extends Widget implements HasName,HasValue<Number>, IsEditor<LeafValueEditor<Number>> {
 
   /**

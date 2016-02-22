@@ -1,29 +1,40 @@
 package com.akjava.gwt.threejsexamples.client.examples;
 
+import com.akjava.gwt.html5.client.download.HTML5Download;
+import com.akjava.gwt.lib.client.ImageElementListener;
+import com.akjava.gwt.lib.client.ImageElementLoader;
 import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.stats.client.Stats;
+import com.akjava.gwt.three.client.examples.js.THREEExp;
+import com.akjava.gwt.three.client.examples.js.postprocessing.EffectComposer;
+import com.akjava.gwt.three.client.examples.js.postprocessing.SavePass;
+import com.akjava.gwt.three.client.examples.js.postprocessing.ShaderPass;
+import com.akjava.gwt.three.client.examples.js.postprocessing.TexturePass;
 import com.akjava.gwt.three.client.examples.js.shaders.ExampleShaders;
-import com.akjava.gwt.three.client.gwt.extras.Uniforms;
 import com.akjava.gwt.three.client.gwt.materials.MeshBasicMaterialParameter;
 import com.akjava.gwt.three.client.gwt.materials.MeshLambertMaterialParameter;
 import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
+import com.akjava.gwt.three.client.java.utils.TextureExportUtils;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.cameras.PerspectiveCamera;
 import com.akjava.gwt.three.client.js.extras.ImageUtils;
 import com.akjava.gwt.three.client.js.lights.Light;
 import com.akjava.gwt.three.client.js.loaders.ImageLoader.ImageLoadHandler;
-import com.akjava.gwt.three.client.js.materials.MeshBasicMaterial;
-import com.akjava.gwt.three.client.js.materials.MeshLambertMaterial;
 import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderTarget;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
-import com.akjava.gwt.three.client.js.renderers.shaders.WebGLShaders.ShaderChunk.UniformsUtils;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.three.client.js.textures.Texture;
 import com.akjava.gwt.threejsexamples.client.AbstractExample;
+import com.akjava.gwt.threejsexamples.client.MyJs;
 import com.google.gwt.dom.client.ImageElement;
 import com.google.gwt.dom.client.NativeEvent;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.ErrorEvent;
+import com.google.gwt.user.client.ui.Anchor;
+import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FocusPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
@@ -192,16 +203,79 @@ public class MyExample extends AbstractExample{
 				
 			}
 		});
+		
+		
+
+		
+		//effectcomposer
+		
+		
 	}
 	
 
 	
 	private void initResizeHandlerAndGUI() {
-		VerticalPanel gui=addResizeHandlerAndCreateGUIPanel();
+		final VerticalPanel gui=addResizeHandlerAndCreateGUIPanel();
 		
 		gui.setWidth("200px");//some widget broke,like checkbox without parent size
 		gui.setSpacing(2);
-		
+	
+		Button bt=new Button("test",new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				new ImageElementLoader().load("lena1.png", new ImageElementListener() {
+					
+					@Override
+					public void onLoad(ImageElement element) {
+						int w=element.getWidth();
+						int h=element.getHeight();
+						Texture texture=THREE.Texture(element);
+						texture.setFlipY(false);
+						texture.setNeedsUpdate(true);
+						
+						EffectComposer composer=THREEExp.EffectComposer(renderer);//made full-screen
+						
+						TexturePass texturePass=THREEExp.TexturePass(texture);
+						
+						composer.addPass(texturePass);
+						
+						ShaderPass shaderPass=THREEExp.ShaderPass(MyJs.VibranceShader());
+						shaderPass.getUniforms().set("amount", 0);
+						//composer.addPass(shaderPass);
+						
+						
+						ShaderPass shaderPassX=THREEExp.ShaderPass(ExampleShaders.TriangleBlurShader(),"texture");
+						shaderPassX.getUniforms().set("delta", 0.01,0);
+						composer.addPass(shaderPassX);
+						
+						ShaderPass shaderPassY=THREEExp.ShaderPass(ExampleShaders.TriangleBlurShader(),"texture");
+						shaderPassY.getUniforms().set("delta", 0,0.01);
+						composer.addPass(shaderPassY);
+						
+						
+						
+						SavePass savePass=THREEExp.SavePass(THREE.WebGLRenderTarget(w, h));
+						composer.addPass(savePass);
+						
+						composer.render();
+						
+						
+						String dataUrl=TextureExportUtils.toDataUrl(renderer, savePass.getRenderTarget(), null);
+						Anchor a=HTML5Download.get().generateBase64DownloadLink(dataUrl, "image/png", "test.png", "download", true);
+						//Window.open(dataUrl, "_blank", null); //don't open big dataurl maybe 1mb is limit?
+						gui.add(a);
+					}
+					
+					@Override
+					public void onError(String url, ErrorEvent event) {
+						// TODO Auto-generated method stub
+						
+					}
+				});
+			}
+		});
+		gui.add(bt);
 	}
 	
 

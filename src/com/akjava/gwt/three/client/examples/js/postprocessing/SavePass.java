@@ -38,109 +38,63 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.examples.js.postprocessing;
 
-import com.akjava.gwt.three.client.gwt.extras.Uniforms;
 import com.akjava.gwt.three.client.js.cameras.OrthographicCamera;
 import com.akjava.gwt.three.client.js.materials.ShaderMaterial;
 import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderTarget;
-import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.google.gwt.core.client.JavaScriptObject;
 
 
-public class BloomPass extends JavaScriptObject{
-	protected BloomPass() {
+public class SavePass extends JavaScriptObject{
+	protected SavePass() {
 	}
 
-public final native double getStrength()/*-{
-return this.strength;
+public final native Object getTextureID()/*-{
+return this.textureID;
 }-*/;
 
-public final native void setStrength(double strength)/*-{
-this.strength = strength;
-}-*/;
-
-
-public final native double getKernelSize()/*-{
-return this.kernelSize;
-}-*/;
-
-public final native void setKernelSize(double kernelSize)/*-{
-this.kernelSize = kernelSize;
+public final native void setTextureID(Object textureID)/*-{
+this.textureID = textureID;
 }-*/;
 
 
-public final native double getSigma()/*-{
-return this.sigma;
+public final native Object getUniforms()/*-{
+return this.uniforms;
 }-*/;
 
-public final native void setSigma(double sigma)/*-{
-this.sigma = sigma;
-}-*/;
-
-
-public final native int getResolution()/*-{
-return this.resolution;
-}-*/;
-
-public final native void setResolution(int resolution)/*-{
-this.resolution = resolution;
+public final native void setUniforms(Object uniforms)/*-{
+this.uniforms = uniforms;
 }-*/;
 
 
-public final native WebGLRenderTarget getRenderTargetX()/*-{
-return this.renderTargetX;
+public final native ShaderMaterial getMaterial()/*-{
+return this.material;
 }-*/;
 
-public final native void setRenderTargetX(WebGLRenderTarget renderTargetX)/*-{
-this.renderTargetX = renderTargetX;
-}-*/;
-
-
-public final native WebGLRenderTarget getRenderTargetY()/*-{
-return this.renderTargetY;
-}-*/;
-
-public final native void setRenderTargetY(WebGLRenderTarget renderTargetY)/*-{
-this.renderTargetY = renderTargetY;
+public final native void setMaterial(ShaderMaterial material)/*-{
+this.material = material;
 }-*/;
 
 
-public final native Uniforms getCopyUniforms()/*-{
-return this.copyUniforms;
+
+
+
+public final native Object getRenderTargetParameters()/*-{
+return this.renderTargetParameters;
 }-*/;
 
-//used for materialCopy
-//public final native void setCopyUniforms(Object copyUniforms)/*-{
-//this.copyUniforms = copyUniforms;
-//}-*/;
-
-
-public final native ShaderMaterial getMaterialCopy()/*-{
-return this.materialCopy;
-}-*/;
-
-public final native void setMaterialCopy(ShaderMaterial materialCopy)/*-{
-this.materialCopy = materialCopy;
+public final native void setRenderTargetParameters(Object renderTargetParameters)/*-{
+this.renderTargetParameters = renderTargetParameters;
 }-*/;
 
 
-public final native Uniforms getConvolutionUniforms()/*-{
-return this.convolutionUniforms;
+public final native WebGLRenderTarget getRenderTarget()/*-{
+return this.renderTarget;
 }-*/;
 
-//used for materialConvolution
-//public final native void setConvolutionUniforms(Uniforms convolutionUniforms)/*-{
-//this.convolutionUniforms = convolutionUniforms;
-//}-*/;
-
-
-public final native ShaderMaterial getMaterialConvolution()/*-{
-return this.materialConvolution;
-}-*/;
-
-public final native void setMaterialConvolution(ShaderMaterial materialConvolution)/*-{
-this.materialConvolution = materialConvolution;
+public final native void setRenderTarget(WebGLRenderTarget renderTarget)/*-{
+this.renderTarget = renderTarget;
 }-*/;
 
 
@@ -175,30 +129,30 @@ public final native OrthographicCamera getCamera()/*-{
 return this.camera;
 }-*/;
 
-//public final native void setCamera(OrthographicCamera camera)/*-{
-//this.camera = camera;
-//}-*/;
+public final native void setCamera(OrthographicCamera camera)/*-{
+this.camera = camera;
+}-*/;
 
 
 public final native Scene getScene()/*-{
 return this.scene;
 }-*/;
 
-//public final native void setScene(Scene scene)/*-{
-//this.scene = scene;
-//}-*/;
+public final native void setScene(Scene scene)/*-{
+this.scene = scene;
+}-*/;
 
 
 public final native Mesh getQuad()/*-{
 return this.quad;
 }-*/;
 
-//public final native void setQuad(Mesh quad)/*-{
-//this.quad = quad;
-//}-*/;
+public final native void setQuad(Mesh quad)/*-{
+this.quad = quad;
+}-*/;
 
-public final native void render(WebGLRenderer renderer,WebGLRenderTarget writeBuffer,WebGLRenderTarget readBuffer,double delta,boolean maskActive)/*-{
-this.render(renderer,writeBuffer,readBuffer,delta,maskActive);
+public final native void render(Object renderer,Object writeBuffer,Object readBuffer,Object delta)/*-{
+this.render(renderer,writeBuffer,readBuffer,delta);
 }-*/;
 
 
