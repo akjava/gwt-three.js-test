@@ -44,28 +44,24 @@ public class Cache extends JavaScriptObject{
 	protected Cache() {
 	}
 
-public final native JavaScriptObject getFiles()/*-{
-return this.files;
+public static final native JavaScriptObject getFiles()/*-{
+return $wnd.THREE.Cache.files;
 }-*/;
 
-public final native void setFiles(JavaScriptObject files)/*-{
-this.files = files;
+public static final native void add(String key,JavaScriptObject file)/*-{
+$wnd.THREE.Cache.add(key,file);
 }-*/;
 
-public final native void add(String key,JavaScriptObject file)/*-{
-this.add(key,file);
+public static final  native JavaScriptObject get(String key)/*-{
+return $wnd.THREE.Cache.get(key);
 }-*/;
 
-public final native JavaScriptObject get(String key)/*-{
-return this.get(key);
+public static final native void remove(String key)/*-{
+$wnd.THREE.Cache.remove(key);
 }-*/;
 
-public final native void remove(String key)/*-{
-this.remove(key);
-}-*/;
-
-public final native void clear()/*-{
-this.clear();
+public static final native void clear()/*-{
+ $wnd.THREE.Cache.clear();
 }-*/;
 
 
