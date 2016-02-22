@@ -40,6 +40,7 @@ package com.akjava.gwt.three.client.js.core;
 import com.akjava.gwt.three.client.gwt.core.Offset;
 import com.akjava.gwt.three.client.js.math.Box3;
 import com.akjava.gwt.three.client.js.math.Sphere;
+import com.akjava.gwt.three.client.js.math.Vector3;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.typedarrays.shared.ArrayBuffer;
@@ -176,6 +177,10 @@ public final native void computeTangents()/*-{
 
 public final native BufferGeometry clone()/*-{
 return this.clone();
+}-*/;
+
+public final native Vector3 center()/*-{
+return this.center();
 }-*/;
 
 public final native void dispose()/*-{
