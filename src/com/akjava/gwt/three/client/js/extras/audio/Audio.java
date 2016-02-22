@@ -87,5 +87,24 @@ this.setRolloffFactor(value);
 }-*/;
 
 
+public final native boolean getAutoplay()/*-{
+return this.autoplay;
+}-*/;
+
+public final native boolean getIsPlaying()/*-{
+return this.isPlaying;
+}-*/;
+
+public final native void play()/*-{
+this.play();
+}-*/;
+
+public final native void pause()/*-{
+this.play();
+}-*/;
+
+public final native void stop()/*-{
+this.play();
+}-*/;
 
 }
