@@ -107,4 +107,7 @@ public final native void stop()/*-{
 this.play();
 }-*/;
 
+public final native void setVolume(double volume)/*-{
+this.setVolume(volume);
+}-*/;
 }
