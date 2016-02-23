@@ -64,4 +64,8 @@ return this.face;
 public final native int getFaceIndex()/*-{
 return this.faceIndex;
 }-*/;
+
+public final native int getIndex()/*-{
+return this.index;
+}-*/;
 }
