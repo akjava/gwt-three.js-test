@@ -60,12 +60,12 @@ import com.akjava.gwt.three.client.js.cameras.PerspectiveCamera;
 import com.akjava.gwt.three.client.js.core.BufferAttribute;
 import com.akjava.gwt.three.client.js.core.BufferGeometry;
 import com.akjava.gwt.three.client.js.core.Clock;
+import com.akjava.gwt.three.client.js.core.DynamicBufferAttribute;
 import com.akjava.gwt.three.client.js.core.EventDispatcher;
 import com.akjava.gwt.three.client.js.core.Face3;
 import com.akjava.gwt.three.client.js.core.Geometry;
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.akjava.gwt.three.client.js.core.Raycaster;
-import com.akjava.gwt.three.client.js.extras.ImageUtils;
 import com.akjava.gwt.three.client.js.extras.animation.Animation;
 import com.akjava.gwt.three.client.js.extras.animation.AnimationMorphTarget;
 import com.akjava.gwt.three.client.js.extras.animation.KeyFrameAnimation;
@@ -255,12 +255,28 @@ return new $wnd.THREE.ArrowHelper(size);
 	public static final native BoxHelper BoxHelper(Object3D object)/*-{
 	return new $wnd.THREE.BoxHelper(object);
 	}-*/;
-	public static final native EdgesHelper EdgesHelper(Object3D object)/*-{
+	public static final native EdgesHelper EdgesHelper(Mesh object)/*-{
 	return new $wnd.THREE.EdgesHelper(object);
 	}-*/;
-	public static final native EdgesHelper EdgesHelper(Object3D object,int hex)/*-{
+	public static final native EdgesHelper EdgesHelper(Mesh object,int hex)/*-{
 	return new $wnd.THREE.EdgesHelper(object,hex);
 	}-*/;
+	
+	/**
+	 * document from r71
+	 * @author WestLangley / http://github.com/WestLangley
+	 * @param object THREE.Mesh whose geometry will be used
+	 * @param hex line color
+	 * @param thresholdAngle the minimim angle (in degrees),
+	 * between the face normals of adjacent faces,
+	 * that is required to render an edge. A value of 10 means
+	 * an edge is only rendered if the angle is at least 10 degrees.
+	 */
+	
+	public static final native EdgesHelper EdgesHelper(Mesh object,int hex,double thresholdAngle)/*-{
+	return new $wnd.THREE.EdgesHelper(object,hex);
+	}-*/;
+	
 	public static final native CameraHelper CameraHelper(Camera camera)/*-{
 	return new $wnd.THREE.CameraHelper(camera);
 	}-*/;
@@ -1432,9 +1448,18 @@ return new $wnd.THREE.ArrowHelper(size);
 	}-*/;
 	
 	
+	/**
+	 * 
+	 * @param array usually ArrayBufferViewNative
+	 * @param itemSize
+	 * @return
+	 */
 	public static final native BufferAttribute BufferAttribute(JavaScriptObject array,int itemSize)/*-{
 	return new $wnd.THREE.BufferAttribute(array, itemSize);
 	}-*/;
 	
 
+	public static final native DynamicBufferAttribute DynamicBufferAttribute(JavaScriptObject array,int itemSize)/*-{
+	return new $wnd.THREE.DynamicBufferAttribute(array, itemSize);
+	}-*/;
 }

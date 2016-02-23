@@ -7,15 +7,30 @@ public class BufferAttribute extends JavaScriptObject{
 	protected BufferAttribute() {
 	}
 	
-	public final  native JavaScriptObject getLength()/*-{
+	public final  native double getLength()/*-{
 	return this.length;
 	}-*/;
 	
-	public final  native JsArrayNumber getArray()/*-{
+	/**
+	 * 
+	 * possible ArrayBufferViewNative
+	 * @return
+	 */
+	public final  native JavaScriptObject getArray()/*-{
 	return this.array;
 	}-*/;
-	public final  native void setArray(JsArrayNumber  param)/*-{
+	
+	/**
+	 * 
+	 * possible ArrayBufferViewNative
+	 * @return
+	 */
+	public final  native void setArray(JavaScriptObject  param)/*-{
 	this.array=param;
+	}-*/;
+	
+	public final  native void setNeedsUpdate(boolean  needsUpdate)/*-{
+	this.needsUpdate=needsUpdate;
 	}-*/;
 
 
