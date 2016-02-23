@@ -264,4 +264,12 @@ return $wnd.THREE.Texture.DEFAULT_IMAGE;
 public static final native JavaScriptObject getDefaultMapping()/*-{
 return $wnd.THREE.Texture.DEFAULT_MAPPING;
 }-*/;
+
+public final native String getSourceFile()/*-{
+return this.sourceFile;
+}-*/;
+
+public final native void setSourceFile(String sourceFile)/*-{
+this.sourceFile = sourceFile;
+}-*/;
 }
