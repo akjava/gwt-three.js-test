@@ -251,4 +251,41 @@ this[name]=value;
 public final native void gwtSet(String name,Color value)/*-{
 this[name]=value;
 }-*/;
+
+public final native int getBlendSrcAlpha()/*-{
+return this.blendSrcAlpha;
+}-*/;
+
+public final native void setBlendSrcAlpha(int blendSrcAlpha)/*-{
+this.blendSrcAlpha = blendSrcAlpha;
+}-*/;
+
+public final native void gwtClearBlendSrcAlpha()/*-{
+this.blendSrcAlpha=null;
+}-*/;
+
+public final native int getBlendDstAlpha()/*-{
+return this.blendDstAlpha;
+}-*/;
+
+public final native void setBlendDstcAlpha(int blendDstAlpha)/*-{
+this.blendDstAlpha = blendDstAlpha;
+}-*/;
+
+public final native void gwtClearBlendDstAlpha()/*-{
+this.blendDstAlpha=null;
+}-*/;
+
+public final native int getBlendEquationAlpha()/*-{
+return this.blendEquationAlpha;
+}-*/;
+
+public final native void setBlendEquationcAlpha(int blendEquationAlpha)/*-{
+this.blendEquationAlpha = blendEquationAlpha;
+}-*/;
+
+public final native void gwtClearBlendEquationAlpha()/*-{
+this.blendEquationAlpha=null;
+}-*/;
+
 }
