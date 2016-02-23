@@ -435,14 +435,29 @@ public final native void traverse(Object callback)/*-{
 this.traverse(callback);
 }-*/;
 
+/**
+ * on r71 recursive option gone
+ * @deprecated
+ */
 public final native Object3D getObjectById(int id,boolean recursive)/*-{
 return this.getObjectById(id,recursive);
 }-*/;
 
+public final native Object3D getObjectById(int id)/*-{
+return this.getObjectById(id);
+}-*/;
+
+/**
+ * on r71 recursive option gone
+ * @deprecated
+ */
 public final native Object3D getObjectByName(String name,boolean recursive)/*-{
 return this.getObjectByName(name,recursive);
 }-*/;
 
+public final native Object3D getObjectByName(String name)/*-{
+return this.getObjectByName(name);
+}-*/;
 /**
  * @deprecated use getObjectByName
  */
@@ -500,10 +515,18 @@ return this.getWorldDirection(optionalTarget);
 }-*/;
 
 //TODO test,difference value
+/**
+ * on r71 recursive option gone
+ * @deprecated
+ */
+
 public final native Object3D getObjectByProperty(String name,Object value,boolean recursive)/*-{
 return this.getObjectByProperty(name,value,recursive);
 }-*/;
 
+public final native Object3D getObjectByProperty(String name,Object value)/*-{
+return this.getObjectByProperty(name,value);
+}-*/;
 
 public final native void traverseAncestors(TraverseAncestorsListener listener)/*-{
 this.traverseAncestors(
@@ -511,6 +534,16 @@ function(event){
 	listener.@com.akjava.gwt.three.client.gwt.core.TraverseAncestorsListener::callback(Lcom/akjava/gwt/three/client/js/core/Object3D;)(event);
 }
 );
+}-*/;
+
+
+
+public final native int getRenderOrder()/*-{
+return this.renderOrder;
+}-*/;
+
+public final native void setRenderOrder(int renderOrder)/*-{
+this.renderOrder = renderOrder;
 }-*/;
 
 }
