@@ -55,11 +55,18 @@ public final native void setColor(Color color)/*-{
 this.color = color;
 }-*/;
 
-
+/**
+ * @deprecated on r71
+ * @return
+ */
 public final native Color getAmbient()/*-{
 return this.ambient;
 }-*/;
 
+/**
+ * @deprecated on r71
+ * @return
+ */
 public final native void setAmbient(Color ambient)/*-{
 this.ambient = ambient;
 }-*/;

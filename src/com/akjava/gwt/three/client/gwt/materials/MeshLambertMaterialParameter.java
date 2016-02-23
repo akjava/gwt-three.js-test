@@ -64,10 +64,18 @@ public final class MeshLambertMaterialParameter extends JSParameter{
 	return this;
 	}-*/;
 	
+	/**
+	 * @deprecated on r71
+	 * @return
+	 */
 	public final MeshLambertMaterialParameter ambient(int r,int g,int b){
 		int c=(0xff & r)<<16| (0xff & g)<<8|(0xff & b);
 		return ambient(c);
 	}
+	/**
+	 * @deprecated on r71
+	 * @return
+	 */
 	public final native MeshLambertMaterialParameter ambient(int ambient)/*-{
 	this.ambient=ambient;
 	return this;

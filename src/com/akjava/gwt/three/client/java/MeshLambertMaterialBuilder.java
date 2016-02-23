@@ -66,6 +66,11 @@ public class MeshLambertMaterialBuilder extends JavaScriptObject{
 	this["color"]=c;
 	return this;
 	}-*/;
+	
+	/**
+	 * @deprecated on r71
+	 * @return
+	 */
 	public final native MeshLambertMaterialBuilder ambient(int c)/*-{
 	this["ambient"]=c;
 	return this;
