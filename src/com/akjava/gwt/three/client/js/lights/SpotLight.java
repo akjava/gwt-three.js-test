@@ -215,5 +215,12 @@ public final native SpotLight clone()/*-{
 return this.clone();
 }-*/;
 
+public final native double getDecay()/*-{
+return this.decay;
+}-*/;
+
+public final native void setDecay(double decay)/*-{
+this.decay = decay;
+}-*/;
 
 }

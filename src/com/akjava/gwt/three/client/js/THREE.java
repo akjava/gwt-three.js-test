@@ -614,8 +614,16 @@ return new $wnd.THREE.ArrowHelper(size);
 	return  new $wnd.THREE.SpotLight(hex, intensity, distance, angle, exponent );
 	}-*/;
 	
+	public static  native final SpotLight SpotLight(int hex,double intensity,double distance,double angle,double exponent,double decay)/*-{
+	return  new $wnd.THREE.SpotLight(hex, intensity, distance, angle, exponent ,decay);
+	}-*/;
+	
 	public static  native final PointLight PointLight(int hex,double intensity,double distance)/*-{
 	return  new $wnd.THREE.PointLight(hex, intensity, distance );
+	}-*/;
+	
+	public static  native final PointLight PointLight(int hex,double intensity,double distance,double decay)/*-{
+	return  new $wnd.THREE.PointLight(hex, intensity, distance , decay);
 	}-*/;
 	
 	/**
