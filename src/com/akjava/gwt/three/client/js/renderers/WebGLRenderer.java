@@ -505,4 +505,11 @@ return this.updateShadowMap(scene,camera);
 	this.setMeshBuffers(geometryGroup, object, hint, dispose, material);
 	}-*/;
 	
+	public final native double getGammaFactor()/*-{
+	return this.gammaFactor;
+	}-*/;
+	
+	public final native void readRenderTargetPixels(WebGLRenderTarget target,int x,int y,int width,int height,JavaScriptObject buffer)/*-{
+	return this.readRenderTargetPixels(target,x,y,width,height,buffer);
+	}-*/;
 }
