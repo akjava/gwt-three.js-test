@@ -56,6 +56,11 @@ public final class MeshNormalMaterialParameter extends JSParameter{
 		return (MeshNormalMaterialParameter) MeshNormalMaterialParameter.createObject();
 	}
 	
+	/**
+	 * removed on r71
+	 * @deprecated
+	 * @return
+	 */
 	public final native MeshNormalMaterialParameter shading(int shading)/*-{
 	this.shading=shading;
 	return this;

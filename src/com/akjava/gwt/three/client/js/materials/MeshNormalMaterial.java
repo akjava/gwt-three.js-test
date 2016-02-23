@@ -44,10 +44,20 @@ public class MeshNormalMaterial extends Object3D{
 	protected MeshNormalMaterial() {
 	}
 
+	/**
+	 * removed on r71
+	 * @deprecated
+	 * @return
+	 */
 public final native int getShading()/*-{
 return this.shading;
 }-*/;
 
+/**
+ * removed on r71
+ * @deprecated
+ * @return
+ */
 public final native void setShading(int shading)/*-{
 this.shading = shading;
 }-*/;
