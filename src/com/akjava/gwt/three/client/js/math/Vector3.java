@@ -475,5 +475,13 @@ public final native Vector3 fromAttribute(JavaScriptObject attribute,int index,i
 return this.fromAttribute(attribute,index,offset);
 }-*/;
 
+public final native Vector3 subScalar(double s)/*-{
+return this.subScalar(s);
+}-*/;
+
+public final native Vector3 lerpVectors(Vector3 v,Vector3 v2,double alpha)/*-{
+return this.lerpVectors(v,v2,alpha);
+}-*/;
+
 }
 
