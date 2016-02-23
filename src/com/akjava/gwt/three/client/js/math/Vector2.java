@@ -145,7 +145,7 @@ public final native Vector2 setLength(double l)/*-{
 return this.setLength(l);
 }-*/;
 
-public final native Vector2 lerp(Vector2 v,Object alpha)/*-{
+public final native Vector2 lerp(Vector2 v,double alpha)/*-{
 return this.lerp(v,alpha);
 }-*/;
 
