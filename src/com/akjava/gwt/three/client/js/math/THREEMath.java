@@ -108,4 +108,7 @@ public static final native boolean isPowerOfTwo(double value)/*-{
 return  $wnd.THREE.Math.isPowerOfTwo(value);
 }-*/;
 
+public static final native int nextPowerOfTwo(int value)/*-{
+return  $wnd.THREE.Math.nextPowerOfTwo(value);
+}-*/;
 }
