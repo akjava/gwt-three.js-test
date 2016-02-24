@@ -1,4 +1,43 @@
 #Change History
+##for three.js r71
+###Audio
+support autoplay parameter,play(), pause(), stop() and setVolume()
+###BufferGeometry
+support center()
+###Cache
+all method convert to static
+###Color
+add array and offset arg to toArray()
+###DynamicBufferAttribute
+create new class
+###Euler
+add array and offset arg to toArray()
+###EdgesHelper
+add thresholdAngle on constructor
+###Line
+Return index in raycast()
+###Material
+Added blendSrcAlpha, blendDstAlpha and blendEquationAlpha
+removed ambient from MeshPhongMaterial and MeshLambertMaterial
+###Math
+Added nextPowerOfTwo()
+###MeshNormalMaterial
+Removed shading
+
+###Object3D
+Removed recursive arg from getObjectBy*(). 
+Added renderOrder field
+###PointLight,SpotLight
+added Decay
+###Texture
+Added sourceFile
+###Vector2,Vector3,Vector4
+Added lerpVectors(). 
+Added subScalar().
+###WebGLRenderer
+add readRenderTargetPixels(),gammaFactor
+
+
 ##for three.js r70
 possible warning/erros
 
