@@ -90,6 +90,7 @@ import com.akjava.gwt.three.client.js.extras.geometries.BoxGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.CircleGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.CylinderGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.DodecahedronGeometry;
+import com.akjava.gwt.three.client.js.extras.geometries.EdgesGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.ExtrudeGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.IcosahedronGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.LatheGeometry;
@@ -106,6 +107,7 @@ import com.akjava.gwt.three.client.js.extras.geometries.TextGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.TorusGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.TorusKnotGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.TubeGeometry;
+import com.akjava.gwt.three.client.js.extras.geometries.WireframeGeometry;
 import com.akjava.gwt.three.client.js.extras.helpers.ArrowHelper;
 import com.akjava.gwt.three.client.js.extras.helpers.AxisHelper;
 import com.akjava.gwt.three.client.js.extras.helpers.BoundingBoxHelper;
@@ -1469,5 +1471,21 @@ return new $wnd.THREE.ArrowHelper(size);
 
 	public static final native DynamicBufferAttribute DynamicBufferAttribute(JavaScriptObject array,int itemSize)/*-{
 	return new $wnd.THREE.DynamicBufferAttribute(array, itemSize);
+	}-*/;
+	
+	public static final native WireframeGeometry WireframeGeometry(Geometry geometry)/*-{
+	return new $wnd.THREE.WireframeGeometry(geometry);
+	}-*/;
+	
+	public static final native WireframeGeometry WireframeGeometry(BufferGeometry geometry)/*-{
+	return new $wnd.THREE.WireframeGeometry(geometry);
+	}-*/;
+	
+	public static final native EdgesGeometry EdgesGeometry(Geometry geometry,double thresholdAngle)/*-{
+	return new $wnd.THREE.EdgesGeometry(geometry,thresholdAngle);
+	}-*/;
+	
+	public static final native EdgesGeometry EdgesGeometry(BufferGeometry geometry,double thresholdAngle)/*-{
+	return new $wnd.THREE.EdgesGeometry(geometry,thresholdAngle);
 	}-*/;
 }
