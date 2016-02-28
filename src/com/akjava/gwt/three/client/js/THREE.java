@@ -64,6 +64,11 @@ import com.akjava.gwt.three.client.js.core.DynamicBufferAttribute;
 import com.akjava.gwt.three.client.js.core.EventDispatcher;
 import com.akjava.gwt.three.client.js.core.Face3;
 import com.akjava.gwt.three.client.js.core.Geometry;
+import com.akjava.gwt.three.client.js.core.InstancedBufferAttribute;
+import com.akjava.gwt.three.client.js.core.InstancedBufferGeometry;
+import com.akjava.gwt.three.client.js.core.InstancedInterleavedBuffer;
+import com.akjava.gwt.three.client.js.core.InterleavedBuffer;
+import com.akjava.gwt.three.client.js.core.InterleavedBufferAttribute;
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.akjava.gwt.three.client.js.core.Raycaster;
 import com.akjava.gwt.three.client.js.extras.animation.Animation;
@@ -1487,5 +1492,25 @@ return new $wnd.THREE.ArrowHelper(size);
 	
 	public static final native EdgesGeometry EdgesGeometry(BufferGeometry geometry,double thresholdAngle)/*-{
 	return new $wnd.THREE.EdgesGeometry(geometry,thresholdAngle);
+	}-*/;
+	
+	public static final native InstancedBufferAttribute InstancedBufferAttribute(JavaScriptObject array,int itemSize, int meshPerAttribute)/*-{
+	return new $wnd.THREE.InstancedBufferAttribute(array,itemSize, meshPerAttribute);
+	}-*/;
+	
+	public static  native final InstancedBufferGeometry InstancedBufferGeometry()/*-{
+	return  new $wnd.THREE.InstancedBufferGeometry();
+	}-*/;
+	
+	public static final native InstancedInterleavedBuffer InstancedInterleavedBuffer(JavaScriptObject array,int stride, int meshPerAttribute)/*-{
+	return new $wnd.THREE.InstancedInterleavedBuffer(array,stride, meshPerAttribute);
+	}-*/;
+	
+	public static final native InterleavedBuffer InterleavedBuffer(JavaScriptObject array,int stride)/*-{
+	return new $wnd.THREE.InterleavedBuffer(array,stride);
+	}-*/;
+	
+	public static final native InterleavedBufferAttribute InterleavedBufferAttribute(InterleavedBuffer buffer,int itemSize,int offset)/*-{
+	return new $wnd.THREE.InterleavedBufferAttribute(buffer,itemSize,offset);
 	}-*/;
 }
