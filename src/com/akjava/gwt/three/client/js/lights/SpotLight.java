@@ -211,9 +211,7 @@ public final native void setShadowMatrix(Matrix4 shadowMatrix)/*-{
 this.shadowMatrix = shadowMatrix;
 }-*/;
 
-public final native SpotLight clone()/*-{
-return this.clone();
-}-*/;
+
 
 public final native double getDecay()/*-{
 return this.decay;

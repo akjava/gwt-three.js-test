@@ -196,9 +196,7 @@ public final native void setMorphTargets(boolean morphTargets)/*-{
 this.morphTargets = morphTargets;
 }-*/;
 
-public final native MeshBasicMaterial clone()/*-{
-return this.clone();
-}-*/;
+
 
 
 }

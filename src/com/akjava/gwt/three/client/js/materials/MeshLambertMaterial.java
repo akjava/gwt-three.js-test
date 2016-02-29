@@ -259,9 +259,6 @@ public final native void setMorphNormals(boolean morphNormals)/*-{
 this.morphNormals = morphNormals;
 }-*/;
 
-public final native MeshLambertMaterial clone()/*-{
-return this.clone();
-}-*/;
 
 
 }

@@ -61,9 +61,7 @@ public final native void setWireframeLinewidth(double wireframeLinewidth)/*-{
 this.wireframeLinewidth = wireframeLinewidth;
 }-*/;
 
-public final native MeshDepthMaterial clone()/*-{
-return this.clone();
-}-*/;
+
 
 
 }

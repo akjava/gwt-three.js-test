@@ -243,9 +243,7 @@ public native final JsArray<JsArray<JsArray<Vector2>>> getFaceVertexUvs ()/*-{
 	//return this["faceVertexUvs"];
 }-*/;
 
-public native final Geometry clone()/*-{
-return this.clone();
-}-*/;
+
 
 
 public final native JsArray<Vector3> getVertices()/*-{

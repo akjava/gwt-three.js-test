@@ -249,7 +249,7 @@ public final native void setOnUpdate(JavaScriptObject onUpdate)/*-{
 this.onUpdate = onUpdate;
 }-*/;
 
-public final native Texture clone(Texture texture)/*-{
+public final native Texture copy(Texture texture)/*-{
 return this.clone(texture);
 }-*/;
 

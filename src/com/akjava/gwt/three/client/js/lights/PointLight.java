@@ -61,9 +61,7 @@ public final native void setDistance(double distance)/*-{
 this.distance = distance;
 }-*/;
 
-public final native PointLight clone()/*-{
-return this.clone();
-}-*/;
+
 
 
 public final native double getDecay()/*-{

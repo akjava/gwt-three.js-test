@@ -52,9 +52,7 @@ public final native void setImageData(JavaScriptObject image)/*-{
 this.image = image;
 }-*/;
 
-public final native CompressedTexture clone()/*-{
-return this.clone();
-}-*/;
+
 
 
 }

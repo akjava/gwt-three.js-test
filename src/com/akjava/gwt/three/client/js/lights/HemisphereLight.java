@@ -61,9 +61,7 @@ public final native void setIntensity(double intensity)/*-{
 this.intensity = intensity;
 }-*/;
 
-public final native HemisphereLight clone()/*-{
-return this.clone();
-}-*/;
+
 
 
 }

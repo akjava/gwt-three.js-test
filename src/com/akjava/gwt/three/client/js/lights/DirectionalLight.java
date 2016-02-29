@@ -261,8 +261,6 @@ public final native void setShadowMatrix(Matrix4 shadowMatrix)/*-{
 this.shadowMatrix = shadowMatrix;
 }-*/;
 
-public final native DirectionalLight clone()/*-{
-return this.clone();
-}-*/;
+
 
 }

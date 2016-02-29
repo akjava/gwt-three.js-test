@@ -55,9 +55,7 @@ return this.image;
 
 
 
-public final native DataTexture clone()/*-{
-return this.clone();
-}-*/;
+
 
 
 }

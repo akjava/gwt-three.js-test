@@ -106,9 +106,7 @@ public final native void setFog(boolean fog)/*-{
 this.fog = fog;
 }-*/;
 
-public final native LineDashedMaterial clone()/*-{
-return this.clone();
-}-*/;
+
 
 
 }

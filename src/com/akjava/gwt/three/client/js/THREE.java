@@ -199,6 +199,7 @@ import com.akjava.gwt.three.client.js.renderers.WebGLRenderTargetCube;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Fog;
 import com.akjava.gwt.three.client.js.scenes.Scene;
+import com.akjava.gwt.three.client.js.textures.CanvasTexture;
 import com.akjava.gwt.three.client.js.textures.CompressedTexture;
 import com.akjava.gwt.three.client.js.textures.CubeTexture;
 import com.akjava.gwt.three.client.js.textures.DataTexture;
@@ -700,8 +701,8 @@ return new $wnd.THREE.ArrowHelper(size);
 	return  new $wnd.THREE.Texture(image,mapping, wrapS, wrapT, magFilter, minFilter, format, type, anisotropy);
 	}-*/;
 	
-	public static  native final Texture Texture(CanvasElement canvas)/*-{
-	return  new $wnd.THREE.Texture(canvas);
+	public static  native final CanvasTexture CanvasTexture(CanvasElement canvas)/*-{
+	return  new $wnd.THREE.CanvasTexture(canvas);
 	}-*/;
 	
 	public static  native final JSONLoader JSONLoader(boolean showStatus)/*-{

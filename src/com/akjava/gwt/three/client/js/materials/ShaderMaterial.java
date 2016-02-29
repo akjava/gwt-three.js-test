@@ -204,9 +204,6 @@ public final native void setIndex0AttributeName(String index0AttributeName)/*-{
 this.index0AttributeName = index0AttributeName;
 }-*/;
 
-public final native ShaderMaterial clone()/*-{
-return this.clone();
-}-*/;
 
 
 }

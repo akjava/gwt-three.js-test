@@ -155,9 +155,7 @@ public final native void setShareDepthFrom(JavaScriptObject shareDepthFrom)/*-{
 this.shareDepthFrom = shareDepthFrom;
 }-*/;
 
-public final native WebGLRenderTarget clone()/*-{
-return this.clone();
-}-*/;
+
 
 public final native void dispose()/*-{
 this.dispose();

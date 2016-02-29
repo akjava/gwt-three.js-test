@@ -175,9 +175,7 @@ public final native void computeTangents()/*-{
  this.computeTangents();
 }-*/;
 
-public final native BufferGeometry clone()/*-{
-return this.clone();
-}-*/;
+
 
 public final native Vector3 center()/*-{
 return this.center();

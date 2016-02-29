@@ -62,9 +62,7 @@ public final native void setProgram(JavaScriptObject program)/*-{
 this.program = program;
 }-*/;
 
-public final native SpriteCanvasMaterial clone()/*-{
-return this.clone();
-}-*/;
+
 
 
 }

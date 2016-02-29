@@ -98,9 +98,7 @@ public final native void setFog(boolean fog)/*-{
 this.fog = fog;
 }-*/;
 
-public final native PointCloudMaterial clone()/*-{
-return this.clone();
-}-*/;
+
 
 
 }

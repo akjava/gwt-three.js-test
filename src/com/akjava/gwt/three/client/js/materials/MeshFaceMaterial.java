@@ -56,9 +56,7 @@ public final native void setMaterials(JsArray<Material> materials)/*-{
 this.materials = materials;
 }-*/;
 
-public final native MeshFaceMaterial clone()/*-{
-return this.clone();
-}-*/;
+
 
 
 }
