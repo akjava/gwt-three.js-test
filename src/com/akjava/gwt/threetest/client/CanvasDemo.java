@@ -24,6 +24,7 @@ import com.akjava.gwt.three.client.js.math.Euler;
 import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
+import com.akjava.gwt.three.client.js.textures.CanvasTexture;
 import com.akjava.gwt.three.client.js.textures.Texture;
 import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.canvas.client.Canvas;
@@ -50,7 +51,7 @@ public class CanvasDemo extends AbstractDemo{
 		canvas.getContext2d().fillRect(0, 0, canvas.getCoordinateSpaceWidth(), canvas.getCoordinateSpaceHeight());
 		canvas.getContext2d().strokeText("Hello World",25, 25);
 		
-		Texture texture=THREE.Texture(canvas.getCanvasElement());
+		CanvasTexture texture=THREE.CanvasTexture(canvas.getCanvasElement());
 		texture.setNeedsUpdate(true);//very important
 		//need for stop:Texture is not power of two. Texture.minFilter is set to THREE.LinearFilter or THREE.NearestFilter. ( undefined )
 		texture.setMinFilter(THREE.Filters.LinearFilter());
