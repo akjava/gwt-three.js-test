@@ -44,8 +44,6 @@ import com.akjava.gwt.three.client.examples.loaders.SceneLoader;
 import com.akjava.gwt.three.client.examples.modifiers.SubdivisionModifier;
 import com.akjava.gwt.three.client.examples.renderers.CSS3DRenderer;
 import com.akjava.gwt.three.client.gwt.animation.AnimationData;
-
-
 import com.akjava.gwt.three.client.gwt.renderers.WebGLRendererParameter;
 import com.akjava.gwt.three.client.java.LineBasicMaterialBuilder;
 import com.akjava.gwt.three.client.java.MeshBasicMaterialBuilder;
@@ -92,6 +90,7 @@ import com.akjava.gwt.three.client.js.extras.curves.QuadraticBezierCurve3;
 import com.akjava.gwt.three.client.js.extras.curves.SplineCurve;
 import com.akjava.gwt.three.client.js.extras.curves.SplineCurve3;
 import com.akjava.gwt.three.client.js.extras.geometries.BoxGeometry;
+import com.akjava.gwt.three.client.js.extras.geometries.CircleBufferGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.CircleGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.CylinderGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.DodecahedronGeometry;
@@ -1524,5 +1523,9 @@ return new $wnd.THREE.ArrowHelper(size);
 	
 	public static final native CatmullRomCurve3 CatmullRomCurve3(JsArray<Vector3> points)/*-{
 	return new $wnd.THREE.CatmullRomCurve3(points);
+	}-*/;
+	
+	public static final native CircleBufferGeometry CircleBufferGeometry(double radius,int segments,double thetaStart,double thetaLength)/*-{
+	return new $wnd.THREE.CircleBufferGeometry(radius, segments, thetaStart, thetaLength);
 	}-*/;
 }
