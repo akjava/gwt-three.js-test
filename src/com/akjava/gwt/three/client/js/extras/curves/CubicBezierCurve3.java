@@ -37,54 +37,11 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.extras.curves;
 
-import com.akjava.gwt.three.client.gwt.math.XYZ;
-import com.akjava.gwt.three.client.js.math.Vector3;
-import com.google.gwt.core.client.JavaScriptObject;
+import com.akjava.gwt.three.client.js.extras.core.GWTCurve3;
 
 
-public class CubicBezierCurve3 extends JavaScriptObject{
+public class CubicBezierCurve3 extends GWTCurve3{
 	protected CubicBezierCurve3() {
 	}
-
-
-public final native XYZ getV0()/*-{
-return this.v0;
-}-*/;
-
-public final native void setV0(XYZ v0)/*-{
-this.v0 = v0;
-}-*/;
-
-
-public final native XYZ getV1()/*-{
-return this.v1;
-}-*/;
-
-public final native void setV1(XYZ v1)/*-{
-this.v1 = v1;
-}-*/;
-
-
-public final native XYZ getV2()/*-{
-return this.v2;
-}-*/;
-
-public final native void setV2(XYZ v2)/*-{
-this.v2 = v2;
-}-*/;
-
-
-public final native XYZ getV3()/*-{
-return this.v3;
-}-*/;
-
-public final native void setV3(XYZ v3)/*-{
-this.v3 = v3;
-}-*/;
-
-public final native Vector3 gwtGetPointAsVector3(double t)/*-{
-return this.getPoint(t);
-}-*/;
-
 
 }

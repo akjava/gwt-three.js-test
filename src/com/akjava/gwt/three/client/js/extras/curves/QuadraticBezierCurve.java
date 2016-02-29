@@ -38,38 +38,13 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client.js.extras.curves;
 
 import com.akjava.gwt.three.client.gwt.math.XY;
-import com.akjava.gwt.three.client.js.extras.core.Curve;
+import com.akjava.gwt.three.client.js.extras.core.GWTCurve2;
 
 
-public class QuadraticBezierCurve extends Curve{
+public class QuadraticBezierCurve extends GWTCurve2{
 	protected QuadraticBezierCurve() {
 	}
 
-public final native XY getV0()/*-{
-return this.v0;
-}-*/;
-
-public final native void setV0(XY v0)/*-{
-this.v0 = v0;
-}-*/;
-
-
-public final native XY getV1()/*-{
-return this.v1;
-}-*/;
-
-public final native void setV1(XY v1)/*-{
-this.v1 = v1;
-}-*/;
-
-
-public final native XY getV2()/*-{
-return this.v2;
-}-*/;
-
-public final native void setV2(XY v2)/*-{
-this.v2 = v2;
-}-*/;
 
 
 

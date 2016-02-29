@@ -44,15 +44,15 @@ import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayNumber;
 
 
-public class CurvePath extends Curve{
+public class CurvePath extends GWTCurve2{
 	protected CurvePath() {
 	}
 
-public final native JsArray<Curve> getCurves()/*-{
+public final native JsArray<GWTCurve2> getCurves()/*-{
 return this.curves;
 }-*/;
 
-public final native void setCurves(JsArray<Curve> curves)/*-{
+public final native void setCurves(JsArray<GWTCurve2> curves)/*-{
 this.curves = curves;
 }-*/;
 
@@ -72,7 +72,7 @@ return this.autoClose;
 
 
 
-public final native void add(Curve curve)/*-{
+public final native void add(GWTCurve2 curve)/*-{
 this.add(curve);
 }-*/;
 

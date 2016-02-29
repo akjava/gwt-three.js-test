@@ -37,7 +37,6 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.extras.curves;
 
-import com.google.gwt.core.client.JavaScriptObject;
 
 
 public class ArcCurve extends EllipseCurve{

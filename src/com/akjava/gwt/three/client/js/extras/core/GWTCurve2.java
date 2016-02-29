@@ -35,22 +35,42 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
   
  */
-package com.akjava.gwt.three.client.js.extras.curves;
+package com.akjava.gwt.three.client.js.extras.core;
 
-import com.akjava.gwt.three.client.js.extras.core.GWTCurve3;
-import com.akjava.gwt.three.client.js.math.Vector3;
+import com.akjava.gwt.three.client.js.math.Vector2;
 import com.google.gwt.core.client.JsArray;
 
 
-public class ClosedSplineCurve3 extends GWTCurve3{
-	protected ClosedSplineCurve3() {
+public class GWTCurve2 extends Curve{
+	protected GWTCurve2() {
 	}
-	
-		public final native JsArray<Vector3> getPoints()/*-{
-		return this.points;
-		}-*/;
 
-	
+public final native Vector2 getPoint(double t)/*-{
+return this.getPoint(t);
+}-*/;
+
+public final native Vector2 getPointAt(double u)/*-{
+return this.getPointAt(u);
+}-*/;
+
+public final native JsArray<Vector2> getPoints(double divisions)/*-{
+return this.getPoints(divisions);
+}-*/;
+
+public final native JsArray<Vector2> getSpacedPoints(double divisions)/*-{
+return this.getSpacedPoints(divisions);
+}-*/;
+
+
+
+public final native Vector2 getTangent(double t)/*-{
+return this.getTangent(t);
+}-*/;
+
+public final native Vector2 getTangentAt(double u)/*-{
+return this.getTangentAt(u);
+}-*/;
+
 
 
 }

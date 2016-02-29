@@ -37,32 +37,12 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.extras.curves;
 
-import com.akjava.gwt.three.client.js.math.Vector3;
-import com.google.gwt.core.client.JavaScriptObject;
+import com.akjava.gwt.three.client.js.extras.core.GWTCurve3;
 
 
-public class LineCurve3 extends JavaScriptObject{
+public class LineCurve3 extends GWTCurve3{
 	protected LineCurve3() {
 	}
-	public final native Vector3 getV1()/*-{
-	return this.v1;
-	}-*/;
 
-	public final native void setV1(Vector3 v1)/*-{
-	this.v1 = v1;
-	}-*/;
-
-
-	public final native Vector3 getV2()/*-{
-	return this.v2;
-	}-*/;
-
-	public final native void setV2(Vector3 v2)/*-{
-	this.v2 = v2;
-	}-*/;
-
-	public final native Vector3 gwtGetPointAsVector3(double t)/*-{
-	return this.getPoint(t);
-	}-*/;
 
 }

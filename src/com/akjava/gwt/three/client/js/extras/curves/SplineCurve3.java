@@ -37,22 +37,16 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.extras.curves;
 
-import com.akjava.gwt.three.client.gwt.math.XYZ;
-import com.akjava.gwt.three.client.js.math.Vector3;
-import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.core.client.JsArray;
+import com.akjava.gwt.three.client.js.extras.core.GWTCurve3;
 
-
-public class SplineCurve3 extends JavaScriptObject{
+/**
+ * @deprecated on r72
+ * @author aki
+ *
+ */
+public class SplineCurve3 extends GWTCurve3{
 	protected SplineCurve3() {
 	}
 
-	public final native JsArray<XYZ> getPoints()/*-{
-	return this.points;
-	}-*/;
-
-	public final native Vector3 gwtGetPointAsVector3(double t)/*-{
-	return this.getPoint(t);
-	}-*/;
 
 }

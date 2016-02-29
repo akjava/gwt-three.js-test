@@ -37,77 +37,12 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.extras.curves;
 
-import com.akjava.gwt.three.client.js.extras.core.Curve;
-import com.akjava.gwt.three.client.js.math.Vector2;
+import com.akjava.gwt.three.client.js.extras.core.GWTCurve2;
 
 
-public class EllipseCurve extends Curve{
+public class EllipseCurve extends GWTCurve2{
 	protected EllipseCurve() {
 	}
-
-public final native double getAX()/*-{
-return this.aX;
-}-*/;
-
-public final native void setAX(double aX)/*-{
-this.aX = aX;
-}-*/;
-
-
-public final native double getAY()/*-{
-return this.aY;
-}-*/;
-
-public final native void setAY(double aY)/*-{
-this.aY = aY;
-}-*/;
-
-
-public final native double getXRadius()/*-{
-return this.xRadius;
-}-*/;
-
-public final native void setXRadius(double xRadius)/*-{
-this.xRadius = xRadius;
-}-*/;
-
-
-public final native double getYRadius()/*-{
-return this.yRadius;
-}-*/;
-
-public final native void setYRadius(double yRadius)/*-{
-this.yRadius = yRadius;
-}-*/;
-
-
-public final native double getAStartAngle()/*-{
-return this.aStartAngle;
-}-*/;
-
-public final native void setAStartAngle(double aStartAngle)/*-{
-this.aStartAngle = aStartAngle;
-}-*/;
-
-
-public final native double getAEndAngle()/*-{
-return this.aEndAngle;
-}-*/;
-
-public final native void setAEndAngle(double aEndAngle)/*-{
-this.aEndAngle = aEndAngle;
-}-*/;
-
-
-public final native boolean isAClockwise()/*-{
-return this.aClockwise;
-}-*/;
-
-public final native void setAClockwise(boolean aClockwise)/*-{
-this.aClockwise = aClockwise;
-}-*/;
-
-
 
 
 }
