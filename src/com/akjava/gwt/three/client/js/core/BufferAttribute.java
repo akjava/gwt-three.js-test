@@ -79,5 +79,8 @@ public class BufferAttribute extends JavaScriptObject{
 	return this.copy(source);
 	}-*/;
 	
+	public final  native int getCount()/*-{
+	return this.count;
+	}-*/;
 	
 }

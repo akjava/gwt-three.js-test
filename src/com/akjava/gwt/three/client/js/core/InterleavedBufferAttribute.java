@@ -45,7 +45,7 @@ public class InterleavedBufferAttribute extends JavaScriptObject{
 	return this.length;
 	}-*/;
 	
-	public final  native int count()/*-{
+	public final  native int getCount()/*-{
 	return this.count;
 	}-*/;
 	
