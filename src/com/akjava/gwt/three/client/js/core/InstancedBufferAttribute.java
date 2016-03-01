@@ -8,6 +8,8 @@ public class InstancedBufferAttribute extends BufferAttribute{
 	return this.copy();
 	}-*/;
 	
+	
+	
 	public final native int getMeshPerAttribute()/*-{
 	return this.meshPerAttribute;
 	}-*/;

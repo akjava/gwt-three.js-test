@@ -163,7 +163,7 @@ import com.akjava.gwt.three.client.js.materials.MeshFaceMaterial;
 import com.akjava.gwt.three.client.js.materials.MeshLambertMaterial;
 import com.akjava.gwt.three.client.js.materials.MeshNormalMaterial;
 import com.akjava.gwt.three.client.js.materials.MeshPhongMaterial;
-import com.akjava.gwt.three.client.js.materials.PointCloudMaterial;
+import com.akjava.gwt.three.client.js.materials.PointsMaterial;
 import com.akjava.gwt.three.client.js.materials.ShaderMaterial;
 import com.akjava.gwt.three.client.js.materials.SpriteCanvasMaterial;
 import com.akjava.gwt.three.client.js.materials.SpriteMaterial;
@@ -191,7 +191,7 @@ import com.akjava.gwt.three.client.js.objects.Line;
 import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.objects.MorphAnimMesh;
 import com.akjava.gwt.three.client.js.objects.Particle;
-import com.akjava.gwt.three.client.js.objects.PointCloud;
+import com.akjava.gwt.three.client.js.objects.Points;
 import com.akjava.gwt.three.client.js.objects.Skeleton;
 import com.akjava.gwt.three.client.js.objects.SkinnedMesh;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderTarget;
@@ -543,7 +543,7 @@ return new $wnd.THREE.ArrowHelper(size);
 	return  new $wnd.THREE.ShaderMaterial(parameter);
 	}-*/;
 	
-	public static  native final PointCloudMaterial PointCloudMaterial(JavaScriptObject parameter)/*-{
+	public static  native final PointsMaterial PointCloudMaterial(JavaScriptObject parameter)/*-{
 	return  new $wnd.THREE.PointCloudMaterial(parameter);
 	}-*/;
 	
@@ -960,7 +960,7 @@ return new $wnd.THREE.ArrowHelper(size);
 	public static native final Particle Particle(Material material )/*-{
 	return new $wnd.THREE.Particle(material );
 	}-*/;
-	public static native final PointCloud PointCloud(Geometry geometry,Material material )/*-{
+	public static native final Points PointCloud(Geometry geometry,Material material )/*-{
 	return new $wnd.THREE.PointCloud( geometry, material );
 	}-*/;
 

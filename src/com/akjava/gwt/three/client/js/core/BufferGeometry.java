@@ -38,6 +38,7 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client.js.core;
 
 import com.akjava.gwt.three.client.gwt.core.Offset;
+import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.math.Box3;
 import com.akjava.gwt.three.client.js.math.Sphere;
 import com.akjava.gwt.three.client.js.math.Vector3;
@@ -189,4 +190,11 @@ public  native final BufferGeometry merge(BufferGeometry geo,int offset)/*-{
 return this.merge(geo,offset);
 }-*/;
 
+public final native BufferGeometry copy(BufferGeometry source)/*-{
+return this.copy(source);
+}-*/;
+
+public final  native BufferGeometry clone()/*-{
+return this.clone();
+}-*/;
 }

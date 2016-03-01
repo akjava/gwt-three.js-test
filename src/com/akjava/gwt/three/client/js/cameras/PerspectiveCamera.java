@@ -95,4 +95,8 @@ this.updateProjectionMatrix();
 public final native double getZoom()/*-{
 return this.zoom;
 }-*/;
+
+public final native PerspectiveCamera copy(PerspectiveCamera source)/*-{
+return this.copy(source);
+}-*/;
 }

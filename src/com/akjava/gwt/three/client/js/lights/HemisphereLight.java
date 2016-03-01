@@ -62,6 +62,8 @@ this.intensity = intensity;
 }-*/;
 
 
-
+public final native HemisphereLight copy(HemisphereLight source)/*-{
+return this.copy(source);
+}-*/;
 
 }

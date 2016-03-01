@@ -41,8 +41,8 @@ import com.akjava.gwt.three.client.js.math.Color;
 import com.akjava.gwt.three.client.js.textures.Texture;
 
 
-public class PointCloudMaterial extends Material{
-	protected PointCloudMaterial() {
+public class PointsMaterial extends Material{
+	protected PointsMaterial() {
 	}
 
 public final native Color getColor()/*-{
@@ -99,6 +99,8 @@ this.fog = fog;
 }-*/;
 
 
-
+public final native PointsMaterial copy(PointsMaterial source)/*-{
+return this.copy(source);
+}-*/;
 
 }

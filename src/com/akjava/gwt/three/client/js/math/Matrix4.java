@@ -140,9 +140,7 @@ public native final void setPosition(Vector3 vec)/*-{
 this.setPosition(vec);
 }-*/;
 
-public final native Matrix4  clone()/*-{
-return this.clone();
-}-*/;
+
 
 /**
  * @deprecated
@@ -303,6 +301,10 @@ return this.extractBasis(x,y,z);
 
 public final native Float32Array getElements()/*-{
 return this.elements;
+}-*/;
+
+public final  native Matrix4 clone()/*-{
+return this.clone();
 }-*/;
 
 }

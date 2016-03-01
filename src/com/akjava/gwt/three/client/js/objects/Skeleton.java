@@ -38,11 +38,12 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client.js.objects;
 
 import com.akjava.gwt.three.client.js.math.Matrix4;
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.typedarrays.shared.Float32Array;
 
 
-public class Skeleton extends Mesh{
+public class Skeleton extends JavaScriptObject{
 	protected Skeleton() {
 	}
 
@@ -77,4 +78,7 @@ public final native void update()/*-{
 this.update();
 }-*/;
 
+public final native Skeleton copy(Skeleton source)/*-{
+return this.copy(source);
+}-*/;
 }

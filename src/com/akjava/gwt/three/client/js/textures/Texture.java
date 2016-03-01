@@ -38,6 +38,7 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client.js.textures;
 
 import com.akjava.gwt.three.client.js.core.EventDispatcher;
+import com.akjava.gwt.three.client.js.math.Box2;
 import com.akjava.gwt.three.client.js.math.Vector2;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
@@ -251,6 +252,10 @@ this.onUpdate = onUpdate;
 
 public final native Texture copy(Texture texture)/*-{
 return this.clone(texture);
+}-*/;
+
+public final  native Texture clone()/*-{
+return this.clone();
 }-*/;
 
 public final native void dispose()/*-{

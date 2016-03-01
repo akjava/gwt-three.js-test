@@ -72,4 +72,7 @@ public final native void setDecay(double decay)/*-{
 this.decay = decay;
 }-*/;
 
+public final native PointLight copy(PointLight source)/*-{
+return this.copy(source);
+}-*/;
 }

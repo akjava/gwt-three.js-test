@@ -85,8 +85,12 @@ public final native void setAutoUpdate(boolean autoUpdate)/*-{
 this.autoUpdate = autoUpdate;
 }-*/;
 
-public final native Scene clone(Scene object)/*-{
-return this.clone(object);
+public final native Scene copy(Scene object)/*-{
+return this.copy(object);
+}-*/;
+
+public final native Scene clone()/*-{
+return this.clone();
 }-*/;
 
 }

@@ -44,8 +44,8 @@ import com.akjava.gwt.three.client.js.core.Raycaster;
 import com.akjava.gwt.three.client.js.materials.Material;
 import com.google.gwt.core.client.JsArray;
 
-public class PointCloud extends Object3D{
-protected PointCloud(){}
+public class Points extends Object3D{
+protected Points(){}
 
 
 
@@ -74,8 +74,12 @@ return this.sortParticles;
 
 
 
-public final native PointCloud clone(PointCloud object)/*-{
-return this.clone(object);
+public final native Points copy(Points source)/*-{
+return this.copy(source);
+}-*/;
+
+public final  native Points clone()/*-{
+return this.clone();
 }-*/;
 /**
  * @deprecated on r70

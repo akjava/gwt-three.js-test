@@ -50,4 +50,11 @@ public final native void raycast(Raycaster raycaster,JsArray<Intersect> intersec
 this.raycast(raycaster,intersects);
 }-*/;
 
+public final native Line copy(Line source)/*-{
+return this.copy(source);
+}-*/;
+
+public final  native Line clone()/*-{
+return this.clone();
+}-*/;
 }

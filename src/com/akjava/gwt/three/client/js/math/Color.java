@@ -170,9 +170,7 @@ public final native JsArrayNumber toArray(JsArrayNumber array,int offset)/*-{
 return this.toArray(array,offset);
 }-*/;
 
-public final native Color clone()/*-{
-return this.clone();
-}-*/;
+
 
 public final native double getR()/*-{
 return this.r;
@@ -186,4 +184,8 @@ public final native double getB()/*-{
 return this.b;
 }-*/;
 
+
+public final  native Color clone()/*-{
+return this.clone();
+}-*/;
 }

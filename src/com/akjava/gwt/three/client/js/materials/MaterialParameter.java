@@ -125,5 +125,8 @@ public final class MaterialParameter extends JSParameter{
 	this.needsUpdate=needsUpdate;
 	return this;
 	}-*/;
-	
+
+	public final native MaterialParameter copy(MaterialParameter source)/*-{
+	return this.copy(source);
+	}-*/;
 }

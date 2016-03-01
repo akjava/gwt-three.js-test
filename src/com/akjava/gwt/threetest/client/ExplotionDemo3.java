@@ -26,7 +26,7 @@ import com.akjava.gwt.three.client.js.lights.Light;
 import com.akjava.gwt.three.client.js.materials.Material;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.objects.Mesh;
-import com.akjava.gwt.three.client.js.objects.PointCloud;
+import com.akjava.gwt.three.client.js.objects.Points;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.threetest.client.resources.Bundles;
@@ -100,7 +100,7 @@ private Mesh mesh;
 		Material material=THREE.ParticleBasicMaterial().color(0x888888).size(15).map(ImageUtils.loadTexture("img/particle7.png"))
 		.blending(THREE.Blending.NormalBlending()).transparent(true).build();
 		
-		final PointCloud particleSystem=THREE.PointCloud(particles, material);
+		final Points particleSystem=THREE.PointCloud(particles, material);
 		particleSystem.setSortParticles(true);
 		root.add(particleSystem);
 		root.getRotation().set(Math.toDegrees(45),Math.toDegrees(45),Math.toDegrees(-45));

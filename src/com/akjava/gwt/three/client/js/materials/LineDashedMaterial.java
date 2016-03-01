@@ -107,6 +107,8 @@ this.fog = fog;
 }-*/;
 
 
-
+public final native LineDashedMaterial copy(LineDashedMaterial source)/*-{
+return this.copy(source);
+}-*/;
 
 }

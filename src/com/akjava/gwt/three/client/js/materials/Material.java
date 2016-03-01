@@ -38,6 +38,7 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client.js.materials;
 
 import com.akjava.gwt.three.client.js.core.EventDispatcher;
+import com.akjava.gwt.three.client.js.lights.PointLight;
 import com.akjava.gwt.three.client.js.math.Color;
 import com.google.gwt.core.client.JavaScriptObject;
 
@@ -219,8 +220,8 @@ public final native void setNeedsUpdate(boolean needsUpdate)/*-{
 this.needsUpdate = needsUpdate;
 }-*/;
 
-public final native Material clone(Material material)/*-{
-return this.clone(material);
+public final native Material clone()/*-{
+return this.clone();
 }-*/;
 
 public final native void dispose()/*-{
@@ -288,4 +289,7 @@ public final native void gwtClearBlendEquationAlpha()/*-{
 this.blendEquationAlpha=null;
 }-*/;
 
+public final native Material copy(Material source)/*-{
+return this.copy(source);
+}-*/;
 }

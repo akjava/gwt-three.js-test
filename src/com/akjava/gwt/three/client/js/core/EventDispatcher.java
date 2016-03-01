@@ -39,11 +39,10 @@ package com.akjava.gwt.three.client.js.core;
 
 import com.akjava.gwt.three.client.gwt.core.ThreeEvent;
 import com.akjava.gwt.three.client.gwt.core.ThreeEventListener;
-import com.akjava.gwt.three.client.gwt.core.ThreeObject;
 import com.google.gwt.core.client.JavaScriptObject;
 
 
-public class EventDispatcher extends ThreeObject{
+public class EventDispatcher extends JavaScriptObject{
 	protected EventDispatcher() {
 	}
 

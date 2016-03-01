@@ -205,5 +205,7 @@ this.index0AttributeName = index0AttributeName;
 }-*/;
 
 
-
+public final native ShaderMaterial copy(ShaderMaterial source)/*-{
+return this.copy(source);
+}-*/;
 }

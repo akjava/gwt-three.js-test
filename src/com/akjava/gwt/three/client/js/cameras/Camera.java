@@ -71,13 +71,18 @@ public class Camera extends Object3D{
 	//return this.lookAt();
 	//}-*/;
 
-	public final native Camera clone(Camera camera)/*-{
-	return this.clone(camera);
-	}-*/;
-	
+
 	
 	public final native void  lookAt(double x, double y, double z)/*-{
 		this.lookAt(new $wnd.THREE.Vector3(x, y, z));
+	}-*/;
+	
+	public final native Camera copy(Camera source)/*-{
+	return this.copy(source);
+	}-*/;
+	
+	public final native Camera clone()/*-{
+	return this.clone();
 	}-*/;
 	
 }

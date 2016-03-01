@@ -100,8 +100,8 @@ public final native void normalizeSkinWeights()/*-{
 this.normalizeSkinWeights();
 }-*/;
 
-public final native SkinnedMesh clone(SkinnedMesh object)/*-{
-return this.clone(object);
+public final native Skeleton copy(Skeleton source)/*-{
+return this.copy(source);
 }-*/;
 
 //TODO support

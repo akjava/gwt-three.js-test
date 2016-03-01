@@ -37,6 +37,7 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.lights;
 
+import com.akjava.gwt.three.client.js.core.Face3;
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.akjava.gwt.three.client.js.math.Color;
 
@@ -46,5 +47,13 @@ protected Light(){}
 
 public final native Color getColor()/*-{
 return this.color;
+}-*/;
+
+public final native Light copy(Light source)/*-{
+return this.copy(source);
+}-*/;
+
+public final  native Light clone()/*-{
+return this.clone();
 }-*/;
 }

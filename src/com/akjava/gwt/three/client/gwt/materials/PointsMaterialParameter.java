@@ -45,93 +45,93 @@ import com.akjava.gwt.three.client.js.textures.Texture;
  * @author aki
  *
  */
-public final class PointCloudMaterialParameter extends JSParameter{
-	protected PointCloudMaterialParameter(){}
-	public final static PointCloudMaterialParameter create(){
-		return (PointCloudMaterialParameter) PointCloudMaterialParameter.createObject();
+public final class PointsMaterialParameter extends JSParameter{
+	protected PointsMaterialParameter(){}
+	public final static PointsMaterialParameter create(){
+		return (PointsMaterialParameter) PointsMaterialParameter.createObject();
 	}
-	public final PointCloudMaterialParameter color(int r,int g,int b){
+	public final PointsMaterialParameter color(int r,int g,int b){
 		int c=(0xff & r)<<16| (0xff & g)<<8|(0xff & b);
 		return color(c);
 	}
-	public final native PointCloudMaterialParameter color(int color)/*-{
+	public final native PointsMaterialParameter color(int color)/*-{
 	this.color=color;
 	return this;
 	}-*/;
 	
-	public final native PointCloudMaterialParameter map(Texture map)/*-{
+	public final native PointsMaterialParameter map(Texture map)/*-{
 	this.map=map;
 	return this;
 	}-*/;
 	
-	public final native PointCloudMaterialParameter size(double size)/*-{
+	public final native PointsMaterialParameter size(double size)/*-{
 	this.size=size;
 	return this;
 	}-*/;
 	
-	public final native PointCloudMaterialParameter sizeAttenuation(boolean sizeAttenuation)/*-{
+	public final native PointsMaterialParameter sizeAttenuation(boolean sizeAttenuation)/*-{
 	this.sizeAttenuation=sizeAttenuation;
 	return this;
 	}-*/;
 	
-	public final native PointCloudMaterialParameter vertexColors(boolean vertexColors)/*-{
+	public final native PointsMaterialParameter vertexColors(boolean vertexColors)/*-{
 	this.vertexColors=vertexColors;
 	return this;
 	}-*/;
 	
-	public final native PointCloudMaterialParameter fog(boolean fog)/*-{
+	public final native PointsMaterialParameter fog(boolean fog)/*-{
 	this.fog=fog;
 	return this;
 	}-*/;
 	
 	
-	public final native PointCloudMaterialParameter side(int side)/*-{
+	public final native PointsMaterialParameter side(int side)/*-{
 	this.side=side;
 	return this;
 	}-*/;
 	
-	public final native PointCloudMaterialParameter opacity(double opacity)/*-{
+	public final native PointsMaterialParameter opacity(double opacity)/*-{
 	this.opacity=opacity;
 	return this;
 	}-*/;
-	public final native PointCloudMaterialParameter transparent(boolean transparent)/*-{
+	public final native PointsMaterialParameter transparent(boolean transparent)/*-{
 	this.transparent=transparent;
 	return this;
 	}-*/;
 	
-	public final native PointCloudMaterialParameter depthTest(boolean depthTest)/*-{
+	public final native PointsMaterialParameter depthTest(boolean depthTest)/*-{
 	this.depthTest=depthTest;
 	return this;
 	}-*/;
 	
-	public final native PointCloudMaterialParameter depthWrite(boolean depthWrite)/*-{
+	public final native PointsMaterialParameter depthWrite(boolean depthWrite)/*-{
 	this.depthWrite=depthWrite;
 	return this;
 	}-*/;
 	
-	public final native PointCloudMaterialParameter polygonOffset(boolean polygonOffset)/*-{
+	public final native PointsMaterialParameter polygonOffset(boolean polygonOffset)/*-{
 	this.polygonOffset=polygonOffset;
 	return this;
 	}-*/;
 	
-	public final native PointCloudMaterialParameter blending(int blending)/*-{
+	public final native PointsMaterialParameter blending(int blending)/*-{
 	this.blending=blending;
 	return this;
 	}-*/;
 	
-	public final native PointCloudMaterialParameter blendSrc(int blendSrc)/*-{
+	public final native PointsMaterialParameter blendSrc(int blendSrc)/*-{
 	this.blendSrc=blendSrc;
 	return this;
 	}-*/;
 	
 	
 	
-	public final native PointCloudMaterialParameter blendDst(int blendDst)/*-{
+	public final native PointsMaterialParameter blendDst(int blendDst)/*-{
 	this.blendDst=blendDst;
 	return this;
 	}-*/;
 	
-	public final native PointCloudMaterialParameter blendEquation(int blendEquation)/*-{
+	public final native PointsMaterialParameter blendEquation(int blendEquation)/*-{
 	this.blendEquation=blendEquation;
 	return this;
 	}-*/;
@@ -139,24 +139,24 @@ public final class PointCloudMaterialParameter extends JSParameter{
 	
 	
 	
-	public final native PointCloudMaterialParameter polygonOffsetFactor(double polygonOffsetFactor)/*-{
+	public final native PointsMaterialParameter polygonOffsetFactor(double polygonOffsetFactor)/*-{
 	this.polygonOffsetFactor=polygonOffsetFactor;
 	return this;
 	}-*/;
 	
-	public final native PointCloudMaterialParameter polygonOffsetUnits(double polygonOffsetUnits)/*-{
+	public final native PointsMaterialParameter polygonOffsetUnits(double polygonOffsetUnits)/*-{
 	this.polygonOffsetUnits=polygonOffsetUnits;
 	return this;
 	}-*/;
-	public final native PointCloudMaterialParameter alphaTest(double alphaTest)/*-{
+	public final native PointsMaterialParameter alphaTest(double alphaTest)/*-{
 	this.alphaTest=alphaTest;
 	return this;
 	}-*/;
-	public final native PointCloudMaterialParameter overdraw(double overdraw)/*-{
+	public final native PointsMaterialParameter overdraw(double overdraw)/*-{
 	this.overdraw=overdraw;
 	return this;
 	}-*/;
-	public final native PointCloudMaterialParameter needsUpdate(boolean needsUpdate)/*-{
+	public final native PointsMaterialParameter needsUpdate(boolean needsUpdate)/*-{
 	this.needsUpdate=needsUpdate;
 	return this;
 	}-*/;

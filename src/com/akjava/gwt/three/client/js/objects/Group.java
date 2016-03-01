@@ -43,4 +43,12 @@ import com.akjava.gwt.three.client.js.core.Object3D;
 public class Group extends Object3D{
 	protected Group() {	
 	}
+	
+	public final native Group copy(Group source)/*-{
+	return this.copy(source);
+	}-*/;
+
+	public final  native Group clone()/*-{
+	return this.clone();
+	}-*/;
 }

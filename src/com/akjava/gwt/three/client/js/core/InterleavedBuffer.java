@@ -78,16 +78,19 @@ public class InterleavedBuffer extends JavaScriptObject{
 	return this.needUpdate=needUpdate;
 	}-*/;
 	
-	public final  native void  copy(InterleavedBuffer  param)/*-{
-	 this.copy(param);
+	public final  native InterleavedBuffer  copy(InterleavedBuffer  param)/*-{
+	return this.copy(param);
 	}-*/;
+	
+	
 	public final  native InterleavedBuffer  copyAt(int index1,InterleavedBuffer  param,int index2)/*-{
 	 return copyAt(index1,param,index2);
 	}-*/;
 	public final  native void  set(int value,int offset)/*-{
 	 this.set(value,offset);
 	}-*/;
-	public final  native InterleavedBuffer  clone()/*-{
-	 return clone();
+	
+	public final  native InterleavedBuffer clone()/*-{
+	return this.clone();
 	}-*/;
 }

@@ -39,7 +39,11 @@ package com.akjava.gwt.three.client.js.lights;
 
 import com.akjava.gwt.three.client.js.math.Vector3;
 
-
+/**
+ * @deprecated on r72
+ * @author aki
+ *
+ */
 public class AreaLight extends Light{
 	protected AreaLight() {
 	}
@@ -115,6 +119,8 @@ public final native void setQuadraticAttenuation(double quadraticAttenuation)/*-
 this.quadraticAttenuation = quadraticAttenuation;
 }-*/;
 
-
+public final native AreaLight copy(AreaLight source)/*-{
+return this.copy(source);
+}-*/;
 
 }

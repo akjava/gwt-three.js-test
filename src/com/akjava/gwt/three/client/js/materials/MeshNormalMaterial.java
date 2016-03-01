@@ -89,6 +89,8 @@ public final native void setMorphTargets(boolean morphTargets)/*-{
 this.morphTargets = morphTargets;
 }-*/;
 
-
+public final native MeshNormalMaterial copy(MeshNormalMaterial source)/*-{
+return this.copy(source);
+}-*/;
 
 }

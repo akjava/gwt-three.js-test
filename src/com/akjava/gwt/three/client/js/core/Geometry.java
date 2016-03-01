@@ -42,6 +42,7 @@ import com.akjava.gwt.three.client.gwt.animation.AnimationBone;
 import com.akjava.gwt.three.client.gwt.animation.AnimationData;
 import com.akjava.gwt.three.client.gwt.core.BoundingBox;
 import com.akjava.gwt.three.client.gwt.core.MorphTarget;
+import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.math.Color;
 import com.akjava.gwt.three.client.js.math.Matrix4;
 import com.akjava.gwt.three.client.js.math.Sphere;
@@ -429,4 +430,11 @@ public  native final JSParameter getParameter()/*-{
 return this.parameters;
 }-*/;
 
+public final native Geometry copy(Geometry source)/*-{
+return this.copy(source);
+}-*/;
+
+public final native Geometry clone()/*-{
+return this.clone();
+}-*/;
 }

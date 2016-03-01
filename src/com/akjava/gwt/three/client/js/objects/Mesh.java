@@ -76,8 +76,14 @@ public final native int getMorphTargetIndexByName(String name)/*-{
 return this.getMorphTargetIndexByName(name);
 }-*/;
 
-public final native Mesh clone(Mesh object)/*-{
-return this.clone(object);
+
+
+public final native Mesh copy(Mesh source)/*-{
+return this.copy(source);
+}-*/;
+
+public final  native Mesh clone()/*-{
+return this.clone();
 }-*/;
 
 

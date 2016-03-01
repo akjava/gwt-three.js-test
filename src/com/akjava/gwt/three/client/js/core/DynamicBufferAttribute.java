@@ -2,6 +2,11 @@ package com.akjava.gwt.three.client.js.core;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * @deprecated on r72
+ * @author aki
+ *
+ */
 public class DynamicBufferAttribute extends BufferAttribute {
 
 	protected DynamicBufferAttribute() {

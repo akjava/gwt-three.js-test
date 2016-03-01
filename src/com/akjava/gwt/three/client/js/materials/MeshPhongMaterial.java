@@ -319,6 +319,9 @@ this.morphNormals = morphNormals;
 }-*/;
 
 
+public final native MeshPhongMaterial copy(MeshPhongMaterial source)/*-{
+return this.copy(source);
+}-*/;
 
 
 }

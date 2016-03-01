@@ -17,7 +17,7 @@ package com.akjava.gwt.threetest.client;
 
 import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.gwt.materials.MeshLambertMaterialParameter;
-import com.akjava.gwt.three.client.gwt.materials.PointCloudMaterialParameter;
+import com.akjava.gwt.three.client.gwt.materials.PointsMaterialParameter;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Geometry;
@@ -27,7 +27,7 @@ import com.akjava.gwt.three.client.js.materials.Material;
 import com.akjava.gwt.three.client.js.math.Euler;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.objects.Mesh;
-import com.akjava.gwt.three.client.js.objects.PointCloud;
+import com.akjava.gwt.three.client.js.objects.Points;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.three.client.js.textures.Texture;
@@ -65,7 +65,7 @@ private Mesh mesh;
 		//need for stop:Texture is not power of two. Texture.minFilter is set to THREE.LinearFilter or THREE.NearestFilter. ( undefined )
 		texture.setMinFilter(THREE.Filters.LinearFilter());
 		Material material=THREE.PointCloudMaterial(
-				PointCloudMaterialParameter.create().
+				PointsMaterialParameter.create().
 				color(0xffffff).size(20).map(texture).blending(THREE.Blending.AdditiveBlending()).transparent(true).depthTest(false)
 				)
 		;
@@ -80,7 +80,7 @@ private Mesh mesh;
 			velocity[i]=THREE.Vector3(0, 0, -Math.random());
 		}
 		
-		final PointCloud particleSystem=THREE.PointCloud(particles, material);
+		final Points particleSystem=THREE.PointCloud(particles, material);
 		//particleSystem.setSortParticles(true); no need since r70
 		
 		final Mesh root=THREE.Mesh(THREE.PlaneBufferGeometry(500, 500), THREE.MeshLambertMaterial(

@@ -37,6 +37,8 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.cameras;
 
+import com.akjava.gwt.three.client.js.core.Geometry;
+
 
 
 public class OrthographicCamera extends Camera{
@@ -109,5 +111,11 @@ this.updateProjectionMatrix();
 public final native double getZoom()/*-{
 return this.zoom;
 }-*/;
+
+public final native OrthographicCamera copy(OrthographicCamera source)/*-{
+return this.copy(source);
+}-*/;
+
+
 
 }

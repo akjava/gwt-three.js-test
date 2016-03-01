@@ -100,7 +100,7 @@ public final native boolean equals(Line3 line)/*-{
 return this.equals(line);
 }-*/;
 
-public final native Line3 clone()/*-{
+public final  native Line3 clone()/*-{
 return this.clone();
 }-*/;
 

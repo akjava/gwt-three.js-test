@@ -58,11 +58,13 @@ this.material = material;
 
 
 
-public final native Sprite clone(Sprite object)/*-{
-return this.clone(object);
+public final native Sprite copy(Sprite source)/*-{
+return this.copy(source);
 }-*/;
 
 public final native void raycast(Raycaster raycaster,JsArray<Intersect> intersects)/*-{
 this.raycast(raycaster,intersects);
 }-*/;
+
+
 }

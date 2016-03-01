@@ -125,9 +125,10 @@ public final native boolean equals(Plane plane)/*-{
 return this.equals(plane);
 }-*/;
 
-public final native Plane clone()/*-{
+public final  native Plane clone()/*-{
 return this.clone();
 }-*/;
+
 
 
 }

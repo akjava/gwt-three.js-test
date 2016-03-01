@@ -57,6 +57,9 @@ this.materials = materials;
 }-*/;
 
 
+public final native MeshFaceMaterial copy(MeshFaceMaterial source)/*-{
+return this.copy(source);
+}-*/;
 
 
 }

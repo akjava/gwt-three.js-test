@@ -83,7 +83,9 @@ this.fog = fog;
 
 
 
-
+public final native SpriteMaterial copy(SpriteMaterial source)/*-{
+return this.copy(source);
+}-*/;
 
 
 }

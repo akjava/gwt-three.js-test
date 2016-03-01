@@ -93,9 +93,7 @@ public final native void updateAnimation(double delta)/*-{
 this.updateAnimation(delta);
 }-*/;
 
-public final native MorphAnimMesh clone(MorphAnimMesh object)/*-{
-return this.clone(object);
-}-*/;
+
 
 	
 	
@@ -109,7 +107,9 @@ return this.clone(object);
 	public final native void interpolateTargets(int a,int b,double t)/*-{
 	this.interpolateTargets(a,b,t);
 	}-*/;
-	
+	public final native MorphAnimMesh copy(MorphAnimMesh source)/*-{
+	return this.copy(source);
+	}-*/;
 	
 
 }

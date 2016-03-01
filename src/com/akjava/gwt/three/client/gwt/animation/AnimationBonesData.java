@@ -25,7 +25,7 @@ public class AnimationBonesData {
 	public static List<Matrix4>  cloneMatrix(List<Matrix4> matrixs){
 		List<Matrix4> ret=new ArrayList<Matrix4>();
 		for(int i=0;i<matrixs.size();i++){
-			ret.add(matrixs.get(i).clone());
+			ret.add((Matrix4)matrixs.get(i).clone().cast());
 		}
 		return ret;
 	}

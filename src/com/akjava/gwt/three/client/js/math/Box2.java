@@ -37,6 +37,7 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.math;
 
+import com.akjava.gwt.three.client.js.core.Face3;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 
@@ -69,9 +70,7 @@ public final native Box2 setFromCenterAndSize(Vector2 center,Vector2 size)/*-{
 return this.setFromCenterAndSize();
 }-*/;
 
-public final native Box2 copy(Box2 box)/*-{
-return this.copy(box);
-}-*/;
+
 
 public final native Box2 makeEmpty()/*-{
 return this.makeEmpty();
@@ -144,9 +143,13 @@ public final native boolean equals(Box2 box)/*-{
 return this.equals(box);
 }-*/;
 
-public final native Box2 clone()/*-{
-return this.clone();
+
+
+public final native Box2 copy(Box2 source)/*-{
+return this.copy(source);
 }-*/;
 
-
+public final  native Box2 clone()/*-{
+return this.clone();
+}-*/;
 }

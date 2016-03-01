@@ -37,7 +37,6 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.materials;
 
-import com.akjava.gwt.three.client.js.core.Object3D;
 
 
 public class MeshDepthMaterial extends Material{
@@ -62,6 +61,9 @@ this.wireframeLinewidth = wireframeLinewidth;
 }-*/;
 
 
+public final native MeshDepthMaterial copy(MeshDepthMaterial source)/*-{
+return this.copy(source);
+}-*/;
 
 
 }

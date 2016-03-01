@@ -74,9 +74,9 @@ public final native boolean containsPoint(Vector3 point)/*-{
 return this.containsPoint(point);
 }-*/;
 
-public final native Frustum clone()/*-{
+
+public final  native Frustum clone()/*-{
 return this.clone();
 }-*/;
-
 
 }

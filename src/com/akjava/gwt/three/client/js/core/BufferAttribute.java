@@ -1,5 +1,6 @@
 package com.akjava.gwt.three.client.js.core;
 
+import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayNumber;
 
@@ -72,6 +73,10 @@ public class BufferAttribute extends JavaScriptObject{
 	
 	public final  native BufferAttribute clone()/*-{
 	return this.clone();
+	}-*/;
+	
+	public final native BufferAttribute copy(BufferAttribute source)/*-{
+	return this.copy(source);
 	}-*/;
 	
 	

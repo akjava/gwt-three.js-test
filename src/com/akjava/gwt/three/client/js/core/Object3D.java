@@ -480,6 +480,10 @@ public final native Object3D clone(Object3D object,boolean recursive)/*-{
 return this.clone(object,recursive);
 }-*/;
 
+public final native Object3D copy(Object3D object,boolean recursive)/*-{
+return this.copy(object,recursive);
+}-*/;
+
 public static final native Vector3 getDefaultUp()/*-{
 return $wnd.THREE.Object3D.DefaultUp;
 }-*/;

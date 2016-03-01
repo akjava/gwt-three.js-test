@@ -64,5 +64,7 @@ this.program = program;
 
 
 
-
+public final native SpriteCanvasMaterial copy(SpriteCanvasMaterial source)/*-{
+return this.copy(source);
+}-*/;
 }

@@ -99,6 +99,8 @@ this.fog = fog;
 }-*/;
 
 
-
+public final native LineBasicMaterial copy(LineBasicMaterial source)/*-{
+return this.copy(source);
+}-*/;
 
 }

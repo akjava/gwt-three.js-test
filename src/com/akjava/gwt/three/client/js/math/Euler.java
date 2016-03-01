@@ -94,9 +94,7 @@ public final native boolean equals(Euler euler)/*-{
 return this.equals(euler);
 }-*/;
 
-public final native Euler clone()/*-{
-return this.clone();
-}-*/;
+
 public final native double getX()/*-{
 return this.x;
 }-*/;
@@ -149,5 +147,8 @@ public final native Vector3 toVector3(Vector3 optionalResult)/*-{
 return toVector3(optionalResult);
 }-*/;
 
+public final  native Euler clone()/*-{
+return this.clone();
+}-*/;
 
 }

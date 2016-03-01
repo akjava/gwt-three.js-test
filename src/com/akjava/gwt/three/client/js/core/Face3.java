@@ -1,5 +1,6 @@
 package com.akjava.gwt.three.client.js.core;
 
+import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.materials.Material;
 import com.akjava.gwt.three.client.js.math.Color;
 import com.akjava.gwt.three.client.js.math.Vector3;
@@ -143,7 +144,13 @@ public final native void setCentroid(Vector3 centroid)/*-{
 this.centroid = centroid;
 }-*/;
 
-public final native Face3 clone()/*-{
+
+
+public final native Face3 copy(Face3 source)/*-{
+return this.copy(source);
+}-*/;
+
+public final  native Face3 clone()/*-{
 return this.clone();
 }-*/;
 

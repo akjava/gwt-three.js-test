@@ -38,6 +38,7 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client.js.objects;
 
 import com.akjava.gwt.three.client.js.core.Object3D;
+import com.akjava.gwt.three.client.js.math.Box2;
 import com.akjava.gwt.three.client.js.math.Matrix4;
 
 
@@ -83,5 +84,12 @@ public final native void update(Matrix4 parentSkinMatrix,boolean forceUpdate)/*-
 this.update(parentSkinMatrix,forceUpdate);
 }-*/;
 
+public final native Bone copy(Bone source)/*-{
+return this.copy(source);
+}-*/;
+
+public final  native Bone clone()/*-{
+return this.clone();
+}-*/;
 
 }

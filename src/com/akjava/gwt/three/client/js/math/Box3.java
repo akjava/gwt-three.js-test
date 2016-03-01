@@ -168,7 +168,9 @@ public final native boolean equals(Box3 box)/*-{
 return this.equals(box);
 }-*/;
 
-
+public final  native Box3 clone()/*-{
+return this.clone();
+}-*/;
 
 
 }

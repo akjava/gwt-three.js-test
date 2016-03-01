@@ -121,9 +121,7 @@ public final native boolean equals(Ray ray)/*-{
 return this.equals(ray);
 }-*/;
 
-public final native Ray clone()/*-{
-return this.clone();
-}-*/;
+
 
 /**
  * @deprecated?
@@ -151,4 +149,7 @@ public final native Vector3 intersectSphere (Sphere sphere,Vector3 optionalTarge
 return this.intersectSphere(sphere,optionalTarget);
 }-*/;
 
+public final  native Ray clone()/*-{
+return this.clone();
+}-*/;
 }

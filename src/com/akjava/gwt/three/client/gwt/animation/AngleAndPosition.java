@@ -54,7 +54,7 @@ public AngleAndPosition clone(){
 		copyPos3=position.clone();
 	}
 	if(matrix!=null){
-		copyMatrix4=matrix.clone();
+		copyMatrix4=matrix.clone().cast();
 	}
 	return new AngleAndPosition(copyVector3,copyPos3, copyMatrix4);
 }
