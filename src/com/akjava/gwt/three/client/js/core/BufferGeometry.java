@@ -51,6 +51,13 @@ public class BufferGeometry extends EventDispatcher{
 	}
 
 
+	public final native BufferAttribute getIndex()/*-{
+	return this.index;
+	}-*/;
+	
+	public final native void setIndex(BufferAttribute index)/*-{
+	this.index = index;
+	}-*/;
 
 	//TODO make return class
 	public final native JsArray<JavaScriptObject> computeOffsets(int indexBufferSize)/*-{
@@ -138,6 +145,12 @@ public final native void addAttribute(Object name,Object type,Object numItems,Ob
 this.addAttribute(name,type,numItems,itemSize);
 }-*/;
 
+/**
+ * @deprecated on r72
+ * @param start
+ * @param count
+ * @param indexOffset
+ */
 public final native void addDrawCall(int start,int count,int indexOffset)/*-{
 this.addDrawCall(start,count,indexOffset);
 }-*/;
@@ -171,6 +184,9 @@ public final native void normalizeNormals()/*-{
 this.normalizeNormals();
 }-*/;
 
+/**
+ * @deprecated on r72
+ */
 public final native void computeTangents()/*-{
  this.computeTangents();
 }-*/;
@@ -195,5 +211,41 @@ return this.copy(source);
 
 public final  native BufferGeometry clone()/*-{
 return this.clone();
+}-*/;
+
+public final native void addGroup(int start,int count,int materialIndex)/*-{
+this.addGroup(start,count,materialIndex);
+}-*/;
+
+public final native void clearGroups()/*-{
+this.clearGroups();
+}-*/;
+
+public final native void setDrawRange(int start,int count)/*-{
+this.setDrawRange(start,count);
+}-*/;
+
+public final native void rotateX(double angle)/*-{
+this.rotateX(angle);
+}-*/;
+
+public final native void rotateY(double angle)/*-{
+this.rotateY(angle);
+}-*/;
+
+public final native void rotateZ(double angle)/*-{
+this.rotateZ(angle);
+}-*/;
+
+public final native void translate(double x,double y,double z)/*-{
+this.translate(x,y,z);
+}-*/;
+
+public final native void scale(double x,double y,double z)/*-{
+this.scale(x,y,z);
+}-*/;
+
+public final native void lookAt(Vector3 vector)/*-{
+this.lookAt(vector);
 }-*/;
 }
