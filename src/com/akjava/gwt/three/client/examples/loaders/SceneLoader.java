@@ -39,7 +39,6 @@ package com.akjava.gwt.three.client.examples.loaders;
 
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.akjava.gwt.three.client.js.loaders.LoadingManager;
-import com.akjava.gwt.three.client.js.loaders.ObjectLoader;
 import com.akjava.gwt.three.client.js.loaders.ObjectLoader.ObjectLoadHandler;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.NativeEvent;

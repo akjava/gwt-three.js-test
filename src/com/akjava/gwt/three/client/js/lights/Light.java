@@ -37,7 +37,6 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.lights;
 
-import com.akjava.gwt.three.client.js.core.Face3;
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.akjava.gwt.three.client.js.math.Color;
 

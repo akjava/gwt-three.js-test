@@ -37,7 +37,6 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.math;
 
-import com.akjava.gwt.three.client.js.core.Face3;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 

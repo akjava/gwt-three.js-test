@@ -1,6 +1,5 @@
 package com.akjava.gwt.three.client.js.core;
 
-import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.materials.Material;
 import com.akjava.gwt.three.client.js.math.Color;
 import com.akjava.gwt.three.client.js.math.Vector3;

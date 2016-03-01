@@ -39,7 +39,6 @@ package com.akjava.gwt.three.client.js.math;
 
 import com.akjava.gwt.three.client.gwt.math.XY;
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.core.client.JsArrayInteger;
 import com.google.gwt.core.client.JsArrayNumber;
 
 

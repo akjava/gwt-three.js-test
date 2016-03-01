@@ -37,8 +37,6 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.math;
 
-import javax.swing.Box;
-
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;

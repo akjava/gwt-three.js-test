@@ -38,7 +38,6 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client.js.math;
 
 import com.akjava.gwt.three.client.gwt.math.GWTSplineLength;
-import com.akjava.gwt.three.client.gwt.math.XYZObject;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayNumber;

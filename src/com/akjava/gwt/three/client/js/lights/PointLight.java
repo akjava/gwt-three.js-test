@@ -37,7 +37,6 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.lights;
 
-import com.akjava.gwt.three.client.js.core.Object3D;
 
 
 public class PointLight extends Light{

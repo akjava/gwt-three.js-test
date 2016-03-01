@@ -1,6 +1,5 @@
 package com.akjava.gwt.three.client.js.core;
 
-import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayNumber;
 
