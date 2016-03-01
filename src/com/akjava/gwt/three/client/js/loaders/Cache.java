@@ -65,4 +65,11 @@ public static final native void clear()/*-{
 }-*/;
 
 
+public static final native boolean isEnabled()/*-{
+return $wnd.THREE.Cache.enabled;
+}-*/;
+
+public static final native void setEnabled(boolean enabled)/*-{
+$wnd.THREE.Cache.enabled=enabled;
+}-*/;
 }
