@@ -92,4 +92,11 @@ public final native JsArray<Shape> toShapes(boolean isCCW)/*-{
 this.getPoints(  isCCW);
 }-*/;
 
+public final native void ellipse(double  aX,double aY,double xRadius,double yRadius,double aStartAngle,double aEndAngle,boolean aClockwise,double aRotation)/*-{
+this.ellipse( aX, aY, xRadius, yRadius,aStartAngle, aEndAngle, aClockwise,aRotation);
+}-*/;
+
+public final native void absellipse(double   aX,double aY,double xRadius,double yRadius,double aStartAngle,double aEndAngle,boolean aClockwise,double aRotation)/*-{
+this.absellipse( aX, aY, xRadius, yRadius, aStartAngle, aEndAngle, aClockwise,aRotation);
+}-*/;
 }
