@@ -37,6 +37,7 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.objects;
 
+import com.akjava.gwt.three.client.gwt.JSParameter;
 import com.akjava.gwt.three.client.gwt.core.Intersect;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Object3D;
@@ -51,14 +52,29 @@ import com.google.gwt.core.client.JsArray;
 public class LOD extends Object3D{
 	protected LOD() {
 	}
-
+/**
+ * @deprecated on r72
+ * @return
+ */
 public final native JsArray<Object3D> getObjects()/*-{
 return this.objects;
 }-*/;
-
+/**
+ * @deprecated on r72
+ * @return
+ */
 public final native void setObjects(JsArray<Object3D> objects)/*-{
 this.objects = objects;
 }-*/;
+
+/**
+ * { distance: distance, object: object }
+ * @return
+ */
+public final native JSParameter getLevels()/*-{
+return this.levels;
+}-*/;
+
 
 public final native void addLevel(Object3D object,double distance)/*-{
 this.addLevel(object,distance);
@@ -70,10 +86,6 @@ return this.getObjectForDistance(distance);
 
 public final native void update(Camera camera)/*-{
 this.update();
-}-*/;
-
-public final native LOD clone(LOD object)/*-{
-return this.clone(object);
 }-*/;
 
 
