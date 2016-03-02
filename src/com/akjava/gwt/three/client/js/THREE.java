@@ -40,7 +40,6 @@ package com.akjava.gwt.three.client.js;
 import com.akjava.gwt.lib.client.JavaScriptUtils;
 import com.akjava.gwt.three.client.examples.ColladaLoader;
 import com.akjava.gwt.three.client.examples.camera.CombinedCamera;
-import com.akjava.gwt.three.client.examples.js.Gyroscope;
 import com.akjava.gwt.three.client.examples.loaders.SceneLoader;
 import com.akjava.gwt.three.client.examples.modifiers.SubdivisionModifier;
 import com.akjava.gwt.three.client.examples.renderers.CSS3DRenderer;
@@ -188,6 +187,7 @@ import com.akjava.gwt.three.client.js.objects.Group;
 import com.akjava.gwt.three.client.js.objects.LOD;
 import com.akjava.gwt.three.client.js.objects.LensFlare;
 import com.akjava.gwt.three.client.js.objects.Line;
+import com.akjava.gwt.three.client.js.objects.LineSegments;
 import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.objects.MorphAnimMesh;
 import com.akjava.gwt.three.client.js.objects.Particle;
@@ -980,6 +980,9 @@ return new $wnd.THREE.ArrowHelper(size);
 	}-*/;
 	public static native final Line Line(Geometry geometry,Material material )/*-{
 	return new $wnd.THREE.Line( geometry, material );
+	}-*/;
+	public static native final LineSegments LineSegments(Geometry geometry,Material material )/*-{
+	return new $wnd.THREE.LineSegments( geometry, material );
 	}-*/;
 	
 	public static native final Color Color(int hex)/*-{
