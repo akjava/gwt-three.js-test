@@ -270,5 +270,9 @@ public final native Vector4 lerpVectors(Vector4 v,Vector4 v2,double alpha)/*-{
 return this.lerpVectors(v,v2,alpha);
 }-*/;
 
+public final native Vector4 addScaledVector(Vector4 value,double s)/*-{
+return this.addScaledVector(value,s);
+}-*/;
+
 }
 

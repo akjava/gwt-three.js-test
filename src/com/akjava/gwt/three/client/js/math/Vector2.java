@@ -207,4 +207,13 @@ return this.subScalar(s);
 public final native Vector2 lerpVectors(Vector2 v,Vector2 v2,double alpha)/*-{
 return this.lerpVectors(v,v2,alpha);
 }-*/;
+
+public final native double lengthManhattan()/*-{
+return this.lengthManhattan();
+}-*/;
+
+public final native Vector2 addScaledVector(Vector2 value,double s)/*-{
+return this.addScaledVector(value,s);
+}-*/;
+
 }
