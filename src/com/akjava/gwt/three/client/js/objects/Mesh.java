@@ -193,10 +193,17 @@ public final  native void setMorphTargetBase(int  param)/*-{
 this.morphTargetBase=param;
 }-*/;
 
-
+/**
+ * @deprecated on r72
+ * @return
+ */
 public final  native JsArrayInteger getMorphTargetForcedOrder()/*-{
 return this.morphTargetForcedOrder;
 }-*/;
+/**
+ * @deprecated on r72
+ * @return
+ */
 public final  native void setMorphTargetForcedOrder(JsArrayInteger  param)/*-{
 this.morphTargetForcedOrder=param;
 }-*/;

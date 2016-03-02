@@ -68,4 +68,12 @@ return this.faceIndex;
 public final native int getIndex()/*-{
 return this.index;
 }-*/;
+
+/**
+ * possible mesh
+ * @return
+ */
+public final native Vector3 getUv()/*-{
+return this.uv;
+}-*/;
 }
