@@ -37,7 +37,6 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.loaders;
 
-import com.akjava.gwt.three.client.js.loaders.Loader.LoadHandler;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.NativeEvent;
 
@@ -73,4 +72,14 @@ public void onProgress(String url,int loaded,int total);
 public void onError(NativeEvent error);
 }
 
+
+public final native void setOnStartHandler(LoadingManagerOnStartHandler handler)/*-{
+
+this.onStart=function ( url,loaded,total ) {
+handler.@com.akjava.gwt.three.client.js.loaders.LoadingManager$LoadingManagerOnStartHandler::onStart(Ljava/lang/String;II)(url,loaded,total);
+};
+}-*/;
+public static interface LoadingManagerOnStartHandler {
+public void onStart(String url,int loaded,int total);
+}
 }
