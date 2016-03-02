@@ -40,6 +40,7 @@ package com.akjava.gwt.three.client.js;
 import com.akjava.gwt.lib.client.JavaScriptUtils;
 import com.akjava.gwt.three.client.examples.ColladaLoader;
 import com.akjava.gwt.three.client.examples.camera.CombinedCamera;
+import com.akjava.gwt.three.client.examples.js.Gyroscope;
 import com.akjava.gwt.three.client.examples.loaders.SceneLoader;
 import com.akjava.gwt.three.client.examples.modifiers.SubdivisionModifier;
 import com.akjava.gwt.three.client.examples.renderers.CSS3DRenderer;
@@ -74,7 +75,6 @@ import com.akjava.gwt.three.client.js.extras.animation.KeyFrameAnimation;
 import com.akjava.gwt.three.client.js.extras.animation.MorphAnimation;
 import com.akjava.gwt.three.client.js.extras.audio.Audio;
 import com.akjava.gwt.three.client.js.extras.audio.AudioListener;
-import com.akjava.gwt.three.client.js.extras.core.Gyroscope;
 import com.akjava.gwt.three.client.js.extras.core.Path;
 import com.akjava.gwt.three.client.js.extras.core.Shape;
 import com.akjava.gwt.three.client.js.extras.curves.ArcCurve;
@@ -413,8 +413,8 @@ return new $wnd.THREE.ArrowHelper(size);
 	return new $wnd.THREE.LineCurve(v1, v2);
 	}-*/;
 	
-	public static final native EllipseCurve EllipseCurve(double aX,double  aY,double  xRadius,double  yRadius,double  aStartAngle,double  aEndAngle,boolean aClockwise)/*-{
-	return new $wnd.THREE.EllipseCurve(aX, aY, xRadius, yRadius, aStartAngle, aEndAngle, aClockwise);
+	public static final native EllipseCurve EllipseCurve(double aX,double  aY,double  xRadius,double  yRadius,double  aStartAngle,double  aEndAngle,boolean aClockwise,double aRotation)/*-{
+	return new $wnd.THREE.EllipseCurve(aX, aY, xRadius, yRadius, aStartAngle, aEndAngle, aClockwise,aRotation);
 	}-*/;
 	
 	public static final native CubicBezierCurve3 CubicBezierCurve3(Vector3 v0,Vector3 v1,Vector3 v2,Vector3 v3)/*-{

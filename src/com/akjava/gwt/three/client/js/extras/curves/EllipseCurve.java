@@ -45,4 +45,69 @@ public class EllipseCurve extends GWTCurve2{
 	}
 
 
+
+
+	public final  native double getAX()/*-{
+	return this.aX;
+	}-*/;
+	public final  native void setAX(double  param)/*-{
+	this.aX=param;
+	}-*/;
+
+
+	public final  native double getAY()/*-{
+	return this.aY;
+	}-*/;
+	public final  native void setAY(double  param)/*-{
+	this.aY=param;
+	}-*/;
+
+
+	public final  native double getXRadius()/*-{
+	return this.xRadius;
+	}-*/;
+	public final  native void setXRadius(double  param)/*-{
+	this.xRadius=param;
+	}-*/;
+
+
+	public final  native double getYRadius()/*-{
+	return this.yRadius;
+	}-*/;
+	public final  native void setYRadius(double  param)/*-{
+	this.yRadius=param;
+	}-*/;
+
+
+	public final  native double getAStartAngle()/*-{
+	return this.aStartAngle;
+	}-*/;
+	public final  native void setAStartAngle(double  param)/*-{
+	this.aStartAngle=param;
+	}-*/;
+
+
+	public final  native double getAEndAngle()/*-{
+	return this.aEndAngle;
+	}-*/;
+	public final  native void setAEndAngle(boolean  param)/*-{
+	this.aEndAngle=param;
+	}-*/;
+
+
+	public final  native boolean isAClockwise()/*-{
+	return this.aClockwise;
+	}-*/;
+	public final  native void setAClockwise(double  param)/*-{
+	this.aClockwise=param;
+	}-*/;
+
+
+	public final  native double getARotation()/*-{
+	return this.aRotation;
+	}-*/;
+	public final  native void setARotation(double  param)/*-{
+	this.aRotation=param;
+	}-*/;
+
 }

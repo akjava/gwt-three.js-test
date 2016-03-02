@@ -172,6 +172,9 @@ public final native void applyMatrix(Matrix4 matrix)/*-{
 this.applyMatrix(matrix);
 }-*/;
 
+/**
+ * @deprecated on r72
+ */
 public final native void computeTangents()/*-{
 this.computeTangents();
 }-*/;
@@ -435,5 +438,29 @@ return this.copy(source);
 
 public final native Geometry clone()/*-{
 return this.clone();
+}-*/;
+
+public final native void rotateX(double angle)/*-{
+this.rotateX(angle);
+}-*/;
+
+public final native void rotateY(double angle)/*-{
+this.rotateY(angle);
+}-*/;
+
+public final native void rotateZ(double angle)/*-{
+this.rotateZ(angle);
+}-*/;
+
+public final native void translate(double x,double y,double z)/*-{
+this.translate(x,y,z);
+}-*/;
+
+public final native void scale(double x,double y,double z)/*-{
+this.scale(x,y,z);
+}-*/;
+
+public final native void lookAt(Vector3 vector)/*-{
+this.lookAt(vector);
 }-*/;
 }
