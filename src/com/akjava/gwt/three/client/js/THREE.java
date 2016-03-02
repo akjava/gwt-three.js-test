@@ -1277,6 +1277,17 @@ return new $wnd.THREE.ArrowHelper(size);
 	public static final int OneMinusDstColorFactor = 209;
 	public static final int SrcAlphaSaturateFactor = 210;
 
+	
+	// depth modes
+	public static final int NeverDepth = 0;
+	public static final int AlwaysDepth = 1;
+	public static final int LessDepth = 2;
+	public static final int LessEqualDepth = 3;
+	public static final int EqualDepth = 4;
+	public static final int GreaterEqualDepth = 5;
+	public static final int GreaterDepth = 6;
+	public static final int NotEqualDepth = 7;
+	
 
 	// TEXTURE CONSTANTS
 

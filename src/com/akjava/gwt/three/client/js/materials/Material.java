@@ -292,4 +292,13 @@ this.blendEquationAlpha=null;
 public final native Material copy(Material source)/*-{
 return this.copy(source);
 }-*/;
+
+public final native void setDepthFunc(int depthFunc)/*-{
+this.depthFunc = depthFunc;
+}-*/;
+
+
+public final native int getDepthFunc()/*-{
+return this.depthFunc;
+}-*/;
 }
