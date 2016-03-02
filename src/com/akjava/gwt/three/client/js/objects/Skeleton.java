@@ -81,4 +81,8 @@ this.update();
 public final native Skeleton copy(Skeleton source)/*-{
 return this.copy(source);
 }-*/;
+
+public final native Skeleton clone()/*-{
+return this.copy(source);
+}-*/;
 }
