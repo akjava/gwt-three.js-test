@@ -45,10 +45,17 @@ public class Loader extends JavaScriptObject{
 	protected Loader() {
 	}
 
+	/**
+	 * @deprecated on r72
+	 * @return
+	 */
 public final native boolean isShowStatus()/*-{
 return this.showStatus;
 }-*/;
-
+/**
+ * @deprecated on r72
+ * @return
+ */
 public final native Element getStatusDomElement()/*-{
 return this.statusDomElement;
 }-*/;
