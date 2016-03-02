@@ -35,7 +35,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
   
  */
-package com.akjava.gwt.three.client.js.extras.core;
+package com.akjava.gwt.three.client.examples.js;
 
 import com.akjava.gwt.three.client.js.core.Object3D;
 

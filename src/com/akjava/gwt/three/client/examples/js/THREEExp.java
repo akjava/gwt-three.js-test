@@ -156,5 +156,8 @@ public class THREEExp {
 		return new $wnd.THREE.SavePass();
 		}-*/;
 		
+		public static final native Gyroscope Gyroscope()/*-{
+		return new $wnd.THREE.Gyroscope();
+		}-*/;
 		
 }

@@ -432,9 +432,7 @@ return new $wnd.THREE.ArrowHelper(size);
 	return new $wnd.THREE.ArcCurve(aX, aY, aRadius, aStartAngle, aEndAngle, aClockwise);
 	}-*/;
 	
-	public static final native Gyroscope Gyroscope()/*-{
-	return new $wnd.THREE.Gyroscope();
-	}-*/;
+	
 	
 	public static final native CompressedTexture CompressedTexture( JavaScriptObject mipmaps,int width,int height,int format,int type,int mapping,int wrapS,int wrapT,int magFilter,int minFilter,int anisotropy)/*-{
 	return new $wnd.THREE.CompressedTexture( mipmaps, width, height, format, type, mapping, wrapS, wrapT, magFilter, minFilter, anisotropy );
