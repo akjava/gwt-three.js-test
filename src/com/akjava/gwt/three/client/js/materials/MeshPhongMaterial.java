@@ -111,20 +111,32 @@ this.metal = metal;
 
 
 
-
+/**
+ * @deprecated on r72
+ * @param wrapAround
+ */
 public final native boolean isWrapAround()/*-{
 return this.wrapAround;
 }-*/;
-
+/**
+ * @deprecated on r72
+ * @param wrapAround
+ */
 public final native void setWrapAround(boolean wrapAround)/*-{
 this.wrapAround = wrapAround;
 }-*/;
 
-
+/**
+ * @deprecated on r72
+ * @param wrapAround
+ */
 public final native Vector3 getWrapRGB()/*-{
 return this.wrapRGB;
 }-*/;
-
+/**
+ * @deprecated on r72
+ * @param wrapAround
+ */
 public final native void setWrapRGB(Vector3 wrapRGB)/*-{
 this.wrapRGB = wrapRGB;
 }-*/;
@@ -323,5 +335,41 @@ public final native MeshPhongMaterial copy(MeshPhongMaterial source)/*-{
 return this.copy(source);
 }-*/;
 
+public final native Texture getAoMap()/*-{
+return this.aoMap;
+}-*/;
+
+public final native void setAoMap(Texture aoMap)/*-{
+this.aoMap = aoMap;
+}-*/;
+
+public final native double getAoMapIntensity()/*-{
+return this.aoMapIntensity;
+}-*/;
+
+public final native void setAoMapIntensity(double aoMapIntensity)/*-{
+this.aoMapIntensity = aoMapIntensity;
+}-*/;
+
+public final native void setLightMapIntensity(double lightMapIntensity)/*-{
+this.lightMapIntensity = lightMapIntensity;
+}-*/;
+
+
+
+public final  native Texture getDisplacementMap()/*-{
+return this.displacementMap;
+}-*/;
+public final  native void setDisplacementMap(Texture  param)/*-{
+this.displacementMap=param;
+}-*/;
+
+
+public final  native Texture getEmissiveMap()/*-{
+return this.emissiveMap;
+}-*/;
+public final  native void setEmissiveMap(Texture  param)/*-{
+this.emissiveMap=param;
+}-*/;
 
 }

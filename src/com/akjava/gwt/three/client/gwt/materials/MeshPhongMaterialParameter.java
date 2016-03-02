@@ -279,4 +279,28 @@ public final class MeshPhongMaterialParameter extends JSParameter{
 	return this;
 	}-*/;
 	
+	public final native MeshPhongMaterialParameter aoMap(Texture aoMap)/*-{
+	this.aoMap=aoMap;
+	return this;
+	}-*/;
+	
+	public final native MeshPhongMaterialParameter aoMapIntensity(double aoMapIntensity)/*-{
+	this.aoMapIntensity=aoMapIntensity;
+	return this;
+	}-*/;
+	
+	public final native MeshPhongMaterialParameter lightMapIntensity(double lightMapIntensity)/*-{
+	this.lightMapIntensity=lightMapIntensity;
+	return this;
+	}-*/;
+	
+	public final native MeshPhongMaterialParameter emissiveMap(Texture emissiveMap)/*-{
+	this.emissiveMap=emissiveMap;
+	return this;
+	}-*/;
+	
+	public final native MeshPhongMaterialParameter displacementMap(Texture displacementMap)/*-{
+	this.displacementMap=displacementMap;
+	return this;
+	}-*/;
 }
