@@ -159,52 +159,101 @@ this.gammaOutput = gammaOutput;
 	
 
 //**shadow map
+//TODO implement WebGLShadowMap
+public final native JavaScriptObject getShadowMap()/*-{
+return this.shadowMap;
+}-*/;
 
+/**
+ * @deprecated
+ * @moved to WebGLShadowMap
+ * @return
+ */
 public final native boolean isShadowMapEnabled()/*-{
 return this.shadowMapEnabled;
 }-*/;
-
+/**
+ * @deprecated
+ * @moved to WebGLShadowMap
+ * @return
+ */
 public final native void setShadowMapEnabled(boolean shadowMapEnabled)/*-{
 this.shadowMapEnabled = shadowMapEnabled;
 }-*/;
 
-
+/**
+ * @deprecated
+ * @moved to WebGLShadowMap
+ * @return
+ */
 public final native boolean isShadowMapAutoUpdate()/*-{
 return this.shadowMapAutoUpdate;
 }-*/;
-
+/**
+ * @deprecated
+ * @moved to WebGLShadowMap
+ * @return
+ */
 public final native void setShadowMapAutoUpdate(boolean shadowMapAutoUpdate)/*-{
 this.shadowMapAutoUpdate = shadowMapAutoUpdate;
 }-*/;
 
-
+/**
+ * @deprecated
+ * @moved to WebGLShadowMap
+ * @return
+ */
 public final native int getShadowMapType()/*-{
 return this.shadowMapType;
 }-*/;
-
+/**
+ * @deprecated
+ * @moved to WebGLShadowMap
+ * @return
+ */
 public final native void setShadowMapType(int shadowMapType)/*-{
 this.shadowMapType = shadowMapType;
 }-*/;
 
-
+/**
+ * @deprecated
+ * @moved to WebGLShadowMap
+ * @return
+ */
 public final native int getShadowMapCullFace()/*-{
 return this.shadowMapCullFace;
 }-*/;
-
+/**
+ * @deprecated
+ * @moved to WebGLShadowMap
+ * @return
+ */
 public final native void setShadowMapCullFace(int shadowMapCullFace)/*-{
 this.shadowMapCullFace = shadowMapCullFace;
 }-*/;
 
-
+/**
+ * @deprecated
+ * @moved to WebGLShadowMap
+ * @return
+ */
 public final native boolean isShadowMapDebug()/*-{
 return this.shadowMapDebug;
 }-*/;
-
+/**
+ * @deprecated
+ * @moved to WebGLShadowMap
+ * @return
+ */
 public final native void setShadowMapDebug(boolean shadowMapDebug)/*-{
 this.shadowMapDebug = shadowMapDebug;
 }-*/;
 
-
+/**
+ * @deprecated
+ * @moved to WebGLShadowMap
+ * @return
+ */
 public final native boolean isShadowMapCascade()/*-{
 return this.shadowMapCascade;
 }-*/;
@@ -511,5 +560,30 @@ return this.updateShadowMap(scene,camera);
 	
 	public final native void readRenderTargetPixels(WebGLRenderTarget target,int x,int y,int width,int height,JavaScriptObject buffer)/*-{
 	return this.readRenderTargetPixels(target,x,y,width,height,buffer);
+	}-*/;
+	
+	/**
+	 * width:
+	 * height:
+	 * @return
+	 */
+	public final native JSParameter getSize()/*-{
+	return this.getSize();
+	}-*/;
+	
+	/**
+	 * TODO implements extensions
+	 * @return
+	 */
+	public final native JavaScriptObject getExtensions()/*-{
+	return this.extensions;
+	}-*/;
+	
+	public final native JavaScriptObject getContextAttributes()/*-{
+	return this.getContextAttributes();
+	}-*/;
+	
+	public final native void dispose()/*-{
+	 this.dispose();
 	}-*/;
 }
