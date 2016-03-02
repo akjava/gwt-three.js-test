@@ -80,20 +80,33 @@ public final native void setEmissive(Color emissive)/*-{
 this.emissive = emissive;
 }-*/;
 
-
+/**
+ * @deprecated on r72
+ * @param wrapAround
+ */
 public final native boolean isWrapAround()/*-{
 return this.wrapAround;
 }-*/;
 
+/**
+ * @deprecated on r72
+ * @param wrapAround
+ */
 public final native void setWrapAround(boolean wrapAround)/*-{
 this.wrapAround = wrapAround;
 }-*/;
 
-
+/**
+ * @deprecated on r72
+ * @param wrapAround
+ */
 public final native Vector3 getWrapRGB()/*-{
 return this.wrapRGB;
 }-*/;
-
+/**
+ * @deprecated on r72
+ * @param wrapAround
+ */
 public final native void setWrapRGB(Vector3 wrapRGB)/*-{
 this.wrapRGB = wrapRGB;
 }-*/;
@@ -111,10 +124,17 @@ public final native void setMap(WebGLRenderTarget map)/*-{
 this.map = map;
 }-*/;
 
+/**
+ * @deprecated on r72
+ * @param wrapAround
+ */
 public final native Texture getLightMap()/*-{
 return this.lightMap;
 }-*/;
-
+/**
+ * @deprecated on r72
+ * @param wrapAround
+ */
 public final native void setLightMap(Texture lightMap)/*-{
 this.lightMap = lightMap;
 }-*/;
@@ -174,11 +194,21 @@ this.fog = fog;
 }-*/;
 
 /**
+ * @deprecated on r72
+ * @param wrapAround
+ */
+
+/**
  * THREE.shading
  */
 public final native int getShading()/*-{
 return this.shading;
 }-*/;
+
+/**
+ * @deprecated on r72
+ * @param wrapAround
+ */
 
 /**
  * THREE.shading

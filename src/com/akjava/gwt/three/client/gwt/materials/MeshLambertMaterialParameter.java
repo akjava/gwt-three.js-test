@@ -89,6 +89,10 @@ public final class MeshLambertMaterialParameter extends JSParameter{
 	return this;
 	}-*/;
 
+	/**
+	 * @deprecated on r72
+	 * @param wrapAround
+	 */
 	public final native MeshLambertMaterialParameter wrapAround(boolean wrapAround)/*-{
 	this.wrapAround=wrapAround;
 	return this;
@@ -98,6 +102,10 @@ public final class MeshLambertMaterialParameter extends JSParameter{
 	this.map=map;
 	return this;
 	}-*/;
+	/**
+	 * @deprecated on r72
+	 * @param wrapAround
+	 */
 	public final native MeshLambertMaterialParameter lightMap(Texture lightMap)/*-{
 	this.lightMap=lightMap;
 	return this;
@@ -134,7 +142,10 @@ public final class MeshLambertMaterialParameter extends JSParameter{
 	this.fog=fog;
 	return this;
 	}-*/;
-	
+	/**
+	 * @deprecated on r72
+	 * @param wrapAround
+	 */
 	public final native MeshLambertMaterialParameter shading(int shading)/*-{
 	this.shading=shading;
 	return this;
