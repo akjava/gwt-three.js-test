@@ -487,6 +487,10 @@ public static final native Vector3 getDefaultUp()/*-{
 return $wnd.THREE.Object3D.DefaultUp;
 }-*/;
 
+public static final native boolean getDefaultMatrixAutoUpdate()/*-{
+return $wnd.THREE.Object3D.DefaultMatrixAutoUpdate;
+}-*/;
+
 public final native void traverseVisible(Object callback)/*-{
 this.traverseVisible(callback);
 }-*/;
