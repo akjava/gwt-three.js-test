@@ -81,14 +81,17 @@ public final native void setDefines(Defines defines)/*-{
 this.defines = defines;
 }-*/;
 
+
+
 /**
- * i have no idea what is this.
- * @return
+ * @deprecated on r72
  */
 public final native JavaScriptObject getAttributes()/*-{
 return this.attributes;
 }-*/;
-
+/**
+ * @deprecated on r72
+ */
 public final native void setAttributes(JavaScriptObject attributes)/*-{
 this.attributes = attributes;
 }-*/;
