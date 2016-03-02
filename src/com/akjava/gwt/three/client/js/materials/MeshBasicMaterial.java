@@ -61,11 +61,18 @@ public final native void setMap(Texture map)/*-{
 this.map = map;
 }-*/;
 
-
+/**
+ * @deprecated on r72
+ * @return
+ */
 public final native Texture getLightMap()/*-{
 return this.lightMap;
 }-*/;
 
+/**
+ * @deprecated on r72
+ * @return
+ */
 public final native void setLightMap(Texture lightMap)/*-{
 this.lightMap = lightMap;
 }-*/;
@@ -200,5 +207,21 @@ public final native MeshBasicMaterial copy(MeshBasicMaterial source)/*-{
 return this.copy(source);
 }-*/;
 
+
+public final native Texture getAoMap()/*-{
+return this.aoMap;
+}-*/;
+
+public final native void setAoMap(Texture aoMap)/*-{
+this.aoMap = aoMap;
+}-*/;
+
+public final native double getAoMapIntensity()/*-{
+return this.aoMapIntensity;
+}-*/;
+
+public final native void setAoMapIntensity(double aoMapIntensity)/*-{
+this.aoMapIntensity = aoMapIntensity;
+}-*/;
 
 }

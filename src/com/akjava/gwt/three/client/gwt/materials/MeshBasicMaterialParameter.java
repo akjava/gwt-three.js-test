@@ -64,10 +64,26 @@ public final class MeshBasicMaterialParameter extends JSParameter{
 	this.map=map;
 	return this;
 	}-*/;
+	/**
+	 * @deprecated on r72
+	 * @param lightMap
+	 * @return
+	 */
 	public final native MeshBasicMaterialParameter lightMap(Texture lightMap)/*-{
 	this.lightMap=lightMap;
 	return this;
 	}-*/;
+	
+	public final native MeshBasicMaterialParameter aoMap(Texture aoMap)/*-{
+	this.aoMap=aoMap;
+	return this;
+	}-*/;
+	
+	public final native MeshBasicMaterialParameter aoMapIntensity(double aoMapIntensity)/*-{
+	this.aoMapIntensity=aoMapIntensity;
+	return this;
+	}-*/;
+	
 	
 	public final native MeshBasicMaterialParameter specularMap(Texture specularMap)/*-{
 	this.specularMap=specularMap;
