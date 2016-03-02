@@ -152,4 +152,8 @@ return this.intersectSphere(sphere,optionalTarget);
 public final  native Ray clone()/*-{
 return this.clone();
 }-*/;
+
+public final native double distanceSqToPoint(Vector3 point)/*-{
+return this.distanceSqToPoint(point);
+}-*/;
 }
