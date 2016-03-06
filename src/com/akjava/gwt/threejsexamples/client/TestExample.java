@@ -22,7 +22,7 @@ public void animate(double timestamp) {
 @Override
 public void init() {
 	parent.add(new Label(name));
-	LogUtils.log("init:"+name);
+	
 }
 
 @Override

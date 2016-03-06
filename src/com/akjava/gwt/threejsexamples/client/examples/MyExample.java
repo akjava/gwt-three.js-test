@@ -39,6 +39,11 @@ import com.google.gwt.user.client.ui.FocusPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 
+/**
+ * for test
+ * @author aki
+ *
+ */
 public class MyExample extends AbstractExample{
 
 	@Override

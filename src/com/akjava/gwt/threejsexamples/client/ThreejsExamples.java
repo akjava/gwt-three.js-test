@@ -79,7 +79,7 @@ public class ThreejsExamples implements EntryPoint,ExampleOwner {
 		
 		
 		List<Example> examples=Lists.newArrayList();
-		examples.add(new MyExample());
+		//examples.add(new MyExample());
 		examples.add(new ClothExample());
 		examples.add(new MorphExample());
 		examples.add(new BlendingExample());
