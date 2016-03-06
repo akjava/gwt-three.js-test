@@ -38,8 +38,8 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client.js.core;
 
 import com.akjava.gwt.three.client.gwt.JSParameter;
-import com.akjava.gwt.three.client.gwt.animation.AnimationBone;
-import com.akjava.gwt.three.client.gwt.animation.AnimationData;
+import com.akjava.gwt.three.client.gwt.boneanimation.AnimationBone;
+import com.akjava.gwt.three.client.gwt.boneanimation.AnimationData;
 import com.akjava.gwt.three.client.gwt.core.BoundingBox;
 import com.akjava.gwt.three.client.gwt.core.MorphTarget;
 import com.akjava.gwt.three.client.js.math.Color;

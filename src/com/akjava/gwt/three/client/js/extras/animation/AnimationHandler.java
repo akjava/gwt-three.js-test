@@ -1,7 +1,7 @@
 package com.akjava.gwt.three.client.js.extras.animation;
 
-import com.akjava.gwt.three.client.gwt.animation.AnimationData;
-import com.akjava.gwt.three.client.gwt.animation.AnimationHierarchyItem;
+import com.akjava.gwt.three.client.gwt.boneanimation.AnimationData;
+import com.akjava.gwt.three.client.gwt.boneanimation.AnimationHierarchyItem;
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.google.gwt.core.client.JsArray;
 

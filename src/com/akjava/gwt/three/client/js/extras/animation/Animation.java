@@ -1,8 +1,8 @@
 package com.akjava.gwt.three.client.js.extras.animation;
 
-import com.akjava.gwt.three.client.gwt.animation.AnimationData;
-import com.akjava.gwt.three.client.gwt.animation.AnimationHierarchyItem;
-import com.akjava.gwt.three.client.gwt.animation.AnimationKey;
+import com.akjava.gwt.three.client.gwt.boneanimation.AnimationData;
+import com.akjava.gwt.three.client.gwt.boneanimation.AnimationHierarchyItem;
+import com.akjava.gwt.three.client.gwt.boneanimation.AnimationKey;
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.google.gwt.core.client.JavaScriptObject;

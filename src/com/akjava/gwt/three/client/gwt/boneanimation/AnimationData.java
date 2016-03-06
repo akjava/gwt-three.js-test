@@ -1,4 +1,4 @@
-package com.akjava.gwt.three.client.gwt.animation;
+package com.akjava.gwt.three.client.gwt.boneanimation;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;

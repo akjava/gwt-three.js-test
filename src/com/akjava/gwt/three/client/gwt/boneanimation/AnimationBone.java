@@ -1,4 +1,4 @@
-package com.akjava.gwt.three.client.gwt.animation;
+package com.akjava.gwt.three.client.gwt.boneanimation;
 
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.math.Quaternion;

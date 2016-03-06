@@ -25,7 +25,7 @@ package com.akjava.gwt.threetest.client;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.akjava.gwt.three.client.gwt.animation.ik.CDDIK;
+import com.akjava.gwt.three.client.gwt.boneanimation.ik.CDDIK;
 import com.akjava.gwt.three.client.gwt.materials.MeshBasicMaterialParameter;
 import com.akjava.gwt.three.client.java.utils.GWTGeometryUtils;
 import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;

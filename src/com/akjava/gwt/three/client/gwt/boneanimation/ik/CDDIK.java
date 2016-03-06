@@ -1,4 +1,4 @@
-package com.akjava.gwt.three.client.gwt.animation.ik;
+package com.akjava.gwt.three.client.gwt.boneanimation.ik;
 
 import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
 import com.akjava.gwt.three.client.js.THREE;

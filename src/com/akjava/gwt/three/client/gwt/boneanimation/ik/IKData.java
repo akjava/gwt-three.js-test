@@ -1,4 +1,4 @@
-package com.akjava.gwt.three.client.gwt.animation.ik;
+package com.akjava.gwt.three.client.gwt.boneanimation.ik;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -43,13 +43,24 @@ import com.akjava.gwt.three.client.examples.camera.CombinedCamera;
 import com.akjava.gwt.three.client.examples.loaders.SceneLoader;
 import com.akjava.gwt.three.client.examples.modifiers.SubdivisionModifier;
 import com.akjava.gwt.three.client.examples.renderers.CSS3DRenderer;
-import com.akjava.gwt.three.client.gwt.animation.AnimationData;
+import com.akjava.gwt.three.client.gwt.animation.KeyframeTrackKey;
+import com.akjava.gwt.three.client.gwt.boneanimation.AnimationData;
 import com.akjava.gwt.three.client.gwt.renderers.WebGLRendererParameter;
 import com.akjava.gwt.three.client.java.LineBasicMaterialBuilder;
 import com.akjava.gwt.three.client.java.MeshBasicMaterialBuilder;
 import com.akjava.gwt.three.client.java.MeshLambertMaterialBuilder;
 import com.akjava.gwt.three.client.java.ParticleBasicMaterialBuilder;
 import com.akjava.gwt.three.client.java.ShaderMaterialBuilder;
+import com.akjava.gwt.three.client.js.animation.AnimationAction;
+import com.akjava.gwt.three.client.js.animation.AnimationClip;
+import com.akjava.gwt.three.client.js.animation.AnimationMixer;
+import com.akjava.gwt.three.client.js.animation.KeyframeTrack;
+import com.akjava.gwt.three.client.js.animation.PropertyBinding;
+import com.akjava.gwt.three.client.js.animation.tracks.BooleanKeyframeTrack;
+import com.akjava.gwt.three.client.js.animation.tracks.ColorKeyframeTrack;
+import com.akjava.gwt.three.client.js.animation.tracks.NumberKeyframeTrack;
+import com.akjava.gwt.three.client.js.animation.tracks.StringKeyframeTrack;
+import com.akjava.gwt.three.client.js.animation.tracks.VectorKeyframeTrack;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.cameras.CubeCamera;
 import com.akjava.gwt.three.client.js.cameras.OrthographicCamera;
@@ -1540,5 +1551,41 @@ return new $wnd.THREE.ArrowHelper(size);
 	
 	public static final native CircleBufferGeometry CircleBufferGeometry(double radius,int segments,double thetaStart,double thetaLength)/*-{
 	return new $wnd.THREE.CircleBufferGeometry(radius, segments, thetaStart, thetaLength);
+	}-*/;
+	
+	public static final native AnimationAction AnimationAction(AnimationClip clip,double startTime,double timeScale,int weight, int loop)/*-{
+	return new $wnd.THREE.AnimationAction(clip, startTime, timeScale, weight, loop);
+	}-*/;
+	
+	public static final native AnimationClip AnimationClip(String name,double duration, JsArray<KeyframeTrack> tracks)/*-{
+	return new $wnd.THREE.AnimationClip( name, duration, tracks);
+	}-*/;
+	
+	public static final native AnimationMixer AnimationMixer(JavaScriptObject root)/*-{
+	return new $wnd.THREE.AnimationMixer(root);
+	}-*/;
+	
+	public static final native KeyframeTrack KeyframeTrack(String name, JsArray<KeyframeTrackKey> keys )/*-{
+	return new $wnd.THREE.KeyframeTrack(name, keys );
+	}-*/;
+	
+	public static final native PropertyBinding PropertyBinding(JavaScriptObject rootNode,String trackName )/*-{
+	return new $wnd.THREE.PropertyBinding(rootNode, trackName );
+	}-*/;
+	
+	public static final native BooleanKeyframeTrack BooleanKeyframeTrack(String name, JsArray<KeyframeTrackKey> keys)/*-{
+	return new $wnd.THREE.BooleanKeyframeTrack(name, keys );
+	}-*/;
+	public static final native ColorKeyframeTrack ColorKeyframeTrack(String name, JsArray<KeyframeTrackKey> keys)/*-{
+	return new $wnd.THREE.ColorKeyframeTrack(name, keys );
+	}-*/;
+	public static final native NumberKeyframeTrack NumberKeyframeTrack(String name, JsArray<KeyframeTrackKey> keys)/*-{
+	return new $wnd.THREE.NumberKeyframeTrack(name, keys );
+	}-*/;
+	public static final native StringKeyframeTrack StringKeyframeTrack(String name, JsArray<KeyframeTrackKey> keys)/*-{
+	return new $wnd.THREE.StringKeyframeTrack(name, keys );
+	}-*/;
+	public static final native VectorKeyframeTrack VectorKeyframeTrack(String name, JsArray<KeyframeTrackKey> keys)/*-{
+	return new $wnd.THREE.VectorKeyframeTrack(name, keys );
 	}-*/;
 }

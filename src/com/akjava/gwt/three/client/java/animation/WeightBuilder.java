@@ -7,8 +7,8 @@ import java.util.Map;
 import java.util.Set;
 
 import com.akjava.gwt.lib.client.LogUtils;
-import com.akjava.gwt.three.client.gwt.animation.AnimationBone;
-import com.akjava.gwt.three.client.gwt.animation.NameAndVector3;
+import com.akjava.gwt.three.client.gwt.boneanimation.AnimationBone;
+import com.akjava.gwt.three.client.gwt.boneanimation.NameAndVector3;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.core.Geometry;
 import com.akjava.gwt.three.client.js.math.Vector3;
