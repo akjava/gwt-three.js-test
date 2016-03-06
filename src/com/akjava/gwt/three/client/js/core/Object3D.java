@@ -69,8 +69,12 @@ protected Object3D(){}
 	public final native void setRotation(Euler rotation)/*-{
 	this.rotation=rotation;
 	}-*/;
+	
+	public final native Channels getChannels()/*-{
+	return this.channels;
+	}-*/;
 
-
+	
 	
 	/**
 	 * @deprecated
