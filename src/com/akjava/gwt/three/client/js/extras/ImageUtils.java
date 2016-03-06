@@ -103,13 +103,7 @@ return $wnd.THREE.ImageUtils.parseDDS(buffer,loadMipmaps);
  * @param depth
  * @return
  */
-public static final native CanvasElement getNormalMap(ImageElement image,int depth)/*-{
-return $wnd.THREE.ImageUtils.getNormalMap(image,depth);
-}-*/;
 
-public static final native DataTexture generateDataTexture(int width,int height,Color color)/*-{
-return $wnd.THREE.ImageUtils.generateDataTexture(width,height,color);
-}-*/;
 
 	public static  final Texture loadTexture(String url){
 		return loadTexture(url,-1);
