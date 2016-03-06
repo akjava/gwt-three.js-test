@@ -1,4 +1,4 @@
-package com.akjava.gwt.three.client.js.extras.core;
+package com.akjava.gwt.three.client.js.extras;
 
 import com.akjava.gwt.three.client.js.math.Vector2;
 import com.google.gwt.core.client.JavaScriptObject;
