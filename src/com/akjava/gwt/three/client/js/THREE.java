@@ -40,6 +40,7 @@ package com.akjava.gwt.three.client.js;
 import com.akjava.gwt.lib.client.JavaScriptUtils;
 import com.akjava.gwt.three.client.examples.ColladaLoader;
 import com.akjava.gwt.three.client.examples.camera.CombinedCamera;
+import com.akjava.gwt.three.client.examples.js.geometries.TextGeometry;
 import com.akjava.gwt.three.client.examples.loaders.SceneLoader;
 import com.akjava.gwt.three.client.examples.modifiers.SubdivisionModifier;
 import com.akjava.gwt.three.client.examples.renderers.CSS3DRenderer;
@@ -117,7 +118,6 @@ import com.akjava.gwt.three.client.js.extras.geometries.RingGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.ShapeGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.SphereGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.TetrahedronGeometry;
-import com.akjava.gwt.three.client.js.extras.geometries.TextGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.TorusGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.TorusKnotGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.TubeGeometry;
@@ -342,9 +342,7 @@ return new $wnd.THREE.ArrowHelper(size);
 	public static final native TorusGeometry TorusGeometry(double radius,double tube,int radialSegments,int tubularSegments,double arc)/*-{
 	return new $wnd.THREE.TorusGeometry(radius, tube, radialSegments, tubularSegments, arc);
 	}-*/;
-	public static final native TextGeometry TextGeometry(String text,JavaScriptObject parameters)/*-{
-	return new $wnd.THREE.TextGeometry( text, parameters);
-	}-*/;
+
 	public static final native TetrahedronGeometry TetrahedronGeometry(double radius,int detail )/*-{
 	return new $wnd.THREE.TetrahedronGeometry(radius, detail );
 	}-*/;

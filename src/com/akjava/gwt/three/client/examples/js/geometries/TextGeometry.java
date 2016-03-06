@@ -35,8 +35,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
   
  */
-package com.akjava.gwt.three.client.js.extras.geometries;
+package com.akjava.gwt.three.client.examples.js.geometries;
 
+import com.akjava.gwt.three.client.js.extras.geometries.ExtrudeGeometry;
 import com.google.gwt.core.client.JavaScriptObject;
 
 

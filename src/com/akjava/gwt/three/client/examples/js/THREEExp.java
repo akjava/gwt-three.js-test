@@ -5,6 +5,7 @@ import com.akjava.gwt.three.client.examples.js.controls.OrbitControls;
 import com.akjava.gwt.three.client.examples.js.controls.VRControls;
 import com.akjava.gwt.three.client.examples.js.controls.VRControls.VRControlCallbackHandler;
 import com.akjava.gwt.three.client.examples.js.effects.StereoEffect;
+import com.akjava.gwt.three.client.examples.js.geometries.TextGeometry;
 import com.akjava.gwt.three.client.examples.js.postprocessing.BloomPass;
 import com.akjava.gwt.three.client.examples.js.postprocessing.BokehPass;
 import com.akjava.gwt.three.client.examples.js.postprocessing.ClearMaskPass;
@@ -158,6 +159,10 @@ public class THREEExp {
 		
 		public static final native Gyroscope Gyroscope()/*-{
 		return new $wnd.THREE.Gyroscope();
+		}-*/;
+		
+		public static final native TextGeometry TextGeometry(String text,JavaScriptObject parameters)/*-{
+		return new $wnd.THREE.TextGeometry( text, parameters);
 		}-*/;
 		
 }
