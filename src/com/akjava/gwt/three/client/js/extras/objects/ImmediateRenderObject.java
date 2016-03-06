@@ -38,6 +38,7 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client.js.extras.objects;
 
 import com.akjava.gwt.three.client.js.core.Object3D;
+import com.akjava.gwt.three.client.js.materials.Material;
 import com.google.gwt.core.client.JavaScriptObject;
 
 
@@ -53,5 +54,12 @@ public final native void setRender(JavaScriptObject render)/*-{
 this.render = render;
 }-*/;
 
+public final native Material getMaterial()/*-{
+return this.material;
+}-*/;
+
+public final native void setMaterial(Material material)/*-{
+this.material = material;
+}-*/;
 
 }

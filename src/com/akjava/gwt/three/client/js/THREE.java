@@ -245,8 +245,8 @@ public class THREE {
 	public static final native SpritePlugin SpritePlugin()/*-{
 	return new $wnd.THREE.SpritePlugin();
 	}-*/;
-	public static final native ImmediateRenderObject ImmediateRenderObject()/*-{
-	return new $wnd.THREE.ImmediateRenderObject();
+	public static final native ImmediateRenderObject ImmediateRenderObject(Material material)/*-{
+	return new $wnd.THREE.ImmediateRenderObject(material);
 	}-*/;
 	public static final native LensFlare LensFlare(Texture texture,double size,double distance,int blending,Color color)/*-{
 	return new $wnd.THREE.LensFlare(texture, size, distance, blending, color);
