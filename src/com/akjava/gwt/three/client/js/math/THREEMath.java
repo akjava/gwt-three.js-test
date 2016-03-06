@@ -60,6 +60,12 @@ public static final native double clamp(double x,double a,double b)/*-{
 return $wnd.THREE.Math.clamp(x,a,b);
 }-*/;
 
+/**
+ * @deprecated on r73
+ * @param x
+ * @param a
+ * @return
+ */
 public static final native double clampBottom(double x,double a)/*-{
 return  $wnd.THREE.Math.clampBottom(x,a);
 }-*/;
