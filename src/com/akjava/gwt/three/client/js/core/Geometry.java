@@ -288,11 +288,15 @@ public final native void setMorphTargets(JsArray<MorphTarget> morphTargets)/*-{
 this.morphTargets = morphTargets;
 }-*/;
 
-
+/**
+ * @deprecated on r73
+ */
 public final native JsArray<Color> getMorphColors()/*-{
 return this.morphColors;
 }-*/;
-
+/**
+ * @deprecated on r73
+ */
 public final native void setMorphColors(JsArray<Color> morphColors)/*-{
 this.morphColors = morphColors;
 }-*/;
@@ -462,5 +466,9 @@ this.scale(x,y,z);
 
 public final native void lookAt(Vector3 vector)/*-{
 this.lookAt(vector);
+}-*/;
+
+public final native void sortFacesByMaterialIndex()/*-{
+this.sortFacesByMaterialIndex();
 }-*/;
 }
