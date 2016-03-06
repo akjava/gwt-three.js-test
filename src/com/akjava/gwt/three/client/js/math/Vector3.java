@@ -487,5 +487,9 @@ public final native Vector3 addScaledVector(Vector3 value,double s)/*-{
 return this.addScaledVector(value,s);
 }-*/;
 
+public final native Vector3 clampLength(double min,double max)/*-{
+return this.clampLength(min,max);
+}-*/;
+
 }
 

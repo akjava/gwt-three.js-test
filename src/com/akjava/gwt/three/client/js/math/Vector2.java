@@ -216,4 +216,12 @@ public final native Vector2 addScaledVector(Vector2 value,double s)/*-{
 return this.addScaledVector(value,s);
 }-*/;
 
+public final native Vector2 clampLength(double min,double max)/*-{
+return this.clampLength(min,max);
+}-*/;
+
+public final native Vector2 rotateAround(Vector2 center,double angle)/*-{
+return this.rotateAround(center,angle);
+}-*/;
+
 }
