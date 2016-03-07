@@ -99,6 +99,10 @@ public final native AnimationAction findActionByName(String name)/*-{
 return this.findActionByName(name);
 }-*/;
 
+public final native AnimationMixer play(AnimationAction action)/*-{
+return this.play(action);
+}-*/;
+
 public final native AnimationMixer play(AnimationAction action,double optionalFadeInDuration)/*-{
 return this.play(action,optionalFadeInDuration);
 }-*/;

@@ -2,7 +2,10 @@ package com.akjava.gwt.threejsexamples.client.examples.animation.skinning;
 
 import java.util.Map;
 
-import com.akjava.gwt.three.client.js.extras.animation.Animation;
+import com.akjava.gwt.lib.client.LogUtils;
+import com.akjava.gwt.three.client.js.animation.AnimationAction;
+import com.akjava.gwt.three.client.js.animation.AnimationClip;
+import com.akjava.gwt.three.client.js.animation.AnimationMixer;
 import com.akjava.gwt.threejsexamples.client.LabeledInputRangeWidget;
 import com.akjava.gwt.threejsexamples.client.Range;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -19,7 +22,7 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 
 public class BlendCharacterGui extends VerticalPanel{
 
-	private Map<String,Animation> animations;
+	private Map<String,AnimationClip> animations;
 	
 	BlendingExample blendingExample;
 
@@ -35,13 +38,14 @@ public class BlendCharacterGui extends VerticalPanel{
 
 	private LabeledInputRangeWidget crossfadeTimeRange;
 	
+	private AnimationMixer mixer;
 	public double getTimeScale(){
 		return timeScaleRange.getValue();
 	}
 
-	public BlendCharacterGui(Map<String,Animation> animations,final BlendingExample blendingExample) {
+	public BlendCharacterGui(AnimationMixer mixer,final BlendingExample blendingExample) {
 		this.blendingExample=blendingExample;
-		this.animations=animations;
+		this.mixer=mixer;
 		
 		VerticalPanel settings=new VerticalPanel();
 		add(settings);
@@ -201,7 +205,9 @@ public class BlendCharacterGui extends VerticalPanel{
 		ValueChangeHandler<Number> onBlendChanged=new ValueChangeHandler<Number>() {
 			@Override
 			public void onValueChange(ValueChangeEvent<Number> event) {
-				weight(((Range)event.getSource()).getName());
+				//weight(((Range)event.getSource()).getName());
+				//LogUtils.log("weight-changed");
+				//onWeight();
 			}
 		};
 		
@@ -213,23 +219,70 @@ public class BlendCharacterGui extends VerticalPanel{
 		
 	}
 	
-	//BUG block range widget
-	public void update(){
-		//TODO update only crossfade or wraping
-		idleRange.setValue(animations.get("idle").getWeight());
-		walkRange.setValue(animations.get("walk").getWeight());
-		runRange.setValue(animations.get("run").getWeight());
+	private double getWeight(String name,double time){
+		
+		for(int i=0;i<mixer.getActions().length();i++){
+			if(mixer.getActions().get(i).getClip().getName().equals(name)){
+				return mixer.getActions().get(i).getWeightAt(time);
+			}
+		}
+		return 0;
+		
 	}
 	
+	public void update(double time){
+		//TODO update only crossfade or wraping
+		idleRange.setValue(getWeight("idle",time));
+		walkRange.setValue(getWeight("walk",time));
+		runRange.setValue(getWeight("run",time));
+	}
+	
+	protected void onWeight(){
+		/*
+		 * var data = event.detail;
+				for ( var i = 0; i < data.anims.length; ++i ) {
+
+					for( var j = 0; j < blendMesh.mixer.actions.length; j ++ ) {
+						var action = blendMesh.mixer.actions[j];
+						if( action.clip.name === data.anims[i] ) {
+							if( action.getWeightAt( blendMesh.mixer.time ) !== data.weights[i] ) {
+								action.weight = data.weights[i];
+							}
+						}
+					}
+
+				}
+		 */
+		
+	String[] names={"idle","walk","run"};
+	
+			
+	for(String name:names){
+		for(int i=0;i<mixer.getActions().length();i++){
+			AnimationAction action=mixer.getActions().get(i);
+			if(action.getClip().getName().equals(name)){
+				
+				double value=0;
+				if(name.equals("idle")){
+					value=idleRange.getValue();
+				}else if(name.equals("walk")){
+					value=walkRange.getValue();
+				}else{
+					value=runRange.getValue();
+				}
+				
+				if(action.getWeightAt(mixer.getTime())!=value){
+					action.setWeight(value);
+					//LogUtils.
+				}
+			}
+		}
+		}
+	}
+	/*
 	protected void weight(String name) {
 		
-		/*
-		//this way works on listen() oninput support
-		double sum=idleRange.getValue()+walkRange.getValue()+runRange.getValue();
-		idleRange.setValue(idleRange.getValue()/sum);
-		walkRange.setValue(walkRange.getValue()/sum);
-		runRange.setValue(runRange.getValue()/sum);
-		*/
+		
 		LabeledInputRangeWidget main;
 		LabeledInputRangeWidget remain1;
 		LabeledInputRangeWidget remain2;
@@ -262,6 +315,7 @@ public class BlendCharacterGui extends VerticalPanel{
 		//call event
 		blendingExample.weightAnimation(getAnimationData());
 	}
+*/
 
 	private BlendData getAnimationData() {
 		return createAnimationData(idleRange.getValue(),walkRange.getValue(),runRange.getValue());

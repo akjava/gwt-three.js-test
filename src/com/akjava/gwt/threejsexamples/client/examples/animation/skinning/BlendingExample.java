@@ -1,5 +1,6 @@
 package com.akjava.gwt.threejsexamples.client.examples.animation.skinning;
 
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.stats.client.Stats;
 import com.akjava.gwt.three.client.examples.js.THREEExp;
 import com.akjava.gwt.three.client.examples.js.controls.OrbitControls;
@@ -42,7 +43,7 @@ public class BlendingExample extends AbstractExample{
 		
 		for ( int i = 0; i < data.getAnims().length(); ++i ) {
 
-			blendMesh.applyWeight(data.getAnims().get(i), data.getWeights().get(i));
+			blendCharacter.applyWeight(data.getAnims().get(i), data.getWeights().get(i));
 
 		}
 	}
@@ -58,7 +59,7 @@ public class BlendingExample extends AbstractExample{
 	double timeToStep;
 
 	private Stats stats;
-	private BlendCharacter blendMesh;
+	private BlendCharacter blendCharacter;
 	private BlendCharacterGui gui;
 	private OrbitControls controls;
 	private FocusPanel container;
@@ -99,8 +100,8 @@ public class BlendingExample extends AbstractExample{
 		//resize-handler generate on super-class,take care of gui
 		
 		
-		blendMesh = new BlendCharacter();
-		blendMesh.load("models/skinned/marine/marine_anims.js", new JSONLoadHandler() {
+		blendCharacter = new BlendCharacter();
+		blendCharacter.load("models/skinned/marine/marine_anims.js", new JSONLoadHandler() {
 			@Override
 			public void loaded(Geometry geometry, JsArray<Material> materials) {
 				//camera and gui  would be create on call start
@@ -112,12 +113,12 @@ public class BlendingExample extends AbstractExample{
 	
 	private void start(){
 		
-		 blendMesh.getRotation().setY(Math.PI * -135 / 180);
-				scene.add( blendMesh.getSkinnedMesh() );
-				scene.add(blendMesh.getSkeletonHelper());
+		 blendCharacter.getRotation().setY(Math.PI * -135 / 180);
+				scene.add( blendCharacter.getSkinnedMesh() );
+				scene.add(blendCharacter.getSkeletonHelper());
 
 				double aspect = getWindowInnerWidth() / getWindowInnerHeight();
-				double radius = blendMesh.getGeometry().getBoundingSphere().getRadius();
+				double radius = blendCharacter.getGeometry().getBoundingSphere().getRadius();
 
 				camera = THREE.PerspectiveCamera( 45, aspect, 1, 10000 );
 				camera.getPosition().set( 0.0, radius, radius * 3.5 );
@@ -129,11 +130,13 @@ public class BlendingExample extends AbstractExample{
 				
 				// Set default weights
 
-				blendMesh.getAnimations().get("idle").setWeight(1.0/3);//must be double value on java
-				blendMesh.getAnimations().get("walk").setWeight(1.0/3);//must be double value on java
-				blendMesh.getAnimations().get("run").setWeight(1.0/3);//must be double value on java
+				blendCharacter.applyWeight("idle",1.0/3);//must be double value on java
+				blendCharacter.applyWeight("walk",1.0/3);//must be double value on java
+				blendCharacter.applyWeight("run",1.0/3);//must be double value on java
 				
-				gui = new BlendCharacterGui(blendMesh.getAnimations(),this);
+				pauseAnimation();//for gui weight modify
+				
+				gui = new BlendCharacterGui(blendCharacter.getMixer(),this);
 				
 				VerticalPanel controlPanel=addResizeHandlerAndCreateGUIPanel();
 				controlPanel.add(gui);
@@ -163,15 +166,18 @@ public class BlendingExample extends AbstractExample{
 		double delta = clock.getDelta();
 		double stepSize = (!isFrameStepping) ? delta * scale: timeToStep;
 
+		//LogUtils.log(stepSize);
 		// modify blend weights
 
-		blendMesh.update( stepSize );
+		blendCharacter.update( stepSize );
 		
-		if(blendMesh.isNeedSyncWeight()){//only crossfade & wrapping,GWT widget problem
-			gui.update();//
+		blendCharacter.getSkeletonHelper().update();
+		
+		//not-paused,need modify weight by hand on GWT
+		if(blendCharacter.getMixer().getTimeScale()!=0){
+			gui.update(blendCharacter.getMixer().getTime());
 		}
 
-		AnimationHandler.update( stepSize );
 
 		renderer.render( scene, camera );
 		stats.update();
@@ -185,21 +191,30 @@ public class BlendingExample extends AbstractExample{
 
 	public void startAnimation(BlendData data) {
 		
-		blendMesh.stopAll();
+		blendCharacter.stopAll();
+		blendCharacter.unPauseAll();
 
 		// the blend mesh will combine 1 or more animations
 		for ( int i = 0; i < data.getAnims().length(); ++i ) {
 
-			blendMesh.play(data.getAnims().get(i), data.getWeights().get(i));
+			blendCharacter.play(data.getAnims().get(i), data.getWeights().get(i));
 
 		}
 
 		isFrameStepping = false;
 	}
 
+	
+	/* never called
+	public void onStopAnimation() {
+		blendCharacter.stopAll();
+		isFrameStepping = false;
+	}
+	*/
+	
 
 	public void stepAnimation(double stepSize) {
-		blendMesh.unPauseAll();
+		blendCharacter.unPauseAll();
 		isFrameStepping = true;
 		timeToStep = stepSize;
 	}
@@ -207,9 +222,9 @@ public class BlendingExample extends AbstractExample{
 
 	public void pauseAnimation() {
 		if( isFrameStepping ){
-			blendMesh.unPauseAll();
+			blendCharacter.unPauseAll();
 		}else{
-			blendMesh.pauseAll();
+			blendCharacter.pauseAll();
 		}
 
 		isFrameStepping = false;
@@ -218,8 +233,8 @@ public class BlendingExample extends AbstractExample{
 
 	public void crossfade(BlendData data) {
 		
-		blendMesh.stopAll();
-		blendMesh.crossfade( data.getFrom(), data.getTo(), data.getTime() );
+		blendCharacter.stopAll();
+		blendCharacter.crossfade( data.getFrom(), data.getTo(), data.getTime() );
 
 		isFrameStepping = false;
 	}
@@ -227,12 +242,14 @@ public class BlendingExample extends AbstractExample{
 
 	public void wrap(BlendData data) {
 		
-		blendMesh.stopAll();
-		blendMesh.warp( data.getFrom(), data.getTo(), data.getTime() );
+		blendCharacter.stopAll();
+		blendCharacter.warp( data.getFrom(), data.getTo(), data.getTime() );
 
 		isFrameStepping = false;
 	}
 
+	
+	
 
 	public void lockCameraChanged(Boolean value) {
 		controls.setEnabled(!value);
@@ -240,12 +257,12 @@ public class BlendingExample extends AbstractExample{
 
 
 	public void showModelChanged(Boolean value) {
-		blendMesh.showModel( value );
+		blendCharacter.showModel( value );
 	}
 
 
 	public void showSkeletonChanged(Boolean value) {
-		blendMesh.showSkeleton( value );
+		blendCharacter.showSkeleton( value );
 	}
 
 	@Override
