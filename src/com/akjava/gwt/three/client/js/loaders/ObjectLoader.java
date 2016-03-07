@@ -94,6 +94,10 @@ return this.parseObject(object,geometrys,materials);
 }-*/;
 
 public static interface ObjectLoadHandler {
+	/**
+	 * possible scene or other type,and contain animations
+	 * @param object
+	 */
 	public void onLoad(Object3D object);
 	public void onProgress(NativeEvent progress);
 	public void onError(NativeEvent error);
