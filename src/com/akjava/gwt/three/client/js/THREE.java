@@ -1551,6 +1551,10 @@ return new $wnd.THREE.ArrowHelper(size);
 	return new $wnd.THREE.CircleBufferGeometry(radius, segments, thetaStart, thetaLength);
 	}-*/;
 	
+	public static final native AnimationAction AnimationAction(AnimationClip clip)/*-{
+	return new $wnd.THREE.AnimationAction(clip);
+	}-*/;
+	
 	public static final native AnimationAction AnimationAction(AnimationClip clip,double startTime,double timeScale,int weight, int loop)/*-{
 	return new $wnd.THREE.AnimationAction(clip, startTime, timeScale, weight, loop);
 	}-*/;
@@ -1585,5 +1589,9 @@ return new $wnd.THREE.ArrowHelper(size);
 	}-*/;
 	public static final native VectorKeyframeTrack VectorKeyframeTrack(String name, JsArray<KeyframeTrackKey> keys)/*-{
 	return new $wnd.THREE.VectorKeyframeTrack(name, keys );
+	}-*/;
+	
+	public static  native final ObjectLoader ObjectLoader()/*-{
+	return  new $wnd.THREE.ObjectLoader();
 	}-*/;
 }
