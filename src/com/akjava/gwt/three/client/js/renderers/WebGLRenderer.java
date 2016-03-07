@@ -44,6 +44,7 @@ import com.akjava.gwt.three.client.js.core.Geometry;
 import com.akjava.gwt.three.client.js.materials.Material;
 import com.akjava.gwt.three.client.js.math.Color;
 import com.akjava.gwt.three.client.js.objects.Mesh;
+import com.akjava.gwt.three.client.js.renderers.webgl.WebGLShadowMap;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.three.client.js.textures.Texture;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -160,7 +161,7 @@ this.gammaOutput = gammaOutput;
 
 //**shadow map
 //TODO implement WebGLShadowMap
-public final native JavaScriptObject getShadowMap()/*-{
+public final native WebGLShadowMap getShadowMap()/*-{
 return this.shadowMap;
 }-*/;
 
