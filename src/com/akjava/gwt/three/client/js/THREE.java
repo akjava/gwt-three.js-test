@@ -656,6 +656,9 @@ return new $wnd.THREE.ArrowHelper(size);
 	public static  native final HemisphereLight HemisphereLight(int skyColorHex, int groundColorHex,double intensity)/*-{
 	return  new $wnd.THREE.HemisphereLight(skyColorHex, groundColorHex, intensity);
 	}-*/;
+	public static  native final HemisphereLight HemisphereLight(int skyColorHex, int groundColorHex)/*-{
+	return  new $wnd.THREE.HemisphereLight(skyColorHex, groundColorHex);
+	}-*/;
 	
 	/**
 	 * 

@@ -54,7 +54,7 @@ public class BlendCharacter {
 				
 				for(int i=0;i<geometry.getAnimations().length();i++){
 					String animName = geometry.getAnimations().get(i).getName();
-					animations.put(animName,THREE.Animation( skinnedMesh, geometry.getAnimations().get(i)));
+					//animations.put(animName,THREE.Animation( skinnedMesh, geometry.getAnimations().get(i)));
 				}
 				
 				skeletonHelper=THREE.SkeletonHelper(skinnedMesh);

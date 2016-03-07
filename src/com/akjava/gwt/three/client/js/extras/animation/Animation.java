@@ -9,6 +9,11 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayNumber;
 
+/**
+ * @deprecated on r73
+ * @author aki
+ *
+ */
 public class Animation extends JavaScriptObject{
 protected Animation(){}
 

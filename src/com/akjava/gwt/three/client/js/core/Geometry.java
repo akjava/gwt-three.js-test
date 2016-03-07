@@ -42,6 +42,7 @@ import com.akjava.gwt.three.client.gwt.boneanimation.AnimationBone;
 import com.akjava.gwt.three.client.gwt.boneanimation.AnimationData;
 import com.akjava.gwt.three.client.gwt.core.BoundingBox;
 import com.akjava.gwt.three.client.gwt.core.MorphTarget;
+import com.akjava.gwt.three.client.js.animation.AnimationClip;
 import com.akjava.gwt.three.client.js.math.Color;
 import com.akjava.gwt.three.client.js.math.Matrix4;
 import com.akjava.gwt.three.client.js.math.Sphere;
@@ -184,7 +185,12 @@ return this.morphTargets;
 }-*/;
 
 
-public final native JsArray<AnimationData> getAnimations()/*-{
+
+/**
+ * if parsed by jsonloader on r73
+ * @return
+ */
+public final native JsArray<AnimationClip> getAnimations()/*-{
 return this.animations;
 }-*/;
 /*

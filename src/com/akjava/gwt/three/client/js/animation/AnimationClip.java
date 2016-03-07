@@ -125,7 +125,7 @@ public static final native JsArray<AnimationClip> CreateClipsFromMorphTargetSequ
 return $wnd.THREE.AnimationClip.CreateClipsFromMorphTargetSequences(morphTargets,fps);
 }-*/;
 
-public static final native AnimationClip CreateFromMorphTargetSequence(String name,MorphTarget morphTarget,double fps)/*-{
+public static final native AnimationClip CreateFromMorphTargetSequence(String name,JsArray<MorphTarget> morphTarget,double fps)/*-{
 return $wnd.THREE.AnimationClip.CreateFromMorphTargetSequence(name,morphTarget,fps);
 }-*/;
 

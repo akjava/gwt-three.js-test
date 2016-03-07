@@ -5,6 +5,11 @@ import com.akjava.gwt.three.client.gwt.boneanimation.AnimationHierarchyItem;
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.google.gwt.core.client.JsArray;
 
+/**
+ * @deprecated on r73
+ * @author aki
+ *
+ */
 public class AnimationHandler {
 
 

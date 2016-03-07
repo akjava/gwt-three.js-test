@@ -1,6 +1,5 @@
 package com.akjava.gwt.threejsexamples.client.examples.animation.skinning;
 
-import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.stats.client.Stats;
 import com.akjava.gwt.three.client.gwt.GWTParamUtils;
 import com.akjava.gwt.three.client.gwt.boneanimation.AnimationData;
@@ -9,11 +8,12 @@ import com.akjava.gwt.three.client.gwt.boneanimation.AnimationKey;
 import com.akjava.gwt.three.client.gwt.core.BoundingBox;
 import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
 import com.akjava.gwt.three.client.js.THREE;
+import com.akjava.gwt.three.client.js.animation.AnimationClip;
+import com.akjava.gwt.three.client.js.animation.AnimationMixer;
 import com.akjava.gwt.three.client.js.cameras.PerspectiveCamera;
 import com.akjava.gwt.three.client.js.core.BufferGeometry;
 import com.akjava.gwt.three.client.js.core.Clock;
 import com.akjava.gwt.three.client.js.core.Geometry;
-import com.akjava.gwt.three.client.js.extras.animation.Animation;
 import com.akjava.gwt.three.client.js.extras.animation.AnimationHandler;
 import com.akjava.gwt.three.client.js.extras.helpers.SkeletonHelper;
 import com.akjava.gwt.three.client.js.lights.DirectionalLight;
@@ -34,7 +34,6 @@ import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.FocusPanel;
-import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 
@@ -63,6 +62,8 @@ public class MorphExample extends AbstractExample{
 	SkeletonHelper helper;
 	private int windowHalfX,windowHalfY;
 	private int mouseX,mouseY;
+	
+	AnimationMixer mixer;
 	@Override
 	public void init() {
 		
@@ -117,12 +118,12 @@ public class MorphExample extends AbstractExample{
 		
 		// LIGHTS
 
-		Light ambient = THREE.AmbientLight( 0x222222 );
+		Light ambient = THREE.HemisphereLight(  0x111111, 0x444444 );
 		scene.add( ambient );
 
 
 		
-		DirectionalLight light = THREE.DirectionalLight( 0xebf3ff, 1.6 );
+		DirectionalLight light = THREE.DirectionalLight( 0xebf3ff, 1.5 );
 		light.getPosition().set( 0, 140, 500 ).multiplyScalar( 1.1 );
 		scene.add( light );
 		
@@ -140,10 +141,7 @@ public class MorphExample extends AbstractExample{
 		light.setShadowCameraFar(3500);
 		//light.shadowCameraVisible = true;
 
-		//
-		light = THREE.DirectionalLight( 0x497f13, 1 );
-		light.getPosition().set( 0, -1, 0 );
-		scene.add( light );
+		
 		
 		renderer = THREE.WebGLRenderer(GWTParamUtils.WebGLRenderer().antialias(true));
 		renderer.setClearColor( scene.getFog().getColor());
@@ -155,7 +153,7 @@ public class MorphExample extends AbstractExample{
 		renderer.setGammaOutput(true);
 		//renderer.getDomElement().getStyle().setPosition(Position.RELATIVE);
 
-		renderer.setShadowMapEnabled(true);
+		renderer.getShadowMap().setEnabled(true);
 		
 		JSONLoader loader =  THREE.JSONLoader();
 		loader.load( "models/skinned/knight.js",new JSONLoadHandler() {
@@ -252,7 +250,7 @@ public class MorphExample extends AbstractExample{
 
 	protected void createScene(Geometry geometry, JsArray<Material> materials, int x, int y, int z, int s) {
 
-		ensureLoop( geometry.getAnimation() );
+		//ensureLoop( geometry.getAnimation() );
 
 		geometry.computeBoundingBox();
 		BoundingBox bb = geometry.getBoundingBox();
@@ -285,7 +283,7 @@ public class MorphExample extends AbstractExample{
 			m.getSpecular().setHSL( 0, 0, 0.1 );
 
 			m.getColor().setHSL( 0.6, 0, 0.6 );
-			m.getAmbient().copy( m.getColor() );
+			//m.getAmbient().copy( m.getColor() );
 
 			//m.map = map;
 			//m.envMap = envMap;
@@ -295,7 +293,7 @@ public class MorphExample extends AbstractExample{
 			//m.combine = THREE.MixOperation;
 			//m.reflectivity = 0.75;
 
-			m.setWrapAround(true);
+			//m.setWrapAround(true);
 
 		}
 
@@ -312,8 +310,13 @@ public class MorphExample extends AbstractExample{
 		helper.setVisible(false);
 		scene.add( helper );
 
-		Animation animation = THREE.Animation( mesh, geometry.getAnimation() );
-		animation.play();
+		AnimationClip clipMorpher = AnimationClip.CreateFromMorphTargetSequence( "facialExpressions", mesh.getGeometry().getMorphTargets(), 3 );//var clipMorpher = THREE.AnimationClip.CreateFromMorphTargetSequence( 'facialExpressions', mesh.geometry.morphTargets, 3 );
+		AnimationClip clipBones = geometry.getAnimations().get(0);
+		
+		
+		mixer = THREE.AnimationMixer( mesh );//mixer = new THREE.AnimationMixer( mesh );
+		mixer.addAction( THREE.AnimationAction( clipMorpher ) );//mixer.addAction( new THREE.AnimationAction( clipMorpher ) );
+		mixer.addAction( THREE.AnimationAction( clipBones ) );//mixer.addAction( new THREE.AnimationAction( clipBones ) );
 		
 	}
 	
@@ -325,31 +328,12 @@ public class MorphExample extends AbstractExample{
 		camera.getPosition().gwtIncrementX( (mouseX - camera.getPosition().getX() ) * .05);
 		camera.getPosition().setY(THREEMath.clamp( camera.getPosition().getY() + ( - mouseY - camera.getPosition().getY() ) * .05, 0, 1000 ));
 		camera.lookAt( scene.getPosition() );
-		AnimationHandler.update( delta );
-
-		if ( helper !=null ) helper.update();
 		
-		// update morphs
-
-		if ( mesh!=null ) {//loaded
-
-			double time = now * 0.001;
-
-			
-			// mouth
-			
-			//mesh.getMorphTargetInfluences().set(1, ( 1 + Math.sin( 4 * time ) ) / 2);
-
-			// frown ?
-
-			//mesh.getMorphTargetInfluences().set( 2 ,( 1 + Math.sin( 2 * time ) ) / 2);
-
-			// eyes
-
-			mesh.getMorphTargetInfluences().set( 3 , ( 1 + Math.cos( 4 * time ) ) / 2);
-
+		if( mixer!=null ) {
+			mixer.update( delta );
+			helper.update();
 		}
-
+		
 		renderer.render( scene, camera );
 	}
 
