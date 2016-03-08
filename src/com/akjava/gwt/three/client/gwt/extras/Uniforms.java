@@ -16,9 +16,14 @@ public  class Uniforms extends JavaScriptObject{
 	}
 	
 	protected Uniforms(){}
-	//TODO test and more,why need type?
+	
 	public native final Uniforms setTypeAndValue(String key,double value)/*-{
 	this[key]={type:"f",value:value};
+	return this;
+	}-*/;
+	
+	public native final Uniforms setTypeAndValue(String key,Color value)/*-{
+	this[key]={type:"c",value:value};
 	return this;
 	}-*/;
 	
@@ -43,6 +48,8 @@ public  class Uniforms extends JavaScriptObject{
 	public native final void set(String key,Color value)/*-{
 	this[key].value=value;
 	}-*/;
+	
+	
 	public native final void setRGB(String key,double r,double g,double b)/*-{
 	this[key].value.setRGB(r,g,b);
 	}-*/;
@@ -68,5 +75,15 @@ public  class Uniforms extends JavaScriptObject{
 	}-*/;
 	public native final void set(String key,Vector3 vector)/*-{
 	this[key].value=vector
+	}-*/;
+	
+	public native final WebGLRenderTarget getTexture(String key)/*-{
+	return this[key].value;
+	}-*/;
+	public native final Color getColor(String key)/*-{
+	return this[key].value;
+	}-*/;
+	public native final double getNumber(String key)/*-{
+	return this[key].value;
 	}-*/;
 }

@@ -10,4 +10,7 @@ public interface Bundles extends ClientBundle {
 
 	TextResource fragmentShaderDepth();
 
+	
+	TextResource hemisphere_vertex_shader();
+	TextResource hemisphere_fragment_shader();
 }
