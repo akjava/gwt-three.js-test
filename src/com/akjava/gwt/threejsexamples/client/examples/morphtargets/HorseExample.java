@@ -1,12 +1,14 @@
 package com.akjava.gwt.threejsexamples.client.examples.morphtargets;
 
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.stats.client.Stats;
 import com.akjava.gwt.three.client.gwt.GWTParamUtils;
 import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
 import com.akjava.gwt.three.client.js.THREE;
+import com.akjava.gwt.three.client.js.animation.AnimationClip;
+import com.akjava.gwt.three.client.js.animation.AnimationMixer;
 import com.akjava.gwt.three.client.js.cameras.PerspectiveCamera;
 import com.akjava.gwt.three.client.js.core.Geometry;
-import com.akjava.gwt.three.client.js.extras.animation.MorphAnimation;
 import com.akjava.gwt.three.client.js.lights.DirectionalLight;
 import com.akjava.gwt.three.client.js.loaders.JSONLoader;
 import com.akjava.gwt.three.client.js.loaders.JSONLoader.JSONLoadHandler;
@@ -41,7 +43,7 @@ public class HorseExample extends AbstractExample{
 	private PerspectiveCamera camera;
 	
 	
-	private MorphAnimation animation;
+	private AnimationMixer mixer;
 	
 	private Vector3 target;
 	@Override
@@ -77,8 +79,14 @@ public class HorseExample extends AbstractExample{
 				mesh.getScale().set( 1.5, 1.5, 1.5 );//mesh.scale.set( 1.5, 1.5, 1.5 );
 				scene.add( mesh );
 
-				animation = THREE.MorphAnimation( mesh );//animation = new THREE.MorphAnimation( mesh );
-				animation.play();
+				
+				mixer=THREE.AnimationMixer(mesh);
+				
+				AnimationClip clip=AnimationClip.CreateFromMorphTargetSequence( "gallop", geometry.getMorphTargets(), 30 );
+				mixer.addAction(THREE.AnimationAction( clip ).warpToDuration( 1 ));
+				
+				//animation = THREE.MorphAnimation( mesh );//animation = new THREE.MorphAnimation( mesh );
+				//animation.play();
 			}
 		});
 		
@@ -152,11 +160,11 @@ public class HorseExample extends AbstractExample{
 
 		camera.lookAt( target);//camera.lookAt( camera.target );
 
-		if ( animation!=null ) {
+		if ( mixer!=null ) {
 
 		
 
-		animation.update( time - prevTime );
+		mixer.update( (time - prevTime)* 0.001  );
 
 		prevTime = time;
 

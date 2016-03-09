@@ -1,5 +1,6 @@
 package com.akjava.gwt.threejsexamples.client.examples;
 
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.stats.client.Stats;
 import com.akjava.gwt.three.client.gwt.GWTParamUtils;
 import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
@@ -58,6 +59,7 @@ public class MorphnormalsExample extends AbstractExample{
 		mixers=JavaScriptObject.createArray().cast();
 		
 		clock=THREE.Clock();
+		
 	
 		 WIDTH = (int)getWindowInnerWidth();
 		 HEIGHT = (int)getWindowInnerHeight();
