@@ -26,6 +26,7 @@ import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.threejsexamples.client.AbstractExample;
 import com.akjava.gwt.threejsexamples.client.resources.Bundles;
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.event.dom.client.KeyDownEvent;
 import com.google.gwt.event.dom.client.KeyDownHandler;
@@ -61,11 +62,12 @@ public class HemisphereExample extends AbstractExample{
 	private HemisphereLight hemiLight;
 	private DirectionalLight dirLight;
 	
-	List<AnimationMixer> mixers;
+	//better to use array for speed-up
+	JsArray<AnimationMixer> mixers;
 	@Override
 	public void init() {
 		
-		mixers=new ArrayList<AnimationMixer>();
+		mixers=JavaScriptObject.createArray().cast();
 		
 		clock=THREE.Clock();
 		
@@ -223,7 +225,7 @@ public class HemisphereExample extends AbstractExample{
 
 				AnimationMixer mixer = THREE.AnimationMixer( mesh );//var mixer = new THREE.AnimationMixer( mesh );
 				mixer.addAction( THREE.AnimationAction( geometry.getAnimations().get(0) ).warpToDuration( 1 ) );//mixer.addAction( new THREE.AnimationAction( geometry.animations[ 0 ] ).warpToDuration( 1 ) );
-				mixers.add( mixer );
+				mixers.push( mixer );
 			}
 		});
 		
@@ -258,7 +260,7 @@ public class HemisphereExample extends AbstractExample{
 	public void render(double now) {
 		double delta = clock.getDelta();
 
-		for ( int i = 0; i < mixers.size(); i ++ ) {
+		for ( int i = 0; i < mixers.length(); i ++ ) {
 			mixers.get(i).update( delta );
 
 		}
