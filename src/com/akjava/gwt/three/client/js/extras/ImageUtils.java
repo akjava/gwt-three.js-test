@@ -1,13 +1,9 @@
 package com.akjava.gwt.three.client.js.extras;
 
-import com.akjava.gwt.three.client.js.math.Color;
 import com.akjava.gwt.three.client.js.textures.CompressedTexture;
-import com.akjava.gwt.three.client.js.textures.DataTexture;
 import com.akjava.gwt.three.client.js.textures.Texture;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayString;
-import com.google.gwt.dom.client.CanvasElement;
-import com.google.gwt.dom.client.ImageElement;
 import com.google.gwt.dom.client.NativeEvent;
 import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.user.client.ui.Image;
@@ -15,7 +11,7 @@ import com.google.gwt.user.client.ui.Image;
 public class ImageUtils extends JavaScriptObject{
 protected ImageUtils(){}
 
-public static final native Texture loadTexture(String url,JavaScriptObject mapping,ImageUtilsLoadHandler handler)/*-{
+public static final native Texture loadTexture(String url,int mapping,ImageUtilsLoadHandler handler)/*-{
 if(handler){
 return $wnd.THREE.ImageUtils.loadTexture(url,mapping,function ( texture ) {
 		handler.@com.akjava.gwt.three.client.js.extras.ImageUtils$ImageUtilsLoadHandler::onLoad(Lcom/google/gwt/core/client/JavaScriptObject;)(texture);
@@ -27,7 +23,7 @@ return $wnd.THREE.ImageUtils.loadTexture(url,mapping,function ( texture ) {
 }
 }-*/;
 
-public static final native CompressedTexture loadCompressedTexture(String url,JavaScriptObject mapping,ImageUtilsLoadHandler handler)/*-{
+public static final native CompressedTexture loadCompressedTexture(String url,int mapping,ImageUtilsLoadHandler handler)/*-{
 if(handler){
 	return $wnd.THREE.ImageUtils.loadCompressedTexture(url,mapping,function ( texture ) {
 		handler.@com.akjava.gwt.three.client.js.extras.ImageUtils$ImageUtilsLoadHandler::onLoad(Lcom/google/gwt/core/client/JavaScriptObject;)(texture);
@@ -38,11 +34,13 @@ if(handler){
 }-*/;
 
 
-public static final  Texture loadTextureCube(JsArrayString array){
-	return loadTextureCube(array,null,null);
-}
+public static final native Texture loadTextureCube(JsArrayString array)/*-{
+return $wnd.THREE.ImageUtils.loadTextureCube(array);
+}-*/;
 
-public static final native Texture loadTextureCube(JsArrayString array,JavaScriptObject mapping,ImageUtilsLoadHandler handler)/*-{
+
+
+public static final native Texture loadTextureCube(JsArrayString array,int mapping,ImageUtilsLoadHandler handler)/*-{
 if(handler){
 return $wnd.THREE.ImageUtils.loadTextureCube(array,mapping,function ( texture ) {
 		handler.@com.akjava.gwt.three.client.js.extras.ImageUtils$ImageUtilsLoadHandler::onLoad(Lcom/google/gwt/core/client/JavaScriptObject;)(texture);
@@ -53,7 +51,7 @@ return $wnd.THREE.ImageUtils.loadTextureCube(array,mapping,function ( texture ) 
 }-*/;
 	
 
-public static final native CompressedTexture loadCompressedTextureCube(JsArrayString array,JavaScriptObject mapping,ImageUtilsLoadHandler handler)/*-{
+public static final native CompressedTexture loadCompressedTextureCube(JsArrayString array,int mapping,ImageUtilsLoadHandler handler)/*-{
 if(handler){
 $wnd.THREE.ImageUtils.loadCompressedTextureCube(array,mapping,function ( texture ) {
 		handler.@com.akjava.gwt.three.client.js.extras.ImageUtils$ImageUtilsLoadHandler::onLoad(Lcom/google/gwt/core/client/JavaScriptObject;)(texture);

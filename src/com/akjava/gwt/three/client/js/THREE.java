@@ -630,6 +630,10 @@ return new $wnd.THREE.ArrowHelper(size);
 	return  new $wnd.THREE.XHRLoader(manager);
 	}-*/;
 	
+	public static  native final XHRLoader XHRLoader()/*-{
+	return  new $wnd.THREE.XHRLoader();
+	}-*/;
+	
 	
 	
 	public static  native final SpotLight SpotLight(int hex,double intensity,double distance,double angle,double exponent)/*-{
@@ -917,7 +921,9 @@ return new $wnd.THREE.ArrowHelper(size);
 	
 	
 	
-	
+	public static native final MeshFaceMaterial MeshFaceMaterial()/*-{
+	return new $wnd.THREE.MeshFaceMaterial();
+	}-*/;
 	public static native final MeshFaceMaterial MeshFaceMaterial(JsArray<Material> materials)/*-{
 	return new $wnd.THREE.MeshFaceMaterial(materials);
 	}-*/;

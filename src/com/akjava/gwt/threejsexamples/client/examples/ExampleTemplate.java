@@ -4,6 +4,7 @@ import com.akjava.gwt.stats.client.Stats;
 import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.PerspectiveCamera;
+import com.akjava.gwt.three.client.js.core.Clock;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.threejsexamples.client.AbstractExample;
@@ -34,14 +35,20 @@ public class ExampleTemplate extends AbstractExample{
 	int HEIGHT;
 
 	
-	
+	private int windowHalfX,windowHalfY;
+	//private int mouseX,mouseY;
 
-	
+	Clock clock;
 	@Override
 	public void init() {
 	
+		clock=THREE.Clock();
+		
 		 WIDTH = (int)getWindowInnerWidth();
 		 HEIGHT = (int)getWindowInnerHeight();
+		 
+		 windowHalfX=(int) (getWindowInnerWidth()/2);
+		 windowHalfY=(int) (getWindowInnerHeight()/2);
 
 		FocusPanel container = createContainerPanel();
 		
@@ -104,10 +111,15 @@ public class ExampleTemplate extends AbstractExample{
 		camera.updateProjectionMatrix();
 
 		renderer.setSize( (int)getWindowInnerWidth() , (int)getWindowInnerHeight() );
-		
+	
+		 windowHalfX=(int) (getWindowInnerWidth()/2);
+		 windowHalfY=(int) (getWindowInnerHeight()/2);
 	}
 	
 	public void render(double now) {
+		double delta=clock.getDelta();
+		//do something
+		
 		renderer.render(scene, camera);
 	}
 

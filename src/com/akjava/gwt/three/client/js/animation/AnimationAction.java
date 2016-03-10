@@ -59,8 +59,9 @@ public final native JavaScriptObject getLocalRoot()/*-{
 return this.localRoot;
 }-*/;
 
-public final native void setLocalRoot(JavaScriptObject localRoot)/*-{
-this.localRoot = localRoot;
+public final native AnimationAction setLocalRoot(JavaScriptObject localRoot)/*-{
+return this.setLocalRoot(localRoot);
+
 }-*/;
 
 
@@ -157,9 +158,7 @@ public final native void setPropertyBindings(JsArray<PropertyBinding> propertyBi
 this.propertyBindings = propertyBindings;
 }-*/;
 
-public final native AnimationAction setLocalRoot(Object localRoot)/*-{
-return this.setLocalRoot(localRoot);
-}-*/;
+
 
 public final native double updateTime(double clipDeltaTime)/*-{
 return this.updateTime(clipDeltaTime);
@@ -180,7 +179,7 @@ return this.init(time);
 /*
  * possible any type
  */
-public final native JsArray update(double clipDeltaTime)/*-{
+public final native JsArray<JavaScriptObject> update(double clipDeltaTime)/*-{
 return this.update(clipDeltaTime);
 }-*/;
 
