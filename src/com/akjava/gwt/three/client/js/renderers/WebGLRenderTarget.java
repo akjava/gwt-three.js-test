@@ -2,6 +2,7 @@ package com.akjava.gwt.three.client.js.renderers;
 
 import com.akjava.gwt.three.client.js.core.EventDispatcher;
 import com.akjava.gwt.three.client.js.math.Vector2;
+import com.akjava.gwt.three.client.js.textures.Texture;
 import com.google.gwt.core.client.JavaScriptObject;
 
 public class WebGLRenderTarget extends EventDispatcher{
@@ -163,6 +164,10 @@ this.dispose();
 
 public final native JavaScriptObject getWebglTexture()/*-{
 return this.__webglTexture;
+}-*/;
+
+public final native Texture gwtCastTexture()/*-{
+return this;
 }-*/;
 
 }

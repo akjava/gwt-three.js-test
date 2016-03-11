@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.math.Vector3;
-import com.google.common.base.Supplier;
 
 public class IKData  {
 	public IKData(String name){

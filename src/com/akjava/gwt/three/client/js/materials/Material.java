@@ -301,4 +301,10 @@ this.depthFunc = depthFunc;
 public final native int getDepthFunc()/*-{
 return this.depthFunc;
 }-*/;
+
+
+public final native MeshPhongMaterial gwtCastMeshPhongMaterial()/*-{
+return this;
+}-*/;
+
 }

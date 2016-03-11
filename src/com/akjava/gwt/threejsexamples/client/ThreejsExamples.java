@@ -23,6 +23,7 @@ import com.akjava.gwt.threejsexamples.client.examples.postprocessing.AdvancedExa
 import com.akjava.gwt.threejsexamples.client.examples.postprocessing.DofExample;
 import com.akjava.gwt.threejsexamples.client.examples.postprocessing.GlitchExample;
 import com.akjava.gwt.threejsexamples.client.examples.postprocessing.PostProcessingExample;
+import com.akjava.gwt.threejsexamples.client.examples.shading.PhysicalExample;
 import com.akjava.gwt.threejsexamples.client.examples.vr.VrStereoExample;
 import com.google.common.collect.Lists;
 import com.google.gwt.core.client.EntryPoint;
@@ -83,6 +84,7 @@ public class ThreejsExamples implements EntryPoint,ExampleOwner {
 		
 		List<Example> examples=Lists.newArrayList();
 		//examples.add(new MyExample());
+		examples.add(new PhysicalExample());
 		examples.add(new HumanExample());
 		examples.add(new MorphnormalsExample());
 		examples.add(new HemisphereExample());

@@ -2,6 +2,7 @@ package com.akjava.gwt.three.client.examples.js;
 
 import com.akjava.gwt.three.client.examples.js.controls.MouseControls;
 import com.akjava.gwt.three.client.examples.js.controls.OrbitControls;
+import com.akjava.gwt.three.client.examples.js.controls.TrackballControls;
 import com.akjava.gwt.three.client.examples.js.controls.VRControls;
 import com.akjava.gwt.three.client.examples.js.controls.VRControls.VRControlCallbackHandler;
 import com.akjava.gwt.three.client.examples.js.effects.StereoEffect;
@@ -52,6 +53,10 @@ public class THREEExp {
 	return new $wnd.THREE.VRControls(object,function ( message ) {
 		handler.@com.akjava.gwt.three.client.examples.js.controls.VRControls$VRControlCallbackHandler::callback(Ljava/lang/String;)(message);
 		});
+	}-*/;
+	
+	public static final native TrackballControls TrackballControls(Object3D object,Element dom)/*-{
+	return new $wnd.THREE.TrackballControls(object,dom);
 	}-*/;
 	
 	

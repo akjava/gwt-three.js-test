@@ -339,6 +339,11 @@ return new $wnd.THREE.ArrowHelper(size);
 	public static final native TorusKnotGeometry TorusKnotGeometry(double radius,double tube,int radialSegments,int tubularSegments,double p,double q,double heightScale)/*-{
 	return new $wnd.THREE.TorusKnotGeometry(radius, tube, radialSegments, tubularSegments, p, q, heightScale);
 	}-*/;
+	
+	public static final native TorusGeometry TorusGeometry(double radius,double tube,int radialSegments,int tubularSegments)/*-{
+	return new $wnd.THREE.TorusGeometry(radius, tube, radialSegments, tubularSegments);
+	}-*/;
+	
 	public static final native TorusGeometry TorusGeometry(double radius,double tube,int radialSegments,int tubularSegments,double arc)/*-{
 	return new $wnd.THREE.TorusGeometry(radius, tube, radialSegments, tubularSegments, arc);
 	}-*/;
