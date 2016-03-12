@@ -85,4 +85,8 @@ public class Camera extends Object3D{
 	return this.clone();
 	}-*/;
 	
+	public final native PerspectiveCamera gwtCastPerspectiveCamera()/*-{
+	return this;
+	}-*/;
+	
 }

@@ -55,4 +55,91 @@ return this.copy(source);
 public final  native Light clone()/*-{
 return this.clone();
 }-*/;
+
+
+
+/**
+ * @deprecated
+ */
+public final native boolean isOnlyShadow()/*-{
+return this.onlyShadow;
+}-*/;
+/**
+ * @deprecated
+ */
+public final native void setOnlyShadow(boolean onlyShadow)/*-{
+this.onlyShadow = onlyShadow;
+}-*/;
+
+
+public final native void setShadowCameraFov(double shadowCameraFov)/*-{
+this.shadowCameraFov = shadowCameraFov;
+}-*/;
+
+public final native void setShadowCameraNear(double shadowCameraNear)/*-{
+this.shadowCameraNear = shadowCameraNear;
+}-*/;
+
+
+
+public final native void setShadowCameraFar(double shadowCameraFar)/*-{
+this.shadowCameraFar = shadowCameraFar;
+}-*/;
+
+
+
+
+public final native void setShadowCameraLeft(double shadowCameraLeft)/*-{
+this.shadowCameraLeft = shadowCameraLeft;
+}-*/;
+
+
+
+public final native void setShadowCameraRight(double shadowCameraRight)/*-{
+this.shadowCameraRight = shadowCameraRight;
+}-*/;
+
+
+
+
+public final native void setShadowCameraTop(double shadowCameraTop)/*-{
+this.shadowCameraTop = shadowCameraTop;
+}-*/;
+
+
+
+public final native void setShadowCameraBottom(double shadowCameraBottom)/*-{
+this.shadowCameraBottom = shadowCameraBottom;
+}-*/;
+
+
+
+public final native void setShadowCameraVisible(boolean shadowCameraVisible)/*-{
+this.shadowCameraVisible = shadowCameraVisible;
+}-*/;
+
+
+
+public final native void setShadowBias(double shadowBias)/*-{
+this.shadowBias = shadowBias;
+}-*/;
+
+
+
+
+public final native void setShadowDarkness(double shadowDarkness)/*-{
+this.shadowDarkness = shadowDarkness;
+}-*/;
+
+
+
+public final native void setShadowMapWidth(double shadowMapWidth)/*-{
+this.shadowMapWidth = shadowMapWidth;
+}-*/;
+
+
+
+public final native void setShadowMapHeight(double shadowMapHeight)/*-{
+this.shadowMapHeight = shadowMapHeight;
+}-*/;
 }

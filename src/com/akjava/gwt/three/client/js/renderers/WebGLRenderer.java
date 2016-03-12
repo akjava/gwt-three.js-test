@@ -555,6 +555,10 @@ return this.updateShadowMap(scene,camera);
 	this.setMeshBuffers(geometryGroup, object, hint, dispose, material);
 	}-*/;
 	
+	public final native void setGammaFactor(double gammaFactor)/*-{
+	this.gammaFactor=gammaFactor;
+	}-*/;
+	
 	public final native double getGammaFactor()/*-{
 	return this.gammaFactor;
 	}-*/;

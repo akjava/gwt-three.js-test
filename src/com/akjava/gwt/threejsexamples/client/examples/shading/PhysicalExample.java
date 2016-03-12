@@ -1,6 +1,5 @@
 package com.akjava.gwt.threejsexamples.client.examples.shading;
 
-import com.akjava.gwt.lib.client.GWTUtils;
 import com.akjava.gwt.lib.client.JavaScriptUtils;
 import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.stats.client.Stats;
@@ -38,12 +37,17 @@ import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.three.client.js.textures.CanvasTexture;
 import com.akjava.gwt.three.client.js.textures.Texture;
 import com.akjava.gwt.threejsexamples.client.AbstractExample;
+import com.akjava.gwt.threejsexamples.client.LabeledInputRangeWidget;
 import com.google.gwt.canvas.client.Canvas;
 import com.google.gwt.canvas.dom.client.Context2d;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.event.dom.client.KeyDownEvent;
 import com.google.gwt.event.dom.client.KeyDownHandler;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.FocusPanel;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
@@ -528,11 +532,110 @@ public class PhysicalExample extends AbstractExample{
 	}
 
 	
+	/*
+	 * var gui, shadowConfig = {
+
+				shadowCameraVisible: false,
+				shadowCameraNear: 750,
+				shadowCameraFar: 4000,
+				shadowCameraFov: 30,
+				shadowBias: -0.0002
+
+			}, gamma = {
+				gammaFactor: 2.0,
+				gammaInput: true,
+				gammaOutput: true
+			};
+	 */
 	private void initResizeHandlerAndGUI() {
 		VerticalPanel gui=addResizeHandlerAndCreateGUIPanel();
 		
 		gui.setWidth("200px");//some widget broke,like checkbox without parent size
 		gui.setSpacing(2);
+		
+		gui.add(new Label("Shadow"));
+		
+		/* not work on r73
+		final CheckBox shadowCameraVisible=new CheckBox("shadowCameraVisible");
+		shadowCameraVisible.setValue(false);
+		shadowCameraVisible.addValueChangeHandler(new ValueChangeHandler<Boolean>() {
+			
+			@Override
+			public void onValueChange(ValueChangeEvent<Boolean> event) {
+				// don't work,need helper
+				sunLight.setShadowCameraVisible(shadowCameraVisible.getValue());
+			}
+		});
+		
+		gui.add(shadowCameraVisible);
+		*/
+		
+		
+		final LabeledInputRangeWidget shadowCameraNear=new LabeledInputRangeWidget("shadowCameraNear", 1, 1500, 1);
+		shadowCameraNear.setValue(750);
+		shadowCameraNear.addtRangeListener(new ValueChangeHandler<Number>() {
+
+			@Override
+			public void onValueChange(ValueChangeEvent<Number> event) {
+				sunLight.setShadowCameraNear(shadowCameraNear.getValue());//sunLight.shadowCamera.near = shadowConfig.shadowCameraNear;
+				sunLight.getShadow().getCamera().gwtCastPerspectiveCamera().updateProjectionMatrix();
+				//sunLight.getShadowCamera().updateProjectionMatrix();//sunLight.shadowCamera.updateProjectionMatrix();
+			}
+		});
+		gui.add(shadowCameraNear);
+		
+		
+		
+		final LabeledInputRangeWidget shadowCameraFar=new LabeledInputRangeWidget("shadowCameraFar", 1501, 5000, 1);
+		shadowCameraFar.setValue(4000);
+		shadowCameraFar.addtRangeListener(new ValueChangeHandler<Number>() {
+
+			@Override
+			public void onValueChange(ValueChangeEvent<Number> event) {
+				sunLight.setShadowCameraFar(shadowCameraFar.getValue());
+				sunLight.getShadow().getCamera().gwtCastPerspectiveCamera().updateProjectionMatrix();
+				
+			}
+		});
+		gui.add(shadowCameraFar);
+		
+		final LabeledInputRangeWidget shadowCameraFov=new LabeledInputRangeWidget("shadowCameraFov", 1, 120, 1);
+		shadowCameraFov.setValue(30);
+		shadowCameraFov.addtRangeListener(new ValueChangeHandler<Number>() {
+
+			@Override
+			public void onValueChange(ValueChangeEvent<Number> event) {
+				sunLight.setShadowCameraFov(shadowCameraFov.getValue());
+				sunLight.getShadow().getCamera().gwtCastPerspectiveCamera().updateProjectionMatrix();
+				
+			}
+		});
+		gui.add(shadowCameraFov);
+		
+		final LabeledInputRangeWidget shadowBias=new LabeledInputRangeWidget("shadowBias", -0.01, 0.01, 0.0001);
+		shadowBias.setValue(0);
+		shadowBias.addtRangeListener(new ValueChangeHandler<Number>() {
+
+			@Override
+			public void onValueChange(ValueChangeEvent<Number> event) {
+				sunLight.setShadowBias(shadowBias.getValue());
+				sunLight.getShadow().getCamera().gwtCastPerspectiveCamera().updateProjectionMatrix();
+				
+			}
+		});
+		gui.add(shadowBias);
+		
+		gui.add(new Label("Ganmma"));
+		final LabeledInputRangeWidget gammaFactor=new LabeledInputRangeWidget("gammaFactor", 0.1, 4.0, 0.1);
+		gammaFactor.setValue(2);
+		gammaFactor.addtRangeListener(new ValueChangeHandler<Number>() {
+
+			@Override
+			public void onValueChange(ValueChangeEvent<Number> event) {
+				renderer.setGammaFactor(gammaFactor.getValue());
+			}
+		});
+		gui.add(gammaFactor);
 		
 	}
 	

@@ -42,7 +42,11 @@ public class LabeledInputRangeWidget extends HorizontalPanel{
 			textBox.setReadOnly(true);//not yet
 		}
 		public void setTextBoxText(String value){
-		value=value.substring(0, Math.min(5, value.length()));//limit text
+		int min=5;
+		if(value.startsWith("-")){
+			min=6;
+		}
+		value=value.substring(0, Math.min(min, value.length()));//limit text
 		textBox.setValue(value);
 		}
 		public void setValue(double value){

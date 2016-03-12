@@ -74,4 +74,13 @@ this.decay = decay;
 public final native PointLight copy(PointLight source)/*-{
 return this.copy(source);
 }-*/;
+
+public final native LightShadow getShadow()/*-{
+return this.shadow;
+}-*/;
+
+public final native void setShadow(LightShadow shadow)/*-{
+this.shadow = shadow;
+}-*/;
+
 }
