@@ -1,5 +1,6 @@
 package com.akjava.gwt.threejsexamples.client.examples.shading;
 
+import com.akjava.gwt.lib.client.GWTUtils;
 import com.akjava.gwt.lib.client.JavaScriptUtils;
 import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.stats.client.Stats;
@@ -437,7 +438,7 @@ public class PhysicalExample extends AbstractExample{
 				//trackball consume keydown event.this is the way to add keydown on root
 				//TODO method
 				
-				RootPanel.get().addDomHandler(new KeyDownHandler() {
+				GWTUtils.addKeyDownHandlerToDocument(new KeyDownHandler() {
 					@Override
 					public void onKeyDown(KeyDownEvent event) {
 						
@@ -459,7 +460,7 @@ public class PhysicalExample extends AbstractExample{
 							}
 						}
 					}
-				},KeyDownEvent.getType());
+				});
 		
 	
 				//control

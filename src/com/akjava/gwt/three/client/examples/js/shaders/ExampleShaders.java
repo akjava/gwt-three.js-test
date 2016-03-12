@@ -44,4 +44,7 @@ return $wnd.THREE.ColorifyShader;
 }-*/;
 
 //TODO implement all
+public static  native final Shader UnpackDepthRGBAShader()/*-{
+return $wnd.THREE.UnpackDepthRGBAShader;
+}-*/;
 }

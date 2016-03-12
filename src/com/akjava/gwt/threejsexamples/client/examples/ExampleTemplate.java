@@ -77,7 +77,7 @@ public class ExampleTemplate extends AbstractExample{
 		container.getElement().appendChild(stats.domElement());
 		
 		//add html info
-		container.add(createAbsoluteHTML("<div style='text:white'><a href='http://threejs.org' target='_blank'>three.js</a>  - test</a>"
+		container.add(createAbsoluteHTML("<div style='text:white'><a href='http://threejs.org' target='_blank'>three.js</a>  - test</div>"
 				,100,10));
 		
 		

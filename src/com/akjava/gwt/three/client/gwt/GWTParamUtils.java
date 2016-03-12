@@ -1,5 +1,6 @@
 package com.akjava.gwt.three.client.gwt;
 
+import com.akjava.gwt.three.client.examples.gwt.geometries.TextGeometryParameter;
 import com.akjava.gwt.three.client.gwt.core.MorphTarget;
 import com.akjava.gwt.three.client.gwt.core.Offset;
 import com.akjava.gwt.three.client.gwt.materials.MeshBasicMaterialParameter;
@@ -43,6 +44,11 @@ public static Offset Offset() {
 
 public static WebGLRenderTargetParameter WebGLRenderTarget(){
 	return WebGLRenderTargetParameter.create();
+}
+
+//TODO move example paramutils
+public static TextGeometryParameter TextGeometry(){
+	return TextGeometryParameter.create();
 }
 
 

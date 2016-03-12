@@ -1,5 +1,6 @@
 package com.akjava.gwt.three.client.examples.js;
 
+import com.akjava.gwt.three.client.examples.js.controls.FirstPersonControls;
 import com.akjava.gwt.three.client.examples.js.controls.MouseControls;
 import com.akjava.gwt.three.client.examples.js.controls.OrbitControls;
 import com.akjava.gwt.three.client.examples.js.controls.TrackballControls;
@@ -59,6 +60,12 @@ public class THREEExp {
 	return new $wnd.THREE.TrackballControls(object,dom);
 	}-*/;
 	
+	public static final native FirstPersonControls FirstPersonControls(Object3D object,Element dom)/*-{
+	return new $wnd.THREE.FirstPersonControls(object,dom);
+	}-*/;
+	public static final native FirstPersonControls FirstPersonControls(Object3D object)/*-{
+	return new $wnd.THREE.FirstPersonControls(object);
+	}-*/;
 	
 /**
  * 

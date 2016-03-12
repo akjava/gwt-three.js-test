@@ -40,7 +40,6 @@ package com.akjava.gwt.three.client.js;
 import com.akjava.gwt.lib.client.JavaScriptUtils;
 import com.akjava.gwt.three.client.examples.ColladaLoader;
 import com.akjava.gwt.three.client.examples.camera.CombinedCamera;
-import com.akjava.gwt.three.client.examples.js.geometries.TextGeometry;
 import com.akjava.gwt.three.client.examples.loaders.SceneLoader;
 import com.akjava.gwt.three.client.examples.modifiers.SubdivisionModifier;
 import com.akjava.gwt.three.client.examples.renderers.CSS3DRenderer;

@@ -35,7 +35,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
   
  */
-package com.akjava.gwt.three.client.examples.js;
+package com.akjava.gwt.three.client.examples.js.utils;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
