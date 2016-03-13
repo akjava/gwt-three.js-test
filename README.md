@@ -24,7 +24,9 @@ If you are not familiar with GWT or GoogleAppEngine/Java,you should choice <a hr
 many people use that.
 
 ##Status
-developed based Three.js `Rev70` for GWT 2.5.1/2.6(not JSInterop)
+developed based Three.js `Rev73` for GWT 2.5.1/2.6(not JSInterop)
+
+
 
 I can say this is `ALPHA` version.  
 There are still so many bugs.when each time I port a example,I found many critical bugs.

@@ -1,9 +1,15 @@
 package com.akjava.gwt.three.client.js.renderers;
 
+import com.akjava.gwt.lib.client.CanvasUtils;
+import com.akjava.gwt.lib.client.experimental.ImageDataUtils;
 import com.akjava.gwt.three.client.js.core.EventDispatcher;
 import com.akjava.gwt.three.client.js.math.Vector2;
 import com.akjava.gwt.three.client.js.textures.Texture;
+import com.google.gwt.canvas.client.Canvas;
+import com.google.gwt.canvas.dom.client.ImageData;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.text.shared.Renderer;
+import com.google.gwt.typedarrays.client.Uint8ArrayNative;
 
 public class WebGLRenderTarget extends EventDispatcher{
 
@@ -162,6 +168,10 @@ public final native void dispose()/*-{
 this.dispose();
 }-*/;
 
+/**
+ * @deprecated on r72
+ * @return
+ */
 public final native JavaScriptObject getWebglTexture()/*-{
 return this.__webglTexture;
 }-*/;
@@ -169,5 +179,19 @@ return this.__webglTexture;
 public final native Texture gwtCastTexture()/*-{
 return this;
 }-*/;
+
+//TODO convert native?
+public final Canvas gwtTextureToCanvas(WebGLRenderer renderer){
+	int w=getWidth();
+	int h=getHeight();
+	Uint8ArrayNative buffer=Uint8ArrayNative.create(w*h*4);//rgba
+	renderer.readRenderTargetPixels(this, 0, 0, w,h, buffer);
+	
+	Canvas canvas=CanvasUtils.createCanvas(w, h);
+	ImageData imageData=CanvasUtils.createSameSizeImageData(canvas);
+	ImageDataUtils.set(imageData, buffer);
+	ImageDataUtils.putImageData(imageData, canvas);
+	return canvas;
+}
 
 }
