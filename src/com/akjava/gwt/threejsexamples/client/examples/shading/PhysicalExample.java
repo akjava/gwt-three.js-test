@@ -685,12 +685,14 @@ public class PhysicalExample extends AbstractExample{
 
 		mesh.setVisible(false);//mesh.visible = false;
 
+		
 		renderer.setAutoClear(true);//renderer.autoClear = true;
 		cubeCamera.getPosition().copy( mesh.getPosition());//cubeCamera.position.copy( mesh.position );
 		cubeCamera.updateCubeMap( renderer, scene );
 		renderer.setAutoClear(false);//renderer.autoClear = false;
 
 		mesh.setVisible(true);//mesh.visible = true;
+		
 		
 		renderer.render(scene, camera);
 	}

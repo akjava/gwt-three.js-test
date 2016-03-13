@@ -13,6 +13,10 @@ public static final native void update()/*-{
 return $wnd.TWEEN.update();
 }-*/;
 
+public static final native void update(double time)/*-{
+return $wnd.TWEEN.update(time);
+}-*/;
+
 public static final native JsArray<TWEEN> getAll()/*-{
 return $wnd.TWEEN.getAll();
 }-*/;
@@ -23,6 +27,10 @@ return this.stop();
 
 public  final native TWEEN start()/*-{
 return this.start();
+}-*/;
+
+public  final native TWEEN start(double time)/*-{
+return this.start(time);
 }-*/;
 public  final native TWEEN to(JavaScriptObject parameter,double duration)/*-{
 
@@ -41,9 +49,7 @@ return this.easing(functionObject);
 public static final native TWEEN Tween(JavaScriptObject parameters)/*-{
 return new $wnd.TWEEN.Tween(parameters);
 }-*/;
-public static final native TWEEN Tween(String name,double value)/*-{
-return new $wnd.TWEEN.Tween({name:value});
-}-*/;
+
 
 public static final native JavaScriptObject Easing_Linear_None()/*-{
 return $wnd.TWEEN.Easing.Linear.None;

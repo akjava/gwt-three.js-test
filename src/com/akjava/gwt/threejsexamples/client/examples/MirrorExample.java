@@ -1,5 +1,6 @@
 package com.akjava.gwt.threejsexamples.client.examples;
 
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.stats.client.Stats;
 import com.akjava.gwt.three.client.examples.js.GWTExampleParamUtils;
 import com.akjava.gwt.three.client.examples.js.Mirror;
@@ -122,6 +123,7 @@ public class MirrorExample extends AbstractExample{
 	}
 	
 	public void fillScene(){
+		LogUtils.log("1");
 		PlaneBufferGeometry planeGeo = THREE.PlaneBufferGeometry( 100.1, 100.1 );//var planeGeo = new THREE.PlaneBufferGeometry( 100.1, 100.1 );
 
 		// MIRORR planes
@@ -162,7 +164,7 @@ public class MirrorExample extends AbstractExample{
 		MeshLambertMaterial material3 = THREE.MeshLambertMaterial( GWTParamUtils.MeshLambertMaterial().color(0xffffff).emissive(0x333333).shading(THREE.FlatShading) );//var material = new THREE.MeshLambertMaterial( { color: 0xffffff, emissive: 0x333333, shading: THREE.FlatShading } );
 		smallSphere = THREE.Mesh( geometry3, material3 );//smallSphere = new THREE.Mesh( geometry, material );
 		scene.add(smallSphere);
-
+		LogUtils.log("3");
 		// walls
 		Mesh planeTop = THREE.Mesh( planeGeo, THREE.MeshPhongMaterial( GWTParamUtils.MeshPhongMaterial().color(0xffffff) ) );//var planeTop = new THREE.Mesh( planeGeo, new THREE.MeshPhongMaterial( { color: 0xffffff } ) );
 		planeTop.getPosition().setY(100);//planeTop.position.y = 100;
@@ -179,7 +181,7 @@ public class MirrorExample extends AbstractExample{
 		planeFront.getPosition().setY(50);//planeFront.position.y = 50;
 		planeFront.rotateY( Math.PI );
 		scene.add( planeFront );
-
+		LogUtils.log("2");
 		Mesh planeRight = THREE.Mesh( planeGeo, THREE.MeshPhongMaterial( GWTParamUtils.MeshPhongMaterial().color(0x00ff00) ) );//var planeRight = new THREE.Mesh( planeGeo, new THREE.MeshPhongMaterial( { color: 0x00ff00 } ) );
 		planeRight.getPosition().setX(50);//planeRight.position.x = 50;
 		planeRight.getPosition().setY(50);//planeRight.position.y = 50;
@@ -208,6 +210,7 @@ public class MirrorExample extends AbstractExample{
 		PointLight blueLight = THREE.PointLight( 0x7f7fff, 0.25, 1000 );//var blueLight = new THREE.PointLight( 0x7f7fff, 0.25, 1000 );
 		blueLight.getPosition().set( 0, 50, 550 );//blueLight.position.set( 0, 50, 550 );
 		scene.add( blueLight );
+		
 	}
 
 	
