@@ -33,6 +33,7 @@ import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.renderers.shaders.WebGLShaders.ShaderChunk.UniformsUtils;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.threejsexamples.client.AbstractExample;
+import com.akjava.gwt.threejsexamples.client.Example;
 import com.google.common.collect.Lists;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.event.dom.client.KeyDownEvent;
@@ -457,4 +458,6 @@ public class ShadowmapExample extends AbstractExample{
 	public String getTokenKey() {
 		return "shadowmap";
 	}
+
+
 }

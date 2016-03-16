@@ -1,9 +1,12 @@
 package com.akjava.gwt.threejsexamples.client;
 
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import com.akjava.gwt.lib.client.ArrayUtils;
 import com.akjava.gwt.lib.client.URLUtils;
 import com.akjava.gwt.threejsexamples.client.examples.MirrorExample;
 import com.akjava.gwt.threejsexamples.client.examples.MorphnormalsExample;
@@ -108,6 +111,9 @@ public class ThreejsExamples implements EntryPoint,ExampleOwner {
 		examples.add(new GlitchExample());
 		examples.add(new DofExample());
 		examples.add(new AdvancedExample());
+		
+		
+		Collections.sort(examples);
 		
 		//TODO add scroll
 		for(Example exp:examples){

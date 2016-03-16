@@ -52,6 +52,10 @@ public final native void updateCubeMap(WebGLRenderer renderer,Scene scene)/*-{
 this.updateCubeMap(renderer,scene);
 }-*/;
 
+/**
+ * can't read pixel with renderer.readRenderTargetPixels()
+ * @return
+ */
 public final native WebGLRenderTargetCube getRenderTarget()/*-{
 return this.renderTarget;
 }-*/;

@@ -18,7 +18,7 @@ import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.PopupPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
-public abstract class AbstractExample implements Example{
+public abstract class AbstractExample implements Example,Comparable<Example>{
 	private AnimationHandle handler;
 	protected Panel parent;
 	
@@ -183,5 +183,10 @@ public abstract class AbstractExample implements Example{
 		htmlWidget.getElement().getStyle().setLeft(x, Unit.PX);
 		htmlWidget.getElement().getStyle().setTop(y, Unit.PX);
 		return htmlWidget;
+	}
+	@Override
+	public int compareTo(Example o) {
+		// TODO Auto-generated method stub
+		return this.getName().compareTo(o.getName());
 	}
 }

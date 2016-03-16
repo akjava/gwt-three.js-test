@@ -181,6 +181,9 @@ return this;
 }-*/;
 
 //TODO convert native?
+/*
+ * not work WebGLRenderTargetCube
+ */
 public final Canvas gwtTextureToCanvas(WebGLRenderer renderer){
 	int w=getWidth();
 	int h=getHeight();
