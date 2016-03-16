@@ -1,12 +1,10 @@
 package com.akjava.gwt.threejsexamples.client;
 
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import com.akjava.gwt.lib.client.ArrayUtils;
 import com.akjava.gwt.lib.client.URLUtils;
 import com.akjava.gwt.threejsexamples.client.examples.MirrorExample;
 import com.akjava.gwt.threejsexamples.client.examples.MorphnormalsExample;
@@ -17,6 +15,7 @@ import com.akjava.gwt.threejsexamples.client.examples.animation.cloth.ClothExamp
 import com.akjava.gwt.threejsexamples.client.examples.animation.skinning.BlendingExample;
 import com.akjava.gwt.threejsexamples.client.examples.animation.skinning.MorphExample;
 import com.akjava.gwt.threejsexamples.client.examples.buffergeometry.BufferGeometryExample;
+import com.akjava.gwt.threejsexamples.client.examples.camera.CameraExample;
 import com.akjava.gwt.threejsexamples.client.examples.light.HemisphereExample;
 import com.akjava.gwt.threejsexamples.client.examples.misc.controls.OrbitExample;
 import com.akjava.gwt.threejsexamples.client.examples.morphtargets.HorseExample;
@@ -88,6 +87,8 @@ public class ThreejsExamples implements EntryPoint,ExampleOwner {
 		
 		List<Example> examples=Lists.newArrayList();
 		//examples.add(new MyExample());
+		examples.add(new CameraExample());
+		
 		examples.add(new ShadowmapExample());
 		examples.add(new PhysicalExample());
 		examples.add(new HumanExample());

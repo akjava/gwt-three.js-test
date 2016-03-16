@@ -153,11 +153,11 @@ public final native void lookAt(Vector3 vec)/*-{
 this.lookAt(vec);
 }-*/;
 
-public final native void add(Object3D mesh)/*-{	
-this.add(mesh);
+public final native void add(Object3D object)/*-{	
+this.add(object);
 }-*/;
-public final native void remove(Object3D mesh)/*-{	
-this.remove(mesh);
+public final native void remove(Object3D object)/*-{	
+this.remove(object);
 }-*/;
 
 

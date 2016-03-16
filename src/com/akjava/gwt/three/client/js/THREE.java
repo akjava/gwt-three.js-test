@@ -115,6 +115,7 @@ import com.akjava.gwt.three.client.js.extras.geometries.PlaneGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.PolyhedronGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.RingGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.ShapeGeometry;
+import com.akjava.gwt.three.client.js.extras.geometries.SphereBufferGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.SphereGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.TetrahedronGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.TorusGeometry;
@@ -554,8 +555,8 @@ return new $wnd.THREE.ArrowHelper(size);
 	return  new $wnd.THREE.ShaderMaterial(parameter);
 	}-*/;
 	
-	public static  native final PointsMaterial PointCloudMaterial(JavaScriptObject parameter)/*-{
-	return  new $wnd.THREE.PointCloudMaterial(parameter);
+	public static  native final PointsMaterial PointsMaterial(JavaScriptObject parameter)/*-{
+	return  new $wnd.THREE.PointsMaterial(parameter);
 	}-*/;
 	
 	public static  native final MeshPhongMaterial MeshPhongMaterial(JavaScriptObject parameter)/*-{
@@ -980,8 +981,8 @@ return new $wnd.THREE.ArrowHelper(size);
 	public static native final Particle Particle(Material material )/*-{
 	return new $wnd.THREE.Particle(material );
 	}-*/;
-	public static native final Points PointCloud(Geometry geometry,Material material )/*-{
-	return new $wnd.THREE.PointCloud( geometry, material );
+	public static native final Points Points(Geometry geometry,Material material )/*-{
+	return new $wnd.THREE.Points( geometry, material );
 	}-*/;
 
 	public static native final Mesh Mesh(Geometry geometry )/*-{
@@ -1606,5 +1607,13 @@ return new $wnd.THREE.ArrowHelper(size);
 	
 	public static  native final ObjectLoader ObjectLoader()/*-{
 	return  new $wnd.THREE.ObjectLoader();
+	}-*/;
+	
+	public static final native SphereBufferGeometry SphereBufferGeometry(double radius,int widthSegments,int heightSegments,double phiStart,double phiLength,double thetaStart,double thetaLength)/*-{
+	return new $wnd.THREE.SphereBufferGeometry(radius, widthSegments, heightSegments, phiStart, phiLength, thetaStart, thetaLength);
+	}-*/;
+	
+	public static final native SphereBufferGeometry SphereBufferGeometry(double radius,int widthSegments,int heightSegments)/*-{
+	return new $wnd.THREE.SphereBufferGeometry(radius, widthSegments, heightSegments);
 	}-*/;
 }

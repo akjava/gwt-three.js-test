@@ -64,11 +64,16 @@ private Mesh mesh;
 		Texture texture=ImageUtils.loadTexture("img/particle.png");
 		//need for stop:Texture is not power of two. Texture.minFilter is set to THREE.LinearFilter or THREE.NearestFilter. ( undefined )
 		texture.setMinFilter(THREE.Filters.LinearFilter());
-		Material material=THREE.PointCloudMaterial(
+		
+		/* TODO fix
+		Material material=THREE.Points(
 				PointsMaterialParameter.create().
 				color(0xffffff).size(20).map(texture).blending(THREE.Blending.AdditiveBlending()).transparent(true).depthTest(false)
 				)
 		;
+		*/
+		Material material=null;
+		
 		final Vector3[] velocity=new Vector3[pcount];
 		for(int i=0;i<pcount;i++){
 			int px= (int) (Math.random() * 500 - 250);
@@ -80,7 +85,7 @@ private Mesh mesh;
 			velocity[i]=THREE.Vector3(0, 0, -Math.random());
 		}
 		
-		final Points particleSystem=THREE.PointCloud(particles, material);
+		final Points particleSystem=THREE.Points(particles, material);
 		//particleSystem.setSortParticles(true); no need since r70
 		
 		final Mesh root=THREE.Mesh(THREE.PlaneBufferGeometry(500, 500), THREE.MeshLambertMaterial(

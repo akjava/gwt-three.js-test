@@ -31,8 +31,8 @@ public class ExampleTemplate extends AbstractExample{
 	private PerspectiveCamera camera;
 	private Stats stats;
 
-	int WIDTH;
-	int HEIGHT;
+	int SCREEN_WIDTH;
+	int SCREEN_HEIGHT;
 
 	
 	private int windowHalfX,windowHalfY;
@@ -44,8 +44,8 @@ public class ExampleTemplate extends AbstractExample{
 	
 		clock=THREE.Clock();
 		
-		 WIDTH = (int)getWindowInnerWidth();
-		 HEIGHT = (int)getWindowInnerHeight();
+		 SCREEN_WIDTH = (int)getWindowInnerWidth();
+		 SCREEN_HEIGHT = (int)getWindowInnerHeight();
 		 
 		 windowHalfX=(int) (getWindowInnerWidth()/2);
 		 windowHalfY=(int) (getWindowInnerHeight()/2);
@@ -55,7 +55,7 @@ public class ExampleTemplate extends AbstractExample{
 		// renderer
 		renderer = THREE.WebGLRenderer();
 		renderer.setPixelRatio( GWTThreeUtils.getWindowDevicePixelRatio() );
-		renderer.setSize( WIDTH, HEIGHT );
+		renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
 		container.getElement().appendChild( renderer.getDomElement() );
 
 		// scene
@@ -64,7 +64,7 @@ public class ExampleTemplate extends AbstractExample{
 		// camera
 		camera = THREE.PerspectiveCamera(55, getWindowInnerWidth()/getWindowInnerHeight(), 0.5, 300000);
 		camera.getPosition().set(0, 0, 400);
-		camera.lookAt(THREE.Vector3());
+		
 
 		
 		
@@ -106,11 +106,14 @@ public class ExampleTemplate extends AbstractExample{
 	
 	
 	public void onWindowResize() {
-		
+		SCREEN_WIDTH = (int)getWindowInnerWidth();
+		SCREEN_HEIGHT = (int)getWindowInnerHeight();
+	
+		//re read because of double
 		camera.setAspect(getWindowInnerWidth() / getWindowInnerHeight());
 		camera.updateProjectionMatrix();
 
-		renderer.setSize( (int)getWindowInnerWidth() , (int)getWindowInnerHeight() );
+		renderer.setSize( SCREEN_WIDTH , SCREEN_HEIGHT );
 	
 		 windowHalfX=(int) (getWindowInnerWidth()/2);
 		 windowHalfY=(int) (getWindowInnerHeight()/2);

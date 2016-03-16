@@ -83,7 +83,7 @@ public class EmitterSystem {
 				geometry.vertices().push(THREE.Vector3(0, 0, 0));
 			}
 			
-			Points system=THREE.PointCloud(geometry, baseMaterial.build());
+			Points system=THREE.Points(geometry, baseMaterial.build());
 			//system.setSortParticles(true);
 			systems[index]=system;
 			parent.add(system);

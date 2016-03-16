@@ -82,7 +82,7 @@ private Mesh mesh;
 		Material material=THREE.ParticleBasicMaterial().color(0xff0000).size(2).map(ImageUtils.loadTexture("img/particle.png"))
 		.blending(THREE.Blending.AdditiveBlending()).transparent(true).build();
 		
-		final Points particleSystem=THREE.PointCloud(particles, material);
+		final Points particleSystem=THREE.Points(particles, material);
 		particleSystem.setSortParticles(true);
 		
 		root.add(particleSystem);
