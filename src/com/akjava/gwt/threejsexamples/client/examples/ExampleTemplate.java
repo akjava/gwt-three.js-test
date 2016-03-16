@@ -31,8 +31,8 @@ public class ExampleTemplate extends AbstractExample{
 	private PerspectiveCamera camera;
 	private Stats stats;
 
-	int SCREEN_WIDTH;
-	int SCREEN_HEIGHT;
+	double SCREEN_WIDTH;
+	double SCREEN_HEIGHT;
 
 	
 	private int windowHalfX,windowHalfY;
@@ -44,11 +44,11 @@ public class ExampleTemplate extends AbstractExample{
 	
 		clock=THREE.Clock();
 		
-		 SCREEN_WIDTH = (int)getWindowInnerWidth();
-		 SCREEN_HEIGHT = (int)getWindowInnerHeight();
+		 SCREEN_WIDTH = getWindowInnerWidth();
+		 SCREEN_HEIGHT = getWindowInnerHeight();
 		 
-		 windowHalfX=(int) (getWindowInnerWidth()/2);
-		 windowHalfY=(int) (getWindowInnerHeight()/2);
+		 windowHalfX= (int)(SCREEN_WIDTH/2);
+		 windowHalfY= (int)(SCREEN_HEIGHT/2);
 
 		FocusPanel container = createContainerPanel();
 		

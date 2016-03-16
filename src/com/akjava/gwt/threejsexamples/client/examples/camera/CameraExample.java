@@ -1,5 +1,6 @@
 package com.akjava.gwt.threejsexamples.client.examples.camera;
 
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.stats.client.Stats;
 import com.akjava.gwt.three.client.gwt.GWTParamUtils;
 import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
@@ -43,8 +44,8 @@ public class CameraExample extends AbstractExample{
 	private PerspectiveCamera cameraPerspective;
 	private Stats stats;
 
-	int WIDTH;
-	int HEIGHT;
+	double WIDTH;
+	double HEIGHT;
 
 	
 	private int windowHalfX,windowHalfY;
@@ -65,8 +66,8 @@ public class CameraExample extends AbstractExample{
 	
 		clock=THREE.Clock();
 		
-		 WIDTH = (int)getWindowInnerWidth();
-		 HEIGHT = (int)getWindowInnerHeight();
+		 WIDTH = getWindowInnerWidth();
+		 HEIGHT = getWindowInnerHeight();
 		 
 		 windowHalfX=(int) (getWindowInnerWidth()/2);
 		 windowHalfY=(int) (getWindowInnerHeight()/2);
@@ -91,7 +92,8 @@ public class CameraExample extends AbstractExample{
 		camera = THREE.PerspectiveCamera(50, 0.5*getWindowInnerWidth()/getWindowInnerHeight(), 1, 10000);
 		camera.getPosition().set(0, 0, 2500);
 		
-		cameraPerspective = THREE.PerspectiveCamera( 50, 0.5 * WIDTH / HEIGHT, 150, 1000 );
+		
+		cameraPerspective = THREE.PerspectiveCamera( 50, 0.5 * getWindowInnerWidth() / getWindowInnerHeight(), 150, 1000 );
 		
 		cameraPerspectiveHelper = THREE.CameraHelper( cameraPerspective );//cameraPerspectiveHelper = new THREE.CameraHelper( cameraPerspective );
 		scene.add( cameraPerspectiveHelper );
@@ -209,27 +211,24 @@ public class CameraExample extends AbstractExample{
 	
 	
 	public void onWindowResize() {
-		WIDTH=(int)getWindowInnerWidth();
-		HEIGHT=(int)getWindowInnerHeight();
+		WIDTH=getWindowInnerWidth();
+		HEIGHT=getWindowInnerHeight();
 		renderer.setSize(WIDTH  ,HEIGHT);
 		
-		camera.setAspect(0.5 * WIDTH / HEIGHT);//camera.aspect = 0.5 * SCREEN_WIDTH / SCREEN_HEIGHT;
+		camera.setAspect(0.5 * getWindowInnerWidth() / getWindowInnerHeight());//camera.aspect = 0.5 * SCREEN_WIDTH / SCREEN_HEIGHT;
 		camera.updateProjectionMatrix();
 
-		cameraPerspective.setAspect(0.5 * WIDTH / HEIGHT);//cameraPerspective.aspect = 0.5 * SCREEN_WIDTH / SCREEN_HEIGHT;
+		cameraPerspective.setAspect(0.5 * getWindowInnerWidth() / getWindowInnerHeight());//cameraPerspective.aspect = 0.5 * SCREEN_WIDTH / SCREEN_HEIGHT;
 		cameraPerspective.updateProjectionMatrix();
 
 		cameraOrtho.setLeft(- 0.5 * WIDTH / 2);//cameraOrtho.left   = - 0.5 * SCREEN_WIDTH / 2;
-		cameraOrtho.setRight(0.5 * HEIGHT / 2);//cameraOrtho.right  =   0.5 * SCREEN_WIDTH / 2;
-		cameraOrtho.setTop((double)HEIGHT / 2);//cameraOrtho.top    =   SCREEN_HEIGHT / 2;
-		cameraOrtho.setBottom(- (double)HEIGHT / 2);//cameraOrtho.bottom = - SCREEN_HEIGHT / 2;
+		cameraOrtho.setRight(0.5 * WIDTH / 2);//cameraOrtho.right  =   0.5 * SCREEN_WIDTH / 2;
+		cameraOrtho.setTop(HEIGHT / 2);//cameraOrtho.top    =   SCREEN_HEIGHT / 2;
+		cameraOrtho.setBottom(- HEIGHT / 2);//cameraOrtho.bottom = - SCREEN_HEIGHT / 2;
 		cameraOrtho.updateProjectionMatrix();
 		
 		
 		
-		cameraPerspective.setAspect(getWindowInnerWidth() / getWindowInnerHeight());
-		cameraPerspective.updateProjectionMatrix();
-
 		
 	
 		 windowHalfX=(int) (getWindowInnerWidth()/2);
