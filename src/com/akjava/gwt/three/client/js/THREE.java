@@ -527,6 +527,10 @@ return new $wnd.THREE.ArrowHelper(size);
 	return new $wnd.THREE. Euler(x,y,z,order);
 	}-*/;
 	
+	public static native final Euler Euler(double x,double y,double z)/*-{
+	return new $wnd.THREE. Euler(x,y,z);
+	}-*/;
+	
 	public static native final Box3 Box3(Vector3 min,Vector3 max)/*-{
 	return new $wnd.THREE. Box3(min,max);
 	}-*/;
@@ -563,8 +567,11 @@ return new $wnd.THREE.ArrowHelper(size);
 	return  new $wnd.THREE.MeshPhongMaterial(parameter);
 	}-*/;
 	
+	public static  native final MeshNormalMaterial MeshNormalMaterial()/*-{
+	return  new $wnd.THREE.MeshNormalMaterial();
+	}-*/;
 	public static  native final MeshNormalMaterial MeshNormalMaterial(JavaScriptObject parameter)/*-{
-	return  new $wnd.THREE.MeshLambertMaterial(parameter);
+	return  new $wnd.THREE.MeshNormalMaterial(parameter);
 	}-*/;
 	
 	public static  native final MeshLambertMaterial MeshLambertMaterial(JavaScriptObject parameter)/*-{

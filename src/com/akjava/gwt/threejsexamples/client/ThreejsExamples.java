@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.akjava.gwt.lib.client.URLUtils;
+import com.akjava.gwt.threejsexamples.client.examples.DecalExample;
 import com.akjava.gwt.threejsexamples.client.examples.MirrorExample;
 import com.akjava.gwt.threejsexamples.client.examples.MorphnormalsExample;
 import com.akjava.gwt.threejsexamples.client.examples.Ocean2Example;
@@ -87,6 +88,7 @@ public class ThreejsExamples implements EntryPoint,ExampleOwner {
 		
 		List<Example> examples=Lists.newArrayList();
 		//examples.add(new MyExample());
+		examples.add(new DecalExample());
 		examples.add(new CameraExample());
 		
 		examples.add(new ShadowmapExample());

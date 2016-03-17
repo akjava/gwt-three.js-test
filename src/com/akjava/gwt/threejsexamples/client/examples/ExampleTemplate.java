@@ -106,17 +106,17 @@ public class ExampleTemplate extends AbstractExample{
 	
 	
 	public void onWindowResize() {
-		SCREEN_WIDTH = (int)getWindowInnerWidth();
-		SCREEN_HEIGHT = (int)getWindowInnerHeight();
+		SCREEN_WIDTH = getWindowInnerWidth();
+		SCREEN_HEIGHT = getWindowInnerHeight();
 	
 		//re read because of double
-		camera.setAspect(getWindowInnerWidth() / getWindowInnerHeight());
+		camera.setAspect(SCREEN_WIDTH / SCREEN_HEIGHT);
 		camera.updateProjectionMatrix();
 
 		renderer.setSize( SCREEN_WIDTH , SCREEN_HEIGHT );
 	
-		 windowHalfX=(int) (getWindowInnerWidth()/2);
-		 windowHalfY=(int) (getWindowInnerHeight()/2);
+		 windowHalfX=(int) (SCREEN_WIDTH/2);
+		 windowHalfY=(int) (SCREEN_HEIGHT/2);
 	}
 	
 	public void render(double now) {

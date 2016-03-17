@@ -61,8 +61,8 @@ public final class LineBasicMaterialParameter extends JSParameter{
 	return this;
 	}-*/;
 	
-	public final native LineBasicMaterialParameter lineWidth(double lineWidth)/*-{
-	this.lineWidth=lineWidth;
+	public final native LineBasicMaterialParameter linewidth(double linewidth)/*-{
+	this.linewidth=linewidth;
 	return this;
 	}-*/;
 	

@@ -32,6 +32,10 @@ public final native Matrix4 copyPosition(Matrix4 m)/*-{
 return this.copyPosition(m);
 }-*/;
 
+public final native Matrix4 extractRotation(Matrix4 m)/*-{
+return this.extractRotation(m);
+}-*/;
+
 /**
  * watch out ,this is not work as same as old setRotationFromEuler.
 MAKE means just create a matrix form euler.

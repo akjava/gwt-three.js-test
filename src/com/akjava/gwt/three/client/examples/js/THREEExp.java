@@ -25,11 +25,15 @@ import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.akjava.gwt.three.client.js.materials.Material;
 import com.akjava.gwt.three.client.js.math.Color;
+import com.akjava.gwt.three.client.js.math.Euler;
 import com.akjava.gwt.three.client.js.math.Vector2;
+import com.akjava.gwt.three.client.js.math.Vector3;
+import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderTarget;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.three.client.js.textures.Texture;
+import com.akjava.gwt.threejsexamples.client.examples.DecalGeometry;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Element;
 
@@ -175,6 +179,10 @@ public class THREEExp {
 		
 		public static final native TextGeometry TextGeometry(String text,JavaScriptObject parameters)/*-{
 		return new $wnd.THREE.TextGeometry( text, parameters);
+		}-*/;
+		
+		public static final native DecalGeometry DecalGeometry(Mesh mesh, Vector3 position,Euler rotation,Vector3  dimensions,Vector3  check)/*-{
+		return new $wnd.THREE.DecalGeometry( mesh, position, rotation, dimensions, check);
 		}-*/;
 		
 }

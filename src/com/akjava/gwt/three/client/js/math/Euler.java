@@ -66,6 +66,10 @@ public final native Euler copy(Euler euler)/*-{
 return this.copy(euler);
 }-*/;
 
+public final native Euler setFromRotationMatrix(Matrix4 m)/*-{
+return this.setFromRotationMatrix(m);
+}-*/;
+
 public final native Euler setFromRotationMatrix(Matrix4 m,String order)/*-{
 return this.setFromRotationMatrix(m,order);
 }-*/;
