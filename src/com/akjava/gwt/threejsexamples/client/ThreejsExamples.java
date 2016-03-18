@@ -17,6 +17,7 @@ import com.akjava.gwt.threejsexamples.client.examples.animation.skinning.Blendin
 import com.akjava.gwt.threejsexamples.client.examples.animation.skinning.MorphExample;
 import com.akjava.gwt.threejsexamples.client.examples.buffergeometry.BufferGeometryExample;
 import com.akjava.gwt.threejsexamples.client.examples.camera.CameraExample;
+import com.akjava.gwt.threejsexamples.client.examples.geometries.GeometriesExample;
 import com.akjava.gwt.threejsexamples.client.examples.light.HemisphereExample;
 import com.akjava.gwt.threejsexamples.client.examples.misc.controls.OrbitExample;
 import com.akjava.gwt.threejsexamples.client.examples.morphtargets.HorseExample;
@@ -88,6 +89,7 @@ public class ThreejsExamples implements EntryPoint,ExampleOwner {
 		
 		List<Example> examples=Lists.newArrayList();
 		//examples.add(new MyExample());
+		examples.add(new GeometriesExample());
 		examples.add(new DecalExample());
 		examples.add(new CameraExample());
 		

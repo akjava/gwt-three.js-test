@@ -261,10 +261,13 @@ public class THREE {
 	public static final native ArrowHelper ArrowHelper(Vector3 dir,Vector3 origin,double length,int hex)/*-{
 	return new $wnd.THREE.ArrowHelper( dir, origin, length, hex);
 	}-*/;
+	public static final native ArrowHelper ArrowHelper(Vector3 dir,Vector3 origin,double length)/*-{
+	return new $wnd.THREE.ArrowHelper( dir, origin, length);
+	}-*/;
 
-public static final native AxisHelper AxisHelper(double size)/*-{
-return new $wnd.THREE.ArrowHelper(size);
-}-*/;
+	public static final native AxisHelper AxisHelper(double size)/*-{
+	return new $wnd.THREE.AxisHelper(size);
+	}-*/;
 
 
 	public static final native BoundingBoxHelper BoundingBoxHelper(Object3D object,int hex)/*-{
@@ -339,6 +342,9 @@ return new $wnd.THREE.ArrowHelper(size);
 	public static final native TorusKnotGeometry TorusKnotGeometry(double radius,double tube,int radialSegments,int tubularSegments,double p,double q,double heightScale)/*-{
 	return new $wnd.THREE.TorusKnotGeometry(radius, tube, radialSegments, tubularSegments, p, q, heightScale);
 	}-*/;
+	public static final native TorusKnotGeometry TorusKnotGeometry(double radius,double tube,int radialSegments,int tubularSegments)/*-{
+	return new $wnd.THREE.TorusKnotGeometry(radius, tube, radialSegments);
+	}-*/;
 	
 	public static final native TorusGeometry TorusGeometry(double radius,double tube,int radialSegments,int tubularSegments)/*-{
 	return new $wnd.THREE.TorusGeometry(radius, tube, radialSegments, tubularSegments);
@@ -376,6 +382,9 @@ return new $wnd.THREE.ArrowHelper(size);
 	}-*/;
 	public static final native LatheGeometry LatheGeometry(JsArray<Vector3> points,int segments,double phiStart,double phiLength)/*-{
 	return new $wnd.THREE.LatheGeometry(points, segments, phiStart, phiLength);
+	}-*/;
+	public static final native LatheGeometry LatheGeometry(JsArray<Vector3> points,int segments)/*-{
+	return new $wnd.THREE.LatheGeometry(points, segments);
 	}-*/;
 	public static final native IcosahedronGeometry IcosahedronGeometry(double radius,int detail)/*-{
 	return new $wnd.THREE.IcosahedronGeometry(radius, detail);
