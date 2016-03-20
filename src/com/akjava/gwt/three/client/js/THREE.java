@@ -1473,6 +1473,9 @@ public class THREE {
 	public static  native final VideoTexture VideoTexture(VideoElement image,JavaScriptObject mapping, int wrapS,int  wrapT, int magFilter,int minFilter,int format,int type,int anisotropy)/*-{
 	return  new $wnd.THREE.VideoTexture(image,mapping, wrapS, wrapT, magFilter, minFilter, format, type, anisotropy);
 	}-*/;
+	public static  native final VideoTexture VideoTexture(VideoElement image)/*-{
+	return  new $wnd.THREE.VideoTexture(image);
+	}-*/;
 	
 	
 	public static native final MorphAnimation MorphAnimation(MorphAnimMesh mesh)/*-{

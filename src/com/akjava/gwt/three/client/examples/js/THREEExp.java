@@ -41,6 +41,15 @@ import com.google.gwt.dom.client.Element;
  * for examples package constructor
  */
 public class THREEExp {
+	/**
+	 * 
+	 * @param object should PerspectiveCamera or OrthographicCamera,otherwise not working
+	 * @param dom
+	 * @return
+	 */
+	public static final native OrbitControls OrbitControls(Object3D object)/*-{
+	return new $wnd.THREE.OrbitControls(object,dom);
+	}-*/;
 	public static final native OrbitControls OrbitControls(Object3D object,Element dom)/*-{
 	return new $wnd.THREE.OrbitControls(object,dom);
 	}-*/;

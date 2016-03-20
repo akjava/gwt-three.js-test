@@ -29,6 +29,7 @@ import com.akjava.gwt.threejsexamples.client.examples.shaders.Ocean2Example;
 import com.akjava.gwt.threejsexamples.client.examples.shaders.OceanExample;
 import com.akjava.gwt.threejsexamples.client.examples.shading.PhysicalExample;
 import com.akjava.gwt.threejsexamples.client.examples.shadowmap.ShadowmapExample;
+import com.akjava.gwt.threejsexamples.client.examples.video.PanoramaEquirectangularExample;
 import com.akjava.gwt.threejsexamples.client.examples.vr.VrStereoExample;
 import com.google.common.collect.Lists;
 import com.google.gwt.core.client.EntryPoint;
@@ -89,6 +90,7 @@ public class ThreejsExamples implements EntryPoint,ExampleOwner {
 		
 		List<Example> examples=Lists.newArrayList();
 		//examples.add(new MyExample());
+		examples.add(new PanoramaEquirectangularExample());
 		examples.add(new GeometriesExample());
 		examples.add(new DecalExample());
 		examples.add(new CameraExample());

@@ -80,7 +80,7 @@ public class ExampleTemplate extends AbstractExample{
 		container.add(createAbsoluteHTML(
 				"<div style='text:white'>" +
 				"<a href='http://threejs.org' target='_blank'>three.js</a>" +
-				"  - test" +
+				"  - equirectangular video panorama demo" +
 				"</div>"
 				,100,10));
 		
@@ -99,7 +99,7 @@ public class ExampleTemplate extends AbstractExample{
 		
 		gui.setWidth("200px");//some widget broke,like checkbox without parent size
 		gui.setSpacing(2);
-		
+		//TODO add video chooser
 	}
 	
 
@@ -119,8 +119,6 @@ public class ExampleTemplate extends AbstractExample{
 
 		renderer.setSize( SCREEN_WIDTH , SCREEN_HEIGHT );
 	
-		 windowHalfX=(int) (SCREEN_WIDTH/2);
-		 windowHalfY=(int) (SCREEN_HEIGHT/2);
 	}
 	
 	public void render(double now) {
@@ -132,6 +130,6 @@ public class ExampleTemplate extends AbstractExample{
 
 	@Override
 	public String getTokenKey() {
-		return "test";
+		return "equirectangular";
 	}
 }
