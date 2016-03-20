@@ -9,8 +9,6 @@ import com.akjava.gwt.lib.client.URLUtils;
 import com.akjava.gwt.threejsexamples.client.examples.DecalExample;
 import com.akjava.gwt.threejsexamples.client.examples.MirrorExample;
 import com.akjava.gwt.threejsexamples.client.examples.MorphnormalsExample;
-import com.akjava.gwt.threejsexamples.client.examples.Ocean2Example;
-import com.akjava.gwt.threejsexamples.client.examples.OceanExample;
 import com.akjava.gwt.threejsexamples.client.examples.animation.SceneExample;
 import com.akjava.gwt.threejsexamples.client.examples.animation.cloth.ClothExample;
 import com.akjava.gwt.threejsexamples.client.examples.animation.skinning.BlendingExample;
@@ -27,6 +25,8 @@ import com.akjava.gwt.threejsexamples.client.examples.postprocessing.AdvancedExa
 import com.akjava.gwt.threejsexamples.client.examples.postprocessing.DofExample;
 import com.akjava.gwt.threejsexamples.client.examples.postprocessing.GlitchExample;
 import com.akjava.gwt.threejsexamples.client.examples.postprocessing.PostProcessingExample;
+import com.akjava.gwt.threejsexamples.client.examples.shaders.Ocean2Example;
+import com.akjava.gwt.threejsexamples.client.examples.shaders.OceanExample;
 import com.akjava.gwt.threejsexamples.client.examples.shading.PhysicalExample;
 import com.akjava.gwt.threejsexamples.client.examples.shadowmap.ShadowmapExample;
 import com.akjava.gwt.threejsexamples.client.examples.vr.VrStereoExample;

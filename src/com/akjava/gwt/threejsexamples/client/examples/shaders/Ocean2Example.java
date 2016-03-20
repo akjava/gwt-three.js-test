@@ -1,4 +1,4 @@
-package com.akjava.gwt.threejsexamples.client.examples;
+package com.akjava.gwt.threejsexamples.client.examples.shaders;
 
 import com.akjava.gwt.html5.client.file.File;
 import com.akjava.gwt.html5.client.file.FileUploadForm;
@@ -120,7 +120,7 @@ public class Ocean2Example extends AbstractExample{
 		controls.setMinPolarAngle(0);//ms_Controls.minPolarAngle = 0;
 		//controls.setMaxPolarAngle(Math.PI * 0.495);//ms_Controls.maxPolarAngle = Math.PI * 0.495;
 
-		double gsize = 128;//var gsize = 512; //512 is 30fps,256 is wrong,128 is better
+		double gsize = 512;//var gsize = 512; //512 is 30fps,256 is wrong,128 is better
 		double res = gsize*2;//var res = 1024;
 		double gres = res / 2;
 		double origx = -gsize / 2;

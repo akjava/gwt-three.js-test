@@ -1,4 +1,4 @@
-package com.akjava.gwt.threejsexamples.client.examples;
+package com.akjava.gwt.three.client.examples.gwt.geometries;
 
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.google.gwt.core.client.JavaScriptObject;

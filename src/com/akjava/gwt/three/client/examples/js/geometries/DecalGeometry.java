@@ -36,8 +36,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
   
  */
-package com.akjava.gwt.threejsexamples.client.examples;
+package com.akjava.gwt.three.client.examples.js.geometries;
 
+import com.akjava.gwt.three.client.examples.gwt.geometries.DecalVertex;
 import com.akjava.gwt.three.client.js.core.Geometry;
 import com.akjava.gwt.three.client.js.math.Matrix4;
 import com.akjava.gwt.three.client.js.math.Vector3;

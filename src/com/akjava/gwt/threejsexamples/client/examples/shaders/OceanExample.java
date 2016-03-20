@@ -1,4 +1,4 @@
-package com.akjava.gwt.threejsexamples.client.examples;
+package com.akjava.gwt.threejsexamples.client.examples.shaders;
 
 import com.akjava.gwt.html5.client.file.File;
 import com.akjava.gwt.html5.client.file.FileUploadForm;

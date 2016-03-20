@@ -7,6 +7,7 @@ import com.akjava.gwt.three.client.examples.js.controls.TrackballControls;
 import com.akjava.gwt.three.client.examples.js.controls.VRControls;
 import com.akjava.gwt.three.client.examples.js.controls.VRControls.VRControlCallbackHandler;
 import com.akjava.gwt.three.client.examples.js.effects.StereoEffect;
+import com.akjava.gwt.three.client.examples.js.geometries.DecalGeometry;
 import com.akjava.gwt.three.client.examples.js.geometries.TextGeometry;
 import com.akjava.gwt.three.client.examples.js.postprocessing.BloomPass;
 import com.akjava.gwt.three.client.examples.js.postprocessing.BokehPass;
@@ -33,7 +34,6 @@ import com.akjava.gwt.three.client.js.renderers.WebGLRenderTarget;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.three.client.js.textures.Texture;
-import com.akjava.gwt.threejsexamples.client.examples.DecalGeometry;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.Element;
 
