@@ -44,6 +44,7 @@ import com.akjava.gwt.three.client.js.math.Quaternion;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.json.client.JSONObject;
+import com.google.gwt.json.client.JSONValue;
 
 //TODO fix using Object method
 public class Object3D extends EventDispatcher{
@@ -502,6 +503,10 @@ this.traverseVisible(callback);
 
 public final native String getType()/*-{
 return this.type;
+}-*/;
+
+public final native JSONObject toJSON(JSONValue meta)/*-{
+return this.toJSON(meta);
 }-*/;
 
 public final native JSONObject toJSON()/*-{
