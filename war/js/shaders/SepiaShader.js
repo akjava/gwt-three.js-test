@@ -1,8 +1,8 @@
 /**
  * @author alteredq / http://alteredqualia.com/
  *
- * vibrance shader
- * based on glfx.js vibrance shader
+ * Sepia tone shader
+ * based on glfx.js sepia shader
  * https://github.com/evanw/glfx.js
  */
 
@@ -26,7 +26,7 @@ THREE.SepiaShader = {
 
 		"}"
 
-	].join("\n"),
+	].join( "\n" ),
 
 	fragmentShader: [
 
@@ -49,6 +49,6 @@ THREE.SepiaShader = {
 
 		"}"
 
-	].join("\n")
+	].join( "\n" )
 
 };
