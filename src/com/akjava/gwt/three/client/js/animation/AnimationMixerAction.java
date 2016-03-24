@@ -41,37 +41,119 @@ package com.akjava.gwt.three.client.js.animation;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 
-
-public class AnimationAction extends JavaScriptObject{
-	protected AnimationAction() {
+/**
+ * now this is mixer's internal class ,officially called _Action
+ * @author aki
+ *
+ */
+public class AnimationMixerAction extends JavaScriptObject{
+	protected AnimationMixerAction() {
 	}
+	
+	
+
+public final native AnimationMixerAction play()/*-{
+return this.play();
+}-*/;
+
+public final native AnimationMixerAction stop()/*-{
+return this.stop();
+}-*/;
+
+public final native AnimationMixerAction reset()/*-{
+return this.reset();
+}-*/;
+
+public final native boolean isRunning()/*-{
+return this.isRunning();
+}-*/;
+
+public final native boolean isScheduled()/*-{
+return this.isScheduled();
+}-*/;
+
+public final native AnimationMixerAction startAt(double time)/*-{
+return this.startAt(time);
+}-*/;
+
+public final native AnimationMixerAction setLoop(int mode,double repetitions)/*-{
+return this.setLoop(mode,repetitions);
+}-*/;
+
+public final native AnimationMixerAction setEffectiveWeight(double weight)/*-{
+return this.setEffectiveWeight(weight);
+}-*/;
+
+public final native double getEffectiveWeight()/*-{
+return this.getEffectiveWeight();
+}-*/;
+
+public final native AnimationMixerAction fadeIn(double duration)/*-{
+return this.fadeIn(duration);
+}-*/;
+
+public final native AnimationMixerAction fadeOut(double duration)/*-{
+return this.fadeOut(duration);
+}-*/;
+
+public final native AnimationMixerAction crossFadeFrom(AnimationMixerAction fadeOutAction,double duration,boolean warp)/*-{
+return this.crossFadeFrom(fadeOutAction,duration,warp);
+}-*/;
+
+public final native AnimationMixerAction crossFadeTo(AnimationMixerAction fadeInAction,double duration,boolean warp)/*-{
+return this.crossFadeTo(fadeInAction,duration,warp);
+}-*/;
+
+public final native AnimationMixerAction stopFading()/*-{
+return this.stopFading();
+}-*/;
+
+public final native AnimationMixerAction setEffectiveTimeScale(double timeScale)/*-{
+return this.setEffectiveTimeScale(timeScale);
+}-*/;
+
+public final native double getEffectiveTimeScale()/*-{
+return this.getEffectiveTimeScale();
+}-*/;
+
+public final native AnimationMixerAction setDuration(double duration)/*-{
+return this.setDuration(duration);
+}-*/;
+
+public final native AnimationMixerAction syncWith(AnimationMixerAction action)/*-{
+return this.syncWith(action);
+}-*/;
+
+public final native AnimationMixerAction halt(double duration)/*-{
+return this.halt(duration);
+}-*/;
+
+public final native AnimationMixerAction warp(double startTimeScale,double endTimeScale,double duration)/*-{
+return this.warp(startTimeScale,endTimeScale,duration);
+}-*/;
+
+public final native AnimationMixerAction stopWarping()/*-{
+return this.stopWarping();
+}-*/;
+
+public final native AnimationMixer getMixer()/*-{
+return this.getMixer();
+}-*/;
 
 public final native AnimationClip getClip()/*-{
-return this.clip;
+return this.getClip();
 }-*/;
 
-public final native void setClip(AnimationClip clip)/*-{
-this.clip = clip;
-}-*/;
-
-
-public final native JavaScriptObject getLocalRoot()/*-{
-return this.localRoot;
-}-*/;
-
-public final native AnimationAction setLocalRoot(JavaScriptObject localRoot)/*-{
-return this.setLocalRoot(localRoot);
-
+public final native JavaScriptObject getRoot()/*-{
+return this.getRoot();
 }-*/;
 
 
-public final native double getStartTime()/*-{
-return this.startTime;
-}-*/;
 
-public final native void setStartTime(double startTime)/*-{
-this.startTime = startTime;
-}-*/;
+
+
+
+
 
 
 public final native double getTimeScale()/*-{
@@ -114,13 +196,6 @@ this.loop = loop;
 }-*/;
 
 
-public final native int getLoopCount()/*-{
-return this.loopCount;
-}-*/;
-
-public final native void setLoopCount(int loopCount)/*-{
-this.loopCount = loopCount;
-}-*/;
 
 
 public final native boolean isEnabled()/*-{
@@ -131,65 +206,14 @@ public final native void setEnabled(boolean enabled)/*-{
 this.enabled = enabled;
 }-*/;
 
-
-public final native double getActionTime()/*-{
-return this.actionTime;
-}-*/;
-
-public final native void setActionTime(double actionTime)/*-{
-this.actionTime = actionTime;
-}-*/;
-
-
-public final native double getClipTime()/*-{
-return this.clipTime;
-}-*/;
-
-public final native void setClipTime(double clipTime)/*-{
-this.clipTime = clipTime;
-}-*/;
-
-
-public final native JsArray<PropertyBinding> getPropertyBindings()/*-{
-return this.propertyBindings;
-}-*/;
-
-public final native void setPropertyBindings(JsArray<PropertyBinding> propertyBindings)/*-{
-this.propertyBindings = propertyBindings;
-}-*/;
-
-
-
-public final native double updateTime(double clipDeltaTime)/*-{
-return this.updateTime(clipDeltaTime);
-}-*/;
-
-public final native AnimationAction syncWith(AnimationAction action)/*-{
-return this.syncWith(action);
-}-*/;
-
-public final native AnimationAction warpToDuration(Object duration)/*-{
-return this.warpToDuration(duration);
-}-*/;
-
-public final native AnimationAction init(double time)/*-{
-return this.init(time);
-}-*/;
-
 /*
- * possible any type
+ * TODO check 
+ * 
+repetitions
+paused
+clampWhenFinished
+zeroSlopeAtStart
+zeroSlopeAtEnd
  */
-public final native JsArray<JavaScriptObject> update(double clipDeltaTime)/*-{
-return this.update(clipDeltaTime);
-}-*/;
-
-public final native double getTimeScaleAt(double time)/*-{
-return this.getTimeScaleAt(time);
-}-*/;
-
-public final native double getWeightAt(double time)/*-{
-return this.getWeightAt(time);
-}-*/;
-
 
 }

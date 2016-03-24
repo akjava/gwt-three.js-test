@@ -385,7 +385,7 @@ public class PhysicalExample extends AbstractExample{
 
 				mixer = THREE.AnimationMixer( mesh );//mixer = new THREE.AnimationMixer( mesh );
 
-				mixer.addAction( THREE.AnimationAction( geometry.getAnimations().get(0) ).warpToDuration( 10 ) );//mixer.addAction( new THREE.AnimationAction( geometry.animations[0] ).warpToDuration( 10 ) );
+				mixer.clipAction( geometry.getAnimations().get(0) ).setDuration( 10 ).play();//mixer.addAction( new THREE.AnimationAction( geometry.animations[0] ).warpToDuration( 10 ) );
 
 				double s = 200;//var s = 200;
 				mesh.getScale().set( s, s, s );//mesh.scale.set( s, s, s );

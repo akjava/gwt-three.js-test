@@ -46,29 +46,6 @@ public class StringKeyframeTrack extends KeyframeTrack{
 	protected StringKeyframeTrack() {
 	}
 
-public final native String getResult()/*-{
-return this.result;
-}-*/;
-
-public final native void setResult(String value)/*-{
-this.setResult(value);
-}-*/;
-
-public final native String lerpValues(String value0,String value1,double alpha)/*-{
-return this.lerpValues(value0,value1,alpha);
-}-*/;
-
-public final native Object compareValues(String value0,String value1)/*-{
-return this.compareValues(value0,value1);
-}-*/;
-
-public final native StringKeyframeTrack clone()/*-{
-return this.clone();
-}-*/;
-
-public final native StringKeyframeTrack parse(JSONValue json)/*-{
-return this.parse(json);
-}-*/;
 
 
 }

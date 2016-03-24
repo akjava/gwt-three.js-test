@@ -47,28 +47,6 @@ public class ColorKeyframeTrack extends KeyframeTrack{
 	protected ColorKeyframeTrack() {
 	}
 
-public final native Color getResult()/*-{
-return this.result;
-}-*/;
-public final native void setResult(Color value)/*-{
-this.setResult(value);
-}-*/;
-
-public final native Color lerpValues(Color value0,Color value1,double alpha)/*-{
-return this.lerpValues(value0,value1,alpha);
-}-*/;
-
-public final native boolean compareValues(Color value0,Color value1)/*-{
-return this.compareValues(value0,value1);
-}-*/;
-
-public final native ColorKeyframeTrack clone()/*-{
-return this.clone();
-}-*/;
-
-public final native ColorKeyframeTrack parse(JSONValue json)/*-{
-return this.parse(json);
-}-*/;
 
 
 }

@@ -79,23 +79,11 @@ public final native double getDuration()/*-{
 return this.duration;
 }-*/;
 
-
-
-/**
- * possible any type(Object,number,boolean,String)
- * @return
- */
-public final native JsArray<JavaScriptObject> getResults()/*-{
-return this.results;
+public final native void resetDuration()/*-{
+ this.resetDuration();
 }-*/;
 
-public final native void setResults(JsArray<JavaScriptObject> results)/*-{
-this.results = results;
-}-*/;
 
-public final native JavaScriptObject getAt(double clipTime)/*-{
-return this.getAt(clipTime);
-}-*/;
 
 public final native AnimationClip trim()/*-{
 return this.trim();
@@ -107,18 +95,20 @@ return this.optimize();
 
 
 
-public final native AnimationClip findByName(AnimationClip clipArray,String name)/*-{
-return this.findByName(clipArray,name);
+public static final native AnimationClip findByName(JsArray<AnimationClip> clipArray,String name)/*-{
+return $wnd.THREE.AnimationClip.findByName(clipArray,name);
 }-*/;
 
-
-
-public final native AnimationClip parse(JSONValue json)/*-{
-return this.parse(json);
+public static final native JSONValue toJSON(AnimationClip clip)/*-{
+return $wnd.THREE.AnimationClip.toJSON(clip);
 }-*/;
 
-public final native AnimationClip parseAnimation(AnimationData animation,JsArray<Bone> bones,String nodeName)/*-{
-return this.parseAnimation(animation,bones,nodeName);
+public static final native AnimationClip parse(JSONValue json)/*-{
+return $wnd.THREE.AnimationClip.parse(json);
+}-*/;
+
+public static final native AnimationClip parseAnimation(AnimationData animation,JsArray<Bone> bones,String nodeName)/*-{
+return $wnd.THREE.AnimationClip.parseAnimation(animation,bones,nodeName);
 }-*/;
 
 public static final native JsArray<AnimationClip> CreateClipsFromMorphTargetSequences(JsArray<MorphTarget> morphTargets,double fps)/*-{

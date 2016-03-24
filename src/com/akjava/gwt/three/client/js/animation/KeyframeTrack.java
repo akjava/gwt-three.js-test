@@ -38,10 +38,8 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.animation;
 
-import com.akjava.gwt.three.client.gwt.animation.KeyframeTrackKey;
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.core.client.JsArray;
-import com.google.gwt.json.client.JSONObject;
+import com.google.gwt.json.client.JSONValue;
 
 
 public class KeyframeTrack extends JavaScriptObject{
@@ -52,29 +50,29 @@ public final native String getName()/*-{
 return this.name;
 }-*/;
 
-
-
-//maybe array
-public final native JsArray<KeyframeTrackKey> getKeys()/*-{
-return this.keys;
+/*
+ * default Float32Array
+ */
+public final native JavaScriptObject getTimes()/*-{
+return this.times;
+}-*/;
+/*
+ * default Float32Array
+ */
+public final native JavaScriptObject getValues()/*-{
+return this.values;
 }-*/;
 
-public final native void setKeys(JsArray<KeyframeTrackKey> keys)/*-{
-this.keys = keys;
+public final native void setInterpolation(int interpolation)/*-{
+this.setInterpolation(interpolation);
 }-*/;
 
-
-public final native int getLastIndex()/*-{
-return this.lastIndex;
+public final native int getInterpolation()/*-{
+return this.getInterpolation();
 }-*/;
 
-public final native void setLastIndex(int lastIndex)/*-{
-this.lastIndex = lastIndex;
-}-*/;
-
-//return any it's impossible implement on gwt
-public final native Object getAt(double time)/*-{
-return this.getAt(time);
+public final native int getValueSize()/*-{
+return this.getValueSize();
 }-*/;
 
 public final native KeyframeTrack shift(double timeOffset)/*-{
@@ -93,7 +91,7 @@ public final native KeyframeTrack sort()/*-{
 return this.sort();
 }-*/;
 
-public final native KeyframeTrack validate()/*-{
+public final native boolean validate()/*-{
 return this.validate();
 }-*/;
 
@@ -103,8 +101,17 @@ return this.optimize();
 
 
 
-public final native KeyframeTrack parse(JSONObject json)/*-{
-return this.parse(json);
+public static final native KeyframeTrack parse(JSONValue json)/*-{
+return $wnd.THREE.KeyframeTrack.parse(json);
 }-*/;
 
+public static final native JSONValue toJSon(KeyframeTrack track)/*-{
+return $wnd.THREE.KeyframeTrack.toJSon(track);
+}-*/;
+
+public final native String getValueTypeName()/*-{
+return this.ValueTypeName;
+}-*/;
+
+//TODO implement others
 }

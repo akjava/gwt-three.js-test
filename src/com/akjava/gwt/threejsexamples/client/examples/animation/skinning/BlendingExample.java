@@ -1,6 +1,5 @@
 package com.akjava.gwt.threejsexamples.client.examples.animation.skinning;
 
-import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.stats.client.Stats;
 import com.akjava.gwt.three.client.examples.js.THREEExp;
 import com.akjava.gwt.three.client.examples.js.controls.OrbitControls;
@@ -10,7 +9,6 @@ import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.PerspectiveCamera;
 import com.akjava.gwt.three.client.js.core.Clock;
 import com.akjava.gwt.three.client.js.core.Geometry;
-import com.akjava.gwt.three.client.js.extras.animation.AnimationHandler;
 import com.akjava.gwt.three.client.js.lights.DirectionalLight;
 import com.akjava.gwt.three.client.js.loaders.JSONLoader.JSONLoadHandler;
 import com.akjava.gwt.three.client.js.materials.Material;
@@ -136,7 +134,7 @@ public class BlendingExample extends AbstractExample{
 				
 				pauseAnimation();//for gui weight modify
 				
-				gui = new BlendCharacterGui(blendCharacter.getMixer(),this);
+				gui = new BlendCharacterGui(blendCharacter,this);
 				
 				VerticalPanel controlPanel=addResizeHandlerAndCreateGUIPanel();
 				controlPanel.add(gui);

@@ -2,12 +2,8 @@ package com.akjava.gwt.threejsexamples.client.examples.animation.skinning;
 
 import java.util.Map;
 
-import com.akjava.gwt.lib.client.LogUtils;
-import com.akjava.gwt.three.client.js.animation.AnimationAction;
 import com.akjava.gwt.three.client.js.animation.AnimationClip;
-import com.akjava.gwt.three.client.js.animation.AnimationMixer;
 import com.akjava.gwt.threejsexamples.client.LabeledInputRangeWidget;
-import com.akjava.gwt.threejsexamples.client.Range;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayNumber;
 import com.google.gwt.core.client.JsArrayString;
@@ -38,14 +34,15 @@ public class BlendCharacterGui extends VerticalPanel{
 
 	private LabeledInputRangeWidget crossfadeTimeRange;
 	
-	private AnimationMixer mixer;
+	private BlendCharacter character;
+	//private AnimationMixer mixer;
 	public double getTimeScale(){
 		return timeScaleRange.getValue();
 	}
 
-	public BlendCharacterGui(AnimationMixer mixer,final BlendingExample blendingExample) {
+	public BlendCharacterGui(BlendCharacter character,final BlendingExample blendingExample) {
 		this.blendingExample=blendingExample;
-		this.mixer=mixer;
+		this.character=character;
 		
 		VerticalPanel settings=new VerticalPanel();
 		add(settings);
@@ -219,47 +216,24 @@ public class BlendCharacterGui extends VerticalPanel{
 		
 	}
 	
-	private double getWeight(String name,double time){
-		
-		for(int i=0;i<mixer.getActions().length();i++){
-			if(mixer.getActions().get(i).getClip().getName().equals(name)){
-				return mixer.getActions().get(i).getWeightAt(time);
-			}
-		}
-		return 0;
-		
-	}
+
 	
 	public void update(double time){
 		//TODO update only crossfade or wraping
-		idleRange.setValue(getWeight("idle",time));
-		walkRange.setValue(getWeight("walk",time));
-		runRange.setValue(getWeight("run",time));
+		idleRange.setValue(character.getWeight("idle"));
+		walkRange.setValue(character.getWeight("walk"));
+		runRange.setValue(character.getWeight("run"));
 	}
 	
+	/*
 	protected void onWeight(){
-		/*
-		 * var data = event.detail;
-				for ( var i = 0; i < data.anims.length; ++i ) {
-
-					for( var j = 0; j < blendMesh.mixer.actions.length; j ++ ) {
-						var action = blendMesh.mixer.actions[j];
-						if( action.clip.name === data.anims[i] ) {
-							if( action.getWeightAt( blendMesh.mixer.time ) !== data.weights[i] ) {
-								action.weight = data.weights[i];
-							}
-						}
-					}
-
-				}
-		 */
 		
 	String[] names={"idle","walk","run"};
 	
 			
 	for(String name:names){
 		for(int i=0;i<mixer.getActions().length();i++){
-			AnimationAction action=mixer.getActions().get(i);
+			AnimationMixerAction action=mixer.getActions().get(i);
 			if(action.getClip().getName().equals(name)){
 				
 				double value=0;
@@ -279,6 +253,7 @@ public class BlendCharacterGui extends VerticalPanel{
 		}
 		}
 	}
+	*/
 	/*
 	protected void weight(String name) {
 		

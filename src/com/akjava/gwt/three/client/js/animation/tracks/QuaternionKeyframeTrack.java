@@ -47,35 +47,7 @@ public class QuaternionKeyframeTrack extends KeyframeTrack{
 	protected QuaternionKeyframeTrack() {
 	}
 
-public final native Quaternion getResult()/*-{
-return this.result;
-}-*/;
 
-
-
-public final native void setResult(Quaternion value)/*-{
-this.setResult(value);
-}-*/;
-
-public final native Quaternion lerpValues(Quaternion value0,Quaternion value1,double alpha)/*-{
-return this.lerpValues(value0,value1,alpha);
-}-*/;
-
-public final native boolean compareValues(Quaternion value0,Quaternion value1)/*-{
-return this.compareValues(value0,value1);
-}-*/;
-
-public final native QuaternionKeyframeTrack multiply(Object quat)/*-{
-return this.multiply(quat);
-}-*/;
-
-public final native QuaternionKeyframeTrack clone()/*-{
-return this.clone();
-}-*/;
-
-public final native QuaternionKeyframeTrack parse(JSONValue json)/*-{
-return this.parse(json);
-}-*/;
 
 
 }

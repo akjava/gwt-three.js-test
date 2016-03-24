@@ -2,6 +2,11 @@ package com.akjava.gwt.three.client.gwt.animation;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/**
+ * @deprecated never used on r74
+ * @author aki
+ *
+ */
 public class KeyframeTrackKey extends JavaScriptObject{
 	protected KeyframeTrackKey(){}
 	

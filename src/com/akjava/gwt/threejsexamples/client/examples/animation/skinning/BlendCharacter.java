@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.akjava.gwt.three.client.js.THREE;
-import com.akjava.gwt.three.client.js.animation.AnimationAction;
+import com.akjava.gwt.three.client.js.animation.AnimationMixerAction;
 import com.akjava.gwt.three.client.js.animation.AnimationClip;
 import com.akjava.gwt.three.client.js.animation.AnimationMixer;
 import com.akjava.gwt.three.client.js.core.Geometry;
@@ -29,11 +29,13 @@ public class BlendCharacter {
 		return skeletonHelper;
 	}
 
-	private Map<String,AnimationClip> animations=new HashMap<String,AnimationClip>();
+	//private Map<String,AnimationClip> animations=new HashMap<String,AnimationClip>();
 	
+	/*
 	public Map<String, AnimationClip> getAnimations() {
 		return animations;
 	}
+	*/
 
 	//private List<JSParameter> weightSchedule=new ArrayList<JSParameter>();
 	//private List<WrapSchedule> warpScheduleList=new ArrayList<WrapSchedule>();
@@ -60,8 +62,8 @@ public class BlendCharacter {
 				mixer = THREE.AnimationMixer( skinnedMesh );
 				
 				for(int i=0;i<geometry.getAnimations().length();i++){
-					String animName = geometry.getAnimations().get(i).getName();
-					animations.put(animName,geometry.getAnimations().get(i));
+					
+					mixer.clipAction( geometry.getAnimations().get(i) );
 				}
 				
 				skeletonHelper=THREE.SkeletonHelper(skinnedMesh);
@@ -77,16 +79,19 @@ public class BlendCharacter {
 	
 	
 	
+	public double getWeight(String animName){
+		return this.mixer.clipAction( animName ).getEffectiveWeight();
+	}
+	
 	public void update(double dt ) {
 		mixer.update(dt);
 
 	};
 	
 	
-	public void play(String animName,double weight) {
+	public AnimationMixerAction play(String animName,double weight) {
 		
-		this.mixer.removeAllActions();
-		this.mixer.play( THREE.AnimationAction( this.animations.get(animName) ) );
+		return this.mixer.clipAction(animName).setEffectiveWeight(weight).play();
 
 	};
 	
@@ -96,30 +101,26 @@ public class BlendCharacter {
 	}
 	
 	public void crossfade(String fromAnimName,String toAnimName,double duration ) {
-		this.mixer.removeAllActions();
+		this.mixer.stopAllAction();
 		 
-		AnimationAction fromAction =  THREE.AnimationAction( this.animations.get(fromAnimName) );
-		AnimationAction toAction =  THREE.AnimationAction( this.animations.get(toAnimName) );
+		AnimationMixerAction fromAction =  play(fromAnimName,1) ;
+		AnimationMixerAction toAction =  play(toAnimName,1);
 
-		this.mixer.play( fromAction );
-		this.mixer.play( toAction );
-
-		this.mixer.crossFade( fromAction, toAction, duration, false );
+		fromAction.crossFadeTo(toAction, duration, false);
+		
 		
 		needSyncWeight=true;
 	};
 	
 	public void warp(String fromAnimName,String toAnimName,double duration) {
 
-		this.mixer.removeAllActions();
+		this.mixer.stopAllAction();
 		 
-		AnimationAction fromAction =  THREE.AnimationAction( this.animations.get(fromAnimName) );
-		AnimationAction toAction =  THREE.AnimationAction( this.animations.get(toAnimName) );
+		AnimationMixerAction fromAction =  play(fromAnimName,1) ;
+		AnimationMixerAction toAction =  play(toAnimName,1);
 
-		this.mixer.play( fromAction );
-		this.mixer.play( toAction );
 
-		this.mixer.crossFade( fromAction, toAction, duration, true );
+		fromAction.crossFadeTo( toAction, duration, true );
 		
 		needSyncWeight=true;
 	};
@@ -127,11 +128,7 @@ public class BlendCharacter {
 	
 	
 	public void applyWeight(String animName,double weight) {
-		AnimationAction action = this.mixer.findActionByName( animName );
-		if( action !=null) {
-			action.setWeight(weight);
-		}
-
+		this.mixer.clipAction( animName ).setEffectiveWeight( weight );
 	};
 	
 	public void pauseAll() {
@@ -145,7 +142,7 @@ public class BlendCharacter {
 	
 	public void stopAll(){
 
-		this.mixer.removeAllActions();
+		this.mixer.stopAllAction();
 	}
 	
 	

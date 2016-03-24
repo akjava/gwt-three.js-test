@@ -109,7 +109,7 @@ public void loadParts(JSONValue json){
 			mesh.setCastShadow(true);//mesh.castShadow = true;
 			mesh.setReceiveShadow(true);//mesh.receiveShadow = true;
 
-			mixer.addAction( THREE.AnimationAction( geometry.getAnimations().get(0) ).setLocalRoot( mesh ) );//scope.mixer.addAction( new THREE.AnimationAction( geometry.animations[0] ).setLocalRoot( mesh ) );
+			mixer.clipAction( geometry.getAnimations().get(0) ,mesh ).play();//scope.mixer.addAction( new THREE.AnimationAction( geometry.animations[0] ).setLocalRoot( mesh ) );
 
 			setSkin( 0 );
 

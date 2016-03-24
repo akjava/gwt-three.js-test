@@ -371,7 +371,7 @@ public class ShadowmapExample extends AbstractExample{
 		//mesh.setSpeed(speed);//mesh.speed = speed;
 
 		AnimationMixer mixer = THREE.AnimationMixer( mesh );//var mixer = new THREE.AnimationMixer( mesh );
-		mixer.addAction( THREE.AnimationAction( geometry.getAnimations().get(0) ).warpToDuration( duration ) );//mixer.addAction( new THREE.AnimationAction( geometry.animations[0] ).warpToDuration( duration ) );
+		mixer.clipAction(  geometry.getAnimations().get(0) ).setDuration( duration ).play();//mixer.addAction( new THREE.AnimationAction( geometry.animations[0] ).warpToDuration( duration ) );
 		mixer.update( 600 * Math.random() );
 		//mesh.setMixer(mixer);//mesh.mixer = mixer;
 

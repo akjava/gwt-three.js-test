@@ -45,26 +45,6 @@ public class BooleanKeyframeTrack extends KeyframeTrack{
 	protected BooleanKeyframeTrack() {
 	}
 
-public final native boolean getResult()/*-{
-return this.result;
-}-*/;
-
-public final native void setResult(boolean result)/*-{
-this.setResult(result);
-}-*/;
-
-public final native boolean lerpValues(boolean value0,boolean value1,double alpha)/*-{
-return this.lerpValues(value0,value1,alpha);
-}-*/;
-
-public final native boolean compareValues(boolean value0,boolean value1)/*-{
-return this.compareValues(value0,value1);
-}-*/;
-
-public final native BooleanKeyframeTrack clone()/*-{
-return this.clone();
-}-*/;
-
 
 
 

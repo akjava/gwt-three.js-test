@@ -83,7 +83,7 @@ public class HorseExample extends AbstractExample{
 				mixer=THREE.AnimationMixer(mesh);
 				
 				AnimationClip clip=AnimationClip.CreateFromMorphTargetSequence( "gallop", geometry.getMorphTargets(), 30 );
-				mixer.addAction(THREE.AnimationAction( clip ).warpToDuration( 1 ));
+				mixer.clipAction(clip).setDuration( 1 ).play();
 				
 				//animation = THREE.MorphAnimation( mesh );//animation = new THREE.MorphAnimation( mesh );
 				//animation.play();

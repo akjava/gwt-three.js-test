@@ -47,33 +47,4 @@ public class VectorKeyframeTrack extends KeyframeTrack{
 	protected VectorKeyframeTrack() {
 	}
 
-	/**
-	 * possible vector2,3,4
-	 * @return
-	 */
-public final native JavaScriptObject getResult()/*-{
-return this.result;
-}-*/;
-
-public final native void setResult(JavaScriptObject value)/*-{
-this.setResult(value);
-}-*/;
-
-public final native JavaScriptObject lerpValues(JavaScriptObject value0,JavaScriptObject value1,double alpha)/*-{
-return this.lerpValues(value0,value1,alpha);
-}-*/;
-
-public final native boolean compareValues(JavaScriptObject value0,JavaScriptObject value1)/*-{
-return this.compareValues(value0,value1);
-}-*/;
-
-public final native VectorKeyframeTrack clone()/*-{
-return this.clone();
-}-*/;
-
-public final native VectorKeyframeTrack parse(JSONValue json)/*-{
-return this.parse(json);
-}-*/;
-
-
 }

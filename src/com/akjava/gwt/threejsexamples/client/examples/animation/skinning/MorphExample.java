@@ -315,8 +315,8 @@ public class MorphExample extends AbstractExample{
 		
 		
 		mixer = THREE.AnimationMixer( mesh );//mixer = new THREE.AnimationMixer( mesh );
-		mixer.addAction( THREE.AnimationAction( clipMorpher ) );//mixer.addAction( new THREE.AnimationAction( clipMorpher ) );
-		mixer.addAction( THREE.AnimationAction( clipBones ) );//mixer.addAction( new THREE.AnimationAction( clipBones ) );
+		mixer.clipAction( clipMorpher ).play();//mixer.addAction( new THREE.AnimationAction( clipMorpher ) );
+		mixer.clipAction(  clipBones  ).play();//mixer.addAction( new THREE.AnimationAction( clipBones ) );
 		
 	}
 	

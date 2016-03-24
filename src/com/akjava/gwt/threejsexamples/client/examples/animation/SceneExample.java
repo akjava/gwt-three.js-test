@@ -158,7 +158,7 @@ public class SceneExample extends AbstractExample{
 
 				mixer = THREE.AnimationMixer( scene );//mixer = new THREE.AnimationMixer( scene );
 
-				mixer.addAction( THREE.AnimationAction( sceneAnimationClip ) );//mixer.addAction( new THREE.AnimationAction( sceneAnimationClip ) );
+				mixer.clipAction( sceneAnimationClip ).play();//mixer.addAction( new THREE.AnimationAction( sceneAnimationClip ) );
 
 			}
 			

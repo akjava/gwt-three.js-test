@@ -49,144 +49,49 @@ public class PropertyBinding extends JavaScriptObject{
 	protected PropertyBinding() {
 	}
 
+	
 public final native JavaScriptObject getRootNode()/*-{
 return this.rootNode;
 }-*/;
 
-
-public final native String getTrackName()/*-{
-return this.trackName;
+public final native String getPath()/*-{
+return this.path;
 }-*/;
 
-
-
-
-public final native int getReferenceCount()/*-{
-return this.referenceCount;
+public final native JavaScriptObject getParsedPath()/*-{
+return this.parsedPath;
 }-*/;
-
-
-
-//return any
-public final native JavaScriptObject getOriginalValue()/*-{
-return this.originalValue;
-}-*/;
-
-
-
-public final native String getDirectoryName()/*-{
-return this.directoryName;
-}-*/;
-
-public final native void setDirectoryName(String directoryName)/*-{
-this.directoryName = directoryName;
-}-*/;
-
-
-public final native String getNodeName()/*-{
-return this.nodeName;
-}-*/;
-
-public final native void setNodeName(String nodeName)/*-{
-this.nodeName = nodeName;
-}-*/;
-
-
-public final native String getObjectName()/*-{
-return this.objectName;
-}-*/;
-
-public final native void setObjectName(String objectName)/*-{
-this.objectName = objectName;
-}-*/;
-
-
-public final native int getObjectIndex()/*-{
-return this.objectIndex;
-}-*/;
-
-public final native void setObjectIndex(int objectIndex)/*-{
-this.objectIndex = objectIndex;
-}-*/;
-
-
-public final native String getPropertyName()/*-{
-return this.propertyName;
-}-*/;
-
-public final native void setPropertyName(int propertyName)/*-{
-this.propertyName = propertyName;
-}-*/;
-
-
-public final native int getPropertyIndex()/*-{
-return this.propertyIndex;
-}-*/;
-
-public final native void setPropertyIndex(int propertyIndex)/*-{
-this.propertyIndex = propertyIndex;
-}-*/;
-
 
 public final native JavaScriptObject getNode()/*-{
 return this.node;
 }-*/;
 
-public final native void setNode(JavaScriptObject node)/*-{
-this.node = node;
-}-*/;
 
 
-public final native JavaScriptObject getCumulativeValue()/*-{
-return this.cumulativeValue;
-}-*/;
-
-public final native void setCumulativeValue(JavaScriptObject cumulativeValue)/*-{
-this.cumulativeValue = cumulativeValue;
-}-*/;
-
-
-public final native double getCumulativeWeight()/*-{
-return this.cumulativeWeight;
-}-*/;
-
-public final native void setCumulativeWeight(double cumulativeWeight)/*-{
-this.cumulativeWeight = cumulativeWeight;
-}-*/;
-
-
-
-public final native void reset()/*-{
-this.reset();
+public static final native PropertyBinding create(JavaScriptObject root,String path,JavaScriptObject parsedPath)/*-{
+return $wnd.THREE.PropertyBinding.create(root,path,parsedPath);
 }-*/;
 
 /**
- * TODO make other type
- * @param value
- * @param weight
+ * 
+ * @param trackName
+ * @return
+ 	var results = {
+		// directoryName: matches[1], // (tschw) currently unused
+		nodeName: matches[3], 	// allowed to be null, specified root node.
+		objectName: matches[5],
+		objectIndex: matches[7],
+		propertyName: matches[9],
+		propertyIndex: matches[11]	// allowed to be null, specifies that the whole property is set.
+	};
  */
-public final native void accumulate(JavaScriptObject value,double weight)/*-{
-this.accumulate(value,weight);
+
+public static final native JavaScriptObject parseTrackName(String trackName)/*-{
+return $wnd.THREE.PropertyBinding.parseTrackName(trackName);
 }-*/;
 
-public final native void unbind()/*-{
- this.unbind();
-}-*/;
-
-public final native void bind()/*-{
-this.bind();
-}-*/;
-
-public final native void apply()/*-{
-this.apply();
-}-*/;
-
-public final native JavaScriptObject parseTrackName(String trackName)/*-{
-return this.parseTrackName(trackName);
-}-*/;
-
-public final native JavaScriptObject findNode(JavaScriptObject root,String nodeName)/*-{
-return this.findNode(root,nodeName);
+public static final native JavaScriptObject findNode(JavaScriptObject root,String nodeName)/*-{
+return $wnd.THREE.PropertyBinding.findNode(root,nodeName);
 }-*/;
 
 

@@ -39,6 +39,8 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client.js.animation;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArray;
+import com.google.gwt.core.client.JsArrayString;
 
 
 
@@ -47,63 +49,27 @@ public class AnimationUtils extends JavaScriptObject{
 		
 	}
 
-public static final native JavaScriptObject getEqualsFunc(JavaScriptObject exemplarValue)/*-{
-return this.getEqualsFunc(exemplarValue);
+public static final native JavaScriptObject arraySlice(JavaScriptObject array,int from,int to)/*-{
+return $wnd.THREE.AnimationUtils.arraySlice(array,from,to);
 }-*/;
 
-
-
-public static final native JavaScriptObject clone(JavaScriptObject exemplarValue)/*-{
-return this.clone(exemplarValue);
+public static final native JavaScriptObject convertArray(JavaScriptObject array,JavaScriptObject type,boolean forceClone)/*-{
+return $wnd.THREE.AnimationUtils.convertArray(array,type,forceClone);
 }-*/;
 
-public static final native JavaScriptObject lerp(JavaScriptObject a,JavaScriptObject b,double alpha,boolean interTrack)/*-{
-return this.lerp(a,b,alpha,interTrack);
+public static final native boolean isTypedArray(JavaScriptObject object)/*-{
+return $wnd.THREE.AnimationUtils.isTypedArray(object);
 }-*/;
 
-public static final native double lerp(double a,double b,double alpha,boolean interTrack)/*-{
-return this.lerp(a,b,alpha,interTrack);
+public static final native JsArray<JavaScriptObject> getKeyframeOrder(JsArray<JavaScriptObject> times)/*-{
+return $wnd.THREE.AnimationUtils.getKeyframeOrder(times);
 }-*/;
 
-public static final native boolean lerp(boolean a,boolean b,double alpha,boolean interTrack)/*-{
-return this.lerp(a,b,alpha,interTrack);
+public static final native boolean sortedArray(JsArray<JavaScriptObject> values,int stride,JsArray<JavaScriptObject> order)/*-{
+return $wnd.THREE.AnimationUtils.sortedArray(values, stride, order);
 }-*/;
 
-public static final native String lerp(String a,String b,double alpha,boolean interTrack)/*-{
-return this.lerp(a,b,alpha,interTrack);
+public static final native void flattenJSON(JsArrayString jsonKeys,JsArray<JavaScriptObject> times, JsArray<JavaScriptObject>values,String valuePropertyName)/*-{
+$wnd.THREE.AnimationUtils.flattenJSON(jsonKeys, times, values, valuePropertyName);
 }-*/;
-
-public static final native JavaScriptObject lerp_object(JavaScriptObject a,JavaScriptObject b,double alpha)/*-{
-return this.lerp_object(a,b,alpha);
-}-*/;
-
-public static final native JavaScriptObject slerp_object(JavaScriptObject a,JavaScriptObject b,double alpha)/*-{
-return this.slerp_object(a,b,alpha);
-}-*/;
-
-public static final native double lerp_number(double a,double b,double alpha)/*-{
-return this.lerp_number(a,b,alpha);
-}-*/;
-
-public static final native Object lerp_boolean(boolean a,boolean b,double alpha)/*-{
-return this.lerp_boolean(a,b,alpha);
-}-*/;
-
-public static final native boolean lerp_boolean_immediate(boolean a,boolean b,double alpha)/*-{
-return this.lerp_boolean_immediate(a,b,alpha);
-}-*/;
-
-public static final native String lerp_string(String a,String b,double alpha)/*-{
-return this.lerp_string(a,b,alpha);
-}-*/;
-
-public static final native String lerp_string_immediate(String a,String b,double alpha)/*-{
-return this.lerp_string_immediate(a,b,alpha);
-}-*/;
-
-public static final native JavaScriptObject getLerpFunc(JavaScriptObject exemplarValue,boolean interTrack)/*-{
-return this.getLerpFunc(exemplarValue,interTrack);
-}-*/;
-
-
 }

@@ -40,21 +40,16 @@ package com.akjava.gwt.three.client.js.animation;
 
 import com.akjava.gwt.three.client.js.core.EventDispatcher;
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.core.client.JsArray;
 
 
 public class AnimationMixer extends EventDispatcher{
 	protected AnimationMixer() {
 	}
 
+	
 public final native JavaScriptObject getRoot()/*-{
-return this.root;
+return this.getRoot();
 }-*/;
-
-public final native void setRoot(Object JavaScriptObject)/*-{
-this.root = root;
-}-*/;
-
 
 public final native double getTime()/*-{
 return this.time;
@@ -73,59 +68,46 @@ public final native void setTimeScale(double timeScale)/*-{
 this.timeScale = timeScale;
 }-*/;
 
-
-public final native JsArray<AnimationAction> getActions()/*-{
-return this.actions;
+public final native AnimationMixerAction clipAction(AnimationClip clip)/*-{
+return this.clipAction(clip);
+}-*/;
+public final native AnimationMixerAction clipAction(String clip)/*-{
+return this.clipAction(clip);
 }-*/;
 
-public final native JsArray<PropertyBinding> getPropertyBindingMap()/*-{
-return this.propertyBindingMap;
+public final native AnimationMixerAction clipAction(AnimationClip clip,JavaScriptObject optionalRoot)/*-{
+return this.clipAction(clip,optionalRoot);
+}-*/;
+public final native AnimationMixerAction clipAction(String clip,JavaScriptObject optionalRoot)/*-{
+return this.clipAction(clip,optionalRoot);
 }-*/;
 
-
-public final native void addAction(AnimationAction action)/*-{
-this.addAction(action);
+public final native AnimationMixerAction existingAction(AnimationClip clip,JavaScriptObject optionalRoot)/*-{
+return this.existingAction(clip,optionalRoot);
+}-*/;
+public final native AnimationMixerAction existingAction(String clip,JavaScriptObject optionalRoot)/*-{
+return this.existingAction(clip,optionalRoot);
 }-*/;
 
-public final native AnimationMixer removeAllActions()/*-{
-return this.removeAllActions();
+public final native AnimationMixer stopAllAction()/*-{
+return this.stopAllActions();
 }-*/;
 
-public final native AnimationMixer removeAction(AnimationAction action)/*-{
-return this.removeAction(action);
-}-*/;
-
-public final native AnimationAction findActionByName(String name)/*-{
-return this.findActionByName(name);
-}-*/;
-
-public final native AnimationMixer play(AnimationAction action)/*-{
-return this.play(action);
-}-*/;
-
-public final native AnimationMixer play(AnimationAction action,double optionalFadeInDuration)/*-{
-return this.play(action,optionalFadeInDuration);
-}-*/;
-
-public final native AnimationMixer fadeOut(AnimationAction action,double duration)/*-{
-return this.fadeOut(action,duration);
-}-*/;
-
-public final native AnimationMixer fadeIn(AnimationAction action,double duration)/*-{
-return this.fadeIn(action,duration);
-}-*/;
-
-public final native AnimationMixer warp(AnimationAction action,double startTimeScale,double endTimeScale,double duration)/*-{
-return this.warp(action,startTimeScale,endTimeScale,duration);
-}-*/;
-
-public final native AnimationMixer crossFade(Object fadeOutAction,Object fadeInAction,double duration,boolean warp)/*-{
-return this.crossFade(fadeOutAction,fadeInAction,duration,warp);
-}-*/;
 
 public final native AnimationMixer update(double deltaTime)/*-{
 return this.update(deltaTime);
 }-*/;
 
+public final native void uncacheClip(AnimationClip clip)/*-{
+ this.uncacheClip(clip);
+}-*/;
+
+public final native void uncacheRoot(JavaScriptObject root)/*-{
+ this.uncacheRoot(root);
+}-*/;
+
+public final native void uncacheAction(AnimationClip clip,JavaScriptObject optionalRoot)/*-{
+this.uncacheAction(clip, optionalRoot );
+}-*/;
 
 }

@@ -46,28 +46,6 @@ public class NumberKeyframeTrack extends KeyframeTrack{
 	protected NumberKeyframeTrack() {
 	}
 
-public final native double getResult()/*-{
-return this.result;
-}-*/;
-public final native void setResult(double value)/*-{
-this.setResult(value);
-}-*/;
-
-public final native double lerpValues(double value0,double value1,double alpha)/*-{
-return this.lerpValues(value0,value1,alpha);
-}-*/;
-
-public final native boolean compareValues(double value0,double value1)/*-{
-return this.compareValues(value0,value1);
-}-*/;
-
-public final native NumberKeyframeTrack clone()/*-{
-return this.clone();
-}-*/;
-
-public final native NumberKeyframeTrack parse(JSONValue json)/*-{
-return this.parse(json);
-}-*/;
 
 
 }
