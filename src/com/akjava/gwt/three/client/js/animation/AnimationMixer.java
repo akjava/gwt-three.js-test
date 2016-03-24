@@ -90,7 +90,7 @@ return this.existingAction(clip,optionalRoot);
 }-*/;
 
 public final native AnimationMixer stopAllAction()/*-{
-return this.stopAllActions();
+return this.stopAllAction();
 }-*/;
 
 
