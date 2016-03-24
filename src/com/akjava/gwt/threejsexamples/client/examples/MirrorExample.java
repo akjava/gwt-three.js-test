@@ -123,7 +123,7 @@ public class MirrorExample extends AbstractExample{
 	}
 	
 	public void fillScene(){
-		LogUtils.log("1");
+		
 		PlaneBufferGeometry planeGeo = THREE.PlaneBufferGeometry( 100.1, 100.1 );//var planeGeo = new THREE.PlaneBufferGeometry( 100.1, 100.1 );
 
 		// MIRORR planes
@@ -164,7 +164,7 @@ public class MirrorExample extends AbstractExample{
 		MeshLambertMaterial material3 = THREE.MeshLambertMaterial( GWTParamUtils.MeshLambertMaterial().color(0xffffff).emissive(0x333333).shading(THREE.FlatShading) );//var material = new THREE.MeshLambertMaterial( { color: 0xffffff, emissive: 0x333333, shading: THREE.FlatShading } );
 		smallSphere = THREE.Mesh( geometry3, material3 );//smallSphere = new THREE.Mesh( geometry, material );
 		scene.add(smallSphere);
-		LogUtils.log("3");
+		
 		// walls
 		Mesh planeTop = THREE.Mesh( planeGeo, THREE.MeshPhongMaterial( GWTParamUtils.MeshPhongMaterial().color(0xffffff) ) );//var planeTop = new THREE.Mesh( planeGeo, new THREE.MeshPhongMaterial( { color: 0xffffff } ) );
 		planeTop.getPosition().setY(100);//planeTop.position.y = 100;
@@ -181,7 +181,7 @@ public class MirrorExample extends AbstractExample{
 		planeFront.getPosition().setY(50);//planeFront.position.y = 50;
 		planeFront.rotateY( Math.PI );
 		scene.add( planeFront );
-		LogUtils.log("2");
+		
 		Mesh planeRight = THREE.Mesh( planeGeo, THREE.MeshPhongMaterial( GWTParamUtils.MeshPhongMaterial().color(0x00ff00) ) );//var planeRight = new THREE.Mesh( planeGeo, new THREE.MeshPhongMaterial( { color: 0x00ff00 } ) );
 		planeRight.getPosition().setX(50);//planeRight.position.x = 50;
 		planeRight.getPosition().setY(50);//planeRight.position.y = 50;
