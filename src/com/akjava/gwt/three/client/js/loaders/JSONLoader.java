@@ -14,6 +14,9 @@ public class JSONLoader extends Loader{
 		load(path,handler,null);
 	}
 	public final native void load(String path,JSONLoadHandler handler,String texturePath)/*-{
+	if(texturePath==null){
+		texturePath=undefined;
+	}
 	this.load(path,function ( geometry,materials ) {
 		handler.@com.akjava.gwt.three.client.js.loaders.JSONLoader$JSONLoadHandler::loaded(Lcom/akjava/gwt/three/client/js/core/Geometry;Lcom/google/gwt/core/client/JsArray;)(geometry,materials);
 		},texturePath);
