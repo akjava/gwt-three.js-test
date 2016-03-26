@@ -94,12 +94,13 @@ public class ExampleTemplate extends AbstractExample{
 	
 
 	
-	private void initResizeHandlerAndGUI() {
+	private VerticalPanel initResizeHandlerAndGUI() {
 		VerticalPanel gui=addResizeHandlerAndCreateGUIPanel();
 		
 		gui.setWidth("200px");//some widget broke,like checkbox without parent size
 		gui.setSpacing(2);
-		//TODO add video chooser
+		//TODO add other ui or after return;
+		return gui;
 	}
 	
 

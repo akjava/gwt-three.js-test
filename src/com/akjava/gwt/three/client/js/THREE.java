@@ -79,12 +79,14 @@ import com.akjava.gwt.three.client.js.core.InterleavedBuffer;
 import com.akjava.gwt.three.client.js.core.InterleavedBufferAttribute;
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.akjava.gwt.three.client.js.core.Raycaster;
+import com.akjava.gwt.three.client.js.core.audio.Audio;
+import com.akjava.gwt.three.client.js.core.audio.AudioAnalyser;
+import com.akjava.gwt.three.client.js.core.audio.AudioListener;
+import com.akjava.gwt.three.client.js.core.audio.PositionalAudio;
 import com.akjava.gwt.three.client.js.extras.animation.Animation;
 import com.akjava.gwt.three.client.js.extras.animation.AnimationMorphTarget;
 import com.akjava.gwt.three.client.js.extras.animation.KeyFrameAnimation;
 import com.akjava.gwt.three.client.js.extras.animation.MorphAnimation;
-import com.akjava.gwt.three.client.js.extras.audio.Audio;
-import com.akjava.gwt.three.client.js.extras.audio.AudioListener;
 import com.akjava.gwt.three.client.js.extras.core.Path;
 import com.akjava.gwt.three.client.js.extras.core.Shape;
 import com.akjava.gwt.three.client.js.extras.curves.ArcCurve;
@@ -1659,5 +1661,12 @@ public class THREE {
 	return new $wnd.THREE.AnimationObjectGroup(objects);
 	}-*/;
 	
+	public static final native PositionalAudio PositionalAudio(AudioListener listener)/*-{
+	return new $wnd.THREE.PositionalAudio(listener);
+	}-*/;
+	
+	public static final native AudioAnalyser AudioAnalyser(Audio audio,int fftSize)/*-{
+	return new $wnd.THREE.AudioAnalyser(audio,fftSize);
+	}-*/;
 	
 }

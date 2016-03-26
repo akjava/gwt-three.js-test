@@ -17,6 +17,7 @@ import com.akjava.gwt.threejsexamples.client.examples.buffergeometry.BufferGeome
 import com.akjava.gwt.threejsexamples.client.examples.camera.CameraExample;
 import com.akjava.gwt.threejsexamples.client.examples.geometries.GeometriesExample;
 import com.akjava.gwt.threejsexamples.client.examples.light.HemisphereExample;
+import com.akjava.gwt.threejsexamples.client.examples.misc.SoundExample;
 import com.akjava.gwt.threejsexamples.client.examples.misc.controls.OrbitExample;
 import com.akjava.gwt.threejsexamples.client.examples.morphtargets.HorseExample;
 import com.akjava.gwt.threejsexamples.client.examples.morphtargets.MorphTargetsExample;
@@ -90,6 +91,7 @@ public class ThreejsExamples implements EntryPoint,ExampleOwner {
 		
 		List<Example> examples=Lists.newArrayList();
 		//examples.add(new MyExample());
+		examples.add(new SoundExample());
 		examples.add(new PanoramaEquirectangularExample());
 		examples.add(new GeometriesExample());
 		examples.add(new DecalExample());

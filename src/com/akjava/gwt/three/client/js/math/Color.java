@@ -184,6 +184,16 @@ public final native double getB()/*-{
 return this.b;
 }-*/;
 
+public final  native void setR(double  param)/*-{
+this.r=param;
+}-*/;
+public final  native void setG(double  param)/*-{
+this.g=param;
+}-*/;
+public final  native void setB(double  param)/*-{
+this.b=param;
+}-*/;
+
 
 public final  native Color clone()/*-{
 return this.clone();
