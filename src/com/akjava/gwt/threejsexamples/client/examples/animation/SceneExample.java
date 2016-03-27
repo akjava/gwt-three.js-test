@@ -142,11 +142,7 @@ public class SceneExample extends AbstractExample{
 		
 		loader.load( "models/json/scene-animation.json",new ObjectLoadHandler() {
 			
-			@Override
-			public void onProgress(NativeEvent progress) {
-				// TODO Auto-generated method stub
-				
-			}
+			
 			
 			@Override
 			public void onLoad(Object3D object) {
@@ -162,11 +158,7 @@ public class SceneExample extends AbstractExample{
 
 			}
 			
-			@Override
-			public void onError(NativeEvent error) {
-				// TODO Auto-generated method stub
-				
-			}
+			
 		} );
 	}
 	

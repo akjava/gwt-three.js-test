@@ -37,9 +37,11 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.loaders;
 
+import com.akjava.gwt.three.client.js.loaders.XHRLoader.XHRErrorHandler;
+import com.akjava.gwt.three.client.js.loaders.XHRLoader.XHRProgressHandler;
 import com.akjava.gwt.three.client.js.materials.Material;
+import com.akjava.gwt.three.client.js.textures.Texture;
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.dom.client.NativeEvent;
 
 /**
  * not test yet
@@ -58,20 +60,40 @@ public final native void setManager(LoadingManager manager)/*-{
 this.manager = manager;
 }-*/;
 
+public final  native void setTextures(JavaScriptObject textures)/*-{
+this.setTextures(textures);
+}-*/;
+
+public final  native Texture getTexture(String name)/*-{
+return this.getTexture(name);
+}-*/;
+
+
 public final native void load(String url,MaterialLoadHandler handler)/*-{
 	this.load(url,function ( material ) {
 		handler.@com.akjava.gwt.three.client.js.loaders.MaterialLoader$MaterialLoadHandler::onLoad(Lcom/akjava/gwt/three/client/js/materials/Material;)(material);
 		}
-		,function ( onProgress ) {
-		handler.@com.akjava.gwt.three.client.js.loaders.MaterialLoader$MaterialLoadHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
-		},function ( onError ) {
-		handler.@com.akjava.gwt.three.client.js.loaders.MaterialLoader$MaterialLoadHandler::onError(Lcom/google/gwt/dom/client/NativeEvent;)(onError);
+		);
+}-*/;
+
+public final native void load(String url,MaterialLoadHandler handler,XHRProgressHandler progressHandler)/*-{
+	this.load(url,function ( material ) {
+		handler.@com.akjava.gwt.three.client.js.loaders.MaterialLoader$MaterialLoadHandler::onLoad(Lcom/akjava/gwt/three/client/js/materials/Material;)(material);
+		},function ( onProgress ) {
+		progressHandler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRProgressHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
 		});
 }-*/;
 
-public final native void setCrossOrigin(String value)/*-{
-this.setCrossOrigin(value);
+public final native void load(String url,MaterialLoadHandler handler,XHRProgressHandler progressHandler,XHRErrorHandler errorHandler)/*-{
+	this.load(url,function ( material ) {
+		handler.@com.akjava.gwt.three.client.js.loaders.MaterialLoader$MaterialLoadHandler::onLoad(Lcom/akjava/gwt/three/client/js/materials/Material;)(material);
+		},function ( onProgress ) {
+		progressHandler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRProgressHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
+		},function ( onError ) {
+		errorHandler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRErrorHandler::onError(Lcom/google/gwt/dom/client/NativeEvent;)(onError);
+		});
 }-*/;
+
 
 public final native Material parse(JavaScriptObject json)/*-{
 return this.parse(json);
@@ -80,8 +102,6 @@ return this.parse(json);
 
 public static interface MaterialLoadHandler {
 	public void onLoad(Material material);
-	public void onProgress(NativeEvent progress);
-	public void onError(NativeEvent error);
 }
 
 }

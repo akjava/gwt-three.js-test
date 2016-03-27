@@ -37,13 +37,12 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.loaders;
 
-import com.akjava.gwt.three.client.js.core.Geometry;
+import com.akjava.gwt.three.client.js.animation.AnimationClip;
 import com.akjava.gwt.three.client.js.core.Object3D;
-import com.akjava.gwt.three.client.js.loaders.MaterialLoader.MaterialLoadHandler;
-import com.akjava.gwt.three.client.js.materials.Material;
+import com.akjava.gwt.three.client.js.loaders.XHRLoader.XHRErrorHandler;
+import com.akjava.gwt.three.client.js.loaders.XHRLoader.XHRProgressHandler;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
-import com.google.gwt.dom.client.NativeEvent;
 
 /**
  * not test yet
@@ -66,30 +65,61 @@ public class ObjectLoader extends JavaScriptObject{
 	this.load(url,function ( object ) {
 		handler.@com.akjava.gwt.three.client.js.loaders.ObjectLoader$ObjectLoadHandler::onLoad(Lcom/akjava/gwt/three/client/js/core/Object3D;)(object);
 		}
-		,function ( onProgress ) {
-		handler.@com.akjava.gwt.three.client.js.loaders.ObjectLoader$ObjectLoadHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
-		},function ( onError ) {
-		handler.@com.akjava.gwt.three.client.js.loaders.ObjectLoader$ObjectLoadHandler::onError(Lcom/google/gwt/dom/client/NativeEvent;)(onError);
-		});
-}-*/;
+		);
+	}-*/;
+	
+	public final native void load(String url,ObjectLoadHandler handler,XHRProgressHandler progressHandler)/*-{
+	this.load(url,function ( object ) {
+		handler.@com.akjava.gwt.three.client.js.loaders.ObjectLoader$ObjectLoadHandler::onLoad(Lcom/akjava/gwt/three/client/js/core/Object3D;)(object);
+		},function ( onProgress ) {
+			progressHandler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRProgressHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
+			});
+	}-*/;
 
-public final native void setCrossOrigin(String value)/*-{
-this.setCrossOrigin(value);
-}-*/;
+	public final native void load(String url,ObjectLoadHandler handler,XHRProgressHandler progressHandler,XHRErrorHandler errorHandler)/*-{
+	this.load(url,function ( object ) {
+		handler.@com.akjava.gwt.three.client.js.loaders.ObjectLoader$ObjectLoadHandler::onLoad(Lcom/akjava/gwt/three/client/js/core/Object3D;)(object);
+		},function ( onProgress ) {
+			progressHandler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRProgressHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
+			},function ( onError ) {
+			errorHandler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRErrorHandler::onError(Lcom/google/gwt/dom/client/NativeEvent;)(onError);
+			});
+	}-*/;
+
+	public final native void setCrossOrigin(String value)/*-{
+	this.setCrossOrigin(value);
+	}-*/;
+
+	public final native void setPath(String value)/*-{
+	this.setPath(value);
+	}-*/;
+	
 
 public final native Object3D parse(JavaScriptObject json)/*-{
 return this.parse(json);
 }-*/;
 
-public final native JsArray<Geometry> parseGeometries(JavaScriptObject json)/*-{
+public final native JavaScriptObject parseGeometries(JavaScriptObject json)/*-{
 return this.parseGeometries(json);
 }-*/;
 
-public final native JsArray<Material> parseMaterials(JavaScriptObject json)/*-{
+public final native JavaScriptObject parseMaterials(JavaScriptObject json,JavaScriptObject textures)/*-{
 return this.parseMaterials(json);
 }-*/;
 
-public final native Object3D parseObject(JavaScriptObject object,JsArray<Geometry> geometrys,JsArray<Material> materials)/*-{
+public final native JsArray<AnimationClip> parseAnimations(JavaScriptObject json)/*-{
+return this.parseAnimations(json);
+}-*/;
+
+public final native JavaScriptObject parseImages(JavaScriptObject json,ObjectLoadHandler onLoad)/*-{
+return this.parseImages(json);
+}-*/;
+
+public final native JavaScriptObject parseTextures(JavaScriptObject json,JavaScriptObject images)/*-{
+return this.parseTextures(json,images);
+}-*/;
+
+public final native Object3D parseObject(JavaScriptObject object,JavaScriptObject geometrys,JavaScriptObject materials)/*-{
 return this.parseObject(object,geometrys,materials);
 }-*/;
 
@@ -99,8 +129,6 @@ public static interface ObjectLoadHandler {
 	 * @param object
 	 */
 	public void onLoad(Object3D object);
-	public void onProgress(NativeEvent progress);
-	public void onError(NativeEvent error);
 }
 
 }

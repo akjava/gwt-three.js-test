@@ -37,13 +37,38 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.loaders;
 
+import com.akjava.gwt.three.client.js.materials.Material;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArray;
 import com.google.gwt.dom.client.Element;
+import com.google.gwt.json.client.JSONArray;
+import com.google.gwt.json.client.JSONObject;
 
 
 public class Loader extends JavaScriptObject{
 	protected Loader() {
 	}
+	
+	public final  native String extractUrlBase(String url)/*-{
+	return this.extractUrlBase(url);
+	}-*/;
+	/**
+	 * called JSONLoader
+	 * @param materials
+	 * @param texturePath
+	 * @param crossOrigin
+	 * @return
+	 */
+	public final  native JsArray<Material> initMaterials(JSONArray materials,String texturePath,String crossOrigin )/*-{
+	return this.initMaterials(materials,texturePath,crossOrigin);
+	}-*/;
+
+	public final  native Material createMaterial(JSONObject material,String texturePath,String crossOrigin )/*-{
+	return this.createMaterial(material,texturePath,crossOrigin);
+	}-*/;
+
+
+	
 
 	/**
 	 * @deprecated on r72
@@ -60,35 +85,7 @@ public final native Element getStatusDomElement()/*-{
 return this.statusDomElement;
 }-*/;
 
-public final native void onLoadStart()/*-{
-this.onLoadStart();
-}-*/;
 
-public final native void onLoadProgress()/*-{
-this.onLoadProgress();
-}-*/;
-
-public final native void onLoadComplete()/*-{
-this.onLoadComplete();
-}-*/;
-
-public final native void setLoadHandler(LoadHandler handler)/*-{
-	this.onLoadStart=function (  ) {
-	handler.@com.akjava.gwt.three.client.js.loaders.Loader$LoadHandler::onLoadStart()();
-	};
-	this.onLoadProgress=function (  ) {
-	handler.@com.akjava.gwt.three.client.js.loaders.Loader$LoadHandler::onLoadProgress()();
-	};
-	this.onLoadComplete=function (  ) {
-	handler.@com.akjava.gwt.three.client.js.loaders.Loader$LoadHandler::onLoadComplete()();
-	};
-}-*/;
-
-public static interface LoadHandler {
-	public void onLoadStart();
-	public void onLoadProgress();
-	public void onLoadComplete();
-}
 /**
  * implementing THREE.Loader.Handlers is skipped
  * i have no idea how to handle regex-js-class on GWT/Java

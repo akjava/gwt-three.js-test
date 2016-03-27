@@ -29,7 +29,6 @@ import com.akjava.gwt.three.client.js.extras.SceneUtils;
 import com.akjava.gwt.three.client.js.lights.Light;
 import com.akjava.gwt.three.client.js.loaders.JSONLoader;
 import com.akjava.gwt.three.client.js.loaders.JSONLoader.JSONLoadHandler;
-import com.akjava.gwt.three.client.js.loaders.Loader.LoadHandler;
 import com.akjava.gwt.three.client.js.materials.Material;
 import com.akjava.gwt.three.client.js.math.Euler;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
@@ -37,6 +36,7 @@ import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.threetest.client.resources.Bundles;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JsArray;
+import com.google.gwt.event.dom.client.LoadHandler;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.FocusPanel;
 
@@ -59,22 +59,7 @@ private Object3D object;
 		
 		
 		JSONLoader loader=THREE.JSONLoader();
-		loader.setLoadHandler(new LoadHandler() {
-			@Override
-			public void onLoadStart() {
-				//LogUtils.log("onstart ok");
-			}
-			
-			@Override
-			public void onLoadProgress() {
-				//LogUtils.log("onprogress ok");
-			}
-			
-			@Override
-			public void onLoadComplete() {
-				//LogUtils.log("oncomplete ok");
-			}
-		});
+		
 		
 		
 		loader.load("models/female04b.js", new JSONLoadHandler() {

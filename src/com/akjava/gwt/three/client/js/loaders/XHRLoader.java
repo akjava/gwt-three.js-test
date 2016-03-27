@@ -63,14 +63,65 @@ public class XHRLoader extends Object3D{
 		handler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRLoadHandler::onError(Lcom/google/gwt/dom/client/NativeEvent;)(onError);
 		});
 }-*/;
+	public final native void load(String url,XHRLoadHandler loadHandler,XHRProgressHandler progressHandler)/*-{
+	this.load(url,function ( text ) {
+		loadHandler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRLoadHandler::onLoad(Ljava/lang/String;)(text);
+		}
+		,function ( onProgress ) {
+		progressHandler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRProgressHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
+		});
+}-*/;
+	public final native void load(String url,XHRLoadHandler loadHandler,XHRProgressHandler progressHandler,XHRErrorHandler errorHandler)/*-{
+	this.load(url,function ( text ) {
+		loadHandler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRLoadHandler::onLoad(Ljava/lang/String;)(text);
+		}
+		,function ( onProgress ) {
+		progressHandler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRProgressHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
+		},function ( onError ) {
+		errorHandler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRErrorHandler::onError(Lcom/google/gwt/dom/client/NativeEvent;)(onError);
+		});
+}-*/;
 
+	public final  native void setPath(String path)/*-{
+	this.setPath(path);
+	}-*/;
+
+	public final  native void setResponseType(String value)/*-{
+	this.setResponseType(value);
+	}-*/;
+
+	/*
+	 * i'm not sure String
+	 */
+	public final  native void setWithCredentials(String value)/*-{
+	this.setWithCredentials();
+	}-*/;
+
+/**
+ * @deprecated gone
+ * @param value
+ */
 public final native void setCrossOrigin(String value)/*-{
 this.setCrossOrigin(value);
 }-*/;
+public static interface XHRProgressHandler {
+	public void onProgress(NativeEvent progress);
+}
+public static interface XHRErrorHandler {
+	public void onError(NativeEvent error);
+}
 
 public static interface XHRLoadHandler {
 	public void onLoad(String text);
+	/**
+	 * @deprecated
+	 * @param progress
+	 */
 	public void onProgress(NativeEvent progress);
+	/**
+	 * @deprecated
+	 * @param progress
+	 */
 	public void onError(NativeEvent error);
 }
 

@@ -38,11 +38,13 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client.js.loaders;
 
 import com.akjava.gwt.three.client.js.core.BufferGeometry;
+import com.akjava.gwt.three.client.js.loaders.XHRLoader.XHRErrorHandler;
+import com.akjava.gwt.three.client.js.loaders.XHRLoader.XHRProgressHandler;
 import com.google.gwt.core.client.JavaScriptObject;
 
 
 /**
- * Manager not supported.(i have no idea yet)
+ * 
  * not tested
  * @author aki
  *
@@ -50,14 +52,14 @@ import com.google.gwt.core.client.JavaScriptObject;
 public class BufferGeometryLoader extends JavaScriptObject{
 	protected BufferGeometryLoader() {
 	}
+	public final native LoadingManager getManager()/*-{
+	return this.manager;
+	}-*/;
 
-//public final native Object getManager()/*-{
-//return this.manager;
-//}-*/;
+	public final native void setManager(LoadingManager manager)/*-{
+	this.manager = manager;
+	}-*/;
 
-//public final native void setManager(Object manager)/*-{
-//this.manager = manager;
-//}-*/;
 
 public final native void load(String url,BufferGeometryLoadHandler handler)/*-{
 	this.load(url,function ( geometry ) {
@@ -65,8 +67,22 @@ public final native void load(String url,BufferGeometryLoadHandler handler)/*-{
 		});
 }-*/;
 
-public final native void setCrossOrigin(String value)/*-{
-this.setCrossOrigin(value);
+public final native void load(String url,BufferGeometryLoadHandler handler,XHRProgressHandler progressHandler)/*-{
+this.load(url,function ( geometry ) {
+		handler.@com.akjava.gwt.three.client.js.loaders.BufferGeometryLoader$BufferGeometryLoadHandler::onLoad(Lcom/akjava/gwt/three/client/js/core/BufferGeometry;)(geometry);
+		},function ( onProgress ) {
+		progressHandler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRProgressHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
+		});
+}-*/;
+
+public final native void load(String url,BufferGeometryLoadHandler handler,XHRProgressHandler progressHandler,XHRErrorHandler errorHandler)/*-{
+this.load(url,function ( geometry ) {
+		handler.@com.akjava.gwt.three.client.js.loaders.BufferGeometryLoader$BufferGeometryLoadHandler::onLoad(Lcom/akjava/gwt/three/client/js/core/BufferGeometry;)(geometry);
+		},function ( onProgress ) {
+		progressHandler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRProgressHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
+		},function ( onError ) {
+		errorHandler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRErrorHandler::onError(Lcom/google/gwt/dom/client/NativeEvent;)(onError);
+		});
 }-*/;
 
 public final native BufferGeometry parse(JavaScriptObject json)/*-{

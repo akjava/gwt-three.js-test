@@ -37,6 +37,9 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.loaders;
 
+import com.akjava.gwt.three.client.js.loaders.FontLoader.FontLoadHandler;
+import com.akjava.gwt.three.client.js.loaders.XHRLoader.XHRErrorHandler;
+import com.akjava.gwt.three.client.js.loaders.XHRLoader.XHRProgressHandler;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.ImageElement;
 import com.google.gwt.dom.client.NativeEvent;
@@ -49,40 +52,64 @@ import com.google.gwt.dom.client.NativeEvent;
 public class ImageLoader extends JavaScriptObject{
 	protected ImageLoader() {
 	}
+	
+	public final native void getgManager()/*-{
+	return manager;
+	}-*/;
+
+	public final native void setManager(LoadingManager manager)/*-{
+	this.manager=manager;
+	}-*/;
 
 
 	public final native void load(String url,ImageLoadHandler handler)/*-{
-	this.load(url,function ( geometry ) {
-		handler.@com.akjava.gwt.three.client.js.loaders.ImageLoader$ImageLoadHandler::onLoad(Lcom/google/gwt/dom/client/ImageElement;)(geometry);
-		}
-		,function ( onProgress ) {
-		handler.@com.akjava.gwt.three.client.js.loaders.ImageLoader$ImageLoadHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
-		},function ( onError ) {
-		handler.@com.akjava.gwt.three.client.js.loaders.ImageLoader$ImageLoadHandler::onError(Lcom/google/gwt/dom/client/NativeEvent;)(onError);
+	this.load(url,function ( image ) {
+		handler.@com.akjava.gwt.three.client.js.loaders.ImageLoader$ImageLoadHandler::onLoad(Lcom/google/gwt/dom/client/ImageElement;)(image);
 		});
 }-*/;
+	
+	public final native void load(String url,ImageLoadHandler handler,XHRProgressHandler progressHandler)/*-{
+	this.load(url,function ( image ) {
+		handler.@com.akjava.gwt.three.client.js.loaders.ImageLoader$ImageLoadHandler::onLoad(Lcom/google/gwt/dom/client/ImageElement;)(image);
+		},function ( onProgress ) {
+			progressHandler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRProgressHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
+			});
+	}-*/;
+
+	public final native void load(String url,ImageLoadHandler handler,XHRProgressHandler progressHandler,XHRErrorHandler errorHandler)/*-{
+	this.load(url,function ( image ) {
+		handler.@com.akjava.gwt.three.client.js.loaders.ImageLoader$ImageLoadHandler::onLoad(Lcom/google/gwt/dom/client/ImageElement;)(image);
+		},function ( onProgress ) {
+			progressHandler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRProgressHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
+			},function ( onError ) {
+			errorHandler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRErrorHandler::onError(Lcom/google/gwt/dom/client/NativeEvent;)(onError);
+			});
+	}-*/;
 
 	
-public final native void getgManager()/*-{
-return manager;
-}-*/;
 
-public final native void setManager(LoadingManager manager)/*-{
-this.manager=manager;
-}-*/;
 
 public final native void setCrossOrigin(String value)/*-{
 this.setCrossOrigin(value);
 }-*/;
 
+public final native void setPath(String value)/*-{
+this.setPath(value);
+}-*/;
+
 public static interface ImageLoadHandler {
 	public void onLoad(ImageElement imageElement);
+	/**
+	 * @deprecated
+	 * @param progress
+	 */
 	public void onProgress(NativeEvent progress);
+	/**
+	 * @deprecated
+	 * @param progress
+	 */
 	public void onError(NativeEvent error);
 }
 
-public final native Cache getCache()/*-{
-return cache;
-}-*/;
 
 }

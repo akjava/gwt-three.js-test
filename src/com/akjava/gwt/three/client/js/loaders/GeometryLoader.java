@@ -41,6 +41,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.json.client.JSONObject;
 
 /**
+ * @deprecated gone on r72
  * i dont's know how to use this.
  * @author aki
  *

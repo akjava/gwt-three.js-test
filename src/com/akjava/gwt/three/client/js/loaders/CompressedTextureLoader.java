@@ -38,31 +38,50 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.loaders;
 
+import com.akjava.gwt.three.client.js.loaders.XHRLoader.XHRErrorHandler;
+import com.akjava.gwt.three.client.js.loaders.XHRLoader.XHRProgressHandler;
 import com.akjava.gwt.three.client.js.textures.CompressedTexture;
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.dom.client.NativeEvent;
 
 
 public class CompressedTextureLoader extends JavaScriptObject{
 	protected CompressedTextureLoader() {
 	}
+	public final native LoadingManager getManager()/*-{
+	return this.manager;
+	}-*/;
+
+	public final native void setManager(LoadingManager manager)/*-{
+	this.manager = manager;
+	}-*/;
 
 
 	public final native void load(String url,CompressedTextureLoadHandler handler)/*-{
 	this.load(url,function ( texture ) {
 		handler.@com.akjava.gwt.three.client.js.loaders.CompressedTextureLoader$CompressedTextureLoadHandler::onLoad(Lcom/akjava/gwt/three/client/js/textures/CompressedTexture;)(texture);
-		}
-		,function ( onProgress ) {
-		handler.@com.akjava.gwt.three.client.js.loaders.CompressedTextureLoader$CompressedTextureLoadHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
-		},function ( onError ) {
-		handler.@com.akjava.gwt.three.client.js.loaders.CompressedTextureLoader$CompressedTextureLoadHandler::onError(Lcom/google/gwt/dom/client/NativeEvent;)(onError);
 		});
-}-*/;
+	}-*/;
+	
+	public final native void load(String url,CompressedTextureLoadHandler handler,XHRProgressHandler progressHandler)/*-{
+	this.load(url,function ( texture ) {
+		handler.@com.akjava.gwt.three.client.js.loaders.CompressedTextureLoader$CompressedTextureLoadHandler::onLoad(Lcom/akjava/gwt/three/client/js/textures/CompressedTexture;)(texture);
+		},function ( onProgress ) {
+			progressHandler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRProgressHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
+			});
+	}-*/;
+
+	public final native void load(String url,CompressedTextureLoadHandler handler,XHRProgressHandler progressHandler,XHRErrorHandler errorHandler)/*-{
+	this.load(url,function ( texture ) {
+		handler.@com.akjava.gwt.three.client.js.loaders.CompressedTextureLoader$CompressedTextureLoadHandler::onLoad(Lcom/akjava/gwt/three/client/js/textures/CompressedTexture;)(texture);
+		},function ( onProgress ) {
+			progressHandler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRProgressHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
+			},function ( onError ) {
+			errorHandler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRErrorHandler::onError(Lcom/google/gwt/dom/client/NativeEvent;)(onError);
+			});
+	}-*/;
 
 public static interface CompressedTextureLoadHandler {
 	public void onLoad(CompressedTexture texture);
-	public void onProgress(NativeEvent progress);
-	public void onError(NativeEvent error);
 }
 
 }

@@ -70,11 +70,8 @@ public class SceneLoader extends Object3D{
 	this.load(url,function ( object ) {
 		handler.@com.akjava.gwt.three.client.js.loaders.ObjectLoader$ObjectLoadHandler::onLoad(Lcom/akjava/gwt/three/client/js/core/Object3D;)(object);
 		}
-		,function ( onProgress ) {
-		handler.@com.akjava.gwt.three.client.js.loaders.ObjectLoader$ObjectLoadHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
-		},function ( onError ) {
-		handler.@com.akjava.gwt.three.client.js.loaders.ObjectLoader$ObjectLoadHandler::onError(Lcom/google/gwt/dom/client/NativeEvent;)(onError);
-		});
+		);
+		
 }-*/;
 
 }

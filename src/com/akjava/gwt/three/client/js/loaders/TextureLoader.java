@@ -37,9 +37,10 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.loaders;
 
+import com.akjava.gwt.three.client.js.loaders.XHRLoader.XHRErrorHandler;
+import com.akjava.gwt.three.client.js.loaders.XHRLoader.XHRProgressHandler;
 import com.akjava.gwt.three.client.js.textures.Texture;
 import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.dom.client.NativeEvent;
 
 
 public class TextureLoader extends JavaScriptObject{
@@ -58,21 +59,37 @@ public class TextureLoader extends JavaScriptObject{
 	this.load(url,function ( texture ) {
 		handler.@com.akjava.gwt.three.client.js.loaders.TextureLoader$TextureLoadHandler::onLoad(Lcom/akjava/gwt/three/client/js/textures/Texture;)(texture);
 		}
-		,function ( onProgress ) {
-		handler.@com.akjava.gwt.three.client.js.loaders.TextureLoader$TextureLoadHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
-		},function ( onError ) {
-		handler.@com.akjava.gwt.three.client.js.loaders.TextureLoader$TextureLoadHandler::onError(Lcom/google/gwt/dom/client/NativeEvent;)(onError);
-		});
-}-*/;
+		);
+	}-*/;
+	
+	public final native void load(String url,TextureLoadHandler handler,XHRProgressHandler progressHandler)/*-{
+	this.load(url,function ( texture ) {
+		handler.@com.akjava.gwt.three.client.js.loaders.TextureLoader$TextureLoadHandler::onLoad(Lcom/akjava/gwt/three/client/js/textures/Texture;)(texture);
+		},function ( onProgress ) {
+			progressHandler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRProgressHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
+			});
+	}-*/;
+
+	public final native void load(String url,TextureLoadHandler handler,XHRProgressHandler progressHandler,XHRErrorHandler errorHandler)/*-{
+	this.load(url,function ( texture ) {
+		handler.@com.akjava.gwt.three.client.js.loaders.TextureLoader$TextureLoadHandler::onLoad(Lcom/akjava/gwt/three/client/js/textures/Texture;)(texture);
+		},function ( onProgress ) {
+			progressHandler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRProgressHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
+			},function ( onError ) {
+			errorHandler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRErrorHandler::onError(Lcom/google/gwt/dom/client/NativeEvent;)(onError);
+			});
+	}-*/;
 
 public final native void setCrossOrigin(String value)/*-{
 this.setCrossOrigin(value);
 }-*/;
 
+public final native void setPath(String value)/*-{
+this.setPath(value);
+}-*/;
+
 public static interface TextureLoadHandler {
 	public void onLoad(Texture texture);
-	public void onProgress(NativeEvent progress);
-	public void onError(NativeEvent error);
 }
 
 }

@@ -37,6 +37,8 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.loaders;
 
+import com.akjava.gwt.three.client.js.loaders.XHRLoader.XHRErrorHandler;
+import com.akjava.gwt.three.client.js.loaders.XHRLoader.XHRProgressHandler;
 import com.akjava.gwt.three.client.js.textures.DataTexture;
 import com.google.gwt.core.client.JavaScriptObject;
 
@@ -50,6 +52,13 @@ import com.google.gwt.core.client.JavaScriptObject;
 public class BinaryTextureLoader extends JavaScriptObject{
 	protected BinaryTextureLoader() {
 	}
+	public final native LoadingManager getManager()/*-{
+	return this.manager;
+	}-*/;
+
+	public final native void setManager(LoadingManager manager)/*-{
+	this.manager = manager;
+	}-*/;
 
 //public final native Object getManager()/*-{
 //return this.manager;
@@ -64,6 +73,25 @@ public final native void load(String url,BinaryTextureLoadHandler handler)/*-{
 		handler.@com.akjava.gwt.three.client.js.loaders.BinaryTextureLoader$BinaryTextureLoadHandler::onLoad(Lcom/akjava/gwt/three/client/js/textures/DataTexture;)(texture);
 		});
 }-*/;
+
+public final native void load(String url,BinaryTextureLoadHandler handler,XHRProgressHandler progressHandler)/*-{
+this.load(url,function ( texture ) {
+	handler.@com.akjava.gwt.three.client.js.loaders.BinaryTextureLoader$BinaryTextureLoadHandler::onLoad(Lcom/akjava/gwt/three/client/js/textures/DataTexture;)(texture);
+},function ( onProgress ) {
+		progressHandler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRProgressHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
+		});
+}-*/;
+
+public final native void load(String url,BinaryTextureLoadHandler handler,XHRProgressHandler progressHandler,XHRErrorHandler errorHandler)/*-{
+this.load(url,function ( texture ) {
+	handler.@com.akjava.gwt.three.client.js.loaders.BinaryTextureLoader$BinaryTextureLoadHandler::onLoad(Lcom/akjava/gwt/three/client/js/textures/DataTexture;)(texture);
+	},function ( onProgress ) {
+		progressHandler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRProgressHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
+		},function ( onError ) {
+		errorHandler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRErrorHandler::onError(Lcom/google/gwt/dom/client/NativeEvent;)(onError);
+		});
+}-*/;
+
 
 
 public static interface BinaryTextureLoadHandler {
