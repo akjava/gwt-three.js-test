@@ -99,4 +99,12 @@ return this.zoom;
 public final native PerspectiveCamera copy(PerspectiveCamera source)/*-{
 return this.copy(source);
 }-*/;
+
+public final  native double getFocalLength()/*-{
+return this.focalLength;
+}-*/;
+
+public final  native void setFocalLength(double  param)/*-{
+this.focalLength=param;
+}-*/;
 }

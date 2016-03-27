@@ -64,6 +64,7 @@ import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.cameras.CubeCamera;
 import com.akjava.gwt.three.client.js.cameras.OrthographicCamera;
 import com.akjava.gwt.three.client.js.cameras.PerspectiveCamera;
+import com.akjava.gwt.three.client.js.cameras.StereoCamera;
 import com.akjava.gwt.three.client.js.core.BufferAttribute;
 import com.akjava.gwt.three.client.js.core.BufferGeometry;
 import com.akjava.gwt.three.client.js.core.Clock;
@@ -1690,6 +1691,10 @@ public class THREE {
 	
 	public static final native AudioAnalyser AudioAnalyser(Audio audio,int fftSize)/*-{
 	return new $wnd.THREE.AudioAnalyser(audio,fftSize);
+	}-*/;
+	
+	public static final native StereoCamera StereoCamera()/*-{
+	return new $wnd.THREE.StereoCamera();
 	}-*/;
 	
 }
