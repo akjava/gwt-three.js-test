@@ -21,9 +21,11 @@ import com.akjava.gwt.three.client.examples.js.postprocessing.RenderPass;
 import com.akjava.gwt.three.client.examples.js.postprocessing.SavePass;
 import com.akjava.gwt.three.client.examples.js.postprocessing.ShaderPass;
 import com.akjava.gwt.three.client.examples.js.postprocessing.TexturePass;
+import com.akjava.gwt.three.client.examples.loaders.SceneLoader;
 import com.akjava.gwt.three.client.gwt.extras.Shader;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Object3D;
+import com.akjava.gwt.three.client.js.loaders.LoadingManager;
 import com.akjava.gwt.three.client.js.materials.Material;
 import com.akjava.gwt.three.client.js.math.Color;
 import com.akjava.gwt.three.client.js.math.Euler;
@@ -192,6 +194,9 @@ public class THREEExp {
 		
 		public static final native DecalGeometry DecalGeometry(Mesh mesh, Vector3 position,Euler rotation,Vector3  dimensions,Vector3  check)/*-{
 		return new $wnd.THREE.DecalGeometry( mesh, position, rotation, dimensions, check);
+		}-*/;
+		public static  native final SceneLoader SceneLoader(LoadingManager manager)/*-{
+		return  new $wnd.THREE.SceneLoader(manager);
 		}-*/;
 		
 }

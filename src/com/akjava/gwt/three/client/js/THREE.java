@@ -40,7 +40,6 @@ package com.akjava.gwt.three.client.js;
 import com.akjava.gwt.lib.client.JavaScriptUtils;
 import com.akjava.gwt.three.client.examples.ColladaLoader;
 import com.akjava.gwt.three.client.examples.camera.CombinedCamera;
-import com.akjava.gwt.three.client.examples.loaders.SceneLoader;
 import com.akjava.gwt.three.client.examples.modifiers.SubdivisionModifier;
 import com.akjava.gwt.three.client.examples.renderers.CSS3DRenderer;
 import com.akjava.gwt.three.client.gwt.boneanimation.AnimationData;
@@ -153,9 +152,11 @@ import com.akjava.gwt.three.client.js.lights.HemisphereLight;
 import com.akjava.gwt.three.client.js.lights.Light;
 import com.akjava.gwt.three.client.js.lights.PointLight;
 import com.akjava.gwt.three.client.js.lights.SpotLight;
+import com.akjava.gwt.three.client.js.loaders.AnimationLoader;
 import com.akjava.gwt.three.client.js.loaders.BinaryTextureLoader;
 import com.akjava.gwt.three.client.js.loaders.BufferGeometryLoader;
 import com.akjava.gwt.three.client.js.loaders.CompressedTextureLoader;
+import com.akjava.gwt.three.client.js.loaders.FontLoader;
 import com.akjava.gwt.three.client.js.loaders.GeometryLoader;
 import com.akjava.gwt.three.client.js.loaders.ImageLoader;
 import com.akjava.gwt.three.client.js.loaders.JSONLoader;
@@ -620,7 +621,15 @@ public class THREE {
 	public static  native final BufferGeometryLoader BufferGeometryLoader(LoadingManager manager)/*-{
 	return  new $wnd.THREE.BufferGeometryLoader(manager);
 	}-*/;
+	public static  native final BufferGeometryLoader BufferGeometryLoader()/*-{
+	return  new $wnd.THREE.BufferGeometryLoader();
+	}-*/;
 	
+	/**
+	 * @deprecated
+	 * @param manager
+	 * @return
+	 */
 	public static  native final GeometryLoader GeometryLoader(LoadingManager manager)/*-{
 	return  new $wnd.THREE.GeometryLoader(manager);
 	}-*/;
@@ -636,19 +645,22 @@ public class THREE {
 	public static  native final MaterialLoader MaterialLoader(LoadingManager manager)/*-{
 	return  new $wnd.THREE.MaterialLoader(manager);
 	}-*/;
+	public static  native final MaterialLoader MaterialLoader()/*-{
+	return  new $wnd.THREE.MaterialLoader();
+	}-*/;
 	
 	public static  native final ObjectLoader ObjectLoader(LoadingManager manager)/*-{
 	return  new $wnd.THREE.ObjectLoader(manager);
 	}-*/;
-	
-	public static  native final SceneLoader SceneLoader(LoadingManager manager)/*-{
-	return  new $wnd.THREE.SceneLoader(manager);
+	public static  native final ObjectLoader ObjectLoader()/*-{
+	return  new $wnd.THREE.ObjectLoader();
 	}-*/;
-	
-	
 	
 	public static  native final TextureLoader TextureLoader(LoadingManager manager)/*-{
 	return  new $wnd.THREE.TextureLoader(manager);
+	}-*/;
+	public static  native final TextureLoader TextureLoader()/*-{
+	return  new $wnd.THREE.TextureLoader();
 	}-*/;
 	
 	public static  native final XHRLoader XHRLoader(LoadingManager manager)/*-{
@@ -658,7 +670,21 @@ public class THREE {
 	public static  native final XHRLoader XHRLoader()/*-{
 	return  new $wnd.THREE.XHRLoader();
 	}-*/;
+	public static  native final AnimationLoader AnimationLoader(LoadingManager manager)/*-{
+	return  new $wnd.THREE.AnimationLoader(manager);
+	}-*/;
 	
+	public static  native final AnimationLoader AnimationLoader()/*-{
+	return  new $wnd.THREE.AnimationLoader();
+	}-*/;
+	
+	public static  native final FontLoader FontLoader(LoadingManager manager)/*-{
+	return  new $wnd.THREE.FontLoader(manager);
+	}-*/;
+	
+	public static  native final FontLoader FontLoader()/*-{
+	return  new $wnd.THREE.FontLoader();
+	}-*/;
 	
 	
 	public static  native final SpotLight SpotLight(int hex,double intensity,double distance,double angle,double exponent)/*-{
@@ -1645,9 +1671,6 @@ public class THREE {
 	return new $wnd.THREE.QuaternionKeyframeTrack(name, times,values ,interpolation);
 	}-*/;
 	
-	public static  native final ObjectLoader ObjectLoader()/*-{
-	return  new $wnd.THREE.ObjectLoader();
-	}-*/;
 	
 	public static final native SphereBufferGeometry SphereBufferGeometry(double radius,int widthSegments,int heightSegments,double phiStart,double phiLength,double thetaStart,double thetaLength)/*-{
 	return new $wnd.THREE.SphereBufferGeometry(radius, widthSegments, heightSegments, phiStart, phiLength, thetaStart, thetaLength);
