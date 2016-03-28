@@ -229,4 +229,11 @@ public final native void setCustomDepthMaterial(Material customDepthMaterial)/*-
 this.customDepthMaterial = customDepthMaterial;
 }-*/;
 
+public final  native int getDrawMode()/*-{
+return this.drawMode;
+}-*/;
+
+public final  native void setDrawMode(int param)/*-{
+this.drawMode(param);
+}-*/;
 }
