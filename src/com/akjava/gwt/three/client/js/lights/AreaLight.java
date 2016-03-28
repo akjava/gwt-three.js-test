@@ -66,13 +66,7 @@ this.right = right;
 }-*/;
 
 
-public final native double getIntensity()/*-{
-return this.intensity;
-}-*/;
 
-public final native void setIntensity(double intensity)/*-{
-this.intensity = intensity;
-}-*/;
 
 
 public final native double getWidth()/*-{

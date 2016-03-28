@@ -56,6 +56,13 @@ public final  native Light clone()/*-{
 return this.clone();
 }-*/;
 
+public final  native double getIntensity()/*-{
+return this.intensity;
+}-*/;
+
+public final  native void setIntensity(double  param)/*-{
+this.intensity=param;
+}-*/;
 
 
 /**
@@ -71,74 +78,98 @@ public final native void setOnlyShadow(boolean onlyShadow)/*-{
 this.onlyShadow = onlyShadow;
 }-*/;
 
-
+/**
+ * @deprecated  on r74
+ */
 public final native void setShadowCameraFov(double shadowCameraFov)/*-{
 this.shadowCameraFov = shadowCameraFov;
 }-*/;
-
+/**
+ * @deprecated  on r74
+ */
 public final native void setShadowCameraNear(double shadowCameraNear)/*-{
 this.shadowCameraNear = shadowCameraNear;
 }-*/;
 
 
-
+/**
+ * @deprecated  on r74
+ */
 public final native void setShadowCameraFar(double shadowCameraFar)/*-{
 this.shadowCameraFar = shadowCameraFar;
 }-*/;
 
 
-
+/**
+ * @deprecated  on r74
+ */
 
 public final native void setShadowCameraLeft(double shadowCameraLeft)/*-{
 this.shadowCameraLeft = shadowCameraLeft;
 }-*/;
 
 
-
+/**
+ * @deprecated  on r74
+ */
 public final native void setShadowCameraRight(double shadowCameraRight)/*-{
 this.shadowCameraRight = shadowCameraRight;
 }-*/;
 
 
 
-
+/**
+ * @deprecated  on r74
+ */
 public final native void setShadowCameraTop(double shadowCameraTop)/*-{
 this.shadowCameraTop = shadowCameraTop;
 }-*/;
 
 
-
+/**
+ * @deprecated  on r74
+ */
 public final native void setShadowCameraBottom(double shadowCameraBottom)/*-{
 this.shadowCameraBottom = shadowCameraBottom;
 }-*/;
 
 
-
+/**
+ * @deprecated removed on r74
+ */
 public final native void setShadowCameraVisible(boolean shadowCameraVisible)/*-{
 this.shadowCameraVisible = shadowCameraVisible;
 }-*/;
 
 
-
+/**
+ * @deprecated removed on r74
+ */
 public final native void setShadowBias(double shadowBias)/*-{
 this.shadowBias = shadowBias;
 }-*/;
 
 
 
-
+/**
+ * @deprecated removed on r74
+ */
 public final native void setShadowDarkness(double shadowDarkness)/*-{
 this.shadowDarkness = shadowDarkness;
 }-*/;
 
-
+/**
+ * @deprecated removed on r74
+ */
 
 public final native void setShadowMapWidth(double shadowMapWidth)/*-{
 this.shadowMapWidth = shadowMapWidth;
 }-*/;
 
 
-
+/**
+ * @deprecated removed on r74
+ */
 public final native void setShadowMapHeight(double shadowMapHeight)/*-{
 this.shadowMapHeight = shadowMapHeight;
 }-*/;

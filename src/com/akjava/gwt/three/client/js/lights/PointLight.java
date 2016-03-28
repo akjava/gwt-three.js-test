@@ -43,13 +43,6 @@ public class PointLight extends Light{
 	protected PointLight() {
 	}
 
-public final native double getIntensity()/*-{
-return this.intensity;
-}-*/;
-
-public final native void setIntensity(double intensity)/*-{
-this.intensity = intensity;
-}-*/;
 
 
 public final native double getDistance()/*-{

@@ -53,13 +53,7 @@ this.target = target;
 }-*/;
 
 
-public final native double getIntensity()/*-{
-return this.intensity;
-}-*/;
 
-public final native void setIntensity(double intensity)/*-{
-this.intensity = intensity;
-}-*/;
 
 
 public final native double getDistance()/*-{
@@ -80,12 +74,12 @@ this.angle = angle;
 }-*/;
 
 
-public final native double getExponent()/*-{
-return this.exponent;
+public final  native double getPenumbra()/*-{
+return this.penumbra;
 }-*/;
 
-public final native void setExponent(double exponent)/*-{
-this.exponent = exponent;
+public final  native void setPenumbra(double  param)/*-{
+this.penumbra=param;
 }-*/;
 
 

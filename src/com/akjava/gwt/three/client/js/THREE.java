@@ -709,15 +709,15 @@ public class THREE {
 	 * @param intensity default 1
 	 * @return
 	 */
-	public static  native final HemisphereLight HemisphereLight(int skyColorHex, int groundColorHex,double intensity)/*-{
+	public static  native final HemisphereLight HemisphereLight(double skyColorHex, double groundColorHex,double intensity)/*-{
 	return  new $wnd.THREE.HemisphereLight(skyColorHex, groundColorHex, intensity);
 	}-*/;
-	public static  native final HemisphereLight HemisphereLight(int skyColorHex, int groundColorHex)/*-{
+	public static  native final HemisphereLight HemisphereLight(double skyColorHex, double groundColorHex)/*-{
 	return  new $wnd.THREE.HemisphereLight(skyColorHex, groundColorHex);
 	}-*/;
 	
 	/**
-	 * 
+	 * @deprecated
 	 * @param hex
 	 * @param intensity default 1
 	 * @return
@@ -872,12 +872,18 @@ public class THREE {
 	return new $wnd.THREE.Scene();
 	}-*/;
 	
-	public static native final AmbientLight AmbientLight(int color)/*-{
+	/**
+	 * 
+	 * @param color because of random 0xffffff*random()
+	 * @return
+	 */
+	public static native final AmbientLight AmbientLight(double color)/*-{
 	return new $wnd.THREE.AmbientLight(color);
 	}-*/;
-	public static final  AmbientLight AmbientLight(double color){
-	return AmbientLight((int)color);
-	}
+	
+	public static native final AmbientLight AmbientLight(double color,double intensity)/*-{
+	return new $wnd.THREE.AmbientLight(color);
+	}-*/;
 	
 	
 	
@@ -1078,11 +1084,17 @@ public class THREE {
 	return new $wnd.THREE.WebGLRenderer(object);
 	}-*/;
 	
-	public static native final Light PointLight(int color)/*-{
+	public static native final Light PointLight(double color)/*-{
 	return new $wnd.THREE.PointLight(color);
 	}-*/;
-	public static native final Light SpotLight(int color)/*-{
+	public static native final Light PointLight(double color,double intensity )/*-{
+	return new $wnd.THREE.PointLight(color,intensity);
+	}-*/;
+	public static native final Light SpotLight(double color)/*-{
 	return new $wnd.THREE.SpotLight(color);
+	}-*/;
+	public static native final Light SpotLight(double color,double intensity)/*-{
+	return new $wnd.THREE.SpotLight(color,intensity);
 	}-*/;
 
 	public static native final DirectionalLight DirectionalLight(double color)/*-{

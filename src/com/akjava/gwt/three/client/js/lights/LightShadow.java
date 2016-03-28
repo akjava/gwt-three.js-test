@@ -67,12 +67,12 @@ this.bias = bias;
 }-*/;
 
 
-public final native double getDarkness()/*-{
-return this.darkness;
+public final  native double getRadius()/*-{
+return this.radius;
 }-*/;
 
-public final native void setDarkness(double darkness)/*-{
-this.darkness = darkness;
+public final  native void setRadius(double  param)/*-{
+this.radius=param;
 }-*/;
 
 
