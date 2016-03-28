@@ -1,4 +1,4 @@
-package com.akjava.gwt.three.client.js.extras.animation;
+package com.akjava.gwt.three.client.examples.animation;
 
 import com.akjava.gwt.three.client.gwt.boneanimation.AnimationData;
 import com.akjava.gwt.three.client.gwt.boneanimation.AnimationHierarchyItem;

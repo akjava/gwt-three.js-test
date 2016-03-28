@@ -35,21 +35,18 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
   
  */
-package com.akjava.gwt.three.client.js.extras.animation;
+package com.akjava.gwt.three.client.examples.animation;
 
 import com.akjava.gwt.three.client.gwt.boneanimation.AnimationData;
 import com.akjava.gwt.three.client.gwt.boneanimation.AnimationHierarchyItem;
+import com.akjava.gwt.three.client.gwt.boneanimation.AnimationKey;
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 
-/**
- * removed or renamed on r65?
- * @author aki
- *
- */
-public class AnimationMorphTarget extends JavaScriptObject{
-	protected AnimationMorphTarget() {
+
+public class KeyFrameAnimation extends JavaScriptObject{
+	protected KeyFrameAnimation() {
 	}
 
 public final native Object3D getRoot()/*-{
@@ -65,11 +62,9 @@ return this.data;
 
 
 
-
-public final native JsArray<AnimationHierarchyItem> getHierarchy()/*-{
+public final native JsArray<AnimationHierarchyItem>  getHierarchy()/*-{
 return this.hierarchy;
 }-*/;
-
 
 
 
@@ -118,13 +113,12 @@ this.loop = loop;
 }-*/;
 
 
-public final native double getInfluence()/*-{
-return this.influence;
+public final native boolean isJITCompile()/*-{
+return this.JITCompile;
 }-*/;
 
-public final native void setInfluence(double influence)/*-{
-this.influence = influence;
-}-*/;
+
+
 
 public final native void play(boolean loop,double startTimeMS)/*-{
 this.play(loop,startTimeMS);
@@ -141,6 +135,29 @@ this.stop();
 public final native void update(double deltaTimeMS)/*-{
 return this.update(deltaTimeMS);
 }-*/;
+
+/**
+ * i'm not sure
+ * @param type
+ * @param h
+ * @param key
+ * @return
+ */
+public final native AnimationKey getNextKeyWith(int type,int h,int key)/*-{
+return this.getNextKeyWith(type,h,key);
+}-*/;
+/**
+ * i'm not sure
+ * @param type
+ * @param h
+ * @param key
+ * @return
+ */
+public final native AnimationKey getPrevKeyWith(int type,int h,int key)/*-{
+return this.getPrevKeyWith(type,h,key);
+}-*/;
+
+
 
 
 }
