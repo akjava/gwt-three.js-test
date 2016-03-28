@@ -41,7 +41,11 @@ import com.akjava.gwt.three.client.js.extras.core.GWTCurve3;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.google.gwt.core.client.JsArray;
 
-
+/**
+ * @deprecated on r74
+ * @author aki
+ *
+ */
 public class ClosedSplineCurve3 extends GWTCurve3{
 	protected ClosedSplineCurve3() {
 	}
