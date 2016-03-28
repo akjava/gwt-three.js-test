@@ -64,8 +64,8 @@ public final native Object multiplyVector3(Vector3 vector)/*-{
 return this.multiplyVector3(vector);
 }-*/;
 
-public final native Quaternion slerp(Quaternion qb,double t)/*-{
-return this.slerp(qb,t);
+public static final native Quaternion slerp(Quaternion qb,double t)/*-{
+return $wnd.THREE.Quaternion.slerp(qb,t);
 }-*/;
 
 public final native boolean equals(Quaternion quaternion)/*-{
@@ -154,5 +154,9 @@ return this.toArray(array,offset);
 
 public final  native Quaternion clone()/*-{
 return this.clone();
+}-*/;
+
+public static final native Quaternion slerpFlat(JsArrayNumber dst,int dstOffset, JsArrayNumber src0,int srcOffset0,JsArrayNumber src1,int  srcOffset1,double t)/*-{
+return $wnd.THREE.Quaternion.slerpFlat(dst, dstOffset, src0, srcOffset0, src1, srcOffset1, t);
 }-*/;
 }

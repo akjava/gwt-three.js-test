@@ -292,6 +292,7 @@ return this.setFromMatrixScale(m);
 public final native Vector3 getColumnFromMatrix(int index,Matrix4 matrix)/*-{
 return this.getColumnFromMatrix(index,matrix);
 }-*/;
+
 public final native Vector3 setFromMatrixColumn(int index,Matrix4 matrix)/*-{
 return this.setFromMatrixColumn(index,matrix);
 }-*/;
@@ -491,5 +492,8 @@ public final native Vector3 clampLength(double min,double max)/*-{
 return this.clampLength(min,max);
 }-*/;
 
+public final  native void setSetScalar(double  param)/*-{
+this.setScalar(param);
+}-*/;
 }
 

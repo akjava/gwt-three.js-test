@@ -110,5 +110,12 @@ public final native Sphere clone()/*-{
 return this.clone();
 }-*/;
 
+public final native boolean intersectsBox(Box3 box)/*-{
+return this.intersectsBox(box);
+}-*/;
+
+public final native boolean intersectsPlane(Plane plane)/*-{
+return this.intersectsPlane(plane);
+}-*/;
 
 }

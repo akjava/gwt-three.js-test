@@ -24,7 +24,7 @@ return this.copy(m);
  * @param m
  * @return
  */
-public final native Matrix4 extractPosition(Object m)/*-{
+public final native Matrix4 extractPosition(Matrix4 m)/*-{
 return this.extractPosition(m);
 }-*/;
 

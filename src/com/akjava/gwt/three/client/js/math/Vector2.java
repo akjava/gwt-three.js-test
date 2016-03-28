@@ -224,4 +224,12 @@ public final native Vector2 rotateAround(Vector2 center,double angle)/*-{
 return this.rotateAround(center,angle);
 }-*/;
 
+public final  native void setSetScalar(double  param)/*-{
+this.setScalar(param);
+}-*/;
+
+public final  native double angle()/*-{
+return this.angle();
+}-*/;
+
 }

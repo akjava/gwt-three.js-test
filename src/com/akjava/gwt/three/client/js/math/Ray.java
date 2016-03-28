@@ -101,8 +101,16 @@ public final native Vector3 intersectPlane(Plane plane,Vector3 optionalTarget)/*
 return this.intersectPlane(plane,optionalTarget);
 }-*/;
 
-public final native boolean isIntersectionBox(Box3 box)/*-{
-return this.isIntersectionBox(box);
+public final native boolean intersectsBox(Box3 box)/*-{
+return this.intersectsBox(box);
+}-*/;
+
+public final native boolean intersectsSphere(Sphere sphere)/*-{
+return this.intersectsSphere(sphere);
+}-*/;
+
+public final native boolean intersectsPlane(Plane plane)/*-{
+return this.intersectsPlane(plane);
 }-*/;
 
 public final native Vector3 intersectBox(Box3 box,Vector3 optionalTarget)/*-{
@@ -156,4 +164,9 @@ return this.clone();
 public final native double distanceSqToPoint(Vector3 point)/*-{
 return this.distanceSqToPoint(point);
 }-*/;
+
+public final  native void lookAt(Vector3 v)/*-{
+this.lookAt(v);
+}-*/;
+
 }

@@ -198,6 +198,10 @@ import com.akjava.gwt.three.client.js.math.Vector2;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.math.Vector4;
 import com.akjava.gwt.three.client.js.math.Vertex;
+import com.akjava.gwt.three.client.js.math.interpolants.CubicInterpolant;
+import com.akjava.gwt.three.client.js.math.interpolants.DiscreteInterpolant;
+import com.akjava.gwt.three.client.js.math.interpolants.LinearInterpolant;
+import com.akjava.gwt.three.client.js.math.interpolants.QuaternionLinearInterpolant;
 import com.akjava.gwt.three.client.js.objects.Bone;
 import com.akjava.gwt.three.client.js.objects.Group;
 import com.akjava.gwt.three.client.js.objects.LOD;
@@ -224,6 +228,7 @@ import com.akjava.gwt.three.client.js.textures.VideoTexture;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayBoolean;
+import com.google.gwt.core.client.JsArrayMixed;
 import com.google.gwt.core.client.JsArrayNumber;
 import com.google.gwt.core.client.JsArrayString;
 import com.google.gwt.dom.client.CanvasElement;
@@ -1722,6 +1727,19 @@ public class THREE {
 	
 	public static final native StereoCamera StereoCamera()/*-{
 	return new $wnd.THREE.StereoCamera();
+	}-*/;
+	
+	public static final native CubicInterpolant CubicInterpolant(JsArrayNumber parameterPositions,JsArrayMixed sampleValues,int sampleSize,JsArrayMixed resultBuffer )/*-{
+	return new $wnd.THREE.CubicInterpolant(parameterPositions, sampleValues, sampleSize, resultBuffer );
+	}-*/;
+	public static final native DiscreteInterpolant DiscreteInterpolant(JsArrayNumber parameterPositions,JsArrayMixed sampleValues,int sampleSize,JsArrayMixed resultBuffer )/*-{
+	return new $wnd.THREE.DiscreteInterpolant(parameterPositions, sampleValues, sampleSize, resultBuffer );
+	}-*/;
+	public static final native LinearInterpolant LinearInterpolant(JsArrayNumber parameterPositions,JsArrayMixed sampleValues,int sampleSize,JsArrayMixed resultBuffer )/*-{
+	return new $wnd.THREE.LinearInterpolant(parameterPositions, sampleValues, sampleSize, resultBuffer );
+	}-*/;
+	public static final native QuaternionLinearInterpolant QuaternionLinearInterpolant(JsArrayNumber parameterPositions,JsArrayMixed sampleValues,int sampleSize,JsArrayMixed resultBuffer )/*-{
+	return new $wnd.THREE.QuaternionLinearInterpolant(parameterPositions, sampleValues, sampleSize, resultBuffer );
 	}-*/;
 	
 }

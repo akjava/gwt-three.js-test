@@ -198,4 +198,8 @@ this.b=param;
 public final  native Color clone()/*-{
 return this.clone();
 }-*/;
+
+public final  native void setSetScalar(double  param)/*-{
+this.setScalar(param);
+}-*/;
 }

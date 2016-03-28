@@ -40,6 +40,7 @@ package com.akjava.gwt.three.client.js.math;
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
+import com.google.gwt.core.client.JsArrayNumber;
 
 
 public class Box3 extends Object3D{
@@ -91,8 +92,8 @@ public final native Box3 makeEmpty()/*-{
 return this.makeEmpty();
 }-*/;
 
-public final native boolean empty()/*-{
-return this.empty();
+public final native boolean isEmpty()/*-{
+return this.isEmpty();
 }-*/;
 
 public final native Vector3 center(Vector3 optionalTarget)/*-{
@@ -130,8 +131,8 @@ public final native Vector3 getParameter(Vector3 point,Vector3 optionalTarget)/*
 return this.getParameter(point,optionalTarget);
 }-*/;
 
-public final native boolean isIntersectionBox(Box3 box)/*-{
-return this.isIntersectionBox(box);
+public final native boolean intersectsBox(Box3 box)/*-{
+return this.intersectsBox(box);
 }-*/;
 
 public final native Vector3 clampPoint(Vector3 point,Vector3 optionalTarget)/*-{
@@ -170,5 +171,15 @@ public final  native Box3 clone()/*-{
 return this.clone();
 }-*/;
 
+public final native void setFromArray(JsArrayNumber array)/*-{
+this.setFromArray(array);
+}-*/;
 
+public final native boolean intersectsSphere(Sphere sphere)/*-{
+return this.intersectsSphere(sphere);
+}-*/;
+
+public final native boolean intersectsPlane(Plane plane)/*-{
+return this.intersectsPlane(plane);
+}-*/;
 }

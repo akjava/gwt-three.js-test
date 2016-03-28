@@ -82,6 +82,10 @@ public static final native double smootherstep(double x,double min,double max)/*
 return  $wnd.THREE.Math.smootherstep(x,min,max);
 }-*/;
 
+/**
+ * @deprecated
+ * @return
+ */
 public static final native double random16()/*-{
 return  $wnd.THREE.Math.random16();
 }-*/;

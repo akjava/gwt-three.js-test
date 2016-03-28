@@ -75,8 +75,8 @@ public final native Box2 makeEmpty()/*-{
 return this.makeEmpty();
 }-*/;
 
-public final native boolean empty()/*-{
-return this.empty();
+public final native boolean isEmpty()/*-{
+return this.isEmpty();
 }-*/;
 
 public final native Vector2 center(Vector2 optionalTarget)/*-{
@@ -114,8 +114,8 @@ public final native Vector2 getParameter(Vector2 point,Vector2 optionalTarget)/*
 return this.getParameter(point,optionalTarget);
 }-*/;
 
-public final native boolean isIntersectionBox(Box2 box)/*-{
-return this.isIntersectionBox(box);
+public final native boolean intersectsBox(Box2 box)/*-{
+return this.intersectsBox(box);
 }-*/;
 
 public final native Vector2 clampPoint(Vector2 point,Vector2 optionalTarget)/*-{
