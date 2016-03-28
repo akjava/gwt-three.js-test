@@ -386,10 +386,10 @@ public class THREE {
 	public static final native OctahedronGeometry OctahedronGeometry(double radius,int detail)/*-{
 	return new $wnd.THREE.OctahedronGeometry(radius, detail);
 	}-*/;
-	public static final native LatheGeometry LatheGeometry(JsArray<Vector3> points,int segments,double phiStart,double phiLength)/*-{
+	public static final native LatheGeometry LatheGeometry(JsArray<Vector2> points,int segments,double phiStart,double phiLength)/*-{
 	return new $wnd.THREE.LatheGeometry(points, segments, phiStart, phiLength);
 	}-*/;
-	public static final native LatheGeometry LatheGeometry(JsArray<Vector3> points,int segments)/*-{
+	public static final native LatheGeometry LatheGeometry(JsArray<Vector2> points,int segments)/*-{
 	return new $wnd.THREE.LatheGeometry(points, segments);
 	}-*/;
 	public static final native IcosahedronGeometry IcosahedronGeometry(double radius,int detail)/*-{

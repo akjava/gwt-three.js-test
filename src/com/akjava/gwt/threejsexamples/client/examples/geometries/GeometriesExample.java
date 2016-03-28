@@ -10,7 +10,7 @@ import com.akjava.gwt.three.client.js.core.Object3D;
 import com.akjava.gwt.three.client.js.extras.ImageUtils;
 import com.akjava.gwt.three.client.js.lights.DirectionalLight;
 import com.akjava.gwt.three.client.js.materials.MeshLambertMaterial;
-import com.akjava.gwt.three.client.js.math.Vector3;
+import com.akjava.gwt.three.client.js.math.Vector2;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.three.client.js.textures.Texture;
@@ -123,11 +123,11 @@ public class GeometriesExample extends AbstractExample{
 		object.getPosition().set( 400, 0, 0 );//object.position.set( 400, 0, 0 );
 		scene.add( object );
 		
-		JsArray<Vector3> points = JavaScriptObject.createArray().cast();
+		JsArray<Vector2> points = JavaScriptObject.createArray().cast();
 
 		for ( int i = 0; i < 50; i ++ ) {
 
-		points.push( THREE.Vector3( Math.sin( i * 0.2 ) * Math.sin( i * 0.1 ) * 15 + 50, 0, ( i - 5 ) * 2 ) );//points.push( new THREE.Vector3( Math.sin( i * 0.2 ) * Math.sin( i * 0.1 ) * 15 + 50, 0, ( i - 5 ) * 2 ) );
+		points.push( THREE.Vector2( Math.sin( i * 0.2 ) * Math.sin( i * 0.1 ) * 15 + 50,  ( i - 5 ) * 2 ) );//points.push( new THREE.Vector3( Math.sin( i * 0.2 ) * Math.sin( i * 0.1 ) * 15 + 50, 0, ( i - 5 ) * 2 ) );
 
 		}
 	

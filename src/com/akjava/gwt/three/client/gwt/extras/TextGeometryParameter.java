@@ -1,4 +1,4 @@
-package com.akjava.gwt.three.client.examples.gwt.geometries;
+package com.akjava.gwt.three.client.gwt.extras;
 
 import com.akjava.gwt.three.client.gwt.JSParameter;
 

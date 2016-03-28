@@ -1,8 +1,8 @@
 package com.akjava.gwt.three.client.gwt;
 
-import com.akjava.gwt.three.client.examples.gwt.geometries.TextGeometryParameter;
 import com.akjava.gwt.three.client.gwt.core.MorphTarget;
 import com.akjava.gwt.three.client.gwt.core.Offset;
+import com.akjava.gwt.three.client.gwt.extras.TextGeometryParameter;
 import com.akjava.gwt.three.client.gwt.materials.LineBasicMaterialParameter;
 import com.akjava.gwt.three.client.gwt.materials.MeshBasicMaterialParameter;
 import com.akjava.gwt.three.client.gwt.materials.MeshLambertMaterialParameter;
