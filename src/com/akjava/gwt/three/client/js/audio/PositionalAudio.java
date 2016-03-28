@@ -36,7 +36,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
   
  */
-package com.akjava.gwt.three.client.js.core.audio;
+package com.akjava.gwt.three.client.js.audio;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
