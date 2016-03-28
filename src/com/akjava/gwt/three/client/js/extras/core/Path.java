@@ -82,11 +82,11 @@ this.ellipse( aX, aY, xRadius, yRadius,aStartAngle, aEndAngle, aClockwise);
 public final native void absellipse(double   aX,double aY,double xRadius,double yRadius,double aStartAngle,double aEndAngle,boolean aClockwise)/*-{
 this.absellipse( aX, aY, xRadius, yRadius, aStartAngle, aEndAngle, aClockwise);
 }-*/;
-public final native JsArray<XYZObject> getSpacedPoints(int divisions,boolean closedPath)/*-{
-return this.getSpacedPoints( divisions, closedPath);
+public final native JsArray<Vector2> getSpacedPoints(int divisions)/*-{
+return this.getSpacedPoints( divisions);
 }-*/;
-public final native JsArray<XYZObject> getPoints(int divisions,boolean closedPath)/*-{
-this.getPoints( divisions, closedPath);
+public final native JsArray<Vector2> getPoints(int divisions)/*-{
+this.getPoints( divisions);
 }-*/;
 public final native JsArray<Shape> toShapes(boolean isCCW)/*-{
 this.getPoints(  isCCW);

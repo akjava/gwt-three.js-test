@@ -1,6 +1,7 @@
 package com.akjava.gwt.threejsexamples.client.examples.animation.skinning;
 
 import com.akjava.gwt.stats.client.Stats;
+import com.akjava.gwt.three.client.examples.animation.AnimationHandler;
 import com.akjava.gwt.three.client.gwt.GWTParamUtils;
 import com.akjava.gwt.three.client.gwt.boneanimation.AnimationData;
 import com.akjava.gwt.three.client.gwt.boneanimation.AnimationHierarchyItem;
@@ -14,7 +15,6 @@ import com.akjava.gwt.three.client.js.cameras.PerspectiveCamera;
 import com.akjava.gwt.three.client.js.core.BufferGeometry;
 import com.akjava.gwt.three.client.js.core.Clock;
 import com.akjava.gwt.three.client.js.core.Geometry;
-import com.akjava.gwt.three.client.js.extras.animation.AnimationHandler;
 import com.akjava.gwt.three.client.js.extras.helpers.SkeletonHelper;
 import com.akjava.gwt.three.client.js.lights.DirectionalLight;
 import com.akjava.gwt.three.client.js.lights.Light;
