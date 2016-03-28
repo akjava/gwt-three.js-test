@@ -1,4 +1,4 @@
-package com.akjava.gwt.three.client.js.extras.core;
+package com.akjava.gwt.three.client.js.extras;
 
 public class CurveUtils {
 

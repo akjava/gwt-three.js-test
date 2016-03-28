@@ -8,6 +8,11 @@ import com.google.gwt.dom.client.NativeEvent;
 import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.user.client.ui.Image;
 
+/**
+ * @deprecated gone on r74
+ * @author aki
+ *
+ */
 public class ImageUtils extends JavaScriptObject{
 protected ImageUtils(){}
 
