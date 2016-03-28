@@ -71,7 +71,7 @@ protected Object3D(){}
 	this.rotation=rotation;
 	}-*/;
 	
-	public final native Channels getChannels()/*-{
+	public final native Layers getChannels()/*-{
 	return this.channels;
 	}-*/;
 
@@ -401,10 +401,15 @@ public final native Object3D rotateZ(double angle)/*-{
 return this.rotateZ(angle);
 }-*/;
 
-public final native Object3D translateOnAxis()/*-{
-return this.translateOnAxis();
+public final native Object3D translateOnAxis(Vector3 axis,double distance)/*-{
+return this.translateOnAxis(axis,distance);
 }-*/;
-
+/**
+ * @deprecated
+ * @param distance
+ * @param axis
+ * @return
+ */
 public final native Object3D translate(double distance,Vector3 axis)/*-{
 return this.translate(distance,axis);
 }-*/;

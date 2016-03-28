@@ -2,8 +2,8 @@ package com.akjava.gwt.three.client.js.core;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
-public class Channels extends JavaScriptObject{
-	protected Channels(){}
+public class Layers extends JavaScriptObject{
+	protected Layers(){}
 	
 	public final native double getMask()/*-{
 	this.mask;

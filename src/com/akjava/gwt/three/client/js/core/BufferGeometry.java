@@ -156,8 +156,8 @@ this.addDrawCall(start,count,indexOffset);
 }-*/;
 
 
-public final native void addAttribute(String name,BufferAttribute attribute)/*-{
-this.addAttribute(name,attribute);
+public final native BufferGeometry addAttribute(String name,BufferAttribute attribute)/*-{
+return this.addAttribute(name,attribute);
 }-*/;
 
 public final native BufferAttribute getAttribute(String name)/*-{
@@ -248,4 +248,9 @@ this.scale(x,y,z);
 public final native void lookAt(Vector3 vector)/*-{
 this.lookAt(vector);
 }-*/;
+
+public final  native BufferGeometry toNonIndexed()/*-{
+return this.toNonIndexed();
+}-*/;
+
 }
