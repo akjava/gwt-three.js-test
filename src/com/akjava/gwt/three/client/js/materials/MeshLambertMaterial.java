@@ -124,17 +124,11 @@ public final native void setMap(WebGLRenderTarget map)/*-{
 this.map = map;
 }-*/;
 
-/**
- * @deprecated on r72
- * @param wrapAround
- */
+
 public final native Texture getLightMap()/*-{
 return this.lightMap;
 }-*/;
-/**
- * @deprecated on r72
- * @param wrapAround
- */
+
 public final native void setLightMap(Texture lightMap)/*-{
 this.lightMap = lightMap;
 }-*/;
@@ -291,6 +285,43 @@ this.morphNormals = morphNormals;
 
 public final native MeshLambertMaterial copy(MeshLambertMaterial source)/*-{
 return this.copy(source);
+}-*/;
+
+
+public final  native double getLightMapIntensity()/*-{
+return this.lightMapIntensity;
+}-*/;
+
+public final  native void setLightMapIntensity(double  param)/*-{
+this.lightMapIntensity=param;
+}-*/;
+public final  native Texture getAoMap()/*-{
+return this.aoMap;
+}-*/;
+
+public final  native void setAoMap(Texture  param)/*-{
+this.aoMap=param;
+}-*/;
+public final  native double getAoMapIntensity()/*-{
+return this.aoMapIntensity;
+}-*/;
+
+public final  native void setAoMapIntensity(double  param)/*-{
+this.aoMapIntensity=param;
+}-*/;
+public final  native double getEmissiveIntensity()/*-{
+return this.emissiveIntensity;
+}-*/;
+
+public final  native void setEmissiveIntensity(double  param)/*-{
+this.emissiveIntensity=param;
+}-*/;
+public final  native Texture getEmissiveMap()/*-{
+return this.emissiveMap;
+}-*/;
+
+public final  native void setEmissiveMap(Texture  param)/*-{
+this.emissiveMap=param;
 }-*/;
 
 }

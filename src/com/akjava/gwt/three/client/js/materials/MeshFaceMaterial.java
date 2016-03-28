@@ -40,7 +40,7 @@ package com.akjava.gwt.three.client.js.materials;
 import com.google.gwt.core.client.JsArray;
 
 /**
- * 
+ * @deprecated
  * @author aki
  *
  */

@@ -100,10 +100,17 @@ this.shininess = shininess;
 }-*/;
 
 
+/**
+ * @deprecated on r74
+ * @return
+ */
 public final native boolean isMetal()/*-{
 return this.metal;
 }-*/;
-
+/**
+ * @deprecated on r74
+ * @return
+ */
 public final native void setMetal(boolean metal)/*-{
 this.metal = metal;
 }-*/;
@@ -372,4 +379,11 @@ public final  native void setEmissiveMap(Texture  param)/*-{
 this.emissiveMap=param;
 }-*/;
 
+public final  native double getEmissiveIntensity()/*-{
+return this.emissiveIntensity;
+}-*/;
+
+public final  native void setEmissiveIntensity(double  param)/*-{
+this.emissiveIntensity=param;
+}-*/;
 }

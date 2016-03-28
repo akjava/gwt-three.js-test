@@ -18,6 +18,7 @@ package com.akjava.gwt.threetest.client;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.akjava.gwt.three.client.gwt.materials.ShaderMaterialParameter;
 import com.akjava.gwt.three.client.java.utils.DShaderUtils;
 import com.akjava.gwt.three.client.java.utils.DUniformUtils;
 import com.akjava.gwt.three.client.java.utils.DShaderUtils.DShader;
@@ -88,10 +89,13 @@ private AnimationModel model;
 				uniforms.set("tDiffuse", ImageUtils.loadTexture("img/uv.png"));
 				uniforms.set("uNormalScale",1,1);
 				
-				Material material=THREE.ShaderMaterial().fragmentShader(shader.fragmentShader()).vertexShader(shader.vertexShader()).uniforms(uniforms).lights(true)
-						.morphTargets(false).build();
+				/*
+				Material material=ShaderMaterialParameter.create().fragmentShader(shader.fragmentShader()).vertexShader(shader.vertexShader())
+						//.uniforms(uniforms).lights(true)
+						.morphTargets(false);
+						*/
 				
-				model=new AnimationModel(geometry, material);
+				model=new AnimationModel(geometry, null); //TODO fix above if need
 				model.getObject3D().getScale().set( 15, 15, 15);
 				model.getObject3D().getPosition().set(0, -100, 0);
 				scene.add(model.getObject3D());

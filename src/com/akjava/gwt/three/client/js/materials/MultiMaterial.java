@@ -37,80 +37,54 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.materials;
 
-import com.akjava.gwt.three.client.js.math.Color;
+import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArray;
+import com.google.gwt.json.client.JSONObject;
 
-
-
-public class LineBasicMaterial extends Material{
-	protected LineBasicMaterial() {
+/**
+ * 
+ * @author aki
+ *
+ */
+public class MultiMaterial extends JavaScriptObject{
+	protected MultiMaterial() {
 	}
-
-
-	public final native void setColor(Color c)/*-{
-	this.color=c;
+	
+	public final native String getType()/*-{
+	return this.type;
 	}-*/;
 
-	public final native Color getColor()/*-{
-	return this.color;
+	public final native String getUuid()/*-{
+	return this.uuid;
+	}-*/;
+	public final native void setUuid(String uuid)/*-{
+	this.uuid = uuid;
+	}-*/;
+	
+	public final  native boolean getVisible()/*-{
+	return this.visible;
 	}-*/;
 
-public final native double getLinewidth()/*-{
-return this.linewidth;
+	public final  native void setVisible(boolean  param)/*-{
+	this.visible=param;
+	}-*/;
+	
+
+public final native JsArray<Material> getMaterials()/*-{
+return this.materials;
 }-*/;
 
-public final native void setLinewidth(double linewidth)/*-{
-this.linewidth = linewidth;
-}-*/;
-
-
-public final native String getLinecap()/*-{
-return this.linecap;
-}-*/;
-
-public final native void setLinecap(String linecap)/*-{
-this.linecap = linecap;
+public final native void setMaterials(JsArray<Material> materials)/*-{
+this.materials = materials;
 }-*/;
 
 
-public final native String getLinejoin()/*-{
-return this.linejoin;
-}-*/;
-
-public final native void setLinejoin(String linejoin)/*-{
-this.linejoin = linejoin;
-}-*/;
-
-
-public final native boolean isVertexColors()/*-{
-return this.vertexColors;
-}-*/;
-
-public final native void setVertexColors(boolean vertexColors)/*-{
-this.vertexColors = vertexColors;
-}-*/;
-
-
-public final native boolean isFog()/*-{
-return this.fog;
-}-*/;
-
-public final native void setFog(boolean fog)/*-{
-this.fog = fog;
-}-*/;
-
-
-public final native LineBasicMaterial copy(LineBasicMaterial source)/*-{
+public final native MultiMaterial copy(MultiMaterial source)/*-{
 return this.copy(source);
 }-*/;
 
-public final  native int getVertexColors()/*-{
-return this.vertexColors;
-}-*/;
-
-//vertexColors: THREE.NoColors / THREE.FaceColors / THREE.VertexColors
-
-public final  native void setVertexColors(int  param)/*-{
-this.vertexColors=param;
+public final native JSONObject toJSON()/*-{
+return this.toJSON();
 }-*/;
 
 }

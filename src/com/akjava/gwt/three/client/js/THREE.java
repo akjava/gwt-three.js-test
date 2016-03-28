@@ -52,7 +52,6 @@ import com.akjava.gwt.three.client.java.LineBasicMaterialBuilder;
 import com.akjava.gwt.three.client.java.MeshBasicMaterialBuilder;
 import com.akjava.gwt.three.client.java.MeshLambertMaterialBuilder;
 import com.akjava.gwt.three.client.java.ParticleBasicMaterialBuilder;
-import com.akjava.gwt.three.client.java.ShaderMaterialBuilder;
 import com.akjava.gwt.three.client.js.animation.AnimationClip;
 import com.akjava.gwt.three.client.js.animation.AnimationMixer;
 import com.akjava.gwt.three.client.js.animation.AnimationObjectGroup;
@@ -176,7 +175,9 @@ import com.akjava.gwt.three.client.js.materials.MeshFaceMaterial;
 import com.akjava.gwt.three.client.js.materials.MeshLambertMaterial;
 import com.akjava.gwt.three.client.js.materials.MeshNormalMaterial;
 import com.akjava.gwt.three.client.js.materials.MeshPhongMaterial;
+import com.akjava.gwt.three.client.js.materials.MultiMaterial;
 import com.akjava.gwt.three.client.js.materials.PointsMaterial;
+import com.akjava.gwt.three.client.js.materials.RawShaderMaterial;
 import com.akjava.gwt.three.client.js.materials.ShaderMaterial;
 import com.akjava.gwt.three.client.js.materials.SpriteCanvasMaterial;
 import com.akjava.gwt.three.client.js.materials.SpriteMaterial;
@@ -978,12 +979,26 @@ public class THREE {
 	}
 	
 	
-	
+	/**
+	 * @deprecated
+	 * @return
+	 */
 	public static native final MeshFaceMaterial MeshFaceMaterial()/*-{
 	return new $wnd.THREE.MeshFaceMaterial();
 	}-*/;
+	/**
+	 * @deprecated
+	 * @return
+	 */
 	public static native final MeshFaceMaterial MeshFaceMaterial(JsArray<Material> materials)/*-{
 	return new $wnd.THREE.MeshFaceMaterial(materials);
+	}-*/;
+	
+	public static native final MultiMaterial MultiMaterial()/*-{
+	return new $wnd.THREE.MultiMaterial();
+	}-*/;
+	public static native final MultiMaterial MultiMaterial(JsArray<Material> materials)/*-{
+	return new $wnd.THREE.MultiMaterial(materials);
 	}-*/;
 	
 	/**
@@ -997,11 +1012,11 @@ public class THREE {
 	
 
 	
+	public static native final RawShaderMaterial RawShaderMaterial(JavaScriptObject parameter)/*-{
+	return new $wnd.THREE.RawShaderMaterial(parameter);
+	}-*/;
 	
-	
-	public static  final ShaderMaterialBuilder ShaderMaterial(){
-		return ShaderMaterialBuilder.create();
-	}
+
 	
 	
 	public static native final Vector2 Vector2(double x,double y)/*-{
