@@ -46,18 +46,12 @@ public class JSONLoader extends Loader{
 	}-*/;
 	
 	public final native void load(String path,JSONLoadHandler handler)/*-{
-	if(texturePath==null){
-		texturePath=undefined;
-	}
 	this.load(path,function ( geometry,materials ) {
 		handler.@com.akjava.gwt.three.client.js.loaders.JSONLoader$JSONLoadHandler::loaded(Lcom/akjava/gwt/three/client/js/core/Geometry;Lcom/google/gwt/core/client/JsArray;)(geometry,materials);
-		},texturePath);
+		});
 	}-*/;
 	
 	public final native void load(String path,JSONLoadHandler handler,XHRProgressHandler progressHandler,XHRErrorHandler errorHandler)/*-{
-	if(texturePath==null){
-		texturePath=undefined;
-	}
 	this.load(path,function ( geometry,materials ) {
 		handler.@com.akjava.gwt.three.client.js.loaders.JSONLoader$JSONLoadHandler::loaded(Lcom/akjava/gwt/three/client/js/core/Geometry;Lcom/google/gwt/core/client/JsArray;)(geometry,materials);
 		},function ( onProgress ) {
@@ -67,9 +61,6 @@ public class JSONLoader extends Loader{
 		});
 	}-*/;
 	public final native void load(String path,JSONLoadHandler handler,XHRProgressHandler progressHandler)/*-{
-	if(texturePath==null){
-		texturePath=undefined;
-	}
 	this.load(path,function ( geometry,materials ) {
 		handler.@com.akjava.gwt.three.client.js.loaders.JSONLoader$JSONLoadHandler::loaded(Lcom/akjava/gwt/three/client/js/core/Geometry;Lcom/google/gwt/core/client/JsArray;)(geometry,materials);
 		},function ( onProgress ) {

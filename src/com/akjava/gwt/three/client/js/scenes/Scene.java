@@ -88,6 +88,9 @@ this.autoUpdate = autoUpdate;
 public final native Scene copy(Scene object)/*-{
 return this.copy(object);
 }-*/;
+public final native Scene copy(Scene object,boolean recursive)/*-{
+return this.copy(object,recursive);
+}-*/;
 
 public final native Scene clone()/*-{
 return this.clone();
