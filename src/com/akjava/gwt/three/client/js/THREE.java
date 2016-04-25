@@ -607,6 +607,10 @@ public class THREE {
 	return  new $wnd.THREE.MeshBasicMaterial(parameter);
 	}-*/;
 	
+	public static  native final MeshBasicMaterial MeshBasicMaterial()/*-{
+	return  new $wnd.THREE.MeshBasicMaterial();
+	}-*/;
+	
 	public static  native final LineDashedMaterial LineDashedMaterial(JavaScriptObject parameter)/*-{
 	return  new $wnd.THREE.LineDashedMaterial(parameter);
 	}-*/;
@@ -973,15 +977,8 @@ public class THREE {
 	
 
 	
-	public static  final MeshBasicMaterialBuilder MeshBasicMaterial(){
-		return MeshBasicMaterialBuilder.create();
-	}
-	public static  final MeshLambertMaterialBuilder MeshLambertMaterial(){
-		return MeshLambertMaterialBuilder.create();
-	}
-	public static  final ParticleBasicMaterialBuilder ParticleBasicMaterial(){
-		return ParticleBasicMaterialBuilder.create();
-	}
+
+
 	
 	
 	/**
@@ -1002,6 +999,18 @@ public class THREE {
 	public static native final MultiMaterial MultiMaterial()/*-{
 	return new $wnd.THREE.MultiMaterial();
 	}-*/;
+	
+	/**
+	 * 
+	 * @param materials
+	 * create array via JavaScriptUtils.createJSArray() or Uncaught TypeError: Cannot read property 'visible' of undefined
+	 * 
+	 * it changed empty this line "materials instanceof Array ? "
+	 * 
+	 * & kep size called materialIndex
+	 * 
+	 * @return
+	 */
 	public static native final MultiMaterial MultiMaterial(JsArray<Material> materials)/*-{
 	return new $wnd.THREE.MultiMaterial(materials);
 	}-*/;
@@ -1649,7 +1658,7 @@ public class THREE {
 
 
 	
-	public static final native AnimationClip AnimationClip(String name,double duration, JsArray<KeyframeTrack> tracks)/*-{
+	public static final native AnimationClip AnimationClip(String name,double duration, JsArray<? extends KeyframeTrack> tracks)/*-{
 	return new $wnd.THREE.AnimationClip( name, duration, tracks);
 	}-*/;
 	
@@ -1668,6 +1677,10 @@ public class THREE {
 	 * key fram tracks support typeArray too
 	 */
 	public static final native BooleanKeyframeTrack BooleanKeyframeTrack(String name, JsArrayNumber times,JsArrayBoolean values)/*-{
+	//bug fixing
+	$wnd.THREE.IntepolateDiscrete=$wnd.THREE.InterpolateDiscrete;
+	$wnd.THREE.BooleanKeyframeTrack.prototype.DefaultInterpolation=$wnd.THREE.InterpolateDiscrete;
+	
 	return new $wnd.THREE.BooleanKeyframeTrack(name, times,values );
 	}-*/;
 	public static final native ColorKeyframeTrack ColorKeyframeTrack(String name, JsArrayNumber times,JsArray<Color> values)/*-{
@@ -1684,9 +1697,15 @@ public class THREE {
 	return new $wnd.THREE.NumberKeyframeTrack(name, times,values ,interpolation);
 	}-*/;
 	public static final native StringKeyframeTrack StringKeyframeTrack(String name, JsArrayNumber times,JsArrayString values)/*-{
+	$wnd.THREE.IntepolateDiscrete=$wnd.THREE.InterpolateDiscrete;
+	$wnd.THREE.StringKeyframeTrack.prototype.DefaultInterpolation=$wnd.THREE.InterpolateDiscrete;
+	
 	return new $wnd.THREE.StringKeyframeTrack(name, times,values );
 	}-*/;
 	public static final native StringKeyframeTrack StringKeyframeTrack(String name, JsArrayNumber times,JsArrayString values,int interpolation)/*-{
+	$wnd.THREE.IntepolateDiscrete=$wnd.THREE.InterpolateDiscrete;
+	$wnd.THREE.StringKeyframeTrack.prototype.DefaultInterpolation=$wnd.THREE.InterpolateDiscrete;
+	
 	return new $wnd.THREE.StringKeyframeTrack(name, times,values ,interpolation);
 	}-*/;
 	

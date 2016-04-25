@@ -60,18 +60,18 @@ private Mesh mesh;
 		
 		
 		
-		final Mesh root=THREE.Mesh(THREE.PlaneBufferGeometry(8, 8), THREE.MeshBasicMaterial().color(0xff0000).wireFrame().build());
+		final Mesh root=THREE.Mesh(THREE.PlaneBufferGeometry(8, 8), THREEDep.MeshBasicMaterial().color(0xff0000).wireFrame().build());
 		scene.add(root);
 		mesh=root;
 		
 		for(int x=0;x<4;x++){
 			for(int y=0;y<4;y++){
-		Mesh plain=THREE.Mesh(THREE.PlaneBufferGeometry(4, 4), THREE.MeshBasicMaterial().color(0x00ff00).build());
+		Mesh plain=THREE.Mesh(THREE.PlaneBufferGeometry(4, 4), THREEDep.MeshBasicMaterial().color(0x00ff00).build());
 		root.add(plain);
 		plain.setPosition(-2+x*4, -2+y*4,0);
 		plain.setReceiveShadow(true);
 		
-		Mesh box=THREE.Mesh(THREE.BoxGeometry(2, 2, 4), THREE.MeshLambertMaterial().color(0x0000ff).build());
+		Mesh box=THREE.Mesh(THREE.BoxGeometry(2, 2, 4), THREEDep.MeshLambertMaterial().color(0x0000ff).build());
 		box.setCastShadow(true);
 		plain.add(box);
 		box.setPosition(1,1, 2);

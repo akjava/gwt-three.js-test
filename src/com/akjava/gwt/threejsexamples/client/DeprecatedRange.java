@@ -35,9 +35,15 @@ import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 /*
+ * 
  * @deprecated original is in html5 range
  */
-public class Range extends Widget implements HasName,HasValue<Number>, IsEditor<LeafValueEditor<Number>> {
+/**
+ * @deprecated
+ * @author aki
+ *
+ */
+public class DeprecatedRange extends Widget implements HasName,HasValue<Number>, IsEditor<LeafValueEditor<Number>> {
 
   /**
    * Creates a range widget that wraps an existing &lt;input type='range'&gt;
@@ -49,11 +55,11 @@ public class Range extends Widget implements HasName,HasValue<Number>, IsEditor<
    * 
    * @param element the element to be wrapped
    */
-  public static Range wrap(Element element) {
+  public static DeprecatedRange wrap(Element element) {
     // Assert that the element is attached.
     assert Document.get().getBody().isOrHasChild(element);
 
-    Range range = new Range(element);
+    DeprecatedRange range = new DeprecatedRange(element);
 
     // Mark it attached and remember it for cleanup.
     range.onAttach();
@@ -66,7 +72,7 @@ public class Range extends Widget implements HasName,HasValue<Number>, IsEditor<
 	  addChangeHandler(new ChangeHandler() {
 		@Override
 		public void onChange(ChangeEvent event) {
-			 ValueChangeEvent.fire(Range.this, getValue());
+			 ValueChangeEvent.fire(DeprecatedRange.this, getValue());
 		}
 	});
 	  
@@ -82,7 +88,7 @@ public class Range extends Widget implements HasName,HasValue<Number>, IsEditor<
   /**
    * Constructor for <code>range</code>.
    */
-  public Range() {
+  public DeprecatedRange() {
 	  InputElement input=Document.get().createHiddenInputElement();
 	  input.setAttribute("type", "range");
 	  setElement(input);
@@ -93,7 +99,7 @@ public class Range extends Widget implements HasName,HasValue<Number>, IsEditor<
    * 
    * @param name name of the hidden field
    */
-  public Range(String name) {
+  public DeprecatedRange(String name) {
     this();
     setName(name);
   }
@@ -104,14 +110,14 @@ public class Range extends Widget implements HasName,HasValue<Number>, IsEditor<
    * @param name name of the hidden field
    * @param value value of the hidden field
    */
-  public Range(String name, Number min,Number max,Number step) {
+  public DeprecatedRange(String name, Number min,Number max,Number step) {
     this(name);
     //setValue(value);
     getInputElement().setAttribute("min", String.valueOf(min));
     getInputElement().setAttribute("max", String.valueOf(max));
     getInputElement().setAttribute("step", String.valueOf(step));
   }
-  public Range(String name, Number min,Number max){
+  public DeprecatedRange(String name, Number min,Number max){
 	  this(name,min,max,1);
   }
 		  
@@ -123,7 +129,7 @@ public class Range extends Widget implements HasName,HasValue<Number>, IsEditor<
    * 
    * @param element the element to be used
    */
-  protected Range(Element element) {
+  protected DeprecatedRange(Element element) {
     assert InputElement.as(element).getType().equalsIgnoreCase("range");
     setElement(element);
   }

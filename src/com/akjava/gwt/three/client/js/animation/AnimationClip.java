@@ -59,7 +59,7 @@ this.name = name;
 }-*/;
 
 
-public final native JsArray<KeyframeTrack> getTracks()/*-{
+public final native JsArray<? extends KeyframeTrack> getTracks()/*-{
 return this.tracks;
 }-*/;
 

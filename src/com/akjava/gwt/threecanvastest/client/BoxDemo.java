@@ -49,7 +49,7 @@ public class BoxDemo extends AbstractDemo{
 		//ie canvas need overdraw 
 		
 		final Mesh mesh=THREE.Mesh(THREE.BoxGeometry(5, 5, 5), 
-				THREE.MeshLambertMaterial().color(0xff0000).overdraw(true).build());
+				THREEDep.MeshLambertMaterial().color(0xff0000).overdraw(true).build());
 		scene.add(mesh);
 		
 		final Light light=THREE.PointLight(0xffffff);

@@ -99,10 +99,7 @@ public final class MeshPhongMaterialParameter extends JSParameter{
 	return this;
 	}-*/;
 	
-	public final native MeshPhongMaterialParameter shiness(double shiness)/*-{
-	this.shiness=shiness;
-	return this;
-	}-*/;
+
 
 
 
@@ -301,6 +298,11 @@ public final class MeshPhongMaterialParameter extends JSParameter{
 	
 	public final native MeshPhongMaterialParameter displacementMap(Texture displacementMap)/*-{
 	this.displacementMap=displacementMap;
+	return this;
+	}-*/;
+	
+	public final native MeshBasicMaterialParameter visible(boolean visible)/*-{
+	this.visible=visible;
 	return this;
 	}-*/;
 }

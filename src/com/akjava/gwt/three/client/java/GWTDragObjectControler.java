@@ -6,6 +6,7 @@ package com.akjava.gwt.three.client.java;
  */
 import com.akjava.gwt.lib.client.JavaScriptUtils;
 import com.akjava.gwt.lib.client.LogUtils;
+import com.akjava.gwt.three.client.gwt.GWTParamUtils;
 import com.akjava.gwt.three.client.gwt.core.Intersect;
 import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
 import com.akjava.gwt.three.client.js.THREE;
@@ -29,8 +30,12 @@ public Mesh getMouseCatchPlane() {
 
 public GWTDragObjectControler(Scene scene){
 	//maybe should black&transparent like js-sample
-	mouseCatchPlane=THREE.Mesh(THREE.PlaneBufferGeometry(2000, 2000, 10, 10), THREE.MeshBasicMaterial().color(0x00ffff).wireFrame().build());
-	mouseCatchPlane.setVisible(false);
+	mouseCatchPlane=THREE.Mesh(THREE.PlaneBufferGeometry(2000, 2000, 10, 10), THREE.MeshBasicMaterial(
+			GWTParamUtils.MeshBasicMaterial().color(0x00ffff).wireframe(true)
+			.visible(false) //set visible false here,to keep live raycast check
+			));
+	
+	//mouseCatchPlane.setVisible(false); //don't set visible false.now raycast check only visible objects.
 	scene.add(mouseCatchPlane);
 }
 
@@ -184,6 +189,7 @@ public String getLog() {
 }
 public void selectObject(Object3D target,int mouseX,int mouseY,int screenWidth, int screenHeight,Camera camera){
 	try{
+	
 	selectedDraggablekObject=target;
 	Raycaster ray=createRaycaster(mouseX, mouseY, screenWidth, screenHeight, camera);
 	
@@ -194,12 +200,30 @@ public void selectObject(Object3D target,int mouseX,int mouseY,int screenWidth, 
 	//mouseClickCatcher.getRotation().copy(rotation);
 	
 	
+	
 	selectedDraggablekObject.updateMatrixWorld(true);
+	
+	
 	mouseCatchPlane.getPosition().copy( GWTThreeUtils.toPositionVec(selectedDraggablekObject.getMatrixWorld()) );
+	
+	
 	mouseCatchPlane.updateMatrixWorld(true);//very important
 	
+	
 	JsArray<Intersect> pintersects=ray.intersectObject(mouseCatchPlane);
+	LogUtils.log(pintersects.length());
+	
+	if(pintersects.length()==0){
+		LogUtils.log("visible?:"+mouseCatchPlane.isVisible());
+		return;
+	}
+	
+	/*
+	 * new raycaster cant handle unvisible objects
+	 */
+	
 	draggableOffset.copy(pintersects.get(0).getPoint()).subSelf(mouseCatchPlane.getPosition());
+	
 	/*
 	 * make a problem?
 	if(draggableOffset.getX()<0.0001){

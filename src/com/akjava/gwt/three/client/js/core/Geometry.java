@@ -66,7 +66,7 @@ return this.vertices;
 }-*/;
 
 /**
- * should call computeBoundingBox
+ * must call first computeBoundingBox() or Uncaught TypeError: Cannot read property 'min' of null
  * @return
  */
 public final native BoundingBox getBoundingBox()/*-{	
@@ -246,7 +246,12 @@ public final native JsArray<Vector4>  getSkinWeight()/*-{
 return this.skinWeights;
 }-*/;
 
-//maybe
+/*
+ * usually just 1 but possible multiple uvs.
+ * JsArray<JsArray<Vector2>> is same as faces
+ * JsArray<Vector2> is usually 3 point 
+ * Vector2 x,y point of texture
+ */
 public native final JsArray<JsArray<JsArray<Vector2>>> getFaceVertexUvs ()/*-{
 	return this["faceVertexUvs"];
 	//return this["faceVertexUvs"];

@@ -82,7 +82,7 @@ boid.setWorldSize( 500, 500, 400 );
 Bird b=(Bird) THREE.Geometry();
 b.init();
 
-Material material=THREE.MeshBasicMaterial().color(Math.random() * 0xffffff ).build() ;
+Material material=THREEDep.MeshBasicMaterial().color(Math.random() * 0xffffff ).build() ;
 bird = birds[ i ] = THREE.Mesh( b, 
 		material );
 

@@ -1,5 +1,6 @@
 package com.akjava.gwt.three.client.js.loaders;
 
+import com.akjava.gwt.three.client.gwt.loader.JSONLoaderObject;
 import com.akjava.gwt.three.client.js.core.Geometry;
 import com.akjava.gwt.three.client.js.loaders.XHRLoader.XHRErrorHandler;
 import com.akjava.gwt.three.client.js.loaders.XHRLoader.XHRProgressHandler;
@@ -77,8 +78,12 @@ public class JSONLoader extends Loader{
 	
 
 	//TODO implement class to easy access
-	public final native JavaScriptObject parse(JavaScriptObject json,String texturePath)/*-{
+	public final native JSONLoaderObject parse(JavaScriptObject json,String texturePath)/*-{
 	return this.parse(json,texturePath);
+	}-*/;
+	
+	public final native JSONLoaderObject parse(JavaScriptObject json)/*-{
+	return this.parse(json);
 	}-*/;
 	
 	/** @deprecated don't work anymore*/

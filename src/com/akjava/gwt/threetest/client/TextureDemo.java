@@ -50,9 +50,9 @@ private Timer timer;
 		
 		
 		Texture texture=ImageUtils.loadTexture(Bundles.INSTANCE.rock_texture());
-		Material material=THREE.MeshBasicMaterial().map(texture).build();
+		Material material=THREEDep.MeshBasicMaterial().map(texture).build();
 		
-		Material material2=THREE.MeshBasicMaterial().color(0x00ff00).wireFrame(true).build();
+		Material material2=THREEDep.MeshBasicMaterial().color(0x00ff00).wireFrame(true).build();
 		Material[] ms=new Material[]{
 				material2,material,material,material,material,material
 		};

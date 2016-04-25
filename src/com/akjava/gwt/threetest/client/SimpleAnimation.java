@@ -65,7 +65,7 @@ private long last;
 
 			@Override
 			public void loaded(Geometry geometry, JsArray<Material> ms) {
-				Material material=THREE.MeshLambertMaterial().color(0xffffff).morphTargets(true).map(ImageUtils.loadTexture("img/uv.png")).build();
+				Material material=THREEDep.MeshLambertMaterial().color(0xffffff).morphTargets(true).map(ImageUtils.loadTexture("img/uv.png")).build();
 				animMesh = THREE.MorphAnimMesh(geometry, material);
 				
 				animMesh.setDuration(1000*5); //5sec

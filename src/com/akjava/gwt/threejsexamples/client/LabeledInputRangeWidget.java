@@ -12,7 +12,7 @@ import com.google.gwt.user.client.ui.TextBox;
 
 public class LabeledInputRangeWidget extends HorizontalPanel{
 	
-		private Range range;
+		private DeprecatedRange range;
 		private TextBox textBox;
 		private Map<ValueChangeHandler<Number>,HandlerRegistration> registMap=new HashMap<ValueChangeHandler<Number>, HandlerRegistration>();
 		public LabeledInputRangeWidget(String name,Number min,Number max,Number step){
@@ -21,7 +21,7 @@ public class LabeledInputRangeWidget extends HorizontalPanel{
 			label.setAutoHorizontalAlignment(ALIGN_CENTER);
 			label.setWidth("120px");
 			add(label);
-			range = new Range(name,min,max,step);
+			range = new DeprecatedRange(name,min,max,step);
 			range.setWidth("140px");
 			add(range);
 			textBox = new TextBox();

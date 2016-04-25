@@ -6,11 +6,9 @@ import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.stats.client.Stats;
 import com.akjava.gwt.three.client.gwt.GWTParamUtils;
 import com.akjava.gwt.three.client.gwt.extras.Uniforms;
-import com.akjava.gwt.three.client.gwt.materials.ShaderMaterialParameter;
 import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.PerspectiveCamera;
-import com.akjava.gwt.three.client.js.extras.ImageUtils;
 import com.akjava.gwt.three.client.js.extras.geometries.BoxGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.ParametricGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.SphereGeometry;
@@ -91,31 +89,37 @@ public class ClothExample extends AbstractExample {
 		light.setCastShadow(true);
 		//light.shadowCameraVisible = true;
 
-		light.setShadowMapWidth(1024);
-		light.setShadowMapHeight(1024);
-
+		
+		//light.setShadowMapWidth(1024);
+		light.getShadow().getMapSize().setWidth(1024);
+		//light.setShadowMapHeight(1024);
+		light.getShadow().getMapSize().setHeight(1024);
 		double d = 300;
 
-		light.setShadowCameraLeft(-d);
-		light.setShadowCameraRight(d);
-		light.setShadowCameraTop(d);
-		light.setShadowCameraBottom(-d);
-
-		light.setShadowCameraFar(1000);
-		light.setShadowDarkness(0.5);
+		
+		//DirectionalLight return use OrthographicCamera;
+		
+		light.getShadow().getCamera().gwtCastOrthographicCamera().setLeft(-d);
+		light.getShadow().getCamera().gwtCastOrthographicCamera().setRight(d);
+		light.getShadow().getCamera().gwtCastOrthographicCamera().setTop(d);
+		light.getShadow().getCamera().gwtCastOrthographicCamera().setBottom(-d);
+		
+		light.getShadow().getCamera().gwtCastOrthographicCamera().setFar(1000);
+		
+		
 
 		scene.add( light );
 		
 		// cloth material
 
-		Texture clothTexture = ImageUtils.loadTexture( "textures/patterns/circuit_pattern.png" );
-		clothTexture.setWrapS(THREE.WrappingModes.RepeatWrapping());
-		clothTexture.setWrapT(THREE.WrappingModes.RepeatWrapping());
+		Texture clothTexture = THREE.TextureLoader().load( "textures/patterns/circuit_pattern.png" );
+		clothTexture.setWrapS(THREE.RepeatWrapping);
+		clothTexture.setWrapT(THREE.RepeatWrapping);
 		clothTexture.setAnisotropy(16);
 
 		MeshPhongMaterial clothMaterial = THREE.MeshPhongMaterial(
-				GWTParamUtils.MeshPhongMaterial().alphaTest(0.5).ambient(0xffffff).color(0xffffff).specular(0x030303).emissive(0x111111).shiness(10)
-				.map(clothTexture).side(THREE.Side.DoubleSide()));
+				GWTParamUtils.MeshPhongMaterial().alphaTest(0.5).color(0xffffff).specular(0x030303).emissive(0x111111).shininess(10)
+				.map(clothTexture).side(THREE.DoubleSide));
 
 		// cloth geometry
 		clothGeometry = THREE.ParametricGeometry( cloth.clothFunction, cloth.w, cloth.h );
@@ -156,9 +160,9 @@ public class ClothExample extends AbstractExample {
 		
 		// ground
 
-		Texture groundTexture = ImageUtils.loadTexture( "textures/terrain/grasslight-big.jpg" );//var groundTexture = THREE.ImageUtils.loadTexture( "textures/terrain/grasslight-big.jpg" );
-		groundTexture.setWrapS(THREE.WrappingModes.RepeatWrapping());//groundTexture.wrapS = groundTexture.wrapT = THREE.RepeatWrapping;
-		groundTexture.setWrapT(THREE.WrappingModes.RepeatWrapping());
+		Texture groundTexture = THREE.TextureLoader().load( "textures/terrain/grasslight-big.jpg" );//var groundTexture = THREE.ImageUtils.loadTexture( "textures/terrain/grasslight-big.jpg" );
+		groundTexture.setWrapS(THREE.RepeatWrapping);//groundTexture.wrapS = groundTexture.wrapT = THREE.RepeatWrapping;
+		groundTexture.setWrapT(THREE.RepeatWrapping);
 		groundTexture.getRepeat().set( 25, 25 );//groundTexture.repeat.set( 25, 25 );
 		groundTexture.setAnisotropy(16);//groundTexture.anisotropy = 16;
 		
@@ -173,7 +177,7 @@ public class ClothExample extends AbstractExample {
 		// poles
 
 		BoxGeometry poleGeo = THREE.BoxGeometry( 5, 375, 5 );//var poleGeo = new THREE.BoxGeometry( 5, 375, 5 );
-		MeshPhongMaterial poleMat = THREE.MeshPhongMaterial( GWTParamUtils.MeshPhongMaterial().color(0xffffff).specular(0x111111).shiness(100) );//var poleMat = new THREE.MeshPhongMaterial( { color: 0xffffff, specular: 0x111111, shiness: 100 } );
+		MeshPhongMaterial poleMat = THREE.MeshPhongMaterial( GWTParamUtils.MeshPhongMaterial().color(0xffffff).specular(0x111111).shininess(100) );//var poleMat = new THREE.MeshPhongMaterial( { color: 0xffffff, specular: 0x111111, shiness: 100 } );
 
 		mesh = THREE.Mesh( poleGeo, poleMat );//var mesh = new THREE.Mesh( poleGeo, poleMat );
 		mesh.getPosition().setX(-125);//mesh.position.x = -125;
@@ -223,8 +227,8 @@ public class ClothExample extends AbstractExample {
 		renderer.setGammaInput(true);//renderer.gammaInput = true;
 		renderer.setGammaOutput(true);//renderer.gammaOutput = true;
 
-		renderer.setShadowMapEnabled(true);//renderer.shadowMapEnabled = true;
-
+		//renderer.setShadowMapEnabled(true);//renderer.shadowMapEnabled = true;
+		renderer.getShadowMap().setEnabled(true);
 		//
 
 		stats = Stats.create();

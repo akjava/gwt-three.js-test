@@ -89,4 +89,10 @@ public class Camera extends Object3D{
 	return this;
 	}-*/;
 	
+	public final native OrthographicCamera gwtCastOrthographicCamera()/*-{
+	return this;
+	}-*/;
+	
+	
+	
 }

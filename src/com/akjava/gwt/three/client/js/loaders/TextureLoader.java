@@ -54,24 +54,27 @@ public class TextureLoader extends JavaScriptObject{
 	public final native void setManager(LoadingManager manager)/*-{
 	this.manager = manager;
 	}-*/;
+	public final native Texture load(String url)/*-{
+	return this.load(url);
+	}-*/;
 
-	public final native void load(String url,TextureLoadHandler handler)/*-{
-	this.load(url,function ( texture ) {
+	public final native Texture load(String url,TextureLoadHandler handler)/*-{
+	return this.load(url,function ( texture ) {
 		handler.@com.akjava.gwt.three.client.js.loaders.TextureLoader$TextureLoadHandler::onLoad(Lcom/akjava/gwt/three/client/js/textures/Texture;)(texture);
 		}
 		);
 	}-*/;
 	
-	public final native void load(String url,TextureLoadHandler handler,XHRProgressHandler progressHandler)/*-{
-	this.load(url,function ( texture ) {
+	public final native Texture load(String url,TextureLoadHandler handler,XHRProgressHandler progressHandler)/*-{
+	return this.load(url,function ( texture ) {
 		handler.@com.akjava.gwt.three.client.js.loaders.TextureLoader$TextureLoadHandler::onLoad(Lcom/akjava/gwt/three/client/js/textures/Texture;)(texture);
 		},function ( onProgress ) {
 			progressHandler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRProgressHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
 			});
 	}-*/;
 
-	public final native void load(String url,TextureLoadHandler handler,XHRProgressHandler progressHandler,XHRErrorHandler errorHandler)/*-{
-	this.load(url,function ( texture ) {
+	public final native  Texture load(String url,TextureLoadHandler handler,XHRProgressHandler progressHandler,XHRErrorHandler errorHandler)/*-{
+	return this.load(url,function ( texture ) {
 		handler.@com.akjava.gwt.three.client.js.loaders.TextureLoader$TextureLoadHandler::onLoad(Lcom/akjava/gwt/three/client/js/textures/Texture;)(texture);
 		},function ( onProgress ) {
 			progressHandler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRProgressHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);

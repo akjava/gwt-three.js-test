@@ -141,11 +141,7 @@ public class HumanExample extends AbstractExample{
 		XHRLoader loader=THREE.XHRLoader();
 		loader.load("models/skinned/UCS_config.json", new XHRLoadHandler() {
 			
-			@Override
-			public void onProgress(NativeEvent progress) {
-				// TODO Auto-generated method stub
-				
-			}
+			
 			
 			@Override
 			public void onLoad(String text) {
@@ -155,10 +151,6 @@ public class HumanExample extends AbstractExample{
 				scene.add( character.getRoot() );
 			}
 			
-			@Override
-			public void onError(NativeEvent error) {
-				LogUtils.log(error);
-			}
 		});
 		
 		controls = THREEExp.OrbitControls( camera, renderer.getDomElement());//controls = new THREE.OrbitControls( camera, renderer.domElement );

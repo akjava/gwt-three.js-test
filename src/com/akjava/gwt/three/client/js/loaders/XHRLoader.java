@@ -57,11 +57,7 @@ public class XHRLoader extends Object3D{
 	this.load(url,function ( text ) {
 		handler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRLoadHandler::onLoad(Ljava/lang/String;)(text);
 		}
-		,function ( onProgress ) {
-		handler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRLoadHandler::onProgress(Lcom/google/gwt/dom/client/NativeEvent;)(onProgress);
-		},function ( onError ) {
-		handler.@com.akjava.gwt.three.client.js.loaders.XHRLoader$XHRLoadHandler::onError(Lcom/google/gwt/dom/client/NativeEvent;)(onError);
-		});
+		);
 }-*/;
 	public final native void load(String url,XHRLoadHandler loadHandler,XHRProgressHandler progressHandler)/*-{
 	this.load(url,function ( text ) {
@@ -113,16 +109,6 @@ public static interface XHRErrorHandler {
 
 public static interface XHRLoadHandler {
 	public void onLoad(String text);
-	/**
-	 * @deprecated
-	 * @param progress
-	 */
-	public void onProgress(NativeEvent progress);
-	/**
-	 * @deprecated
-	 * @param progress
-	 */
-	public void onError(NativeEvent error);
 }
 
 

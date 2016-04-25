@@ -37,16 +37,16 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.materials;
 
-import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.json.client.JSONObject;
 
 /**
  * 
+ * technically not material but for pass arg
  * @author aki
  *
  */
-public class MultiMaterial extends JavaScriptObject{
+public class MultiMaterial extends Material{
 	protected MultiMaterial() {
 	}
 	
@@ -54,20 +54,21 @@ public class MultiMaterial extends JavaScriptObject{
 	return this.type;
 	}-*/;
 
-	public final native String getUuid()/*-{
-	return this.uuid;
-	}-*/;
-	public final native void setUuid(String uuid)/*-{
-	this.uuid = uuid;
-	}-*/;
 	
-	public final  native boolean getVisible()/*-{
-	return this.visible;
-	}-*/;
+	//public final native String getUuid()/*-{
+	//return this.uuid;
+	//}-*/;
+	//public final native void setUuid(String uuid)/*-{
+	//this.uuid = uuid;
+	//}-*/;
+	
+	//public final  native boolean getVisible()/*-{
+	//return this.visible;
+	//}-*/;
 
-	public final  native void setVisible(boolean  param)/*-{
-	this.visible=param;
-	}-*/;
+	//public final  native void setVisible(boolean  param)/*-{
+	//this.visible=param;
+	//}-*/;
 	
 
 public final native JsArray<Material> getMaterials()/*-{

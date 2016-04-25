@@ -55,7 +55,7 @@ public class CameraOrthoGraphics extends AbstractDemo{
 		
 		
 		geometry = THREE.BoxGeometry( 50, 50, 50 );
-		Material material =  THREE.MeshLambertMaterial().color(0xffffff).overdraw(true).shading(THREE.Shading.FlatShading()).build();
+		Material material =  THREEDep.MeshLambertMaterial().color(0xffffff).overdraw(true).shading(THREE.Shading.FlatShading()).build();
 		
 		for ( int i = 0; i < 100; i ++ ) {
 

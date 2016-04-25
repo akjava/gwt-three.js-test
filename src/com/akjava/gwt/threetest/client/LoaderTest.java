@@ -119,8 +119,8 @@ private Object3D object;
 					Geometry geometry=(Geometry)(jsonObject.get("geometry").isObject().getJavaScriptObject());
 					
 					List<Material> materials=new ArrayList<Material>();
-					materials.add(THREE.MeshLambertMaterial().color(0x0000ff).build());
-					materials.add(THREE.MeshBasicMaterial().color(0x0).transparent(true).wireFrame().build());
+					materials.add(THREEDep.MeshLambertMaterial().color(0x0000ff).build());
+					materials.add(THREEDep.MeshBasicMaterial().color(0x0).transparent(true).wireFrame().build());
 					object=SceneUtils.createMultiMaterialObject(geometry, materials);
 					
 					

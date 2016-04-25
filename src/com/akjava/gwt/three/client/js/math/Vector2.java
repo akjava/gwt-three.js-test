@@ -232,4 +232,19 @@ public final  native double angle()/*-{
 return this.angle();
 }-*/;
 
+public final  native double getWidth()/*-{
+return this.width;
+}-*/;
+
+public final  native void setWidth(double  param)/*-{
+this.width=param;
+}-*/;
+public final  native double getHeight()/*-{
+return this.height;
+}-*/;
+
+public final  native void setHeight(double  param)/*-{
+this.height=param;
+}-*/;
+
 }

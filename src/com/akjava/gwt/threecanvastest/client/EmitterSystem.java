@@ -53,7 +53,7 @@ public class EmitterSystem {
 	
 	private double baseSize=50;
 	
-	private ParticleBasicMaterialBuilder baseMaterial=THREE.ParticleBasicMaterial().opacity(1).transparent(true).
+	private ParticleBasicMaterialBuilder baseMaterial=THREEDep.ParticleBasicMaterial().opacity(1).transparent(true).
 		depthTest(false).color(0x666666).size(baseSize).map(ImageUtils.loadTexture("img/particle2.png")).blending(THREE.Blending.NormalBlending());//
 	
 	

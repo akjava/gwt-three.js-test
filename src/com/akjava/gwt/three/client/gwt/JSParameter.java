@@ -2,6 +2,7 @@ package com.akjava.gwt.three.client.gwt;
 
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArrayNumber;
+import com.google.gwt.core.client.JsArrayString;
 
 /*
  * i'm not sure 
@@ -52,6 +53,14 @@ public class JSParameter extends JavaScriptObject{
 	public final native JSParameter set(String key,JavaScriptObject value)/*-{
 	this[key]=value;
 	return this;
+	}-*/;
+	
+	public final native JsArrayString getKeys()/*-{
+	return $wnd.Object.keys(this);
+	}-*/;
+	
+	public final native boolean exists(String key)/*-{
+	return this[key]!=undefined && this[key]!=null;
 	}-*/;
 	
 	//work?

@@ -1,5 +1,7 @@
 package com.akjava.gwt.three.client.java.utils;
 
+import com.akjava.gwt.lib.client.LogUtils;
+import com.akjava.gwt.three.client.gwt.GWTParamUtils;
 import com.akjava.gwt.three.client.gwt.JSONModelFile;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
@@ -16,6 +18,7 @@ import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayNumber;
+import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONParser;
 import com.google.gwt.json.client.JSONValue;
@@ -41,8 +44,18 @@ public class GWTThreeUtils {
 		JSONObject newobject=new JSONObject(jsobject);
 		
 		//LogUtils.log(newobject.getJavaScriptObject());
+		JsArray<Material> materials=null;
+		if(newobject.get("materials")!=null){
+			JSONArray array=newobject.get("materials").isArray();
+			if(array!=null){
+				materials=array.getJavaScriptObject().cast();
+			}else{
+				LogUtils.log("materials contains. but it's not array");
+			}
+			//
+		}
 		
-		handler.loaded((Geometry) newobject.get("geometry").isObject().getJavaScriptObject(),(JsArray<Material>)newobject.get("materials").isArray().getJavaScriptObject());
+		handler.loaded((Geometry) newobject.get("geometry").isObject().getJavaScriptObject(),materials);
 	}
 	public static void loadJsonModel(JSONModelFile modelformat,JSONLoadHandler handler){
 		loadJsonModel(modelformat,handler,null);
@@ -120,8 +133,11 @@ public class GWTThreeUtils {
 		return pj;
 	}
 	
+	/*
+	 * really need this?
+	 */
 	public static Mesh createSimpleBox(Vector3 position,double size,int color){
-		Mesh mesh=THREE.Mesh(THREE.BoxGeometry(size, size, size), THREE.MeshLambertMaterial().color(color).build());
+		Mesh mesh=THREE.Mesh(THREE.BoxGeometry(size, size, size), THREE.MeshLambertMaterial(GWTParamUtils.MeshLambertMaterial().color(color)));
 		mesh.setPosition(position);
 		return mesh;
 	}

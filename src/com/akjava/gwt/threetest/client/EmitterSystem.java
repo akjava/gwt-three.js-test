@@ -21,7 +21,7 @@ public class EmitterSystem {
 		Texture texture=ImageUtils.loadTexture("img/particle4.png");
 		//need for stop:Texture is not power of two. Texture.minFilter is set to THREE.LinearFilter or THREE.NearestFilter. ( undefined )
 		texture.setMinFilter(THREE.Filters.LinearFilter());
-		baseMaterial=THREE.ParticleBasicMaterial().transparent(true).
+		baseMaterial=THREEDep.ParticleBasicMaterial().transparent(true).
 		depthTest(false).blending(THREE.Blending.NormalBlending()).color(0x666666).size(baseSize).map(texture);//
 
 	}

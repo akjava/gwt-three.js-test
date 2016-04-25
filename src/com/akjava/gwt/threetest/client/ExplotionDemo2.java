@@ -69,7 +69,7 @@ private Mesh mesh;
 		
 		
 		
-		final Mesh root=THREE.Mesh(THREE.PlaneBufferGeometry(36, 36), THREE.MeshLambertMaterial().color(0x00ee88).build());
+		final Mesh root=THREE.Mesh(THREE.PlaneBufferGeometry(36, 36), THREEDep.MeshLambertMaterial().color(0x00ee88).build());
 		scene.add(root);
 		mesh=root;
 		
@@ -79,7 +79,7 @@ private Mesh mesh;
 		Block block=new Block(particles);
 		blocks.add(block);
 		}
-		Material material=THREE.ParticleBasicMaterial().color(0xff0000).size(2).map(ImageUtils.loadTexture("img/particle.png"))
+		Material material=THREEDep.ParticleBasicMaterial().color(0xff0000).size(2).map(ImageUtils.loadTexture("img/particle.png"))
 		.blending(THREE.Blending.AdditiveBlending()).transparent(true).build();
 		
 		final Points particleSystem=THREE.Points(particles, material);

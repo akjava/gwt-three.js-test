@@ -463,7 +463,12 @@ return this.updateShadowMap(scene,camera);
 	}-*/;
 	
 
-	
+	/**
+	 * must be created
+	 * new THREE.WebGLRenderer({preserveDrawingBuffer: true})
+	 * option antialias: true, 
+	 * @return
+	 */
 	public final native String gwtPngDataUrl ()/*-{
 	return this.domElement.toDataURL("image/png");
 	}-*/;

@@ -48,7 +48,7 @@ private WebGLRenderer renderer;
 		
 		
 		final Mesh mesh=THREE.Mesh(THREE.BoxGeometry(40, 5,40), 
-				THREE.MeshLambertMaterial().color(0xeeeeee).build());
+				THREEDep.MeshLambertMaterial().color(0xeeeeee).build());
 		mesh.getRotation().set(0, -Math.PI/2, 0);
 		mesh.setPosition(0, -10, 0);
 		scene.add(mesh);
@@ -56,7 +56,7 @@ private WebGLRenderer renderer;
 		mesh.setReceiveShadow(true);
 		
 		final Mesh mesh2=THREE.Mesh(THREE.BoxGeometry(6, 6,6), 
-				THREE.MeshLambertMaterial().color(0xeff0000).build());
+				THREEDep.MeshLambertMaterial().color(0xeff0000).build());
 		scene.add(mesh2);
 		mesh2.setPosition(0, 0, 0);
 		mesh2.setReceiveShadow(true);
@@ -64,7 +64,7 @@ private WebGLRenderer renderer;
 		
 		
 		final Mesh mesh3=THREE.Mesh(THREE.BoxGeometry(3, 3,10), 
-				THREE.MeshLambertMaterial().color(0xe00ff00).build());
+				THREEDep.MeshLambertMaterial().color(0xe00ff00).build());
 		scene.add(mesh3);
 		mesh3.setPosition(5, 20, 15);
 		//mesh2.setReceiveShadow(true);

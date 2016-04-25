@@ -69,7 +69,7 @@ private Mesh mesh;
 		
 		
 		
-		final Mesh root=THREE.Mesh(THREE.PlaneBufferGeometry(36, 36), THREE.MeshLambertMaterial().color(0x00ee88).build());
+		final Mesh root=THREE.Mesh(THREE.PlaneBufferGeometry(36, 36), THREEDep.MeshLambertMaterial().color(0x00ee88).build());
 		scene.add(root);
 		mesh=root;
 		
@@ -97,7 +97,7 @@ private Mesh mesh;
 		//texture
 		
 		
-		Material material=THREE.ParticleBasicMaterial().color(0x888888).size(15).map(ImageUtils.loadTexture("img/particle7.png"))
+		Material material=THREEDep.ParticleBasicMaterial().color(0x888888).size(15).map(ImageUtils.loadTexture("img/particle7.png"))
 		.blending(THREE.Blending.NormalBlending()).transparent(true).build();
 		
 		final Points particleSystem=THREE.Points(particles, material);
@@ -245,7 +245,7 @@ private Mesh mesh;
 			if(Math.random()<0.8){
 				//orange
 				for(int i=0;i<cube.faces().length();i++){
-					Material mt=THREE.MeshBasicMaterial().color((int)Math.floor( Math.random() * 128 + 128), (int)Math.floor( Math.random() * 66*2 ), 0).build();
+					Material mt=THREEDep.MeshBasicMaterial().color((int)Math.floor( Math.random() * 128 + 128), (int)Math.floor( Math.random() * 66*2 ), 0).build();
 					cube.faces().get(i).materials().set(0, mt);
 				}
 			}else{
@@ -253,7 +253,7 @@ private Mesh mesh;
 				smoke=true;
 				for(int i=0;i<cube.faces().length();i++){
 					int brightness = (int) Math.floor( Math.random() * 216 + 40);
-					Material mt=THREE.MeshBasicMaterial().color(brightness, brightness, brightness).build();
+					Material mt=THREEDep.MeshBasicMaterial().color(brightness, brightness, brightness).build();
 					cube.faces().get(i).materials().set(0, mt);
 				}
 			}

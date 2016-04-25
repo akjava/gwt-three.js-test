@@ -68,7 +68,7 @@ Geometry geometry=THREE.BoxGeometry( 200, 200, 200);
 for(int i=0;i<geometry.faces().length();i++){
 	geometry.faces().get(i).getColor().setHex((int) (Math.random() * 0xffffff));
 }
-cube = THREE.Mesh(geometry , THREE.MeshBasicMaterial().vertexColors(THREE.Colors.FaceColors()).build() );
+cube = THREE.Mesh(geometry , THREEDep.MeshBasicMaterial().vertexColors(THREE.Colors.FaceColors()).build() );
 
 
 cube.getPosition().setY( 150);
@@ -80,7 +80,7 @@ scene.add( cube );
 
 
  plane = THREE.Mesh( THREE.PlaneGeometry( 200, 200 ),
-THREE.MeshBasicMaterial(). color( 0xe0e0e0 ).overdraw(true).build() );
+		 THREEDep.MeshBasicMaterial(). color( 0xe0e0e0 ).overdraw(true).build() );
  plane.getGeometry().applyMatrix(THREE.Matrix4().makeRotationX( - Math.PI / 2 ) );
 scene.add( plane );
 

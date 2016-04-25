@@ -70,17 +70,17 @@ private Timer timer;
 		scene.add(root);
 		
 		rootMesh = THREE.Mesh(THREE.BoxGeometry(.5, .5, .5), 
-				THREE.MeshBasicMaterial().color(0x0000ff).build());
+				THREEDep.MeshBasicMaterial().color(0x0000ff).build());
 		root.add(rootMesh);
 		
 		Mesh mesh1=THREE.Mesh(THREE.BoxGeometry(1, 1, 1), 
-				THREE.MeshBasicMaterial().color(0x00ff00).build());
+				THREEDep.MeshBasicMaterial().color(0x00ff00).build());
 		mesh1.setPosition(targetPos);
 		root.add(mesh1);
 		root.add(GWTGeometryUtils.createLineMesh(root.getPosition(), targetPos, 0xcccccc));
 		
 		Mesh mesh2=THREE.Mesh(THREE.BoxGeometry(.5, .5, .5), 
-				THREE.MeshBasicMaterial().color(0xff0000).build());
+				THREEDep.MeshBasicMaterial().color(0xff0000).build());
 		mesh2.setPosition(jointPos);
 		root.add(mesh2);
 		root.add(GWTGeometryUtils.createLineMesh(root.getPosition(), jointPos, 0xcccccc));
@@ -99,7 +99,7 @@ private Timer timer;
 		mxX.multiplyVector3(newPosX);
 		
 		Mesh meshX=THREE.Mesh(THREE.BoxGeometry(.5, .5, .5), 
-				THREE.MeshBasicMaterial().color(0x00ffff).build());
+				THREEDep.MeshBasicMaterial().color(0x00ffff).build());
 		meshX.setPosition(newPosX);
 		double angleXMovec=Math.atan2(newPosX.getZ(),newPosX.getY());
 		log("newpos-angle:"+Math.toDegrees(angleXMovec));
@@ -121,7 +121,7 @@ private Timer timer;
 		mxY.multiplyVector3(newPosY);
 		
 		Mesh meshY=THREE.Mesh(THREE.BoxGeometry(.75, .75, .75), 
-				THREE.MeshBasicMaterial().color(0x00ffff).build());
+				THREEDep.MeshBasicMaterial().color(0x00ffff).build());
 		meshY.setPosition(newPosY);
 		double angleYMoved=Math.atan2(newPosY.getX(),newPosY.getZ());
 		log("newpos-angle:"+Math.toDegrees(angleYMoved));
@@ -144,7 +144,7 @@ private Timer timer;
 		mx.multiplyVector3(newPosZ);
 		
 		Mesh meshZ=THREE.Mesh(THREE.BoxGeometry(1, 1, 1), 
-				THREE.MeshBasicMaterial().color(0x00ffff).build());
+				THREEDep.MeshBasicMaterial().color(0x00ffff).build());
 		meshZ.setPosition(newPosZ);
 		double angleZNew=Math.atan2(newPosZ.getY(), newPosZ.getX());
 		log("newpos-angle:"+Math.toDegrees(angleZNew));
@@ -162,7 +162,7 @@ private Timer timer;
 		log("diff-angle:"+ThreeLog.get(GWTThreeUtils.radiantToDegree(diffAngle)));
 		
 		Mesh meshFinal=THREE.Mesh(THREE.BoxGeometry(1, 1, 1), 
-				THREE.MeshBasicMaterial().color(0x333333).build());
+				THREEDep.MeshBasicMaterial().color(0x333333).build());
 		
 		
 		
@@ -209,7 +209,7 @@ private Timer timer;
 		Vector3 line=THREE.Vector3(0,15,0);
 		mmx.multiplyVector3(line);
 		Mesh mm=THREE.Mesh(THREE.BoxGeometry(1, 1, 1), 
-				THREE.MeshBasicMaterial().color(0x888888).build());
+				THREEDep.MeshBasicMaterial().color(0x888888).build());
 		root.add(mm);
 		mm.setPosition(line);
 		

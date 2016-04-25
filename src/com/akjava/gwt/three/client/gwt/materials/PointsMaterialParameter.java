@@ -161,4 +161,8 @@ public final class PointsMaterialParameter extends JSParameter{
 	return this;
 	}-*/;
 	
+	public final native MeshBasicMaterialParameter visible(boolean visible)/*-{
+	this.visible=visible;
+	return this;
+	}-*/;
 }
