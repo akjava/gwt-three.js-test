@@ -160,13 +160,19 @@ public class Cloth {
 	
 	List<int[]> pinsFormation=new ArrayList<int[]>();
 	
+	
 	public void initPins(){//this is initialized based on Cloth's xSegs TODO link
-		pins= new int[]{6};
+		int center=w/2+1;
+		pins= new int[]{center};
 
 		pinsFormation.add( pins );
 
-		//default
-		pins = new int[]{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+		//default all first line 
+		pins = new int[w+1];
+		for(int i=0;i<=w;i++){
+			pins[i]=i;
+		}
+		
 		pinsFormation.add( pins );
 
 		pins = new int[]{ 0 };
@@ -197,30 +203,39 @@ public class Cloth {
 					);
 				}
 			}
+			
+			
 
 			// Structural
 
+			/*
+				particle exists v<=h & u<=w
+			*/
+			
 			for (int v=0;v<h;v++) {
 				for (int u=0;u<w;u++) {
-
+					
 					constrains.add(
 							new Constrain(particles.get(index(u,v)), particles.get(index(u,v+1)), restDistance)
 							);
-						
+					
 					constrains.add(
 							new Constrain(particles.get(index(u,v)), particles.get(index(u+1,v)), restDistance)
 							);
 
 				}
 			}
-
+			
+			
 			for (int u=w, v=0;v<h;v++) {
+				
 				constrains.add(
 						new Constrain(particles.get(index(u,v)), particles.get(index(u,v+1)), restDistance)
 						);
 			}
-
+			
 			for (int v=h, u=0;u<w;u++) {
+				
 				constrains.add(
 						new Constrain(particles.get(index(u,v)), particles.get(index(u+1,v)), restDistance)
 						);

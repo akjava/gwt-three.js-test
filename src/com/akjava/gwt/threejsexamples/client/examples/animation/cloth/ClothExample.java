@@ -356,7 +356,7 @@ public class ClothExample extends AbstractExample {
 	}
 	@Override
 	public void onWindowResize() {
-		LogUtils.log("windows-resized:"+getWindowInnerWidth() +","+ getWindowInnerHeight());
+		
 		camera.setAspect(getWindowInnerWidth() / getWindowInnerHeight());
 		camera.updateProjectionMatrix();
 
