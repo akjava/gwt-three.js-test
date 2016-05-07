@@ -101,6 +101,11 @@ public class Cloth {
 		Vector3 position;
 		private Vector3 previous;
 		private Vector3 original;
+		//for after modify
+		public Vector3 getOriginal() {
+			return original;
+		}
+
 		private Vector3 a;
 		private double mass;
 		private double invMass;
@@ -187,8 +192,8 @@ public class Cloth {
 		pins = pinsFormation.get(1);	
 	}
 	
-	//TODO xseg,yseg and change public
-	private Cloth(int w,int h){
+	
+	public Cloth(int w,int h){
 			this.w = w;
 			this.h = h;
 
@@ -309,6 +314,7 @@ public class Cloth {
 				pos.copy(ballPosition).add(diff);
 			}
 		}
+		
 		// Floor Constains
 		for (int i=0;i<particles.size();i++) {
 			Particle particle = particles.get(i);

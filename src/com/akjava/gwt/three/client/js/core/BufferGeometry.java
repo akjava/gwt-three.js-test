@@ -253,4 +253,9 @@ public final  native BufferGeometry toNonIndexed()/*-{
 return this.toNonIndexed();
 }-*/;
 
+//sadly some arg support only geometry
+public final  native Geometry gwtCastGeometry()/*-{
+return this;
+}-*/;
+
 }

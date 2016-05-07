@@ -46,27 +46,27 @@ public class BufferAttribute extends JavaScriptObject{
 	return this.set(param);
 	}-*/;
 	
-	public final  native BufferAttribute setX(int index,int param)/*-{
+	public final  native BufferAttribute setX(int index,double param)/*-{
 	return this.setX(index,param);
 	}-*/;
 	
-	public final  native BufferAttribute setY(int index,int param)/*-{
+	public final  native BufferAttribute setY(int index,double param)/*-{
 	return this.setY(index,param);
 	}-*/;
 	
-	public final  native BufferAttribute setZ(int index,int param)/*-{
+	public final  native BufferAttribute setZ(int index,double param)/*-{
 	return this.setZ(index,param);
 	}-*/;
 	
-	public final  native BufferAttribute setXY(int index,int x,int y)/*-{
+	public final  native BufferAttribute setXY(int index,double x,double y)/*-{
 	return this.setXY(index,x,y);
 	}-*/;
 	
-	public final  native BufferAttribute setXYZ(int index,int x,int y,int z)/*-{
+	public final  native BufferAttribute setXYZ(int index,double x,double y,double z)/*-{
 	return this.setXYZ(index,x,y,z);
 	}-*/;
 	
-	public final  native BufferAttribute setXYZW(int index,int x,int y,int z,int w)/*-{
+	public final  native BufferAttribute setXYZW(int index,double x,double y,double z,double w)/*-{
 	return this.setXYZW(index,x,y,z,w);
 	}-*/;
 	

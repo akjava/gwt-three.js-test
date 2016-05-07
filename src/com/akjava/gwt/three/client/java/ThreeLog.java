@@ -1,9 +1,12 @@
 package com.akjava.gwt.three.client.java;
 
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.math.Matrix4;
+import com.akjava.gwt.three.client.js.math.Vector2;
 import com.akjava.gwt.three.client.js.math.Vector3;
+import com.akjava.gwt.three.client.js.math.Vector4;
 import com.google.gwt.core.client.JsArrayNumber;
 
 public class ThreeLog {
@@ -37,6 +40,24 @@ public class ThreeLog {
 		ret+=",z:"+vec.getZ();
 		return ret;
 	}
+	public static String get(Vector2 vec){
+		if(vec==null){
+			return "Null";
+		}
+		String ret="x:"+vec.getX();
+		ret+=",y:"+vec.getY();
+		return ret;
+	}
+	public static String get(Vector4 vec){
+		if(vec==null){
+			return "Null";
+		}
+		String ret="x:"+vec.getX();
+		ret+=",y:"+vec.getY();
+		ret+=",z:"+vec.getZ();
+		ret+=",w:"+vec.getW();
+		return ret;
+	}
 	public static String get(JsArrayNumber numbers){
 		if(numbers==null){
 			return "Null";
@@ -47,5 +68,28 @@ public class ThreeLog {
 			ret+=numbers.get(i)+",";
 		}
 		return ret;
+	}
+	
+	public static void log(Vector2 vec){
+		LogUtils.log(get(vec));
+	}
+	
+	public static void log(String header,Vector2 vec){
+		LogUtils.log(header+" "+get(vec));
+	}
+	
+	public static void log(Vector3 vec){
+		LogUtils.log(get(vec));
+	}
+	
+	public static void log(String header,Vector3 vec){
+		LogUtils.log(header+" "+get(vec));
+	}
+	public static void log(Vector4 vec){
+		LogUtils.log(get(vec));
+	}
+	
+	public static void log(String header,Vector4 vec){
+		LogUtils.log(header+" "+get(vec));
 	}
 }

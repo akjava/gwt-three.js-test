@@ -365,8 +365,8 @@ public final native void setUserData(Object userData)/*-{
 this.userData = userData;
 }-*/;
 
-public final native void applyMatrix()/*-{
- this.applyMatrix();
+public final native void applyMatrix(Matrix4 matrix)/*-{
+ this.applyMatrix(matrix);
 }-*/;
 
 public final native void setRotationFromAxisAngle(Object axis,Object angle)/*-{

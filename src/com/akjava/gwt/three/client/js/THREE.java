@@ -416,6 +416,9 @@ public class THREE {
 	public static final native CircleGeometry CircleGeometry(double radius,int segments,double thetaStart,double thetaLength)/*-{
 	return new $wnd.THREE.CircleGeometry(radius, segments, thetaStart, thetaLength);
 	}-*/;
+	public static final native CircleGeometry CircleGeometry(double radius,int segments)/*-{
+	return new $wnd.THREE.CircleGeometry(radius, segments);
+	}-*/;
 	/**
 	 * @deprecated
 	 * @param points
@@ -742,6 +745,9 @@ public class THREE {
 	
 	public static  native final Raycaster Raycaster(Vector3 origin,Vector3 direction,double near,double far)/*-{
 	return  new $wnd.THREE.Raycaster(origin,direction,near,far);
+	}-*/;
+	public static  native final Raycaster Raycaster(Vector3 origin,Vector3 direction)/*-{
+	return  new $wnd.THREE.Raycaster(origin,direction);
 	}-*/;
 	public static  native final EventDispatcher EventDispatcher()/*-{
 	return  new $wnd.THREE.EventDispatcher();
@@ -1761,4 +1767,42 @@ public class THREE {
 	return new $wnd.THREE.QuaternionLinearInterpolant(parameterPositions, sampleValues, sampleSize, resultBuffer );
 	}-*/;
 	
+	
+	public static final native BufferAttribute Float32Attribute(int array,int itemSize)/*-{
+	return new $wnd.THREE.Float32Attribute(array, itemSize );
+	}-*/;
+	
+	public static final native BufferAttribute Int8Array(int array,int itemSize)/*-{
+	return new $wnd.THREE.Int8Array(array, itemSize );
+	}-*/;
+
+public static final native BufferAttribute Uint8Array(int array,int itemSize)/*-{
+	return new $wnd.THREE.Uint8Array(array, itemSize );
+	}-*/;
+
+public static final native BufferAttribute Uint8ClampedArray(int array,int itemSize)/*-{
+	return new $wnd.THREE.Uint8ClampedArray(array, itemSize );
+	}-*/;
+
+public static final native BufferAttribute Int16Array(int array,int itemSize)/*-{
+	return new $wnd.THREE.Int16Array(array, itemSize );
+	}-*/;
+
+public static final native BufferAttribute Uint16Array(int array,int itemSize)/*-{
+	return new $wnd.THREE.Uint16Array(array, itemSize );
+	}-*/;
+
+public static final native BufferAttribute Int32Array(int array,int itemSize)/*-{
+	return new $wnd.THREE.Int32Array(array, itemSize );
+	}-*/;
+
+public static final native BufferAttribute Uint32Array(int array,int itemSize)/*-{
+	return new $wnd.THREE.Uint32Array(array, itemSize );
+	}-*/;
+
+public static final native BufferAttribute Float64Array(int array,int itemSize)/*-{
+	return new $wnd.THREE.Float64Array(array, itemSize );
+	}-*/;
+
+
 }

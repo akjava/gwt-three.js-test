@@ -40,6 +40,10 @@ return this.b;
 public native final int getC()/*-{
 return this.c;
 }-*/;
+/**
+ * @deprecated
+ * @param d
+ */
 public native final int getD()/*-{
 return this.d;
 }-*/;
