@@ -1,7 +1,7 @@
 package com.akjava.gwt.threejsexamples.client.examples.animation.skinning;
 
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.stats.client.Stats;
-import com.akjava.gwt.three.client.examples.animation.AnimationHandler;
 import com.akjava.gwt.three.client.gwt.GWTParamUtils;
 import com.akjava.gwt.three.client.gwt.boneanimation.AnimationData;
 import com.akjava.gwt.three.client.gwt.boneanimation.AnimationHierarchyItem;
@@ -23,11 +23,15 @@ import com.akjava.gwt.three.client.js.loaders.JSONLoader.JSONLoadHandler;
 import com.akjava.gwt.three.client.js.materials.Material;
 import com.akjava.gwt.three.client.js.materials.MeshPhongMaterial;
 import com.akjava.gwt.three.client.js.math.THREEMath;
+import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.objects.Mesh;
+import com.akjava.gwt.three.client.js.objects.Points;
+import com.akjava.gwt.three.client.js.objects.SkinnedMesh;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.threejsexamples.client.AbstractExample;
 import com.google.gwt.core.client.JsArray;
+import com.google.gwt.dom.client.Style.Position;
 import com.google.gwt.event.dom.client.MouseMoveEvent;
 import com.google.gwt.event.dom.client.MouseMoveHandler;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
@@ -297,10 +301,17 @@ public class MorphExample extends AbstractExample{
 
 		}
 
+		
+		//faild convert geometry to buffergeometry
 		mesh = THREE.SkinnedMesh( geometry, THREE.MeshFaceMaterial( materials ) );
+		
+		LogUtils.log(mesh);
+		
+		
 		mesh.getPosition().set( x, y - bb.getMin().getY() * s, z );
 		mesh.getScale().set( s, s, s );
 		scene.add( mesh );
+		mesh.updateMatrixWorld();//ref later
 
 		mesh.setCastShadow(true);
 		mesh.setReceiveShadow(true);
@@ -318,10 +329,24 @@ public class MorphExample extends AbstractExample{
 		mixer.clipAction( clipMorpher ).play();//mixer.addAction( new THREE.AnimationAction( clipMorpher ) );
 		mixer.clipAction(  clipBones  ).play();//mixer.addAction( new THREE.AnimationAction( clipBones ) );
 		
+		//make particles
+		Geometry pointGeometry=THREE.Geometry();
+		for(int i=0;i<geometry.getVertices().length();i++){
+			Vector3 vec=THREE.Vector3().copy(geometry.getVertices().get(i)).applyMatrix4(mesh.getMatrixWorld());
+			pointGeometry.getVertices().push(vec);
+		}
+		points = THREE.Points(pointGeometry,THREE.PointsMaterial(
+				GWTParamUtils.PointsMaterial().side(20).color(0xff0000))
+				);
+		
+		//scene.add(points);
+		//Points
 	}
 	
-	Mesh mesh;
+	boolean first;
+	SkinnedMesh mesh;
 	private Stats stats;
+	private Points points;
 	public void render(double now) {//GWT animateFrame has time
 		double delta = 0.75 * clock.getDelta();
 		
@@ -332,13 +357,42 @@ public class MorphExample extends AbstractExample{
 		if( mixer!=null ) {
 			mixer.update( delta );
 			helper.update();
+			
+			//updateVertexTest();
 		}
 		
 		renderer.render( scene, camera );
+	}
+
+	private void updateVertexTest() {
+		for(int i=0;i<mesh.getGeometry().getVertices().length();i++){
+			points.getGeometry().getVertices().get(i).copy(transformedSkinVertex(mesh,i).applyMatrix4(mesh.getMatrixWorld()));
+		}
+		points.getGeometry().setVerticesNeedUpdate(true);
 	}
 
 	@Override
 	public String getTokenKey() {
 		return "morph";
 	}
+	
+	//
+	public final native Vector3 transformedSkinVertex (SkinnedMesh skin,int index)/*-{
+	
+	//var skinIndices = (new $wnd.THREE.Vector4 ()).fromAttribute (skin.geometry.getAttribute ('skinIndex'), index);
+    //var skinWeights = (new $wnd.THREE.Vector4 ()).fromAttribute (skin.geometry.getAttribute ('skinWeight'), index);
+    //var skinVertex = (new $wnd.THREE.Vector3 ()).fromAttribute (skin.geometry.getAttribute ('position'), index).applyMatrix4 (skin.bindMatrix);
+   var skinIndices =skin.geometry.skinIndices[index];
+   var skinWeights =skin.geometry.skinWeights[index];
+   var skinVertex =skin.geometry.vertices[index].clone().applyMatrix4(skin.bindMatrix);
+	
+    var result = new $wnd.THREE.Vector3 (), temp = new $wnd.THREE.Vector3 (), tempMatrix = new $wnd.THREE.Matrix4 (); properties = ['x', 'y', 'z', 'w'];
+    for (var i = 0; i < 4; i++) {
+        var boneIndex = skinIndices[properties[i]];
+        tempMatrix.multiplyMatrices (skin.skeleton.bones[boneIndex].matrixWorld, skin.skeleton.boneInverses[boneIndex]);
+       // result.add (temp.copy (skinVertex).multiplyScalar (skinWeights[properties[i]]).applyMatrix4 (tempMatrix));
+        result.add (temp.copy (skinVertex).applyMatrix4 (tempMatrix).multiplyScalar (skinWeights[properties[i]]));
+    }
+    return result.applyMatrix4 (skin.bindMatrixInverse);
+	}-*/;
 }
