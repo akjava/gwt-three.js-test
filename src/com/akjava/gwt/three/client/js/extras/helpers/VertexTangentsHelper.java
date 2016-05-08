@@ -64,7 +64,7 @@ this.matrixAutoUpdate = matrixAutoUpdate;
 }-*/;
 
 public final native void update()/*-{
-return this.update(object);
+return this.update();
 }-*/;
 
 
