@@ -1722,10 +1722,10 @@ public class THREE {
 	return new $wnd.THREE.VectorKeyframeTrack(name, times,values ,interpolation);
 	}-*/;
 
-	public static final native QuaternionKeyframeTrack QuaternionKeyframeTrack(String name, JsArrayNumber times,JsArray<Quaternion> values)/*-{
+	public static final native QuaternionKeyframeTrack QuaternionKeyframeTrack(String name, JsArrayNumber times,JsArrayNumber values)/*-{
 	return new $wnd.THREE.QuaternionKeyframeTrack(name, times,values );
 	}-*/;
-	public static final native QuaternionKeyframeTrack QuaternionKeyframeTrack(String name, JsArrayNumber times,JsArray<Quaternion> values,int interpolation)/*-{
+	public static final native QuaternionKeyframeTrack QuaternionKeyframeTrack(String name, JsArrayNumber times,JsArrayNumber values,int interpolation)/*-{
 	return new $wnd.THREE.QuaternionKeyframeTrack(name, times,values ,interpolation);
 	}-*/;
 	

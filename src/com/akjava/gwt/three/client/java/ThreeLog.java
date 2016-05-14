@@ -7,6 +7,7 @@ import com.akjava.gwt.three.client.js.math.Matrix4;
 import com.akjava.gwt.three.client.js.math.Vector2;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.math.Vector4;
+import com.akjava.gwt.three.client.js.objects.SkinnedMesh;
 import com.google.gwt.core.client.JsArrayNumber;
 
 public class ThreeLog {
@@ -91,5 +92,15 @@ public class ThreeLog {
 	
 	public static void log(String header,Vector4 vec){
 		LogUtils.log(header+" "+get(vec));
+	}
+	
+	public static void logBoneNames(SkinnedMesh characterMesh) {
+		if(characterMesh.getGeometry().getBones()==null){
+			LogUtils.log("no bone");
+			return;
+		}
+		for(int i=0;i<characterMesh.getGeometry().getBones().length();i++){
+			LogUtils.log(i+","+characterMesh.getGeometry().getBones().get(i).getName());
+		}
 	}
 }

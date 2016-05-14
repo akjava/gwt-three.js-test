@@ -376,7 +376,7 @@ public class MorphExample extends AbstractExample{
 		return "morph";
 	}
 	
-	//
+	//from http://stackoverflow.com/questions/31620194/how-to-calculate-transformed-skin-vertices
 	public final native Vector3 transformedSkinVertex (SkinnedMesh skin,int index)/*-{
 	
 	//var skinIndices = (new $wnd.THREE.Vector4 ()).fromAttribute (skin.geometry.getAttribute ('skinIndex'), index);

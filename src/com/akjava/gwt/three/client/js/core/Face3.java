@@ -40,6 +40,17 @@ return this.b;
 public native final int getC()/*-{
 return this.c;
 }-*/;
+
+public native final int gwtGet(int index)/*-{
+if(index==0){
+	return this.a;
+}else if(index==1){
+	return this.b;
+}else{
+	return this.c;
+}
+}-*/;
+
 /**
  * @deprecated
  * @param d

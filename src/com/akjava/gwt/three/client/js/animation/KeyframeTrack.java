@@ -105,7 +105,7 @@ public static final native KeyframeTrack parse(JSONValue json)/*-{
 return $wnd.THREE.KeyframeTrack.parse(json);
 }-*/;
 
-public static final native JSONValue toJSon(KeyframeTrack track)/*-{
+public static final native JavaScriptObject toJSon(KeyframeTrack track)/*-{
 return $wnd.THREE.KeyframeTrack.toJSon(track);
 }-*/;
 

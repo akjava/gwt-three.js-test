@@ -37,6 +37,7 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.materials;
 
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.json.client.JSONObject;
 
@@ -84,7 +85,7 @@ public final native MultiMaterial copy(MultiMaterial source)/*-{
 return this.copy(source);
 }-*/;
 
-public final native JSONObject toJSON()/*-{
+public final native JavaScriptObject toJSON()/*-{
 return this.toJSON();
 }-*/;
 

@@ -104,11 +104,26 @@ public final native Skeleton copy(Skeleton source)/*-{
 return this.copy(source);
 }-*/;
 
-//TODO support
-/*
-this.bindMode
-this.bindMatrix;
-this.bindMatrixInverse
-*/
+public final  native String getBindMode()/*-{
+return this.bindMode;
+}-*/;
+
+public final  native void setBindMode(String  param)/*-{
+this.bindMode=param;
+}-*/;
+public final  native Matrix4 getBindMatrix()/*-{
+return this.bindMatrix;
+}-*/;
+
+public final  native void setBindMatrix(Matrix4  param)/*-{
+this.bindMatrix=param;
+}-*/;
+public final  native Matrix4 getBindMatrixInverse()/*-{
+return this.bindMatrixInverse;
+}-*/;
+
+public final  native void setBindMatrixInverse(Matrix4  param)/*-{
+this.bindMatrixInverse=param;
+}-*/;
 
 }

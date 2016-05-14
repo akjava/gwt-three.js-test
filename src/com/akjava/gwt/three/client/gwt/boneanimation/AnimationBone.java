@@ -49,8 +49,13 @@ public class AnimationBone extends JavaScriptObject{
 	this['rot']=array;
 	}-*/;
 	
+	//really work?
 	public native final void setRot(double x,double y,double z)/*-{
 	this['rot']=[x,y,z];
+	}-*/;
+	
+	public native final void setRot(double x,double y,double z,double w)/*-{
+	this['rot']=[x,y,z,w];
 	}-*/;
 	
 	/*

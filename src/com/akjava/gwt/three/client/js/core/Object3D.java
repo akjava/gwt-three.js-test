@@ -42,6 +42,7 @@ import com.akjava.gwt.three.client.js.math.Euler;
 import com.akjava.gwt.three.client.js.math.Matrix4;
 import com.akjava.gwt.three.client.js.math.Quaternion;
 import com.akjava.gwt.three.client.js.math.Vector3;
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONValue;
@@ -101,7 +102,7 @@ public final void setScale(double x,double y,double z){
  * Made position, rotation, quaternion and scale properties immutable on r68
  */
 public final native void setQuaternion(Quaternion quaternion)/*-{
- this.quaternion=q;
+ this.quaternion=quaternion;
 }-*/;
 
 
@@ -510,11 +511,11 @@ public final native String getType()/*-{
 return this.type;
 }-*/;
 
-public final native JSONObject toJSON(JSONValue meta)/*-{
+public final native JavaScriptObject toJSON(JSONValue meta)/*-{
 return this.toJSON(meta);
 }-*/;
 
-public final native JSONObject toJSON()/*-{
+public final native JavaScriptObject toJSON()/*-{
 return this.toJSON();
 }-*/;
 

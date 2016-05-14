@@ -43,6 +43,7 @@ import com.akjava.gwt.three.client.gwt.core.MorphTarget;
 import com.akjava.gwt.three.client.js.objects.Bone;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
+import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONValue;
 
 
@@ -99,7 +100,7 @@ public static final native AnimationClip findByName(JsArray<AnimationClip> clipA
 return $wnd.THREE.AnimationClip.findByName(clipArray,name);
 }-*/;
 
-public static final native JSONValue toJSON(AnimationClip clip)/*-{
+public static final native JavaScriptObject toJSON(AnimationClip clip)/*-{
 return $wnd.THREE.AnimationClip.toJSON(clip);
 }-*/;
 

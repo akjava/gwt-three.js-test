@@ -242,6 +242,10 @@ public final native JsArray<Vector4> getSkinIndices()/*-{
 return this.skinIndices;
 }-*/;
 
+/**
+ * @deprecated
+ * @return
+ */
 public final native JsArray<Vector4>  getSkinWeight()/*-{
 return this.skinWeights;
 }-*/;
