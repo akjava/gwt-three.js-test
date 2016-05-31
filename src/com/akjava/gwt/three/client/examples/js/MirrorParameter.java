@@ -8,11 +8,11 @@ public class MirrorParameter  extends JSParameter {
 		return (MirrorParameter) MirrorParameter.createObject();
 	}
 	
-	public final native MirrorParameter textureWidth(int textureWidth)/*-{
+	public final native MirrorParameter textureWidth(double textureWidth)/*-{
 	this.textureWidth=textureWidth;
 	return this;
 	}-*/;
-	public final native MirrorParameter textureHeight(int textureHeight)/*-{
+	public final native MirrorParameter textureHeight(double textureHeight)/*-{
 	this.textureHeight=textureHeight;
 	return this;
 	}-*/;

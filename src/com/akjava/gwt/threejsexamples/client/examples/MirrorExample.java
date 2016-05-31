@@ -1,6 +1,5 @@
 package com.akjava.gwt.threejsexamples.client.examples;
 
-import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.stats.client.Stats;
 import com.akjava.gwt.three.client.examples.js.GWTExampleParamUtils;
 import com.akjava.gwt.three.client.examples.js.Mirror;

@@ -11,6 +11,9 @@ THREEx.UniformsLib	= THREEx.UniformsLib	|| {};
  * modified
  * objectMatrix  renamed to modelMatrix for r49
  * https://github.com/mrdoob/three.js/wiki/Migration
+ * 
+ * Not support skinning
+ * 
  * by aki miyazaki
  * 
  */

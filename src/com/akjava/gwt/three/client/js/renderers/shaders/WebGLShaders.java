@@ -306,6 +306,10 @@ private UniformsLib(){}
 		return $wnd.THREE.ShaderLib.depthRGBA;
 		}-*/;
 		
+		public static final native Shader get(String name)/*-{
+		return $wnd.THREE.ShaderLib[name];
+		}-*/;
+		
 	}
 }
 
