@@ -1715,10 +1715,10 @@ public class THREE {
 	return new $wnd.THREE.StringKeyframeTrack(name, times,values ,interpolation);
 	}-*/;
 	
-	public static final native VectorKeyframeTrack VectorKeyframeTrack(String name, JsArrayNumber times,JsArray<JavaScriptObject> values)/*-{
+	public static final native VectorKeyframeTrack VectorKeyframeTrack(String name, JsArrayNumber times,JsArrayNumber values)/*-{
 	return new $wnd.THREE.VectorKeyframeTrack(name, times,values );
 	}-*/;
-	public static final native VectorKeyframeTrack VectorKeyframeTrack(String name, JsArrayNumber times,JsArray<JavaScriptObject> values,int interpolation)/*-{
+	public static final native VectorKeyframeTrack VectorKeyframeTrack(String name, JsArrayNumber times,JsArrayNumber values,int interpolation)/*-{
 	return new $wnd.THREE.VectorKeyframeTrack(name, times,values ,interpolation);
 	}-*/;
 

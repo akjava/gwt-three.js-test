@@ -281,7 +281,7 @@ this.scale = scale;
  * @deprecated on r70
  * @return
  */
-public final native Object getRenderDepth()/*-{
+public final native int getRenderDepth()/*-{
 return this.renderDepth;
 }-*/;
 
@@ -289,7 +289,7 @@ return this.renderDepth;
  * @deprecated removed on r70
  * @param renderDepth
  */
-public final native void setRenderDepth(Object renderDepth)/*-{
+public final native void setRenderDepth(int renderDepth)/*-{
 this.renderDepth = renderDepth;
 }-*/;
 

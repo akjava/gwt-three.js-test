@@ -13,4 +13,11 @@ public class BoundingBox extends JavaScriptObject{
 	public final native Vector3 getMin()/*-{
 	return this.min;
 	}-*/;
+	
+	public final native void setMax(Vector3 max)/*-{
+	this.max=max;
+	}-*/;
+	public final native void setMin(Vector3 min)/*-{
+	this.min=min;
+	}-*/;
 }

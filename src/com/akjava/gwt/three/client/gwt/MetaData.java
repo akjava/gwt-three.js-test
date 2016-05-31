@@ -2,6 +2,9 @@ package com.akjava.gwt.three.client.gwt;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
+/*
+ * this meta is for old jsonfile-format
+ */
 public class MetaData extends JavaScriptObject{
 	protected MetaData(){}
 	
@@ -11,6 +14,14 @@ public class MetaData extends JavaScriptObject{
 	
 	public native final double getFormatVersion()/*-{
 	return this["formatVersion"];
+	}-*/;
+	
+	/**
+	 * technically not file-format
+	 * @return
+	 */
+	public native final double getVersion()/*-{
+	return this["version"];
 	}-*/;
 	
 	public native final void setGeneratedBy(String generatedBy)/*-{

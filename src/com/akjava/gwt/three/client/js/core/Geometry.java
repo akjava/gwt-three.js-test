@@ -459,6 +459,10 @@ public final native Geometry clone()/*-{
 return this.clone();
 }-*/;
 
+public final native JavaScriptObject toJSON()/*-{
+return this.toJSON();
+}-*/;
+
 public final native void rotateX(double angle)/*-{
 this.rotateX(angle);
 }-*/;

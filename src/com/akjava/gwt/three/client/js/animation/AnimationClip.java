@@ -104,7 +104,7 @@ public static final native JavaScriptObject toJSON(AnimationClip clip)/*-{
 return $wnd.THREE.AnimationClip.toJSON(clip);
 }-*/;
 
-public static final native AnimationClip parse(JSONValue json)/*-{
+public static final native AnimationClip parse(JavaScriptObject json)/*-{
 return $wnd.THREE.AnimationClip.parse(json);
 }-*/;
 

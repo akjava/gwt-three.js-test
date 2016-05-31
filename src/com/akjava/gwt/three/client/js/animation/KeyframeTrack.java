@@ -39,6 +39,7 @@ THE SOFTWARE.
 package com.akjava.gwt.three.client.js.animation;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArrayNumber;
 import com.google.gwt.json.client.JSONValue;
 
 
@@ -53,13 +54,13 @@ return this.name;
 /*
  * default Float32Array
  */
-public final native JavaScriptObject getTimes()/*-{
+public final native JsArrayNumber getTimes()/*-{
 return this.times;
 }-*/;
 /*
  * default Float32Array
  */
-public final native JavaScriptObject getValues()/*-{
+public final native JsArrayNumber getValues()/*-{
 return this.values;
 }-*/;
 
@@ -101,7 +102,7 @@ return this.optimize();
 
 
 
-public static final native KeyframeTrack parse(JSONValue json)/*-{
+public static final native KeyframeTrack parse(JavaScriptObject json)/*-{
 return $wnd.THREE.KeyframeTrack.parse(json);
 }-*/;
 

@@ -1,12 +1,16 @@
 package com.akjava.gwt.three.client.java.ui;
 
 import com.akjava.gwt.html5.client.file.ui.DropVerticalPanelBase;
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.stats.client.Stats;
 import com.akjava.gwt.three.client.gwt.renderers.WebGLRendererParameter;
 import com.akjava.gwt.three.client.gwt.ui.RendererBuilder;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer.WebGLCanvas;
+import com.google.gwt.animation.client.AnimationScheduler;
+import com.google.gwt.animation.client.AnimationScheduler.AnimationCallback;
+import com.google.gwt.animation.client.AnimationScheduler.AnimationHandle;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
@@ -54,13 +58,13 @@ import com.google.gwt.user.client.ui.VerticalPanel;
  * TODO move somewhere this is totall not part of three.js
  * Entry point classes define <code>onModuleLoad()</code>.
  */
-public abstract class TabDemoEntryPoint implements EntryPoint {
+public abstract class TabDemoEntryPoint implements EntryPoint , AnimationCallback{
 
 	private WebGLRenderer renderer;
 
 
 
-	protected Timer timer;
+	protected AnimationHandle animationHandler;
 	protected Stats stats;
 
 
@@ -276,20 +280,7 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 		
 		stats = Stats.insertStatsToRootPanel();
 		stats.setPosition(0, 30);//for tab header
-		timer = new Timer(){
-			public void run(){
-				update(renderer);
-				stats.update();
-			}
-		};
 		
-		
-		
-		if(!GWT.isScript()){
-			timer.scheduleRepeating(100);
-		}else{
-			timer.scheduleRepeating(1000/60);
-		}
 		
 		
 		
@@ -376,7 +367,28 @@ public abstract class TabDemoEntryPoint implements EntryPoint {
 		popupPanel.setWidth("100%");
 		popupPanel.setStyleName("transparent");
 		popupPanel.show();
+	
+		execute(System.currentTimeMillis());
+	}
+	
+	private boolean debugAnimateOneTime;
+	private int maxAnimateCount;
+	private int animated;
+	
+	public void execute(double timestamp) {
+		if(!debugAnimateOneTime){//for debug,if error happen on animate
+		animationHandler=AnimationScheduler.get().requestAnimationFrame(this);
+		}else{
+			LogUtils.log("debugAnimateOneTime:true only render called one time for debug");
+		}
+		if(maxAnimateCount!=0 && animated>=maxAnimateCount){
+			
+			maxAnimateCount++;
+			return;
+		}
 		
+		update(renderer);
+		//stats.update();//stop stats for freeze possibility
 	}
 	
 	

@@ -50,7 +50,7 @@ public class THREEExp {
 	 * @return
 	 */
 	public static final native OrbitControls OrbitControls(Object3D object)/*-{
-	return new $wnd.THREE.OrbitControls(object,dom);
+	return new $wnd.THREE.OrbitControls(object);
 	}-*/;
 	public static final native OrbitControls OrbitControls(Object3D object,Element dom)/*-{
 	return new $wnd.THREE.OrbitControls(object,dom);

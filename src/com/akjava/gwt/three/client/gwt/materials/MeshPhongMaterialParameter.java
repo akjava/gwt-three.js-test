@@ -305,4 +305,13 @@ public final class MeshPhongMaterialParameter extends JSParameter{
 	this.visible=visible;
 	return this;
 	}-*/;
+	public final native MeshPhongMaterialParameter displacementScale(double displacementScale)/*-{
+	this.displacementScale=displacementScale;
+	return this;
+	}-*/;
+	public final native MeshPhongMaterialParameter displacementBias(double displacementBias)/*-{
+	this.displacementBias=displacementBias;
+	return this;
+	}-*/;
+	
 }

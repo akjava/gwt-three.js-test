@@ -211,7 +211,6 @@ public void selectObject(Object3D target,int mouseX,int mouseY,int screenWidth, 
 	
 	
 	JsArray<Intersect> pintersects=ray.intersectObject(mouseCatchPlane);
-	LogUtils.log(pintersects.length());
 	
 	if(pintersects.length()==0){
 		LogUtils.log("visible?:"+mouseCatchPlane.isVisible());

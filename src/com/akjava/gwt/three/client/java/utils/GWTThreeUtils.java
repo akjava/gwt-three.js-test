@@ -38,9 +38,9 @@ public class GWTThreeUtils {
 		
 	}
 	
-	public static void loadJsonModel(JSONModelFile modelformat,JSONLoadHandler handler,String texturePath){
+	public static void loadJsonModel(JSONModelFile modelFile,JSONLoadHandler handler,String texturePath){
 		JSONLoader loader=THREE.JSONLoader();
-		JavaScriptObject jsobject=loader.parse(modelformat, texturePath);
+		JavaScriptObject jsobject=loader.parse(modelFile, texturePath);
 		JSONObject newobject=new JSONObject(jsobject);
 		
 		//LogUtils.log(newobject.getJavaScriptObject());
@@ -74,6 +74,14 @@ public class GWTThreeUtils {
 		if(file.getMetaData().getFormatVersion()==0){
 			throw new InvalidModelFormatException("invalid version:"+file.getMetaData().getFormatVersion());
 		}
+		
+		LogUtils.log("format:"+file.getMetaData().getFormatVersion());
+		LogUtils.log("version:"+file.getMetaData().getVersion());
+		//somehow complex
+		if(file.getMetaData().getVersion()>=4){
+			file=(JSONModelFile)object.get("data").isObject().getJavaScriptObject();
+		}
+		
 		return file;
 	}
 	

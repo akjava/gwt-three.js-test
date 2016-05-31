@@ -1,5 +1,7 @@
 package com.akjava.gwt.three.client.gwt;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.js.core.Face3;
 import com.akjava.gwt.three.client.js.math.Vector2;
@@ -9,6 +11,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayNumber;
 import com.google.gwt.json.client.JSONObject;
+import com.google.gwt.json.client.JSONValue;
 
 public class JSONModelFile extends JavaScriptObject{
 protected JSONModelFile(){}
@@ -36,6 +39,18 @@ public static JSONModelFile create(String generatedBy){
 	
 	
 	return f;
+}
+/*
+ * basically just create from JSONParser.parseStrict(text);
+ */
+public final static JSONModelFile create(JSONValue jsonValues){
+	checkNotNull(jsonValues, "JSONModelFile-create:null");
+	JSONObject object=jsonValues.isObject();
+	if(object==null){
+		LogUtils.log("JSONModelFile-create:not object");
+		return null;
+	}
+	return (JSONModelFile)object.getJavaScriptObject();
 }
 
 public final String getJsonText(){
@@ -148,6 +163,15 @@ public native final JsArray<JavaScriptObject> getMorphTargets ()/*-{
 return this["morphTargets"];
 }-*/;
 
+/*
+ * set converted json
+ * [
+ * {
+ * name:"morphName",
+ * vertex][v1x,v1y,v1z,v2x,v2y,v2z,...]
+ * }
+ * ]
+ */
 public native final void setMorphTargets (JsArray<JavaScriptObject> morphTargets)/*-{
 this["morphTargets"]=morphTargets;
 }-*/;
