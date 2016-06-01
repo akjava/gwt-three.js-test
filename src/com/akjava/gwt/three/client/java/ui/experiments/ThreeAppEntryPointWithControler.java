@@ -1,5 +1,7 @@
 package com.akjava.gwt.three.client.java.ui.experiments;
 
+import com.akjava.gwt.three.client.gwt.GWTParamUtils;
+import com.akjava.gwt.three.client.gwt.renderers.WebGLRendererParameter;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.logical.shared.ResizeEvent;
@@ -13,6 +15,11 @@ public abstract class ThreeAppEntryPointWithControler extends SimpleThreeAppEntr
 
 	protected VerticalPanel controlerRootPanel;
 	protected PopupPanel popup;
+	
+	
+	protected WebGLRendererParameter createDefaultRendererParameter(){
+		return GWTParamUtils.WebGLRenderer();
+	}
 	
 	protected void updateGUI(){
 		if(popup==null){
