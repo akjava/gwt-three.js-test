@@ -41,6 +41,7 @@ public abstract class AbstractThreeApp implements AnimationCallback{
 	}
 
 	public void start(Panel parent) {
+		
 		this.parent=parent;
 		init();
 		execute(System.currentTimeMillis());

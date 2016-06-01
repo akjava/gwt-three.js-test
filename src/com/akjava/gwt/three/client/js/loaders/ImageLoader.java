@@ -37,7 +37,6 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.loaders;
 
-import com.akjava.gwt.three.client.js.loaders.FontLoader.FontLoadHandler;
 import com.akjava.gwt.three.client.js.loaders.XHRLoader.XHRErrorHandler;
 import com.akjava.gwt.three.client.js.loaders.XHRLoader.XHRProgressHandler;
 import com.google.gwt.core.client.JavaScriptObject;

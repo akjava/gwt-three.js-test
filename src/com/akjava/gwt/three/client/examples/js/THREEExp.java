@@ -74,6 +74,9 @@ public class THREEExp {
 	public static final native TrackballControls TrackballControls(Object3D object,Element dom)/*-{
 	return new $wnd.THREE.TrackballControls(object,dom);
 	}-*/;
+	public static final native TrackballControls TrackballControls(Object3D object)/*-{
+	return new $wnd.THREE.TrackballControls(object);
+	}-*/;
 	
 	public static final native FirstPersonControls FirstPersonControls(Object3D object,Element dom)/*-{
 	return new $wnd.THREE.FirstPersonControls(object,dom);

@@ -1,5 +1,6 @@
 package com.akjava.gwt.three.client.java.ui.experiments;
 
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.gwt.renderers.WebGLRendererParameter;
 import com.akjava.gwt.three.client.java.ui.AbstractThreeApp;
 import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
@@ -30,7 +31,13 @@ public abstract class SimpleThreeAppEntryPoint extends AbstractThreeApp implemen
 	//protected FocusPanel 
 	protected FocusPanel rendererContainer;
 
+	private boolean loaded;
 	public void onModuleLoad() {
+		if(loaded){
+			LogUtils.log("this never happen.If you accidentally call super.onModuleLoad()");
+			//onWindowResize();
+			return;
+		}
 		final DockLayoutPanel root=new DockLayoutPanel(Unit.PX);
 		RootLayoutPanel.get().add(root);
 		
@@ -42,6 +49,7 @@ public abstract class SimpleThreeAppEntryPoint extends AbstractThreeApp implemen
 				onAfterStartApp();
 			}
 		});
+		loaded=true;
 	}
 	
 	public abstract WebGLRendererParameter createRendererParameter();
