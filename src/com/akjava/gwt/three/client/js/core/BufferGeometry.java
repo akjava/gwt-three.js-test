@@ -84,6 +84,9 @@ this.attributes = attributes;
 public final native BufferGeometry fromGeometry(Geometry geometry, JavaScriptObject settings)/*-{
 return this.fromGeometry(geometry,settings);
 }-*/;
+public final native BufferGeometry fromGeometry(Geometry geometry)/*-{
+return this.fromGeometry(geometry);
+}-*/;
 
 
 
