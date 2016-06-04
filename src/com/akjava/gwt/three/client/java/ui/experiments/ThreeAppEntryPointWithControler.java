@@ -14,6 +14,10 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 public abstract class ThreeAppEntryPointWithControler extends SimpleThreeAppEntryPoint{
 
 	protected VerticalPanel controlerRootPanel;
+	public VerticalPanel getControlerRootPanel() {
+		return controlerRootPanel;
+	}
+
 	protected PopupPanel popup;
 	
 	
