@@ -22,9 +22,19 @@ import com.google.gwt.json.client.JSONValue;
  * 
  * I'm not confirmed this bug fixed newer three.js.I'm still developing gwt-wrapper with r74
  * anyway only way to load with shapekeys
+ * 
+ * T
  */
 public class Mbl3dLoader {
 
+
+	private boolean applyAxisAngle=true;
+	public boolean isApplyAxisAngle() {
+		return applyAxisAngle;
+	}
+	public void setApplyAxisAngle(boolean applyAxisAngle) {
+		this.applyAxisAngle = applyAxisAngle;
+	}
 
 	public boolean needFix=true;
 	public JSONValue  parse(String text,final JSONLoadHandler loadHandler){
@@ -78,6 +88,11 @@ public class Mbl3dLoader {
 		
 	}
 	
+	public Mbl3dLoader applyAxisAngle(boolean  value){
+		applyAxisAngle=value;
+		return this;
+	}
+	
 	//fix r74 blender exporter blend keys
 	//TODO make method
 	public JsArrayNumber convertMorphVertices(JSONArray morphTargetsVertices){
@@ -91,12 +106,27 @@ public class Mbl3dLoader {
 			JsArrayNumber verticesNumber=verticesArray.getJavaScriptObject().cast();
 			
 			Vector3 vec=THREE.Vector3().fromArray(verticesNumber);
-			vec.applyAxisAngle( axis, angle );
+			if(applyAxisAngle){
+				vec.applyAxisAngle( axis, angle );
+			}
 			
-			arrays.push(vec.getX());
-			arrays.push(vec.getY());
-			arrays.push(vec.getZ());
+			//should i make options?
+			arrays.push(fixNumber(vec.getX()));
+			arrays.push(fixNumber(vec.getY()));
+			arrays.push(fixNumber(vec.getZ()));
 		}
 		return arrays;
 	}
+	/*
+	 * without fix 1 to 0.99999999999999999997 and this make file too big
+	 */
+	public double fixNumber(double number){
+		String fixed=toFixed(number, 6);
+		return Double.valueOf(fixed);
+	}
+	
+	  private  native String toFixed(double number, int n) /*-{
+	    return number.toFixed(n);
+	  }-*/;
+
 }
