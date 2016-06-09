@@ -28,6 +28,9 @@ import com.google.gwt.json.client.JSONValue;
 public class Mbl3dLoader {
 
 
+	
+
+	 
 	private boolean applyAxisAngle=true;
 	public boolean isApplyAxisAngle() {
 		return applyAxisAngle;
@@ -36,14 +39,20 @@ public class Mbl3dLoader {
 		this.applyAxisAngle = applyAxisAngle;
 	}
 
-	public boolean needFix=true;
+	private boolean fixVertices=true;
+	public boolean isFixVertices() {
+		return fixVertices;
+	}
+	public void setFixVertices(boolean fixVertices) {
+		this.fixVertices = fixVertices;
+	}
 	public JSONValue  parse(String text,final JSONLoadHandler loadHandler){
 
 		final JSONValue json=JSONParser.parseStrict(text);
 		JSONObject jsonObj=json.isObject();
 		
 		
-		if(needFix){//TODO check need fix
+		if(fixVertices){//TODO check need fix
 		JSONValue jsonMorph=jsonObj.get("morphTargets");
 		if(jsonMorph!=null){
 			
@@ -55,14 +64,28 @@ public class Mbl3dLoader {
 			JSONValue jsonMorphTarget=morphArray.get(i);
 			JSONObject morphTarget=jsonMorphTarget.isObject();
 			
+			
 			JSONValue jsonVertices=morphTarget.get("vertices");
-			JSONArray vertices=jsonVertices.isArray();
 			
-			JsArrayNumber fixed=convertMorphVertices(vertices);
+			if(jsonVertices!=null){
+				
+				JSONArray vertices=jsonVertices.isArray();
+				
+				if(vertices!=null){
+					
+					
+				JsArrayNumber fixed=convertMorphVertices(vertices);
+				if(fixed!=null){
+					JSONArray fixedArray=new JSONArray(fixed);
+					morphTarget.put("vertices", fixedArray);
+				}else{
+					LogUtils.log("no need to fix");
+				}
+			}
 			
-			JSONArray fixedArray=new JSONArray(fixed);
-			
-			morphTarget.put("vertices", fixedArray);
+			}else{
+				LogUtils.log("1 length vertices maybe safe");
+			}
 		}
 		LogUtils.log("fixed morph targets:"+morphArray.size());
 		}
@@ -103,6 +126,9 @@ public class Mbl3dLoader {
 		for(int i=0;i<morphTargetsVertices.size();i++){
 			JSONValue avalue=morphTargetsVertices.get(i);
 			JSONArray verticesArray=avalue.isArray();
+			if(verticesArray==null){//no need fix
+				return null;
+			}
 			JsArrayNumber verticesNumber=verticesArray.getJavaScriptObject().cast();
 			
 			Vector3 vec=THREE.Vector3().fromArray(verticesNumber);
