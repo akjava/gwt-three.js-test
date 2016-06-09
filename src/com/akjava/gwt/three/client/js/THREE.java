@@ -898,7 +898,7 @@ public class THREE {
 	}-*/;
 	
 	public static native final AmbientLight AmbientLight(double color,double intensity)/*-{
-	return new $wnd.THREE.AmbientLight(color);
+	return new $wnd.THREE.AmbientLight(color,intensity);
 	}-*/;
 	
 	

@@ -1,6 +1,7 @@
 package com.akjava.gwt.three.client.java.ui;
 
 import com.akjava.gwt.lib.client.LogUtils;
+import com.akjava.gwt.lib.client.StorageControler;
 import com.google.gwt.animation.client.AnimationScheduler;
 import com.google.gwt.animation.client.AnimationScheduler.AnimationCallback;
 import com.google.gwt.animation.client.AnimationScheduler.AnimationHandle;
@@ -23,6 +24,11 @@ public abstract class AbstractThreeApp implements AnimationCallback{
 	private int maxAnimateCount;
 	private int animated;
 	
+	protected StorageControler storageControler;
+	
+	public StorageControler getStorageControler() {
+		return storageControler;
+	}
 	
 	public boolean isDebugAnimateOneTime() {
 		return debugAnimateOneTime;
@@ -41,8 +47,8 @@ public abstract class AbstractThreeApp implements AnimationCallback{
 	}
 
 	public void start(Panel parent) {
-		
 		this.parent=parent;
+		storageControler=new StorageControler();
 		init();
 		execute(System.currentTimeMillis());
 	}
