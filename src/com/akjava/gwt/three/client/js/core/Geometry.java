@@ -202,6 +202,11 @@ return this.animations;
 public final native AnimationData getAnimation()/*-{
 return this.animation;
 }-*/;
+
+
+/*
+ * on r74 cloned geometry not contain this.
+ */
 public final native JsArray<AnimationBone> getBones()/*-{
 return this.bones;
 }-*/;
@@ -455,6 +460,13 @@ public final native Geometry copy(Geometry source)/*-{
 return this.copy(source);
 }-*/;
 
+/*
+ * on r74 only clone
+this.vertices = [];
+this.faces = [];
+this.faceVertexUvs = [ [] ];	 
+ * 
+ */
 public final native Geometry clone()/*-{
 return this.clone();
 }-*/;

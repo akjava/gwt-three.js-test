@@ -483,6 +483,9 @@ public class THREE {
 	public static final native Fog Fog(int hex, double near, double far)/*-{
 	return new $wnd.THREE.Fog(hex,near,far);
 	}-*/;
+	public static final native Fog Fog(int hex)/*-{
+	return new $wnd.THREE.Fog(hex);
+	}-*/;
 	
 	public static final native Fog FogExp2(int hex, double density)/*-{
 	return new $wnd.THREE.FogExp2(hex,density);
