@@ -61,4 +61,8 @@ return this.renderTarget;
 }-*/;
 
 
+public final native PerspectiveCamera gwtCameraAt(int index)/*-{
+return this.children[index];
+}-*/;
+
 }
