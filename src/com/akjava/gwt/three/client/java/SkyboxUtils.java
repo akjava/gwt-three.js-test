@@ -20,9 +20,7 @@ public class SkyboxUtils {
 	 size must be power-of 2
 	 */
 	public static CubeTexture createCubeTexture(List<ImageElement> images,int size){
-		CubeTexture texture=THREE.CubeTexture();
-		texture.setFormat(THREE.RGBFormat);//cubeMap.format = THREE.RGBFormat;
-		texture.setFlipY(false);
+		CubeTexture texture=createStandardTexture();
 		
 		setCubeTexture(texture, images,size);
 		
@@ -43,6 +41,18 @@ public class SkyboxUtils {
 		texture.getImages().set(5, paintToCanvas(images.get(5),size));
 		texture.setNeedsUpdate(true);
 	
+	}
+	
+	public static void setCubeTexture(CubeTexture texture,ImageElement skyboxImage){
+		Skybox skybox=new Skybox(skyboxImage);
+		skybox.setToCubeTexture(texture);
+	}
+	
+	public static CubeTexture createStandardTexture(){
+		CubeTexture cubeMap = THREE.CubeTexture();
+		cubeMap.setFormat(THREE.RGBFormat);//cubeMap.format = THREE.RGBFormat;
+		cubeMap.setFlipY(false);
+		return cubeMap;
 	}
 	
 	public static ImageElement paintToCanvas(ImageElement element,int size){
