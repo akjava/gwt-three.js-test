@@ -371,6 +371,13 @@ public final  native void setDisplacementMap(Texture  param)/*-{
 this.displacementMap=param;
 }-*/;
 
+public final  native Texture getDisplacementScale()/*-{
+return this.displacementScale;
+}-*/;
+public final  native void setDisplacementScale(double  scale)/*-{
+this.displacementScale=scale;
+}-*/;
+
 
 public final  native Texture getEmissiveMap()/*-{
 return this.emissiveMap;

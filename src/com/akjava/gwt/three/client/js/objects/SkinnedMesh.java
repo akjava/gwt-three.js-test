@@ -79,6 +79,9 @@ public final native void setBoneMatrices(JsArray boneMatrices)/*-{
 this.skelton.boneMatrices = boneMatrices;
 }-*/;
 
+public final native void gwtDuplicateUvsForAoLightMap()/*-{
+this.geometry.faceVertexUvs[1]=this.geometry.faceVertexUvs[0];
+}-*/;
 
 
 /**
