@@ -37,6 +37,7 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.lights;
 
+import com.akjava.gwt.three.client.js.cameras.PerspectiveCamera;
 import com.akjava.gwt.three.client.js.core.Object3D;
 
 
@@ -103,4 +104,7 @@ public final native void setShadow(LightShadow shadow)/*-{
 this.shadow = shadow;
 }-*/;
 
+public final native PerspectiveCamera gwtGetShadowCamera()/*-{
+return this.shadow.camera;
+}-*/;
 }

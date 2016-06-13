@@ -65,6 +65,11 @@ this.intensity=param;
 }-*/;
 
 
+public final native LightShadow gwtGetShadow()/*-{
+return this.shadow;
+}-*/;
+
+
 /**
  * @deprecated
  */

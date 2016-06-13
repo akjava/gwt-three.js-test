@@ -1,5 +1,6 @@
 package com.akjava.gwt.three.client.js.lights;
 
+import com.akjava.gwt.three.client.js.cameras.OrthographicCamera;
 import com.akjava.gwt.three.client.js.core.Object3D;
 
 public class DirectionalLight extends Light{
@@ -24,7 +25,9 @@ this.shadow = shadow;
 }-*/;
 
 
-
+public final native OrthographicCamera gwtGetShadowCamera()/*-{
+return this.shadow.camera;
+}-*/;
 
 
 
