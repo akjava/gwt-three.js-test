@@ -596,4 +596,8 @@ return this.updateShadowMap(scene,camera);
 	public final native void dispose()/*-{
 	 this.dispose();
 	}-*/;
+	public final native void clearTarget(WebGLRenderTarget target)/*-{
+	 this.clearTarget(target);
+	}-*/;
+	
 }
