@@ -383,6 +383,7 @@ public class BoneAnimationExample extends AbstractExample{
 		doAnimation("test",0,quaternion,modified,true);
 		
 		Euler euler=THREE.Euler(0, 0, 0).setFromQuaternion(quaternion, "XYZ", false);
+		LogUtils.log("bone1");
 		ThreeLog.log(euler);
 		
 		point3.set(x2, y2, z2);
@@ -403,12 +404,18 @@ public class BoneAnimationExample extends AbstractExample{
 		//ThreeLog.log(point3Origin.clone().sub(point2Origin).applyMatrix4(m1));
 		
 		
-		Quaternion quaternion2 = THREE.Quaternion().setFromUnitVectors( point3Origin.clone().sub(point2).normalize() ,diffPoint.clone().normalize() );
+		Quaternion quaternion2 = THREE.Quaternion().setFromUnitVectors( diff.clone().sub(point2).normalize() ,diffPoint.clone().normalize() );
+		
 		
 		//Matrix4 m2=THREE.Matrix4().makeRotationFromQuaternion(quaternion2);
 		
 		
-		quaternion2=quaternion2.multiplyQuaternions(quaternion2.clone(),quaternion);
+		//quaternion2=quaternion2.multiplyQuaternions(quaternion2.clone(),quaternion.inverse());
+		
+		Euler euler2=THREE.Euler(0, 0, 0).setFromQuaternion(quaternion2, "XYZ", false);
+		LogUtils.log("bone2a");
+		ThreeLog.log(euler2);
+		
 		doAnimation("test1",1,quaternion2,modified2,false);
 	}
 	
