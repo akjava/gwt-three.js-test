@@ -1519,6 +1519,9 @@ public class THREE {
 	public static final native Skeleton Skeleton(JsArray<Bone> bones,JsArray<Matrix4> boneInverses,boolean useVertexTexture)/*-{
 	return new $wnd.THREE.Skeleton(bones,boneInverses,useVertexTexture);
 	}-*/;
+	public static final native Skeleton Skeleton(JsArray<Bone> bones)/*-{
+	return new $wnd.THREE.Skeleton(bones);
+	}-*/;
 	
 	public static final native SkeletonHelper SkeletonHelper(Object3D object)/*-{
 	return new $wnd.THREE.SkeletonHelper(object);

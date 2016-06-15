@@ -378,7 +378,7 @@ public final native void setRotationFromEuler(Object euler)/*-{
 this.setRotationFromEuler(euler);
 }-*/;
 
-public final native void setRotationFromMatrix(Object m)/*-{
+public final native void setRotationFromMatrix(Matrix4 m)/*-{
 this.setRotationFromMatrix(m);
 }-*/;
 
@@ -435,9 +435,6 @@ public final native Vector3 worldToLocal(Vector3 vector)/*-{
 return this.worldToLocal(vector);
 }-*/;
 
-public final native Vector3 lookAt()/*-{
-return this.lookAt();
-}-*/;
 
 
 

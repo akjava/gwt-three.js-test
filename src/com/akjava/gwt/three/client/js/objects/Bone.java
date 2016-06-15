@@ -40,6 +40,7 @@ package com.akjava.gwt.three.client.js.objects;
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.akjava.gwt.three.client.js.math.Box2;
 import com.akjava.gwt.three.client.js.math.Matrix4;
+import com.akjava.gwt.three.client.js.math.Quaternion;
 
 
 public class Bone extends Object3D{
@@ -92,4 +93,8 @@ public final  native Bone clone()/*-{
 return this.clone();
 }-*/;
 
+
+public native final void setRot(Quaternion q)/*-{
+this['rot']=q.toArray();
+}-*/;
 }

@@ -23,6 +23,7 @@ import com.akjava.gwt.threejsexamples.client.examples.misc.controls.OrbitExample
 import com.akjava.gwt.threejsexamples.client.examples.morphtargets.HorseExample;
 import com.akjava.gwt.threejsexamples.client.examples.morphtargets.MorphTargetsExample;
 import com.akjava.gwt.threejsexamples.client.examples.morphtargets.human.HumanExample;
+import com.akjava.gwt.threejsexamples.client.examples.original.BoneAnimationExample;
 import com.akjava.gwt.threejsexamples.client.examples.original.Mbl3dLoadExample;
 import com.akjava.gwt.threejsexamples.client.examples.original.hair.HairExample;
 import com.akjava.gwt.threejsexamples.client.examples.postprocessing.AdvancedExample;
@@ -93,7 +94,8 @@ public class ThreejsExamples implements EntryPoint,ExampleOwner {
 		
 		
 		List<Example> examples=Lists.newArrayList();
-		examples.add(new Mbl3dLoadExample());
+		examples.add(new BoneAnimationExample());
+		//examples.add(new Mbl3dLoadExample());
 		//examples.add(new MyExample());
 		examples.add(new SoundExample());
 		examples.add(new PanoramaEquirectangularExample());
