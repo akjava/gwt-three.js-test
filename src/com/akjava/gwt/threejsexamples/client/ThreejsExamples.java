@@ -12,6 +12,7 @@ import com.akjava.gwt.threejsexamples.client.examples.MorphnormalsExample;
 import com.akjava.gwt.threejsexamples.client.examples.animation.SceneExample;
 import com.akjava.gwt.threejsexamples.client.examples.animation.cloth.ClothExample;
 import com.akjava.gwt.threejsexamples.client.examples.animation.cloth.ClothExample2;
+import com.akjava.gwt.threejsexamples.client.examples.animation.cloth.ClothExample3;
 import com.akjava.gwt.threejsexamples.client.examples.animation.skinning.BlendingExample;
 import com.akjava.gwt.threejsexamples.client.examples.animation.skinning.MorphExample;
 import com.akjava.gwt.threejsexamples.client.examples.buffergeometry.BufferGeometryExample;
@@ -94,6 +95,7 @@ public class ThreejsExamples implements EntryPoint,ExampleOwner {
 		
 		
 		List<Example> examples=Lists.newArrayList();
+		examples.add(new ClothExample3());
 		examples.add(new BoneAnimationExample());
 		//examples.add(new Mbl3dLoadExample());
 		//examples.add(new MyExample());

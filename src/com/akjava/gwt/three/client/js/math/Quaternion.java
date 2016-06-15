@@ -47,6 +47,7 @@ public final native Quaternion normalize()/*-{
 return this.normalize();
 }-*/;
 
+//use multiplyQuaternions(this,q);
 public final native Quaternion multiply(Quaternion q)/*-{
 return this.multiply(q);
 }-*/;
@@ -95,6 +96,7 @@ return $wnd.THREE.Quaternion.slerp( qa, qb, qm, t);
 
 /**
  * @deprecated
+ * //use multiplyQuaternions(this,q);
  * @return
  */
 public native final Quaternion multiplySelf(Quaternion q)/*-{

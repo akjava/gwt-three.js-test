@@ -313,7 +313,7 @@ public class ClothExample extends AbstractExample {
 
 		for ( int i = 0, il = p.size(); i < il; i ++ ) {
 
-			clothGeometry.getVertices().get(i).copy( p.get(i).position);
+			clothGeometry.getVertices().get(i).copy( p.get(i).getPosition());
 
 		}
 

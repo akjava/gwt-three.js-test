@@ -21,6 +21,7 @@ import com.akjava.gwt.three.client.js.extras.helpers.SkeletonHelper;
 import com.akjava.gwt.three.client.js.lights.AmbientLight;
 import com.akjava.gwt.three.client.js.lights.DirectionalLight;
 import com.akjava.gwt.three.client.js.math.Euler;
+import com.akjava.gwt.three.client.js.math.Matrix4;
 import com.akjava.gwt.three.client.js.math.Quaternion;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.objects.LineSegments;
@@ -39,6 +40,7 @@ import com.google.gwt.event.dom.client.MouseMoveHandler;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.user.client.ui.FocusPanel;
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 
@@ -74,7 +76,9 @@ public class BoneAnimationExample extends AbstractExample{
 	
 	private Vector3 point1;
 	private Vector3 point2;
-	private Vector3 origin;
+	private Vector3 point3;
+	private Vector3 point2Origin;
+	private Vector3 point3Origin;
 	/*
 	public double calcurateXZ(Vector3 p1,Vector3 p2){
 		Vector3 tmp=THREE.Vector3(p2.getX(),p2.getY(),p2.getZ());
@@ -85,6 +89,7 @@ public class BoneAnimationExample extends AbstractExample{
 		return p1.angleTo(tmp);
 	}
 	*/
+	private Mesh sphere2;
 	
 	@Override
 	public void init() {
@@ -92,9 +97,10 @@ public class BoneAnimationExample extends AbstractExample{
 		
 		
 		point1=THREE.Vector3();//abstract is not initialized
-		point2=THREE.Vector3(100,0,0);
-		origin=THREE.Vector3().copy(point2);
-		
+		point2=THREE.Vector3(x,y,z);
+		point3=THREE.Vector3(x2,y2,z2);
+		point2Origin=THREE.Vector3().copy(point2);
+		point3Origin=THREE.Vector3().copy(point3);//origin must be sub
 		
 		clock=THREE.Clock();
 		
@@ -140,11 +146,12 @@ public class BoneAnimationExample extends AbstractExample{
 		scene.add(root);
 		root.getPosition().copy(point1);
 		
-		sphere1 = THREE.Mesh(THREE.SphereBufferGeometry(10, 10, 10),THREE.MeshLambertMaterial(GWTParamUtils.MeshLambertMaterial().color(0x0000ff).wireframe(true)));
+		sphere1 = THREE.Mesh(THREE.SphereBufferGeometry(5, 5, 5),THREE.MeshLambertMaterial(GWTParamUtils.MeshLambertMaterial().color(0x0000ff).wireframe(true)));
 		scene.add(sphere1);
 		
 		
-		
+		sphere2 = THREE.Mesh(THREE.SphereBufferGeometry(5, 5, 5),THREE.MeshLambertMaterial(GWTParamUtils.MeshLambertMaterial().color(0x000088).wireframe(true)));
+		scene.add(sphere2);
 		
 		Geometry box=THREE.BoxGeometry(30, 30, 30);
 		box.setBones(makeBones());
@@ -209,8 +216,15 @@ public class BoneAnimationExample extends AbstractExample{
 		AnimationBone bone1=AnimationUtils.createAnimationBone();
 		bone1.setParent(0);
 		bone1.setName("bone1");
-		bone1.setPos(point2);
+		bone1.setPos(point2);//no need sub,root is 000
 		bones.push(bone1);
+		
+		
+		AnimationBone bone2=AnimationUtils.createAnimationBone();
+		bone2.setParent(1);
+		bone2.setName("bone2");
+		bone2.setPos(point3.clone().sub(point2));
+		bones.push(bone2);
 		
 		return bones;
 	}
@@ -312,7 +326,46 @@ public class BoneAnimationExample extends AbstractExample{
 		gui.add(yRange);
 		gui.add(zRange);
 	
+		gui.add(new HTML("Sphere2"));
 		
+		LabeledInputRangeWidget2 xRange2=new LabeledInputRangeWidget2("x", -200, 200, 1);
+		xRange2.addtRangeListener(new ValueChangeHandler<Number>() {
+			
+			@Override
+			public void onValueChange(ValueChangeEvent<Number> event) {
+				x2=event.getValue().doubleValue();
+				updadaRange();
+			}
+		});
+		xRange2.setValue(x2);
+		
+		LabeledInputRangeWidget2 yRange2=new LabeledInputRangeWidget2("y", -200, 200, 1);
+		yRange2.addtRangeListener(new ValueChangeHandler<Number>() {
+			
+			@Override
+			public void onValueChange(ValueChangeEvent<Number> event) {
+				y2=event.getValue().doubleValue();
+				updadaRange();
+			}
+		});
+		yRange2.setValue(y2);
+		
+		
+		LabeledInputRangeWidget2 zRange2=new LabeledInputRangeWidget2("z", -200, 200, 1);
+		zRange2.addtRangeListener(new ValueChangeHandler<Number>() {
+			
+			@Override
+			public void onValueChange(ValueChangeEvent<Number> event) {
+				z2=event.getValue().doubleValue();
+				updadaRange();
+			}
+		});
+		zRange2.setValue(z2);
+		
+		
+		gui.add(xRange2);
+		gui.add(yRange2);
+		gui.add(zRange2);
 		
 		return gui;
 	}
@@ -320,19 +373,47 @@ public class BoneAnimationExample extends AbstractExample{
 	public void updadaRange(){
 		point2.set(x, y, z);
 		
-		
 		double length=point2.distanceTo(point1);
 		
-		Vector3 modified=origin.clone().normalize().multiplyScalar(length);
+		Vector3 modified=point2Origin.clone().normalize().multiplyScalar(length);
 		
 		
-		Quaternion quaternion = THREE.Quaternion().setFromUnitVectors( origin.clone().normalize() ,point2.clone().normalize() );
+		Quaternion quaternion = THREE.Quaternion().setFromUnitVectors( point2Origin.clone().normalize() ,point2.clone().normalize() );
 		
-		doAnimation("test",0,quaternion,modified);
+		doAnimation("test",0,quaternion,modified,true);
+		
+		Euler euler=THREE.Euler(0, 0, 0).setFromQuaternion(quaternion, "XYZ", false);
+		ThreeLog.log(euler);
+		
+		point3.set(x2, y2, z2);
+		
+		Vector3 diffPoint=point3.clone().sub(point2);
+		double length2=point3.distanceTo(point2);
+		
+		Vector3 modified2=point3Origin.clone().sub(point2Origin).normalize().multiplyScalar(length2);
+		
+		ThreeLog.log(point3Origin.clone());
+		LogUtils.log("changed1");
+		
+	 
+		Vector3 diff=point3Origin.clone();
+		diff.applyQuaternion(quaternion);//turned
+		ThreeLog.log(diff);
+		
+		//ThreeLog.log(point3Origin.clone().sub(point2Origin).applyMatrix4(m1));
+		
+		
+		Quaternion quaternion2 = THREE.Quaternion().setFromUnitVectors( point3Origin.clone().sub(point2).normalize() ,diffPoint.clone().normalize() );
+		
+		//Matrix4 m2=THREE.Matrix4().makeRotationFromQuaternion(quaternion2);
+		
+		
+		quaternion2=quaternion2.multiplyQuaternions(quaternion2.clone(),quaternion);
+		doAnimation("test1",1,quaternion2,modified2,false);
 	}
 	
 	private double x=100,y,z;
-	
+	private double x2=100,y2=100,z2;
 
 	private VerticalPanel gui;
 	
@@ -350,7 +431,7 @@ public class BoneAnimationExample extends AbstractExample{
 	
 	private AnimationMixer mixer;
 	private Mesh root;
-	public void doAnimation(String name,int boneIndex,Quaternion q,Vector3 pos){
+	public void doAnimation(String name,int boneIndex,Quaternion q,Vector3 pos,boolean clearAnimation){
 		JsArray<KeyframeTrack> tracks=JavaScriptObject.createArray().cast();
 		
 			JsArrayNumber times=JavaScriptObject.createArray().cast();
@@ -381,7 +462,9 @@ public class BoneAnimationExample extends AbstractExample{
 		AnimationClip clip=THREE.AnimationClip(name, -1, tracks);
 		//LogUtils.log(track.validate());
 		
+		if(clearAnimation){
 		mixer.stopAllAction();
+		}
 		mixer.uncacheClip(clip);//reset can cache?
 		mixer.clipAction(clip).play();
 		
@@ -406,6 +489,7 @@ public class BoneAnimationExample extends AbstractExample{
 	
 	public void render(double now) {
 		sphere1.getPosition().copy(point2);
+		sphere2.getPosition().copy(point3);
 		helper.update();
 		
 		if(mixer!=null){

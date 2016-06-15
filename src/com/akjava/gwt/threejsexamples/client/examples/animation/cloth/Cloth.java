@@ -98,7 +98,12 @@ public class Cloth {
 		}
 	}
 	public class Particle{
-		Vector3 position;
+		private Vector3 position;
+		public Vector3 getPosition() {
+			return position;
+		}
+
+
 		private Vector3 previous;
 		private Vector3 original;
 		//for after modify
