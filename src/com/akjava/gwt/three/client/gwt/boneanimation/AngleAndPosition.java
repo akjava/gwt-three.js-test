@@ -5,6 +5,11 @@ import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.math.Matrix4;
 import com.akjava.gwt.three.client.js.math.Vector3;
 
+/*
+ * just Matrix4
+ * 
+ * easy handle angle & position
+ */
 public class AngleAndPosition {
 public AngleAndPosition(Vector3 angle,Vector3 positions,Matrix4 matrix){
 	this.angle=angle;

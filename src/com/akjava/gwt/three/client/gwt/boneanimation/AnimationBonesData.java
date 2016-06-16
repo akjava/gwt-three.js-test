@@ -3,10 +3,11 @@ package com.akjava.gwt.three.client.gwt.boneanimation;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.akjava.gwt.lib.client.LogUtils;
-import com.akjava.gwt.three.client.java.ThreeLog;
+import javax.annotation.Nullable;
+
 import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
 import com.akjava.gwt.three.client.js.THREE;
+import com.akjava.gwt.three.client.js.math.Euler;
 import com.akjava.gwt.three.client.js.math.Matrix4;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.google.gwt.core.client.JsArray;
@@ -209,12 +210,26 @@ public class AnimationBonesData {
 	
 	
 
-public static List<AngleAndPosition> boneToAngleAndMatrix(JsArray<AnimationBone> bones,AnimationData animationData,int animationIndex){
-		LogUtils.log("bonetomx");
-		LogUtils.log(animationData);
+public static List<AngleAndPosition> boneToAngleAndMatrix(JsArray<AnimationBone> bones,@Nullable AnimationData animationData,int animationIndex){
+		
 		List<AngleAndPosition> boneMatrix=new ArrayList<AngleAndPosition>();
 		
+		
+		
 		for(int i=0;i<bones.length();i++){
+			if(animationData==null){//make from bone
+				Vector3 pos=THREE.Vector3().fromArray(bones.get(i).getPos());
+				Vector3 angle=THREE.Vector3().fromArray(bones.get(i).getRot()); //should i  radTodeg?
+				//meybe zero
+				Euler euler=THREE.Euler(angle.getX(), angle.getY(), angle.getZ());
+				Matrix4 m1=THREE.Matrix4().makeTranslation(pos.getX(), pos.getY(), pos.getZ());
+				Matrix4 m2=THREE.Matrix4().makeRotationFromEuler(euler);
+				m1.multiply(m2);
+				boneMatrix.add(new AngleAndPosition(angle,pos,m1));
+				continue;
+			}
+			
+			
 			AnimationHierarchyItem item=animationData.getHierarchy().get(i);
 			AnimationKey motion=item.getKeys().get(animationIndex);
 			

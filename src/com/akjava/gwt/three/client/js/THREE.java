@@ -554,6 +554,10 @@ public class THREE {
 	return new $wnd.THREE. Euler(x,y,z,order);
 	}-*/;
 	
+	public static native final Euler Euler()/*-{
+	return new $wnd.THREE. Euler();
+	}-*/;
+	
 	public static native final Euler Euler(double x,double y,double z)/*-{
 	return new $wnd.THREE. Euler(x,y,z);
 	}-*/;

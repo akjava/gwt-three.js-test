@@ -312,7 +312,7 @@ public class BoneAnimationExample extends AbstractExample{
 		});
 		xRange.setValue(x);
 		
-		LabeledInputRangeWidget2 yRange=new LabeledInputRangeWidget2("y", -400, 400, 1);
+		final LabeledInputRangeWidget2 yRange=new LabeledInputRangeWidget2("y", -400, 400, 1);
 		yRange.addtRangeListener(new ValueChangeHandler<Number>() {
 			
 			@Override
@@ -391,12 +391,36 @@ public class BoneAnimationExample extends AbstractExample{
 		});
 		gui.add(test);
 		
+
+		Button test3=new Button("test y=45",new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				// TODO Auto-generated method stub
+				yRange.setValue(45, true);
+			}
+		});
+		gui.add(test3);
+		
+		Button test2=new Button("current q",new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				Quaternion q=mesh.getSkeleton().getBones().get(1).getQuaternion();
+				Euler e=THREE.Euler().setFromQuaternion(q, "XYZ", false);
+				ThreeLog.log("current-angle",e);
+			}
+		});
+		gui.add(test2);
+		
 		return gui;
 	}
 	
+	
+	//tried ik base,but faild
 	Map<String,Euler> ikMap;
 	//Map<String,Vector3> ikMap;
-	public void updadaRange(){
+	public void updadaRange3(){
 		point2.set(x, y, z);
 		double length=point2.distanceTo(point1);
 		Vector3 modified=point2Origin.clone().normalize().multiplyScalar(length);
@@ -416,7 +440,7 @@ public class BoneAnimationExample extends AbstractExample{
 		double length2=point3.distanceTo(point2);
 		Vector3 modified2=point3Origin.clone().sub(point2Origin).normalize().multiplyScalar(length2);
 		
-		Vector3 baseLine2=bone2Origin.clone().sub(point2).normalize().multiplyScalar(length2);
+		Vector3 baseLine2=bone2Origin.clone().sub(point2);//.normalize().multiplyScalar(length2);
 		Euler euler=findEuler(baseLine2,point3.clone().sub(point2));
 		Quaternion quaternion2 = THREE.Quaternion().setFromEuler(euler, false);
 		
@@ -432,6 +456,7 @@ public class BoneAnimationExample extends AbstractExample{
 		for(int i=0;i<tracks2.length();i++){
 			tracks1.push(tracks2.get(i));
 		}
+		
 		AnimationClip clip=THREE.AnimationClip("test1", -1, tracks1);
 		//LogUtils.log(track.validate());
 		
@@ -600,8 +625,12 @@ public class BoneAnimationExample extends AbstractExample{
 		doAnimation("test1",1,q2,modified2,false);
 		
 	}
+	
+	/*
+	 * i'm not sure pos-transform
+	 */
 	//not good when y-changed
-	public void updadaRange2(){
+	public void updadaRange(){
 		point2.set(x, y, z);
 		
 		double length=point2.distanceTo(point1);
@@ -621,9 +650,13 @@ public class BoneAnimationExample extends AbstractExample{
 		Matrix4 mixed=THREE.Matrix4().makeTranslation(subbed.getX(), subbed.getY(), subbed.getZ()).multiply(rotate);
 		
 		
+		
+		
 		point3.set(x2, y2, z2);
 		
-		Vector3 diffPoint=point3.clone().sub(point2);
+		Vector3 diffPoint3Sub2=point3.clone().sub(point2);
+		//Vector3 diffPoint3Sub2=point3.clone().sub(point2Origin.applyQuaternion(quaternion));
+		
 		double length2=point3.distanceTo(point2);
 		
 		Vector3 modified2=point3Origin.clone().sub(point2Origin).normalize().multiplyScalar(length2);
@@ -633,9 +666,15 @@ public class BoneAnimationExample extends AbstractExample{
 		
 	 
 		//original position seems good
-		Vector3 originalPos=point3Origin.clone().sub(point2Origin);
+		Vector3 originalPos=point3Origin.clone().sub(point2Origin);//modified2.clone();//
 		ThreeLog.log("green-line",originalPos);
+		
+		
+		
+		//I'm not sure
+		//originalPos.applyProjection(rotate);
 		originalPos.applyQuaternion(quaternion);
+		
 		//diff.applyMatrix4(mixed);
 		originalPos.add(point2);
 		
@@ -645,14 +684,26 @@ public class BoneAnimationExample extends AbstractExample{
 		
 		//ThreeLog.log(point3Origin.clone().sub(point2Origin).applyMatrix4(m1));
 		
+		//streched
+		Vector3 trueOrigin2=modified;
 		
-		Quaternion quaternion2 = THREE.Quaternion().setFromUnitVectors( originalPos.clone().sub(point2).normalize() ,diffPoint.clone().normalize() );
+		Vector3 diffOrigin2=point3.clone().sub(point2Origin);
 		
+		Quaternion quaternion2 = THREE.Quaternion().setFromUnitVectors(trueOrigin2 ,diffOrigin2 );
+		quaternion2.multiplyQuaternions(quaternion2.clone(),quaternion.inverse());//no need
+		
+		
+		//Quaternion quaternion2 = THREE.Quaternion().setFromUnitVectors( originalPos.clone().sub(point2).normalize() ,diffPoint3Sub2.clone().normalize() );
+		
+		Vector3 baseLine2=originalPos.clone().sub(point2).normalize().multiplyScalar(length2);
+		Vector3 tmp=baseLine2.clone().applyQuaternion(quaternion2);
+		tmp.add(point2);
+		sphere4.getPosition().copy(tmp);
 		
 		//Matrix4 m2=THREE.Matrix4().makeRotationFromQuaternion(quaternion2);
 		
 		
-		//quaternion2=quaternion2.multiplyQuaternions(quaternion2.clone(),quaternion.inverse());
+		//quaternion2=quaternion2.multiplyQuaternions(quaternion2.clone(),quaternion);
 		
 		Euler euler2=THREE.Euler(0, 0, 0).setFromQuaternion(quaternion2, "XYZ", false);
 		ThreeLog.log("bone[2]",euler2);
