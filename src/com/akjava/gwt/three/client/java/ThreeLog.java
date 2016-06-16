@@ -5,6 +5,7 @@ import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.math.Euler;
 import com.akjava.gwt.three.client.js.math.Matrix4;
+import com.akjava.gwt.three.client.js.math.Quaternion;
 import com.akjava.gwt.three.client.js.math.Vector2;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.math.Vector4;
@@ -72,6 +73,16 @@ public class ThreeLog {
 		ret+=",w:"+vec.getW();
 		return ret;
 	}
+	public static String get(Quaternion vec){
+		if(vec==null){
+			return "Null";
+		}
+		String ret="x:"+vec.getX();
+		ret+=",y:"+vec.getY();
+		ret+=",z:"+vec.getZ();
+		ret+=",w:"+vec.getW();
+		return ret;
+	}
 	public static String get(JsArrayNumber numbers){
 		if(numbers==null){
 			return "Null";
@@ -88,6 +99,10 @@ public class ThreeLog {
 		LogUtils.log(get(vec));
 	}
 	
+	public static void log(String header,double vec){
+		LogUtils.log(header+" "+vec);
+	}
+	
 	public static void log(String header,Vector2 vec){
 		LogUtils.log(header+" "+get(vec));
 	}
@@ -102,6 +117,11 @@ public class ThreeLog {
 	public static void log(Vector4 vec){
 		LogUtils.log(get(vec));
 	}
+	
+	public static void log(String header,Euler vec){
+		LogUtils.log(header+" "+get(vec));
+	}
+	
 	public static void log(Euler vec){
 		LogUtils.log(get(vec));
 	}
@@ -118,5 +138,8 @@ public class ThreeLog {
 		for(int i=0;i<characterMesh.getGeometry().getBones().length();i++){
 			LogUtils.log(i+","+characterMesh.getGeometry().getBones().get(i).getName());
 		}
+	}
+	public static void log(String header, Quaternion quaternion) {
+		LogUtils.log(header+" "+get(quaternion));
 	}
 }
