@@ -25,10 +25,10 @@ public void setPosition(Vector3 positions) {
 }
 private Vector3 angle;
 private Matrix4 matrix;
-public Vector3 getAngle() {
+public Vector3 getDegreeAngle() {
 	return angle;
 }
-public void setAngle(Vector3 angle) {
+public void setDegreeAngle(Vector3 angle) {
 	this.angle = angle;
 }
 

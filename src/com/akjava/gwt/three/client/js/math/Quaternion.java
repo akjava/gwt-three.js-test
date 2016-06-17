@@ -18,6 +18,9 @@ return this.copy(quaternion);
 public final native Quaternion setFromEuler(Euler euler,boolean update)/*-{
 return this.setFromEuler(euler,update);
 }-*/;
+public final native Quaternion setFromEuler(Euler euler)/*-{
+return this.setFromEuler(euler);
+}-*/;
 
 public final native Quaternion setFromAxisAngle(Vector3 axis,double angle)/*-{
 return this.setFromAxisAngle(axis,angle);

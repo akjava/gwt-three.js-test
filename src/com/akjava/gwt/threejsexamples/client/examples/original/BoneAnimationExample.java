@@ -8,6 +8,8 @@ import com.akjava.gwt.three.client.gwt.GWTParamUtils;
 import com.akjava.gwt.three.client.gwt.boneanimation.AnimationBone;
 import com.akjava.gwt.three.client.gwt.ui.LabeledInputRangeWidget2;
 import com.akjava.gwt.three.client.java.ThreeLog;
+import com.akjava.gwt.three.client.java.ui.experiments.SimpleVector3Editor;
+import com.akjava.gwt.three.client.java.ui.experiments.SimpleVector3Editor.SimpleVector3EditorListener;
 import com.akjava.gwt.three.client.java.utils.AnimationUtils;
 import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
 import com.akjava.gwt.three.client.js.THREE;
@@ -32,6 +34,7 @@ import com.akjava.gwt.three.client.js.objects.SkinnedMesh;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.threejsexamples.client.AbstractExample;
+import com.akjava.gwt.threejsexamples.client.examples.original.ik.IKControler;
 import com.google.common.collect.Maps;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
@@ -47,9 +50,15 @@ import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FocusPanel;
 import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 
+/**
+ * trying line to bone ,but totally faild
+ * @author aki
+ *
+ */
 public class BoneAnimationExample extends AbstractExample{
 
 	@Override
@@ -211,6 +220,7 @@ public class BoneAnimationExample extends AbstractExample{
 		//setDebugAnimateOneTimeOnly(true);
 		
 		
+		ikControler = new IKControler(mixer, mesh.getGeometry().getBones());
 	}
 	
 	public JsArray<AnimationBone> makeBones(){
@@ -293,6 +303,9 @@ public class BoneAnimationExample extends AbstractExample{
 		
 	}
 	LineSegments selectedLine;
+	private SimpleVector3Editor bone1AngleEditor;
+	private SimpleVector3Editor bone0TranslateEditor;
+	private SimpleVector3Editor bone1TranslateEditor;
 	private VerticalPanel initResizeHandlerAndGUI() {
 		VerticalPanel gui=addResizeHandlerAndCreateGUIPanel();
 		
@@ -307,7 +320,7 @@ public class BoneAnimationExample extends AbstractExample{
 			@Override
 			public void onValueChange(ValueChangeEvent<Number> event) {
 				x=event.getValue().doubleValue();
-				updadaRange();
+				updateRange();
 			}
 		});
 		xRange.setValue(x);
@@ -318,7 +331,7 @@ public class BoneAnimationExample extends AbstractExample{
 			@Override
 			public void onValueChange(ValueChangeEvent<Number> event) {
 				y=event.getValue().doubleValue();
-				updadaRange();
+				updateRange();
 			}
 		});
 		yRange.setValue(y);
@@ -330,7 +343,7 @@ public class BoneAnimationExample extends AbstractExample{
 			@Override
 			public void onValueChange(ValueChangeEvent<Number> event) {
 				z=event.getValue().doubleValue();
-				updadaRange();
+				updateRange();
 			}
 		});
 		zRange.setValue(z);
@@ -348,7 +361,7 @@ public class BoneAnimationExample extends AbstractExample{
 			@Override
 			public void onValueChange(ValueChangeEvent<Number> event) {
 				x2=event.getValue().doubleValue();
-				updadaRange();
+				updateRange();
 			}
 		});
 		xRange2.setValue(x2);
@@ -359,7 +372,7 @@ public class BoneAnimationExample extends AbstractExample{
 			@Override
 			public void onValueChange(ValueChangeEvent<Number> event) {
 				y2=event.getValue().doubleValue();
-				updadaRange();
+				updateRange();
 			}
 		});
 		yRange2.setValue(y2);
@@ -371,7 +384,7 @@ public class BoneAnimationExample extends AbstractExample{
 			@Override
 			public void onValueChange(ValueChangeEvent<Number> event) {
 				z2=event.getValue().doubleValue();
-				updadaRange();
+				updateRange();
 			}
 		});
 		zRange2.setValue(z2);
@@ -413,21 +426,113 @@ public class BoneAnimationExample extends AbstractExample{
 		});
 		gui.add(test2);
 		
+		
+		Button test4=new Button("turn bone[0] angle",new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				Vector3 translation=ikControler.getBaseMatrixs().get(1).getPosition();//no move
+				Quaternion q=THREE.Quaternion().setFromEuler(THREE.Euler(0,Math.toRadians(45), 0), false);
+				//doAnimation("test1",0,q,translation,false);
+				//not working yet
+				ikControler.getAnimationBoneData().getBonesAngleAndMatrixs().get(0).getDegreeAngle().setY(45);
+				
+				ikControler.doPose();
+			}
+		});
+		gui.add(test4);
+		
+		Button test5=new Button("turn bone[1] angle",new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				Vector3 translation=ikControler.getBaseMatrixs().get(2).getPosition();//no move
+				Quaternion q=THREE.Quaternion().setFromEuler(THREE.Euler(0,Math.toRadians(45), 0), false);
+				
+				ikControler.getAnimationBoneData().getBonesAngleAndMatrixs().get(1).getDegreeAngle().setY(45);
+				
+				ikControler.doPose();
+				//doAnimation("test2",1,q,translation,false);
+			}
+		});
+		gui.add(test5);
+		
+		
+		gui.add(new HTML("<h4>Bone[0]</h4>"));
+		gui.add(new Label("Rotate"));
+		bone0AngleEditor = new SimpleVector3Editor(new SimpleVector3EditorListener() {
+			@Override
+			public void onValueChanged(Vector3 value) {
+				updateAngleFromEditor();
+			}
+		});
+		gui.add(bone0AngleEditor);
+		
+		gui.add(new Label("Translate(bone1)"));
+		bone0TranslateEditor = new SimpleVector3Editor(new SimpleVector3EditorListener() {
+			@Override
+			public void onValueChanged(Vector3 value) {
+				updateAngleFromEditor();
+			}
+		});
+		gui.add(bone0TranslateEditor);
+		
+		
+		
+		gui.add(new HTML("<h4>Bone[1]</h4>"));
+		gui.add(new Label("Rotate"));
+		bone1AngleEditor = new SimpleVector3Editor(new SimpleVector3EditorListener() {
+			@Override
+			public void onValueChanged(Vector3 value) {
+				updateAngleFromEditor();
+			}
+		});
+		gui.add(bone1AngleEditor);
+		
+		gui.add(new Label("Translate(bone2)"));
+		bone1TranslateEditor = new SimpleVector3Editor(new SimpleVector3EditorListener() {
+			@Override
+			public void onValueChanged(Vector3 value) {
+				updateAngleFromEditor();
+			}
+		});
+		gui.add(bone1TranslateEditor);
+		
 		return gui;
+	}
+	
+	public void updateAngleFromEditor(){
+		
+		Vector3 bone0=bone0AngleEditor.getValue();
+		
+		Vector3 bone0r=GWTThreeUtils.degreeToRagiant(bone0);
+		
+		//ThreeLog.log("bone0:",THREE.Euler(bone0r.getX(),bone0r.getY(),bone0r.getZ()));
+		//ThreeLog.log("bone0-t:",bone0TranslateEditor.getValue());
+		
+		Quaternion q=THREE.Quaternion().setFromEuler(THREE.Euler(bone0r.getX(),bone0r.getY(),bone0r.getZ()));
+		doAnimation("bone0", 0, q, bone0TranslateEditor.getValue(), true);
+		
+		Vector3 bone1=bone1AngleEditor.getValue();
+		Vector3 bone1r=GWTThreeUtils.degreeToRagiant(bone1);
+		Quaternion q1=THREE.Quaternion().setFromEuler(THREE.Euler(bone1r.getX(),bone1r.getY(),bone1r.getZ()));
+		doAnimation("bone1", 1, q1, bone1TranslateEditor.getValue(), false);
 	}
 	
 	
 	//tried ik base,but faild
 	Map<String,Euler> ikMap;
 	//Map<String,Vector3> ikMap;
-	public void updadaRange3(){
+	public void updateRange3(){
 		point2.set(x, y, z);
 		double length=point2.distanceTo(point1);
 		Vector3 modified=point2Origin.clone().normalize().multiplyScalar(length);
 		
+		bone0TranslateEditor.copy(modified, false);
 		
 		Vector3 baseLine=point2Origin.clone().sub(point1);
-		Quaternion quaternion = THREE.Quaternion().setFromEuler(findEuler(baseLine,point2.clone().sub(point1)), false);
+		Euler bone0Euler=findEuler(baseLine,point2.clone().sub(point1));
+		Quaternion quaternion = THREE.Quaternion().setFromEuler(bone0Euler, false);
 		JsArray<KeyframeTrack> tracks1=makeTrackAnimation("test",0,quaternion,modified,true);
 		
 		
@@ -444,11 +549,15 @@ public class BoneAnimationExample extends AbstractExample{
 		Euler euler=findEuler(baseLine2,point3.clone().sub(point2));
 		Quaternion quaternion2 = THREE.Quaternion().setFromEuler(euler, false);
 		
+		bone0AngleEditor.copyWithToDegree(bone0Euler.toVector3(), false);
+		
+		
 		Vector3 tmp=baseLine2.clone().applyQuaternion(quaternion2);
 		tmp.add(point2);
 		sphere4.getPosition().copy(tmp);
 		
-		ThreeLog.log("bone[1]",euler);
+		
+		bone1AngleEditor.copyWithToDegree(euler.toVector3(), false);
 		
 		//quaternion2.multiplyQuaternions(quaternion2, quaternion);
 		
@@ -554,7 +663,7 @@ public class BoneAnimationExample extends AbstractExample{
 	/*
 	 * i give up this,i can' test all situation
 	 */
-	public void updadaRange1(){
+	public void updadeRange1(){
 		point2.set(x, y, z);
 		double length=point2.distanceTo(point1);
 		Vector3 modified=point2Origin.clone().normalize().multiplyScalar(length);
@@ -626,16 +735,29 @@ public class BoneAnimationExample extends AbstractExample{
 		
 	}
 	
+	public void updateRange(){
+		updateRange2();
+	}
+	public void updateRange0(){
+		ikControler.doPose();
+	}
 	/*
+	 * 
+	 * use  makeRotationFromQuaternion,
+	 * somehow broken.
+	 * 
 	 * i'm not sure pos-transform
 	 */
 	//not good when y-changed
-	public void updadaRange(){
+	public void updateRange2(){
 		point2.set(x, y, z);
 		
 		double length=point2.distanceTo(point1);
 		
 		Vector3 modified=point2Origin.clone().normalize().multiplyScalar(length);
+		
+		bone0TranslateEditor.copy(modified, false);
+		
 		Vector3 subbed=modified.clone().sub(point2Origin);
 		
 		Quaternion quaternion = THREE.Quaternion().setFromUnitVectors( point2Origin.clone().normalize() ,point2.clone().normalize() );
@@ -650,6 +772,7 @@ public class BoneAnimationExample extends AbstractExample{
 		Matrix4 mixed=THREE.Matrix4().makeTranslation(subbed.getX(), subbed.getY(), subbed.getZ()).multiply(rotate);
 		
 		
+		bone0AngleEditor.copyWithToDegree(euler.toVector3(), false);
 		
 		
 		point3.set(x2, y2, z2);
@@ -660,14 +783,15 @@ public class BoneAnimationExample extends AbstractExample{
 		double length2=point3.distanceTo(point2);
 		
 		Vector3 modified2=point3Origin.clone().sub(point2Origin).normalize().multiplyScalar(length2);
+		bone1TranslateEditor.copy(modified2, false);
 		
 		ThreeLog.log(point3Origin.clone());
 		LogUtils.log("changed1");
 		
 	 
 		//original position seems good
-		Vector3 originalPos=point3Origin.clone().sub(point2Origin);//modified2.clone();//
-		ThreeLog.log("green-line",originalPos);
+		Vector3 originalPos=modified2.clone();//point3Origin.clone().sub(point2Origin);////
+		//ThreeLog.log("green-line",originalPos);
 		
 		
 		
@@ -679,18 +803,22 @@ public class BoneAnimationExample extends AbstractExample{
 		originalPos.add(point2);
 		
 		sphere3.getPosition().copy(originalPos);
-		ThreeLog.log(originalPos);
-		
+		LogUtils.log("length");
+		LogUtils.log(originalPos.clone().sub(point2).length());
+		LogUtils.log(point3.clone().sub(point2).length());
 		
 		//ThreeLog.log(point3Origin.clone().sub(point2Origin).applyMatrix4(m1));
 		
 		//streched
-		Vector3 trueOrigin2=modified;
+		Vector3 trueOrigin2=originalPos.clone().sub(point2);//modified;
 		
-		Vector3 diffOrigin2=point3.clone().sub(point2Origin);
+		Vector3 diffOrigin2=point3.clone().sub(point2);
 		
-		Quaternion quaternion2 = THREE.Quaternion().setFromUnitVectors(trueOrigin2 ,diffOrigin2 );
-		quaternion2.multiplyQuaternions(quaternion2.clone(),quaternion.inverse());//no need
+		Quaternion quaternion2 = THREE.Quaternion().setFromUnitVectors(trueOrigin2.normalize() ,diffOrigin2.normalize() );
+		
+		
+		
+		//quaternion2.multiplyQuaternions(quaternion2.clone(),quaternion.inverse());//no need
 		
 		
 		//Quaternion quaternion2 = THREE.Quaternion().setFromUnitVectors( originalPos.clone().sub(point2).normalize() ,diffPoint3Sub2.clone().normalize() );
@@ -706,7 +834,8 @@ public class BoneAnimationExample extends AbstractExample{
 		//quaternion2=quaternion2.multiplyQuaternions(quaternion2.clone(),quaternion);
 		
 		Euler euler2=THREE.Euler(0, 0, 0).setFromQuaternion(quaternion2, "XYZ", false);
-		ThreeLog.log("bone[2]",euler2);
+		
+		bone1AngleEditor.copyWithToDegree(euler2.toVector3(), false);
 		
 		doAnimation("test1",1,quaternion2,modified2,false);
 	}
@@ -730,6 +859,8 @@ public class BoneAnimationExample extends AbstractExample{
 	
 	private AnimationMixer mixer;
 	private Mesh root;
+	private IKControler ikControler;
+	private SimpleVector3Editor bone0AngleEditor;
 	
 	
 	public JsArray<KeyframeTrack> makeTrackAnimation(String name,int boneIndex,Quaternion q,Vector3 pos,boolean clearAnimation){
@@ -800,8 +931,8 @@ public class BoneAnimationExample extends AbstractExample{
 		}
 		mixer.uncacheClip(clip);//reset can cache?
 		mixer.clipAction(clip).play();
-		
 	}
+	
 	public void concat(JsArrayNumber target,JsArrayNumber values){
 		for(int i=0;i<values.length();i++){
 			target.push(values.get(i));
@@ -823,11 +954,16 @@ public class BoneAnimationExample extends AbstractExample{
 	public void render(double now) {
 		sphere1.getPosition().copy(point2);
 		sphere2.getPosition().copy(point3);
-		helper.update();
+		
+		
 		
 		if(mixer!=null){
 			mixer.update(1.0/60);
 		}
+		
+		helper.update();
+		
+		
 		
 		renderer.render(scene, camera);
 	}

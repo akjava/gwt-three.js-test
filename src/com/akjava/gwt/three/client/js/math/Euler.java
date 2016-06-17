@@ -147,8 +147,12 @@ public final native Euler setFromRotationMatrix(Matrix4 m,String order,boolean u
 return this.setFromRotationMatrix(m,order,update);
 }-*/;
 
+public final native Vector3 toVector3()/*-{
+return this.toVector3();
+}-*/;
+
 public final native Vector3 toVector3(Vector3 optionalResult)/*-{
-return toVector3(optionalResult);
+return this.toVector3(optionalResult);
 }-*/;
 
 public final  native Euler clone()/*-{

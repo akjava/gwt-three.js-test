@@ -5,10 +5,12 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.math.Euler;
 import com.akjava.gwt.three.client.js.math.Matrix4;
+import com.akjava.gwt.three.client.js.math.Quaternion;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.google.gwt.core.client.JsArray;
 
@@ -121,7 +123,7 @@ public class AnimationBonesData {
 		
 		Matrix4 matrix=THREE.Matrix4();
 		for(int j=0;j<path.size()-1;j++){//last is boneself
-			angle.addSelf(bonesMatrixs.get(path.get(j)).getAngle());
+			angle.addSelf(bonesMatrixs.get(path.get(j)).getDegreeAngle());
 		}
 		return angle;
 	}
@@ -219,11 +221,15 @@ public static List<AngleAndPosition> boneToAngleAndMatrix(JsArray<AnimationBone>
 		for(int i=0;i<bones.length();i++){
 			if(animationData==null){//make from bone
 				Vector3 pos=THREE.Vector3().fromArray(bones.get(i).getPos());
-				Vector3 angle=THREE.Vector3().fromArray(bones.get(i).getRot()); //should i  radTodeg?
+				//watch out sometime not  getRot(),only get rotq;//TODO case only has getRot
+				Quaternion q=THREE.Quaternion().fromArray(bones.get(i).getRotq());
+				
 				//meybe zero
-				Euler euler=THREE.Euler(angle.getX(), angle.getY(), angle.getZ());
+				Euler euler=THREE.Euler().setFromQuaternion(q, "XYZ", false);
+				Vector3 angle=GWTThreeUtils.radiantToDegree(euler);
+				
 				Matrix4 m1=THREE.Matrix4().makeTranslation(pos.getX(), pos.getY(), pos.getZ());
-				Matrix4 m2=THREE.Matrix4().makeRotationFromEuler(euler);
+				Matrix4 m2=THREE.Matrix4().makeRotationFromQuaternion(q);
 				m1.multiply(m2);
 				boneMatrix.add(new AngleAndPosition(angle,pos,m1));
 				continue;
