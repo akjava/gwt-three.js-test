@@ -77,6 +77,12 @@ return this.setFromRotationMatrix(m,order);
 public final native Euler setFromQuaternion(Quaternion q,String order,boolean update)/*-{
 return this.setFromQuaternion(q,order,update);
 }-*/;
+public final native Euler setFromQuaternion(Quaternion q,String order)/*-{
+return this.setFromQuaternion(q,order);
+}-*/;
+public final native Euler setFromQuaternion(Quaternion q)/*-{
+return this.setFromQuaternion(q);
+}-*/;
 
 public final native Euler reorder()/*-{
 return this.reorder();
