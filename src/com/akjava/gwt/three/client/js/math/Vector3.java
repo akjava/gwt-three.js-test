@@ -492,8 +492,8 @@ public final native Vector3 clampLength(double min,double max)/*-{
 return this.clampLength(min,max);
 }-*/;
 
-public final  native void setScalar(double  param)/*-{
-this.setScalar(param);
+public final  native Vector3 setScalar(double  param)/*-{
+return this.setScalar(param);
 }-*/;
 }
 
