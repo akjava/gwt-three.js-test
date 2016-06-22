@@ -173,7 +173,7 @@ public class MeshStandardMaterialParameter  extends JSParameter {
 	}-*/;
 
 
-	public final native MeshBasicMaterialParameter visible(boolean visible)/*-{
+	public final native MeshStandardMaterialParameter visible(boolean visible)/*-{
 	this.visible=visible;
 	return this;
 	}-*/;

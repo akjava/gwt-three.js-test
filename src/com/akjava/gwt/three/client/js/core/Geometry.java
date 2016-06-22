@@ -238,6 +238,10 @@ public final native void setSkinIndices(JsArray<Vector4> skinIndices)/*-{
 this.skinIndices=skinIndices;
 }-*/;
 
+/**
+ * @deprecated
+ * @param skinWeights
+ */
 public final native void setSkinWeight(JsArray<Vector4> skinWeights)/*-{
 this.skinWeights=skinWeights;
 }-*/;

@@ -163,7 +163,7 @@ public final class LineBasicMaterialParameter extends JSParameter{
 	return this;
 	}-*/;
 	
-	public final native MeshBasicMaterialParameter visible(boolean visible)/*-{
+	public final native LineBasicMaterialParameter visible(boolean visible)/*-{
 	this.visible=visible;
 	return this;
 	}-*/;

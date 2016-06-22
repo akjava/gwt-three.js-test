@@ -253,7 +253,9 @@ public class MorphExample extends AbstractExample{
 	}
 
 	protected void createScene(Geometry geometry, JsArray<Material> materials, int x, int y, int z, int s) {
+		LogUtils.log(geometry);
 
+		
 		//ensureLoop( geometry.getAnimation() );
 
 		geometry.computeBoundingBox();

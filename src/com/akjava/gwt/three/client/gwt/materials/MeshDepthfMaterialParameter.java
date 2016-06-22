@@ -136,7 +136,7 @@ public final class MeshDepthfMaterialParameter extends JSParameter{
 	return this;
 	}-*/;
 	
-	public final native MeshBasicMaterialParameter visible(boolean visible)/*-{
+	public final native MeshDepthfMaterialParameter visible(boolean visible)/*-{
 	this.visible=visible;
 	return this;
 	}-*/;

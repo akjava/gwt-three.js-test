@@ -349,7 +349,25 @@ this.z+=z;
 }-*/;
 
 
+public native final void gwtSet(int index,double value)/*-{
+if(index==0){
+	this.x=value;
+}else if(index==1){
+	this.y=value;
+}else if(index==2){
+	this.z=value;
+}
+}-*/;
 
+public native final int gwtGet(int index)/*-{
+if(index==0){
+	return this.x;
+}else if(index==1){
+	return this.y;
+}else {
+	return this.z;
+}
+}-*/;
 
 
 

@@ -212,6 +212,18 @@ this.w+=w;
 
 
 
+public native final void gwtSet(int index,double value)/*-{
+if(index==0){
+	this.x=value;
+}else if(index==1){
+	this.y=value;
+}else if(index==2){
+	this.z=value;
+}else{
+	this.w=value;
+}
+}-*/;
+
 public native final int gwtGet(int index)/*-{
 if(index==0){
 	return this.x;

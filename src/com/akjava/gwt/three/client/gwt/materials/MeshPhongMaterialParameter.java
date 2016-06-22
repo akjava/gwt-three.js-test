@@ -301,7 +301,7 @@ public final class MeshPhongMaterialParameter extends JSParameter{
 	return this;
 	}-*/;
 	
-	public final native MeshBasicMaterialParameter visible(boolean visible)/*-{
+	public final native MeshPhongMaterialParameter visible(boolean visible)/*-{
 	this.visible=visible;
 	return this;
 	}-*/;

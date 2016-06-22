@@ -247,4 +247,20 @@ public final  native void setHeight(double  param)/*-{
 this.height=param;
 }-*/;
 
+public native final void gwtSet(int index,double value)/*-{
+if(index==0){
+	this.x=value;
+}else if(index==1){
+	this.y=value;
+}
+}-*/;
+
+public native final int gwtGet(int index)/*-{
+if(index==0){
+	return this.x;
+}else{
+	return this.y;
+}
+}-*/;
+
 }
