@@ -9,6 +9,8 @@ import com.google.gwt.core.client.JsArrayNumber;
 /*
  * before THREE.BONE JSON-Data
  * Geometry Bone
+ * 
+ * relative path
  */
 public class AnimationBone extends JavaScriptObject{
 	protected AnimationBone(){}
