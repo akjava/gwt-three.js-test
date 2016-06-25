@@ -6,6 +6,7 @@ import com.akjava.gwt.three.client.examples.js.postprocessing.EffectComposer;
 import com.akjava.gwt.three.client.examples.js.postprocessing.ShaderPass;
 import com.akjava.gwt.three.client.examples.js.shaders.ExampleShaders;
 import com.akjava.gwt.three.client.gwt.GWTParamUtils;
+import com.akjava.gwt.three.client.java.ui.example.AbstractExample;
 import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.PerspectiveCamera;
@@ -16,7 +17,6 @@ import com.akjava.gwt.three.client.js.materials.MeshPhongMaterial;
 import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
-import com.akjava.gwt.threejsexamples.client.AbstractExample;
 import com.google.gwt.user.client.ui.FocusPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 

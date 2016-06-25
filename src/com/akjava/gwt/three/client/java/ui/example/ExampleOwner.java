@@ -1,4 +1,4 @@
-package com.akjava.gwt.threejsexamples.client;
+package com.akjava.gwt.three.client.java.ui.example;
 
 import com.google.gwt.user.client.ui.Panel;
 

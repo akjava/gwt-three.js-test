@@ -1,6 +1,7 @@
 package com.akjava.gwt.threejsexamples.client;
 
 import com.akjava.gwt.three.client.gwt.materials.MeshLambertMaterialParameter;
+import com.akjava.gwt.three.client.java.ui.example.AbstractExample;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.lights.Light;

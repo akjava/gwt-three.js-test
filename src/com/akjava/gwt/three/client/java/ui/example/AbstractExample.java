@@ -1,4 +1,4 @@
-package com.akjava.gwt.threejsexamples.client;
+package com.akjava.gwt.three.client.java.ui.example;
 
 import com.akjava.gwt.lib.client.LogUtils;
 import com.google.gwt.animation.client.AnimationScheduler;

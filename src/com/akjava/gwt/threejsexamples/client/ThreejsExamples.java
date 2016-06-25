@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.akjava.gwt.lib.client.URLUtils;
+import com.akjava.gwt.three.client.java.ui.example.Example;
+import com.akjava.gwt.three.client.java.ui.example.ExampleOwner;
 import com.akjava.gwt.threejsexamples.client.examples.DecalExample;
 import com.akjava.gwt.threejsexamples.client.examples.MirrorExample;
 import com.akjava.gwt.threejsexamples.client.examples.MorphnormalsExample;

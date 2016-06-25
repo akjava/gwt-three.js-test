@@ -1,6 +1,7 @@
 package com.akjava.gwt.threejsexamples.client;
 
 import com.akjava.gwt.lib.client.LogUtils;
+import com.akjava.gwt.three.client.java.ui.example.AbstractExample;
 import com.google.gwt.user.client.ui.Label;
 
 /*

@@ -11,6 +11,7 @@ import com.akjava.gwt.three.client.gwt.GWTParamUtils;
 import com.akjava.gwt.three.client.gwt.JSParameter;
 import com.akjava.gwt.three.client.gwt.extras.Shader;
 import com.akjava.gwt.three.client.gwt.renderers.WebGLRendererParameter;
+import com.akjava.gwt.three.client.java.ui.example.AbstractExample;
 import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.animation.AnimationMixer;
@@ -37,7 +38,6 @@ import com.akjava.gwt.three.client.js.renderers.shaders.WebGLShaders.ShaderChunk
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.akjava.gwt.three.client.js.textures.CanvasTexture;
 import com.akjava.gwt.three.client.js.textures.Texture;
-import com.akjava.gwt.threejsexamples.client.AbstractExample;
 import com.akjava.gwt.threejsexamples.client.LabeledInputRangeWidget;
 import com.google.gwt.canvas.client.Canvas;
 import com.google.gwt.canvas.dom.client.Context2d;
