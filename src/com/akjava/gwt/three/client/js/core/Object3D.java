@@ -357,12 +357,12 @@ public final native void setFrustumCulled(boolean frustumCulled)/*-{
 this.frustumCulled = frustumCulled;
 }-*/;
 
-//maybe any
-public final native Object getUserData()/*-{
+
+public final native JavaScriptObject getUserData()/*-{
 return this.userData;
 }-*/;
 
-public final native void setUserData(Object userData)/*-{
+public final native void setUserData(JavaScriptObject userData)/*-{
 this.userData = userData;
 }-*/;
 
@@ -370,11 +370,11 @@ public final native void applyMatrix(Matrix4 matrix)/*-{
  this.applyMatrix(matrix);
 }-*/;
 
-public final native void setRotationFromAxisAngle(Object axis,Object angle)/*-{
+public final native void setRotationFromAxisAngle(Vector3 axis,double angle)/*-{
 this.setRotationFromAxisAngle(axis,angle);
 }-*/;
 
-public final native void setRotationFromEuler(Object euler)/*-{
+public final native void setRotationFromEuler(Euler euler)/*-{
 this.setRotationFromEuler(euler);
 }-*/;
 
@@ -382,7 +382,7 @@ public final native void setRotationFromMatrix(Matrix4 m)/*-{
 this.setRotationFromMatrix(m);
 }-*/;
 
-public final native void setRotationFromQuaternion(Object q)/*-{
+public final native void setRotationFromQuaternion(Quaternion q)/*-{
 this.setRotationFromQuaternion(q);
 }-*/;
 
