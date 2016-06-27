@@ -409,9 +409,6 @@ public final native void setBuffersNeedUpdate(boolean buffersNeedUpdate)/*-{
 this.buffersNeedUpdate = buffersNeedUpdate;
 }-*/;
 
-public final native void applyMatrix(Object matrix)/*-{
-this.applyMatrix(matrix);
-}-*/;
 
 
 

@@ -48,19 +48,25 @@ public class AnimationBone extends JavaScriptObject{
 	return this['rotq'];
 	}-*/;
 	
+	//I'm not sure still exist?
 	public native final void setRot(JsArrayNumber array)/*-{
 	this['rot']=array;
 	}-*/;
 	
+	//I'm not sure still exist?
 	//really work?
 	public native final void setRot(double x,double y,double z)/*-{
 	this['rot']=[x,y,z];
 	}-*/;
 	
+	//I'm not sure still exist?
 	public native final void setRot(double x,double y,double z,double w)/*-{
 	this['rot']=[x,y,z,w];
 	}-*/;
 	
+	
+	
+	//I'm not sure still exist?
 	/*
 	 * sometime it's empty
 	 */
