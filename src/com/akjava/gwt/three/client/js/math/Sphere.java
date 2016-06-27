@@ -65,6 +65,9 @@ return this.set(center,radius);
 public final native Sphere setFromPoints(JsArray<Vector3> points,Vector3 optionalCenter)/*-{
 return this.setFromPoints(points,optionalCenter);
 }-*/;
+public final native Sphere setFromPoints(JsArray<Vector3> points)/*-{
+return this.setFromPoints(points);
+}-*/;
 
 public final native Sphere copy(Sphere sphere)/*-{
 return this.copy(sphere);
