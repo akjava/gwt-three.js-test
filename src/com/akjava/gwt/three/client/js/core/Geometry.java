@@ -37,6 +37,7 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.core;
 
+import com.akjava.gwt.lib.client.JsonValueUtils;
 import com.akjava.gwt.three.client.gwt.JSParameter;
 import com.akjava.gwt.three.client.gwt.boneanimation.AnimationBone;
 import com.akjava.gwt.three.client.gwt.boneanimation.AnimationData;
@@ -53,6 +54,10 @@ import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayNumber;
+import com.google.gwt.json.client.JSONArray;
+import com.google.gwt.json.client.JSONNumber;
+import com.google.gwt.json.client.JSONObject;
+import com.google.gwt.json.client.JSONValue;
 
 public class Geometry extends EventDispatcher{
 protected Geometry(){}
@@ -502,5 +507,80 @@ this.lookAt(vector);
 
 public final native void sortFacesByMaterialIndex()/*-{
 this.sortFacesByMaterialIndex();
+}-*/;
+
+
+
+/**
+ * cant read directly JSONParse 
+ * use data.data
+ * @return
+ */
+public final JSONObject gwtJSONWithBone(){
+	JavaScriptObject core=toJSON();
+	JSONObject root=new JSONObject(core);
+	
+	JSONObject object=root.get("data").isObject();
+	
+	//set bone
+	JsArray<AnimationBone> bones=getBones();
+	if(bones!=null){
+		JSONArray array=new JSONArray(bones);
+		object.put("bones", array);
+	}else{
+	//	object.put("bones", new JSONArray());
+	}
+	int influencesPerVertex=gwtGetInfluencesPerVertex();
+	object.put("influencesPerVertex", new JSONNumber(influencesPerVertex));
+	
+	JsArray<Vector4> skinIndices=getSkinIndices();
+	if(skinIndices!=null){
+		JsArrayNumber indices=JavaScriptObject.createArray().cast();
+		for(int i=0;i<skinIndices.length();i++){
+			for(int j=0;j<influencesPerVertex;j++){
+				indices.push(skinIndices.get(i).gwtGet(j));
+			}
+		}
+		object.put("skinIndices", new JSONArray(indices));
+	}else{
+	//	object.put("skinIndices", new JSONArray());
+	}
+	
+	JsArray<Vector4> skinWeights=getSkinWeights();
+	if(skinWeights!=null){
+		JsArrayNumber weights=JavaScriptObject.createArray().cast();
+		for(int i=0;i<skinWeights.length();i++){
+			for(int j=0;j<influencesPerVertex;j++){
+				weights.push(skinWeights.get(i).gwtGet(j));
+			}
+		}
+		object.put("skinWeights", new JSONArray(weights));
+	}else{
+	//	object.put("skinWeights", new JSONArray());
+	}
+	
+	//object.put("colors", new JSONArray());
+	//object.put("normals", new JSONArray());
+	
+	//object.put("animation", new JSONArray());
+	//object.put("morphTargets", new JSONArray());
+	
+	//based gwtGetInfluencesPerVertex
+	//set weight & influence
+	
+	return root;
+}
+
+public final  native int gwtGetInfluencesPerVertex()/*-{
+if(!this.influencesPerVertex){
+	return 2;
+}
+return this.influencesPerVertex;
+}-*/;
+/*
+ * you have to set by hand when load or made
+ */
+public final  native void gwtSetInfluencesPerVertex(int  param)/*-{
+this.influencesPerVertex=param;
 }-*/;
 }
