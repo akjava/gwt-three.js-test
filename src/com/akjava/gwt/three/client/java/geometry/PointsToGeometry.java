@@ -657,6 +657,7 @@ public class PointsToGeometry {
 			}
 		}
 		
+		geometry.mergeVertices();//this means almost impossible to know each vertex position(merged)
 		
 		geometry.computeFaceNormals();
 		geometry.computeVertexNormals();
