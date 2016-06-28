@@ -1,9 +1,11 @@
 package com.akjava.gwt.three.client.gwt.boneanimation;
 
+import com.akjava.gwt.lib.client.JavaScriptUtils;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.math.Quaternion;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayNumber;
 
 /*
@@ -84,6 +86,37 @@ public class AnimationBone extends JavaScriptObject{
 	public native final void setPos(JsArrayNumber array)/*-{
 	this['pos']=array;
 	}-*/;
+	
+	
+	public static final JsArray<AnimationBone> gwtClone(JsArray<AnimationBone> bones){
+		JsArray<AnimationBone> array=JavaScriptUtils.createJSArray();
+		for(int i=0;i<bones.length();i++){
+			array.push(bones.get(i).gwtClone());
+		}
+		return array;
+	}
+	
+	public  final AnimationBone gwtClone(){
+		AnimationBone bone=AnimationBone.createObject().cast();
+		
+		bone.setName(getName());
+		bone.setParent(getParent());
+		
+		if(getPos()!=null){
+			bone.setPos(JavaScriptUtils.clone(getPos()));
+		}
+		if(getRotq()!=null){
+			bone.setRotq(JavaScriptUtils.clone(getRotq()));
+		}
+		if(getRot()!=null){
+			bone.setRot(JavaScriptUtils.clone(getRot()));
+		}
+		if(getScl()!=null){
+			bone.setScl(JavaScriptUtils.clone(getScl()));
+		}
+		
+		return bone;
+	}
 	
 	/**
 	 * @deprecated
