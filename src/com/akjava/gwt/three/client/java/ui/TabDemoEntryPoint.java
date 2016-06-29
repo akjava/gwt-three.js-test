@@ -60,7 +60,7 @@ import com.google.gwt.user.client.ui.VerticalPanel;
  */
 public abstract class TabDemoEntryPoint implements EntryPoint , AnimationCallback{
 
-	private WebGLRenderer renderer;
+	protected WebGLRenderer renderer;
 
 
 

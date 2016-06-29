@@ -4,6 +4,7 @@ import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.java.ThreeLog;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
+import com.akjava.gwt.three.client.js.cameras.PerspectiveCamera;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
 import com.google.gwt.event.dom.client.MouseDownEvent;
@@ -53,15 +54,19 @@ public abstract class SimpleTabDemoEntryPoint extends TabDemoEntryPoint{
 		screenHeight=height;
 		renderer.setClearColor(0x333333, 1);//this is only filter color
 		scene=THREE.Scene();
-		createCamera(scene, width, height);
+		updateCamera(scene, width, height);
 		
 		initializeOthers(renderer);
 	}
 	
+	protected boolean autoUpdateCameraPosition=true;
+	
 	@Override
 	public void update(WebGLRenderer renderer) {
 		beforeUpdate(renderer);
-		camera.getPosition().set(cameraX, cameraY, cameraZ);
+		if(autoUpdateCameraPosition){
+			camera.getPosition().set(cameraX, cameraY, cameraZ);
+		}
 		//LogUtils.log("camera:"+ThreeLog.get(camera.getPosition()));
 		renderer.render(scene, camera);
 	}
@@ -74,17 +79,22 @@ public abstract class SimpleTabDemoEntryPoint extends TabDemoEntryPoint{
 	protected double nearCamera=0.5;
 	protected double farCamera=6000;
 	
-	protected void createCamera(Scene scene,int width,int height){
+	//switch to replace
+	protected void updateCamera(Scene scene,int width,int height){
 		
-		if(camera!=null){
-			//TODO find update way.
-			scene.remove(camera);
-			camera=null;
-		}
+		if(camera==null){
 		Camera camera = THREE.PerspectiveCamera(35,(double)width/height,nearCamera,farCamera);
 		//camera.getPosition().set(0, 0, cameraZ);
 		scene.add(camera); //some kind of trick.
 		this.camera=camera;
+		}else{
+			PerspectiveCamera pcamera=camera.gwtCastPerspectiveCamera();
+			pcamera.setNear(nearCamera);
+			pcamera.setFar(farCamera);
+			pcamera.setAspect((double)width/height);
+			pcamera.updateProjectionMatrix();
+		}
+		
 	}
 	
 	@Override
@@ -97,7 +107,7 @@ public abstract class SimpleTabDemoEntryPoint extends TabDemoEntryPoint{
 		}
 		screenWidth=width;
 		screenHeight=height;
-		createCamera(scene,width,height);
+		updateCamera(scene,width,height);
 	}
 	
 	protected boolean mouseDown;

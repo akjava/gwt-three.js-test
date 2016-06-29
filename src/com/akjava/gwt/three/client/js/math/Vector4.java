@@ -299,8 +299,8 @@ public final native Vector4 addScaledVector(Vector4 value,double s)/*-{
 return this.addScaledVector(value,s);
 }-*/;
 
-public final  native void setSetScalar(double  param)/*-{
-this.setScalar(param);
+public final  native Vector4 setScalar(double  param)/*-{
+return this.setScalar(param);
 }-*/;
 }
 

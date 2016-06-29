@@ -1,6 +1,7 @@
 package com.akjava.gwt.three.client.java;
 
 import com.akjava.gwt.lib.client.LogUtils;
+import com.akjava.gwt.three.client.gwt.core.BoundingBox;
 import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.math.Euler;
@@ -12,7 +13,7 @@ import com.akjava.gwt.three.client.js.math.Vector4;
 import com.akjava.gwt.three.client.js.objects.SkinnedMesh;
 import com.google.gwt.core.client.JsArrayNumber;
 
-public class ThreeLog {
+public class ThreeLog extends LogUtils{
 
 	public static String getAngle(Matrix4 mx){
 		if(mx==null){
@@ -41,6 +42,21 @@ public class ThreeLog {
 		String ret="x:"+vec.getX();
 		ret+=",y:"+vec.getY();
 		ret+=",z:"+vec.getZ();
+		return ret;
+	}
+	
+	public static String get(BoundingBox vec){
+		if(vec==null){
+			return "Null";
+		}
+		String ret="min{x:"+vec.getMin().getX();
+		ret+=",y:"+vec.getMin().getY();
+		ret+=",z:"+vec.getMin().getZ();
+		ret+="} ";
+		ret+="max{x:"+vec.getMax().getX();
+		ret+=",y:"+vec.getMax().getY();
+		ret+=",z:"+vec.getMax().getZ();
+		ret+="} ";
 		return ret;
 	}
 	
@@ -141,5 +157,8 @@ public class ThreeLog {
 	}
 	public static void log(String header, Quaternion quaternion) {
 		LogUtils.log(header+" "+get(quaternion));
+	}
+	public static void log(String header, BoundingBox boundingBox) {
+		log(header+" "+get(boundingBox));
 	}
 }
