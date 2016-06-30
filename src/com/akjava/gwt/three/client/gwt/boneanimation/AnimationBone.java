@@ -118,6 +118,14 @@ public class AnimationBone extends JavaScriptObject{
 		return bone;
 	}
 	
+	
+	public final Vector3 gwtGetPosition(){
+		return THREE.Vector3().fromArray(getPos());
+	}
+	public final Quaternion gwtGetRotationQuaternion(){
+		return THREE.Quaternion().fromArray(getRotq());
+	}
+	
 	/**
 	 * @deprecated
 	 * @param array

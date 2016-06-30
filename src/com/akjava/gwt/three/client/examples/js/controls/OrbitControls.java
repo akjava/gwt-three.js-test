@@ -123,7 +123,10 @@ public class OrbitControls extends EventDispatcher{
 	this.maxDistance=param;
 	}-*/;
 
-
+	public final  native void dispose()/*-{
+	this.dispose();
+	}-*/;
+	
 	public final  native boolean isNoRotate()/*-{
 	return this.noRotate;
 	}-*/;
