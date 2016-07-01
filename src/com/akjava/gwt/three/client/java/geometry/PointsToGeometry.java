@@ -38,7 +38,7 @@ public class PointsToGeometry {
 	
 	private Vector3 normal;
 	
-	private boolean debug=true;
+	private boolean debug=false;
 	
 	private boolean  reverseFirstSurface;//if true looks like box
 	

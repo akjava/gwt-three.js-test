@@ -7,6 +7,7 @@ import com.akjava.gwt.three.client.examples.js.controls.TrackballControls;
 import com.akjava.gwt.three.client.examples.js.controls.VRControls;
 import com.akjava.gwt.three.client.examples.js.controls.VRControls.VRControlCallbackHandler;
 import com.akjava.gwt.three.client.examples.js.effects.StereoEffect;
+import com.akjava.gwt.three.client.examples.js.exporters.OBJExporter;
 import com.akjava.gwt.three.client.examples.js.geometries.DecalGeometry;
 import com.akjava.gwt.three.client.examples.js.postprocessing.BloomPass;
 import com.akjava.gwt.three.client.examples.js.postprocessing.BokehPass;
@@ -84,6 +85,10 @@ public class THREEExp {
 	public static final native FirstPersonControls FirstPersonControls(Object3D object)/*-{
 	return new $wnd.THREE.FirstPersonControls(object);
 	}-*/;
+	public static final native OBJExporter OBJExporter()/*-{
+	return new $wnd.THREE.OBJExporter();
+	}-*/;
+	
 	
 /**
  * 
