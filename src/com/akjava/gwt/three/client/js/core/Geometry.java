@@ -37,6 +37,7 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.js.core;
 
+import com.akjava.gwt.lib.client.JavaScriptUtils;
 import com.akjava.gwt.lib.client.JsonValueUtils;
 import com.akjava.gwt.three.client.gwt.JSParameter;
 import com.akjava.gwt.three.client.gwt.boneanimation.AnimationBone;
@@ -583,4 +584,24 @@ return this.influencesPerVertex;
 public final  native void gwtSetInfluencesPerVertex(int  param)/*-{
 this.influencesPerVertex=param;
 }-*/;
+
+public final void gwtHardCopyToWeightsAndIndices(Geometry geometryToCopy) {
+	JsArray<Vector4> indices=JavaScriptObject.createArray().cast();
+	JsArray<Vector4> weights=JavaScriptObject.createArray().cast();
+	
+	for(int i=0;i<getSkinWeights().length();i++){
+		indices.push(getSkinIndices().get(i).clone());
+		weights.push(getSkinWeights().get(i).clone());
+	}
+	
+	geometryToCopy.setSkinIndices(indices);
+	geometryToCopy.setSkinWeights(weights);
+}
+public final void gwtSoftCopyToWeightsAndIndicesAndBone(Geometry geometryToCopy) {
+	geometryToCopy.setBones(getBones());
+	
+	geometryToCopy.setSkinIndices(getSkinIndices());
+	geometryToCopy.setSkinWeights(getSkinWeights());
+}
+
 }

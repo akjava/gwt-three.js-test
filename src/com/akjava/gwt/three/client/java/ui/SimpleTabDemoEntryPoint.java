@@ -27,6 +27,10 @@ public abstract class SimpleTabDemoEntryPoint extends TabDemoEntryPoint{
 		if(event.isShiftKeyDown()){
 			onMouseWheelWithShiftKey(event.getDeltaY());
 		}else{
+		if(!autoUpdateCameraPosition){
+			return;
+		}
+			
 		//TODO make class
 		long t=System.currentTimeMillis();
 		if(mouseLast+100>t){
@@ -69,6 +73,10 @@ public abstract class SimpleTabDemoEntryPoint extends TabDemoEntryPoint{
 		}
 		//LogUtils.log("camera:"+ThreeLog.get(camera.getPosition()));
 		renderer.render(scene, camera);
+		
+		if(stats!=null){
+			stats.update();
+		}
 	}
 	
 	protected abstract void beforeUpdate(WebGLRenderer renderer);
