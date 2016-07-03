@@ -1,8 +1,11 @@
 package com.akjava.gwt.three.client.java.utils;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.examples.utils.GeometryUtils;
 import com.akjava.gwt.three.client.gwt.core.MorphTarget;
+import com.akjava.gwt.three.client.gwt.loader.JSONLoaderObject;
 import com.akjava.gwt.three.client.gwt.materials.LineBasicMaterialParameter;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.core.Geometry;
@@ -141,21 +144,43 @@ for ( var i = 0, l = vertices.length; i < l; i ++ ) {
 	return center;
 	}-*/;
 	
+	private static JSONObject parseJSONGeometry(String text){
+		JSONValue json=JSONParser.parseStrict(text);
+		
+		JSONObject jsonObject=json.isObject();
+		if(jsonObject==null){
+			return null;
+		}
+		
+		boolean hasData=jsonObject.get("data")!=null;//4.* format has this
+		
+		if(hasData){
+			jsonObject=jsonObject.get("data").isObject();
+		}
+		return jsonObject;
+	}
 	
+	
+	/**
+	 * support version 3 & 4
+	 * @param jsonText
+	 * @param handler
+	 * @return 
+	 */
 	public static final JSONObject loadJsonModel(String jsonText,JSONLoadHandler handler){
+		checkNotNull(jsonText,"loadJsonModel:json text is null");
+		checkNotNull( handler,"loadJsonModel:json handler is null");
 		JSONLoader loader=THREE.JSONLoader();
-		JSONValue lastJsonValue = JSONParser.parseStrict(jsonText);
-		JSONObject object=lastJsonValue.isObject();
+		
+		JSONObject object=parseJSONGeometry(jsonText);
 		if(object==null){
 			return null;
 		}
 		
-		JavaScriptObject jsobject=loader.parse(object.getJavaScriptObject(), null);
-		JSONObject newobject=new JSONObject(jsobject);
-		handler.loaded((Geometry) newobject.get("geometry").isObject().getJavaScriptObject(),null);
+		JSONLoaderObject loaderObject=loader.parse(object.getJavaScriptObject());
 		
-		//loader.createModel(object.getJavaScriptObject(), handler, "");
-		//loader.onLoadComplete();
+		handler.loaded(loaderObject.getGeometry(),loaderObject.getMaterials());
+		
 		return object;
 	}
 	

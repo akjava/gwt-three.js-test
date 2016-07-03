@@ -22,26 +22,26 @@ public   class WeightResult{
 	public WeightResult(JsArray<Vector4> bodyIndices, JsArray<Vector4> bodyWeight) {
 		super();
 		this.bodyIndices = bodyIndices;
-		this.bodyWeight = bodyWeight;
+		this.bodyWeights = bodyWeight;
 	}
-	public JsArray<Vector4> getBodyIndices() {
+	public JsArray<Vector4> getSkinIndices() {
 		return bodyIndices;
 	}
-	public void setBodyIndices(JsArray<Vector4> bodyIndices) {
+	public void setSkinIndices(JsArray<Vector4> bodyIndices) {
 		this.bodyIndices = bodyIndices;
 	}
 	
-	JsArray<Vector4> bodyWeight;
-	public JsArray<Vector4> getBodyWeight() {
-		return bodyWeight;
+	JsArray<Vector4> bodyWeights;
+	public JsArray<Vector4> getSkinWeights() {
+		return bodyWeights;
 	}
-	public void setBodyWeight(JsArray<Vector4> bodyWeight) {
-		this.bodyWeight = bodyWeight;
+	public void setSkinWeights(JsArray<Vector4> bodyWeight) {
+		this.bodyWeights = bodyWeight;
 	}
 
 	public void insertToGeometry(Geometry geometry){
-		geometry.setSkinIndices(this.getBodyIndices());
-		geometry.setSkinWeights(this.getBodyWeight());
+		geometry.setSkinIndices(this.getSkinIndices());
+		geometry.setSkinWeights(this.getSkinWeights());
 		if(influence!=0){
 			geometry.gwtSetInfluencesPerVertex(influence);
 		}
@@ -50,9 +50,9 @@ public   class WeightResult{
 	@Override
 	public String toString(){
 		List<String> lines=Lists.newArrayList();
-		for(int i=0;i<getBodyIndices().length();i++){
-			String indices=ThreeLog.get(getBodyIndices().get(i));
-			String weights=ThreeLog.get(getBodyWeight().get(i));
+		for(int i=0;i<getSkinIndices().length();i++){
+			String indices=ThreeLog.get(getSkinIndices().get(i));
+			String weights=ThreeLog.get(getSkinWeights().get(i));
 			lines.add(indices+"="+weights);
 		}
 		return "WeightResult:{\n"+Joiner.on("\n").join(lines)+"\n}";
