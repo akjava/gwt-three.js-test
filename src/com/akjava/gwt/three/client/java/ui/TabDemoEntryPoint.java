@@ -295,6 +295,30 @@ public abstract class TabDemoEntryPoint implements EntryPoint , AnimationCallbac
 		main = new DropVerticalPanelBase();
 		main.setVisible(false);
 		
+		main.addDropHandler(new DropHandler() {
+			@Override
+			public void onDrop(DropEvent event) {
+				TabDemoEntryPoint.this.onDrop(event);
+			}
+		});
+		main.addDragOverHandler(new DragOverHandler() {
+			
+			@Override
+			public void onDragOver(DragOverEvent event) {
+				TabDemoEntryPoint.this.onDragOver(event);
+			}
+		});
+		main.addDragLeaveHandler(new DragLeaveHandler() {
+			
+			@Override
+			public void onDragLeave(DragLeaveEvent event) {
+				TabDemoEntryPoint.this.onDragLeave(event);
+			}
+		});
+		
+		
+		
+		
 		
 		HorizontalPanel hPanel=new HorizontalPanel();
 		hPanel.setWidth("100%");

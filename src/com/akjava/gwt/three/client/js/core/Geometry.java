@@ -217,6 +217,12 @@ public final native JsArray<AnimationBone> getBones()/*-{
 return this.bones;
 }-*/;
 
+public final boolean gwtHasBone(){
+	return getBones()!=null && getBones().length()!=0;
+}
+public final boolean gwtHasSkinIndicesAndWeights(){
+	return getSkinIndices()!=null && getSkinIndices().length()!=0 && getSkinWeights()!=null || getSkinWeights().length()!=0;
+}
 
 public final native void setBones(JsArray<AnimationBone> bones)/*-{
 this.bones=bones;
