@@ -153,8 +153,12 @@ return this.getRoot();
 
 
 
-
-
+public final native double getTime()/*-{
+return this.time;
+}-*/;
+public final native void setTime(double time)/*-{
+this.time = time;
+}-*/;
 
 public final native double getTimeScale()/*-{
 return this.timeScale;
