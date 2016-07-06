@@ -1492,9 +1492,9 @@ public class THREE {
 
 	public static final MOUSE MOUSE=new MOUSE();
 	public static final class MOUSE{
-		public static final int LEFT=0;
-		public static final int MIDDLE=1;
-		public static final int RIGHT=0;
+		public  final int LEFT=0;
+		public  final int MIDDLE=1;
+		public  final int RIGHT=2;
 		public static native final int LEFT()/*-{
 		return $wnd.THREE.MOUSE.LEFT;
 		}-*/;

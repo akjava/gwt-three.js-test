@@ -38,6 +38,7 @@ THE SOFTWARE.
  */
 package com.akjava.gwt.three.client.examples.js.controls;
 
+import com.akjava.gwt.three.client.gwt.JSParameter;
 import com.akjava.gwt.three.client.js.core.EventDispatcher;
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.akjava.gwt.three.client.js.math.Vector3;
@@ -226,7 +227,7 @@ public class OrbitControls extends EventDispatcher{
 
 
 	//TODO { ORBIT: THREE.MOUSE.LEFT, ZOOM: THREE.MOUSE.MIDDLE, PAN: THREE.MOUSE.RIGHT };
-	public final  native JavaScriptObject getMouseButtons()/*-{
+	public final  native JSParameter getMouseButtons()/*-{
 	return this.mouseButtons;
 	}-*/;
 	public final  native void setMouseButtons(JavaScriptObject  param)/*-{
