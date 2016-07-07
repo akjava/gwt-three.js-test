@@ -385,7 +385,8 @@ public class PointsToGeometry {
 					primaryFirstTop=a;
 					primaryLastTop=d;
 				}
-				else if(i==stacks-1){
+				if(i==stacks-1){
+					
 					primaryFirstBottom=b;
 					primaryLastBottom=c;
 				}
@@ -400,7 +401,8 @@ public class PointsToGeometry {
 					primaryFirstTop=a;
 					primaryLastTop=d;
 				}
-				else if(i==stacks-1){
+				if(i==stacks-1){
+					
 					primaryFirstBottom=b;
 					primaryLastBottom=c;
 				}
@@ -408,7 +410,9 @@ public class PointsToGeometry {
 			
 			
 		}
+		
 		for ( double i = 0; i < stacks; i ++ ) {
+			
 			int j=0;
 			int j2=slices;
 			int	a = (int)(i * sliceCount + j)+frontGeometrySize;
@@ -433,8 +437,9 @@ public class PointsToGeometry {
 					secondaryFirstTop=a;
 					secondaryLastTop=d;
 				}
-				else 
+				
 				if(i==stacks-1){
+					
 					secondaryFirstBottom=b;
 					secondaryLastBottom=c;
 				}
@@ -449,8 +454,9 @@ public class PointsToGeometry {
 					secondaryFirstTop=a;
 					secondaryLastTop=d;
 				}
-				else 
+				
 				if(i==stacks-1){
+					
 					secondaryFirstBottom=b;
 					secondaryLastBottom=c;
 				}
@@ -458,12 +464,12 @@ public class PointsToGeometry {
 			
 			
 		}
-		if(thick!=0){
-			//add bottom
-			Vector2	uva = getUv(slices+1,0);
+		if(thick!=0 ){
+			
+			Vector2	uva = getUv(slices,0);
 			Vector2	uvb = getUv(slices+1,0);
 			Vector2	uvc = getUv(slices+1,0);
-			Vector2	uvd = getUv(slices+1,0);
+			Vector2	uvd = getUv(slices,0);
 			//LogUtils.log("top:"+primaryFirstTop+","+primaryLastTop+","+secondaryFirstTop+","+secondaryLastTop);
 			
 			//set first
@@ -479,11 +485,24 @@ public class PointsToGeometry {
 			int d=secondaryLastTop;
 			
 			if(flipNormal){
+				LogUtils.log("flip-top "+a+","+b+","+c+","+d);
 				geometry.getFaces().push( THREE.Face3( d, b, a ) );
 				pushUv(uvs, uvd, uvb, uva );
 				geometry.getFaces().push(THREE.Face3( d, c, b ) );
 				pushUv(uvs, uvd.clone(), uvc, uvb.clone());	
+				
+				ThreeLog.log("a",geometry.getVertices().get(a));
+				ThreeLog.log("b",geometry.getVertices().get(b));
+				ThreeLog.log("c",geometry.getVertices().get(c));
+				ThreeLog.log("d",geometry.getVertices().get(d));
+				
+				ThreeLog.log("a",uva);
+				ThreeLog.log("b",uvb);
+				ThreeLog.log("c",uvc);
+				ThreeLog.log("d",uvd);
+				
 			}else{
+				LogUtils.log("top "+a+","+b+","+c+","+d);
 				geometry.getFaces().push( THREE.Face3(a, b,d  ) );
 				pushUv(uvs, uva, uvb, uvd );
 				
@@ -491,7 +510,10 @@ public class PointsToGeometry {
 				pushUv(uvs, uvb.clone(), uvc, uvd.clone());	
 				
 			}
-			
+			uva = getUv(slices,0);
+			uvb = getUv(slices+1,0);
+			uvc = getUv(slices+1,0);
+			uvd = getUv(slices,0);
 			//LogUtils.log("bottom:"+primaryFirstBottom+","+primaryLastBottom+","+secondaryFirstBottom+","+secondaryLastBottom);
 			
 			//set bottom
@@ -506,12 +528,14 @@ public class PointsToGeometry {
 			 d=secondaryLastBottom;
 			
 			if(flipNormal){
+				LogUtils.log("flip-bottom "+a+","+b+","+c+","+d);
 				geometry.getFaces().push( THREE.Face3(a, b,d  ) );
 				pushUv(uvs, uva, uvb, uvd );
 				
 				geometry.getFaces().push( THREE.Face3( b ,c,d) );
 				pushUv(uvs, uvb.clone(), uvc, uvd.clone());	
 			}else{
+				LogUtils.log("bottom "+a+","+b+","+c+","+d);
 				geometry.getFaces().push( THREE.Face3( d, b, a ) );
 				pushUv(uvs, uvd, uvb, uva );
 				geometry.getFaces().push(THREE.Face3( d, c, b ) );
