@@ -43,6 +43,8 @@ import com.google.gwt.core.client.JsArray;
 
 /**
  * @deprecated on r74
+ * 
+ * use CatmullRomCurve3
  * @author aki
  *
  */

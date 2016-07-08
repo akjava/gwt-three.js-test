@@ -19,6 +19,7 @@ import com.akjava.gwt.threejsexamples.client.examples.animation.skinning.Blendin
 import com.akjava.gwt.threejsexamples.client.examples.animation.skinning.MorphExample;
 import com.akjava.gwt.threejsexamples.client.examples.buffergeometry.BufferGeometryExample;
 import com.akjava.gwt.threejsexamples.client.examples.camera.CameraExample;
+import com.akjava.gwt.threejsexamples.client.examples.geometries.ExtrudeShapesExample;
 import com.akjava.gwt.threejsexamples.client.examples.geometries.GeometriesExample;
 import com.akjava.gwt.threejsexamples.client.examples.light.HemisphereExample;
 import com.akjava.gwt.threejsexamples.client.examples.misc.SoundExample;
@@ -98,9 +99,10 @@ public class ThreejsExamples implements EntryPoint,ExampleOwner {
 		
 		
 		List<Example> examples=Lists.newArrayList();
-		examples.add(new PointBoxExample());
-		examples.add(new ClothExample3());
-		examples.add(new BoneAnimationExample());
+		examples.add(new ExtrudeShapesExample());
+		//examples.add(new PointBoxExample());
+		//examples.add(new ClothExample3());
+		//examples.add(new BoneAnimationExample());
 		//examples.add(new Mbl3dLoadExample());
 		//examples.add(new MyExample());
 		examples.add(new SoundExample());
@@ -115,7 +117,11 @@ public class ThreejsExamples implements EntryPoint,ExampleOwner {
 		examples.add(new MorphnormalsExample());
 		examples.add(new HemisphereExample());
 		examples.add(new SceneExample());
-		examples.add(new ClothExample());examples.add(new HairExample());examples.add(new ClothExample2());
+		examples.add(new ClothExample());
+		
+		//examples.add(new HairExample());
+		//examples.add(new ClothExample2());
+		
 		examples.add(new MorphExample());
 		examples.add(new BlendingExample());
 		examples.add(new BufferGeometryExample());

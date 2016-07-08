@@ -47,6 +47,7 @@ import com.akjava.gwt.three.client.examples.camera.CombinedCamera;
 import com.akjava.gwt.three.client.examples.modifiers.SubdivisionModifier;
 import com.akjava.gwt.three.client.examples.renderers.CSS3DRenderer;
 import com.akjava.gwt.three.client.gwt.boneanimation.AnimationData;
+import com.akjava.gwt.three.client.gwt.extras.geometries.ExtrudeGeometryParameter;
 import com.akjava.gwt.three.client.gwt.renderers.WebGLRendererParameter;
 import com.akjava.gwt.three.client.java.LineBasicMaterialBuilder;
 import com.akjava.gwt.three.client.java.MeshBasicMaterialBuilder;
@@ -1126,16 +1127,16 @@ public class THREE {
 	return new $wnd.THREE.WebGLRenderer(object);
 	}-*/;
 	
-	public static native final Light PointLight(double color)/*-{
+	public static native final PointLight PointLight(double color)/*-{
 	return new $wnd.THREE.PointLight(color);
 	}-*/;
-	public static native final Light PointLight(double color,double intensity )/*-{
+	public static native final PointLight PointLight(double color,double intensity )/*-{
 	return new $wnd.THREE.PointLight(color,intensity);
 	}-*/;
-	public static native final Light SpotLight(double color)/*-{
+	public static native final SpotLight SpotLight(double color)/*-{
 	return new $wnd.THREE.SpotLight(color);
 	}-*/;
-	public static native final Light SpotLight(double color,double intensity)/*-{
+	public static native final SpotLight SpotLight(double color,double intensity)/*-{
 	return new $wnd.THREE.SpotLight(color,intensity);
 	}-*/;
 
@@ -1813,6 +1814,12 @@ public static final native BufferAttribute Uint32Array(int array,int itemSize)/*
 public static final native BufferAttribute Float64Array(int array,int itemSize)/*-{
 	return new $wnd.THREE.Float64Array(array, itemSize );
 	}-*/;
+public static final native Shape Shape(JsArray<Vector2> array)/*-{
+return new $wnd.THREE.Shape(array);
+}-*/; 
+public static final native ExtrudeGeometry ExtrudeGeometry(Shape shape,ExtrudeGeometryParameter options)/*-{
+return new $wnd.THREE.ExtrudeGeometry(shape,options);
+}-*/;
 
 
 }

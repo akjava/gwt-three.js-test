@@ -42,7 +42,7 @@ public class PointsToGeometry {
 	
 	private boolean  reverseFirstSurface;//if true looks like box
 	
-	private boolean edge=true;
+	private boolean edge=false;//testing edge not so good than expected
 	
 	public Vector3 getVertexNormal() {
 		return normal;
@@ -490,12 +490,13 @@ public class PointsToGeometry {
 			int d=secondaryLastTop;
 			
 			if(flipNormal){
-				LogUtils.log("flip-top "+a+","+b+","+c+","+d);
+				//LogUtils.log("flip-top "+a+","+b+","+c+","+d);
 				geometry.getFaces().push( THREE.Face3( d, b, a ) );
 				pushUv(uvs, uvd, uvb, uva );
 				geometry.getFaces().push(THREE.Face3( d, c, b ) );
 				pushUv(uvs, uvd.clone(), uvc, uvb.clone());	
 				
+				/*
 				ThreeLog.log("a",geometry.getVertices().get(a));
 				ThreeLog.log("b",geometry.getVertices().get(b));
 				ThreeLog.log("c",geometry.getVertices().get(c));
@@ -505,6 +506,7 @@ public class PointsToGeometry {
 				ThreeLog.log("b",uvb);
 				ThreeLog.log("c",uvc);
 				ThreeLog.log("d",uvd);
+				*/
 				
 			}else{
 				LogUtils.log("top "+a+","+b+","+c+","+d);
@@ -533,14 +535,14 @@ public class PointsToGeometry {
 			 d=secondaryLastBottom;
 			
 			if(flipNormal){
-				LogUtils.log("flip-bottom "+a+","+b+","+c+","+d);
+				//LogUtils.log("flip-bottom "+a+","+b+","+c+","+d);
 				geometry.getFaces().push( THREE.Face3(a, b,d  ) );
 				pushUv(uvs, uva, uvb, uvd );
 				
 				geometry.getFaces().push( THREE.Face3( b ,c,d) );
 				pushUv(uvs, uvb.clone(), uvc, uvd.clone());	
 			}else{
-				LogUtils.log("bottom "+a+","+b+","+c+","+d);
+				//LogUtils.log("bottom "+a+","+b+","+c+","+d);
 				geometry.getFaces().push( THREE.Face3( d, b, a ) );
 				pushUv(uvs, uvd, uvb, uva );
 				geometry.getFaces().push(THREE.Face3( d, c, b ) );
