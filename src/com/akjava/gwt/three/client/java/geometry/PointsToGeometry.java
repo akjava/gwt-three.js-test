@@ -42,6 +42,8 @@ public class PointsToGeometry {
 	
 	private boolean  reverseFirstSurface;//if true looks like box
 	
+	private boolean edge=true;
+	
 	public Vector3 getVertexNormal() {
 		return normal;
 	}
@@ -327,6 +329,9 @@ public class PointsToGeometry {
 			if(debug){
 				LogUtils.log("bottom:"+a+","+b+","+c+","+d+" dba dcb");
 			}
+			
+			
+			
 			
 			if(flipNormal){
 				geometry.getFaces().push( THREE.Face3( a, b, d ) );
@@ -681,6 +686,87 @@ public class PointsToGeometry {
 			}
 		}
 		
+		
+		if(edge){
+		for ( double j = 0; j < slices; j ++ ) {
+			int i=stacks;
+			int pre=stacks-1;
+			
+			int	prea = (int)(pre * sliceCount + j);
+			int	preb = (int)(pre * sliceCount + j +1);
+			int	prec = (int)(pre * sliceCount + j+1)+frontGeometrySize;
+			int	pred = (int)(pre * sliceCount + j)+frontGeometrySize;
+			
+			
+			
+			int	a = (int)(i * sliceCount + j);
+			int	b = (int)(i * sliceCount + j +1);
+			int	c = (int)(i * sliceCount + j+1)+frontGeometrySize;
+			int	d = (int)(i * sliceCount + j)+frontGeometrySize;
+			
+			Vector3 prePos=THREE.Vector3()
+					.add(geometry.vertices().get(prea))
+					.add(geometry.vertices().get(preb))
+					.add(geometry.vertices().get(prec))
+					.add(geometry.vertices().get(prea))
+					.divideScalar(4);
+			Vector3 newPos=THREE.Vector3()
+					.add(geometry.vertices().get(a))
+					.add(geometry.vertices().get(b))
+					.add(geometry.vertices().get(c))
+					.add(geometry.vertices().get(d))
+					.divideScalar(4);
+			Vector3 diff=newPos.clone().sub(prePos);
+			newPos.add(diff);
+			
+			geometry.getVertices().push(newPos);
+			int newPosIndex=geometry.getVertices().length()-1;
+			
+			Vector2	uva = getUv((int)j,(int)i);
+			Vector2	uvb = getUv((int)j+1,(int)i);
+			Vector2	uvc = getUv((int)j+1,(int)i);
+			Vector2	uvd = getUv((int)j,(int)i);
+			
+			uva.setY(vBase);
+			uvb.setY(vBase);
+			uvc.setY(vBase+tickUv);
+			uvd.setY(vBase+tickUv);
+			
+			Vector2 uvCenter=THREE.Vector2().add(uvc).add(uvd).divideScalar(2);
+			
+			if(debug){
+				LogUtils.log("bottom:"+a+","+b+","+c+","+d+" dba dcb");
+			}
+			
+			
+			geometry.getFaces().push( THREE.Face3( a, b, newPosIndex ) );
+			pushUv(uvs, uva.clone(), uvb.clone(), uvCenter.clone());
+			
+			geometry.getFaces().push( THREE.Face3( b, c, newPosIndex ) );
+			pushUv(uvs, uva.clone(), uvb.clone(), uvCenter.clone());
+			
+			geometry.getFaces().push( THREE.Face3( c, d, newPosIndex ) );
+			pushUv(uvs, uva.clone(), uvb.clone(), uvCenter.clone());
+			
+			geometry.getFaces().push( THREE.Face3( d, a, newPosIndex ) );
+			pushUv(uvs, uva.clone(), uvb.clone(), uvCenter.clone());
+			
+			
+			//TODO
+			if(flipNormal){
+				
+
+				
+			}else{
+			}
+			
+		}
+			
+		}
+		
+		
+		
+		
 		geometry.mergeVertices();//this means almost impossible to know each vertex position(merged)
 		
 		geometry.computeFaceNormals();
@@ -692,6 +778,12 @@ public class PointsToGeometry {
 	
 	@SuppressWarnings({ "unused", "unchecked" })
 	private void pushUv(JsArray<JsArray<Vector2>> target,Vector2 uv1,Vector2 uv2,Vector2 uv3){
-		target.push(JavaScriptUtils.createJSArray(uv1,uv2,uv3));
+		Vector2 uv1Flipped=uv1.clone();
+		Vector2 uv2Flipped=uv2.clone();
+		Vector2 uv3Flipped=uv3.clone();
+		uv1Flipped.setY(1-uv1.getY());
+		uv2Flipped.setY(1-uv2.getY());
+		uv3Flipped.setY(1-uv3.getY());
+		target.push(JavaScriptUtils.createJSArray(uv1Flipped,uv2Flipped,uv3Flipped));
 	}
 }
