@@ -237,34 +237,6 @@ public class OrbitControls extends EventDispatcher{
 	
 	
 
-public  final native void rotateLeft(double angle)/*-{
-this.rotateLeft(angle);
-}-*/;
-
-public  final native void rotateUp(double angle)/*-{
-this.rotateUp(angle);
-}-*/;
-
-public  final native void panLeft(double distance)/*-{
-this.panLeft(distance);
-}-*/;
-
-public  final native void panUp(double distance)/*-{
-this.panUp(distance);
-}-*/;
-
-public  final native void pan(double deltaX,double deltaY)/*-{
-this.pan(deltaX,deltaY);
-}-*/;
-
-public  final native void dollyIn(double dollyScale)/*-{
-this.dollyIn(dollyScale);
-}-*/;
-
-public  final native void dollyOut(double dollyScale)/*-{
-this.dollyOut(dollyScale);
-}-*/;
-
 public  final native void update()/*-{
 this.update();
 }-*/;
@@ -289,5 +261,8 @@ return this.getAutoRotationAngle();
 public  final native double getZoomScale()/*-{
 return this.getZoomScale();
 }-*/;
+
+
+
 
 }
