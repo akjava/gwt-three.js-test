@@ -113,7 +113,7 @@ THREE.Vector3(  60,   20, -60 ),
 THREE.Vector3(  60, -100, -60 )
 				));
 		
-		ExtrudeGeometryParameter extrudeSettings = GWTParamUtils.ExtrudeGeometry().steps(100).bevelEnabled(false).extrudePath(closedSpline);//var extrudeSettings = {steps			: 100,bevelEnabled	: false,extrudePath		: closedSpline};
+		ExtrudeGeometryParameter extrudeSettings = GWTParamUtils.ExtrudeGeometry().steps(4).bevelEnabled(false).extrudePath(closedSpline);//var extrudeSettings = {steps			: 100,bevelEnabled	: false,extrudePath		: closedSpline};
 		
 		JsArray<Vector2> pts = JavaScriptUtils.createJSArray();
 		
@@ -239,6 +239,7 @@ THREE.Vector3(  60, -100, -60 )
 	}
 	
 	public void render(double now) {
+		controls.update();
 		double delta=clock.getDelta();
 		//do something
 		
