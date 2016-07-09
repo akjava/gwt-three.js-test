@@ -86,10 +86,10 @@ public final native JsArray<Vector2> getSpacedPoints(int divisions)/*-{
 return this.getSpacedPoints( divisions);
 }-*/;
 public final native JsArray<Vector2> getPoints(int divisions)/*-{
-this.getPoints( divisions);
+return this.getPoints( divisions);
 }-*/;
 public final native JsArray<Shape> toShapes(boolean isCCW)/*-{
-this.getPoints(  isCCW);
+return this.toShapes(  isCCW);
 }-*/;
 
 public final native void ellipse(double  aX,double aY,double xRadius,double yRadius,double aStartAngle,double aEndAngle,boolean aClockwise,double aRotation)/*-{

@@ -40,10 +40,13 @@ package com.akjava.gwt.three.client.js.extras.core;
 import com.akjava.gwt.three.client.gwt.math.XYZObject;
 import com.akjava.gwt.three.client.js.extras.geometries.ExtrudeGeometry;
 import com.akjava.gwt.three.client.js.extras.geometries.ShapeGeometry;
+import com.akjava.gwt.three.client.js.math.Vector2;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 
-
+/*
+ * has hole
+ */
 public class Shape extends Path{
 	protected Shape() {
 	}
@@ -63,24 +66,60 @@ public final native ShapeGeometry makeGeometry(JavaScriptObject options)/*-{
 return this.makeGeometry(options);
 }-*/;
 
-public final native JsArray<JsArray<XYZObject>> getPointsHoles(int divisions)/*-{
+/**
+ * each hole's points.
+ * @param divisions
+ * @return
+ */
+
+public final native JsArray<JsArray<Vector2>> getPointsHoles(int divisions)/*-{
 return this.getPointsHoles(divisions);
 }-*/;
-
+/**
+ * @deprecated seems gone
+ * @param divisions
+ * @return
+ */
 public final native JsArray<JsArray<XYZObject>> getSpacedPointsHoles(int divisions)/*-{
 return this.getSpacedPointsHoles(divisions);
 }-*/;
 
+/**
+ * 
+
+ * 
+ * @param divisions
+ * @return
+{
+shape: this.getPoints( divisions ),
+holes: this.getPointsHoles( divisions )
+ }
+ */
 public final native JavaScriptObject extractAllPoints(int divisions)/*-{
 return this.extractAllPoints(divisions);
 }-*/;
 
+/**
+ * 
+
+ * 
+ * @param divisions
+ * @return
+{
+shape: this.getPoints( divisions ),
+holes: this.getPointsHoles( divisions )
+ }
+ */
 public final native JavaScriptObject extractPoints(int divisions)/*-{
 return this.extractPoints(divisions);
 }-*/;
 
 
-
+/**
+ * @deprecated seems gone
+ * @param divisions
+ * @return
+ */
 public final native JavaScriptObject extractAllSpacedPoints(int divisions)/*-{
 return this.extractAllSpacedPoints(divisions);
 }-*/;
