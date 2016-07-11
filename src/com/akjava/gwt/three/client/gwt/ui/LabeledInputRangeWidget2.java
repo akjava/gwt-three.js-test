@@ -4,11 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.akjava.gwt.html5.client.input.Range;
-import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.lib.client.widget.EnterKeySupportTextBox;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
@@ -22,10 +24,12 @@ public class LabeledInputRangeWidget2 extends HorizontalPanel{
 		}
 		private Map<ValueChangeHandler<Number>,HandlerRegistration> registMap=new HashMap<ValueChangeHandler<Number>, HandlerRegistration>();
 		private Label label;
+		private Button minusBt;
+		private Button plusBt;
 		public Label getLabel() {
 			return label;
 		}
-		public LabeledInputRangeWidget2(String name,Number min,Number max,Number step){
+		public LabeledInputRangeWidget2(String name,final Number min,final Number max,final Number step){
 			this.setVerticalAlignment(ALIGN_MIDDLE);
 			label = new Label(name);
 			label.setAutoHorizontalAlignment(ALIGN_CENTER);
@@ -57,7 +61,39 @@ public class LabeledInputRangeWidget2 extends HorizontalPanel{
 				
 			});
 			
-			//textBox.setReadOnly(true);//not yet
+			
+			minusBt = new Button("-");
+			minusBt.addClickHandler(new ClickHandler() {
+				@Override
+				public void onClick(ClickEvent event) {
+					double value=range.getValue().doubleValue()-step.doubleValue();
+					if(value<min.doubleValue()){
+						value=min.doubleValue();
+					}
+					range.setValue(value,true);
+				}
+			});
+			minusBt.setVisible(false);
+			add(minusBt);
+			
+			plusBt = new Button("+");
+			plusBt.addClickHandler(new ClickHandler() {
+				@Override
+				public void onClick(ClickEvent event) {
+					double value=range.getValue().doubleValue()+step.doubleValue();
+					if(value>max.doubleValue()){
+						value=max.doubleValue();
+					}
+					range.setValue(value,true);
+				}
+			});
+			plusBt.setVisible(false);
+			add(plusBt);
+			
+		}
+		public void setButtonVisible(boolean visible){
+			plusBt.setVisible(visible);
+			minusBt.setVisible(visible);
 		}
 		public Range getRange() {
 			return range;
