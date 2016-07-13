@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.akjava.gwt.html5.client.input.Range;
+import com.akjava.gwt.lib.client.JavaScriptUtils;
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.lib.client.widget.EnterKeySupportTextBox;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -56,7 +58,7 @@ public class LabeledInputRangeWidget2 extends HorizontalPanel{
 				@Override
 				public void onValueChange(ValueChangeEvent<Number> event) {
 					
-					setTextBoxText(String.valueOf(event.getValue()));
+					setTextBoxText(String.valueOf(JavaScriptUtils.fixNumber(5, event.getValue().doubleValue())));
 				}
 				
 			});
@@ -107,11 +109,14 @@ public class LabeledInputRangeWidget2 extends HorizontalPanel{
 		textBox.setValue(value);
 		}
 		public void setValue(double value){
-			setTextBoxText(String.valueOf(value));
+			
+			String text=String.valueOf(JavaScriptUtils.fixNumber(5, value));
+			
+			setTextBoxText(text);
 			range.setValue(value);
 		}
 		public void setValue(double value,boolean fire){
-			setTextBoxText(String.valueOf(value));
+			setTextBoxText(String.valueOf(JavaScriptUtils.fixNumber(5, value)));
 			range.setValue(value,fire);
 		} 
 		public double getValue(){
