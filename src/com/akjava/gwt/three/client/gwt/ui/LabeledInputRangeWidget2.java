@@ -93,9 +93,13 @@ public class LabeledInputRangeWidget2 extends HorizontalPanel{
 			add(plusBt);
 			
 		}
+		private boolean buttonVisible;
 		public void setButtonVisible(boolean visible){
 			plusBt.setVisible(visible);
 			minusBt.setVisible(visible);
+			buttonVisible=visible;
+			plusBt.setEnabled(range.isEnabled());
+			minusBt.setEnabled(range.isEnabled());
 		}
 		public Range getRange() {
 			return range;
@@ -140,6 +144,10 @@ public class LabeledInputRangeWidget2 extends HorizontalPanel{
 				label.getElement().getStyle().setColor("#000");
 			}else{
 				label.getElement().getStyle().setColor("#888");
+			}
+			if(buttonVisible){
+				plusBt.setEnabled(enabled);
+				minusBt.setEnabled(enabled);
 			}
 		}
 		
