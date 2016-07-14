@@ -1,6 +1,7 @@
 package com.akjava.gwt.three.client.java;
 
 import com.akjava.gwt.lib.client.LogUtils;
+import com.akjava.gwt.three.client.gwt.boneanimation.AnimationBone;
 import com.akjava.gwt.three.client.gwt.core.BoundingBox;
 import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
 import com.akjava.gwt.three.client.js.THREE;
@@ -89,6 +90,16 @@ public class ThreeLog extends LogUtils{
 		ret+=",w:"+vec.getW();
 		return ret;
 	}
+	
+	public static String get(AnimationBone bone){
+		if(bone==null){
+			return "Null";
+		}
+		String ret=get(THREE.Vector3().fromArray(bone.getPos()));
+		
+		return ret;
+	}
+	
 	public static String get(Quaternion vec){
 		if(vec==null){
 			return "Null";
@@ -131,6 +142,12 @@ public class ThreeLog extends LogUtils{
 		LogUtils.log(header+" "+get(vec));
 	}
 	public static void log(Vector4 vec){
+		LogUtils.log(get(vec));
+	}
+	public static void log(String header,AnimationBone vec){
+		LogUtils.log(header+" "+get(vec));
+	}
+	public static void log(AnimationBone vec){
 		LogUtils.log(get(vec));
 	}
 	
