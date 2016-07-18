@@ -78,6 +78,14 @@ private List<Vector3> convertAbsolutePosition(List<Vector3> positions,List<List<
 public WeightResult autoWeight(Geometry geometry,JsArray<AnimationBone> bones){
 	return autoWeight(geometry, bones,Lists.<Integer>newArrayList());
 }
+
+private List<Integer> enableBones;
+
+public SimpleAutoWeight enableBones(List<Integer> enableBones){
+	this.enableBones=enableBones;
+	return this;
+}
+
 /*
  * some case no need root,suchc case add 0 to ignore
  * 
@@ -118,6 +126,11 @@ public WeightResult autoWeight(Geometry geometry,JsArray<AnimationBone> bones,Li
 			if(ignoreBones.contains(j)){
 				distance=Double.MAX_VALUE;
 			}
+			
+			if(enableBones!=null && !enableBones.contains(j)){
+				distance=Double.MAX_VALUE;
+			}
+			
 			
 			distanceDatas.add(new DistanceData(j, distance));
 		}

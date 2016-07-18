@@ -39,6 +39,7 @@ package com.akjava.gwt.three.client.js.core;
 
 import com.akjava.gwt.lib.client.JavaScriptUtils;
 import com.akjava.gwt.lib.client.JsonValueUtils;
+import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.gwt.JSParameter;
 import com.akjava.gwt.three.client.gwt.boneanimation.AnimationBone;
 import com.akjava.gwt.three.client.gwt.boneanimation.AnimationData;
@@ -456,6 +457,48 @@ this.merge(geo,matrix);
 public  native final void merge(Geometry geo)/*-{
 this.merge(geo);
 }-*/;
+
+
+public   final void gwtMergeWithSkinIndicesAndWeights(Geometry geo){
+	merge(geo);
+	if(getSkinIndices()==null){
+		LogUtils.log("error:my skinIndices==null");
+		return;
+	}
+	if(getSkinWeights()==null){
+		LogUtils.log("error:my skinWeights==null");
+		return;
+	}
+	if(geo.getSkinIndices()==null){
+		LogUtils.log("error:geo skinIndices==null");
+		return;
+	}
+	if(geo.getSkinWeights()==null){
+		LogUtils.log("error:geo skinWeights==null");
+		return;
+	}
+	if(getSkinIndices().length()==0){
+		LogUtils.log("warning:my skinIndices empty");
+	}
+	if(getSkinWeights().length()==0){
+		LogUtils.log("warning:my skinWeights empty");
+	}
+	if(geo.getSkinIndices().length()==0){
+		LogUtils.log("warning:geo skinIndices empty");
+	}
+	if(geo.getSkinWeights().length()==0){
+		LogUtils.log("warning:geo skinWeights empty");
+	}
+	
+	for(int i=0;i<geo.getSkinIndices().length();i++){
+		getSkinIndices().push(geo.getSkinIndices().get(i));
+	}
+	
+	for(int i=0;i<geo.getSkinWeights().length();i++){
+		getSkinWeights().push(geo.getSkinWeights().get(i));
+	}
+}
+
 public  native final void mergeMesh(Mesh mesh)/*-{
 this.mergeMesh(mesh);
 }-*/;
