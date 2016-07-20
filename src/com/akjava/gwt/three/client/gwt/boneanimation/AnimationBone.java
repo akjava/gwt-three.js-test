@@ -88,6 +88,16 @@ public class AnimationBone extends JavaScriptObject{
 	}-*/;
 	
 	
+	/**
+	 * not working?
+	 */
+	public native final void gwtClearAll()/*-{
+	this['pos']=undefined;
+	this['rot']=undefined;
+	this['rotq']=undefined;
+	this['scl']=undefined;
+	}-*/;
+	
 	public static final JsArray<AnimationBone> gwtClone(JsArray<AnimationBone> bones){
 		JsArray<AnimationBone> array=JavaScriptUtils.createJSArray();
 		for(int i=0;i<bones.length();i++){
