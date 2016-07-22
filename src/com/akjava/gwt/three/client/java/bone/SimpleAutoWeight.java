@@ -227,6 +227,8 @@ public WeightResult autoWeight(Geometry geometry,JsArray<AnimationBone> bones,Li
 
 
 
+
+
 //TODO make independent class
 
 

@@ -9,16 +9,37 @@ import com.google.gwt.core.client.JsArray;
 public class CloseVertexAutoWeight {
 	//TODO averaging
 	public WeightResult autoWeight(Geometry geometry,Geometry targetGeometry){
+		return autoWeight(geometry, targetGeometry, 0);
+	}
+	public WeightResult autoWeight(Geometry geometry,Geometry targetGeometry,double maxDistance){
 		JsArray<Vector4> bodyIndices=JavaScriptUtils.createJSArray();
 		JsArray<Vector4> bodyWeight=JavaScriptUtils.createJSArray();
+		
+		
+		
 		for(int i=0;i<geometry.vertices().length();i++){
-			JsArray<DistanceVertexIndex> array=JavaScriptUtils.createJSArray();
 			
+			JsArray<DistanceVertexIndex> array=JavaScriptUtils.createJSArray();
 			Vector3 origin=geometry.vertices().get(i);
 			for(int j=0;j<targetGeometry.vertices().length();j++){
 				Vector3 target=targetGeometry.vertices().get(j);
 				double distance=target.distanceTo(origin);
+				
+				if(maxDistance>0 && distance>maxDistance){
+					//skip
+				}else{
 				array.push(DistanceVertexIndex.create(j,distance));
+				}
+				/*
+				DistanceVertexIndex dvi=array.get(j);
+				if(dvi==null){
+					dvi=DistanceVertexIndex.create(j,distance);
+					array.set(j, dvi);
+				}else{
+					dvi.setDistance(distance);
+					dvi.setVertexIndex(j);
+				}*/
+				
 			}
 			
 			sort(array);

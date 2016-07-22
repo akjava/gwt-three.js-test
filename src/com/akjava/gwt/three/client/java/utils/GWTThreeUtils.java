@@ -1,8 +1,12 @@
 package com.akjava.gwt.three.client.java.utils;
 
+import javax.annotation.Nullable;
+
+import com.akjava.gwt.lib.client.JavaScriptUtils;
 import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.gwt.GWTParamUtils;
 import com.akjava.gwt.three.client.gwt.JSONModelFile;
+import com.akjava.gwt.three.client.gwt.loader.JSONLoaderObject;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.cameras.Camera;
 import com.akjava.gwt.three.client.js.core.Geometry;
@@ -242,7 +246,11 @@ public class GWTThreeUtils {
 		//return vec; //i have no idea but sometime  return radiant value.
 		return THREE.Vector3(x, y, z);
 	}
-	
+	/**
+	 * @deprecated use fromArray()
+	 * @param array
+	 * @return
+	 */
 	public static final Vector3 jsArrayToVector3(JsArrayNumber array){
 		return THREE.Vector3(array.get(0),array.get(1), array.get(2));
 	}
@@ -279,5 +287,45 @@ public class GWTThreeUtils {
 	return $wnd.devicePixelRatio;
 	}-*/;
 	
+	public static final JsArray<JsArrayNumber> toJsArrayNumber(@Nullable JsArray<Vector3> values){
+		if(values==null){
+			return null;
+		}
+		JsArray<JsArrayNumber> numbers=JavaScriptUtils.createJSArray();
+		for(int i=0;i<values.length();i++){
+			numbers.push(values.get(i).toArray());
+		}
+		return numbers;
+	}
 	
+	public static final JsArray<Vector3> fromJsArrayNumberToVector3(@Nullable JsArray<JsArrayNumber> values){
+		if(values==null){
+			return null;
+		}
+		JsArray<Vector3> numbers=JavaScriptUtils.createJSArray();
+		for(int i=0;i<values.length();i++){
+			numbers.push(THREE.Vector3().fromArray(values.get(i)));
+		}
+		return numbers;
+	}
+	public static JSONLoaderObject parseJSONGeometry(String text){
+		JSONObject object=parseJSONGeometryObject(text);
+		if(object==null){
+			LogUtils.log("parseJSONGeometry:parse faild");
+			return null;
+		}
+		return THREE.JSONLoader().parse(object.getJavaScriptObject());
+	}
+	public static JSONObject parseJSONGeometryObject(String text){
+		JSONValue json=JSONParser.parseStrict(text);
+		
+		JSONObject jsonObject=json.isObject();
+		
+		boolean hasData=jsonObject.get("data")!=null;//4.* format has this
+		
+		if(hasData){
+			jsonObject=jsonObject.get("data").isObject();
+		}
+		return jsonObject;
+	}
 }

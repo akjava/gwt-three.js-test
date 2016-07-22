@@ -4,6 +4,11 @@ import com.akjava.gwt.lib.client.LogUtils;
 import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.math.Quaternion;
 
+/**
+ * @deprecated who use this?
+ * @author aki
+ *
+ */
 public class ThreeValueUtils {
 private ThreeValueUtils(){}
 	
