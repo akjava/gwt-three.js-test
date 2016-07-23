@@ -145,6 +145,7 @@ public class LabeledInputRangeWidget2 extends HorizontalPanel{
 			}else{
 				label.getElement().getStyle().setColor("#888");
 			}
+			textBox.setReadOnly(!enabled);
 			if(buttonVisible){
 				plusBt.setEnabled(enabled);
 				minusBt.setEnabled(enabled);
