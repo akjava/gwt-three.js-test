@@ -104,7 +104,7 @@ public class SkinningVertexCalculator {
 	        	boneWeight=vertex.getSkinWeights().getW();
 	        }
 	        if(boneIndex<0 || boneIndex>=skinnedMesh.getSkeleton().getBones().length()){
-	        	LogUtils.log("boneIndex="+boneIndex+",but bones below");
+	        	LogUtils.log("boneIndex="+boneIndex+",but bones below size="+skinnedMesh.getSkeleton().getBones().length());
 	        	LogUtils.log(skinnedMesh.getSkeleton().getBones());
 	        	throw new RuntimeException("out of index");
 	        }
@@ -140,7 +140,7 @@ public class SkinningVertexCalculator {
 	        	boneWeight=skinnedMesh.getGeometry().getSkinWeights().get(index).getW();
 	        }
 	        if(boneIndex<0 || boneIndex>=skinnedMesh.getSkeleton().getBones().length()){
-	        	LogUtils.log("boneIndex="+boneIndex+",but bones below");
+	        	LogUtils.log("boneIndex="+boneIndex+",but bones below.size="+skinnedMesh.getSkeleton().getBones().length());
 	        	LogUtils.log(skinnedMesh.getSkeleton().getBones());
 	        	throw new RuntimeException("out of index");
 	        }
