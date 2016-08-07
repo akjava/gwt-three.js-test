@@ -42,6 +42,9 @@ public class GWTThreeUtils {
 		
 	}
 	
+
+	
+	
 	public static void loadJsonModel(JSONModelFile modelFile,JSONLoadHandler handler,String texturePath){
 		JSONLoader loader=THREE.JSONLoader();
 		JavaScriptObject jsobject=loader.parse(modelFile, texturePath);

@@ -562,7 +562,7 @@ this.sortFacesByMaterialIndex();
 
 
 /**
- * cant read directly JSONParse 
+ * FORMAT4 cant read directly JSONParser 
  * use data.data
  * @return
  */

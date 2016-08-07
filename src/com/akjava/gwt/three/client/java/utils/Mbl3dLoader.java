@@ -30,7 +30,7 @@ public class Mbl3dLoader {
 
 	
 
-	 
+	private boolean forceApplyAxisAngle=false;
 	private boolean applyAxisAngle=true;
 	public boolean isApplyAxisAngle() {
 		return applyAxisAngle;
@@ -46,10 +46,19 @@ public class Mbl3dLoader {
 	public void setFixVertices(boolean fixVertices) {
 		this.fixVertices = fixVertices;
 	}
+	/**
+	 *
+	 * @param text
+	 * @param loadHandler
+	 * @return anyway return json object
+	 */
 	public JSONValue  parse(String text,final JSONLoadHandler loadHandler){
 
-		final JSONValue json=JSONParser.parseStrict(text);
-		JSONObject jsonObj=json.isObject();
+		//final JSONValue json=JSONParser.parseStrict(text);
+		
+		//fixing  jsonobj inside
+		JSONObject jsonObj=GWTThreeUtils.parseJSONGeometryObject(text);
+		
 		
 		
 		if(fixVertices){//TODO check need fix
@@ -93,13 +102,13 @@ public class Mbl3dLoader {
 			LogUtils.log("Mbl3dLoader:no morphTargets.skip fixing");
 		}
 		}
-		
+		//LogUtils.log(jsonObj.getJavaScriptObject());
 		JSONLoader jsonLoader=THREE.JSONLoader();
 		JSONLoaderObject loadedObject=jsonLoader.parse(jsonObj.getJavaScriptObject());
 		
 		loadHandler.loaded(loadedObject.getGeometry(), loadedObject.getMaterials());
 		
-		return json;
+		return jsonObj;
 	}
 	public void load(String url,final JSONLoadHandler loadHandler){
 		THREE.XHRLoader().load(url,new XHRLoadHandler() {
@@ -115,6 +124,11 @@ public class Mbl3dLoader {
 		applyAxisAngle=value;
 		return this;
 	}
+	public Mbl3dLoader forceApplyAxisAngle(boolean  value){
+		forceApplyAxisAngle=value;
+		return this;
+	}
+	
 	
 	//fix r74 blender exporter blend keys
 	//TODO make method
@@ -123,11 +137,17 @@ public class Mbl3dLoader {
 		Vector3 axis = THREE.Vector3( 1, 0, 0 );
 		double angle = THREEMath.degToRad( -90 );
 		
-		for(int i=0;i<morphTargetsVertices.size();i++){
+		boolean needApplyAxisAngle=false;
+		LOOP:for(int i=0;i<morphTargetsVertices.size();i++){
 			JSONValue avalue=morphTargetsVertices.get(i);
 			JSONArray verticesArray=avalue.isArray();
 			if(verticesArray==null){//no need fix
+				if(!forceApplyAxisAngle){
 				return null;
+				}else{
+					needApplyAxisAngle=true;
+					break LOOP;
+				}
 			}
 			JsArrayNumber verticesNumber=verticesArray.getJavaScriptObject().cast();
 			
@@ -141,6 +161,22 @@ public class Mbl3dLoader {
 			arrays.push(fixNumber(vec.getY()));
 			arrays.push(fixNumber(vec.getZ()));
 		}
+		
+		if(needApplyAxisAngle){
+			for(int i=0;i<morphTargetsVertices.size();i+=3){
+				double x=morphTargetsVertices.get(i).isNumber().doubleValue();
+				double y=morphTargetsVertices.get(i+1).isNumber().doubleValue();
+				double z=morphTargetsVertices.get(i+2).isNumber().doubleValue();
+				Vector3 vec=THREE.Vector3(x,y,z);
+				vec.applyAxisAngle( axis, angle );
+				arrays.push(fixNumber(vec.getX()));
+				arrays.push(fixNumber(vec.getY()));
+				arrays.push(fixNumber(vec.getZ()));
+			}
+			LogUtils.log("force apply axis");
+		}
+		
+		
 		return arrays;
 	}
 	/*
