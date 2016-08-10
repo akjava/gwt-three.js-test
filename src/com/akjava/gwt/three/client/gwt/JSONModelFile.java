@@ -3,6 +3,7 @@ package com.akjava.gwt.three.client.gwt;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import com.akjava.gwt.lib.client.LogUtils;
+import com.akjava.gwt.three.client.gwt.boneanimation.AnimationBone;
 import com.akjava.gwt.three.client.js.core.Face3;
 import com.akjava.gwt.three.client.js.math.Vector2;
 import com.akjava.gwt.three.client.js.math.Vector3;
@@ -152,7 +153,7 @@ public native final JsArray<JavaScriptObject> getBones ()/*-{
 return this["bones"];
 }-*/;
 
-public native final void setBones (JsArray<JavaScriptObject> bones)/*-{
+public native final void setBones (JsArray<? extends JavaScriptObject> bones)/*-{
 this["bones"]=bones;
 }-*/;
 

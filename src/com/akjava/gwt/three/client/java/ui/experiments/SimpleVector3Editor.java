@@ -140,5 +140,10 @@ public class SimpleVector3Editor extends HorizontalPanel {
 		yEditor.setEnabled(enabled);
 		zEditor.setEnabled(enabled);
 	}
+	public void setTextBoxWidth(int width) {
+		xEditor.setWidth(width+"px");
+		yEditor.setWidth(width+"px");
+		zEditor.setWidth(width+"px");
+	}
 	
 }
