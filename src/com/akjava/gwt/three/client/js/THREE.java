@@ -980,6 +980,9 @@ public class THREE {
 	return new $wnd.THREE.PlaneGeometry( x, y );
 	}-*/;
 
+	public static native final SphereGeometry SphereGeometry(double radius ,int segments)/*-{
+	return new $wnd.THREE.SphereGeometry( radius, segments);
+	}-*/;
 	
 	public static native final SphereGeometry SphereGeometry(double radius ,int segments,int rings)/*-{
 	return new $wnd.THREE.SphereGeometry( radius, segments, rings );
