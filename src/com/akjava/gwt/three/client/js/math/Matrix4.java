@@ -264,10 +264,10 @@ public final native Matrix4 makeScale(double x,double y,double z)/*-{
 return this.makeScale(x,y,z);
 }-*/;
 
-public final native Matrix4 compose(Vector3 position,Quaternion quaternion,double scale)/*-{
+public final native Matrix4 compose(Vector3 position,Quaternion quaternion,Vector3 scale)/*-{
 return this.compose(position,quaternion,scale);
 }-*/;
-public final native Matrix4 decompose(Vector3 position,Quaternion quaternion,double scale)/*-{
+public final native Matrix4 decompose(Vector3 position,Quaternion quaternion,Vector3 scale)/*-{
 return this.decompose(position,quaternion,scale);
 }-*/;
 
