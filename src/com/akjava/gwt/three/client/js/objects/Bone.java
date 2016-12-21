@@ -102,4 +102,6 @@ this['rot']=q.toArray();
 public final native JsArray<Bone> getChildrenBones()/*-{
 return this.children;
 }-*/;
+
+
 }

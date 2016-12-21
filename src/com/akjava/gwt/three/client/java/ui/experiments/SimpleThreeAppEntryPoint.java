@@ -23,6 +23,9 @@ import com.google.gwt.user.client.ui.RootLayoutPanel;
 public abstract class SimpleThreeAppEntryPoint extends AbstractThreeApp implements EntryPoint{
 
 	protected WebGLRenderer renderer;
+	public WebGLRenderer getRenderer() {
+		return renderer;
+	}
 	protected Scene scene;
 	protected PerspectiveCamera camera;
 	

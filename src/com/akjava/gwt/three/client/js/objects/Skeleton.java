@@ -85,4 +85,14 @@ return this.copy(source);
 public final native Skeleton clone()/*-{
 return this.copy(source);
 }-*/;
+
+public final Bone gwtGetBoneByName(String name){
+	 JsArray<Bone> bones=getBones();
+	 for(int i=0;i<bones.length();i++){
+		 if(bones.get(i).getName().equals(name)){
+			 return bones.get(i);
+		 }
+	 }
+	 return null;
+}
 }
