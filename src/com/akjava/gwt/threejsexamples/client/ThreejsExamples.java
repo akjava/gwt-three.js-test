@@ -15,6 +15,7 @@ import com.akjava.gwt.threejsexamples.client.examples.animation.SceneExample;
 import com.akjava.gwt.threejsexamples.client.examples.animation.cloth.ClothExample;
 import com.akjava.gwt.threejsexamples.client.examples.animation.cloth.ClothExample2;
 import com.akjava.gwt.threejsexamples.client.examples.animation.cloth.ClothExample3;
+import com.akjava.gwt.threejsexamples.client.examples.animation.skinning.AttachExample;
 import com.akjava.gwt.threejsexamples.client.examples.animation.skinning.BlendingExample;
 import com.akjava.gwt.threejsexamples.client.examples.animation.skinning.MorphExample;
 import com.akjava.gwt.threejsexamples.client.examples.buffergeometry.BufferGeometryExample;
@@ -139,6 +140,7 @@ public class ThreejsExamples implements EntryPoint,ExampleOwner {
 		examples.add(new DofExample());
 		examples.add(new AdvancedExample());
 		
+		examples.add(new AttachExample());
 		
 		Collections.sort(examples);
 		

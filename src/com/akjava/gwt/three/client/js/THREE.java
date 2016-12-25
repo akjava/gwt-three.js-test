@@ -598,6 +598,9 @@ public class THREE {
 	public static  native final MeshPhongMaterial MeshPhongMaterial(JavaScriptObject parameter)/*-{
 	return  new $wnd.THREE.MeshPhongMaterial(parameter);
 	}-*/;
+	public static  native final MeshPhongMaterial MeshPhongMaterial()/*-{
+	return  new $wnd.THREE.MeshPhongMaterial();
+	}-*/;
 	
 	public static  native final MeshNormalMaterial MeshNormalMaterial()/*-{
 	return  new $wnd.THREE.MeshNormalMaterial();
