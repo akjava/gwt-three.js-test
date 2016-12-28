@@ -14,6 +14,12 @@ import com.google.gwt.core.client.JsArrayNumber;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONValue;
 
+/*
+ * create JSON Model format 3 data
+ * https://github.com/mrdoob/three.js/wiki/JSON-Model-format-3
+ * 
+ * format3 should be loaded by JSONLoader
+ */
 public class JSONModelFile extends JavaScriptObject{
 protected JSONModelFile(){}
 

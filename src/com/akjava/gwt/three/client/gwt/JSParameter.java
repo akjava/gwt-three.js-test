@@ -1,6 +1,7 @@
 package com.akjava.gwt.three.client.gwt;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArrayBoolean;
 import com.google.gwt.core.client.JsArrayNumber;
 import com.google.gwt.core.client.JsArrayString;
 
@@ -32,6 +33,18 @@ public class JSParameter extends JavaScriptObject{
 	
 	public final native JSParameter set(String key,String value)/*-{
 	return this[key]=value;
+	}-*/;
+	
+	
+	public final native JsArrayString getArrayString(String key)/*-{
+	return this[key];
+	}-*/;
+	
+	public final native JsArrayNumber getArrayNumber(String key)/*-{
+	return this[key];
+	}-*/;
+	public final native JsArrayBoolean getArrayBoolean(String key)/*-{
+	return this[key];
 	}-*/;
 	
 	
