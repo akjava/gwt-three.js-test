@@ -236,4 +236,12 @@ return this.drawMode;
 public final  native void setDrawMode(int param)/*-{
 this.drawMode(param);
 }-*/;
+
+public final void gwtClearMorphTargetInfluences(){
+	JsArrayNumber values=getMorphTargetInfluences();
+	for(int i=0;i<values.length();i++){
+		values.set(i, 0);
+	}
+}
+
 }
