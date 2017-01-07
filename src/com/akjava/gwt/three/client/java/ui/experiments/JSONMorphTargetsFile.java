@@ -1,13 +1,18 @@
 package com.akjava.gwt.three.client.java.ui.experiments;
 
-import java.util.Map;
-
 import com.akjava.gwt.three.client.gwt.JSParameter;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.core.client.JsArrayNumber;
-import com.google.gwt.core.client.JsArrayString;
 
+/*
+ * extreamlly similar morphtarget animation clip
+ * 
+ * but direct index make problem,when use difference skin-mesh
+ * some mesh not have target or some time have different order.
+ * somt time value need fix for fit the model.
+ * 
+ */
 public class JSONMorphTargetsFile extends JSParameter{
 protected JSONMorphTargetsFile(){}
 
@@ -31,34 +36,17 @@ public final static JSONMorphTargetsFile create(){
 	return file;
 }
 
-public native final JSParameter getMorphTargetData ()/*-{
+public native final JsArray<JSParameter> getMorphTargetData ()/*-{
 return this["data"]["morphtargetDatas"];
 }-*/;
 
-/*
- * TODO make class
- * time double
- * keys arraystring
- * values arraynumber
- */
-public final static JSParameter createMorphTargetDataByMap(double time,Map<String,Double> keyValues){
-	
-	JsArrayString keys=JsArrayNumber.createArray().cast();
-	JsArrayNumber values=JsArrayNumber.createArray().cast();
-	
-	for(String key:keyValues.keySet()){
-		keys.push(key);
-		values.push(keyValues.get(key));
-	}
-	
-	return createMorphTargetData(time,keys,values);
-}
 
-public final static JSParameter createMorphTargetData(double time,JsArrayString keys,JsArrayNumber values){
+
+public final static JSParameter createMorphTargetData(String name,JsArrayNumber times,JsArrayNumber values){
 	JSParameter data=JSParameter.createParameter();
-	data.set("time", time);
+	data.set("name", name);
 	
-	data.set("keys",keys);
+	data.set("times",times);
 	
 	data.set("values",values);
 	return data;
