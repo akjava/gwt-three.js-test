@@ -1,4 +1,4 @@
-package com.akjava.gwt.three.client.java.ui.experiments;
+package com.akjava.gwt.three.client.java.file;
 
 
 public class MorphTargetKeyFrame {
