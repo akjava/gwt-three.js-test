@@ -12,12 +12,12 @@ public class JSONMorphTargetsFileConverter extends Converter<JSONMorphTargetsFil
 	
 	@Override
 	protected JSONObject doForward(JSONMorphTargetsFile file) {
-		return new JSONObject(file);
+		return new JSONObject(file.getJavaScriptObject());
 	}
 
 	@Override
 	protected JSONMorphTargetsFile doBackward(JSONObject object) {
-		return object.getJavaScriptObject().cast();
+		return (JSONMorphTargetsFile)object;
 	}
 
 	
