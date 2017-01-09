@@ -20,6 +20,10 @@ public class MorphTargetKeyFrameConverter extends Converter<List<MorphTargetKeyF
 
 	@Override
 	protected JSONMorphTargetsFile doForward(List<MorphTargetKeyFrame> list) {
+		LogUtils.log("debug MorphTargetKeyFrameConverter:size:"+list.size());
+		if(list.isEmpty()){
+			throw new RuntimeException("MorphTargetKeyFrameConverter:list is empty.cant get keyName");
+		}
 		JSONMorphTargetsFile file=new JSONMorphTargetsFile();
 		file.put("name", new JSONString(list.get(0).getKeyName()));
 		
@@ -33,6 +37,7 @@ public class MorphTargetKeyFrameConverter extends Converter<List<MorphTargetKeyF
 		file.put("times",new JSONArray( times));
 		file.put("values",new JSONArray( values));
 		
+		LogUtils.log("debug MorphTargetKeyFrameConverter:converted:"+list.get(0).getKeyName());
 		return file;
 	}
 

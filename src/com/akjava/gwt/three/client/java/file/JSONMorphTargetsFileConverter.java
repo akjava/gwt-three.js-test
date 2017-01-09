@@ -8,6 +8,11 @@ import com.google.common.base.Converter;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONValue;
 
+/**
+ * technically JSONMorphTargetsFile is JSONObject so far
+ * @author aki
+ *
+ */
 public class JSONMorphTargetsFileConverter extends Converter<JSONMorphTargetsFile,JSONObject>{
 	
 	@Override
@@ -17,7 +22,7 @@ public class JSONMorphTargetsFileConverter extends Converter<JSONMorphTargetsFil
 
 	@Override
 	protected JSONMorphTargetsFile doBackward(JSONObject object) {
-		return (JSONMorphTargetsFile)object;
+		return new JSONMorphTargetsFile(object.getJavaScriptObject());
 	}
 
 	

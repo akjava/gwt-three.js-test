@@ -18,7 +18,12 @@ import com.google.gwt.json.client.JSONValue;
  * 
  */
 public class JSONMorphTargetsFile extends JSONObject{
-public JSONMorphTargetsFile(){}
+public JSONMorphTargetsFile(){
+	super();
+}
+public JSONMorphTargetsFile(JavaScriptObject object){
+	super(object);
+}
 /*
 public final static JSONMorphTargetsFile create(){
 	
