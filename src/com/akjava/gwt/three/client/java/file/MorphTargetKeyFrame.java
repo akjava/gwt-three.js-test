@@ -1,6 +1,7 @@
 package com.akjava.gwt.three.client.java.file;
 
 
+
 public class MorphTargetKeyFrame {
 
 	/**
@@ -46,4 +47,11 @@ public void setValue(double value) {
  * some key,need fix for fitting model
  */
 private double value;
+
+public MorphTargetKeyFrame copyTo(MorphTargetKeyFrame frame){
+	frame.keyName=keyName;
+	frame.time=time;
+	frame.value=value;
+	return frame;
+}
 }
