@@ -116,6 +116,11 @@ public final native double getEffectiveTimeScale()/*-{
 return this.getEffectiveTimeScale();
 }-*/;
 
+/**
+ * 
+ * @param duration must not -1 ,to set timeScale 1 use clip.getDuration()
+ * @return
+ */
 public final native AnimationMixerAction setDuration(double duration)/*-{
 return this.setDuration(duration);
 }-*/;
