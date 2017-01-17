@@ -13,8 +13,6 @@ import com.akjava.gwt.threejsexamples.client.examples.MirrorExample;
 import com.akjava.gwt.threejsexamples.client.examples.MorphnormalsExample;
 import com.akjava.gwt.threejsexamples.client.examples.animation.SceneExample;
 import com.akjava.gwt.threejsexamples.client.examples.animation.cloth.ClothExample;
-import com.akjava.gwt.threejsexamples.client.examples.animation.cloth.ClothExample2;
-import com.akjava.gwt.threejsexamples.client.examples.animation.cloth.ClothExample3;
 import com.akjava.gwt.threejsexamples.client.examples.animation.skinning.AttachExample;
 import com.akjava.gwt.threejsexamples.client.examples.animation.skinning.BlendingExample;
 import com.akjava.gwt.threejsexamples.client.examples.animation.skinning.MorphExample;
@@ -25,12 +23,10 @@ import com.akjava.gwt.threejsexamples.client.examples.geometries.GeometriesExamp
 import com.akjava.gwt.threejsexamples.client.examples.light.HemisphereExample;
 import com.akjava.gwt.threejsexamples.client.examples.misc.SoundExample;
 import com.akjava.gwt.threejsexamples.client.examples.misc.controls.OrbitExample;
+import com.akjava.gwt.threejsexamples.client.examples.misc.controls.PointerLockExample;
 import com.akjava.gwt.threejsexamples.client.examples.morphtargets.HorseExample;
 import com.akjava.gwt.threejsexamples.client.examples.morphtargets.MorphTargetsExample;
 import com.akjava.gwt.threejsexamples.client.examples.morphtargets.human.HumanExample;
-import com.akjava.gwt.threejsexamples.client.examples.original.BoneAnimationExample;
-import com.akjava.gwt.threejsexamples.client.examples.original.PointBoxExample;
-import com.akjava.gwt.threejsexamples.client.examples.original.hair.HairExample;
 import com.akjava.gwt.threejsexamples.client.examples.postprocessing.AdvancedExample;
 import com.akjava.gwt.threejsexamples.client.examples.postprocessing.DofExample;
 import com.akjava.gwt.threejsexamples.client.examples.postprocessing.GlitchExample;
@@ -144,6 +140,8 @@ public class ThreejsExamples implements EntryPoint,ExampleOwner {
 		examples.add(new AttachExample());
 		
 		examples.add(new SweetHomeExample());
+		
+		examples.add(new PointerLockExample());
 		
 		Collections.sort(examples);
 		

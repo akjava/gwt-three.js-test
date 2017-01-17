@@ -458,6 +458,10 @@ public  native final void merge(Geometry geo)/*-{
 this.merge(geo);
 }-*/;
 
+public  native final Vector3 center()/*-{
+this.center();
+}-*/;
+
 
 public   final void gwtMergeWithSkinIndicesAndWeights(Geometry geo){
 	merge(geo);

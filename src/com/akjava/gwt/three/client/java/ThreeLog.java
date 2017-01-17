@@ -8,6 +8,7 @@ import com.akjava.gwt.three.client.js.THREE;
 import com.akjava.gwt.three.client.js.math.Euler;
 import com.akjava.gwt.three.client.js.math.Matrix4;
 import com.akjava.gwt.three.client.js.math.Quaternion;
+import com.akjava.gwt.three.client.js.math.Sphere;
 import com.akjava.gwt.three.client.js.math.Vector2;
 import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.math.Vector4;
@@ -43,6 +44,17 @@ public class ThreeLog extends LogUtils{
 		String ret="x:"+vec.getX();
 		ret+=",y:"+vec.getY();
 		ret+=",z:"+vec.getZ();
+		return ret;
+	}
+	
+	public static String get(Sphere vec){
+		if(vec==null){
+			return "Null";
+		}
+		String ret="x:"+vec.getCenter().getX();
+		ret+=",y:"+vec.getCenter().getY();
+		ret+=",z:"+vec.getCenter().getZ();
+		ret+=",radius:"+vec.getRadius();
 		return ret;
 	}
 	
@@ -175,7 +187,10 @@ public class ThreeLog extends LogUtils{
 	public static void log(String header, Quaternion quaternion) {
 		LogUtils.log(header+" "+get(quaternion));
 	}
-	public static void log(String header, BoundingBox boundingBox) {
-		log(header+" "+get(boundingBox));
+	public static void log(String header, BoundingBox box) {
+		log(header+" "+get(box));
+	}
+	public static void log(String header, Sphere sphere) {
+		log(header+" "+get(sphere));
 	}
 }

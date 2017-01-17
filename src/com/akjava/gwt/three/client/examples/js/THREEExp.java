@@ -3,6 +3,7 @@ package com.akjava.gwt.three.client.examples.js;
 import com.akjava.gwt.three.client.examples.js.controls.FirstPersonControls;
 import com.akjava.gwt.three.client.examples.js.controls.MouseControls;
 import com.akjava.gwt.three.client.examples.js.controls.OrbitControls;
+import com.akjava.gwt.three.client.examples.js.controls.PointerLockControls;
 import com.akjava.gwt.three.client.examples.js.controls.TrackballControls;
 import com.akjava.gwt.three.client.examples.js.controls.VRControls;
 import com.akjava.gwt.three.client.examples.js.controls.VRControls.VRControlCallbackHandler;
@@ -59,6 +60,10 @@ public class THREEExp {
 	
 	public static final native MouseControls MouseControls(Object3D object)/*-{
 	return new $wnd.THREE.MouseControls(object);
+	}-*/;
+	
+	public static final native PointerLockControls PointerLockControls(Camera camera)/*-{
+	return new $wnd.THREE.PointerLockControls(camera);
 	}-*/;
 	
 	

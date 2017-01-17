@@ -348,6 +348,17 @@ public native final void gwtIncrementZ(double z)/*-{
 this.z+=z;
 }-*/;
 
+public native final void gwtDecrementX(double x)/*-{
+this.x-=x;
+}-*/;
+
+public native final void gwtDecrementY(double y)/*-{
+this.y-=y;
+}-*/;
+
+public native final void gwtDecrementZ(double z)/*-{
+this.z-=z;
+}-*/;
 
 public native final void gwtSet(int index,double value)/*-{
 if(index==0){

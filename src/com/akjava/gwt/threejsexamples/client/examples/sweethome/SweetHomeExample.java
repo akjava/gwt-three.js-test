@@ -15,14 +15,19 @@ import com.akjava.gwt.three.client.js.cameras.PerspectiveCamera;
 import com.akjava.gwt.three.client.js.core.Clock;
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.akjava.gwt.three.client.js.extras.geometries.PlaneBufferGeometry;
+import com.akjava.gwt.three.client.js.extras.helpers.BoxHelper;
+import com.akjava.gwt.three.client.js.extras.helpers.PointLightHelper;
+import com.akjava.gwt.three.client.js.extras.helpers.SpotLightHelper;
 import com.akjava.gwt.three.client.js.lights.AmbientLight;
-import com.akjava.gwt.three.client.js.lights.DirectionalLight;
+import com.akjava.gwt.three.client.js.lights.PointLight;
 import com.akjava.gwt.three.client.js.loaders.ObjectLoader;
 import com.akjava.gwt.three.client.js.loaders.ObjectLoader.ObjectLoadHandler;
 import com.akjava.gwt.three.client.js.materials.MeshPhongMaterial;
+import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
+import com.google.gwt.core.client.JsArray;
 import com.google.gwt.user.client.ui.FocusPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
@@ -161,20 +166,67 @@ public class SweetHomeExample extends AbstractExample{
 			
 			
 			
+			
+
 			@Override
 			public void onLoad(Object3D object) {
 				//ObjectHasAnimations hasAnimation=object.cast();
 				//sceneAnimationClip = hasAnimation.getAnimations().get(0);
 				scene = object.cast();
 				
+				JsArray<Object3D> objects=scene.getChildren();
+				Vector3 pos=null;
+				for(int i=0;i<objects.length();i++){
+					Object3D obj=objects.get(i);
+					
+					//LogUtils.log(obj.getType()+":"+obj.getName());
+					//ThreeLog.log(obj.getName(),pos);
+					
+					//somehow mesh has euler
+					//if(obj.getName().equals("Track_Track_Black_paint_616")){
+					if(obj.getName().endsWith("628")){
+						//pos=obj.getWorldPosition(null);
+						
+						Mesh mesh=obj.cast();
+						mesh.getGeometry().computeBoundingBox();
+						ThreeLog.log("box:",mesh.getGeometry().getBoundingBox());
+						mesh.getGeometry().computeBoundingSphere();
+						
+						
+						
+						ThreeLog.log("sphere:",mesh.getGeometry().getBoundingSphere());
+						LogUtils.log(mesh);
+						Vector3 center=mesh.getGeometry().getBoundingSphere().getCenter();
+						center.applyEuler(mesh.getRotation());
+						pos=center;
+						ThreeLog.log(pos);
+						BoxHelper helper=THREE.BoxHelper(obj);
+						scene.add(helper);
+						
+						
+						Vector3 diff=THREE.Vector3().copy(pos).sub(camera.getPosition()).divideScalar(10);
+						//pos.sub(diff);
+						
+						AmbientLight light=THREE.AmbientLight(0x111111);
+						scene.add(light);
+						
+						PointLight pointLight = THREE.PointLight( 0xeeeeee );//var directionalLight = new THREE.DirectionalLight( 0x444444 );
+						pointLight.setDistance(600);
+						pointLight.setIntensity(2);
+						pointLight.setDecay(0.9);
+						//directionalLight.getPosition().set( -0.5, 1, -1 ).normalize();//directionalLight.position.set( -1, 1, 1 ).normalize();
+						pointLight.getPosition().copy(pos);
+						scene.add( pointLight );
+						LogUtils.log("scene loaded");
+						PointLightHelper pheloper=THREE.PointLightHelper(pointLight, 5);
+						scene.add(pheloper);
+						
+						
+					}else{
+						
+					}
+				}
 				
-				AmbientLight light=THREE.AmbientLight(0x888888);
-				scene.add(light);
-				
-				DirectionalLight directionalLight = THREE.DirectionalLight( 0x666666 );//var directionalLight = new THREE.DirectionalLight( 0x444444 );
-				directionalLight.getPosition().set( -0.5, 1, -1 ).normalize();//directionalLight.position.set( -1, 1, 1 ).normalize();
-				scene.add( directionalLight );
-				LogUtils.log("scene loaded");
 				
 				//scene.setFog(THREE.Fog( 0xffffff, 2000, 10000 ));//scene.fog = new THREE.Fog( 0xffffff, 2000, 10000 );
 //
@@ -187,7 +239,7 @@ public class SweetHomeExample extends AbstractExample{
 			
 		} );
 	}
-	
+	private SpotLightHelper lightHelper;
 
 	
 	private void initResizeHandlerAndGUI() {
@@ -216,6 +268,10 @@ public class SweetHomeExample extends AbstractExample{
 	}
 	
 	public void render(double now) {
+		if(lightHelper!=null){
+		
+		lightHelper.update(); 
+		}
 		double delta=clock.getDelta();
 	//ThreeLog.log(camera.getPosition());
 		controls.update( delta );

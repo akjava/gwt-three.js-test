@@ -1110,6 +1110,10 @@ public class THREE {
 	return new $wnd.THREE.LineSegments( geometry, material );
 	}-*/;
 	
+	public static native final Color Color()/*-{
+	return new $wnd.THREE.Color();
+	}-*/;
+	
 	public static native final Color Color(int hex)/*-{
 	return new $wnd.THREE.Color(hex);
 	}-*/;
