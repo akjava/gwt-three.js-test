@@ -1,5 +1,7 @@
 package com.akjava.gwt.threejsexamples.client.examples.sweethome;
 
+import java.util.List;
+
 import com.akjava.gwt.html5.client.pointerlock.PointerLock;
 import com.akjava.gwt.html5.client.pointerlock.PointerLock.PointerLockListener;
 import com.akjava.gwt.lib.client.LogUtils;
@@ -8,7 +10,6 @@ import com.akjava.gwt.three.client.examples.js.THREEExp;
 import com.akjava.gwt.three.client.examples.js.controls.PointerLockControls;
 import com.akjava.gwt.three.client.gwt.GWTParamUtils;
 import com.akjava.gwt.three.client.gwt.core.Intersect;
-import com.akjava.gwt.three.client.java.ThreeLog;
 import com.akjava.gwt.three.client.java.ui.example.AbstractExample;
 import com.akjava.gwt.three.client.java.utils.GWTThreeUtils;
 import com.akjava.gwt.three.client.js.THREE;
@@ -19,7 +20,6 @@ import com.akjava.gwt.three.client.js.core.Clock;
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.akjava.gwt.three.client.js.core.Raycaster;
 import com.akjava.gwt.three.client.js.extras.geometries.PlaneBufferGeometry;
-import com.akjava.gwt.three.client.js.extras.helpers.BoxHelper;
 import com.akjava.gwt.three.client.js.extras.helpers.PointLightHelper;
 import com.akjava.gwt.three.client.js.extras.helpers.SpotLightHelper;
 import com.akjava.gwt.three.client.js.lights.AmbientLight;
@@ -32,7 +32,7 @@ import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
-import com.google.gwt.core.client.JavaScriptObject;
+import com.google.common.collect.Lists;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.dom.client.NativeEvent;
 import com.google.gwt.event.dom.client.KeyDownEvent;
@@ -314,7 +314,7 @@ public class SweetHomePointerLockExample extends AbstractExample{
 		
 	ObjectLoader loader = THREE.ObjectLoader();//var loader = new THREE.ObjectLoader();
 		
-		loader.load( "sweethome/userguideexample.json",new ObjectLoadHandler() {
+		loader.load( "sweethome/userguideexamplefixed.json?t="+System.currentTimeMillis(),new ObjectLoadHandler() {
 			
 			
 			
@@ -333,8 +333,12 @@ public class SweetHomePointerLockExample extends AbstractExample{
 				dlight.getPosition().set(-1, 1, 1).normalize();
 				
 				JsArray<Object3D> objects=scene.getChildren();
+				
+				List<String> needDoubleSides=Lists.newArrayList("461","147","454");
+				
 				for(int i=0;i<objects.length();i++){
 					Object3D obj=objects.get(i);
+					String name=obj.getName();
 					if(obj.getName().endsWith("628") || obj.getName().endsWith("634") || obj.getName().endsWith("622")|| obj.getName().endsWith("640")
 							|| obj.getName().endsWith("527") //kitchen
 							|| obj.getName().endsWith("612") //bus 
@@ -342,6 +346,10 @@ public class SweetHomePointerLockExample extends AbstractExample{
 						Mesh mesh=obj.cast();
 						addLight(mesh);
 						//mesh.setVisible(false);
+					}else if(endsWith(needDoubleSides,name)){
+						Mesh mesh=obj.cast();
+						MeshPhongMaterial material=mesh.getMaterial().cast();
+						material.setSide(THREE.DoubleSide);
 					}
 				}
 				
@@ -358,6 +366,14 @@ public class SweetHomePointerLockExample extends AbstractExample{
 			
 			
 		} );
+	}
+	private boolean endsWith(List<String> names,String name){
+		for(String need:names){
+			if(name.endsWith(need)){
+				return true;
+			}
+		}
+		return false;
 	}
 	private SpotLightHelper lightHelper;
 	
@@ -377,7 +393,11 @@ public class SweetHomePointerLockExample extends AbstractExample{
 		scene.add( pointLight );
 		
 		PointLightHelper pheloper=THREE.PointLightHelper(pointLight, 5);
-		scene.add(pheloper);
+		//scene.add(pheloper);
+		
+		MeshPhongMaterial material=mesh.getMaterial().cast();
+		material.getColor().set(0x888888);
+		material.getEmissive().set(0xcc8c8c8);//shinning
 		
 	}
 	
