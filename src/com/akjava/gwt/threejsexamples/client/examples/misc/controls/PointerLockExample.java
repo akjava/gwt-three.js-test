@@ -353,10 +353,10 @@ public class PointerLockExample extends AbstractExample{
 			double time = now;
 			double delta = ( time - prevTime ) / 1000;
 
-			velocity.gwtIncrementX(-(velocity.getX() * 10.0 * delta)) ;
-			velocity.gwtIncrementZ(-(velocity.getZ() * 10.0 * delta)) ;
+			velocity.gwtDecrementX((velocity.getX() * 10.0 * delta)) ;
+			velocity.gwtDecrementZ((velocity.getZ() * 10.0 * delta)) ;
 
-			velocity.gwtIncrementY(-(9.8 * 100.0 * delta)); // 100.0 = mass
+			velocity.gwtDecrementY((9.8 * 100.0 * delta)); // 100.0 = mass
 
 			if ( moveForward ) velocity.gwtDecrementZ(400.0 * delta);
 			if ( moveBackward ) velocity.gwtIncrementZ(400.0 * delta);
