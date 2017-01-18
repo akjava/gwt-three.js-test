@@ -23,6 +23,7 @@ import com.akjava.gwt.three.client.js.extras.helpers.BoxHelper;
 import com.akjava.gwt.three.client.js.extras.helpers.PointLightHelper;
 import com.akjava.gwt.three.client.js.extras.helpers.SpotLightHelper;
 import com.akjava.gwt.three.client.js.lights.AmbientLight;
+import com.akjava.gwt.three.client.js.lights.DirectionalLight;
 import com.akjava.gwt.three.client.js.lights.PointLight;
 import com.akjava.gwt.three.client.js.loaders.ObjectLoader;
 import com.akjava.gwt.three.client.js.loaders.ObjectLoader.ObjectLoadHandler;
@@ -259,8 +260,8 @@ public class SweetHomePointerLockExample extends AbstractExample{
 
 		
 		// camera
-		camera = THREE.PerspectiveCamera(90, getWindowInnerWidth()/getWindowInnerHeight(), 1, 1000 );
-		camera.getPosition().set( -226, 100, -340 );
+		camera = THREE.PerspectiveCamera(70, getWindowInnerWidth()/getWindowInnerHeight(), 1, 10000 );
+		camera.getPosition().set( 0, 0,0  );//
 		
 		
 		controls = THREEExp.PointerLockControls( camera );//controls = new THREE.PointerLockControls( camera );
@@ -313,7 +314,7 @@ public class SweetHomePointerLockExample extends AbstractExample{
 		
 	ObjectLoader loader = THREE.ObjectLoader();//var loader = new THREE.ObjectLoader();
 		
-		loader.load( "sweethome/untitled.json",new ObjectLoadHandler() {
+		loader.load( "sweethome/userguideexample.json",new ObjectLoadHandler() {
 			
 			
 			
@@ -325,59 +326,27 @@ public class SweetHomePointerLockExample extends AbstractExample{
 				//sceneAnimationClip = hasAnimation.getAnimations().get(0);
 				scene = object.cast();
 				
+				AmbientLight ambientLight=THREE.AmbientLight(0x222222);
+				scene.add(ambientLight);
+				
+				DirectionalLight dlight=THREE.DirectionalLight(0x222222);
+				dlight.getPosition().set(-1, 1, 1).normalize();
+				
 				JsArray<Object3D> objects=scene.getChildren();
-				Vector3 pos=null;
 				for(int i=0;i<objects.length();i++){
 					Object3D obj=objects.get(i);
-					
-					//LogUtils.log(obj.getType()+":"+obj.getName());
-					//ThreeLog.log(obj.getName(),pos);
-					
-					//somehow mesh has euler
-					//if(obj.getName().equals("Track_Track_Black_paint_616")){
-					if(obj.getName().endsWith("628")){
-						//pos=obj.getWorldPosition(null);
-						
+					if(obj.getName().endsWith("628") || obj.getName().endsWith("634") || obj.getName().endsWith("622")|| obj.getName().endsWith("640")
+							|| obj.getName().endsWith("527") //kitchen
+							|| obj.getName().endsWith("612") //bus 
+							){
 						Mesh mesh=obj.cast();
-						mesh.getGeometry().computeBoundingBox();
-						ThreeLog.log("box:",mesh.getGeometry().getBoundingBox());
-						mesh.getGeometry().computeBoundingSphere();
-						
-						
-						
-						ThreeLog.log("sphere:",mesh.getGeometry().getBoundingSphere());
-						LogUtils.log(mesh);
-						Vector3 center=mesh.getGeometry().getBoundingSphere().getCenter();
-						center.applyEuler(mesh.getRotation());
-						pos=center;
-						ThreeLog.log(pos);
-						BoxHelper helper=THREE.BoxHelper(obj);
-						scene.add(helper);
-						
-						
-						Vector3 diff=THREE.Vector3().copy(pos).sub(camera.getPosition()).divideScalar(10);
-						//pos.sub(diff);
-						
-						AmbientLight light=THREE.AmbientLight(0x111111);
-						scene.add(light);
-						
-						PointLight pointLight = THREE.PointLight( 0xeeeeee );//var directionalLight = new THREE.DirectionalLight( 0x444444 );
-						pointLight.setDistance(600);
-						pointLight.setIntensity(2);
-						pointLight.setDecay(0.9);
-						//directionalLight.getPosition().set( -0.5, 1, -1 ).normalize();//directionalLight.position.set( -1, 1, 1 ).normalize();
-						pointLight.getPosition().copy(pos);
-						scene.add( pointLight );
-						LogUtils.log("scene loaded");
-						PointLightHelper pheloper=THREE.PointLightHelper(pointLight, 5);
-						scene.add(pheloper);
-						
-						scene.add( controls.getObject() );
-					}else{
-						
+						addLight(mesh);
+						//mesh.setVisible(false);
 					}
 				}
 				
+				controls.getObject().getPosition().set(-226,cameraY,-340);//start At
+				scene.add(controls.getObject());//very important
 				
 				//scene.setFog(THREE.Fog( 0xffffff, 2000, 10000 ));//scene.fog = new THREE.Fog( 0xffffff, 2000, 10000 );
 //
@@ -391,7 +360,26 @@ public class SweetHomePointerLockExample extends AbstractExample{
 		} );
 	}
 	private SpotLightHelper lightHelper;
+	
+	private int cameraY=150;
 
+	private void addLight(Mesh mesh){
+		mesh.getGeometry().computeBoundingSphere();
+		Vector3 pos=mesh.getGeometry().getBoundingSphere().getCenter().clone();
+		
+		pos.applyEuler(mesh.getRotation());
+		
+		PointLight pointLight = THREE.PointLight( 0x222222 );//var directionalLight = new THREE.DirectionalLight( 0x444444 );
+		pointLight.setDistance(800);
+		pointLight.setIntensity(2);
+		pointLight.setDecay(0.90);
+		pointLight.getPosition().copy(pos);
+		scene.add( pointLight );
+		
+		PointLightHelper pheloper=THREE.PointLightHelper(pointLight, 5);
+		scene.add(pheloper);
+		
+	}
 	
 	private void initResizeHandlerAndGUI() {
 		VerticalPanel gui=addResizeHandlerAndCreateGUIPanel();
@@ -443,11 +431,13 @@ public class SweetHomePointerLockExample extends AbstractExample{
 
 			velocity.gwtDecrementY((9.8 * 100.0 * delta)); // 100.0 = mass
 
-			if ( moveForward ) velocity.gwtDecrementZ(400.0 * delta);
-			if ( moveBackward ) velocity.gwtIncrementZ(400.0 * delta);
+			double move=800;
+			
+			if ( moveForward ) velocity.gwtDecrementZ(move * delta);
+			if ( moveBackward ) velocity.gwtIncrementZ(move * delta);
 
-			if ( moveLeft ) velocity.gwtDecrementX(400.0 * delta);
-			if ( moveRight ) velocity.gwtIncrementX(400.0 * delta);
+			if ( moveLeft ) velocity.gwtDecrementX(move * delta);
+			if ( moveRight ) velocity.gwtIncrementX(move * delta);
 
 			if ( isOnObject == true ) {
 			velocity.setY(Math.max( 0, velocity.getY()));//velocity.y = Math.max( 0, velocity.y );
@@ -459,10 +449,10 @@ public class SweetHomePointerLockExample extends AbstractExample{
 			controls.getObject().translateY( velocity.getY() * delta );
 			controls.getObject().translateZ( velocity.getZ() * delta );
 
-			if ( controls.getObject().getPosition().getY() < 75 ) {//if ( controls.getObject().position.y < 10 ) {
+			if ( controls.getObject().getPosition().getY() < cameraY ) {//if ( controls.getObject().position.y < 10 ) {
 
 			velocity.setY(0);//velocity.y = 0;
-			controls.getObject().getPosition().setY(75);//controls.getObject().position.y = 10;
+			controls.getObject().getPosition().setY(cameraY);//controls.getObject().position.y = 10;
 
 			canJump = true;
 
@@ -471,8 +461,16 @@ public class SweetHomePointerLockExample extends AbstractExample{
 			//prevTime = time;
 
 			}
-		ThreeLog.log(controls.getObject().getPosition());
+	//	ThreeLog.log(controls.getObject().getPosition());
 		renderer.render( scene, camera );
+	}
+	@Override
+	public void stop() {
+		super.stop();
+		if(popup!=null){
+			popup.hide();
+			popup=null;
+		}
 	}
 
 	@Override

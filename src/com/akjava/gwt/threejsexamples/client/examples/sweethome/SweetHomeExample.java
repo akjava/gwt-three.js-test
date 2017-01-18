@@ -15,14 +15,18 @@ import com.akjava.gwt.three.client.js.cameras.PerspectiveCamera;
 import com.akjava.gwt.three.client.js.core.Clock;
 import com.akjava.gwt.three.client.js.core.Object3D;
 import com.akjava.gwt.three.client.js.extras.geometries.PlaneBufferGeometry;
+import com.akjava.gwt.three.client.js.extras.helpers.PointLightHelper;
 import com.akjava.gwt.three.client.js.lights.AmbientLight;
 import com.akjava.gwt.three.client.js.lights.DirectionalLight;
+import com.akjava.gwt.three.client.js.lights.PointLight;
 import com.akjava.gwt.three.client.js.loaders.ObjectLoader;
 import com.akjava.gwt.three.client.js.loaders.ObjectLoader.ObjectLoadHandler;
 import com.akjava.gwt.three.client.js.materials.MeshPhongMaterial;
+import com.akjava.gwt.three.client.js.math.Vector3;
 import com.akjava.gwt.three.client.js.objects.Mesh;
 import com.akjava.gwt.three.client.js.renderers.WebGLRenderer;
 import com.akjava.gwt.three.client.js.scenes.Scene;
+import com.google.gwt.core.client.JsArray;
 import com.google.gwt.user.client.ui.FocusPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
@@ -81,15 +85,12 @@ public class SweetHomeExample extends AbstractExample{
 		
 		
 		
-		// scene
-		scene = THREE.Scene();
-		scene.setFog(THREE.Fog( 0xffffff, 2000, 10000 ));
+		
 				
 		
 		// renderer
 		
 		renderer = THREE.WebGLRenderer( GWTParamUtils.WebGLRenderer().antialias(true) );//renderer = new THREE.WebGLRenderer( { antialias: true } );
-		renderer.setClearColor( scene.getFog().getColor());//renderer.setClearColor( scene.fog.color );
 		renderer.setPixelRatio( GWTThreeUtils.getWindowDevicePixelRatio() );//renderer.setPixelRatio( window.devicePixelRatio );
 		renderer.setSize( WIDTH, HEIGHT );
 		
@@ -102,7 +103,7 @@ public class SweetHomeExample extends AbstractExample{
 
 		
 		// camera
-		camera = THREE.PerspectiveCamera(55, getWindowInnerWidth()/getWindowInnerHeight(), 1, 10000 );
+		camera = THREE.PerspectiveCamera(70, getWindowInnerWidth()/getWindowInnerHeight(), 1, 10000 );
 		camera.getPosition().set( -226, 100, -340 );
 		
 		
@@ -157,35 +158,55 @@ public class SweetHomeExample extends AbstractExample{
 		
 	ObjectLoader loader = THREE.ObjectLoader();//var loader = new THREE.ObjectLoader();
 		
-		loader.load( "sweethome/untitled.json",new ObjectLoadHandler() {
+		loader.load( "sweethome/userguideexample.json",new ObjectLoadHandler() {
 			
 			
 			
 			@Override
 			public void onLoad(Object3D object) {
-				//ObjectHasAnimations hasAnimation=object.cast();
-				//sceneAnimationClip = hasAnimation.getAnimations().get(0);
 				scene = object.cast();
 				
 				
-				AmbientLight light=THREE.AmbientLight(0x888888);
-				scene.add(light);
+				AmbientLight ambientLight=THREE.AmbientLight(0x333333);
+				scene.add(ambientLight);
 				
-				DirectionalLight directionalLight = THREE.DirectionalLight( 0x666666 );//var directionalLight = new THREE.DirectionalLight( 0x444444 );
-				directionalLight.getPosition().set( -0.5, 1, -1 ).normalize();//directionalLight.position.set( -1, 1, 1 ).normalize();
-				scene.add( directionalLight );
+				DirectionalLight dlight=THREE.DirectionalLight(0x222222);
+				dlight.getPosition().set(-1, 1, 1).normalize();
+				
+				JsArray<Object3D> objects=scene.getChildren();
+				for(int i=0;i<objects.length();i++){
+					Object3D obj=objects.get(i);
+					if(obj.getName().endsWith("628") || obj.getName().endsWith("634") || obj.getName().endsWith("622")|| obj.getName().endsWith("640")){
+						Mesh mesh=obj.cast();
+						addLight(mesh);
+						//mesh.setVisible(false);
+					}
+				}
+				
 				LogUtils.log("scene loaded");
 				
-				//scene.setFog(THREE.Fog( 0xffffff, 2000, 10000 ));//scene.fog = new THREE.Fog( 0xffffff, 2000, 10000 );
-//
-				//mixer = THREE.AnimationMixer( scene );//mixer = new THREE.AnimationMixer( scene );
-
-				//mixer.clipAction( sceneAnimationClip ).play();//mixer.addAction( new THREE.AnimationAction( sceneAnimationClip ) );
-
 			}
 			
 			
 		} );
+	}
+	
+	private void addLight(Mesh mesh){
+		mesh.getGeometry().computeBoundingSphere();
+		Vector3 pos=mesh.getGeometry().getBoundingSphere().getCenter().clone();
+		
+		pos.applyEuler(mesh.getRotation());
+		
+		PointLight pointLight = THREE.PointLight( 0x333333 );//var directionalLight = new THREE.DirectionalLight( 0x444444 );
+		pointLight.setDistance(0);
+		pointLight.setIntensity(1);
+		pointLight.setDecay(0.9);
+		pointLight.getPosition().copy(pos);
+		scene.add( pointLight );
+		
+		PointLightHelper pheloper=THREE.PointLightHelper(pointLight, 5);
+		scene.add(pheloper);
+		
 	}
 	
 
@@ -216,6 +237,9 @@ public class SweetHomeExample extends AbstractExample{
 	}
 	
 	public void render(double now) {
+		if(scene==null){
+			return;
+		}
 		double delta=clock.getDelta();
 	//ThreeLog.log(camera.getPosition());
 		controls.update( delta );

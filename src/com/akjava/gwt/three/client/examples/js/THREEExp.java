@@ -62,6 +62,12 @@ public class THREEExp {
 	return new $wnd.THREE.MouseControls(object);
 	}-*/;
 	
+	/**
+	 * 
+	 * @param camera position must be 0,0,0 or horrible spin
+	 * position is setted on getObject()
+	 * @return
+	 */
 	public static final native PointerLockControls PointerLockControls(Camera camera)/*-{
 	return new $wnd.THREE.PointerLockControls(camera);
 	}-*/;
